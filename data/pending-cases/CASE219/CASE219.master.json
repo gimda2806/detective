@@ -8,10 +8,17 @@
     "detective_entry_type": "competitor_or_participant",
     "detective_entry": "탐정은 몇 달째 참가해 온 격주 랭킹전의 이번 회차에도 이름을 올리고, 그날 밤도 순서를 기다리며 라운지 로비에 있었다.",
     "tone": "낡은 브라운관 불빛처럼 노스탤지어와 씁쓸함이 뒤섞인 청춘 군상극형 정통 추리 분위기.",
-    "location_archetypes": ["association_club", "craft_restoration"],
+    "location_archetypes": [
+      "association_club",
+      "craft_restoration"
+    ],
     "background": {
-      "background_archetypes": ["competition_contest"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "competition_contest"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contributory"
     },
     "tags": [
@@ -50,10 +57,23 @@
     "key_time_location": "전날 22:40~22:55경 L02 정비구역에서 균열·필터 조작, 당일 21:50경 L02에서 파열 발생.",
     "cover_up": "서수한은 사고 직후 사람들이 정비구역에 몰린 틈을 타 창고에 숨겨둔 유리칼을 부품 상자 바닥에 넣고, 헐거워진 보호필터 나사를 다시 조여 원래부터 낡아 파손된 것처럼 보이게 했다. 하지만 나사산에 새로 조인 자국이 이전 흔적과 겹쳐 남았고, 유리칼과 창고 바닥에도 미세한 브라운관 유리가루가 남았다.",
     "accomplice": "없음",
-    "method_archetypes": ["machine_malfunction", "exsanguination"],
-    "motive_archetypes": ["obsession", "jealousy"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["false_accident", "scene_rearrangement", "concealment_without_staging"]
+    "method_archetypes": [
+      "machine_malfunction",
+      "exsanguination"
+    ],
+    "motive_archetypes": [
+      "obsession",
+      "jealousy"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "scene_rearrangement",
+      "concealment_without_staging"
+    ]
   },
   "actual_timeline": [
     {
@@ -592,7 +612,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "같은 동호회에서 오래 함께 활동해 온 창립 멤버들.",
       "public_face": "서수한은 노태겸을 그저 오래된 동료로만 대하는 것으로 보인다.",
       "says": {
@@ -603,7 +626,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "정비구역에서 함께 기기를 손보다 최근 연인이 된 사이.",
       "public_face": "강채임은 노태겸을 그저 같은 회원으로만 대하는 것으로 알려져 있다.",
       "says": {
@@ -614,7 +640,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "같은 동호회에서 마주치는 선배 회원과 신입 회원, 노태겸을 사이에 둔 관계.",
       "public_face": "서수한은 강채임을 그저 기기 정비를 도와주는 살가운 후배로만 대하는 것으로 보인다.",
       "says": {
@@ -626,7 +655,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "마감 시간마다 마주치는 관리 직원과 창립 멤버.",
       "public_face": "방준일은 서수한을 그저 늦게까지 남아 정리하는 성실한 회원으로만 안다.",
       "says": {
@@ -638,7 +670,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "희귀 캐비닛 매입을 협상하는 딜러와 라운지 설립자.",
       "public_face": "한도익은 노태겸과 순조롭게 매입 협상을 진행하는 사업 상대로만 보인다.",
       "says": {
@@ -649,7 +684,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "랭킹전마다 마주치는 단골 회원과 라운지 설립자.",
       "public_face": "임서겸은 노태겸을 랭킹전마다 마주치는 설립자 정도로만 안다.",
       "says": {
@@ -659,7 +697,6 @@
       "surfaces_when": "탐정이 임서겸의 목격담(E05)을 근거로 그날 상황을 다시 캐물으면, 그제야 그 마음을 털어놓는다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
@@ -1105,7 +1142,8 @@
       "how_to_clear": "한도익 자신의 진술(S-CH04-01)과 그 시각 마감 정리를 하고 있었다는 방준일의 진술(S-CH03-01)을 함께 대조하면, 사고 발생 시각 그가 정비구역 근처에 갈 수 없었다는 점이 확인된다.",
       "must_not_imply": "그가 그날 밤 라운지에 들렀다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "사고 이후 매입 협상은 없던 일이 되지만, 한도익은 이후에도 종종 안부차 라운지를 들른다.",
-      "suspicion_deepener": "한도익이 처음엔 그날 밤 라운지에 들른 이유 자체를 얼버무리며 숨기려 한다."
+      "suspicion_deepener": "한도익이 처음엔 그날 밤 라운지에 들른 이유 자체를 얼버무리며 숨기려 한다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -1114,7 +1152,8 @@
       "how_to_clear": "강채임 자신의 진술(S-CH02-01)과 사고 직전 상황을 전한 임서겸의 목격담(E05)을 함께 확인하면, 사고 시각 그녀가 로비에 있었음이 확인되어 의심이 해소된다. 참가 순번표의 체크 기록(E09)도 그녀가 그 시간대 로비에 계속 있었다는 것을 임서겸의 목격담과 별개로 뒷받침한다.",
       "must_not_imply": "관계를 처음에 숨겼다는 사실만으로 강채임이 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "사고 이후 강채임은 한동안 라운지를 떠나 있다가, 서수한의 사정을 전해 듣고서야 복잡한 마음으로 다시 발걸음한다.",
-      "suspicion_deepener": "강채임이 처음엔 노태겸과의 관계 자체를 숨기려 한다."
+      "suspicion_deepener": "강채임이 처음엔 노태겸과의 관계 자체를 숨기려 한다.",
+      "character_id": "CH02"
     }
   ],
   "case_complete": {

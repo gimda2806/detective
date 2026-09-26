@@ -8,90 +8,225 @@
     "detective_entry_type": "group_member",
     "detective_entry": "탐정은 이 윈드터널 클럽의 정회원으로, 매주 목요일 저녁 그룹 훈련에 참가해왔다. 이날도 훈련을 위해 로비에 도착해 장비를 점검하고 있었다.",
     "tone": "차가운 기계음과 인공 바람 소리가 뒤섞인 실내 훈련장 특유의 삭막한 분위기 속에, 자식을 지키려던 보호 본능이 뒤틀려 벌어진 사건의 씁쓸함.",
-    "location_archetypes": ["sports_facility", "association_club"],
+    "location_archetypes": [
+      "sports_facility",
+      "association_club"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "contributory"
     },
-    "tags": ["윈드터널_훈련장", "실내_스카이다이빙", "동호인_클럽"]
+    "tags": [
+      "윈드터널_훈련장",
+      "실내_스카이다이빙",
+      "동호인_클럽"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:00",
     "location_id": "L01",
     "narrative": "목요일 저녁, 에어로프리 로비였다.\n\n한지우가 장비 가방을 고쳐 메며 유리벽 너머 풍동 체임버를 흘깃 보았다.\n\n\"오늘따라 바람 소리가 유난히 크네요.\"\n\n\"기계가 늙으면 다 그래.\"\n\n탐정이 대수롭지 않게 대꾸하며 접수 데스크로 향했다.\n\n그때 천장 스피커가 한 번 크게 긁혔다.\n\n「관제실입니다. 관제실... 구급차 좀, 누가 구급차 좀 불러 주세요.」\n\n인터폰 너머 목소리가 반쯤 갈라져 있었다.\n\n한지우가 장비 가방을 그대로 바닥에 내려놓았다.\n\n\"저거 방도경 씨 아니에요?\"\n\n접수 데스크 안쪽 문이 열리고, 방도경이 관제실 쪽 복도에서 뛰어나왔다. 말보다 손이 먼저 그쪽을 가리켰다.\n\n\"안에... 학부모님이 쓰러져 계세요...\"\n\n탐정이 그 손끝을 따라 복도로 들어섰다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "관제실 안, 감전 흔적이 남은 제어반 앞이었다.\n\n안유겸이 제어반 뒤판에 손을 얹었다가 이내 뗐다.\n\n\"이안이 어깨는 아직 완전히 안 나았어요. 그런데 아버님은 선발전에만 눈이 멀어서...\"\n\n그는 목소리를 낮췄다.\n\n\"그래도 이렇게까지 할 생각은, 정말 아니었습니다.\"\n\n한지우가 제어반 쪽을 한 번 보고 물었다.\n\n\"껍질을 벗기신 게 어제 저녁 9시 10분이라고 하셨죠.\"\n\n\"...네.\"\n\n\"오늘 저녁 6시 50분까지, 하루가 통째로 있었어요.\"\n\n안유겸이 아무 대답도 하지 못했다.\n\n얼마 뒤, 두 사람이 관제실 밖으로 나오자 텅 빈 체임버 위로 야간 조명이 하나씩 들어오고 있었다.\n\n\"오늘 훈련은 못 하겠네요.\"\n\n한지우가 바닥에 내려놨던 장비 가방을 다시 어깨에 걸쳤다.\n\n\"장비나 챙겨. 다음 주도 목요일이야.\"\n\n탐정이 유리벽 쪽을 지나며 말했다.\n\n장비정비실 쪽에는 국이랑이 여전히 남아, 훈련을 계속해야 할지 망설이는 표이안의 어깨를 말없이 다독이고 있었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "표준혁", "role": "학부모 / 표이안의 아버지", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "표준혁",
+      "role": "학부모 / 표이안의 아버지",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "목요일 저녁 그룹 훈련 시간, 관제실 안에서 표준혁이 쓰러진 채 발견됐다.",
     "발견 당시 그의 손 옆에는 그을린 자국이 남은 제어반 스위치가 있었다.",
     "그 시간대 시설 안팎에는 수석 코치 안유겸, 아들 표이안, 시설 매니저 방도경, 동료 선수 국이랑, 클럽 대표 유시완이 있었던 것으로 확인된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "안유겸은 3년간 표이안을 지도해온 코치로, 표이안이 반년 전 어깨 인대 파열 수술을 받고 아직 재활이 끝나지 않은 상태라는 걸 누구보다 잘 알고 있었다. 그런데 아버지 표준혁이 다가오는 국가대표 선발전 출전을 이유로 재활이 끝나기도 전에 무리한 복귀 훈련을 강행시키려 한다는 사실을 우연히 통화 내용을 통해 알게 되면서, 안유겸은 표이안의 몸을 완전히 망가뜨릴 수도 있는 그 결정을 막아야겠다고 마음먹었다.",
     "method": "안유겸은 사건 전날 21시 10분경 관제실에 홀로 남아, 표준혁이 매번 직접 확인하러 들르는 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨 노출시켰다. 겉으로는 멀쩡해 보여도, 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 미리 계산된 손상이었다. 이튿날 18시 50분경 표준혁이 그룹 훈련 시작 전 평소처럼 아들의 비행 데이터를 직접 확인하려 제어반 앞에 서서 스위치를 조작하다 감전되어 그 자리에서 쓰러졌다.",
     "key_time_location": "전날 21:10~21:25 L02 관제실에서 조작, 사건 당일 18:50 L02 관제실에서 발생.",
-    "method_archetypes": ["electrocution", "electrical_tampering"],
-    "motive_archetypes": ["protection"],
-    "cover_up_target": ["cause_of_death"],
-    "cover_up_method": ["false_accident", "false_alibi"],
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "protection"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "false_alibi"
+    ],
     "cover_up": "안유겸은 소란을 듣고 가장 먼저 달려가 심폐소생술을 시도하는 척했고, 낡은 배선이 원래도 말썽이었다는 말이 나오자 굳이 반박하지 않았다. 전날 밤 행적을 묻는 질문에는 정비일지를 마감하고 일찍 퇴근했다고 얼버무렸다.",
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "21:10", "location": "L02", "actors": ["CH01"],
+    {
+      "id": "T01",
+      "time": "21:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "안유겸이 관제실에 홀로 남아, 표준혁이 매번 직접 확인하러 들르는 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨낸다.",
-      "world_fact": "이 손상으로 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 만들어진다." },
-    { "id": "T02", "time": "21:25", "location": "L02", "actors": ["CH01"],
-      "actual_action": "안유겸이 정비 도구를 공구함에 정리해 넣고, 정비일지에는 그날 작업을 기록하지 않은 채 관제실 문을 잠근다." },
-    { "id": "T03", "time": "20:00", "location": "L04", "actors": ["CH04"],
-      "actual_action": "국이랑이 장비정비실에서 그날 사용할 하네스 전체를 검수해 목록에 서명한다." },
-    { "id": "T04", "time": "19:30", "location": "L05", "actors": ["CH02"],
-      "actual_action": "표이안이 사무실 겸 라운지에서 아버지와 통화하며, 아직 어깨가 다 낫지 않았다는 이유로 복귀 훈련을 거부한다." },
-    { "id": "T05", "time": "18:40", "location": "L01", "actors": ["CH03"],
-      "actual_action": "방도경이 로비 안내데스크에서 그날 저녁 그룹 훈련 참가자 명단을 확인한다." },
-    { "id": "T06", "time": "18:45", "location": "L01", "actors": ["V01"],
-      "actual_action": "표준혁이 로비에 도착해 아들의 훈련을 지켜보겠다며 관제실로 향한다." },
-    { "id": "T07", "time": "18:50", "location": "L02", "actors": ["V01"],
+      "world_fact": "이 손상으로 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 만들어진다."
+    },
+    {
+      "id": "T02",
+      "time": "21:25",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "안유겸이 정비 도구를 공구함에 정리해 넣고, 정비일지에는 그날 작업을 기록하지 않은 채 관제실 문을 잠근다."
+    },
+    {
+      "id": "T03",
+      "time": "20:00",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "국이랑이 장비정비실에서 그날 사용할 하네스 전체를 검수해 목록에 서명한다."
+    },
+    {
+      "id": "T04",
+      "time": "19:30",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "표이안이 사무실 겸 라운지에서 아버지와 통화하며, 아직 어깨가 다 낫지 않았다는 이유로 복귀 훈련을 거부한다."
+    },
+    {
+      "id": "T05",
+      "time": "18:40",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "방도경이 로비 안내데스크에서 그날 저녁 그룹 훈련 참가자 명단을 확인한다."
+    },
+    {
+      "id": "T06",
+      "time": "18:45",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "표준혁이 로비에 도착해 아들의 훈련을 지켜보겠다며 관제실로 향한다."
+    },
+    {
+      "id": "T07",
+      "time": "18:50",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "표준혁이 관제실에 들어와 평소처럼 아들의 비행 데이터를 직접 확인하려 제어반 앞에 선다.",
-      "world_fact": "노출된 접지선에 젖은 손으로 스위치를 조작하다 감전되어 표준혁이 그 자리에서 쓰러진다." },
-    { "id": "T08", "time": "18:55", "location": "L02", "actors": ["CH03"],
-      "actual_action": "방도경이 관제실 문이 잠겨 있지 않고 유난히 조용한 것을 이상하게 여겨 들어가 보다가, 쓰러진 표준혁을 발견한다." },
-    { "id": "T09", "time": "18:56", "location": "L02", "actors": ["CH03"],
-      "actual_action": "방도경이 로비 인터폰으로 응급 상황을 알린다." },
-    { "id": "T10", "time": "18:57", "location": "L01", "actors": ["CH04"],
-      "actual_action": "국이랑이 인터폰 소리를 듣고 장비정비실에서 로비 쪽으로 뛰어나온다." },
-    { "id": "T11", "time": "18:58", "location": "L01", "actors": ["CH05"],
-      "actual_action": "유시완이 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나온다." },
-    { "id": "T12", "time": "19:00", "location": "L03", "actors": ["CH02"],
-      "actual_action": "표이안이 체임버 앞에서 대기하다 소식을 듣고 그대로 얼어붙는다." }
+      "world_fact": "노출된 접지선에 젖은 손으로 스위치를 조작하다 감전되어 표준혁이 그 자리에서 쓰러진다."
+    },
+    {
+      "id": "T08",
+      "time": "18:55",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "방도경이 관제실 문이 잠겨 있지 않고 유난히 조용한 것을 이상하게 여겨 들어가 보다가, 쓰러진 표준혁을 발견한다."
+    },
+    {
+      "id": "T09",
+      "time": "18:56",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "방도경이 로비 인터폰으로 응급 상황을 알린다."
+    },
+    {
+      "id": "T10",
+      "time": "18:57",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "국이랑이 인터폰 소리를 듣고 장비정비실에서 로비 쪽으로 뛰어나온다."
+    },
+    {
+      "id": "T11",
+      "time": "18:58",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "유시완이 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나온다."
+    },
+    {
+      "id": "T12",
+      "time": "19:00",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "표이안이 체임버 앞에서 대기하다 소식을 듣고 그대로 얼어붙는다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "안유겸", "role": "수석 코치", "present_location": "L02",
+      "id": "CH01",
+      "name": "안유겸",
+      "role": "수석 코치",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 21시 10분경 관제실에 홀로 남아 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨냈다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 손상이 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 계산된 것이었다.", "source": "개인기술(전기설비 정비 경력)" },
-        { "fact_id": "F-CH01-03", "content": "표이안이 아직 어깨 재활이 끝나지 않았다는 사실을 가장 가까이서 알고 있었다.", "source": "개인사(코치로서 직접 지도)" },
-        { "fact_id": "F-CH01-04", "content": "표준혁이 국가대표 선발전 출전을 이유로 표이안의 복귀 훈련을 강행시키려 했다. 그걸 알고 계획적으로 범행을 결심했고, 그것이 진짜 동기다.", "source": "개인사(우연히 통화를 엿들음)" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "전날 21시 10분경 관제실에 홀로 남아 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨냈다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 손상이 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 계산된 것이었다.",
+          "source": "개인기술(전기설비 정비 경력)"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "표이안이 아직 어깨 재활이 끝나지 않았다는 사실을 가장 가까이서 알고 있었다.",
+          "source": "개인사(코치로서 직접 지도)"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "표준혁이 국가대표 선발전 출전을 이유로 표이안의 복귀 훈련을 강행시키려 했다. 그걸 알고 계획적으로 범행을 결심했고, 그것이 진짜 동기다.",
+          "source": "개인사(우연히 통화를 엿들음)"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "전날 밤엔 정비일지를 마감하고 일찍 퇴근했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "관제실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "표이안의 복귀 시점은 전적으로 저와 부모님이 상의해 정할 문제예요.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 개입 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "전날 밤엔 정비일지를 마감하고 일찍 퇴근했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "관제실에 늦게까지 남아 있던 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "표이안의 복귀 시점은 전적으로 저와 부모님이 상의해 정할 문제예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "개인적인 개입 동기를 숨기기 위해서다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "단순 정기 점검이었어요.",
@@ -99,19 +234,41 @@
           "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E06" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E08" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "E08"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "S-CH01-01"
         }
       ],
-      "knowledge_limits": ["표이안과 아버지 사이 통화의 세부 내용까지는 정확히 모른다.", "유시완과 표준혁 사이 계약 갈등의 구체적 조건은 모른다."],
+      "knowledge_limits": [
+        "표이안과 아버지 사이 통화의 세부 내용까지는 정확히 모른다.",
+        "유시완과 표준혁 사이 계약 갈등의 구체적 조건은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "차분한 표준 존댓말, 감정을 억누르는 태도",
         "sentence_length_tendency": "평소엔 짧고 담백한 지시형 문장, 압박받으면 침묵이 길어지다 한 번에 길게 터진다",
@@ -124,18 +281,47 @@
       ]
     },
     {
-      "id": "CH02", "name": "표이안", "role": "클럽 소속 선수 / 표준혁의 아들", "present_location": "L03",
+      "id": "CH02",
+      "name": "표이안",
+      "role": "클럽 소속 선수 / 표준혁의 아들",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 19시 30분경 사무실 겸 라운지에서 아버지와 통화하며 복귀 훈련을 거부했다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "자신의 어깨 재활이 아직 끝나지 않았다는 걸 누구보다 잘 알고 있다.", "source": "개인경험" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "전날 19시 30분경 사무실 겸 라운지에서 아버지와 통화하며 복귀 훈련을 거부했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "자신의 어깨 재활이 아직 끝나지 않았다는 걸 누구보다 잘 알고 있다.",
+          "source": "개인경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "전날 통화는 그냥 일상적인 안부 전화였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지와 다퉜다는 사실을 숨기고 싶어서다." },
-        { "claim_id": "S-CH02-02", "content": "코치님은 늘 제 몸 상태를 최우선으로 챙겨주셨어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "전날 통화는 그냥 일상적인 안부 전화였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "아버지와 다퉜다는 사실을 숨기고 싶어서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "코치님은 늘 제 몸 상태를 최우선으로 챙겨주셨어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["관제실 안에서 정확히 무슨 일이 있었는지는 모른다.", "코치의 계획적인 의도까지는 모른다."],
+      "knowledge_limits": [
+        "관제실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "코치의 계획적인 의도까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "편한 존댓말, 조심스러운 태도",
         "sentence_length_tendency": "평소엔 짧은 단문 위주, 당황하면 말끝이 흐려진다",
@@ -148,20 +334,54 @@
       ]
     },
     {
-      "id": "CH03", "name": "방도경", "role": "시설 매니저 / 시신 발견자", "present_location": "L01",
+      "id": "CH03",
+      "name": "방도경",
+      "role": "시설 매니저 / 시신 발견자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 18시 40분경 로비 안내데스크에서 그룹 훈련 참가자 명단을 확인했다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "18시 55분경 관제실 문이 잠겨 있지 않고 조용해 이상함을 느껴 들어가 보다가 쓰러진 표준혁을 발견했다.", "source": "직접행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-03", "content": "최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다는 사실을 목격했다.", "source": "직접목격" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 당일 18시 40분경 로비 안내데스크에서 그룹 훈련 참가자 명단을 확인했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "18시 55분경 관제실 문이 잠겨 있지 않고 조용해 이상함을 느껴 들어가 보다가 쓰러진 표준혁을 발견했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다는 사실을 목격했다.",
+          "source": "직접목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 참가자 명단을 확인하다 소란을 듣고 뛰어갔을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 저녁엔 참가자 명단을 확인하다 소란을 듣고 뛰어갔을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "E02", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["관제실 안에서 정확히 무슨 일이 있었는지는 모른다.", "표이안과 아버지 사이 갈등 사정까지는 모른다."],
+      "knowledge_limits": [
+        "관제실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "표이안과 아버지 사이 갈등 사정까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사무적인 표준 존댓말",
         "sentence_length_tendency": "평소엔 담백한 중간 길이 문장, 당황하면 말이 빨라진다",
@@ -174,17 +394,40 @@
       ]
     },
     {
-      "id": "CH04", "name": "국이랑", "role": "동료 선수 / 장비 검수 담당", "present_location": "L04",
+      "id": "CH04",
+      "name": "국이랑",
+      "role": "동료 선수 / 장비 검수 담당",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 20시경 장비정비실에서 하네스 전체를 검수해 목록에 서명했다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다.", "source": "개인경험" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 20시경 장비정비실에서 하네스 전체를 검수해 목록에 서명했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다.",
+          "source": "개인경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 하네스 검수만 했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 저녁엔 하네스 검수만 했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["관제실 안에서 정확히 무슨 일이 있었는지는 모른다.", "코치와 표준혁 사이 갈등의 구체적 계기까지는 모른다."],
+      "knowledge_limits": [
+        "관제실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "코치와 표준혁 사이 갈등의 구체적 계기까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "편한 존댓말, 직설적인 태도",
         "sentence_length_tendency": "평소엔 짧고 단정적인 문장, 흥분하면 말이 빨라진다",
@@ -197,18 +440,46 @@
       ]
     },
     {
-      "id": "CH05", "name": "유시완", "role": "클럽 대표 / 시설 운영자", "present_location": "L05",
+      "id": "CH05",
+      "name": "유시완",
+      "role": "클럽 대표 / 시설 운영자",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 58분경 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나왔다.", "source": "직접행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "최근 표준혁이 클럽 후원 계약 위약금 조항을 두고 자신과 갈등을 빚었다.", "source": "개인경험" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 18시 58분경 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나왔다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 표준혁이 클럽 후원 계약 위약금 조항을 두고 자신과 갈등을 빚었다.",
+          "source": "개인경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 사무실에서 서류 작업을 하고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "표준혁 학부모님은 다른 분들보다 유독 열성적이셨어요, 아무래도.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 저녁엔 사무실에서 서류 작업을 하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "표준혁 학부모님은 다른 분들보다 유독 열성적이셨어요, 아무래도.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["관제실 안에서 정확히 무슨 일이 있었는지는 모른다.", "코치와 표준혁 부자 사이 개인적인 사정까지는 모른다."],
+      "knowledge_limits": [
+        "관제실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "코치와 표준혁 부자 사이 개인적인 사정까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사업가 특유의 능숙한 격식체",
         "sentence_length_tendency": "평소엔 여유 있는 장문, 압박받으면 문장이 짧고 방어적으로 끊긴다",
@@ -221,137 +492,359 @@
       ]
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 겸 접수 데스크", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
-      "connects_to": ["L02", "L05"],
+      "id": "L01",
+      "name": "로비 겸 접수 데스크",
+      "access": "시작부터 누구나 출입 가능하다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "에어로프리 로비. 접수 데스크와 유리벽 너머 풍동 체임버가 보이는 대기 공간이 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "안내데스크 위 화이트보드에 오늘 저녁 그룹 훈련 참가자 명단이 적혀 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내데스크 위 화이트보드에 오늘 저녁 그룹 훈련 참가자 명단이 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "로비 방문객 명단을 확인한다", "release_evidence_id": "E01", "result": "그날 저녁 방문 명단에는 그룹 훈련 참가자 전원과 표준혁의 이름이 18시 45분경 도착으로 기록돼 있다." }
+        {
+          "action": "로비 방문객 명단을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "그날 저녁 방문 명단에는 그룹 훈련 참가자 전원과 표준혁의 이름이 18시 45분경 도착으로 기록돼 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "관제실", "access": "코치와 매니저만 출입 가능하며, 사건 발견 이후 통제 구역이다.", "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04"],
+      "id": "L02",
+      "name": "관제실",
+      "access": "코치와 매니저만 출입 가능하며, 사건 발견 이후 통제 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "풍동 체임버의 풍속과 상태를 조작하는 제어반이 있는 관제실.",
       "observation_rules": [
-        { "action": "관제실 내부를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 표준혁 옆 제어반 스위치 표면에 그을린 자국이 남아있다." }
+        {
+          "action": "관제실 내부를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "쓰러진 표준혁 옆 제어반 스위치 표면에 그을린 자국이 남아있다."
+        }
       ],
       "detail_rules": [
-        { "action": "제어반 내부 배선을 점검한다", "release_evidence_id": "E02", "result": "제어반 뒤판 나사가 최근 풀렸다 다시 조인 흔적이 있고, 내부 접지선 피복 일부가 벗겨져 노출돼 있다." },
-        { "action": "정비일지와 정비함 서명란을 대조한다", "release_evidence_id": "E03", "result": "정비일지에는 전날 저녁 해당 제어반에 대한 공식 점검 기록이 없는데도, 정비함 서명란에는 안유겸의 이니셜만 새로 적혀 있다." }
+        {
+          "action": "제어반 내부 배선을 점검한다",
+          "release_evidence_id": "E02",
+          "result": "제어반 뒤판 나사가 최근 풀렸다 다시 조인 흔적이 있고, 내부 접지선 피복 일부가 벗겨져 노출돼 있다."
+        },
+        {
+          "action": "정비일지와 정비함 서명란을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "정비일지에는 전날 저녁 해당 제어반에 대한 공식 점검 기록이 없는데도, 정비함 서명란에는 안유겸의 이니셜만 새로 적혀 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "풍동 체임버 대기공간", "access": "훈련 참가자와 코치의 안내가 있어야 출입 가능하다.", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L03",
+      "name": "풍동 체임버 대기공간",
+      "access": "훈련 참가자와 코치의 안내가 있어야 출입 가능하다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "실제 자유낙하 훈련이 이뤄지는 유리 튜브형 체임버와 그 앞 대기 공간.",
       "observation_rules": [
-        { "action": "체임버 앞 대기공간을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "훈련 대기 중이던 표이안의 장비가 그대로 벤치에 놓여 있다." }
+        {
+          "action": "체임버 앞 대기공간을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "훈련 대기 중이던 표이안의 장비가 그대로 벤치에 놓여 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L04", "name": "장비정비실", "access": "직원과 소속 선수만 출입 가능하다.", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L04",
+      "name": "장비정비실",
+      "access": "직원과 소속 선수만 출입 가능하다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "하네스와 낙하 장비를 보관하고 정비하는 공간.",
       "observation_rules": [
-        { "action": "정비실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "하네스와 공구들이 각 잡혀 정리돼 있다." }
+        {
+          "action": "정비실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "하네스와 공구들이 각 잡혀 정리돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "하네스 정비 목록을 확인한다", "release_evidence_id": "E04", "result": "하네스 검수 목록에는 국이랑의 서명과 함께 그날 정비한 장비 항목이 상세히 적혀 있고, 제어반 관련 항목은 없다." }
+        {
+          "action": "하네스 정비 목록을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "하네스 검수 목록에는 국이랑의 서명과 함께 그날 정비한 장비 항목이 상세히 적혀 있고, 제어반 관련 항목은 없다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "사무실 겸 라운지", "access": "유시완의 안내가 있어야 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "사무실 겸 라운지",
+      "access": "유시완의 안내가 있어야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "클럽 운영 서류를 보관하는 사무실이자 회원들이 쉬어가는 라운지.",
       "observation_rules": [
-        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 클럽 후원 계약 서류 폴더가 펼쳐져 있다." }
+        {
+          "action": "사무실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위에 클럽 후원 계약 서류 폴더가 펼쳐져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "클럽 후원 계약서를 확인한다", "release_evidence_id": "E07", "result": "유시완과 표준혁 사이 클럽 후원 계약 관련 서류에 최근 위약금 조항을 두고 이견이 있었던 메모가 남아있다." }
+        {
+          "action": "클럽 후원 계약서를 확인한다",
+          "release_evidence_id": "E07",
+          "result": "유시완과 표준혁 사이 클럽 후원 계약 관련 서류에 최근 위약금 조항을 두고 이견이 있었던 메모가 남아있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "로비 방문객 명단", "source_type": "location", "found_at": "L01", "discovery_condition": "로비 방문객 명단을 확인한다", "related_timeline": ["T06"],
+    {
+      "id": "E01",
+      "name": "로비 방문객 명단",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 방문객 명단을 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "그날 저녁 방문 명단에는 그룹 훈련 참가자 전원과 표준혁의 이름이 18시 45분경 도착으로 기록돼 있다.",
-      "proves": ["표준혁이 그날 저녁 실제로 시설에 도착했다는 사실을 증명한다."],
-      "does_not_prove": ["관제실 안에서 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E02", "name": "제어반 접지선 손상 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "제어반 내부 배선을 점검한다", "related_timeline": ["T01"],
+      "proves": [
+        "표준혁이 그날 저녁 실제로 시설에 도착했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "관제실 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "제어반 접지선 손상 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "제어반 내부 배선을 점검한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "제어반 뒤판 나사가 최근 풀렸다 다시 조인 흔적이 있고, 내부 접지선 피복 일부가 벗겨져 노출돼 있다.",
-      "proves": ["감전이 자연 노후가 아니라 인위적 손상에 의한 것임을 증명한다."],
-      "does_not_prove": ["누가, 왜 손상시켰는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E03", "name": "정비일지 누락 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "정비일지와 정비함 서명란을 대조한다",
+      "proves": [
+        "감전이 자연 노후가 아니라 인위적 손상에 의한 것임을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 손상시켰는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "정비일지 누락 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정비일지와 정비함 서명란을 대조한다",
       "content": "정비일지에는 전날 저녁 해당 제어반에 대한 공식 점검 기록이 없는데도, 정비함 서명란에는 안유겸의 이니셜만 새로 적혀 있다.",
-      "proves": ["안유겸이 전날 저녁 그 제어반을 따로 다뤘다는 사실을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E04", "name": "하네스 정비 목록", "source_type": "location", "found_at": "L04", "discovery_condition": "하네스 정비 목록을 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "안유겸이 전날 저녁 그 제어반을 따로 다뤘다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "하네스 정비 목록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "하네스 정비 목록을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "하네스 검수 목록에는 국이랑의 서명과 함께 그날 정비한 장비 항목이 상세히 적혀 있고, 제어반 관련 항목은 없다.",
-      "proves": ["국이랑이 그 시간 장비정비실에서 하네스 검수만 하고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["관제실 안에서 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E05", "name": "표이안의 증언", "source_type": "testimony", "found_at": "L03", "discovery_condition": "표이안에게 전날 밤 아버지와의 통화 내용을 묻는다",
+      "proves": [
+        "국이랑이 그 시간 장비정비실에서 하네스 검수만 하고 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "관제실 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "표이안의 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "표이안에게 전날 밤 아버지와의 통화 내용을 묻는다",
       "content": "표이안은 전날 밤 아버지가 국가대표 선발전 출전을 이유로 재활이 끝나기도 전에 복귀 훈련을 강하게 요구했고, 자신은 그걸 거부했다고 증언한다.",
-      "proves": ["표준혁이 아들의 몸 상태를 무시하고 복귀 훈련을 강행시키려 했다는 사실을 뒷받침한다."],
-      "does_not_prove": ["안유겸이 그 사실을 알고 있었는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "방도경의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "방도경에게 안유겸의 최근 행동에 대해 묻는다",
+      "proves": [
+        "표준혁이 아들의 몸 상태를 무시하고 복귀 훈련을 강행시키려 했다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "안유겸이 그 사실을 알고 있었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "방도경의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "방도경에게 안유겸의 최근 행동에 대해 묻는다",
       "content": "방도경은 최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다고 증언한다.",
-      "proves": ["안유겸이 사건 전부터 제어반에 유독 신경 쓰고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["정확한 이유"],
-      "presentation_effect": ["C02"] },
-    { "id": "E07", "name": "클럽 후원 계약서", "source_type": "location", "found_at": "L05", "discovery_condition": "클럽 후원 계약서를 확인한다",
+      "proves": [
+        "안유겸이 사건 전부터 제어반에 유독 신경 쓰고 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "정확한 이유"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "클럽 후원 계약서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "클럽 후원 계약서를 확인한다",
       "content": "유시완과 표준혁 사이 클럽 후원 계약 관련 서류에 최근 위약금 조항을 두고 이견이 있었던 메모가 남아있다.",
-      "proves": ["유시완과 표준혁 사이 최근 갈등이 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 갈등이 살해로 이어졌는지"],
-      "presentation_effect": [] },
-    { "id": "E08", "name": "국이랑의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "국이랑에게 표준혁과 다른 학부모들 사이 갈등에 대해 묻는다",
+      "proves": [
+        "유시완과 표준혁 사이 최근 갈등이 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 갈등이 살해로 이어졌는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "국이랑의 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "국이랑에게 표준혁과 다른 학부모들 사이 갈등에 대해 묻는다",
       "content": "국이랑은 표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다고 증언한다.",
-      "proves": ["표준혁이 평소에도 무리한 훈련을 강요하는 성향이었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["안유겸의 구체적인 범행 동기"],
-      "presentation_effect": ["C03"] }
+      "proves": [
+        "표준혁이 평소에도 무리한 훈련을 강요하는 성향이었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "안유겸의 구체적인 범행 동기"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_room_admission",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "after_room_admission",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
+      },
       "player_action": "제어반 접지선 손상 흔적과 정비일지 누락 기록을 함께 제시해, 전날 밤 일찍 퇴근했다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 관제실에 남아있었던 것은 인정한다." },
-      "must_not_release": ["감전을 유도할 목적이었다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "전날 밤 관제실에 남아있었던 것은 인정한다."
+      },
+      "must_not_release": [
+        "감전을 유도할 목적이었다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "after_room_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E06"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "after_room_admission",
+      "to_stage": "after_intent_admission",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
       "player_action": "제어반 접지선 손상 흔적과, 안유겸이 최근 유독 제어반에 예민하게 굴었다는 방도경의 증언을 함께 제시해, 단순 점검이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "접지선을 일부러 손봐 감전이 나도록 계산했다는 것은 인정하지만, 표준혁을 노린 게 아니라 낡은 배선 상태를 시험해본 것뿐이라고 둘러댄다." },
-      "must_not_release": ["진짜 동기", "계획성"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "접지선을 일부러 손봐 감전이 나도록 계산했다는 것은 인정하지만, 표준혁을 노린 게 아니라 낡은 배선 상태를 시험해본 것뿐이라고 둘러댄다."
+      },
+      "must_not_release": [
+        "진짜 동기",
+        "계획성"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "after_intent_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E05", "E08"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E08"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "after_intent_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05",
+          "E08"
+        ]
+      },
       "player_action": "표이안의 증언과 국이랑의 증언을 함께 제시해, 복귀 훈련은 본인과 부모님이 상의해 정할 문제라던 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "표이안의 몸을 지키려고 표준혁을 막으려 했다는 진짜 동기를 인정하며, 이런 결말은 바라지 않았다고 무너진다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "표이안의 몸을 지키려고 표준혁을 막으려 했다는 진짜 동기를 인정하며, 이런 결말은 바라지 않았다고 무너진다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -360,7 +853,8 @@
       "how_to_clear": "로비 방문객 명단(E01)과 클럽 후원 계약서(E07)를 대조해, 유시완이 그 시간 내내 사무실에서 서류 작업을 하고 있었음을 확인한다.",
       "must_not_imply": "계약 갈등만으로 관여를 단정하지 않는다.",
       "lingering_thread": "후원 계약은 결국 표준혁의 죽음과 함께 없던 일이 되며, 유시완은 클럽 재정 문제를 홀로 떠안게 되는 씁쓸한 뒷맛으로 남는다.",
-      "suspicion_deepener": "유시완이 사건 직후에도 계약 서류부터 챙기려 하며 초조한 기색을 보인다."
+      "suspicion_deepener": "유시완이 사건 직후에도 계약 서류부터 챙기려 하며 초조한 기색을 보인다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -369,14 +863,17 @@
       "how_to_clear": "하네스 정비 목록(E04)을 제시해, 그 시간 국이랑이 장비정비실에서 검수 작업을 하고 있었을 뿐 관제실 근처에는 가지 않았음을 확인한다.",
       "must_not_imply": "갈등을 목격했다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "국이랑은 결국 오랜 동료 선수 표이안이 부모를 잃은 채 훈련을 계속해야 하는 처지를 지켜보며 착잡함을 안고 남는다.",
-      "suspicion_deepener": "국이랑이 사건 직후에도 예전 학부모 갈등 얘기를 다시 꺼내며 불편한 기색을 보인다."
+      "suspicion_deepener": "국이랑이 사건 직후에도 예전 학부모 갈등 얘기를 다시 꺼내며 불편한 기색을 보인다.",
+      "character_id": "CH04"
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "안유겸은 3년간 표이안을 지도해 온 코치로, 학부모인 표준혁과 훈련 방향을 두고 자주 부딪혀 왔다.",
       "public_face": "선수를 위해 의견을 나누는 코치와 학부모 사이로 알려져 있다.",
       "private_strain": "안유겸은 표준혁이 재활이 끝나지 않은 표이안에게 국가대표 선발전을 이유로 무리한 복귀 훈련을 강행시키려 한다는 사실을 우연히 통화를 엿듣고 알게 됐다.",
@@ -387,7 +884,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "표이안은 표준혁의 하나뿐인 아들이자, 아버지의 기대를 한 몸에 받아온 선수다.",
       "public_face": "아버지의 응원을 받는 유망한 선수로 알려져 있다.",
       "private_strain": "표이안은 전날 밤 아버지와 통화하며 아직 어깨가 다 낫지 않았다는 이유로 복귀 훈련을 거부하며 다퉜다는 사실을 처음엔 숨겼다.",
@@ -398,7 +898,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "방도경은 시설 매니저로, 코치 안유겸과 매일 시설을 함께 관리해 온 동료다.",
       "public_face": "손발이 잘 맞는 동료 사이로 알려져 있다.",
       "private_strain": "방도경은 최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다는 걸 눈치챘지만, 굳이 캐묻지 않고 넘겼다.",
@@ -410,7 +913,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "국이랑은 표이안과 함께 훈련해 온 동료 선수로, 다른 학부모들 틈에서 표준혁을 오래 지켜봤다.",
       "public_face": "그냥 안면 있는 학부모로 알려져 있다.",
       "private_strain": "국이랑은 표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다는 걸 알면서도, 괜히 뒷말하는 것 같아 먼저 꺼내지 않았다.",
@@ -421,7 +927,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "유시완은 클럽 대표로, 표준혁과 클럽 후원 계약을 두고 최근 협상해 온 사이다.",
       "public_face": "사업상 파트너로 알려져 있다.",
       "private_strain": "유시완은 최근 표준혁과 클럽 후원 계약 위약금 조항을 두고 갈등을 빚고 있었지만, 그 얘기를 먼저 꺼내고 싶어 하지 않았다.",
@@ -431,24 +940,34 @@
       }
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E05", "E06", "E08", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E05",
+      "E06",
+      "E08",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "관제실에서 표준혁이 매번 직접 확인하던 제어반의 접지선을 몰래 손상시켜, 표준혁이 스스로 스위치를 조작하다 감전되어 사망하게 만들었다.",
       "motive_fact": "재활이 끝나지 않은 표이안을 지키려던 안유겸이, 표준혁이 무리한 복귀 훈련을 강행시키려 한다는 사실을 알고 이를 막으려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "안유겸",
     "method": "전날 21:10경 관제실에서 표준혁이 매번 확인하는 제어반의 접지선을 미세하게 손상시킨 안유겸은, 다음 날 18:50 표준혁이 그 제어반 스위치를 직접 조작하는 순간 감전되어 그 자리에서 쓰러지게 만들었다.",
     "motive": "재활이 끝나지 않은 아들 표이안에게 무리한 복귀 훈련을 강행시키려 한 표준혁의 결정을, 3년간 지도해온 코치 안유겸이 막으려 했다.",
     "key_connection": "관제실의 접지선 손상 흔적과 정비일지 누락 기록이 안유겸의 초기 부인과 어긋나고, 접지선 손상과 방도경의 증언이 단순 점검이었다는 주장과 맞지 않으며, 표이안과 국이랑의 증언이 뒷받침하는 표준혁의 강압적 성향이 안유겸에게 처음부터 그를 막을 개인적 동기가 있었다는 사실을 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "표준혁이 관제실 안에서 쓰러진 채 발견된 표면 사건",
     "제어반 접지선 손상 흔적과 정비일지 누락 기록의 연결",

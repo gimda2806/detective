@@ -12,10 +12,18 @@
       "비엔날레",
       "사제_관계"
     ],
-    "location_archetypes": ["craft_glass", "cafe_bar"],
+    "location_archetypes": [
+      "craft_glass",
+      "cafe_bar"
+    ],
     "background": {
-      "background_archetypes": ["competition_contest", "exhibition"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "competition_contest",
+        "exhibition"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -30,43 +38,66 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "오랫동안 함께한 스승과 수석 제자",
       "public_face": "공방에서 가장 가까운 사제 사이로 알려져 있다.",
-      "says": { "CH01": "\"원장님이랑은... 그렇지 않습니까, 제일 가까운 사이였다고 다들 그렇게 알고 있어요.\"" },
+      "says": {
+        "CH01": "\"원장님이랑은... 그렇지 않습니까, 제일 가까운 사이였다고 다들 그렇게 알고 있어요.\""
+      },
       "private_strain": "고은결이 몇 년 전 탁문경의 미공개 신기법 도안을 훔쳐 자신의 이름으로 준비해 왔고, 탁문경이 스케치북이 찢겨나간 것을 발견해 표절 사실을 알아채 심사위원단에 알리겠다고 선언했다.",
       "surfaces_when": "찢겨나간 스케치북 페이지(E01)와 출품작 문양 대조 자료(E02)를 함께 제시하면"
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "작품을 평가받는 신입 유리공예가와 원장",
       "public_face": "평가하고 배우는 사이로 알려져 있다.",
-      "says": { "CH03": "\"그게 아니라... 작품 평가로 좀 다투긴 했는데, 그거랑 이거랑 무슨 상관인데요.\"" },
+      "says": {
+        "CH03": "\"그게 아니라... 작품 평가로 좀 다투긴 했는데, 그거랑 이거랑 무슨 상관인데요.\""
+      },
       "private_strain": "방소현이 최근 탁문경과 작품 선정 문제로 크게 다퉜고, 끝내 인정받지 못한 서운함을 풀지 못한 채로 남겨두고 있었다.",
       "surfaces_when": "위지환의 증언(E08)을 제시하거나 방소현에게 탁문경과의 관계를 캐물으면"
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "수십 년을 함께한 원장과 오랜 조수",
       "public_face": "오래도록 신뢰해 온 관계로 알려져 있다.",
-      "says": { "CH02": "\"원장님하고요? 제가 여기서만 벌써 여러 해예요. 믿고 맡겨 주신 게 한두 번이 아니죠.\"" },
+      "says": {
+        "CH02": "\"원장님하고요? 제가 여기서만 벌써 여러 해예요. 믿고 맡겨 주신 게 한두 번이 아니죠.\""
+      },
       "private_strain": "신영주는 최근 탁문경이 유난히 스케치북을 자주 확인하고 다니는 것을 눈치챘지만 그 이유는 몰랐다.",
       "surfaces_when": "찢겨나간 스케치북 페이지(E01)를 짚으며 신영주에게 탁문경의 최근 행동을 물으면"
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "비엔날레 심사와 준비를 조율하는 큐레이터와 출품 예정 원로 작가",
       "public_face": "심사 절차로 신뢰하며 협의하는 사이로 알려져 있다.",
-      "says": { "CH04": "\"그건 그렇고, 저는 그저 전시 배치 문제로 잠깐 들렀을 뿐입니다.\"" },
+      "says": {
+        "CH04": "\"그건 그렇고, 저는 그저 전시 배치 문제로 잠깐 들렀을 뿐입니다.\""
+      },
       "private_strain": "위지환이 사건 당일 밤 몰래 공방에 들러 탁문경과 짧게 이야기를 나눴고, 심사위원으로서 후보 작가와 사적으로 접촉한 사실이 알려지면 공정성 시비가 생길까 봐 숨겨왔다.",
       "surfaces_when": "방문객 서명대장 기록(E09)을 제시하면"
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "오가며 마주치는 옆 카페 사장과 공방 실장",
       "public_face": "가볍게 인사하는 이웃 사이로 알려져 있다.",
       "says": {
@@ -97,10 +128,24 @@
     "method": "냉각로 보관실에서 말다툼 중 격분해 선반 위 깨진 초벌 유리 조각으로 탁문경의 옆구리를 찔러 과다출혈로 사망하게 했다.",
     "key_time_location": "사건 전날 21시 20분경, 냉각로 보관실(L03).",
     "cover_up": "탁문경의 안전장갑을 벗겨 바닥에 내던지고 깨진 유리 조각을 서냉로 앞에 흩뿌려, 뜨거운 작품을 옮기다 넘어져 유리에 찔린 사고사처럼 꾸몄다.",
-    "method_archetypes": ["stabbing", "exsanguination", "staging_cover_up"],
-    "motive_archetypes": ["ip_dispute", "secret_exposure", "reputation"],
-    "cover_up_target": ["cause_of_death", "crime_scene"],
-    "cover_up_method": ["false_accident", "scene_rearrangement"]
+    "method_archetypes": [
+      "stabbing",
+      "exsanguination",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "ip_dispute",
+      "secret_exposure",
+      "reputation"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "scene_rearrangement"
+    ]
   },
   "actual_timeline": [
     {
@@ -975,7 +1020,8 @@
       "how_to_clear": "위지환의 증언(E08)으로 다툼의 실체를 확인한 뒤, 방소현 본인에게 사건 당일 밤 행적(S-CH03-02)을 다시 확인해 알리바이를 성립시킨다.",
       "must_not_imply": "방소현이 다툼 사실을 숨긴 것을 곧바로 살해 동기로 단정해서는 안 된다.",
       "lingering_thread": "방소현은 탁문경에게 인정받고 싶어했던 마음과, 그가 자신의 작품을 박하게 평가했던 서운함을 끝내 풀지 못한 채로 남긴다.",
-      "suspicion_deepener": "방소현이 처음엔 다툰 사실 자체를 부인하다가, 위지환의 증언이 나온 뒤에야 마지못해 인정하면서 한동안 가장 유력한 용의자로 떠오른다."
+      "suspicion_deepener": "방소현이 처음엔 다툰 사실 자체를 부인하다가, 위지환의 증언이 나온 뒤에야 마지못해 인정하면서 한동안 가장 유력한 용의자로 떠오른다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -984,7 +1030,8 @@
       "how_to_clear": "서명대장 기록(E09)으로 방문 사실을 추궁한 뒤, 그의 진짜 방문 목적을 확인하고 냉각로 보관실 쪽 동선이 없었음을 확인한다.",
       "must_not_imply": "위지환이 방문 사실을 숨긴 것을 곧바로 살해 혐의로 연결해서는 안 된다.",
       "lingering_thread": "위지환은 혐의를 벗은 뒤에도, 처음에 방문 사실을 잡아뗐던 일 때문에 탁문경을 볼 때마다 멋쩍어했다.",
-      "suspicion_deepener": "위지환이 처음엔 그날 밤 공방 근처에 간 적도 없다고 완강히 부인하면서, 서명대장 기록이 나오기 전까지 의심이 짙어진다."
+      "suspicion_deepener": "위지환이 처음엔 그날 밤 공방 근처에 간 적도 없다고 완강히 부인하면서, 서명대장 기록이 나오기 전까지 의심이 짙어진다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

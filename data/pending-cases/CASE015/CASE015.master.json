@@ -11,10 +11,18 @@
       "외딴섬",
       "해양유물전시관"
     ],
-    "location_archetypes": ["museum_exhibition", "utility_facility"],
+    "location_archetypes": [
+      "museum_exhibition",
+      "utility_facility"
+    ],
     "background": {
-      "background_archetypes": ["review_certification", "inspection_audit"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "review_certification",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -40,10 +48,25 @@
     "key_time_location": "22:00, L02 등탑 램프실에서 둔기로 가격해 살해 / 22:20, L02에서 방화로 위장.",
     "cover_up": "서도협은 화재가 낡은 등유 램프의 누유로 인한 사고라고 주장하며, 자신은 그 시각 계속 전시관 사무실에서 서류 작업을 했다고 진술하려 한다.",
     "accomplice": "없음",
-    "method_archetypes": ["blunt_force", "arson", "staging_cover_up"],
-    "motive_archetypes": ["crime_cover", "secret_exposure", "financial_gain"],
-    "cover_up_target": ["cause_of_death", "evidence", "crime_scene"],
-    "cover_up_method": ["false_accident", "evidence_removal"]
+    "method_archetypes": [
+      "blunt_force",
+      "arson",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "secret_exposure",
+      "financial_gain"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -880,7 +903,8 @@
       "how_to_clear": "도현우의 초기 진술을 고재원의 목격담(E08), 그리고 밤새 로비를 지킨 유단비의 확인(E09)과 대조한다 — 22시 30분경 램프실 쪽에서 나온 것은 서도협이며, 유단비는 그 시각까지 도현우가 방을 나서는 것을 보지 못했다.",
       "must_not_imply": "심사를 서두른다는 점만으로 그가 방화나 살인에 관여했다고 단정하지 않는다.",
       "lingering_thread": "도현우는 혐의를 벗지만, 일정을 서둘러 통보했다는 사실 때문에 전시관 직원들 사이에서 한동안 곱지 않은 시선을 받는다.",
-      "suspicion_deepener": "그가 최근 서도협에게 전수조사 일정을 앞당기겠다고 강하게 통보한 메모가 발견되어, 서도협을 궁지로 몰아넣었다는 정황이 한층 뚜렷해진다."
+      "suspicion_deepener": "그가 최근 서도협에게 전수조사 일정을 앞당기겠다고 강하게 통보한 메모가 발견되어, 서도협을 궁지로 몰아넣었다는 정황이 한층 뚜렷해진다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -889,7 +913,8 @@
       "how_to_clear": "등유 재고 대장(E06)의 기록 시점과 고재원 자신의 목격담(E08)이 가리키는 위치가 서로 일치함을 확인한다 — 그가 반출량 증가를 표시해 둔 것과 22시 30분에 창고에 있었다는 것이 맞물린다.",
       "must_not_imply": "등유 관리를 맡고 있다는 사실만으로 방화에 관여했다고 단정하지 않는다.",
       "lingering_thread": "고재원은 재고 이상을 진작 알아챘으면서도 대수롭지 않게 넘겼다는 사실에 자책하며, 이번 일을 계기로 등대 시설 전체의 안전 점검을 자원해서 맡겠다고 나선다.",
-      "suspicion_deepener": "그가 최근 재고 이상을 발견하고도 이를 즉시 보고하지 않은 채 혼자 조용히 확인만 하고 다녔다는 사실이 드러나, 그가 뭔가를 숨기고 있는 것처럼 보인다."
+      "suspicion_deepener": "그가 최근 재고 이상을 발견하고도 이를 즉시 보고하지 않은 채 혼자 조용히 확인만 하고 다녔다는 사실이 드러나, 그가 뭔가를 숨기고 있는 것처럼 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

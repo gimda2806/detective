@@ -7,11 +7,24 @@
     "detective_entry_type": "stranded_by_circumstance",
     "detective_entry": "탐정과 한지우는 전날 밤부터 폭우로 도로가 전면 통제되며, 가장 가까운 건물이었던 '무브온동물재활센터' 로비에 발이 묶여 밤을 지새우고 있었다.",
     "tone": "차분하고 씁쓸한 직업윤리 미스터리 톤",
-    "tags": ["동물병원", "확장개원", "폭우"],
-    "location_archetypes": ["rehabilitation_facility", "clinic"],
+    "tags": [
+      "동물병원",
+      "확장개원",
+      "폭우"
+    ],
+    "location_archetypes": [
+      "rehabilitation_facility",
+      "clinic"
+    ],
     "background": {
-      "background_archetypes": ["opening_completion", "review_certification", "evaluation"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "opening_completion",
+        "review_certification",
+        "evaluation"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -43,17 +56,33 @@
     "method": "고압산소챔버실에서 언쟁 중 격분해 배기 밸브를 조작해 챔버 내 산소 농도를 낮추고 문을 잠가 선다혜를 질식시켰다.",
     "key_time_location": "사건 당일 21시 40분경, 고압산소챔버실(L03).",
     "cover_up": "밸브를 원래 설정값으로 되돌리고 챔버 문을 열어두어 노후 장비의 오작동에 의한 사고사처럼 꾸몄고, 원장실 컴퓨터에 야간 서류 작업 파일을 저장해 알리바이 기록을 남겼다.",
-    "method_archetypes": ["oxygen_deprivation", "staging_cover_up"],
-    "motive_archetypes": ["report_prevention", "secret_exposure", "crime_cover"],
-    "cover_up_target": ["cause_of_death", "location"],
-    "cover_up_method": ["false_accident", "scene_rearrangement", "false_alibi"]
+    "method_archetypes": [
+      "oxygen_deprivation",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "secret_exposure",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "location"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "scene_rearrangement",
+      "false_alibi"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사건 며칠 전, 낮",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "선다혜가 정기 안전점검 중 고압산소챔버 인증서의 발급일자가 조작된 것을 발견한다.",
       "world_fact": "선다혜가 처음으로 인증서 위조 사실을 알아챈다."
     },
@@ -61,14 +90,19 @@
       "id": "T02",
       "time": "사건 며칠 전, 오후",
       "location": "L04",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "선다혜가 구현모에게 인증서 발급일자 조작 정황을 지적하며 재인증을 요구한다."
     },
     {
       "id": "T03",
       "time": "사건 당일, 20시경",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 인증서 발급일자를 다시 조작해 서류철에 끼워 넣는다.",
       "world_fact": "구현모가 문제를 다시 은폐하려 시도한다."
     },
@@ -76,7 +110,9 @@
       "id": "T04",
       "time": "사건 당일, 21시경",
       "location": "L05",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "선다혜가 다시 조작된 인증서 사본을 발견하고 원본과 대조해 사진으로 남긴다.",
       "world_fact": "선다혜가 구현모의 재조작 사실까지 확인한다."
     },
@@ -84,42 +120,57 @@
       "id": "T05",
       "time": "사건 당일, 21시 15분경",
       "location": "L04",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "선다혜가 구현모에게 조작 사실을 다시 확인시키며 내일 아침 투자사 심사단에 알리겠다고 선언한다."
     },
     {
       "id": "T06",
       "time": "사건 당일, 21시 20분경",
       "location": "L03",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "선다혜가 탁수인의 도움을 받아 개원 시연용 챔버 리허설 준비를 시작한다."
     },
     {
       "id": "T07",
       "time": "사건 당일, 21시 25분경",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "탁수인이 준비를 마치고 먼저 퇴근한다."
     },
     {
       "id": "T08",
       "time": "사건 당일, 21시 30분경",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 챔버실로 뒤따라 들어온다."
     },
     {
       "id": "T09",
       "time": "사건 당일, 21시 35분경",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "구현모가 챔버 안의 선다혜에게 폭로를 그만두라고 다그친다."
     },
     {
       "id": "T10",
       "time": "사건 당일, 21시 40분경",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 챔버의 배기 밸브를 조작해 내부 산소 농도를 급격히 낮춘다.",
       "world_fact": "이것이 실제 사인이 되는 조작이다."
     },
@@ -127,14 +178,18 @@
       "id": "T11",
       "time": "사건 당일, 21시 42분경",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 챔버 문 잠금장치를 걸어 선다혜가 빠져나오지 못하게 한다."
     },
     {
       "id": "T12",
       "time": "사건 당일, 21시 55분경",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "선다혜가 챔버 안에서 저산소증으로 의식을 잃고 사망한다.",
       "world_fact": "이 시각이 실제 사망 시각이다."
     },
@@ -142,7 +197,9 @@
       "id": "T13",
       "time": "사건 당일, 22시경",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 밸브를 원래 설정값으로 되돌리고 챔버 문을 열어둔다.",
       "world_fact": "사고사로 위장하는 공작이다."
     },
@@ -150,14 +207,18 @@
       "id": "T14",
       "time": "사건 당일, 22시 10분경",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구현모가 원장실 컴퓨터에서 서류 파일을 저장해 알리바이 기록을 남긴다."
     },
     {
       "id": "T15",
       "time": "다음 날 7시경",
       "location": "L03",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "여도담이 이른 출근길에 고압산소챔버실에서 쓰러진 선다혜를 발견한다."
     }
   ],
@@ -172,25 +233,36 @@
           "fact_id": "F-CH01-04",
           "content": "그날 밤 실제로 챔버실 근처까지 갔었다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH01-05",
           "content": "선다혜에게 인증서 조작을 지적받고 다퉜다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T05", "T09"]
+          "related_timeline": [
+            "T05",
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "격분해 배기 밸브를 조작하고 문을 잠가 선다혜를 질식시켰다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T10", "T11", "T12"]
+          "related_timeline": [
+            "T10",
+            "T11",
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "밸브를 원상복구하고 문을 열어 사고사로 위장했다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         }
       ],
       "initial_claims": [
@@ -213,7 +285,11 @@
           "reason_for_limit_or_lie": "직접적인 살해 행위를 끝까지 숨기려는 마지막 발뺌"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-04",
@@ -262,7 +338,9 @@
           "fact_id": "F-CH02-01",
           "content": "그날 21시 20분경 선다혜의 챔버 리허설 준비를 도와줬다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
@@ -282,7 +360,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "구현모와 선다혜 사이에 있었던 구체적인 다툼 내용은 직접 듣지 못했다.",
@@ -329,7 +410,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -383,7 +467,10 @@
           "reason_for_limit_or_lie": "괜한 일에 휘말리기 싫어서 목격한 것을 숨긴다"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -416,19 +503,25 @@
           "fact_id": "F-CH05-01",
           "content": "그날 21시 25분경 퇴근하다가 선다혜가 챔버실로 들어가는 것을 봤다는 것.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "잠시 후 구현모도 챔버실 쪽으로 가는 것을 봤다는 것.",
           "source": "직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH05-03",
           "content": "다음날 아침 쓰러진 선다혜를 발견했다는 것.",
           "source": "직접 경험",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         }
       ],
       "initial_claims": [
@@ -448,10 +541,22 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02", "S-CH05-03"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02",
+        "S-CH05-03"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" },
-        { "fact_or_claim_id": "F-CH05-03", "release_prerequisite": "C01", "release_trigger": "F-CH05-02" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH05-02"
+        }
       ],
       "knowledge_limits": [
         "챔버 내부 기계 조작법이나 인증서 관련 서류 내용은 전혀 모른다.",
@@ -472,7 +577,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "병원을 함께 키워 온 병원장과 수석 재활치료사.",
       "public_face": "구현모는 인증서 문제는 이미 다 처리했고 아무 문제 없다고 말한다.",
       "private_strain": "선다혜가 고압산소챔버 인증서 발급일자 위조를 발견해 재인증을 요구했고, 구현모가 이를 재조작해 은폐하려 했지만 다시 발각되자 선다혜가 내일 심사단에 알리겠다고 선언한 직후 구현모가 그를 살해했다.",
@@ -483,7 +591,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "병원장과 재활치료팀 부팀장. 챔버 안전수칙을 지키는 실무자다.",
       "public_face": "탁수인은 그날 밤 선다혜의 리허설 준비를 돕고 21시 25분쯤 먼저 퇴근했다고 말한다.",
       "private_strain": "챔버는 반드시 두 명 이상이 함께 조작 상황을 지켜봐야 한다는 안전수칙이 있는데, 그날 밤은 개원 준비로 다들 바빠 탁수인 혼자 준비만 돕고 나가 이례적으로 감시자 없는 상황이 만들어졌다.",
@@ -495,7 +606,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "병원장과 투자사 심사역 겸 반려견을 맡기는 단골 고객.",
       "public_face": "국다온은 심사 전날 밤엔 병원 근처에도 간 적 없다고 말한다.",
       "private_strain": "국다온은 실제로 사건 전날 밤 개인적으로 반려견 상담을 받으러 들렀다가 구현모와 선다혜가 다투는 듯한 목소리를 우연히 들었지만, 심사 공정성 문제로 비칠까 봐 숨기고 있다.",
@@ -507,7 +621,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "신입 테크니션과 수석 재활치료사. 선다혜가 여도담을 직접 가르치며 챙겨 온 사이다.",
       "public_face": "여도담이 선다혜를 잘 따르는 후배로 알려져 있다.",
       "private_strain": "여도담은 그날 밤 선다혜가 챔버실로 향하는 걸 보고도 대수롭지 않게 넘겼던 것을, 발견한 뒤부터 계속 후회하고 있다.",
@@ -518,7 +635,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "경영지원팀장과 수석 재활치료사. 개원식 준비로 자주 부딪히는 사이다.",
       "public_face": "서로 다른 업무라 크게 얽힐 일이 없는 사이로 알려져 있다.",
       "private_strain": "표나린은 선다혜가 인증서 문제를 심사단에 알리겠다고 벼르고 있다는 걸 전해 듣고, 몇 달을 쏟은 투자 계약이 무너질까 봐 말리고 싶었지만 끝내 직접 말을 걸지 못했다.",
@@ -651,11 +771,20 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "선다혜의 책상 서랍을 확인한다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "선다혜가 미리 촬영해 인쇄해 둔, 발급일자가 조작된 고압산소챔버 인증서 사본과 원본 대조 메모가 나온다.",
-      "proves": ["고압산소챔버 인증서의 발급일자가 조작되었다는 것"],
-      "does_not_prove": ["누가 조작했는지", "선다혜가 살해됐다는 것"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "고압산소챔버 인증서의 발급일자가 조작되었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지",
+        "선다혜가 살해됐다는 것"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -663,11 +792,20 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "챔버 배기 밸브 주변을 자세히 살펴본다",
-      "related_timeline": ["T10", "T13"],
+      "related_timeline": [
+        "T10",
+        "T13"
+      ],
       "content": "배기 밸브 손잡이에 최근 눌린 지문 자국과, 설정 눈금이 급격히 돌아갔다가 다시 원래대로 되돌아간 흔적이 남아있다.",
-      "proves": ["누군가 배기 밸브를 의도적으로 조작했다가 되돌렸다는 것"],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 배기 밸브를 의도적으로 조작했다가 되돌렸다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -675,11 +813,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "챔버 문 잠금장치의 전자 기록을 확인한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "사건 당일 21시 42분경 챔버 문 잠금장치가 내부가 아니라 외부에서 수동으로 활성화된 로그가 남아있다.",
-      "proves": ["챔버 문이 사고가 아니라 외부에서 의도적으로 잠겼다는 것"],
-      "does_not_prove": ["누가 잠갔는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "챔버 문이 사고가 아니라 외부에서 의도적으로 잠겼다는 것"
+      ],
+      "does_not_prove": [
+        "누가 잠갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -687,11 +833,20 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "원장실 출입카드 기록을 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "구현모의 출입카드가 사건 당일 21시 30분경 챔버실 쪽 출입구를 통과한 기록이 남아있다.",
-      "proves": ["구현모가 사건 시각에 챔버실 근처에 있었다는 것"],
-      "does_not_prove": ["그가 선다혜를 만났는지", "그가 살해했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "구현모가 사건 시각에 챔버실 근처에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 선다혜를 만났는지",
+        "그가 살해했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E05",
@@ -699,11 +854,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "원장실 컴퓨터의 파일 저장 기록을 확인한다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "'밤새 혼자 서류 작업을 했다'는 주장과 달리, 해당 서류 파일은 22시 10분에야 딱 한 번 저장된 기록뿐이다.",
-      "proves": ["구현모의 알리바이 시간대에 설명되지 않는 공백이 있다는 것"],
-      "does_not_prove": ["그 공백 동안 어디 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "구현모의 알리바이 시간대에 설명되지 않는 공백이 있다는 것"
+      ],
+      "does_not_prove": [
+        "그 공백 동안 어디 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E06",
@@ -711,11 +874,20 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "선다혜의 휴대폰 메모 앱을 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "'오늘 밤 리허설 끝나면 원장님한테 다시 얘기해야겠다. 이번엔 진짜 심사단에 말할 거다'라는 메모가 사건 당일 21시 15분경 작성돼 있다.",
-      "proves": ["선다혜가 그날 밤 구현모와 다시 대면할 계획이었다는 것"],
-      "does_not_prove": ["실제로 다시 만났는지", "무슨 일이 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "선다혜가 그날 밤 구현모와 다시 대면할 계획이었다는 것"
+      ],
+      "does_not_prove": [
+        "실제로 다시 만났는지",
+        "무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E07",
@@ -723,11 +895,20 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "여도담에게 그날 밤 퇴근길에 본 것이 있는지 묻는다",
-      "related_timeline": ["T06", "T08"],
+      "related_timeline": [
+        "T06",
+        "T08"
+      ],
       "content": "여도담이 그날 21시 25분경 퇴근하다가 선다혜가 챔버실로 들어가는 것을 봤고, 잠시 후 구현모도 같은 쪽으로 가는 것을 봤다고 증언한다.",
-      "proves": ["선다혜와 구현모가 사건 시각에 같은 장소에 있었다는 것"],
-      "does_not_prove": ["안에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "선다혜와 구현모가 사건 시각에 같은 장소에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E08",
@@ -735,10 +916,17 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "탁수인에게 그날 밤 챔버 리허설 상황을 묻는다",
-      "related_timeline": ["T06", "T07"],
+      "related_timeline": [
+        "T06",
+        "T07"
+      ],
       "content": "탁수인이 원래 챔버 리허설은 두 명이 함께 지켜봐야 하는데, 그날 밤은 자신 혼자 준비만 돕고 먼저 퇴근해 이례적이었다고 증언한다.",
-      "proves": ["사건 당일 밤 챔버실에 안전수칙과 달리 목격자 없는 상황이 만들어졌다는 것"],
-      "does_not_prove": ["누가 그 상황을 의도적으로 만들었는지"],
+      "proves": [
+        "사건 당일 밤 챔버실에 안전수칙과 달리 목격자 없는 상황이 만들어졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 상황을 의도적으로 만들었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -748,9 +936,15 @@
       "found_at": "L01",
       "discovery_condition": "표나린 자리의 법인카드 정산 서류함을 확인한다",
       "content": "야근 회식비 영수증과 정산 내역이 날짜별로 가지런히 정리돼 있다.",
-      "proves": ["표나린의 법인카드 지출이 정당한 업무성 지출이었다는 것"],
-      "does_not_prove": ["그녀가 사건과 무관하다는 것까지 전부"],
-      "presentation_effect": ["S-CH03-02"]
+      "proves": [
+        "표나린의 법인카드 지출이 정당한 업무성 지출이었다는 것"
+      ],
+      "does_not_prove": [
+        "그녀가 사건과 무관하다는 것까지 전부"
+      ],
+      "presentation_effect": [
+        "S-CH03-02"
+      ]
     },
     {
       "id": "E10",
@@ -759,9 +953,15 @@
       "found_at": "L01",
       "discovery_condition": "반려동물 상담 예약 시스템을 확인한다",
       "content": "사건 전날 21시경 국다온이 자신의 반려견 이름으로 남긴 상담 예약 기록이 있다.",
-      "proves": ["국다온이 사건 당일 밤 병원에 방문했다는 것"],
-      "does_not_prove": ["그가 사건에 관여했다는 것"],
-      "presentation_effect": ["S-CH04-01"]
+      "proves": [
+        "국다온이 사건 당일 밤 병원에 방문했다는 것"
+      ],
+      "does_not_prove": [
+        "그가 사건에 관여했다는 것"
+      ],
+      "presentation_effect": [
+        "S-CH04-01"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -770,47 +970,80 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_near_chamber",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E04", "E07"]
+        "evidence_ids": [
+          "E04",
+          "E07"
+        ]
       },
       "player_action": "구현모의 '밤새 원장실에 혼자 있었다'는 진술을 원장실 출입카드 기록(E04)과 여도담의 목격담(E07)에 대조해 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
         "scope": "챔버실 쪽으로 잠깐 간 것은 인정하지만 문 앞에서 되돌아왔을 뿐 선다혜를 만나지 못했다고 주장한다."
       },
-      "must_not_release": ["인증서 조작 사실", "선다혜와의 다툼", "살해 행위"]
+      "must_not_release": [
+        "인증서 조작 사실",
+        "선다혜와의 다툼",
+        "살해 행위"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_near_chamber",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E05"]
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
       },
       "player_action": "위조 인증서 사본(E01)과 원장실 컴퓨터 파일 저장 시각 불일치(E05)를 제시해, '인증서에는 문제가 없다'는 진술과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-05",
         "scope": "인증서 문제로 선다혜와 다퉜다는 것은 인정하지만, 대화 후 그냥 원장실로 돌아갔을 뿐 챔버 근처에는 다시 가지 않았다고 주장한다."
       },
-      "must_not_release": ["살해 행위", "밸브 조작 사실"]
+      "must_not_release": [
+        "살해 행위",
+        "밸브 조작 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_dispute",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_heard_claim_ids": [
+        "F-CH01-05",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E02", "E03"]
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
       },
       "player_action": "챔버 배기 밸브 조작 흔적(E02), 챔버 문 잠금장치 기록(E03), 탁수인의 안전수칙 증언(E08)을 모두 제시해 '밸브는 만진 적 없다'는 마지막 진술과 대조한다.",
       "release": {
@@ -828,7 +1061,8 @@
       "how_to_clear": "법인카드 정산 내역(E09)으로 지출 내용을 확인한 뒤, 표나린 본인에게 개원 자금 압박(S-CH03-02)을 다시 확인해 지출 정황을 해소한다.",
       "must_not_imply": "법인카드 지출 사실만으로 표나린을 사건과 직접 연결해서는 안 된다.",
       "lingering_thread": "표나린은 투자 유치 실적에 대한 부담과 스트레스를 이번 일과는 별개로 계속 안고 살아가야 한다.",
-      "suspicion_deepener": "표나린이 처음엔 법인카드 지출 내역 자체를 얼버무리며 숨기려 하다가, 정산 서류가 나온 뒤에야 마지못해 인정하면서 한동안 의심을 키운다."
+      "suspicion_deepener": "표나린이 처음엔 법인카드 지출 내역 자체를 얼버무리며 숨기려 하다가, 정산 서류가 나온 뒤에야 마지못해 인정하면서 한동안 의심을 키운다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -837,16 +1071,29 @@
       "how_to_clear": "예약 시스템 기록(E10)으로 방문 사실을 추궁한 뒤, 그의 진짜 방문 목적이 심사 업무와 무관했음을 확인한다.",
       "must_not_imply": "국다온이 방문 사실을 숨긴 것을 곧바로 심사 비리나 살해 혐의로 연결해서는 안 된다.",
       "lingering_thread": "국다온은 사건과 별개로 반려견의 재활 상담을 다른 병원에서 이어가야 하는 처지가 되어, 오랫동안 다니던 병원을 옮기는 아쉬움을 안고 지낸다.",
-      "suspicion_deepener": "국다온이 처음엔 병원 근처에 간 적도 없다고 완강히 부인하면서, 예약 기록이 나오기 전까지 의심이 짙어진다."
+      "suspicion_deepener": "국다온이 처음엔 병원 근처에 간 적도 없다고 완강히 부인하면서, 예약 기록이 나오기 전까지 의심이 짙어진다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {
     "required_established_facts": [
-      "E04", "E07", "F-CH01-04",
-      "E01", "E05", "F-CH01-05",
-      "E02", "E03", "E08", "F-CH01-02", "F-CH01-03"
+      "E04",
+      "E07",
+      "F-CH01-04",
+      "E01",
+      "E05",
+      "F-CH01-05",
+      "E02",
+      "E03",
+      "E08",
+      "F-CH01-02",
+      "F-CH01-03"
     ],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "고압산소챔버실에서 배기 밸브를 조작해 산소 농도를 낮추고 문을 잠가 선다혜를 질식시켰다.",

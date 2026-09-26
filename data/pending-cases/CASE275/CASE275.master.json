@@ -5,16 +5,26 @@
     "english_title": "Where the Hammer Stopped",
     "genre": "형의 죽음에 얽힌 진실을 알게 된 뒤 촉발된 복수심에서 비롯된 계획적 살인 / 동력 해머 안전 잠금 걸쇠 마모를 통한 흉부 강타 사고사 위장",
     "setting": "오래된 공업사 골목 안쪽, 3대째 이어온 전통 대장간 겸 커스텀 나이프 공방 '불매간'. 창업주의 손자 강필재가 10년째 운영하며, 매주 토요일 오후 일반인 대상 대장간 체험 클래스를 열어 왔다. 수석 조수 서일한이 8년째 실무 대부분을 도맡아 왔고, 매니저 한도경이 예약과 홍보를, 견습생 국서준이 잔심부름과 초벌 작업을 거들어 왔다. 옆 골목 철물점 대표 판세온은 오래전부터 숯과 자재를 정기적으로 납품해 온 사이다. 탐정은 근처 철물거리에서 낡은 재봉틀 부품을 구하러 다니다가, 매주 토요일마다 열리는 체험 클래스의 망치질 소리에 이끌려 불매간 안까지 들어와 있었다.",
-    "location_archetypes": ["craft_metal"],
+    "location_archetypes": [
+      "craft_metal"
+    ],
     "background": {
-      "background_archetypes": ["workshop"],
-      "background_phrasing": ["scheduled"],
+      "background_archetypes": [
+        "workshop"
+      ],
+      "background_phrasing": [
+        "scheduled"
+      ],
       "background_intensity": "contributory"
     },
     "detective_entry_type": "unrelated_errand",
     "detective_entry": "탐정은 낡은 재봉틀 수리에 쓸 부품을 구하러 근처 철물거리를 돌아다니던 중, 담장 너머로 울리는 규칙적인 망치질 소리에 이끌려 불매간 앞까지 걸어왔다. 마침 열려 있던 문 안으로 체험 클래스 참가자들 사이에 한지우와 함께 섞여 구경하던 참이었다.",
     "tone": "묵직한 장인 정서에 탐정과 한지우의 데드팬 티키타카가 간간이 섞이는 정통 추리극 톤.",
-    "tags": ["대장간", "커스텀_나이프", "체험_클래스"]
+    "tags": [
+      "대장간",
+      "커스텀_나이프",
+      "체험_클래스"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 15:55",
@@ -45,7 +55,7 @@
       "responsibility"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_equipment_failure",
       "concealment_without_staging"
     ],
     "key_time_location": "사건 당일 15시 40분경, 불매간 작업장(L01) 동력 해머 앞.",
@@ -57,7 +67,9 @@
       "id": "T01",
       "time": "8년 전",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "강필재가 노후 동력 벨트 사고로 팔을 다친 견습공 서일광의 산업재해 처리를 막으려 사무실 점검 기록부의 사고 전날 항목을 손수 고쳐 적는다.",
       "world_fact": "강필재가 고쳐 적은 점검 기록부 사고 전날 항목에는 벨트를 점검해 이상이 없었다고 적혀 있었다."
     },
@@ -65,7 +77,9 @@
       "id": "T02",
       "time": "7일 전 18:40",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 사무실 서류 정리를 돕다가 캐비닛 서랍 안쪽에서 8년 전 인사기록카드 뭉치를 발견해, 그 안에서 형 서일광의 이름이 적힌 카드를 알아본다.",
       "world_fact": "서일한이 발견한 인사기록카드에는 서일광의 퇴사 사유가 '개인 사정'으로만 짧게 적혀 있었다."
     },
@@ -73,7 +87,9 @@
       "id": "T03",
       "time": "6일 전 19:00",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 같은 캐비닛에서 8년 전 설비 점검 기록부를 마저 찾아, 사고 전날 항목만 잉크 색과 필체가 다르다는 걸 알아챈다.",
       "world_fact": "서일한이 살펴본 점검 기록부는 사고 전날 항목만 다른 사람이 나중에 고쳐 쓴 것처럼 필체가 달랐다."
     },
@@ -81,21 +97,27 @@
       "id": "T04",
       "time": "6일 전 19:10",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국서준이 정리를 마치고 나오다 사무실 쪽에서 굳은 얼굴로 걸어오는 서일한과 마주쳐, 말을 걸어도 대답이 없었던 걸 기억한다."
     },
     {
       "id": "T05",
       "time": "5일 전 10:00",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 창고에서 다음 클래스에 쓸 시연 재료를 정리하며 해머 정비 일정을 앞당겨 자신이 맡겠다고 자원한다."
     },
     {
       "id": "T06",
       "time": "3일 전 22:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 폐점 후 홀로 남아 동력 해머 풋 페달의 안전 잠금 걸쇠를 줄로 갈아내 미세한 진동에도 풀리도록 마모시킨다.",
       "world_fact": "서일한이 손댄 것은 강필재가 시연 때마다 직접 밟는 풋 페달의 안전 잠금 걸쇠였다."
     },
@@ -103,91 +125,124 @@
       "id": "T07",
       "time": "3일 전 22:20",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 걸쇠 마모 부위가 육안으로 티 나지 않도록 표면을 사포로 매끄럽게 다듬는다."
     },
     {
       "id": "T08",
       "time": "3일 전 22:40",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "판세온이 야간 숯 배달 확인차 들렀다가 로비 너머 작업장 안에 서일한 혼자 불을 켜고 남아 있는 걸 본다."
     },
     {
       "id": "T09",
       "time": "2일 전 15:00",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국서준이 해머를 청소하다 풋 페달 걸쇠 표면이 유난히 매끈하게 닳아 있는 걸 보지만 관리가 잘된 부품이려니 하고 넘어간다."
     },
     {
       "id": "T10",
       "time": "사건 당일 08:50",
       "location": "L03",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "한도경이 체험 클래스 정원 확대 문제로 강필재와 언쟁을 벌인다."
     },
     {
       "id": "T11",
       "time": "사건 당일 08:55",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국서준이 창고로 가려다 사무실 밖에서 한도경과 강필재가 언성을 높이는 소리를 듣는다."
     },
     {
       "id": "T12",
       "time": "사건 당일 09:00",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한도경이 체험 클래스 참가자 명단을 살펴보며 전시장을 정리한다."
     },
     {
       "id": "T13",
       "time": "사건 당일 10:30",
       "location": "L03",
-      "actors": ["CH05", "CH02"],
+      "actors": [
+        "CH05",
+        "CH02"
+      ],
       "actual_action": "판세온이 담금질용 숯 재고를 납품하러 방문해 사무실 앞에서 한도경과 인수증을 주고받는다."
     },
     {
       "id": "T14",
       "time": "사건 당일 14:40",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "방태민이 참가자들보다 일찍 도착해 진열장 속 신작 나이프들을 살펴보다 강필재와 짧게 인사를 나눈다."
     },
     {
       "id": "T15",
       "time": "사건 당일 14:55",
       "location": "L01",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "강필재가 한도경의 도움을 받아 시연용 재료와 참가자 대기 위치를 점검한다."
     },
     {
       "id": "T16",
       "time": "사건 당일 15:00",
       "location": "L01",
-      "actors": ["V01", "CH01", "CH02", "CH03", "CH04"],
+      "actors": [
+        "V01",
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04"
+      ],
       "actual_action": "체험 클래스가 시작되고 강필재가 참가자들 앞에서 동력 해머 조작 순서를 시연하기 시작한다."
     },
     {
       "id": "T17",
       "time": "사건 당일 15:40",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "강필재가 다이 위치를 다시 맞추려 몸을 숙이는 순간 풋 페달 걸쇠가 풀리며 해머 헤드가 그대로 가슴을 강타한다."
     },
     {
       "id": "T18",
       "time": "사건 당일 15:41",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한도경이 가장 먼저 달려가 쓰러진 강필재 곁에서 급히 구급차를 부른다."
     },
     {
       "id": "T19",
       "time": "사건 당일 15:42",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서일한이 뒤이어 달려와 해머 제어반을 살피는 시늉으로 걸쇠 마모 부위에 그리스를 몰래 덧바른다.",
       "world_fact": "서일한이 몰래 덧바른 그리스는 걸쇠의 마모 흔적을 감추기 위한 것이었다."
     },
@@ -195,7 +250,9 @@
       "id": "T20",
       "time": "사건 당일 15:55",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "구급대에 실려가던 강필재가 병원 도착 전 심정지로 사망 판정을 받는다."
     }
   ],
@@ -218,19 +275,27 @@
           "fact_id": "F-CH01-01",
           "content": "그날 밤(3일 전) 홀로 작업장에 남아 동력 해머 풋 페달 걸쇠를 갈아내 마모시켰다.",
           "source": "직접 행동",
-          "related_timeline": ["T06", "T07"]
+          "related_timeline": [
+            "T06",
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "7일 전 사무실에서 형 서일광의 인사기록카드와 조작된 점검 기록부를 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T02", "T03"]
+          "related_timeline": [
+            "T02",
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "사고 직후 걸쇠 마모 부위에 그리스를 몰래 덧발라 흔적을 지웠다.",
           "source": "직접 행동",
-          "related_timeline": ["T19"]
+          "related_timeline": [
+            "T19"
+          ]
         }
       ],
       "initial_claims": [
@@ -253,7 +318,11 @@
           "reason_for_limit_or_lie": "그리스를 덧바른 은폐 행동을 감추기 위해서다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-01",
@@ -296,19 +365,25 @@
           "fact_id": "F-CH02-01",
           "content": "체험 클래스 당일 아침 참가자 명단을 확인하며 전시장을 정리했다.",
           "source": "직접 행동",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사건 당일 아침 클래스 정원 확대 문제로 강필재와 언쟁을 벌였다.",
           "source": "직접 행동",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "쓰러진 강필재 곁에서 서일한이 해머 제어반을 만지작거리는 걸 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T19"]
+          "related_timeline": [
+            "T19"
+          ]
         }
       ],
       "initial_claims": [
@@ -324,7 +399,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -337,7 +415,9 @@
           "release_prerequisite": "C01"
         }
       ],
-      "knowledge_limits": ["서일한이 왜 해머 제어반을 만졌는지는 모른다."],
+      "knowledge_limits": [
+        "서일한이 왜 해머 제어반을 만졌는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 기본으로 쓰는 신중한 존댓말.",
         "sentence_length_tendency": "평소엔 정리된 문장을 쓰지만, 캐물으면 말끝을 흐리며 문장이 짧아진다.",
@@ -359,19 +439,25 @@
           "fact_id": "F-CH03-01",
           "content": "이틀 전 해머를 청소하다 풋 페달 걸쇠 표면이 유난히 매끈하게 닳아 있는 걸 봤지만 대수롭지 않게 넘겼다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "6일 전 저녁 사무실 쪽에서 굳은 얼굴로 걸어오는 서일한과 마주쳤다.",
           "source": "직접 목격",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "사건 당일 아침 사무실 밖에서 한도경과 강필재가 언성을 높이는 소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -386,7 +472,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -399,7 +488,9 @@
           "release_prerequisite": "E01"
         }
       ],
-      "knowledge_limits": ["걸쇠가 왜 매끈했는지 진짜 이유는 모른다."],
+      "knowledge_limits": [
+        "걸쇠가 왜 매끈했는지 진짜 이유는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "존댓말(해요)을 쓰되 말끝을 흐리는 조심스러운 말투.",
         "sentence_length_tendency": "평소엔 짧게 답하다가, 캐물으면 횡설수설 길어진다.",
@@ -421,7 +512,9 @@
           "fact_id": "F-CH04-01",
           "content": "체험 클래스 참가자들보다 일찍 도착해 진열장 속 신작 나이프들을 구경하며 강필재와 짧게 인사를 나눴다.",
           "source": "직접 행동",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         }
       ],
       "initial_claims": [
@@ -436,9 +529,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["걸쇠가 언제부터 마모돼 있었는지는 모른다."],
+      "knowledge_limits": [
+        "걸쇠가 언제부터 마모돼 있었는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)와 해요체를 섞어 쓰는 사교적인 말투.",
         "sentence_length_tendency": "평소엔 유쾌하게 말을 잘 이어가다가, 의심받으면 문장이 뚝뚝 끊긴다.",
@@ -460,13 +558,17 @@
           "fact_id": "F-CH05-01",
           "content": "사건 사흘 전 22시 40분경 야간 숯 배달 확인차 들렀다가, 로비 너머 작업장 안에 서일한 혼자 불을 켜고 남아 있는 걸 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "사건 당일 오전 숯 재고를 납품하러 방문해 사무실에서 한도경과 인수증을 주고받았다.",
           "source": "직접 행동",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         }
       ],
       "initial_claims": [
@@ -481,9 +583,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-00", "S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-00",
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["서일한이 그날 밤 정확히 무슨 작업을 했는지는 모른다."],
+      "knowledge_limits": [
+        "서일한이 그날 밤 정확히 무슨 작업을 했는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 쓰는 사무적인 말투.",
         "sentence_length_tendency": "평소엔 또박또박 정리해 말하지만, 캐물으면 같은 말을 반복하며 방어적이 된다.",
@@ -499,7 +606,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "8년째 손발을 맞춘 수석 조수와 공방 대표. 실무 대부분을 서일한이 도맡아 왔다.",
       "public_face": "가장 손발이 잘 맞는 사제지간으로 알려져 있다.",
       "says": {
@@ -510,7 +620,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "매니저와 대표. 클래스 운영 방식을 두고 자주 부딪혀 온 사이다.",
       "public_face": "실무를 잘 챙기는 매니저로 대표의 신임을 받는다고 알려져 있다.",
       "says": {
@@ -521,7 +634,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "단골 손님과 공방 대표. 신작 나이프가 나올 때마다 가장 먼저 보러 오는 사이다.",
       "public_face": "수집 취향이 확고한 단골로, 공방에서도 반기는 손님으로 알려져 있다.",
       "says": {
@@ -532,7 +648,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "1년차 견습생과 8년차 수석 조수. 일을 배우는 처지라 서일한을 많이 의지해 왔다.",
       "public_face": "선배와 막내로 손발이 잘 맞는다고 알려져 있다.",
       "says": {
@@ -544,7 +663,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "CH02"],
+      "between": [
+        "CH05",
+        "CH02"
+      ],
       "nature": "옆 골목 철물점 대표와 매니저. 숯과 자재 납품 건으로 정기적으로 마주치는 사이다.",
       "public_face": "오래된 거래처로 서로 깍듯하게 대한다고 알려져 있다.",
       "says": {
@@ -561,7 +683,10 @@
       "name": "대장간 작업장",
       "access": "체험 클래스가 열릴 땐 참가자들도 통제선 밖에서 참관할 수 있고, 평소엔 직원만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "화로와 모루, 동력 해머가 놓인 메인 작업 공간. 벽면엔 완성된 커스텀 나이프들이 걸려 있다.",
       "observation_rules": [
         {
@@ -593,7 +718,10 @@
       "name": "전시 및 체험 대기 공간",
       "access": "영업시간엔 손님과 체험 참가자 누구나 드나들 수 있다.",
       "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "완성품 나이프들이 진열된 전시장 겸 체험 참가자들의 대기 공간.",
       "observation_rules": [
         {
@@ -609,7 +737,9 @@
       "name": "사무실",
       "access": "직원과 사전 약속된 방문객만 들어갈 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "낡은 캐비닛과 장부가 쌓인 작은 사무실.",
       "observation_rules": [
         {
@@ -631,7 +761,9 @@
       "name": "자재창고",
       "access": "직원만 출입할 수 있는 창고로 평소엔 잠겨 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "철재와 숯 포대가 쌓인 창고. 오래된 공구들이 먼지 덮인 채 보관돼 있다.",
       "observation_rules": [
         {
@@ -666,10 +798,17 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "회수된 동력 해머의 풋 페달 걸쇠를 확대경으로 살펴본다",
-      "related_timeline": ["T06", "T19"],
+      "related_timeline": [
+        "T06",
+        "T19"
+      ],
       "content": "걸쇠 걸림쇠 부분이 줄로 간 듯 고르게 마모돼 있고, 그 위로 뭔가 매끈하게 덧씌워진 자국이 남아 있다.",
-      "proves": ["누군가 사전에 걸쇠를 훼손한 뒤 은폐를 시도했다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 그 작업을 했는지는 특정하지 못한다."],
+      "proves": [
+        "누군가 사전에 걸쇠를 훼손한 뒤 은폐를 시도했다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그 작업을 했는지는 특정하지 못한다."
+      ],
       "presentation_effect": []
     },
     {
@@ -678,10 +817,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "걸쇠 표면에 남은 그리스를 면봉으로 채취해 성분과 도포 시점을 확인한다",
-      "related_timeline": ["T19"],
+      "related_timeline": [
+        "T19"
+      ],
       "content": "그리스가 최근 며칠 사이 새로 발라진 것으로 확인되며, 원래 걸쇠 도료 위에 덧발라진 흔적이 뚜렷하다.",
-      "proves": ["사고 발생 무렵 누군가 걸쇠 마모 흔적을 은폐하려 그리스를 새로 발랐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 발랐는지는 특정하지 못한다."],
+      "proves": [
+        "사고 발생 무렵 누군가 걸쇠 마모 흔적을 은폐하려 그리스를 새로 발랐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 발랐는지는 특정하지 못한다."
+      ],
       "presentation_effect": []
     },
     {
@@ -690,10 +835,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "국서준에게 해머를 청소하다 이상한 점을 본 적 있는지 묻는다.",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "이틀 전 해머를 청소하다 풋 페달 걸쇠 표면이 유난히 매끈하게 닳아 있던 걸 봤지만 관리가 잘된 부품이려니 하고 넘어갔다는 진술이 확보된다.",
-      "proves": ["걸쇠 훼손 작업이 사건 최소 이틀 전부터 이뤄졌다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 그 작업을 했는지는 알 수 없다."],
+      "proves": [
+        "걸쇠 훼손 작업이 사건 최소 이틀 전부터 이뤄졌다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그 작업을 했는지는 알 수 없다."
+      ],
       "presentation_effect": []
     },
     {
@@ -702,11 +853,19 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "판세온에게 사흘 전 밤 방문했을 때 공방 안 상황을 묻는다.",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "그날 22시 40분경 야간 숯 배달을 확인하러 들렀을 때, 다른 직원들은 이미 퇴근했고 서일한만 홀로 작업장에 남아 불을 켜고 있었다는 기억이 확보된다.",
-      "proves": ["사건 사흘 전 밤, 서일한이 다른 사람 없이 홀로 작업장에 남아 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 시간에 실제로 무슨 작업을 했는지는 알 수 없다."],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "사건 사흘 전 밤, 서일한이 다른 사람 없이 홀로 작업장에 남아 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 시간에 실제로 무슨 작업을 했는지는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E05",
@@ -714,11 +873,19 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "한도경에게 강필재가 쓰러진 직후 상황을 자세히 묻는다.",
-      "related_timeline": ["T19"],
+      "related_timeline": [
+        "T19"
+      ],
       "content": "쓰러진 강필재 곁에서 서일한이 해머 제어반을 만지작거리는 걸 봤지만, 당시엔 상태를 살피려는 줄로만 알았다는 기억이 확보된다.",
-      "proves": ["서일한이 사고 직후 해머 제어반을 직접 만졌다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 행동이 은폐 목적이었는지는 이 진술만으로 알 수 없다."],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "서일한이 사고 직후 해머 제어반을 직접 만졌다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 행동이 은폐 목적이었는지는 이 진술만으로 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -726,10 +893,18 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 캐비닛 안 인사기록카드와 점검 기록부를 살펴본다",
-      "related_timeline": ["T01", "T02", "T03"],
+      "related_timeline": [
+        "T01",
+        "T02",
+        "T03"
+      ],
       "content": "8년 전 인사기록카드 속 서일광의 이름과, 사고 전날 항목만 필체가 다른 점검 기록부가 함께 발견된다.",
-      "proves": ["8년 전 사고 기록이 실제로 조작됐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["서일한이 이 사실을 사전에 알고 있었는지는 이 서류만으로 알 수 없다."],
+      "proves": [
+        "8년 전 사고 기록이 실제로 조작됐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "서일한이 이 사실을 사전에 알고 있었는지는 이 서류만으로 알 수 없다."
+      ],
       "presentation_effect": []
     },
     {
@@ -738,11 +913,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "국서준에게 요즘 서일한 형 태도가 달라진 적 있었는지 묻는다.",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "6일 전 저녁 사무실 쪽에서 굳은 얼굴로 걸어오는 서일한과 마주쳤고, 이후 며칠간 유난히 말수가 줄었다는 기억이 확보된다.",
-      "proves": ["서일한이 그 무렵 사무실에서 무언가를 보고 동요했다는 사실을 뒷받침한다."],
-      "does_not_prove": ["무엇을 봤는지는 이 진술만으로 특정할 수 없다."],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "서일한이 그 무렵 사무실에서 무언가를 보고 동요했다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "무엇을 봤는지는 이 진술만으로 특정할 수 없다."
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E08",
@@ -750,10 +933,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "해머 제어반 옆 공구함 안 줄(야스리)을 살펴본다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "줄 날 끝에 걸쇠와 같은 금속 재질의 미세한 쇳가루가 남아 있다.",
-      "proves": ["그 줄이 걸쇠를 갈아내는 데 쓰였다는 사실을 뒷받침한다."],
-      "does_not_prove": ["정확히 언제 그 줄을 썼는지는 특정하지 못한다."],
+      "proves": [
+        "그 줄이 걸쇠를 갈아내는 데 쓰였다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "정확히 언제 그 줄을 썼는지는 특정하지 못한다."
+      ],
       "presentation_effect": []
     },
     {
@@ -762,10 +951,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "국서준에게 사건 당일 아침 사무실 쪽에서 이상한 소리를 들은 적 있는지 묻는다.",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "사건 당일 아침 사무실 밖을 지나다 한도경과 강필재가 언성을 높이는 소리를 들었다는 진술이 확보된다.",
-      "proves": ["사고 당일 아침 한도경과 강필재 사이에 언쟁이 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["언쟁의 구체적인 내용까지는 알 수 없다."],
+      "proves": [
+        "사고 당일 아침 한도경과 강필재 사이에 언쟁이 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "언쟁의 구체적인 내용까지는 알 수 없다."
+      ],
       "presentation_effect": []
     },
     {
@@ -775,8 +970,12 @@
       "found_at": "L01",
       "discovery_condition": "한도경에게 사건 당일 아침 작업장을 둘러본 적 있는지 묻는다.",
       "content": "한도경은 사건 당일 아침 9시경 개점 준비를 하며 이미 풋 페달 걸쇠 부위가 유난히 매끈하게 닳아 있는 걸 봤지만 오래된 기계려니 하고 넘겼다고 증언한다.",
-      "proves": ["마모 흔적이 방태민이 도착한 당일 오후 2시 40분보다 앞선 오전부터 있었다는 사실을 독립적으로 뒷받침한다."],
-      "does_not_prove": ["마모가 정확히 언제 처음 생겼는지"],
+      "proves": [
+        "마모 흔적이 방태민이 도착한 당일 오후 2시 40분보다 앞선 오전부터 있었다는 사실을 독립적으로 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "마모가 정확히 언제 처음 생겼는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -786,8 +985,12 @@
       "found_at": "L02",
       "discovery_condition": "방태민에게 사건 당일 한도경이 어디 있었는지 묻는다.",
       "content": "방태민은 사고가 나기 전까지 한도경이 줄곧 접수대에서 참가자 명단을 확인하고 있는 모습을 봤다고 증언한다.",
-      "proves": ["한도경이 사고 시각까지 접수 업무로 작업장에서 떨어져 있었다는 사실을 독립적으로 뒷받침한다."],
-      "does_not_prove": ["사고 직후 그가 어디로 이동했는지"],
+      "proves": [
+        "한도경이 사고 시각까지 접수 업무로 작업장에서 떨어져 있었다는 사실을 독립적으로 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "사고 직후 그가 어디로 이동했는지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -797,11 +1000,17 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "opportunity_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E04"]
+        "evidence_ids": [
+          "E04"
+        ]
       },
       "player_action": "서일한에게 그날 밤엔 평소 정비만 했을 뿐이라는 주장을 들은 뒤, E03(국서준의 목격담)과 E04(판세온의 증언)를 제시해 걸쇠 마모가 최소 이틀 전부터 있었고 그날 밤엔 서일한 혼자 작업장에 남아 있었다는 사실을 들이민다.",
       "release": {
@@ -818,11 +1027,18 @@
       "target_character": "CH01",
       "from_stage": "opportunity_admitted",
       "to_stage": "motive_exposed",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E07"],
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E07"]
+        "evidence_ids": [
+          "E07"
+        ]
       },
       "player_action": "정비만 했다는 주장만 확보한 서일한에게 서류를 본 적 없다는 주장을 들은 뒤, E06(인사기록카드와 조작된 점검 기록부)과 E07(국서준이 목격한 굳은 얼굴)을 제시해 6~7일 전 이미 형에 관한 진실을 알았을 가능성을 좁혀 간다.",
       "release": {
@@ -839,11 +1055,18 @@
       "target_character": "CH01",
       "from_stage": "motive_exposed",
       "to_stage": "confession",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E05"]
+        "evidence_ids": [
+          "E05"
+        ]
       },
       "player_action": "사고 직후 해머를 만진 건 상태 확인이었다는 주장을 들은 뒤 E01(마모된 걸쇠), E02(재도포된 그리스 흔적), E05(한도경의 목격담), E08(줄에 남은 쇳가루)을 차례로 제시해, 걸쇠를 훼손하고 사고 직후 그리스로 흔적을 지우기까지의 전모를 확정 짓는다.",
       "release": {
@@ -861,7 +1084,8 @@
       "actual_reason": "방태민이 일찍 도착해 살핀 건 진열장 속 신작 나이프였을 뿐이며, 걸쇠 마모는 그가 도착하기 이틀도 더 전에 이미 만들어져 있었다 — 그의 방문 목적은 순수하게 신작 구경과 인사였다.",
       "how_to_clear": "E01·E08로 걸쇠 마모가 사건 사흘 전 밤 이전에 이미 이뤄졌음을 확인하고, 방태민의 도착 시각(당일 14시 40분)과 대조해 시간상 맞지 않음을 짚는다. 한도경에게 물으면(E10) 방태민이 오기 전인 당일 오전부터 이미 걸쇠가 매끈하게 닳아 있었다는 사실이 한 번 더 확인된다.",
       "must_not_imply": "나이프를 탐냈다는 사실만으로 방태민이 훼손에 관여했다고 단정하지 않는다.",
-      "lingering_thread": "탐이 나던 그 시제품 나이프 라인은 결국 강필재의 죽음과 함께 더는 만들어지지 않는 유작이 되어, 방태민은 못내 아쉬움을 감추지 못한다."
+      "lingering_thread": "탐이 나던 그 시제품 나이프 라인은 결국 강필재의 죽음과 함께 더는 만들어지지 않는 유작이 되어, 방태민은 못내 아쉬움을 감추지 못한다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -870,12 +1094,21 @@
       "actual_reason": "한도경은 클래스 운영 방식에 불만은 있었지만, 사고 당일 줄곧 접수와 명단 확인 업무로 해머와 떨어져 있었고, 사고 직후엔 오히려 서일한의 수상한 행동을 목격한 쪽이었다 — 시간대를 맞춰 보면 그가 걸쇠를 훼손할 기회 자체가 없었다.",
       "how_to_clear": "E03(국서준의 목격담)과 E04(판세온의 증언)로 훼손 작업이 서일한 혼자 있던 시간대에 이뤄졌음을 확인해, 그 시간대 한도경의 동선과 겹치지 않음을 짚는다. 방태민에게 물으면(E11) 사고 시각까지 한도경이 줄곧 접수대에 있었다는 사실이 한 번 더 확인된다.",
       "must_not_imply": "언쟁이 있었다는 사실만으로 한도경이 살해에 관여했다고 단정하지 않는다.",
-      "lingering_thread": "운영 방식을 둘러싼 강필재와의 마지막 언쟁은 화해할 기회조차 없이 끝나버려, 한도경의 마음에 오래도록 앙금으로 남는다."
+      "lingering_thread": "운영 방식을 둘러싼 강필재와의 마지막 언쟁은 화해할 기회조차 없이 끝나버려, 한도경의 마음에 오래도록 앙금으로 남는다.",
+      "character_id": "CH02"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "서일한이 체험 클래스 사흘 전 밤 홀로 남아 동력 해머 풋 페달의 안전 잠금 걸쇠를 갈아내 마모시켜 강필재가 시연 중 해머에 가슴을 강타당하게 만들었고, 사고 직후 걸쇠에 그리스를 덧발라 흔적을 지우려 했다.",

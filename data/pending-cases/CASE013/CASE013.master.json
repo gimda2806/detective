@@ -11,10 +11,16 @@
       "유리공예_공방",
       "무형문화재_심사"
     ],
-    "location_archetypes": ["craft_glass"],
+    "location_archetypes": [
+      "craft_glass"
+    ],
     "background": {
-      "background_archetypes": ["review_certification"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "review_certification"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -46,10 +52,24 @@
     "key_time_location": "사건 당일 5시~6시 10분, L02 용해로실.",
     "cover_up": "최덕구는 환기팬이 갑자기 고장 났다고 둘러대고, 송지원이 야간에 혼자 위험한 점검 작업을 하다 사고를 당한 것처럼 현장을 정리했다.",
     "accomplice": "없음",
-    "method_archetypes": ["toxic_gas_buildup", "staging_cover_up"],
-    "motive_archetypes": ["report_prevention", "crime_cover"],
-    "cover_up_target": ["cause_of_death", "crime_scene", "evidence"],
-    "cover_up_method": ["false_accident", "scene_rearrangement", "body_movement"]
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "crime_scene",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "scene_rearrangement",
+      "body_movement"
+    ]
   },
   "actual_timeline": [
     {
@@ -601,7 +621,7 @@
           "action": "전시장 방문객 기록부를 확인한다",
           "requires": "없음",
           "release_evidence_id": "E09",
-          "result": "강윤재의 이름이 오늘 오전 7시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명도 7시로 남아 있다."
+          "result": "강윤재의 이름이 오늘 오전 9시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명은 7시로 남아 있다. 예약은 보름 전 날짜다."
         }
       ]
     },
@@ -867,9 +887,10 @@
       "found_at": "L01",
       "discovery_condition": "전시장 방문객 기록부를 확인한다",
       "related_timeline": [],
-      "content": "강윤재의 이름이 오늘 오전 7시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명도 7시로 남아 있다.",
+      "content": "강윤재의 이름이 오늘 오전 9시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명은 7시로 남아 있다. 예약은 보름 전 날짜다.",
       "proves": [
-        "강윤재가 사건 당일 7시에야 공방에 도착했다는 사실을 증명한다."
+        "강윤재가 사건 당일 7시에야 공방에 도착했다는 사실을 증명한다.",
+        "약속이 보름 전에 잡힌 9시였다는 것을 증명한다."
       ],
       "does_not_prove": [
         "그가 그 전에 공방 근처에 있었는지"
@@ -1003,7 +1024,8 @@
       "how_to_clear": "E01·E02 위조 증거의 시점과, 백소민이 새벽엔 출근하지 않는다는 오하늘의 진술(E10)을 대조한다 — 위조를 저지를 시간에 그녀는 공방에 없었다.",
       "must_not_imply": "재정적 이해관계가 있다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
       "lingering_thread": "공방의 오랜 재정난은 이번 사건과 별개로 남아, 심사 결과와 무관하게 앞으로도 백소민이 계속 풀어야 할 문제로 남는다.",
-      "suspicion_deepener": "공방 환기 설비 유지보수 예산을 오랫동안 그녀가 직접 관리해 왔다는 사실이 확인되어, 설비 이상과의 연관성이 한층 짙어 보인다."
+      "suspicion_deepener": "공방 환기 설비 유지보수 예산을 오랫동안 그녀가 직접 관리해 왔다는 사실이 확인되어, 설비 이상과의 연관성이 한층 짙어 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

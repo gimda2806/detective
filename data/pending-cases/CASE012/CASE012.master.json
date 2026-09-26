@@ -11,10 +11,17 @@
       "전통_도자기_공방",
       "도제_관계"
     ],
-    "location_archetypes": ["craft_ceramics"],
+    "location_archetypes": [
+      "craft_ceramics"
+    ],
     "background": {
-      "background_archetypes": ["contract_signing", "festival_celebration"],
-      "background_phrasing": ["on_the_day_of"],
+      "background_archetypes": [
+        "contract_signing",
+        "festival_celebration"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
       "background_intensity": "contributory"
     }
   },
@@ -48,10 +55,23 @@
     "key_time_location": "22:20, L02 성형실에서 몸싸움 시작 / 22:25, L02 성형실에서 받침목으로 가격 / 22:27, L02 성형실 슬립 탱크에서 살해.",
     "cover_up": "오영재는 범행 직후 유약 조합실로 돌아가 한서준이 만든 사본과 송금 내역 출력물을 챙겨 나왔고, 가마터의 세척대에서 몸과 옷에 묻은 흔적을 급히 씻어냈다.",
     "accomplice": "없음",
-    "method_archetypes": ["blunt_force", "drowning"],
-    "motive_archetypes": ["ip_dispute", "secret_exposure", "crime_cover"],
-    "cover_up_target": ["evidence", "financial_trace"],
-    "cover_up_method": ["evidence_removal", "concealment_without_staging"]
+    "method_archetypes": [
+      "blunt_force",
+      "drowning"
+    ],
+    "motive_archetypes": [
+      "ip_dispute",
+      "secret_exposure",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "evidence",
+      "financial_trace"
+    ],
+    "cover_up_method": [
+      "evidence_removal",
+      "concealment_without_staging"
+    ]
   },
   "actual_timeline": [
     {
@@ -878,7 +898,8 @@
       "how_to_clear": "그녀의 초기 진술과 전시실 정황(E09)을 사고 시각과 대조한다.",
       "must_not_imply": "매니저라는 위치만으로 그녀가 후계 다툼 때문에 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "백선영은 혐의를 벗지만, 후계 구도를 둘러싼 억측이 여전히 공방 안에 떠돈다는 사실에 씁쓸해한다.",
-      "suspicion_deepener": "방명록 정리 시간을 되짚어보면 그녀가 언쟁 소리를 들었다고 말한 시각과 실제 조합실 근처에 있었을 가능성이 있는 시간대가 겹친다는 사실이 드러난다."
+      "suspicion_deepener": "방명록 정리 시간을 되짚어보면 그녀가 언쟁 소리를 들었다고 말한 시각과 실제 조합실 근처에 있었을 가능성이 있는 시간대가 겹친다는 사실이 드러난다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -887,7 +908,8 @@
       "how_to_clear": "E06(이광호 진술)과 E07(백승우 진술)을 대조해 그가 유출 경위 자체는 몰랐다는 점을 확인한 뒤, 그가 성형실·조합실 근처에는 발도 들인 적이 없다는 이광호의 진술(E10)을 함께 놓는다.",
       "must_not_imply": "계약 관계자라는 사실만으로 그가 유출이나 살해에 관여했다고 단정하지 않는다.",
       "lingering_thread": "이미 체결된 라이선스 계약 자체는 이번 사건과 별개로, 정당하게 취득한 기술인지 다시 심사받아야 하는 문제로 남는다.",
-      "suspicion_deepener": "사건 당일 밤 그가 오영재와 여러 차례 통화한 통신 기록이 발견되어, 단순한 계약 논의를 넘어선 개입이 있었던 것처럼 보인다."
+      "suspicion_deepener": "사건 당일 밤 그가 오영재와 여러 차례 통화한 통신 기록이 발견되어, 단순한 계약 논의를 넘어선 개입이 있었던 것처럼 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

@@ -13,9 +13,13 @@
       "내기_바둑",
       "10년_전_빚"
     ],
-    "location_archetypes": ["association_club"],
+    "location_archetypes": [
+      "association_club"
+    ],
     "background": {
-      "background_archetypes": ["regular_day"],
+      "background_archetypes": [
+        "regular_day"
+      ],
       "background_intensity": "contextual"
     }
   },
@@ -47,10 +51,20 @@
     "key_time_location": "17:40, L02 휴게실에서 보온병에 섞음 / 18:35, L01 대국실에서 연태식이 대국을 중단함.",
     "cover_up": "백주안은 구급차가 떠난 뒤 19시 40분경 휴게실에서 보온병을 헹구려 했으나 탐정이 들어서는 바람에 그만두었고, 차 당번은 원래 구인섭이었다는 사실은 먼저 말하지 않는다.",
     "accomplice": "없음",
-    "method_archetypes": ["oral_poisoning"],
-    "motive_archetypes": ["revenge"],
-    "cover_up_target": ["evidence", "responsibility"],
-    "cover_up_method": ["evidence_removal", "concealment_without_staging"]
+    "method_archetypes": [
+      "oral_poisoning"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "evidence",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "evidence_removal",
+      "concealment_without_staging"
+    ]
   },
   "actual_timeline": [
     {
@@ -943,7 +957,8 @@
       "how_to_clear": "고쳐 쓴 당번표(E04)를 들이대 그가 당번을 넘겼다는 증언(E07)을 직접 듣고, 그 시각 그가 계단참과 대국실에만 있었다는 진술(S-CH01-01)을 황보람이 본 것(E09)과 맞춰 본다 — 당번을 넘긴 뒤 그는 휴게실 쪽엔 얼씬도 하지 않았다.",
       "must_not_imply": "구인섭이 보온병 내용물에 대해 무언가 알고 있었다는 인상은 주지 않는다.",
       "lingering_thread": "구인섭은 10년 전 자신이 댄 판돈이 어느 집안을 무너뜨렸는지 끝내 확인하지 못한 채, 30년 있었던 기원을 혼자 정리하게 된다.",
-      "suspicion_deepener": "장부 얘기가 나올 때마다 그가 안경을 벗어 닦으며 말을 돌리는 것이, 마치 그 면에 적힌 자기 이름을 감추려는 것처럼 보인다."
+      "suspicion_deepener": "장부 얘기가 나올 때마다 그가 안경을 벗어 닦으며 말을 돌리는 것이, 마치 그 면에 적힌 자기 이름을 감추려는 것처럼 보인다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -952,7 +967,8 @@
       "how_to_clear": "보온병이 연태식 자리에만 놓여 있었다는 관찰(E08)과 그의 진술(S-CH02-01)을 맞춰, 그가 보온병에 닿을 자리에 없었다는 것을 확인한다.",
       "must_not_imply": "목하연이 지도료 문제로 연태식에게 항의한 적이 있다는 인상은 주지 않는다.",
       "lingering_thread": "목하연은 반년치 지도료를 결국 받지 못한 채, 이 기원에서 더는 앉을 자리가 없어진다.",
-      "suspicion_deepener": "돈 얘기가 나올 때마다 그가 가방 손잡이를 고쳐 쥐며 입을 닫는 것이, 마치 숨기는 사정이 따로 있는 것처럼 보인다."
+      "suspicion_deepener": "돈 얘기가 나올 때마다 그가 가방 손잡이를 고쳐 쥐며 입을 닫는 것이, 마치 숨기는 사정이 따로 있는 것처럼 보인다.",
+      "character_id": "CH02"
     }
   ],
   "case_complete": {

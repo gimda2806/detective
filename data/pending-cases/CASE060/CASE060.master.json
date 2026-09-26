@@ -13,10 +13,20 @@
       "투자_라운드_마감",
       "야간_사고"
     ],
-    "location_archetypes": ["research_laboratory", "workshop"],
+    "location_archetypes": [
+      "research_laboratory",
+      "workshop"
+    ],
     "background": {
-      "background_archetypes": ["contract_signing", "review_certification", "inspection_audit"],
-      "background_phrasing": ["approaching", "in_progress"],
+      "background_archetypes": [
+        "contract_signing",
+        "review_certification",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching",
+        "in_progress"
+      ],
       "background_intensity": "central"
     }
   },
@@ -42,10 +52,21 @@
     "key_time_location": "21:40, L04 시험관제실에서 산소농도 표시값 조작 / 22:00, L03 챔버실에서 밸브 수동조작 / 22:30, L03 챔버실에서 도원영이 챔버에 진입.",
     "cover_up": "좌민재는 '표준 절차대로 확인했는데 이상 없었다'고 진술하며 접속 로그가 자신을 가리키지 않기를 바랐다.",
     "accomplice": "없음",
-    "method_archetypes": ["oxygen_deprivation", "automation_tampering"],
-    "motive_archetypes": ["crime_cover", "report_prevention", "position_defense"],
-    "cover_up_target": ["responsibility"],
-    "cover_up_method": ["concealment_without_staging"]
+    "method_archetypes": [
+      "oxygen_deprivation",
+      "automation_tampering"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention",
+      "position_defense"
+    ],
+    "cover_up_target": [
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "concealment_without_staging"
+    ]
   },
   "actual_timeline": [
     {
@@ -1031,7 +1052,8 @@
       "how_to_clear": "E06의 출입 기록과 강시온의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
       "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
       "lingering_thread": "강시온은 결국 부품 문제를 투자자 앞에서 스스로 밝히기로 하지만, 그 결정이 이미 시작된 서명 절차에 어떤 파장을 몰고 올지는 이 사건의 범위 밖에서 계속된다.",
-      "suspicion_deepener": "강시온이 도원영의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+      "suspicion_deepener": "강시온이 도원영의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -1040,7 +1062,8 @@
       "how_to_clear": "E11(창고 관찰 결과)과 노은재의 진술을 비교해 그녀가 그 시각 창고 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "노은재는 이번 실사 결과를 예정대로 넘길 수 있을지, 강시온의 회사가 다음 투자 라운드를 무사히 통과할 수 있을지를 사고 이후로도 계속 신경 썼다.",
-      "suspicion_deepener": "노은재는 창고 쪽 언쟁을 못 들었다고 잡아떼다가 정확한 시각을 짚어 되묻자 뒤늦게 시인하면서, 실사 보고서에 이 사실을 적을지 망설이는 기색을 보였다."
+      "suspicion_deepener": "노은재는 창고 쪽 언쟁을 못 들었다고 잡아떼다가 정확한 시각을 짚어 되묻자 뒤늦게 시인하면서, 실사 보고서에 이 사실을 적을지 망설이는 기색을 보였다.",
+      "character_id": "CH02"
     }
   ],
   "case_complete": {

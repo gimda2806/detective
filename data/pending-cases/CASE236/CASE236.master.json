@@ -12,36 +12,42 @@
       "background_archetypes": [
         "inspection_audit"
       ],
-      "background_phrasing": ["amid"],
+      "background_phrasing": [
+        "amid"
+      ],
       "background_intensity": "contributory"
     },
     "detective_entry_type": "stranded_by_circumstance",
     "detective_entry": "탐정은 개인적인 휴식차 들렀던 인근 섬 여행을 마치고 돌아가려던 참, 갑작스러운 돌풍특보로 정기 여객선이 끊기면서 예정에 없이 해미등대 게스트하우스에 발이 묶이게 됐다.",
     "tone": "밤바다의 폭풍 속에 고립된 등대라는 클로즈드서클 상황 안에서, 남매 사이 오래 쌓인 갈등이 서서히 드러나는 씁쓸한 긴장감.",
-    "tags": ["외딴_등대섬", "폭풍_고립", "게스트하우스_운영"]
+    "tags": [
+      "외딴_등대섬",
+      "폭풍_고립",
+      "게스트하우스_운영"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:18",
     "location_id": "L01",
     "narrative": "빗줄기가 유리창을 옆에서 때리고 있었다. 위에서 아래로 내리는 비가 아니라 바다 쪽에서 밀어붙이는 비였다.\n\n한지우가 젖은 우산을 접다 말고 손잡이를 들어 보였다.\n\n\"이거 살이 두 개 부러졌어요.\"\n\n\"섬에서 우산은 소모품이야.\"\n\n탐정이 로비 소파에 걸터앉았다. 공용 게시판에 마지막 항차가 취소됐다는 안내문이 붙어 있었다.\n\n그때 밖에서 사람 부르는 소리가 났다. 빗소리에 잘려 두 글자씩만 들어왔다.\n\n한지우가 우산을 내려놓고 창 쪽으로 붙었다.\n\n\"저거 부르는 거 맞죠? 누구 부르는 건데요.\"\n\n로비 안쪽에서 정도윤이 뛰어나갔다. 문이 열리며 바람이 한 번 통째로 들이쳤다.\n\n곧이어 강여진의 목소리가 진입로 쪽에서 터졌다. 등대 아래 갑판에서 정도협이 쓰러진 채 발견됐다는 말이 빗소리 사이로 끊겨 들어왔다.\n\n\"우산은 놓고 가.\"\n\n탐정이 이미 문 쪽으로 가고 있었다."
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "전망대에는 난간이 꺾여 나간 자리가 그대로 비어 있었다. 바람이 그 틈으로 들이쳐, 고인 빗물이 잘게 흔들렸다.\n\n정도윤은 그 앞에 서서 바깥을 봤다. 손은 어디에도 짚지 않았다.\n\n\"애가 여기서 세 번째 학교를 다녀요.\"\n\n그녀가 말했다.\n\n\"두 번은 제가 옮긴 거고요. 세 번째는 제가 옮긴 게 아니었고요.\"\n\n한지우가 수첩을 접었다.\n\n\"볼트는 두 개였죠.\"\n\n\"...네.\"\n\n\"네 개 중에 두 개요.\"\n\n정도윤이 고개를 돌리지 않았다.\n\n\"나머지 두 개는 왜 안 푸셨어요?\"\n\n한참 뒤에 대답이 왔다.\n\n\"...하나는 남겨 두고 싶었어요.\"\n\n한지우는 더 묻지 않았다.\n\n계단을 내려오자 밤새 몰아치던 비가 완전히 그쳐 있었다. 바다는 아직 뒤집혀 있었지만 바람은 자고 있었다.\n\n\"배는 내일에나 뜨겠네요.\"\n\n\"하루 더 갇히는 것도 나쁘진 않고.\"\n\n선착장 쪽에서 서한이가 짐을 끌고 나오고 있었다. 카메라는 가방에 넣지 않고 손에 들고 있었다. 어제 저녁의 노을 사진은 결국 어디에도 쓰지 못할 것이었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "정도협", "role": "해양기상관측소 운영자 / 등대 부지 공동관리인", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "정도협",
+      "role": "해양기상관측소 운영자 / 등대 부지 공동관리인",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "폭풍특보로 마지막 항차가 끊긴 저녁, 등대 전망대 하부 갑판에서 정도협이 쓰러진 채 발견됐다.",
     "발견 당시 전망대 난간 한쪽이 통째로 꺾여 있었고, 그 옆에 부러진 지지대 조각이 함께 떨어져 있었다.",
     "그 시간대 등대 부지 안팎에는 여동생 정도윤, 설비 기술자 배건율, 어업계 조합장 강여진, 투숙 중인 여행작가 서한이, 발이 묶인 선장 좌민혁이 있었던 것으로 확인된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "정도윤은 이혼 후 3년 전 아들과 함께 오빠가 관리하는 등대 부지 안 숙소 동으로 들어와 게스트하우스를 운영하며 아들의 학교생활을 겨우 안정시켜 왔다. 그런데 오빠 정도협이 이번 재혼을 계기로 그 숙소 동을 통째로 비워 새 배우자의 거처로 쓰겠다며 다음 달까지 게스트하우스 운영을 접으라고 일방적으로 못박자, 정도윤은 아들이 또다시 뿌리 뽑히는 상황만은 막아야겠다고 마음먹었다.",
@@ -60,54 +66,171 @@
       "time"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_equipment_failure",
       "false_alibi"
     ],
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "15:10", "location": "L03", "actors": ["CH01"],
+    {
+      "id": "T01",
+      "time": "15:10",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "정도윤이 전망대 청소를 핑계로 홀로 올라가 오빠가 매번 붙잡는 난간의 하부 고정 볼트 두 개를 렌치로 풀어 헐겁게 만든다.",
-      "world_fact": "정도윤이 볼트 머리에 남은 흠집을 감추려 미리 챙겨온 페인트로 살짝 덧칠해 둔다." },
-    { "id": "T02", "time": "15:40", "location": "L04", "actors": ["CH02"],
-      "actual_action": "배건율이 돌풍특보 문자를 확인한 뒤 정도협에게 전화해 설비 점검을 다음 날로 미루자고 제안한다." },
-    { "id": "T03", "time": "16:00", "location": "L04", "actors": ["V01"],
-      "actual_action": "정도협이 사무실 책상 위에 재혼 상대 앞으로 보낼 통보 문자 인쇄본을 정리해 서류더미 위에 얹어 둔다." },
-    { "id": "T04", "time": "17:20", "location": "L01", "actors": ["CH01"],
-      "actual_action": "정도윤이 로비 청소일지에 그날 오후 자리를 비운 시간을 실제보다 짧게 적어 넣는다." },
-    { "id": "T05", "time": "18:30", "location": "L03", "actors": ["CH04"],
-      "actual_action": "서한이가 마감 중인 원고에 쓸 사진을 남기려 몰래 나선계단을 올라 전망대에서 노을을 촬영한다." },
-    { "id": "T06", "time": "19:00", "location": "L05", "actors": ["CH05"],
-      "actual_action": "좌민혁이 돌풍이 거세지자 정박한 배의 밧줄을 다시 이중으로 묶어 고정한다." },
-    { "id": "T07", "time": "09:20", "location": "L05", "actors": ["CH05"],
-      "actual_action": "좌민혁이 항로 안내소에 그날 마지막 항차 결항을 통보한다." },
-    { "id": "T08", "time": "14:00", "location": "L04", "actors": ["V01"],
-      "actual_action": "정도협이 사무실에서 기상 관측 장비 점검을 마치고 전망대 신호등 상태를 확인하러 나설 채비를 한다." },
-    { "id": "T09", "time": "19:10", "location": "L03", "actors": ["V01"],
+      "world_fact": "정도윤이 볼트 머리에 남은 흠집을 감추려 미리 챙겨온 페인트로 살짝 덧칠해 둔다."
+    },
+    {
+      "id": "T02",
+      "time": "15:40",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "배건율이 돌풍특보 문자를 확인한 뒤 정도협에게 전화해 설비 점검을 다음 날로 미루자고 제안한다."
+    },
+    {
+      "id": "T03",
+      "time": "16:00",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정도협이 사무실 책상 위에 재혼 상대 앞으로 보낼 통보 문자 인쇄본을 정리해 서류더미 위에 얹어 둔다."
+    },
+    {
+      "id": "T04",
+      "time": "17:20",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "정도윤이 로비 청소일지에 그날 오후 자리를 비운 시간을 실제보다 짧게 적어 넣는다."
+    },
+    {
+      "id": "T05",
+      "time": "18:30",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "서한이가 마감 중인 원고에 쓸 사진을 남기려 몰래 나선계단을 올라 전망대에서 노을을 촬영한다."
+    },
+    {
+      "id": "T06",
+      "time": "19:00",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "좌민혁이 돌풍이 거세지자 정박한 배의 밧줄을 다시 이중으로 묶어 고정한다."
+    },
+    {
+      "id": "T07",
+      "time": "09:20",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "좌민혁이 항로 안내소에 그날 마지막 항차 결항을 통보한다."
+    },
+    {
+      "id": "T08",
+      "time": "14:00",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정도협이 사무실에서 기상 관측 장비 점검을 마치고 전망대 신호등 상태를 확인하러 나설 채비를 한다."
+    },
+    {
+      "id": "T09",
+      "time": "19:10",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "정도협이 강풍 속 신호등 상태를 확인하러 전망대에 올라 몸을 지탱하려 난간을 붙잡는다.",
-      "world_fact": "헐거워진 난간이 그대로 꺾여 나가며 정도협이 아래 갑판으로 추락한다." },
-    { "id": "T10", "time": "19:15", "location": "L02", "actors": ["CH03"],
+      "world_fact": "헐거워진 난간이 그대로 꺾여 나가며 정도협이 아래 갑판으로 추락한다."
+    },
+    {
+      "id": "T10",
+      "time": "19:15",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "물자 배달을 마치고 돌아가려던 강여진이 진입로 쪽에서 인기척이 없어 이상하게 여기다 쓰러진 정도협을 발견한다.",
-      "world_fact": "다급해진 강여진이 곧장 로비 쪽으로 뛰어가 사람들을 부른다." },
-    { "id": "T11", "time": "19:17", "location": "L01", "actors": ["CH01"],
-      "actual_action": "강여진의 외침을 들은 정도윤이 로비에서 뛰쳐나와 진입로 쪽으로 달려간다." },
-    { "id": "T12", "time": "19:18", "location": "L01", "actors": ["CH02"],
-      "actual_action": "배건율이 소란을 듣고 사무실 앞에서 급히 나와 상황을 살핀다." }
+      "world_fact": "다급해진 강여진이 곧장 로비 쪽으로 뛰어가 사람들을 부른다."
+    },
+    {
+      "id": "T11",
+      "time": "19:17",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강여진의 외침을 들은 정도윤이 로비에서 뛰쳐나와 진입로 쪽으로 달려간다."
+    },
+    {
+      "id": "T12",
+      "time": "19:18",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "배건율이 소란을 듣고 사무실 앞에서 급히 나와 상황을 살핀다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "정도윤", "role": "여동생 / 게스트하우스 '해미하우스' 운영자", "present_location": "L01",
+      "id": "CH01",
+      "name": "정도윤",
+      "role": "여동생 / 게스트하우스 '해미하우스' 운영자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 15시 10분경 전망대에 홀로 올라가 난간 하부 고정 볼트 두 개를 렌치로 풀어 헐겁게 만들었다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 볼트를 일부러 풀고 흠집을 감추려 페인트로 덧칠해 두었다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "오빠 정도협이 재혼을 계기로 숙소 동을 비우고 다음 달까지 게스트하우스 운영을 접으라고 통보했다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "재혼과 함께 자신과 아들이 그 터전에서 쫓겨날 처지였다. 그걸 알고 이를 막기 위해 계획적으로 범행했고, 그것이 진짜 동기다.", "source": "개인사" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "전날 15시 10분경 전망대에 홀로 올라가 난간 하부 고정 볼트 두 개를 렌치로 풀어 헐겁게 만들었다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 볼트를 일부러 풀고 흠집을 감추려 페인트로 덧칠해 두었다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "오빠 정도협이 재혼을 계기로 숙소 동을 비우고 다음 달까지 게스트하우스 운영을 접으라고 통보했다.",
+          "source": "개인사"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "재혼과 함께 자신과 아들이 그 터전에서 쫓겨날 처지였다. 그걸 알고 이를 막기 위해 계획적으로 범행했고, 그것이 진짜 동기다.",
+          "source": "개인사"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 오후엔 게스트하우스 청소만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전망대에 다녀온 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "오빠와의 숙소 문제는 이미 서로 합의했던 대수롭지 않은 일이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 갈등과 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 오후엔 게스트하우스 청소만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "전망대에 다녀온 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "오빠와의 숙소 문제는 이미 서로 합의했던 대수롭지 않은 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "진짜 갈등과 동기를 숨기기 위해서다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "그냥 난간이 흔들리는 것 같아 점검차 올라갔을 뿐이에요.",
@@ -115,19 +238,41 @@
           "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "S-CH01-01"
         }
       ],
-      "knowledge_limits": ["오빠가 재혼 상대와 정확히 어떤 계획까지 세워뒀는지는 모른다.", "배건율의 점검 일정이 정확히 언제 바뀌었는지는 모른다."],
+      "knowledge_limits": [
+        "오빠가 재혼 상대와 정확히 어떤 계획까지 세워뒀는지는 모른다.",
+        "배건율의 점검 일정이 정확히 언제 바뀌었는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 가족 얘기에서 유독 방어적으로 변한다",
         "sentence_length_tendency": "평소엔 중간 길이 문장, 압박받으면 문장이 뚝뚝 끊긴다",
@@ -140,17 +285,40 @@
       ]
     },
     {
-      "id": "CH02", "name": "배건율", "role": "등대 설비 정기 점검 기술자", "present_location": "L01",
+      "id": "CH02",
+      "name": "배건율",
+      "role": "등대 설비 정기 점검 기술자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 전날 오후 정도협과 통화해 돌풍 때문에 다음 날로 점검을 미루기로 합의했다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "전망대 난간이 최근 정기 점검 대상에 포함되지 않았고 별다른 이상 신고도 없었다.", "source": "업무지식" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 전날 오후 정도협과 통화해 돌풍 때문에 다음 날로 점검을 미루기로 합의했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "전망대 난간이 최근 정기 점검 대상에 포함되지 않았고 별다른 이상 신고도 없었다.",
+          "source": "업무지식"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "점검은 원래 그날이었지만 날씨 때문에 다음 날로 미루기로 이미 얘기가 끝났었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "점검은 원래 그날이었지만 날씨 때문에 다음 날로 미루기로 이미 얘기가 끝났었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["전망대 안에서 정확히 무슨 일이 있었는지는 모른다.", "남매 사이 개인적인 사정까지는 모른다."],
+      "knowledge_limits": [
+        "전망대 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "남매 사이 개인적인 사정까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "무뚝뚝한 반존대 섞인 격식체",
         "sentence_length_tendency": "평소 짧고 사무적인 문장, 압박받아도 톤 변화가 크지 않다",
@@ -162,17 +330,37 @@
       ]
     },
     {
-      "id": "CH03", "name": "강여진", "role": "어업계 조합장 / 등대 물자 배달 담당", "present_location": "L05",
+      "id": "CH03",
+      "name": "강여진",
+      "role": "어업계 조합장 / 등대 물자 배달 담당",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "며칠 전 정도윤이 오빠의 재혼 통보를 듣고 유난히 안색이 안 좋았던 것을 목격했다.", "source": "직접목격" },
-        { "fact_id": "F-CH03-02", "content": "조부 대부터 등대 부지에 물자를 대며 이 가족사를 오래 지켜봐왔다.", "source": "개인사" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "며칠 전 정도윤이 오빠의 재혼 통보를 듣고 유난히 안색이 안 좋았던 것을 목격했다.",
+          "source": "직접목격"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "조부 대부터 등대 부지에 물자를 대며 이 가족사를 오래 지켜봐왔다.",
+          "source": "개인사"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "정도윤이 요 며칠 유독 예민해 보이긴 했지만 별일 아닐 거라 생각했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "정도윤이 요 며칠 유독 예민해 보이긴 했지만 별일 아닐 거라 생각했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["전망대나 관측소 사무실 안에서 무슨 일이 있었는지는 모른다.", "재혼 통보의 구체적 내용까지는 모른다."],
+      "knowledge_limits": [
+        "전망대나 관측소 사무실 안에서 무슨 일이 있었는지는 모른다.",
+        "재혼 통보의 구체적 내용까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "구수한 사투리 섞인 반존대",
         "sentence_length_tendency": "평소 만연체로 길게 말하다가 캐물으면 말수가 확 준다",
@@ -185,19 +373,47 @@
       ]
     },
     {
-      "id": "CH04", "name": "서한이", "role": "여행작가 / 투숙객", "present_location": "L01",
+      "id": "CH04",
+      "name": "서한이",
+      "role": "여행작가 / 투숙객",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 전날 저녁 마감 중이던 원고 사진을 찍으려 몰래 전망대에 올라가 노을을 촬영했다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "그때 전망대 난간 쪽에서 특별히 이상한 점은 보지 못했다.", "source": "직접목격" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 전날 저녁 마감 중이던 원고 사진을 찍으려 몰래 전망대에 올라가 노을을 촬영했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그때 전망대 난간 쪽에서 특별히 이상한 점은 보지 못했다.",
+          "source": "직접목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 방에서 원고만 썼어요.", "truth_status": "lie", "reason_for_limit_or_lie": "허락 없이 전망대에 몰래 올라간 것을 들키고 싶지 않아서다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 저녁엔 그냥 방에서 원고만 썼어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "허락 없이 전망대에 몰래 올라간 것을 들키고 싶지 않아서다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "S-CH04-01", "release_trigger": "E08" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "E08"
+        }
       ],
-      "knowledge_limits": ["전망대 아래 갑판에서 실제로 무슨 일이 있었는지는 모른다.", "남매 사이 개인적인 사정까지는 모른다."],
+      "knowledge_limits": [
+        "전망대 아래 갑판에서 실제로 무슨 일이 있었는지는 모른다.",
+        "남매 사이 개인적인 사정까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "붙임성 있는 표준 존댓말",
         "sentence_length_tendency": "평소 술술 이어지는 장문, 찔리면 말이 갑자기 짧아진다",
@@ -210,18 +426,46 @@
       ]
     },
     {
-      "id": "CH05", "name": "좌민혁", "role": "정기 여객선 선장", "present_location": "L05",
+      "id": "CH05",
+      "name": "좌민혁",
+      "role": "정기 여객선 선장",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "돌풍특보로 그날 오후 마지막 항차를 취소하고 배를 선착장에 이중으로 묶어 고정했다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "예전에 정도협과 정도윤이 선착장 보수비 문제로 언쟁하는 것을 들은 적이 있다.", "source": "직접목격" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "돌풍특보로 그날 오후 마지막 항차를 취소하고 배를 선착장에 이중으로 묶어 고정했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "예전에 정도협과 정도윤이 선착장 보수비 문제로 언쟁하는 것을 들은 적이 있다.",
+          "source": "직접목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 오후엔 배와 함께 선착장에만 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "그 양반, 등대 일이라면 늘 꼼꼼했지, 어쨌든.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 오후엔 배와 함께 선착장에만 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 양반, 등대 일이라면 늘 꼼꼼했지, 어쨌든.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["등대 안쪽 사정은 잘 모른다.", "남매의 개인적인 갈등 세부 내용까지는 모른다."],
+      "knowledge_limits": [
+        "등대 안쪽 사정은 잘 모른다.",
+        "남매의 개인적인 갈등 세부 내용까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "짠물내 나는 투박한 반말 섞인 존댓말",
         "sentence_length_tendency": "평소 짧고 퉁명스러운 문장, 캐물어도 별 차이가 없다",
@@ -233,11 +477,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "친남매. 등대 부지 안에서 각자 살림을 꾸리며 지내 온 3년이다.",
       "public_face": "가끔 부딪혀도 사이 나쁘지 않은 남매로 알려져 있다.",
       "says": {
@@ -248,7 +494,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "등대 설비를 정기적으로 점검해 온 기술자와 관리인. 수년째 손발을 맞춰온 사이다.",
       "public_face": "점검 스케줄을 서로 잘 맞춰온 사이로 알려져 있다.",
       "says": {
@@ -259,7 +508,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "조부 대부터 등대 부지에 물자를 대 온 조합장과 공동관리인. 가족사를 오래 지켜봤다.",
       "public_face": "오래 물자를 대 온 사이로, 가족처럼 편하게 지낸다고 알려져 있다.",
       "says": {
@@ -270,7 +522,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "CH01"],
+      "between": [
+        "CH04",
+        "CH01"
+      ],
       "nature": "게스트하우스 투숙객과 운영자. 이번이 첫 방문이라 안면만 튼 사이다.",
       "public_face": "여행작가와 호스트로서 무난하게 지내는 사이로 보인다.",
       "says": {
@@ -282,7 +537,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "정기 여객선 선장과 부지 공동관리인. 선착장 보수 문제로 몇 차례 부딪힌 사이다.",
       "public_face": "그저 배편으로 오가며 알고 지내는 사이로 보인다.",
       "says": {
@@ -292,141 +550,376 @@
       "surfaces_when": "선착장 보수 문제를 캐물었을 때 드러난다(F-CH05-02)."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "게스트하우스 로비 겸 공용실", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
-      "connects_to": ["L02", "L05"],
+      "id": "L01",
+      "name": "게스트하우스 로비 겸 공용실",
+      "access": "시작부터 누구나 출입 가능하다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "해미하우스 로비 겸 공용실. 투숙객들이 모여 앉는 소파와 안내 게시판이 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "공용 게시판에 그날 오후 돌풍특보로 마지막 항차가 취소됐다는 안내문이 붙어 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "공용 게시판에 그날 오후 돌풍특보로 마지막 항차가 취소됐다는 안내문이 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "청소일지와 방문객 기록을 확인한다", "release_evidence_id": "E01", "result": "청소일지에는 그날 15시경 정도윤이 잠깐 자리를 비웠다는 메모가 남아 있고, 방문객 기록에는 그 시간대 외부인의 별도 출입이 없다." },
-        { "action": "공용실 서랍 속 서류를 확인한다", "release_evidence_id": "E05", "result": "서랍 안에 아들의 전학 동의서 초안과, 다른 학교 정보를 알아본 흔적이 담긴 메모가 함께 들어 있다." }
+        {
+          "action": "청소일지와 방문객 기록을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "청소일지에는 그날 15시경 정도윤이 잠깐 자리를 비웠다는 메모가 남아 있고, 방문객 기록에는 그 시간대 외부인의 별도 출입이 없다."
+        },
+        {
+          "action": "공용실 서랍 속 서류를 확인한다",
+          "release_evidence_id": "E05",
+          "result": "서랍 안에 아들의 전학 동의서 초안과, 다른 학교 정보를 알아본 흔적이 담긴 메모가 함께 들어 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "등대 진입로 겸 하부 갑판", "access": "게스트하우스에서 등대 부지 안쪽으로 이어지는 길이라 투숙객도 오갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "id": "L02",
+      "name": "등대 진입로 겸 하부 갑판",
+      "access": "게스트하우스에서 등대 부지 안쪽으로 이어지는 길이라 투숙객도 오갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "등대로 이어지는 진입로 겸 하부 갑판. 정도협이 쓰러진 채 발견된 자리다.",
       "observation_rules": [
-        { "action": "하부 갑판을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 정도협 옆으로 부러진 난간 지지대 조각이 떨어져 있다." }
+        {
+          "action": "하부 갑판을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "쓰러진 정도협 옆으로 부러진 난간 지지대 조각이 떨어져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "부러진 난간 지지대를 살펴본다", "release_evidence_id": "E02", "result": "부러진 지지대 안쪽 볼트 구멍에 최근 공구로 긁어낸 듯한 흠집과 옅은 페인트 덧칠 흔적이 남아 있다." }
+        {
+          "action": "부러진 난간 지지대를 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "부러진 지지대 안쪽 볼트 구멍에 최근 공구로 긁어낸 듯한 흠집과 옅은 페인트 덧칠 흔적이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "등대 전망대", "access": "내부 나선계단으로만 오를 수 있으며, 사고 이후엔 통제 구역이다.", "access_level": "sealed",
-      "connects_to": ["L02"],
+      "id": "L03",
+      "name": "등대 전망대",
+      "access": "내부 나선계단으로만 오를 수 있으며, 사고 이후엔 통제 구역이다.",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "등대 꼭대기 전망대. 신호등 점검을 위해 오르는 좁은 공간으로, 난간 한쪽이 바다 쪽을 향해 있다.",
       "observation_rules": [
-        { "action": "전망대 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "난간 한쪽이 통째로 꺾여 나간 자리에 빗물과 흙탕물이 고여 있다." }
+        {
+          "action": "전망대 내부를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "난간 한쪽이 통째로 꺾여 나간 자리에 빗물과 흙탕물이 고여 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L04", "name": "해양기상관측소 사무실", "access": "정도협의 승인이 있어야 출입 가능하며, 안쪽에 정비 창고가 딸려 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "해양기상관측소 사무실",
+      "access": "정도협의 승인이 있어야 출입 가능하며, 안쪽에 정비 창고가 딸려 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "기상 관측 장비와 서류가 있는 사무실. 안쪽 정비 창고에 등대 관리용 공구들이 보관돼 있다.",
       "observation_rules": [
-        { "action": "관측소 사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 기상 관측 일지와 함께 최근 며칠간 정리되지 않은 서류더미가 쌓여 있다." }
+        {
+          "action": "관측소 사무실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위에 기상 관측 일지와 함께 최근 며칠간 정리되지 않은 서류더미가 쌓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "정비 창고 공구함을 확인한다", "release_evidence_id": "E03", "result": "공구함 속 렌치 한 개에서 최근 사용한 듯한 페인트 자국이 묻어 있고, 손잡이에 정도윤의 이름이 적힌 개인용 렌치임을 확인할 수 있다." },
-        { "action": "사무실 책상 위 문자 인쇄물을 확인한다", "release_evidence_id": "E04", "result": "정도협이 재혼 소식과 함께 다음 달까지 숙소 동을 비워달라고 정도윤에게 보낸 문자 메시지 인쇄본이 놓여 있다." }
+        {
+          "action": "정비 창고 공구함을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "공구함 속 렌치 한 개에서 최근 사용한 듯한 페인트 자국이 묻어 있고, 손잡이에 정도윤의 이름이 적힌 개인용 렌치임을 확인할 수 있다."
+        },
+        {
+          "action": "사무실 책상 위 문자 인쇄물을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "정도협이 재혼 소식과 함께 다음 달까지 숙소 동을 비워달라고 정도윤에게 보낸 문자 메시지 인쇄본이 놓여 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "선착장 겸 방파제", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "선착장 겸 방파제",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "여객선이 오가는 선착장. 방파제 너머로 파도가 거세게 부딪힌다.",
       "observation_rules": [
-        { "action": "선착장을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "정박된 배 한 척이 밧줄로 이중으로 묶인 채 파도에 흔들리고 있다." }
+        {
+          "action": "선착장을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "정박된 배 한 척이 밧줄로 이중으로 묶인 채 파도에 흔들리고 있다."
+        }
       ],
       "detail_rules": []
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "청소일지와 방문객 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "청소일지와 방문객 기록을 확인한다", "related_timeline": ["T04"],
+    {
+      "id": "E01",
+      "name": "청소일지와 방문객 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "청소일지와 방문객 기록을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "청소일지에는 그날 15시경 정도윤이 잠깐 자리를 비웠다는 메모가 남아 있고, 방문객 기록에는 그 시간대 외부인의 별도 출입이 없다.",
-      "proves": ["정도윤이 그날 오후 한동안 게스트하우스를 비웠다는 사실을 뒷받침한다."],
-      "does_not_prove": ["어디로, 왜 자리를 비웠는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E02", "name": "부러진 난간 지지대 조각", "source_type": "location", "found_at": "L02", "discovery_condition": "부러진 난간 지지대를 살펴본다", "related_timeline": ["T09"],
+      "proves": [
+        "정도윤이 그날 오후 한동안 게스트하우스를 비웠다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "어디로, 왜 자리를 비웠는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "부러진 난간 지지대 조각",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "부러진 난간 지지대를 살펴본다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "부러진 지지대 안쪽 볼트 구멍에 최근 공구로 긁어낸 듯한 흠집과 옅은 페인트 덧칠 흔적이 남아 있다.",
-      "proves": ["난간 붕괴가 단순 노후가 아니라 인위적으로 헐거워진 결과임을 증명한다."],
-      "does_not_prove": ["누가, 언제 손을 댔는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "정도윤의 개인용 렌치", "source_type": "location", "found_at": "L04", "discovery_condition": "정비 창고 공구함을 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "난간 붕괴가 단순 노후가 아니라 인위적으로 헐거워진 결과임을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 언제 손을 댔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "정도윤의 개인용 렌치",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정비 창고 공구함을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "공구함 속 렌치 한 개에서 최근 사용한 듯한 페인트 자국이 묻어 있고, 손잡이에 정도윤의 이름이 적힌 개인용 렌치임을 확인할 수 있다.",
-      "proves": ["그 렌치가 최근 사용됐고 정도윤 소유임을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇에 사용했는지"],
-      "presentation_effect": ["C01", "C02"] },
-    { "id": "E04", "name": "재혼 통보 문자 인쇄본", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 책상 위 문자 인쇄물을 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "그 렌치가 최근 사용됐고 정도윤 소유임을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇에 사용했는지"
+      ],
+      "presentation_effect": [
+        "C01",
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "재혼 통보 문자 인쇄본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사무실 책상 위 문자 인쇄물을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "정도협이 재혼 소식과 함께 다음 달까지 숙소 동을 비워달라고 정도윤에게 보낸 문자 메시지 인쇄본이 놓여 있다.",
-      "proves": ["오빠가 실제로 여동생 모자를 내보내려 했다는 사실을 증명한다."],
-      "does_not_prove": ["정도윤이 그 문자에 어떻게 반응했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "아들의 전학 관련 서류", "source_type": "location", "found_at": "L01", "discovery_condition": "공용실 서랍 속 서류를 확인한다",
+      "proves": [
+        "오빠가 실제로 여동생 모자를 내보내려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "정도윤이 그 문자에 어떻게 반응했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "아들의 전학 관련 서류",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "공용실 서랍 속 서류를 확인한다",
       "content": "서랍 안에 아들의 전학 동의서 초안과, 다른 학교 정보를 알아본 흔적이 담긴 메모가 함께 들어 있다.",
-      "proves": ["정도윤이 실제로 아들과 함께 곧 그곳을 떠나야 하는 상황에 놓여 있었음을 뒷받침한다."],
-      "does_not_prove": ["그 상황이 살해로 이어졌는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "강여진의 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "강여진에게 요 며칠 정도윤의 상태가 어땠는지 묻는다",
+      "proves": [
+        "정도윤이 실제로 아들과 함께 곧 그곳을 떠나야 하는 상황에 놓여 있었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 상황이 살해로 이어졌는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "강여진의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "강여진에게 요 며칠 정도윤의 상태가 어땠는지 묻는다",
       "content": "강여진은 며칠 전부터 정도윤이 유난히 안색이 안 좋고 말수가 줄었다고 증언한다.",
-      "proves": ["정도윤이 사건 며칠 전부터 심리적으로 크게 동요하고 있었음을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇 때문인지"],
-      "presentation_effect": [] },
-    { "id": "E07", "name": "배건율의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "배건율에게 점검 일정이 왜 미뤄졌는지 물어본다",
+      "proves": [
+        "정도윤이 사건 며칠 전부터 심리적으로 크게 동요하고 있었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇 때문인지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "배건율의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "배건율에게 점검 일정이 왜 미뤄졌는지 물어본다",
       "content": "배건율은 돌풍 예보 때문에 전날 오후 정도협과 통화해 점검을 다음 날로 미루기로 이미 합의했다고 증언한다.",
-      "proves": ["배건율이 사건 당일 전망대 점검과 무관했다는 사실을 뒷받침한다."],
-      "does_not_prove": ["전망대 안에서 실제로 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E08", "name": "서한이의 카메라 메타데이터", "source_type": "testimony", "found_at": "L01", "discovery_condition": "서한이에게 전날 저녁 행적과 카메라 사진을 확인시켜 달라 요청한다",
+      "proves": [
+        "배건율이 사건 당일 전망대 점검과 무관했다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "전망대 안에서 실제로 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "서한이의 카메라 메타데이터",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "서한이에게 전날 저녁 행적과 카메라 사진을 확인시켜 달라 요청한다",
       "content": "서한이의 카메라에는 전날 저녁 노을 무렵 전망대에서 찍힌 사진들이 촬영 시각과 함께 남아 있고, 난간에는 특별한 이상이 보이지 않는다.",
-      "proves": ["서한이가 전날 저녁 개인적인 촬영 목적으로 전망대에 올라갔을 뿐임을 뒷받침한다."],
-      "does_not_prove": ["오후에 이미 벌어진 볼트 훼손 흔적까지 그녀가 봤는지"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "서한이의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "서한이에게 그날 오후 배건율이 무엇을 하고 있었는지 묻는다",
+      "proves": [
+        "서한이가 전날 저녁 개인적인 촬영 목적으로 전망대에 올라갔을 뿐임을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "오후에 이미 벌어진 볼트 훼손 흔적까지 그녀가 봤는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "서한이의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "서한이에게 그날 오후 배건율이 무엇을 하고 있었는지 묻는다",
       "content": "서한이는 그날 오후 내내 배건율이 로비 근처에서 장비를 정리하며 대기하고 있었다고 증언한다.",
-      "proves": ["배건율이 사건 당일 오후 전망대 쪽으로 자리를 비우지 않았다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그가 전날 전망대에 다녀갔을 가능성까지 배제하지는 못한다"],
-      "presentation_effect": [] }
+      "proves": [
+        "배건율이 사건 당일 오후 전망대 쪽으로 자리를 비우지 않았다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그가 전날 전망대에 다녀갔을 가능성까지 배제하지는 못한다"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_visit_admission",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E03"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "after_visit_admission",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
+      },
       "player_action": "청소일지의 공백과 정비 창고에서 나온 정도윤의 개인용 렌치를 제시해, 그날 오후 청소만 했다는 진술과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전망대에 다녀온 것은 인정한다." },
-      "must_not_release": ["볼트를 고의로 풀었다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "전망대에 다녀온 것은 인정한다."
+      },
+      "must_not_release": [
+        "볼트를 고의로 풀었다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "after_visit_admission", "to_stage": "after_sabotage_admission",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "after_visit_admission",
+      "to_stage": "after_sabotage_admission",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
+      },
       "player_action": "부러진 지지대의 흠집과 렌치의 페인트 흔적을 함께 제시해, 그냥 점검하러 올라갔을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "볼트를 일부러 풀고 페인트로 흔적을 감춘 것은 인정하지만, 사고를 노린 게 아니라 오빠에게 겁만 주려던 것뿐이라고 변명한다." },
-      "must_not_release": ["계획성", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "볼트를 일부러 풀고 페인트로 흔적을 감춘 것은 인정하지만, 사고를 노린 게 아니라 오빠에게 겁만 주려던 것뿐이라고 변명한다."
+      },
+      "must_not_release": [
+        "계획성",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "after_sabotage_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04", "E05"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "after_sabotage_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
+      },
       "player_action": "재혼 통보 문자 인쇄본과 아들의 전학 서류, 강여진의 증언을 함께 제시해, 숙소 문제는 이미 합의된 대수롭지 않은 일이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "재혼과 함께 자신과 아들이 쫓겨날 처지였다는 것, 아들의 터전을 지키려 했다는 진짜 동기를 인정하며 무너진다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "재혼과 함께 자신과 아들이 쫓겨날 처지였다는 것, 아들의 터전을 지키려 했다는 진짜 동기를 인정하며 무너진다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -435,7 +928,8 @@
       "how_to_clear": "배건율의 증언(E07)과 서한이의 증언(E09)을 대조해, 그가 애초에 그날 전망대에 오를 계획 자체가 없었고 오후 내내 로비 근처에 있었음을 확인한다.",
       "must_not_imply": "설비 전문성만으로 관여를 단정하지 않는다.",
       "lingering_thread": "배건율은 이번 일로 등대 안전 점검 체계 전반을 다시 손보기로 하지만, 정작 자신이 놓친 부분은 없었는지 한동안 자책을 떨치지 못한다.",
-      "suspicion_deepener": "배건율이 사건 직후에도 유독 난간 점검 이력부터 캐물으며 안절부절못하는 기색을 보인다."
+      "suspicion_deepener": "배건율이 사건 직후에도 유독 난간 점검 이력부터 캐물으며 안절부절못하는 기색을 보인다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -444,27 +938,39 @@
       "how_to_clear": "서한이의 카메라 메타데이터(E08)와 부러진 난간 지지대 조각(E02)을 대조해, 그가 전망대에 올랐을 때 이미 흠집이 페인트로 감춰져 있어 이상한 점을 볼 수 없었을 뿐임을 확인한다.",
       "must_not_imply": "몰래 올라갔다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "서한이는 결국 그날 저녁 몰래 찍은 노을 사진들을 기사에 쓰지 못한 채, 사고 현장을 기록한 취재 노트만 남기고 섬을 떠난다.",
-      "suspicion_deepener": "서한이가 사건 직후에도 자신의 카메라를 유독 손에서 놓지 않으려 하며 불안한 기색을 보인다."
+      "suspicion_deepener": "서한이가 사건 직후에도 자신의 카메라를 유독 손에서 놓지 않으려 하며 불안한 기색을 보인다.",
+      "character_id": "CH04"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "전망대에서 오빠가 신호등을 점검할 때마다 붙잡는 난간의 하부 고정 볼트를 몰래 풀어, 강풍 속에서 오빠가 스스로 난간을 붙잡다 추락해 사망하게 만들었다.",
       "motive_fact": "오빠의 재혼 통보로 아들과 함께 유일한 터전에서 쫓겨날 처지에 놓인 정도윤이 이를 막으려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "정도윤",
     "method": "정도윤은 전날 오후 전망대에 홀로 올라가 난간 하부 고정 볼트를 미리 풀어 헐겁게 만들고 페인트로 흔적을 감췄으며, 당일 저녁 강풍 속 신호등 점검을 위해 전망대에 오른 정도협이 몸을 지탱하려 난간을 붙잡는 순간 그것이 꺾여 나가며 하부 갑판으로 추락해 사망하게 만들었다.",
     "motive": "오빠 정도협이 재혼을 계기로 숙소 동을 비우라고 통보하면서 정도윤과 그 아들이 유일한 터전에서 쫓겨날 처지에 놓이자, 정도윤은 아들의 자리를 지키기 위해 범행을 계획했다.",
     "key_connection": "청소일지의 공백과 공구함 렌치의 페인트 흔적이 정도윤이 전망대에 다녀왔다는 사실을 뒷받침하고, 부러진 지지대의 흠집과 그 렌치의 흔적이 인위적 손상임을 증명하며, 재혼 통보 문자와 아들의 전학 서류, 그리고 강여진의 증언이 정도윤이 이미 심리적으로 궁지에 몰려 있었다는 진짜 동기를 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "정도협이 등대 전망대 아래 하부 갑판에서 쓰러진 채 발견된 표면 사건",
     "청소일지의 공백과 공구함 렌치의 페인트 흔적",

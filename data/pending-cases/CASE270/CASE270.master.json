@@ -7,49 +7,68 @@
     "detective_entry_type": "online_discovery_self_initiated",
     "detective_entry": "명이한이 진행하던 라이브방송을 구독자로서 시청하다가, 화면 밖에서 들린 소리 이후 그가 방송에 돌아오지 않고 다른 직원의 대응도 없는 것을 이상하게 여겨 탐정이 직접 매장을 찾아간다.",
     "tone": "차분한 생활밀착형 하드보일드",
-    "tags": ["파충류_브리더숍", "라이브방송", "번식업계"],
-    "location_archetypes": ["specialty_shop", "broadcast_studio"],
+    "tags": [
+      "파충류_브리더숍",
+      "라이브방송",
+      "번식업계"
+    ],
+    "location_archetypes": [
+      "specialty_shop",
+      "broadcast_studio"
+    ],
     "background": {
-      "background_archetypes": ["broadcast"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "broadcast"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 21:45",
     "location_id": "L01",
     "narrative": "매장 문을 밀고 들어서자 진열장 사이로 다급한 발소리와 놀란 목소리들이 뒤섞여 있었다.\n\n한지우가 진열장 유리 너머 사육실 쪽을 보며 낮게 말했다.\n\n\"방송은 계속 켜져 있던데, 이 안은 완전히 다른 분위기네요.\"\n\n\"그러니까 이상하다는 거지.\"\n\n탐정이 대꾸하며 안쪽으로 발을 옮긴 순간, 사육실 문이 열리며 들것에 실린 명이한이 밖으로 옮겨지고 있었다.\n\n의식을 잃은 채 쓰러져 있던 그를 처음 발견했다는 조하람이 뒤따르며 새하얗게 굳은 얼굴로 구급대원들을 붙잡고 무언가를 계속 설명하고 있었다.\n\n한지우가 그 모습을 지켜보다 탐정에게 다가와 물었다.\n\n\"저희가 여기 있어도 되는 거예요?\"\n\n\"이미 발 들였잖아. 물어볼 거면 지금 물어봐.\""
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "무너진 랙은 새 브라켓으로 임시 고정된 채, 사육실 안은 여전히 서늘했다.\n\n조하람이 빈 사육장을 오래 바라보다 입을 열었다.\n\n\"3년 전에... 제가 먼저 찾은 개체였습니다.\"\n\n탐정은 아무 말도 하지 않고 다음 말을 기다렸다.\n\n\"그런데 대표님이 그걸 자기 이름으로 방송에 소개하면서, 제가 한 건 다 지워졌어요.\"\n\n조하람의 목소리가 낮게 떨렸다.\n\n\"그날 밤 나사를 풀 때도, 사실은 그냥 겁만 주고 싶었던 것 같아요. 근데 결국...\"\n\n한지우가 조용히 말했다.\n\n\"그래도 사람을 해칠 이유는 아니었잖아요.\"\n\n조하람은 고개를 떨군 채 더 이상 말을 잇지 못했다.\n\n한편 류단이가 처음 제기했던 혈통 서류 위조 의혹은, 이 사건과는 별개로 여전히 확인이 필요한 채로 남아 있었다.\n\n매장을 나서는 길, 진열장 앞을 지나던 현소율이 두 사람을 붙잡고 물었다.\n\n\"이 채널은... 이제 어떻게 되는 거예요?\"\n\n뚜렷한 답을 줄 수 없는 질문이었다.\n\n한지우가 진열장 유리에 비친 빈 사육장을 보며 탐정을 돌아봤다.\n\n\"저 안에 있던 개체들은 다 어디로 가는 거예요?\"\n\n\"그건 우리 담당이 아니잖아.\"\n\n탐정이 픽 웃으며 먼저 걸음을 옮겼다."
   },
-
   "surface_incident": [
     "파충류 브리더숍 '테라리엄로그' 대표 명이한(35)이 라이브방송 중 사육실 안쪽 랙 붕괴 사고로 유리 사육장에 머리를 맞고 쓰러진 채 발견돼 병원으로 옮겨졌으나 두부 손상에 의한 경막외출혈로 끝내 사망했다.",
     "경찰은 노후 랙 고정 장치 파손에 따른 시설 사고로 추정하고 있다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "조하람은 3년 전 자신이 야생 개체군에서 직접 채집해 교배시킨 신품종 모프를 명이한이 자기 이름의 브리더 코드로 바꿔 채널 대표 소개 개체로 내세우면서, 그 성과를 통째로 빼앗긴 채 5년째 보조로만 남아 있다는 억눌린 박탈감과 복수심에 살해를 계획한다.",
     "method": "조하람이 사고 당일 저녁 방송 준비로 다들 스튜디오에 몰린 사이 사육실 최상단 랙을 고정하는 벽면 브라켓 나사 두 개를 완전히 빼내 두고, 명이한이 방송 중 사육실 급수 작업을 위해 그 랙 모서리에 손을 짚는 순간 랙 전체가 앞으로 기울며 대형 유리 사육장이 그의 머리 위로 떨어지게 만든다.",
     "key_time_location": "브라켓 나사를 뺀 결정적 순간은 사고 당일 20시 30분경 L02 사육실 최상단 랙 앞이며, 실제 낙하 사고는 같은 날 21시 25분경 같은 자리에서 벌어진다.",
     "cover_up": "조하람은 사고 직후 가장 먼저 뛰어들어가 발견자로 행동하며 다급히 도움을 요청하고, 이후 정비일지에서 자신의 최근 점검 서명이 남은 페이지를 찢어내 랙이 원래부터 노후해 스스로 무너졌을 뿐이라는 인상을 남기려 한다.",
-    "method_archetypes": ["falling_object", "structural_collapse"],
-    "motive_archetypes": ["revenge"],
-    "cover_up_target": ["cause_of_death", "responsibility"],
-    "cover_up_method": ["false_accident", "evidence_removal"]
+    "method_archetypes": [
+      "falling_object",
+      "structural_collapse"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "3년 전 봄",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조하람이 개인 노트에 자신이 야생에서 채집해 교배시킨 신품종 모프의 첫 관찰 기록을 적어 넣는다.",
       "world_fact": "조하람이 그날 적어 넣은 관찰 기록은 3년이 지난 지금도 조하람의 개인 노트 맨 앞장에 그대로 남아 있다."
     },
@@ -57,7 +76,10 @@
       "id": "T02",
       "time": "사고 4일 전 오후",
       "location": "L01",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "명이한이 조하람이 교배시킨 그 모프 개체를 다음 라이브방송 대표 소개 개체로 쓰겠다며 이름표를 자신의 브리더 코드로 바꿔 붙인다.",
       "world_fact": "명이한이 새로 붙인 이름표에는 조하람이 아니라 명이한 자신의 브리더 코드만 적혀 있다."
     },
@@ -65,7 +87,10 @@
       "id": "T03",
       "time": "사고 3일 전 저녁",
       "location": "L01",
-      "actors": ["CH05", "V01"],
+      "actors": [
+        "CH05",
+        "V01"
+      ],
       "actual_action": "류단이가 매장을 찾아와 최근 판매된 개체의 혈통 서류가 위조됐다고 명이한에게 언성을 높여 항의한다.",
       "world_fact": "류단이가 그날 따로 촬영해 둔 혈통 서류 사진은 지금도 류단이의 휴대폰에 그대로 남아 있다."
     },
@@ -73,7 +98,9 @@
       "id": "T04",
       "time": "사고 당일 20시 30분",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조하람이 방송 준비로 다들 스튜디오에 몰린 사이 사육실 최상단 랙 벽면 브라켓 나사 두 개를 드라이버로 완전히 빼낸다.",
       "world_fact": "조하람이 그때 빼낸 나사 두 개는 조하람의 사무실 앞치마 주머니 속에 그대로 남아 있다."
     },
@@ -81,61 +108,80 @@
       "id": "T05",
       "time": "사고 당일 21시",
       "location": "L04",
-      "actors": ["CH01", "CH04", "V01"],
+      "actors": [
+        "CH01",
+        "CH04",
+        "V01"
+      ],
       "actual_action": "명이한이 라이브방송을 시작해 그날 입고된 신규 개체들을 시청자들에게 소개한다."
     },
     {
       "id": "T06",
       "time": "사고 당일 21시 20분",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "명이한이 시청자 질문에 답하던 중, 사육실 급수를 마치고 오겠다는 말을 남기고 카메라 밖으로 나간다."
     },
     {
       "id": "T07",
       "time": "사고 당일 21시 25분",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "명이한이 급수병을 채우려 최상단 랙 모서리에 손을 짚는 순간, 브라켓이 빠진 랙 전체가 앞으로 기울며 유리 사육장이 명이한의 머리 위로 떨어진다."
     },
     {
       "id": "T08",
       "time": "사고 당일 21시 26분",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조하람이 굉음에 사육실로 달려가 쓰러진 명이한을 발견한다."
     },
     {
       "id": "T09",
       "time": "사고 당일 21시 27분",
       "location": "L04",
-      "actors": ["CH01", "CH04"],
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
       "actual_action": "진서한과 현소율이 다급한 목소리에 놀라 방송 카메라를 켜둔 채로 사육실로 달려간다."
     },
     {
       "id": "T10",
       "time": "사고 당일 21시 30분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "진서한이 곧바로 119에 신고한다."
     },
     {
       "id": "T11",
       "time": "사고 당일 21시 30분",
       "location": "L02",
-      "actors": ["CH02", "CH04"],
+      "actors": [
+        "CH02",
+        "CH04"
+      ],
       "actual_action": "조하람과 현소율이 구급대가 올 때까지 쓰러진 명이한 곁을 지킨다."
     },
     {
       "id": "T12",
       "time": "사고 당일 21시 50분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조하람이 사무실 정비일지에서 사흘 전 자신이 점검했다고 적어 둔 페이지를 몰래 찢어낸다.",
       "world_fact": "조하람이 찢어낸 정비일지 페이지에는 최상단 랙 브라켓을 점검했다는 조하람의 서명이 남아 있었다."
     }
   ],
-
   "key_figures": [
     {
       "id": "V01",
@@ -144,7 +190,6 @@
       "status": "deceased"
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -156,19 +201,25 @@
           "fact_id": "F-CH01-01",
           "content": "그날 밤 다들 방송 준비로 스튜디오에 몰려 있는 사이 조하람이 잠시 자리를 비웠다가 돌아온 것을 눈치챘다.",
           "source": "직접 목격",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "명이한이 방송 중 사육실 급수 작업을 하러 가겠다며 화면 밖으로 나갔다.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "굉음을 듣고 현소율과 함께 사육실로 달려가 조하람이 이미 명이한 곁에 있는 것을 봤다.",
           "source": "직접 경험",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -184,7 +235,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -217,31 +271,43 @@
           "fact_id": "F-CH02-01",
           "content": "사고 당일 20시 30분경 방송 준비로 다들 스튜디오에 몰린 사이 사육실에 홀로 들어가 있었다.",
           "source": "본인 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사고 당일 20시 30분경 사육실 최상단 랙 브라켓 나사 두 개를 직접 빼냈다.",
           "source": "본인 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "3년 전 자신이 채집해 교배시킨 모프 개체를 명이한이 자기 이름의 브리더 코드로 바꿔 대표 소개 개체로 내세웠다.",
           "source": "본인 경험",
-          "related_timeline": ["T01", "T02"]
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH02-04",
           "content": "사고 직후 정비일지에서 자신의 점검 서명이 남은 페이지를 몰래 찢어냈다.",
           "source": "본인 행동",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH02-05",
           "content": "3년간 쌓인 박탈감과 복수심으로 랙을 훼손해 명이한을 살해했다.",
           "source": "본인 행동",
-          "related_timeline": ["T04", "T07"]
+          "related_timeline": [
+            "T04",
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -264,7 +330,11 @@
           "reason_for_limit_or_lie": "동기와 살해 의도를 숨기려는 최종 부인."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -317,7 +387,9 @@
           "fact_id": "F-CH03-01",
           "content": "사고 당일 20시 반쯤, 조하람이 드라이버를 챙겨 혼자 사육실 쪽으로 들어가는 모습을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -332,7 +404,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "사육실 안에서 조하람이 정확히 뭘 했는지는 보지 못했다."
@@ -358,7 +433,10 @@
           "fact_id": "F-CH04-01",
           "content": "방송 녹화 파일에서 명이한이 화면 밖으로 나간 시각(21:20)과 굉음이 들린 시각(21:25) 사이 5분의 공백을 확인했다.",
           "source": "직접 확인",
-          "related_timeline": ["T06", "T07"]
+          "related_timeline": [
+            "T06",
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -373,7 +451,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "사육실 안에서 실제로 무슨 일이 있었는지는 영상에 안 잡혀서 모른다."
@@ -399,13 +480,17 @@
           "fact_id": "F-CH05-01",
           "content": "명이한이 채널 대표작으로 소개해온 모프가, 몇 년 전 조하람이 브리더 커뮤니티 게시판에 먼저 올렸던 개체와 특징이 똑같다는 소문을 들었다.",
           "source": "커뮤니티 소문",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "사고 3일 전 저녁 매장을 찾아가 명이한에게 판매된 개체의 혈통 서류가 위조됐다고 항의했다.",
           "source": "본인 행동",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         }
       ],
       "initial_claims": [
@@ -420,7 +505,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -443,14 +531,17 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "매장 진열홀",
       "access": "영업시간 중 일반 손님이라면 누구나 드나들 수 있는 매장 진열 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "다양한 사육장이 진열된 매장 홀로, 안쪽으로 사육실과 사무실, 방송 스튜디오로 이어지는 문들이 나 있다.",
       "observation_rules": [],
       "detail_rules": []
@@ -460,7 +551,9 @@
       "name": "사육실",
       "access": "직원만 상시 출입하는 사육 관리 구역으로, 손님은 원칙적으로 출입이 금지된다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "여러 단의 랙에 사육장이 빽빽하게 들어찬 관리 구역. 사고 이후 최상단 랙 일부가 무너진 채 통제되고 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -476,7 +569,9 @@
       "name": "사무실 겸 포장실",
       "access": "직원만 드나드는 사무 및 포장 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "정비일지와 배송 서류가 쌓인 책상, 개인 사물함들이 늘어선 좁은 사무 공간.",
       "observation_rules": [],
       "detail_rules": [
@@ -497,13 +592,14 @@
       "name": "라이브방송 스튜디오",
       "access": "촬영 장비가 설치된 구역으로 직원만 드나들며 방송 중에는 출입이 제한된다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "카메라와 조명, 진행용 테이블이 놓인 촬영 부스. 사고 당시 사용된 카메라와 방송 장비가 그대로 남아 있다.",
       "observation_rules": [],
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -512,10 +608,19 @@
       "found_at": "L02",
       "discovery_condition": "무너진 랙의 벽면 브라켓 부분을 자세히 살펴본다",
       "content": "최상단 칸 브라켓 나사 두 개가 통째로 빠져 있고, 나사 구멍 안쪽에는 최근에 낸 것으로 보이는 드라이버 긁힘 흔적이 남아 있다. 다른 칸의 브라켓들은 모두 정상적으로 고정돼 있다.",
-      "related_timeline": ["T04", "T07"],
-      "proves": ["누군가 사고 직전 최상단 브라켓만 의도적으로 손댔다"],
-      "does_not_prove": ["그것이 조하람의 소행이라는 것"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T04",
+        "T07"
+      ],
+      "proves": [
+        "누군가 사고 직전 최상단 브라켓만 의도적으로 손댔다"
+      ],
+      "does_not_prove": [
+        "그것이 조하람의 소행이라는 것"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -524,10 +629,18 @@
       "found_at": "L03",
       "discovery_condition": "사무실 정비일지를 확인한다",
       "content": "이번 달 정비일지에서 사흘 전 날짜 페이지만 통째로 찢겨 나가 있고, 그 앞뒤 페이지에는 조하람의 서명이 매일 남아 있다.",
-      "related_timeline": ["T12"],
-      "proves": ["조하람이 자신의 최근 점검 기록을 감추려 했다"],
-      "does_not_prove": ["그가 브라켓을 직접 훼손했다는 것"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T12"
+      ],
+      "proves": [
+        "조하람이 자신의 최근 점검 기록을 감추려 했다"
+      ],
+      "does_not_prove": [
+        "그가 브라켓을 직접 훼손했다는 것"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -536,10 +649,18 @@
       "found_at": "L01",
       "discovery_condition": "백여준에게 그날 밤 조하람의 행적을 묻는다",
       "content": "백여준은 사고 당일 20시 반쯤, 조하람이 드라이버를 챙겨 혼자 사육실 쪽으로 들어가는 모습을 봤다고 진술한다.",
-      "related_timeline": ["T04"],
-      "proves": ["조하람이 사고 발생 직전 사육실에 혼자 있었다"],
-      "does_not_prove": ["그때 그가 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "조하람이 사고 발생 직전 사육실에 혼자 있었다"
+      ],
+      "does_not_prove": [
+        "그때 그가 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -548,10 +669,19 @@
       "found_at": "L04",
       "discovery_condition": "현소율에게 방송 녹화 기록을 확인해 달라고 요청한다",
       "content": "현소율은 방송 녹화 파일에서 명이한이 화면 밖으로 나간 시각(21:20)과 굉음이 들린 시각(21:25) 사이 5분의 공백을 확인해 준다.",
-      "related_timeline": ["T06", "T07"],
-      "proves": ["명이한이 나간 뒤 5분 만에 사고가 발생했다"],
-      "does_not_prove": ["그 5분 동안 사육실에서 누가 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T06",
+        "T07"
+      ],
+      "proves": [
+        "명이한이 나간 뒤 5분 만에 사고가 발생했다"
+      ],
+      "does_not_prove": [
+        "그 5분 동안 사육실에서 누가 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E05",
@@ -560,10 +690,18 @@
       "found_at": "L03",
       "discovery_condition": "사무실 책상 서랍을 조사한다",
       "content": "서랍 안쪽에는 조하람이 3년 전 처음 그 모프 개체를 발견하고 교배시켰다는 날짜와 관찰 기록이 담긴 낡은 공책이 있다. 표지 안쪽에는 '내가 먼저 찾은 개체'라는 문구가 적혀 있다.",
-      "related_timeline": ["T01"],
-      "proves": ["조하람이 그 모프 개체를 원래 먼저 발견했다"],
-      "does_not_prove": ["그가 그 이유로 명이한을 해쳤다는 것"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T01"
+      ],
+      "proves": [
+        "조하람이 그 모프 개체를 원래 먼저 발견했다"
+      ],
+      "does_not_prove": [
+        "그가 그 이유로 명이한을 해쳤다는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -572,10 +710,18 @@
       "found_at": "L01",
       "discovery_condition": "류단이에게 명이한의 대표 소개 개체 출처를 묻는다",
       "content": "류단이는 명이한이 채널 대표작으로 소개해온 그 모프가, 몇 년 전 조하람이 브리더 커뮤니티 게시판에 먼저 올렸던 개체와 특징이 똑같다는 소문을 들었다고 말한다.",
-      "related_timeline": ["T02"],
-      "proves": ["명이한이 소개한 대표 개체의 원래 발견자가 조하람이라는 소문이 업계에 돌았다"],
-      "does_not_prove": ["조하람이 그 소문 때문에 명이한을 해쳤다는 것"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T02"
+      ],
+      "proves": [
+        "명이한이 소개한 대표 개체의 원래 발견자가 조하람이라는 소문이 업계에 돌았다"
+      ],
+      "does_not_prove": [
+        "조하람이 그 소문 때문에 명이한을 해쳤다는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -584,60 +730,95 @@
       "found_at": "L01",
       "discovery_condition": "진서한에게 사고 당일 밤 류단이가 매장에 다시 왔었는지 묻는다",
       "content": "진서한은 그날 밤 방송이 끝날 때까지 직접 매장 문 앞을 지켰고, 사흘 전 다녀간 류단이가 다시 찾아온 적은 없었다고 말한다.",
-      "related_timeline": ["T03"],
-      "proves": ["류단이가 사고 당일 밤 매장 근처에 오지 않았다"],
-      "does_not_prove": ["류단이가 애초에 위조 의혹을 제기한 이유"],
+      "related_timeline": [
+        "T03"
+      ],
+      "proves": [
+        "류단이가 사고 당일 밤 매장 근처에 오지 않았다"
+      ],
+      "does_not_prove": [
+        "류단이가 애초에 위조 의혹을 제기한 이유"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_near_scene",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "조하람이 스튜디오에 계속 있었다고 주장할 때, 백여준의 목격 진술(E03)과 방송 녹화 타임스탬프(E04)를 함께 제시해 모순을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "조하람이 사고 발생 직전 사육실 안에 혼자 있었다는 사실을 인정한다. 다만 왜 그곳에 있었는지는 아직 밝히지 않는다."
       },
-      "must_not_release": ["브라켓을 훼손했다는 사실", "동기"]
+      "must_not_release": [
+        "브라켓을 훼손했다는 사실",
+        "동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "admits_near_scene",
       "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
-        "evidence_ids": ["E01", "E02"]
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
       },
       "player_action": "조하람이 '랙이 원래 낡아서 그렇다'고 버틸 때, 브라켓의 최근 공구 흔적(E01)과 찢겨나간 정비일지 페이지(E02)를 함께 제시해 사전 조작 정황을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
         "scope": "조하람이 사고 당일 저녁 사육실 최상단 랙 브라켓 나사를 직접 빼냈고, 이후 정비일지에서 자신의 점검 서명이 남은 페이지를 찢어 감췄다는 사실을 인정한다. 다만 아직 이유는 밝히지 않는다."
       },
-      "must_not_release": ["동기", "3년 전 모프 개체 관련 사실"]
+      "must_not_release": [
+        "동기",
+        "3년 전 모프 개체 관련 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH02",
       "from_stage": "admits_tampering",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH02-03"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "조하람이 '사고와 자신은 무관하다'고 버틸 때, 그의 개인 기록노트(E05)와 류단이의 증언(E06)을 함께 제시해 그가 원래 발견자였다는 사실과 그로 인한 박탈감을 지적한다.",
       "release": {
@@ -647,7 +828,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -656,14 +836,17 @@
       "how_to_clear": "류단이 본인의 진술(S-CH05-01, S-CH05-02)과 진서한의 마감 확인 진술(E07)을 대조해 항의의 실제 맥락과 사고 당일의 부재를 확인한다.",
       "must_not_imply": "류단이가 위조 의혹을 제기한 것 자체가 거짓이라는 인상을 주어서는 안 된다 — 그 의혹은 실제로 사실로 남는다.",
       "lingering_thread": "명이한이 실제로 개체 혈통을 속여 판매해왔다는 사실은 사건과 무관하게 그대로 남아, 이후 판매된 개체들의 혈통 재검증이 필요해진다.",
-      "suspicion_deepener": "사고 당일 저녁 매장 근처에서 류단이와 닮은 사람을 봤다는 다른 손님의 부정확한 목격담이 돌며 의심이 한동안 짙어진다."
+      "suspicion_deepener": "사고 당일 저녁 매장 근처에서 류단이와 닮은 사람을 봤다는 다른 손님의 부정확한 목격담이 돌며 의심이 한동안 짙어진다.",
+      "character_id": "CH05"
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "5년째 사육 관리를 도맡아 온 수석 브리더 보조와 채널을 이끌어 온 대표.",
       "public_face": "손발이 잘 맞는 스승과 보조로 알려져 있다.",
       "private_strain": "조하람은 3년 전 자신이 직접 채집해 교배시킨 신품종 모프를 명이한이 자기 이름의 브리더 코드로 바꿔 채널 대표 개체로 내세웠다는 사실에 성과를 빼앗겼다는 박탈감을 품어왔다는 것을 먼저 꺼내지 않는다.",
@@ -674,7 +857,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "오랜 동종업계 지인이자 경쟁 브리더인 류단이와 대표.",
       "public_face": "업계에서 자주 마주치는 경쟁자 사이로 알려져 있다.",
       "private_strain": "류단이는 사고 사흘 전 명이한을 찾아가 판매된 개체의 혈통 서류가 위조됐다는 의혹을 따졌다는 사실을 먼저 꺼내지 않는다.",
@@ -685,7 +871,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "매장을 맡아 온 매니저와 대표.",
       "public_face": "손발이 잘 맞는 직원과 대표 사이로 알려져 있다.",
       "private_strain": "진서한은 그날 밤 다들 방송 준비로 바빠 대표님의 동선을 신경 쓰지 못했다는 자책을 먼저 꺼내지 않는다.",
@@ -696,7 +885,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "라이브방송 진행을 돕고 영상을 편집해 온 현소율과 채널 진행자 대표.",
       "public_face": "방송을 함께 만드는 사이로 알려져 있다.",
       "private_strain": "현소율은 방송 녹화 파일에서 명이한이 화면 밖으로 나간 시각과 굉음이 울린 시각 사이에 5분의 공백이 있다는 것을 대수롭지 않게 여겨 먼저 말하지 않았다.",
@@ -707,7 +899,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH03"],
+      "between": [
+        "CH02",
+        "CH03"
+      ],
       "nature": "수석 브리더 보조와 배송·물류를 맡아 온 동료.",
       "public_face": "같은 매장에서 자주 마주치는 동료 사이로만 알려져 있다.",
       "private_strain": "백여준은 사고 당일 저녁 조하람이 드라이버를 챙겨 혼자 사육실 쪽으로 들어가는 것을 봤다는 것을 먼저 말하지 않았다.",
@@ -718,24 +913,29 @@
       }
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH02-01", "F-CH02-02", "F-CH02-05"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH02-02",
+      "F-CH02-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "F-CH02-02",
       "motive_fact": "F-CH02-05"
     }
   },
-
   "final_deduction": {
     "responsible": "조하람",
     "method": "사고 당일 저녁 방송 준비로 다들 스튜디오에 몰린 사이 사육실 최상단 랙 벽면 브라켓 나사 두 개를 빼내 두고, 명이한이 급수 작업을 하러 그 랙에 손을 짚는 순간 랙 전체가 무너지며 유리 사육장이 그의 머리 위로 떨어지게 만들었다.",
     "motive": "3년 전 자신이 발견하고 교배시킨 모프 개체를 명이한이 가로채 자기 이름으로 명성을 쌓아온 것에 대한 박탈감과 복수심이 살의로 번졌다.",
     "key_connection": "백여준의 목격담(E03)과 방송 녹화 타임스탬프(E04)가 그의 알리바이를 무너뜨렸고, 브라켓의 공구 흔적(E01)과 찢겨나간 정비일지(E02)가 사전 조작을 증명했으며, 그의 개인 기록노트(E05)와 류단이의 증언(E06)이 그 이유를 드러냈다."
   },
-
   "ending_explanation": [
     "조하람은 3년 전 자신이 발견한 모프 개체의 공로를 인정받지 못한 채 5년째 보조로만 남아 있었다.",
     "명이한이 그 개체를 자기 이름으로 대표 소개하며 명성을 쌓아가는 모습에 억눌린 박탈감이 쌓여갔다.",

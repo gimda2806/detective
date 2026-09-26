@@ -8,26 +8,34 @@
     "detective_entry_type": "accompanying_someone",
     "detective_entry": "탐정은 최근 알게 된 이웃 노건이 몇 주째 자랑해 온 라이브스팀 모형철도 동호회 '증기마을'의 야간운행회에, 얼떨결에 따라와 있었다.",
     "tone": "복고풍 취미 모임 특유의 아기자기하고 다정한 분위기에서 시작해, 후반부로 갈수록 씁쓸해지는 정통 추리.",
-    "location_archetypes": ["association_club", "workshop"],
+    "location_archetypes": [
+      "association_club",
+      "workshop"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "contributory"
     },
-    "tags": ["라이브스팀_모형철도", "동호회", "야간운행회"]
+    "tags": [
+      "라이브스팀_모형철도",
+      "동호회",
+      "야간운행회"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 22:10",
     "location_id": "L01",
     "narrative": "조립장 안은 절단기 소리와 낮게 웅웅거리는 라디오 잡음으로 부산했다.\n\n탐정은 요 몇 주 동안 이웃 노건이 입에 침이 마르도록 자랑해 온 라이브스팀 모형철도 동호회 '증기마을'의 야간운행회에, 얼떨결에 따라와 있었다.\n\n\"이런 걸 진짜로 만드시는구나.\"\n\n한지우가 미니어처 기관차 한 대를 조심스레 들여다보며 감탄했다.\n\n\"장난감이 아니라 진짜 보일러가 달려 있어요, 이거.\"\n\n\"장난감 취급하면 여기 회원들 서운해할걸.\"\n\n탐정이 옆 작업대의 완성품을 가리키며 대꾸했다.\n\n그때 기관고 쪽에서 구서인이 하얗게 질린 얼굴로 뛰쳐나왔다.\n\n\"저기요, 누구 좀 도와주세요! 호신 선배가 기관고에 쓰러져 있어요, 온몸에 화상을 입은 채로!\"\n\n한지우의 표정이 순식간에 굳었다.\n\n\"호신 선배면, 여기 창립 멤버라고 하셨던 그분이죠?\"\n\n탐정은 대답 대신 이미 기관고 쪽으로 발을 옮기고 있었다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "기관고 한쪽, 파열된 보일러 이음매 앞으로 노란 접근금지 테이프가 늘어져 있었다.\n\n탐정이 하나씩 짚어 온 사실들 — 정비일지의 어긋난 기록과 노건의 목격담, 라이센스 계약 초안과 심다혜의 증언, 그리고 안전밸브 조절 나사의 공구 자국과 사라진 예비 스프링 — 을 늘어놓자, 표승화의 어깨가 떨리기 시작했다.\n\n\"그냥... 지키고 싶었을 뿐이에요.\"\n\n표승화가 갈라진 목소리로 말했다.\n\n\"이걸 손으로 하나하나 만드는 게 무슨 의미인지, 그 사람은 하나도 몰랐어요. 그걸 공장에서 찍어내겠다니. 몇 번을 말해도 안 통했어요.\"\n\n\"막고 싶었던 거네요, 계약이 아니라 사람을.\"\n\n한지우가 낮게 말했다. 평소의 가벼운 말투는 조금도 섞여 있지 않았다.\n\n\"계획하신 거였네요.\"\n\n탐정이 조용히 덧붙였다.\n\n\"...네.\"\n\n표승화가 고개를 떨궜다.\n\n탐정은 아무 말 없이 수첩을 덮었다.\n\n잠시 후, 조립장으로 돌아온 탐정과 한지우 앞으로 마준영이 힘없이 다가왔다.\n\n\"오늘 운행회는... 당연히 여기서 접어야겠죠.\"\n\n마준영이 중얼거렸다.\n\n\"근데 이참에 안전 점검 절차부터 전부 문서로 만들어서 회원들한테 공유하자고 제안하려고요. 진작 그랬어야 했는데.\"\n\n한지우가 어깨를 으쓱했다.\n\n\"그건 저희 담당은 아니라서요. 다만—\"\n\n한지우가 텅 빈 작업대 한쪽을 슬쩍 가리키며 덧붙였다.\n\n\"저 자리, 저 왔을 때부터 계속 비어 있던데요.\"\n\n노건이 픽 웃음을 터뜨렸다가, 이내 다시 표정을 굳혔다."
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -36,32 +44,45 @@
       "status": "deceased"
     }
   ],
-
   "surface_incident": [
     "라이브스팀 모형철도 동호회 '증기마을'의 창립 멤버 장호신이 야간운행회 도중 기관고에서 전신에 화상을 입고 쓰러진 채 발견됐다.",
     "장호신은 병원으로 옮겨졌으나 끝내 사망이 확인됐다. 사인은 보일러 이음매 파열로 분출된 고온 증기에 의한 화상 및 쇼크사로 추정된다.",
     "사건 당시 조립장과 기관고 인근에는 구서인, 표승화, 노건, 심다혜, 마준영이 있었다.",
     "외부 침입 흔적은 없다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "표승화는 심다혜가 무심코 흘린 말을 듣고 장호신이 클럽의 대표 협궤 기관차 설계도를 대형 완구 제조사에 넘겨 대량 생산 라이센스 계약을 추진하고 있다는 사실을 알게 됐다. 손으로 하나하나 조립하는 과정 자체가 이 취미의 전부라고 믿어 온 표승화에게는, 그 설계가 공장에서 찍어낸 싸구려 복제품으로 팔려나가는 게 클럽의 정체성을 통째로 지우는 일과 다름없었다. 몇 차례 장호신을 직접 설득해 보려 했지만 그는 매번 재정 사정을 이유로 계획을 굽히지 않았고, 표승화는 다른 회원들에게 이 일을 알리는 대신 계약이 성사되기 전에 장호신을 직접 막기로 마음먹었다.",
     "method": "표승화는 사건 3일 전 늦은 정비 시간에 혼자 기관고에 남아, 장호신이 몰던 협궤 기관차 보일러의 안전밸브 조절 나사를 렌치로 풀어 압력 설정치가 정격보다 훨씬 높아지도록 조작해 두고 밸브 덮개를 원래대로 되돌려놓아 겉보기엔 멀쩡해 보이게 만들었다. 야간운행회 당일, 장호신이 습관대로 개장 전 혼자 기관고에서 보일러에 불을 지피고 안전밸브 개방 여부를 확인하려 압력계 손잡이를 돌리자, 조작된 밸브가 정상 압력에서도 열리지 않아 압력이 계속 치솟았고 결국 보일러 상단 이음매가 파열되며 고온 증기가 그의 상반신을 덮쳐 심한 화상을 입혔다. 표승화는 그 시각 부품창고에 남아 기관고 쪽 동태를 지켜보고 있었다.",
-    "method_archetypes": ["machine_malfunction", "hyperthermia"],
-    "motive_archetypes": ["ip_dispute", "obsession"],
-    "cover_up_target": ["crime_scene", "location"],
-    "cover_up_method": ["scene_rearrangement", "evidence_removal", "document_falsification", "false_accident"],
+    "method_archetypes": [
+      "machine_malfunction",
+      "hyperthermia"
+    ],
+    "motive_archetypes": [
+      "ip_dispute",
+      "obsession"
+    ],
+    "cover_up_target": [
+      "crime_scene",
+      "location"
+    ],
+    "cover_up_method": [
+      "scene_rearrangement",
+      "evidence_removal",
+      "document_falsification",
+      "false_accident"
+    ],
     "key_time_location": "야간운행회 당일 21시 52분경, L02 기관고, 협궤 기관차 보일러 앞.",
     "cover_up": "표승화는 장호신이 쓰러지자 그를 살피는 대신 곧바로 안전밸브 조절 나사를 원래 위치로 되돌려놓고, 자신이 사흘 전 빼돌린 예비 안전밸브 스프링을 부품창고 선반 뒤쪽 깊숙이 숨겼으며, 자신의 정비일지에는 그날 밤 실제로는 손대지 않은 '2호기' 차륜을 점검했다고 적어 넣었다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사건 3일 전 22:10",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표승화가 늦은 정비 시간에 혼자 남아 장호신 기관차의 안전밸브 조절 나사를 렌치로 풀어 압력 설정치를 조작한다.",
       "world_fact": "표승화는 밸브 덮개를 원래대로 되돌려놓아 겉보기엔 손댄 흔적이 없어 보이게 해 둔다."
     },
@@ -69,7 +90,10 @@
       "id": "T02",
       "time": "사건 3일 전 22:20",
       "location": "L02",
-      "actors": ["CH02", "CH03"],
+      "actors": [
+        "CH02",
+        "CH03"
+      ],
       "actual_action": "노건이 부품을 가지러 가던 길에 기관고에 들렀다가 나사를 만지고 있는 표승화와 마주친다.",
       "world_fact": "표승화는 노건에게 압력계 눈금만 확인하는 거라고 둘러댄다."
     },
@@ -77,7 +101,9 @@
       "id": "T03",
       "time": "3주 전 16:40",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "심다혜가 사무실에서 서류를 정리하다 라이센스 계약 초안을 우연히 발견한다.",
       "world_fact": "심다혜는 그 얘기를 대수롭지 않게 표승화에게 지나가듯 언급한다."
     },
@@ -85,7 +111,10 @@
       "id": "T04",
       "time": "2주 전 19:20",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "표승화가 장호신에게 라이센스 계약 추진 여부를 캐묻는다.",
       "world_fact": "장호신은 클럽 재정에 도움이 될 거라며 말을 돌린다."
     },
@@ -93,7 +122,9 @@
       "id": "T05",
       "time": "사건 당일 18:30",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구서인이 야간운행회 준비 중 공용 정비일지에서 표승화 이름 옆 '2호기 차륜 정비 완료' 칸이 이미 체크돼 있는 걸 확인한다.",
       "world_fact": "구서인은 실제로 그 차량을 전날 밤 직접 손본 사람은 자신이었다는 걸 기억해 내고 의아해한다."
     },
@@ -101,21 +132,27 @@
       "id": "T06",
       "time": "21:20",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "장호신이 야간운행회 시작 전 습관대로 기관고에서 혼자 보일러에 불을 지피기 시작한다."
     },
     {
       "id": "T07",
       "time": "21:35",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표승화가 부품창고에 남아 기관고 쪽 동태를 살피며 기다린다."
     },
     {
       "id": "T08",
       "time": "21:52",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "장호신이 안전밸브 개방 여부를 확인하려 압력계 손잡이를 돌린다.",
       "world_fact": "조작된 밸브가 열리지 않으며 압력이 계속 치솟다가 보일러 상단 이음매가 파열돼 고온 증기가 장호신의 상반신을 덮친다."
     },
@@ -123,33 +160,40 @@
       "id": "T09",
       "time": "21:55",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표승화가 쓰러진 장호신을 살피는 대신 안전밸브 조절 나사부터 원래 위치로 되돌려놓는다."
     },
     {
       "id": "T10",
       "time": "21:57",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표승화가 사흘 전 빼돌린 예비 안전밸브 스프링을 부품창고 선반 뒤쪽에 숨긴다."
     },
     {
       "id": "T11",
       "time": "22:00",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표승화가 공용 정비일지에 그날 밤 실제로는 손대지 않은 2호기 차륜을 점검했다고 적어 넣는다."
     },
     {
       "id": "T12",
       "time": "22:10",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구서인이 기관고 쪽에서 평소와 달리 인기척이 없는 걸 이상히 여겨 문을 열어보다, 쓰러진 장호신을 발견한다.",
       "world_fact": "구서인은 곧바로 다른 회원들을 소리쳐 부르고 119에 신고한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -161,13 +205,17 @@
           "fact_id": "F-CH01-01",
           "content": "22시 10분경 기관고 쪽 인기척이 없는 게 이상해 들여다봤다가 쓰러진 장호신을 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "그날 저녁 정비일지에서 표승화 이름 옆 '2호기 차륜 정비 완료' 칸이 이미 체크돼 있었는데, 실제로 그 차량을 전날 밤 직접 손본 사람은 자신이었다.",
           "source": "직접 확인",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -188,7 +236,11 @@
           "reason_for_limit_or_lie": "표승화 이름 옆 체크 표시가 이상했던 걸 알아챘지만, 괜히 특정 회원을 의심하는 것처럼 보일까 봐 얼버무린다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -196,7 +248,9 @@
           "release_trigger": "S-CH01-03"
         }
       ],
-      "knowledge_limits": ["표승화가 기관고에서 정확히 무슨 일을 했는지는 모른다."],
+      "knowledge_limits": [
+        "표승화가 기관고에서 정확히 무슨 일을 했는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 쓰는 차분한 운영자 말투.",
         "sentence_length_tendency": "평소 또박또박 설명하듯 말하지만, 압박받으면 문장이 짧아지고 대답이 늦어진다.",
@@ -218,19 +272,30 @@
           "fact_id": "F-CH02-01",
           "content": "장호신이 클럽의 대표 협궤 기관차 설계를 대형 완구 제조사에 넘겨 대량 생산하는 라이센스 계약을 몰래 추진하고 있었다.",
           "source": "우연히 전해 들음",
-          "related_timeline": ["T03", "T04"]
+          "related_timeline": [
+            "T03",
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사건 당일 밤 정비일지에는 2호기 차륜을 손봤다고 적었지만 실제로는 그 시간 기관고 근처 부품창고에 있었다.",
           "source": "직접 행동",
-          "related_timeline": ["T07", "T11"]
+          "related_timeline": [
+            "T07",
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "3일 전 밤 기관고에서 장호신 기관차의 안전밸브 조절 나사를 몰래 풀어 압력 설정치를 조작해 두고, 장호신이 습관대로 혼자 보일러를 시험하러 오길 기다렸다가 이음매가 파열되는 걸 지켜본 즉시 조작 흔적을 지우고 예비 스프링을 숨겼다.",
           "source": "직접 행동",
-          "related_timeline": ["T01", "T08", "T09", "T10"]
+          "related_timeline": [
+            "T01",
+            "T08",
+            "T09",
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -253,7 +318,11 @@
           "reason_for_limit_or_lie": "자신이 밸브를 조작했다는 사실을 숨기려고."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -271,7 +340,9 @@
           "release_trigger": "E01"
         }
       ],
-      "knowledge_limits": ["구서인이나 마준영이 정확히 몇 시에 어디 있었는지는 모른다."],
+      "knowledge_limits": [
+        "구서인이나 마준영이 정확히 몇 시에 어디 있었는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 감정을 억누르는 듯한 건조한 어투.",
         "sentence_length_tendency": "평소 단답형으로 짧게 말하지만, 몰리면 오히려 논리적으로 설명이 길어진다.",
@@ -294,7 +365,9 @@
           "fact_id": "F-CH03-01",
           "content": "사건 3일 전 밤 부품을 가지러 가던 길에 기관고에서 나사를 만지고 있던 표승화와 마주쳤다.",
           "source": "직접 목격",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
@@ -315,7 +388,10 @@
           "reason_for_limit_or_lie": "표승화를 봤다는 사실을 먼저 말해서 괜한 오해를 사고 싶지 않아 얼버무린다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -323,7 +399,9 @@
           "release_trigger": "S-CH03-02"
         }
       ],
-      "knowledge_limits": ["기관고 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "기관고 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "밝고 캐주얼한 해요체.",
         "sentence_length_tendency": "평소 말이 빠르고 짧은 문장을 여러 개 이어 말하지만, 압박받으면 말수가 줄고 조심스러워진다.",
@@ -345,13 +423,17 @@
           "fact_id": "F-CH04-01",
           "content": "3주 전 사무실에서 서류를 정리하다 라이센스 계약 초안을 우연히 발견했고, 그 사실을 표승화에게 무심코 언급했다.",
           "source": "직접 확인",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "몇 주 전부터 표승화가 여러 차례 장호신에게 계약 관련 이야기를 캐물었다가 매번 얼버무리는 대답만 듣고 돌아서는 걸 지켜봤다.",
           "source": "평소 관찰",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -367,7 +449,10 @@
           "reason_for_limit_or_lie": "표승화가 반복해서 캐묻던 걸 언급하면 괜히 소문내는 것처럼 보이고 싶지 않아 얼버무린다."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
@@ -375,7 +460,9 @@
           "release_trigger": "S-CH04-02"
         }
       ],
-      "knowledge_limits": ["기관고 안에서 벌어진 일은 전혀 모른다."],
+      "knowledge_limits": [
+        "기관고 안에서 벌어진 일은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "조심스러운 존댓말.",
         "sentence_length_tendency": "평소 문장이 길고 부연설명이 많은데, 압박받으면 말이 끊기고 더듬는다.",
@@ -416,9 +503,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["기관고 안에서 벌어진 구체적인 일은 전혀 모른다."],
+      "knowledge_limits": [
+        "기관고 안에서 벌어진 구체적인 일은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "무뚝뚝한 반말이 섞인 표준 존댓말.",
         "sentence_length_tendency": "평소 짧고 사무적으로 말하지만, 압박받으면 방어적으로 설명이 길어진다.",
@@ -431,11 +523,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "창립 멤버이자 클럽의 상징적 존재인 장호신과, 그 밑에서 설비를 도맡아 온 표승화의 사제 같은 협력 관계.",
       "public_face": "누구에게 물어도 표승화는 장호신을 가장 오래 보좌해 온 후배로 통한다.",
       "says": {
@@ -446,7 +540,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "구서인은 클럽 창립 초기부터 장호신을 도와 회계와 운영을 맡아 온 오른팔이었다.",
       "public_face": "성실하고 꼼꼼하게 장호신을 보좌해 온 운영진으로 알려져 있다.",
       "says": {
@@ -457,7 +554,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "심다혜는 클럽 원로 회원으로 오랫동안 장호신과 함께 사무 업무를 처리해 왔다.",
       "public_face": "장호신을 오래 보좌한 믿음직한 동료로 알려져 있다.",
       "says": {
@@ -468,7 +568,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "마준영은 안전관리 담당으로 장호신과 함께 야간운행회의 안전 절차를 정해 온 사이다.",
       "public_face": "안전 문제로 종종 부딪히지만 결국 서로 존중하는 동료로 알려져 있다.",
       "says": {
@@ -479,7 +582,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH03"],
+      "between": [
+        "CH02",
+        "CH03"
+      ],
       "nature": "노건은 신입 회원으로 설비관리팀장인 표승화에게 이것저것 배우는 사이였다.",
       "public_face": "노건은 표승화를 믿음직한 선배로 따르는 것으로 알려져 있다.",
       "says": {
@@ -490,14 +596,18 @@
       "surfaces_when": "그날 밤 기관고 근처에서 본 것이 없냐고 재차 물으면(S-CH03-02) 표승화를 봤다는 사실(F-CH03-01)을 인정한다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "조립장",
       "access": "출입문을 통해 누구나 드나들 수 있는 개방된 작업 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "회원들이 각자 기관차와 객차를 조립·도색하는 작업대가 늘어선 홀. 한쪽엔 접수대 겸 공용 정비일지를 올려 둔 테이블이 있다.",
       "observation_rules": [
         {
@@ -519,7 +629,10 @@
       "name": "기관고",
       "access": "평소엔 보일러를 직접 다루는 회원만 드나드는 구역이라 야간운행회 중엔 출입이 제한된다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "보일러에 불을 지펴 압력을 올리는 공간. 안쪽엔 장호신이 아끼던 협궤 기관차가 파열된 이음매를 드러낸 채 놓여 있다.",
       "observation_rules": [
         {
@@ -541,7 +654,10 @@
       "name": "부품창고",
       "access": "설비관리팀장이 주로 드나드는 별도 창고.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02"],
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
       "base_description": "예비 부품과 공구가 정리된 좁은 창고. 선반 한쪽엔 안전밸브 스프링 세트가 종류별로 보관돼 있다.",
       "observation_rules": [
         {
@@ -557,7 +673,9 @@
       "name": "사무실",
       "access": "평소엔 운영진만 드나드는 작은 사무 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "낡은 서류함과 라커가 놓인 좁은 사무공간. 클럽 운영 서류와 계약 관련 문서들이 보관돼 있다.",
       "observation_rules": [
         {
@@ -584,7 +702,10 @@
       "name": "관제탑",
       "access": "야간운행회 때 무전과 신호를 담당하는 회원만 오르는 목제 플랫폼.",
       "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "야간운행회 때 무전과 신호를 담당하는 높은 목제 플랫폼. 트랙 전체와 기관고 지붕이 내려다보인다.",
       "observation_rules": [
         {
@@ -596,7 +717,6 @@
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -605,9 +725,15 @@
       "found_at": "L02",
       "discovery_condition": "안전밸브 조절 나사를 확대경으로 조사한다",
       "content": "나사산에 최근에 낸 듯한 날카로운 렌치 자국이 남아 있고, 압력 설정치가 원래보다 훨씬 높게 조작돼 있다.",
-      "proves": ["최근 누군가 장호신 기관차의 안전밸브를 의도적으로 조작했다는 사실"],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "최근 누군가 장호신 기관차의 안전밸브를 의도적으로 조작했다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E02",
@@ -616,9 +742,15 @@
       "found_at": "L05",
       "discovery_condition": "노건에게 사건 3일 전 밤 기관고 근처 상황에 대해 묻는다",
       "content": "노건은 3일 전 밤 부품을 가지러 가던 길에 기관고에서 혼자 나사를 만지고 있던 표승화와 마주쳤던 걸 떠올린다.",
-      "proves": ["표승화가 사건 3일 전 밤 기관고에 혼자 있었다는 사실"],
-      "does_not_prove": ["그때 정확히 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "표승화가 사건 3일 전 밤 기관고에 혼자 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그때 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E03",
@@ -627,9 +759,15 @@
       "found_at": "L04",
       "discovery_condition": "서류함에서 계약 초안을 확인한다",
       "content": "대형 완구 제조사와의 협궤 기관차 설계 라이센스 계약 초안. 장호신의 서명란만 비어 있고, 여러 번 펼쳐본 듯한 접힌 자국이 있다.",
-      "proves": ["장호신이 클럽의 대표 설계를 완구 제조사에 넘기는 계약을 추진하고 있었다는 사실"],
-      "does_not_prove": ["그 계약이 실제로 체결됐는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "장호신이 클럽의 대표 설계를 완구 제조사에 넘기는 계약을 추진하고 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그 계약이 실제로 체결됐는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -638,9 +776,15 @@
       "found_at": "L04",
       "discovery_condition": "심다혜에게 표승화와 장호신 사이에 있었던 일을 묻는다",
       "content": "심다혜는 몇 주 전부터 표승화가 여러 차례 장호신에게 계약 관련 이야기를 캐물었다가 매번 얼버무리는 대답만 듣고 돌아서는 걸 지켜봤던 걸 기억해 낸다.",
-      "proves": ["표승화가 최근 여러 차례 라이센스 계약에 대해 장호신을 추궁했다는 사실"],
-      "does_not_prove": ["그 이후 표승화가 무엇을 했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "표승화가 최근 여러 차례 라이센스 계약에 대해 장호신을 추궁했다는 사실"
+      ],
+      "does_not_prove": [
+        "그 이후 표승화가 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -649,9 +793,15 @@
       "found_at": "L05",
       "discovery_condition": "마준영에게 부품창고 예비 부품 상태에 대해 묻는다",
       "content": "마준영은 부품창고 선반의 예비 안전밸브 스프링 세트 중 하나가 며칠 전부터 안 보였다는 걸 기억해 내고, 그 나사산 규격이 방금 확인된 조작 흔적과 일치한다는 말을 덧붙인다.",
-      "proves": ["표승화가 예비 스프링을 이용해 안전밸브를 조작했을 가능성"],
-      "does_not_prove": ["그 부품을 정확히 언제 썼는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "표승화가 예비 스프링을 이용해 안전밸브를 조작했을 가능성"
+      ],
+      "does_not_prove": [
+        "그 부품을 정확히 언제 썼는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -660,9 +810,15 @@
       "found_at": "L01",
       "discovery_condition": "공용 정비일지를 확인한다",
       "content": "표승화 이름 옆 '2호기 차륜 정비 완료' 칸이 이미 체크돼 있지만, 그 차량을 실제로 손본 사람은 구서인이었다는 서명이 같은 칸에 겹쳐 적혀 있다.",
-      "proves": ["표승화가 그날 밤 실제 행적과 다른 내용을 정비일지에 적어 넣었다는 사실"],
-      "does_not_prove": ["표승화가 그 시간에 정확히 어디 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "표승화가 그날 밤 실제 행적과 다른 내용을 정비일지에 적어 넣었다는 사실"
+      ],
+      "does_not_prove": [
+        "표승화가 그 시간에 정확히 어디 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -671,60 +827,102 @@
       "found_at": "L04",
       "discovery_condition": "서류함에서 계약 관련 연락 기록을 확인한다",
       "content": "완구 제조사와 주고받은 연락 기록에는 전부 장호신의 이름과 연락처만 적혀 있고, 심다혜가 수신자나 참조로 걸린 서신은 한 장도 없다.",
-      "proves": ["심다혜가 계약 논의 과정 어디에도 관여한 적이 없다는 것을 그녀의 증언과 독립적으로 뒷받침한다"],
-      "does_not_prove": ["그녀가 서류를 본 시점이 언제인지"],
+      "proves": [
+        "심다혜가 계약 논의 과정 어디에도 관여한 적이 없다는 것을 그녀의 증언과 독립적으로 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "그녀가 서류를 본 시점이 언제인지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_near_engine_house",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02", "E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
       "player_action": "표승화에게 그날 밤 계속 2호기 차륜만 손봤는지 물은 뒤, 노건의 목격담과 정비일지의 어긋난 기록을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
         "scope": "표승화가 그날 밤 실제로는 기관고 근처에 있었다는 사실만 인정한다 — 거기서 무엇을 했는지는 아직 밝히지 않는다."
       },
-      "must_not_release": ["안전밸브를 조작했다는 사실", "장호신과의 계약 관련 갈등"]
+      "must_not_release": [
+        "안전밸브를 조작했다는 사실",
+        "장호신과의 계약 관련 갈등"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "admits_near_engine_house",
       "to_stage": "admits_contract_conflict",
-      "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "표승화에게 장호신과 특별한 갈등이 없었는지 재차 물은 뒤, 라이센스 계약 초안과 심다혜의 증언을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "표승화가 라이센스 계약안을 알게 됐고 여러 차례 장호신에게 캐물었다는 사실을 인정한다 — 직접 손을 썼다는 것은 여전히 부인한다."
       },
-      "must_not_release": ["안전밸브를 사전에 조작했다는 사실"]
+      "must_not_release": [
+        "안전밸브를 사전에 조작했다는 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH02",
       "from_stage": "admits_contract_conflict",
       "to_stage": "confesses_motive_and_method",
-      "requires_heard_claim_ids": ["S-CH02-03"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
-      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E05"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
+      },
       "player_action": "표승화에게 안전밸브가 원래 헐거웠던 것뿐이었는지 다시 물은 뒤, 안전밸브 조절 나사의 공구 자국과 마준영이 기억해 낸 사라진 예비 스프링을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
         "scope": "표승화가 3일 전 밤 안전밸브 조절 나사를 풀어 압력 설정치를 조작해 두었고, 장호신이 습관대로 그 기관차를 시험하러 오길 기다렸다가 이음매가 파열되는 걸 지켜본 뒤 곧바로 조작 흔적을 지우고 예비 스프링을 숨겼다는 사실을 모두 인정한다."
       },
-      "must_not_release": ["아직 밝혀지지 않은 추가 공모자나 다른 피해 계획이 있다는 암시"]
+      "must_not_release": [
+        "아직 밝혀지지 않은 추가 공모자나 다른 피해 계획이 있다는 암시"
+      ]
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -733,7 +931,8 @@
       "how_to_clear": "구서인과 노건의 증언, 그리고 관제탑 무전 기록지(F-L05-OBS-01)를 종합하면 마준영이 21시 20분부터 22시 10분까지 줄곧 관제탑에 있었다는 게 확인된다.",
       "must_not_imply": "마준영이 안전 규정 문제를 알고도 방치해 사고를 유도했다는 암시는 주지 않는다 — 단순한 절차 갈등일 뿐이다.",
       "lingering_thread": "사건 이후 마준영은 클럽의 안전 점검 절차를 문서로 만들어 회원 전원이 볼 수 있게 공유하자고 제안하기로 마음먹는다.",
-      "suspicion_deepener": "사건 직후 마준영이 유독 안절부절못하며 다른 기관차들의 안전밸브를 하나하나 다시 점검하고 다니는 모습이 여러 회원 눈에 띈다."
+      "suspicion_deepener": "사건 직후 마준영이 유독 안절부절못하며 다른 기관차들의 안전밸브를 하나하나 다시 점검하고 다니는 모습이 여러 회원 눈에 띈다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -742,27 +941,33 @@
       "how_to_clear": "라이센스 계약 초안(E03)에 심다혜의 이름이 어디에도 없다는 사실과, 계약 관련 연락 기록(E07)에도 그녀가 수신자·참조로 걸린 서신이 한 장도 없다는 사실을 맞춰보면, 심다혜는 계약 관련 어떤 논의에도 참여한 적이 없다는 게 드러난다.",
       "must_not_imply": "심다혜가 계약 체결에 동의했거나 금전적 이득을 노렸다는 암시는 주지 않는다.",
       "lingering_thread": "심다혜는 앞으로 클럽 서류를 다룰 때 좀 더 조심하기로 하면서도, 표승화에게 그 얘기를 괜히 흘렸다는 죄책감을 오래 곱씹는다.",
-      "suspicion_deepener": "사건 이후 심다혜가 유독 표승화를 피해 다니며 눈을 마주치지 않으려 하는 모습이 다른 회원들 눈에 띈다."
+      "suspicion_deepener": "사건 이후 심다혜가 유독 표승화를 피해 다니며 눈을 마주치지 않으려 하는 모습이 다른 회원들 눈에 띈다.",
+      "character_id": "CH04"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH02-02", "F-CH02-01", "F-CH02-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH02-02",
+      "F-CH02-01",
+      "F-CH02-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "안전밸브 조절 나사를 사전에 조작해 장호신이 확인하는 순간 보일러 이음매가 파열돼 고온 증기 화상을 입게 만들었다는 사실(F-CH02-03)",
       "motive_fact": "클럽의 대표 설계를 대량생산 라이센스로 넘기려는 계획을 막기 위해 벌인 계획적 범행(F-CH02-01)"
     }
   },
-
   "final_deduction": {
     "responsible": "표승화 (CH02)",
     "method": "기관고에서 장호신 기관차의 안전밸브 조절 나사를 3일 전 미리 조작해두고, 장호신이 습관대로 그 기관차를 시험하러 오는 순간 보일러 이음매가 파열되게 만들어 고온 증기 화상으로 사망하게 했다.",
     "motive": "클럽의 대표 협궤 기관차 설계를 대형 완구 제조사에 넘기려는 장호신의 계획을 막기 위해, 수작업 공예의 순수성이 훼손된다고 믿은 표승화가 계획적으로 범행을 저질렀다.",
     "key_connection": "정비일지 불일치와 노건의 목격담(E02, E06), 계약 초안과 심다혜의 증언(E03, E04), 안전밸브 조작 흔적과 사라진 예비 스프링(E01, E05)이 차례로 그의 행적과 동기, 수법을 증명한다."
   },
-
   "ending_explanation": [
     "표승화는 장호신이 클럽의 대표 협궤 기관차 설계를 대형 완구 제조사에 넘겨 대량 생산하려 한다는 계획을 알게 됐고, 이를 수작업 공예의 순수성을 해치는 배신으로 여겼다.",
     "여러 차례 장호신에게 캐물었지만 그가 끝내 계획을 접지 않으리라 확신한 표승화는 3일 전 밤 기관고에서 안전밸브 조절 나사를 몰래 조작해뒀고, 장호신이 습관대로 혼자 보일러를 시험하다 이음매가 파열돼 고온 증기 화상으로 숨졌다.",

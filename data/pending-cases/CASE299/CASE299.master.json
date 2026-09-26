@@ -8,37 +8,49 @@
     "detective_entry_type": "group_member",
     "detective_entry": "탐정은 몇 달 전부터 이 조기축구회 정회원으로 활동하며 매주 토요일 경기에 참여해 왔다. 한지우도 가끔 응원하러 따라 나온다. 그날도 평소처럼 몸을 풀고 있었다.",
     "tone": "이른 아침 운동장 특유의 서늘한 공기와 거친 숨소리가 뒤섞인, 긴박하면서도 무거운 톤.",
-    "tags": ["조기축구회", "동호회_창단", "그라운드", "새벽_경기"],
-    "location_archetypes": ["sports_facility", "association_club"],
+    "tags": [
+      "조기축구회",
+      "동호회_창단",
+      "그라운드",
+      "새벽_경기"
+    ],
+    "location_archetypes": [
+      "sports_facility",
+      "association_club"
+    ],
     "background": {
-      "background_archetypes": ["sports_match"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "sports_match"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "opening_scene": {
     "location_id": "L01",
     "detective_entry_time": "사건 당일 07:55",
     "narrative": "7시 55분, 이른 아침 운동장엔 휘슬 소리 대신 다급한 외침이 울렸다.\n\n탐정은 몸을 풀다 말고 고개를 돌렸다.\n\n\"저기 회장님 왜 저러세요?\"\n\n한지우가 그라운드 쪽을 가리키며 말했다.\n\n\"그러게, 이상한데.\"\n\n탐정이 답하는 사이, 반해준이 위나온 쪽으로 뛰어가며 소리쳤다.\n\n\"회장님이 쓰러지셨어요! 누구 구급차 좀!\"\n\n목소리가 운동장 반대편까지 갔다.\n\n탐정과 한지우도 서둘러 다가갔고, 가슴을 움켜쥔 채 쓰러진 위나온과 마주쳤다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "늦은 오전, 클럽하우스엔 아침의 소란 대신 정적만 남아 있었다.\n\n연서헌은 텅 빈 자동심장충격기 거치대 앞에 선 채 오래도록 말이 없었다.\n\n탐정이 일기장 사본과 목단이의 증언을 나란히 짚어 보이자, 그는 마침내 낮게 입을 열었다.\n\n\"...25년이었습니다.\"\n\n연서헌이 말했다.\n\n\"형이 그렇게 갔는데, 그 사람은 아무 일도 없었다는 듯 계속 여기 서 있더라고요.\"\n\n\"그래서 배터리부터 빼 둔 겁니다.\"\n\n탐정이 조용히 정정했다.\n\n\"우발이 아니라, 새벽부터 준비한 겁니다.\"\n\n한지우가 거치대에서 한 걸음 물러섰다.\n\n\"...그 마음, 이해 못 하는 건 아닌데요.\"\n\n\"이해되는 것과 저지른 일은 다른 문제지.\"\n\n탐정이 대답했다.\n\n경찰이 클럽하우스에 들어섰을 때, 연서헌은 가방에서 배터리를 꺼내 벤치 위에 올려놓았다. 약통도 그 옆에 놓았다. 둘 다 아침부터 그 안에 있었다. 곁에서 지켜보던 반해준은 그 뒤로도 그날 더 빨리 알아차리지 못한 걸 한동안 자책하게 됐다.\n\n클럽하우스를 나서며 한지우가 빈 거치대를 흘긋 보다 말했다.\n\n\"저건 이제 새로 달겠죠.\"\n\n\"그래야지.\"\n\n탐정이 짧게 답하며 먼저 문을 밀었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "위나온", "role": "'무궁화FC' 회장 / 창단 멤버", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "위나온",
+      "role": "'무궁화FC' 회장 / 창단 멤버",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "경기 중이던 탐정이 반해준의 다급한 외침을 듣고 그라운드에서 쓰러진 위나온을 발견한다.",
     "클럽하우스 자동심장충격기 배터리가 빠져 있고 위나온의 가방 속 비상약도 사라져, 단순 지병 급사로 보기 어렵다는 정황이 있다.",
     "사건 당일, 신입 회원 반해준이 주전 경쟁 문제로 위나온과 마찰을 빚었다는 사실이 회원들 사이에 알려져 있었다.",
     "사건 당일 새벽, 신입 회원 연서헌이 평소보다 훨씬 일찍 도착해 클럽하우스에 머물렀다는 사실이 확인됐다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "25년 전 전신 팀 시절 훈련 중 급성 심정지로 쓰러진 형이 골든타임을 놓쳐 세상을 떠난 것이, 당시 주장이던 위나온이 경기를 이어가려 응급조치와 신고를 미루고 그 사실을 오랫동안 은폐해 온 탓이었다는 사실을 최근 알게 된 연서헌이, 신입 회원으로 위장해 들어와 오랫동안 억눌러 온 복수심에서 살해했다.",
@@ -46,56 +58,182 @@
     "key_time_location": "06:00 L02에서 자동심장충격기 배터리 제거, 06:20 L02에서 비상약 탈취, 07:45 L01에서 어깨로 강하게 충돌, 07:50 위나온 쓰러짐.",
     "cover_up": "연서헌은 그저 열심히 뛰다 보니 부딪힌 것뿐이라며, 위나온의 죽음은 평소 앓던 지병 때문에 운동 중 갑자기 벌어진 사고라고 주장한다.",
     "accomplice": "없음",
-    "method_archetypes": ["delayed_rescue"],
-    "motive_archetypes": ["revenge"],
-    "cover_up_target": ["cause_of_death", "identity"],
-    "cover_up_method": ["false_accident", "evidence_removal"]
+    "method_archetypes": [
+      "delayed_rescue"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "identity"
+    ],
+    "cover_up_method": [
+      "accident_victim_health",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "사건 당일 06:00", "location": "L02", "actors": ["CH01"],
+    {
+      "id": "T01",
+      "time": "사건 당일 06:00",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "연서헌이 일찍 도착해 클럽하우스 벽에 걸린 자동심장충격기의 배터리를 몰래 빼내 가방에 숨긴다.",
-      "world_fact": "자동심장충격기 표시등이 꺼진 채 남는다." },
-    { "id": "T02", "time": "사건 당일 06:15", "location": "L02", "actors": ["V01"],
-      "actual_action": "위나온이 도착해 가방을 라커에 넣어 두고 몸을 풀러 나간다." },
-    { "id": "T03", "time": "사건 당일 06:20", "location": "L02", "actors": ["CH01"],
+      "world_fact": "자동심장충격기 표시등이 꺼진 채 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 06:15",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "위나온이 도착해 가방을 라커에 넣어 두고 몸을 풀러 나간다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 06:20",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "연서헌이 위나온의 가방에서 비상약 통을 몰래 꺼내 자신의 옷 속에 숨긴다.",
-      "world_fact": "가방 안쪽 주머니 지퍼가 반쯤 열린 채 남는다." },
-    { "id": "T04", "time": "사건 당일 06:30", "location": "L01", "actors": ["CH03", "CH04"],
-      "actual_action": "목단이와 반해준이 몸풀기 운동을 함께 한다." },
-    { "id": "T05", "time": "사건 당일 07:00", "location": "L05", "actors": ["CH05"],
-      "actual_action": "국서완이 그라운드 정비를 마치고 관리사무실에서 서류를 정리한다." },
-    { "id": "T06", "time": "사건 당일 07:15", "location": "L01", "actors": ["V01", "CH02"],
-      "actual_action": "위나온이 팀 편성을 놓고 추상은과 짧게 논의한다." },
-    { "id": "T07", "time": "사건 당일 07:30", "location": "L01", "actors": ["V01", "CH01"],
+      "world_fact": "가방 안쪽 주머니 지퍼가 반쯤 열린 채 남는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 06:30",
+      "location": "L01",
+      "actors": [
+        "CH03",
+        "CH04"
+      ],
+      "actual_action": "목단이와 반해준이 몸풀기 운동을 함께 한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 07:00",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "국서완이 그라운드 정비를 마치고 관리사무실에서 서류를 정리한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 07:15",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
+      "actual_action": "위나온이 팀 편성을 놓고 추상은과 짧게 논의한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 07:30",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "경기가 시작되고 연서헌이 위나온과 같은 편에서 뛰며 유독 거칠게 몸싸움을 건다.",
-      "world_fact": "그라운드에 두 사람이 부딪힌 자국이 길게 파인다." },
-    { "id": "T08", "time": "사건 당일 07:45", "location": "L01", "actors": ["CH01", "V01"],
+      "world_fact": "그라운드에 두 사람이 부딪힌 자국이 길게 파인다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 07:45",
+      "location": "L01",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "연서헌이 공을 다투다 위나온의 가슴 쪽을 어깨로 강하게 들이받는다.",
-      "world_fact": "위나온이 그 자리에서 잠시 휘청거린다." },
-    { "id": "T09", "time": "사건 당일 07:50", "location": "L01", "actors": ["V01"],
+      "world_fact": "위나온이 그 자리에서 잠시 휘청거린다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 07:50",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "위나온이 갑자기 가슴을 움켜쥐며 쓰러진다.",
-      "world_fact": "주변 회원들이 놀라 몰려든다." },
-    { "id": "T10", "time": "사건 당일 07:52", "location": "L02", "actors": ["CH01"],
+      "world_fact": "주변 회원들이 놀라 몰려든다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 07:52",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "연서헌이 잠시 클럽하우스로 뛰어가는 척하며 자동심장충격기 위치를 확인하고 돌아온다.",
-      "world_fact": "연서헌이 빈손으로 돌아온다." },
-    { "id": "T11", "time": "사건 당일 08:00", "location": "L01", "actors": ["CH04"],
+      "world_fact": "연서헌이 빈손으로 돌아온다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 08:00",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "반해준이 자동심장충격기도 비상약도 찾지 못한 채 구급대에 신고한다.",
-      "world_fact": "반해준이 곧바로 119에 신고한다." }
+      "world_fact": "반해준이 곧바로 119에 신고한다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "연서헌", "role": "신입 회원", "present_location": "L02",
+      "id": "CH01",
+      "name": "연서헌",
+      "role": "신입 회원",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "경기 중 위나온과 유독 거칠게 몸싸움을 벌이며 어깨로 가슴을 강하게 들이받았다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-02", "content": "경기 시작 전 클럽하우스 자동심장충격기 배터리를 몰래 빼냈다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "위나온의 가방에서 부정맥 비상약을 몰래 훔쳐 숨겼다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-04", "content": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 은폐해 왔다." }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "경기 중 위나온과 유독 거칠게 몸싸움을 벌이며 어깨로 가슴을 강하게 들이받았다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "경기 시작 전 클럽하우스 자동심장충격기 배터리를 몰래 빼냈다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "위나온의 가방에서 부정맥 비상약을 몰래 훔쳐 숨겼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 은폐해 왔다."
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그냥 경기 중 열심히 뛰다 보니 부딪힌 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "의도적으로 몸싸움을 건 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "위나온의 죽음은 평소 지병 때문에 갑자기 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그냥 경기 중 열심히 뛰다 보니 부딪힌 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "의도적으로 몸싸움을 건 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "위나온의 죽음은 평소 지병 때문에 갑자기 벌어진 사고일 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "경기 중 흔히 있는 일이었을 뿐이에요.",
@@ -115,12 +253,31 @@
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "F-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E04", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH01-03"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
@@ -137,7 +294,10 @@
           "release_trigger": "S-CH01-04"
         }
       ],
-      "knowledge_limits": ["두 사람이 팀 밖에서 어떤 사이였는지는 들은 바 없다.", "목단이가 25년 전 사고를 얼마나 자세히 기억하는지는 몰랐다."],
+      "knowledge_limits": [
+        "두 사람이 팀 밖에서 어떤 사이였는지는 들은 바 없다.",
+        "목단이가 25년 전 사고를 얼마나 자세히 기억하는지는 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말인데 대답과 대답 사이가 길다.",
         "sentence_length_tendency": "평소엔 짧고 명료하게 말하다가, 압박받으면 오히려 침묵이 길어진다.",
@@ -150,18 +310,38 @@
       ]
     },
     {
-      "id": "CH02", "name": "추상은", "role": "부회장 겸 총무", "present_location": "L01",
+      "id": "CH02",
+      "name": "추상은",
+      "role": "부회장 겸 총무",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "연서헌이 가입 첫날부터 유독 클럽하우스와 장비함 근처를 서성였다는 걸 눈치채고 있었다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "연서헌이 가입 첫날부터 유독 클럽하우스와 장비함 근처를 서성였다는 걸 눈치채고 있었다.",
+          "source": "직접 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 팀 편성 문제로 위나온과 짧게 얘기만 나눴을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날은 팀 편성 문제로 위나온과 짧게 얘기만 나눴을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["연서헌이 정확히 무엇을 하고 있었는지는 몰랐다.", "25년 전 사고에 대해서는 자세히 모른다."],
+      "knowledge_limits": [
+        "연서헌이 정확히 무엇을 하고 있었는지는 몰랐다.",
+        "25년 전 사고에 대해서는 자세히 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 신중하고 조용한 말투.",
         "sentence_length_tendency": "평소 차분히 길게 말하다가, 압박받으면 말이 느려지고 신중해진다.",
@@ -174,18 +354,38 @@
       ]
     },
     {
-      "id": "CH03", "name": "목단이", "role": "베테랑 회원 / 창단 초기 멤버", "present_location": "L01",
+      "id": "CH03",
+      "name": "목단이",
+      "role": "베테랑 회원 / 창단 초기 멤버",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "25년 전 그 사고를 직접 목격했고, 당시 위나온의 대응이 석연찮았다는 걸 기억하고 있다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "25년 전 그 사고를 직접 목격했고, 당시 위나온의 대응이 석연찮았다는 걸 기억하고 있다.",
+          "source": "직접 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 몸풀기부터 함께 했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날은 평소처럼 몸풀기부터 함께 했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-L01-OBS-01",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["연서헌이 그 사고와 개인적으로 연결돼 있는지는 몰랐다.", "새벽에 라커 쪽에서 무슨 일이 있었는지는 본 바 없다."],
+      "knowledge_limits": [
+        "연서헌이 그 사고와 개인적으로 연결돼 있는지는 몰랐다.",
+        "새벽에 라커 쪽에서 무슨 일이 있었는지는 본 바 없다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 느긋하고 무던한 말투.",
         "sentence_length_tendency": "평소 여유 있게 말하다가, 압박받으면 말이 조심스러워진다.",
@@ -198,20 +398,51 @@
       ]
     },
     {
-      "id": "CH04", "name": "반해준", "role": "신입 회원", "present_location": "L01",
+      "id": "CH04",
+      "name": "반해준",
+      "role": "신입 회원",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "8시경 자동심장충격기도 비상약도 찾지 못한 채 구급대에 신고했다.", "source": "직접 경험", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH04-02", "content": "최근 주전 경쟁 문제로 위나온과 마찰이 있었다." }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "8시경 자동심장충격기도 비상약도 찾지 못한 채 구급대에 신고했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 주전 경쟁 문제로 위나온과 마찰이 있었다."
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "위나온과는 그냥 평소처럼 훈련 얘기만 나눴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "마찰이 있었다는 사실을 숨기려는 것이다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "위나온과는 그냥 평소처럼 훈련 얘기만 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "마찰이 있었다는 사실을 숨기려는 것이다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH04-01" },
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E06", "release_trigger": "F-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "F-L01-OBS-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH04-01"
+        }
       ],
-      "knowledge_limits": ["새벽에 클럽하우스에서 무슨 일이 있었는지는 본 적이 없다.", "연서헌이 회장님을 전부터 알았는지는 전혀 몰랐다."],
+      "knowledge_limits": [
+        "새벽에 클럽하우스에서 무슨 일이 있었는지는 본 적이 없다.",
+        "연서헌이 회장님을 전부터 알았는지는 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 다급하고 다혈질인 말투.",
         "sentence_length_tendency": "평소 빠르게 말하다가, 압박받으면 말이 더 격해진다.",
@@ -224,18 +455,41 @@
       ]
     },
     {
-      "id": "CH05", "name": "국서완", "role": "그라운드 관리인", "present_location": "L05",
+      "id": "CH05",
+      "name": "국서완",
+      "role": "그라운드 관리인",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 새벽 출입 기록에서 연서헌이 유독 일찍 도착했다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 새벽 출입 기록에서 연서헌이 유독 일찍 도착했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 그라운드 정비만 했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날은 평소처럼 그라운드 정비만 했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["연서헌이 왜 그렇게 일찍 왔는지 정확한 이유는 모른다.", "회원들이 안에서 무엇을 했는지까지는 볼 일이 없다."],
+      "knowledge_limits": [
+        "연서헌이 왜 그렇게 일찍 왔는지 정확한 이유는 모른다.",
+        "회원들이 안에서 무엇을 했는지까지는 볼 일이 없다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 무던하고 사무적인 말투.",
         "sentence_length_tendency": "평소 짧고 사실 위주로 말하며, 압박받아도 크게 달라지지 않는다.",
@@ -247,18 +501,27 @@
       ]
     }
   ],
-
   "relationships": [
     {
-      "id": "REL01", "between": ["CH01", "V01"],
+      "id": "REL01",
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "몇 달 전 가입한 신입 회원과 회장.",
       "public_face": "성실한 신입 회원으로 알려져 있다.",
       "private_strain": "연서헌은 25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 오랫동안 은폐해 왔다는 사실을 최근 알게 됐다.",
       "surfaces_when": "25년 전 사고나 연서헌의 가입 경위에 대해 구체적으로 캐물을 때(F-CH01-04).",
-      "says": { "CH01": "\"회장님이요? 그냥... 성실히 뵌 분이었죠. 그 이상은 없습니다.\"" }
+      "says": {
+        "CH01": "\"회장님이요? 그냥... 성실히 뵌 분이었죠. 그 이상은 없습니다.\""
+      }
     },
     {
-      "id": "REL02", "between": ["CH01", "CH03"],
+      "id": "REL02",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "같은 팀에서 함께 뛰어 온 베테랑 회원과 신입 회원.",
       "public_face": "무난한 팀 동료로 알려져 있다.",
       "private_strain": "목단이는 25년 전 그 사고를 직접 목격한 몇 안 되는 사람 중 하나로, 당시 위나온의 대응이 석연찮았다는 걸 기억하고 있다.",
@@ -269,185 +532,502 @@
       }
     },
     {
-      "id": "REL03", "between": ["CH02", "V01"],
+      "id": "REL03",
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "10년 넘게 함께 팀을 꾸려 온 부회장과 회장.",
       "public_face": "신뢰가 두터운 사이로 알려져 있다.",
       "private_strain": "추상은은 연서헌이 가입 첫날부터 유독 클럽하우스와 장비함 근처를 서성였다는 걸 눈치채고 있었다.",
       "surfaces_when": "연서헌의 평소 행동에 대해 추상은에게 구체적으로 캐물을 때(F-CH02-01).",
-      "says": { "CH02": "\"제가 보기엔 회장님은 오래 뵌 만큼 믿음이 가는 분이셨어요.\"" }
+      "says": {
+        "CH02": "\"제가 보기엔 회장님은 오래 뵌 만큼 믿음이 가는 분이셨어요.\""
+      }
     },
     {
-      "id": "REL04", "between": ["CH05", "V01"],
+      "id": "REL04",
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "5년째 그라운드를 관리해 온 관리인과 회장.",
       "public_face": "무난한 업무 관계로 알려져 있다.",
       "private_strain": "국서완은 그날 새벽 출입 기록에서 연서헌이 유독 일찍 도착했다는 걸 알고 있다.",
       "surfaces_when": "그날 새벽 출입 기록에 대해 국서완에게 구체적으로 캐물을 때(F-CH05-01).",
-      "says": { "CH05": "\"회장님과는 매주 마주치는 사이였을 뿐입니다. 그게 다였습니다.\"" }
+      "says": {
+        "CH05": "\"회장님과는 매주 마주치는 사이였을 뿐입니다. 그게 다였습니다.\""
+      }
     },
     {
-      "id": "REL05", "between": ["CH04", "V01"],
+      "id": "REL05",
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "몇 달 전 가입한 신입 회원과 회장.",
       "public_face": "훈련에 열심인 신입 회원과 회장 정도로만 알려져 있다.",
       "private_strain": "반해준은 최근 주전 경쟁 문제로 위나온과 마찰을 겪었지만, 괜히 의심받을까 봐 아무 사이도 아닌 척해 왔다.",
       "surfaces_when": "최근 주전 경쟁이나 위나온과의 마찰에 대해 반해준에게 구체적으로 캐물을 때(F-CH04-02) 그 사정이 새어 나온다.",
-      "says": { "CH04": "\"회장님이요? 그냥 열심히 하는 분이라 생각했어요, 진짜로요.\"" }
+      "says": {
+        "CH04": "\"회장님이요? 그냥 열심히 하는 분이라 생각했어요, 진짜로요.\""
+      }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "그라운드", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L02", "L03"],
+      "id": "L01",
+      "name": "그라운드",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03"
+      ],
       "base_description": "잔디 운동장 한가운데 골대 두 개가 마주 서 있고, 가장자리 벤치엔 물병과 수건이 흩어져 있다. 바닥은 이른 아침 이슬로 미끄럽다.",
       "observation_rules": [
-        { "action": "그라운드를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "잔디 한쪽에 두 사람이 부딪힌 듯한 자국이 길게 파여 있고, 그 옆 벤치에 위나온의 물병이 그대로 놓여 있다." }
+        {
+          "action": "그라운드를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "잔디 한쪽에 두 사람이 부딪힌 듯한 자국이 길게 파여 있고, 그 옆 벤치에 위나온의 물병이 그대로 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "그라운드에 파인 자국을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "잔디가 깊게 파인 자국이 두 줄로 겹쳐 있고, 그중 한쪽은 힘을 강하게 준 듯 더 깊다." },
-        { "action": "쓰러진 자리의 유니폼을 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "위나온이 쓰러진 자리 옆으로 가슴 쪽 유니폼이 세게 움켜쥔 채 구겨져 있다." }
+        {
+          "action": "그라운드에 파인 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "잔디가 깊게 파인 자국이 두 줄로 겹쳐 있고, 그중 한쪽은 힘을 강하게 준 듯 더 깊다."
+        },
+        {
+          "action": "쓰러진 자리의 유니폼을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "위나온이 쓰러진 자리 옆으로 가슴 쪽 유니폼이 세게 움켜쥔 채 구겨져 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "클럽하우스", "access": "회원 전용", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L02",
+      "name": "클럽하우스",
+      "access": "회원 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "라커 여러 개가 벽을 따라 늘어서 있고, 그 옆 벽엔 자동심장충격기 거치대가 걸려 있다. 거치대는 평소 눈에 잘 띄지 않는 구석에 있다.",
       "observation_rules": [
-        { "action": "클럽하우스를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "거치대 표시등이 꺼진 채고, 위나온의 라커 문이 살짝 열려 있다." }
+        {
+          "action": "클럽하우스를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "거치대 표시등이 꺼진 채고, 위나온의 라커 문이 살짝 열려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "자동심장충격기를 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "배터리 칸이 비어 있고, 안쪽에 최근 손을 댄 듯한 지문 자국이 남아 있다." },
-        { "action": "위나온의 가방을 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "가방 안쪽 주머니 지퍼가 반쯤 열려 있고, 평소 약통이 있던 자리가 비어 있다." },
-        { "action": "연서헌의 벤치 밑 가방을 살펴본다", "requires": "없음", "release_evidence_id": "E10", "result": "가방 안쪽에 25년 전 형이 남긴 것으로 보이는 일기장 사본과, 당시 사고 정황을 정리한 손글씨 메모가 접힌 채 들어 있다." }
+        {
+          "action": "자동심장충격기를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "배터리 칸이 비어 있고, 안쪽에 최근 손을 댄 듯한 지문 자국이 남아 있다."
+        },
+        {
+          "action": "위나온의 가방을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "가방 안쪽 주머니 지퍼가 반쯤 열려 있고, 평소 약통이 있던 자리가 비어 있다."
+        },
+        {
+          "action": "연서헌의 벤치 밑 가방을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "가방 안쪽에 25년 전 형이 남긴 것으로 보이는 일기장 사본과, 당시 사고 정황을 정리한 손글씨 메모가 접힌 채 들어 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "주차장 겸 입구", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L03",
+      "name": "주차장 겸 입구",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "회원들의 차와 자전거가 세워져 있고, 그 옆 게시판에 이번 달 경기 일정표가 붙어 있다.",
       "observation_rules": [
-        { "action": "입구를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "게시판 일정표 옆에 신입 회원 명단이 새로 붙어 있다." }
+        {
+          "action": "입구를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "게시판 일정표 옆에 신입 회원 명단이 새로 붙어 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L04", "name": "장비창고", "access": "관계자 전용", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "장비창고",
+      "access": "관계자 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "공과 훈련 조끼가 상자에 정리돼 있고, 그 옆 벽에 장비 점검표가 걸려 있다.",
       "observation_rules": [
-        { "action": "창고를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "점검표 오늘 자 칸에 서명이 비어 있다." }
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "점검표 오늘 자 칸에 서명이 비어 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L05", "name": "관리사무실", "access": "관계자 전용", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "관리사무실",
+      "access": "관계자 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "출입 기록판이 문 옆에 걸려 있고, 그 앞 책상엔 그라운드 점검 서류가 쌓여 있다.",
       "observation_rules": [
-        { "action": "관리사무실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "출입 기록판 오늘 날짜 맨 위 칸에 연서헌의 이름이 평소보다 훨씬 이른 시각으로 적혀 있다." }
+        {
+          "action": "관리사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "출입 기록판 오늘 날짜 맨 위 칸에 연서헌의 이름이 평소보다 훨씬 이른 시각으로 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록판을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "출입 기록판에 연서헌이 06시경 가장 먼저 도착해 서명했고, 그 아래 위나온의 서명은 06시 15분으로 적혀 있어 두 사람이 도착한 순서와 간격이 뚜렷이 드러난다." }
+        {
+          "action": "출입 기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "출입 기록판에 연서헌이 06시경 가장 먼저 도착해 서명했고, 그 아래 위나온의 서명은 06시 15분으로 적혀 있어 두 사람이 도착한 순서와 간격이 뚜렷이 드러난다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "그라운드의 충돌 자국", "source_type": "location", "found_at": "L01", "discovery_condition": "그라운드에 파인 자국을 살펴본다", "related_timeline": ["T07"],
+    {
+      "id": "E01",
+      "name": "그라운드의 충돌 자국",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "그라운드에 파인 자국을 살펴본다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "잔디가 깊게 파인 자국이 두 줄로 겹쳐 있고, 그중 한쪽은 힘을 강하게 준 듯 더 깊다.",
-      "proves": ["경기 중 한쪽이 유독 강하게 몸싸움을 벌였다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E02", "name": "쓰러진 자리의 정황", "source_type": "location", "found_at": "L01", "discovery_condition": "쓰러진 자리의 유니폼을 살펴본다", "related_timeline": ["T09"],
+      "proves": [
+        "경기 중 한쪽이 유독 강하게 몸싸움을 벌였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "쓰러진 자리의 정황",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "쓰러진 자리의 유니폼을 살펴본다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "위나온이 쓰러진 자리 옆으로 가슴 쪽 유니폼이 세게 움켜쥔 채 구겨져 있다.",
-      "proves": ["위나온이 갑작스러운 심장 이상으로 쓰러졌다는 사실을 증명한다."],
-      "does_not_prove": ["그 이상이 자연적인 것인지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E03", "name": "배터리 빠진 자동심장충격기", "source_type": "location", "found_at": "L02", "discovery_condition": "자동심장충격기를 살펴본다", "related_timeline": ["T01"],
+      "proves": [
+        "위나온이 갑작스러운 심장 이상으로 쓰러졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 이상이 자연적인 것인지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "배터리 빠진 자동심장충격기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "자동심장충격기를 살펴본다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "배터리 칸이 비어 있고, 안쪽에 최근 손을 댄 듯한 지문 자국이 남아 있다.",
-      "proves": ["누군가 사건 전 자동심장충격기를 의도적으로 무력화했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "비어 있는 약통 자리", "source_type": "location", "found_at": "L02", "discovery_condition": "위나온의 가방을 살펴본다", "related_timeline": ["T03"],
+      "proves": [
+        "누군가 사건 전 자동심장충격기를 의도적으로 무력화했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "비어 있는 약통 자리",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "위나온의 가방을 살펴본다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "가방 안쪽 주머니 지퍼가 반쯤 열려 있고, 평소 약통이 있던 자리가 비어 있다.",
-      "proves": ["누군가 위나온의 비상약을 사건 전 빼돌렸다는 사실을 증명한다."],
-      "does_not_prove": ["누가 가져갔는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "관리사무실 출입 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "출입 기록판을 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "누군가 위나온의 비상약을 사건 전 빼돌렸다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "관리사무실 출입 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "출입 기록판을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "출입 기록판에 연서헌이 06시경 가장 먼저 도착해 서명했고, 그 아래 위나온의 서명은 06시 15분으로 적혀 있어 두 사람이 도착한 순서와 간격이 뚜렷이 드러난다.",
-      "proves": ["연서헌이 그날 유독 일찍 도착했다는 사실을 증명한다."],
-      "does_not_prove": ["그 15분 동안 클럽하우스에서 무엇을 했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "반해준의 발견 및 신고 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "반해준에게 제세동기를 가지러 갔던 일을 묻는다",
+      "proves": [
+        "연서헌이 그날 유독 일찍 도착했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 15분 동안 클럽하우스에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "반해준의 발견 및 신고 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "반해준에게 제세동기를 가지러 갔던 일을 묻는다",
       "content": "반해준은 위나온이 쓰러진 직후 자동심장충격기도 비상약도 찾지 못해 구급대에 신고했다고 말한다.",
-      "proves": ["발견 당시 응급 장비와 약이 모두 없었다는 사실을 증명한다."],
-      "does_not_prove": ["왜 없었는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E07", "name": "목단이의 몸싸움 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "목단이에게 경기 중 몸싸움에 대해 묻는다",
+      "proves": [
+        "발견 당시 응급 장비와 약이 모두 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "왜 없었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "목단이의 몸싸움 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "목단이에게 경기 중 몸싸움에 대해 묻는다",
       "content": "목단이는 연서헌이 경기 내내 위나온에게 유독 거칠게 몸싸움을 걸었다고 말한다.",
-      "proves": ["연서헌이 의도적으로 거친 몸싸움을 이어갔다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 계획된 것이었는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "추상은의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "추상은에게 연서헌의 평소 행동에 대해 묻는다",
+      "proves": [
+        "연서헌이 의도적으로 거친 몸싸움을 이어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 계획된 것이었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "추상은의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "추상은에게 연서헌의 평소 행동에 대해 묻는다",
       "content": "추상은은 연서헌이 가입 첫날부터 클럽하우스와 장비함 근처를 유독 서성였다고 말한다.",
-      "proves": ["연서헌이 사건 전부터 클럽하우스 설비에 관심을 두고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그가 정확히 무엇을 계획했는지"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "반해준의 갈등 해명", "source_type": "testimony", "found_at": "L01", "discovery_condition": "반해준에게 주전 경쟁 문제로 있었던 마찰에 대해 묻는다",
+      "proves": [
+        "연서헌이 사건 전부터 클럽하우스 설비에 관심을 두고 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그가 정확히 무엇을 계획했는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "반해준의 갈등 해명",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "반해준에게 주전 경쟁 문제로 있었던 마찰에 대해 묻는다",
       "content": "반해준은 포지션 조율 문제로 잠깐 마찰이 있었을 뿐이고 이미 정리됐으며, 경기 내내 반대편에서 뛰고 있었다고 말한다.",
-      "proves": ["반해준의 마찰이 사소했고 그가 경기 내내 반대편에 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그가 새벽에 클럽하우스에 들어간 적이 있는지까지"],
-      "presentation_effect": [] },
-    { "id": "E10", "name": "연서헌 가방 속 일기장 사본", "source_type": "location", "found_at": "L02", "discovery_condition": "연서헌의 벤치 밑 가방을 살펴본다",
+      "proves": [
+        "반해준의 마찰이 사소했고 그가 경기 내내 반대편에 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그가 새벽에 클럽하우스에 들어간 적이 있는지까지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "연서헌 가방 속 일기장 사본",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "연서헌의 벤치 밑 가방을 살펴본다",
       "content": "가방 안쪽에 25년 전 형이 남긴 것으로 보이는 일기장 사본과, 당시 사고 정황을 정리한 손글씨 메모가 접힌 채 들어 있다.",
-      "proves": ["연서헌이 25년 전 사고와 개인적으로 연결돼 있으며 오랫동안 준비해 왔다는 사실을 증명한다."],
-      "does_not_prove": ["그가 정확히 언제부터 범행을 계획했는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E11", "name": "목단이의 25년 전 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "목단이에게 25년 전 사고 당시 상황에 대해 묻는다",
+      "proves": [
+        "연서헌이 25년 전 사고와 개인적으로 연결돼 있으며 오랫동안 준비해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 정확히 언제부터 범행을 계획했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E11",
+      "name": "목단이의 25년 전 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "목단이에게 25년 전 사고 당시 상황에 대해 묻는다",
       "content": "목단이는 25년 전 한 선수가 훈련 중 쓰러졌을 때, 당시 주장이던 위나온이 경기를 이어가려 응급조치와 신고를 미뤘다는 소문이 있었다고 말한다.",
-      "proves": ["25년 전 사고 당시 위나온의 대응이 석연찮았다는 사실을 뒷받침한다."],
-      "does_not_prove": ["연서헌이 그 선수와 어떤 관계였는지"],
-      "presentation_effect": ["C04"] }
+      "proves": [
+        "25년 전 사고 당시 위나온의 대응이 석연찮았다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "연서헌이 그 선수와 어떤 관계였는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_collision",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E02", "E06", "E07"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_collision",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E06",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E06",
+          "E07"
+        ]
+      },
       "player_action": "그라운드의 충돌 자국과 쓰러진 자리의 정황, 반해준의 발견 진술과 목단이의 몸싸움 목격담을 함께 제시해, 그냥 부딪힌 것뿐이라는 주장과 경기 내내 유독 거칠게 몸싸움을 걸었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "몸싸움이 좀 거칠었던 것은 인정한다." },
-      "must_not_release": ["자동심장충격기를 손댄 사실", "비상약을 훔친 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "몸싸움이 좀 거칠었던 것은 인정한다."
+      },
+      "must_not_release": [
+        "자동심장충격기를 손댄 사실",
+        "비상약을 훔친 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_collision", "to_stage": "admits_aed",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E03", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E03", "E05"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_collision",
+      "to_stage": "admits_aed",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E03",
+          "E05"
+        ]
+      },
       "player_action": "배터리 빠진 자동심장충격기와 관리사무실 출입 기록을 함께 제시해, 흔한 몸싸움이었다는 주장과 그가 그날 유독 일찍 도착해 배터리를 손댈 기회가 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "자동심장충격기를 만진 것은 인정한다." },
-      "must_not_release": ["비상약을 훔친 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "자동심장충격기를 만진 것은 인정한다."
+      },
+      "must_not_release": [
+        "비상약을 훔친 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_aed", "to_stage": "admits_theft",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E04", "E08"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E04", "E08"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_aed",
+      "to_stage": "admits_theft",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E04",
+          "E08"
+        ]
+      },
       "player_action": "비어 있는 약통 자리와 추상은의 목격담을 함께 제시해, 점검하려던 것뿐이라는 주장과 위나온의 가방까지 손댄 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "가방에서 약통을 빼낸 것은 인정한다." },
-      "must_not_release": ["진짜 동기(25년 전 사고와 형의 죽음)"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "가방에서 약통을 빼낸 것은 인정한다."
+      },
+      "must_not_release": [
+        "진짜 동기(25년 전 사고와 형의 죽음)"
+      ]
     },
     {
-      "id": "C04", "target_character": "CH01", "from_stage": "admits_theft", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E10", "E11"],
-      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E10", "E11"] },
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_theft",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E10",
+        "E11"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": [
+          "E10",
+          "E11"
+        ]
+      },
       "player_action": "가방 속 일기장 사본과 목단이의 25년 전 증언을 함께 제시해, 순간적인 충동이었다는 주장과 오랫동안 준비해 온 계획적 범행이었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "25년 전 형이 위나온의 은폐로 골든타임을 놓쳐 세상을 떠났다는 사실을 알고, 신입 회원으로 위장해 들어와 계획적으로 자동심장충격기와 비상약을 없앤 뒤 몸싸움으로 쓰러뜨렸다는 것을 모두 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "25년 전 형이 위나온의 은폐로 골든타임을 놓쳐 세상을 떠났다는 사실을 알고, 신입 회원으로 위장해 들어와 계획적으로 자동심장충격기와 비상약을 없앤 뒤 몸싸움으로 쓰러뜨렸다는 것을 모두 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -456,7 +1036,8 @@
       "how_to_clear": "반해준의 갈등 해명(E09)과 목단이의 몸싸움 목격담(E07)을 함께 제시해, 마찰이 있었다는 의심과 실제로 경기 내내 거칠게 몸싸움을 건 사람은 연서헌이었다는 사실을 대조한다.",
       "must_not_imply": "마찰이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "반해준은 그 뒤로도 그날 더 빨리 알아차리지 못한 걸 한동안 자책하게 된다.",
-      "suspicion_deepener": "신입 회원 명단이 새로 붙어 있었다는 정황(F-L03-OBS-01)과 함께 그의 이름이 거론되며, 한동안 그가 자리를 두고 더 크게 화를 냈던 게 아니냐는 의심이 짙어진다."
+      "suspicion_deepener": "신입 회원 명단이 새로 붙어 있었다는 정황(F-L03-OBS-01)과 함께 그의 이름이 거론되며, 한동안 그가 자리를 두고 더 크게 화를 냈던 게 아니냐는 의심이 짙어진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -465,27 +1046,40 @@
       "how_to_clear": "목단이의 25년 전 증언(E11)과 그라운드의 충돌 자국(E01)을 함께 제시해, 오래된 갈등이 있었다는 의심과 실제로 거칠게 몸싸움을 건 흔적이 가리키는 사람은 따로 있다는 사실을 대조한다.",
       "must_not_imply": "오래된 갈등이 있었다는 소문만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "목단이는 그 뒤로도 25년 전 그 일을 진작 제대로 말했어야 했다는 후회를 한동안 떨치지 못한다.",
-      "suspicion_deepener": "그가 25년 전 사고를 유독 자세히 기억하고 있었다는 사실이 드러나며, 한동안 그가 여전히 앙심을 품고 있었던 게 아니냐는 의심이 짙어진다."
+      "suspicion_deepener": "그가 25년 전 사고를 유독 자세히 기억하고 있었다는 사실이 드러나며, 한동안 그가 여전히 앙심을 품고 있었던 게 아니냐는 의심이 짙어진다.",
+      "character_id": "CH03"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "자동심장충격기 배터리를 미리 빼내고 위나온의 비상약을 훔친 뒤, 경기 중 어깨로 강하게 들이받아 부정맥을 악화시켜 사망하게 하고 평소 지병 사고처럼 꾸몄다.",
       "motive_fact": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 은폐해 왔다는 것을 알고 복수심에서 살해했다."
     }
   },
-
   "final_deduction": {
     "responsible": "연서헌",
     "method": "06:00 클럽하우스에서 자동심장충격기 배터리를 미리 빼냈고, 06:20 위나온의 가방에서 비상약을 훔쳐 숨겼다. 07:45 경기 중 어깨로 위나온의 가슴을 강하게 들이받았고, 07:50 위나온이 부정맥 악화로 쓰러지자 응급 장비도 약도 없는 상태로 골든타임을 놓치게 했다.",
     "motive": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 오랫동안 은폐해 왔다는 사실을 알게 된 연서헌이 오랫동안 억눌러 온 복수심을 실행에 옮겼다.",
     "key_connection": "반해준과 목단이의 목격담이 연서헌의 초기 진술과 어긋나고, 배터리 빠진 자동심장충격기와 출입 기록이 사전 준비를 가리키며, 비어 있는 약통 자리와 추상은의 목격담이 은폐 행동을 뒷받침하고, 일기장 사본과 목단이의 25년 전 증언이 계획된 동기를 증명한다."
   },
-
   "ending_explanation": [
     "경기 중이던 탐정이 반해준의 외침을 듣고 그라운드에서 쓰러진 위나온을 발견한 표면 사건",
     "연서헌이 그냥 부딪힌 것뿐이라는 주장과 반해준·목단이의 진술이 가리키는 의도적인 몸싸움의 불일치",

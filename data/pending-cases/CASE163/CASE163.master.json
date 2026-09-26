@@ -8,66 +8,242 @@
     "detective_entry_type": "volunteer_or_helper",
     "detective_entry": "탐정은 오랜 친구 최성호의 부탁으로, 그의 아버지 유품을 정리하는 일을 며칠째 거들어 주고 있었다.",
     "tone": "차분하고 씁쓸한 정서 추리 - 유품 정리라는 소재의 스산함과 한지우의 능청스러운 유머로 무게를 조절한다",
-    "tags": ["유품정리", "빈티지_수집품", "고독사_유가족"],
-    "location_archetypes": ["private_house"],
+    "tags": [
+      "유품정리",
+      "빈티지_수집품",
+      "고독사_유가족"
+    ],
+    "location_archetypes": [
+      "private_house"
+    ],
     "background": {
-      "background_archetypes": ["inheritance", "appraisal"],
-      "background_phrasing": ["in_progress", "approaching"],
+      "background_archetypes": [
+        "inheritance",
+        "appraisal"
+      ],
+      "background_phrasing": [
+        "in_progress",
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 15:35",
     "location_id": "L02",
     "narrative": "쿵, 하는 둔탁한 소리와 함께 정리 인부들의 비명이 이어졌다. 탐정은 마침 그날도 오랜 친구 최성호의 부탁으로 유품 정리를 거들고 있던 참이었다.\n소리가 난 복도 쪽으로 달려가니, 무너진 상자 더미 아래로 감정사 권지규의 다리만 삐죽 나와 있었다. 서현빈이 새하얗게 질린 얼굴로 상자를 치우며 소리쳤다.\n\"숨을 안 쉬어요, 빨리요!\"\n탐정과 한지우가 함께 상자를 걷어냈을 때, 권지규는 이미 의식을 잃은 채였다. 한지우가 무너진 상자들 밑동을 살피며 낮게 중얼거렸다.\n\"…이 정도 높이 짐더미가 그냥 저절로 무너졌다고요?\"\n\"사고라기엔 좀 애매하지.\"\n탐정이 지지대가 있어야 할 빈자리를 짚으며 대꾸했다.\n\"애매한 정도가 아니라, 저 밑에 있던 상자만 쏙 빠진 것 같은데요.\"\n한지우가 수첩을 꺼내며 주변을 훑어봤다.\n\"이 집, 유품 정리 끝나기도 전에 사람부터 정리됐네요.\"\n탐정은 대답 대신, 이미 숨이 멎어가는 권지규의 손끝이 향해 있던 방향을 가만히 눈에 담았다."
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "최유원은 한참을 망설이다가, 결국 낮은 목소리로 털어놓았다. 상속 정산액을 줄이고 판매 대금을 챙기려 카메라를 몰래 바꿔치기했다는 것, 권지규가 오늘 안으로 그 사실을 변호사에게 알리겠다고 하자 복도에서 언쟁 끝에 지지상자를 직접 빼내 짐더미를 무너뜨려 그를 깔리게 했다는 것까지.\n\n\"…시간만 좀 벌면 된다고 생각했어요.\"\n\n그녀가 고개를 떨궜다.\n\n한지우는 잠시 말없이 수첩을 덮었다가, 조용히 되물었다.\n\n\"그 시간, 결국 누구 것도 못 됐네요.\"\n\n최유원은 아무 대답도 하지 못했다. 탐정은 서재 창밖으로 아직 옮기지 못한 상자들이 쌓인 마당을 내려다보며 말을 아꼈다.\n\n며칠 뒤, 남은 유품 정리가 마무리되던 날, 조유성은 최유원과 거래해 온 물건들의 출처를 뒤늦게 조사받게 됐다는 소식을 전해 왔다. 그는 그동안 대수롭지 않게 여겨온 자신의 거래 방식을 그제야 돌아보는 눈치였다.\n\n짐을 마저 정리하며 한지우가 팔짱을 끼고 말했다.\n\n\"탐정님, 저도 나중에 은퇴하면 이런 거 수집해 볼까 봐요.\"\n\n\"뭘 수집하게.\"\n\n탐정이 피식 웃으며 마지막 상자를 들어 옮겼다.\n\n\"탐정님 잔소리 녹음 테이프요.\"\n\n한지우가 능청스레 대꾸하며 뒤를 따랐다."
   },
-
   "surface_incident": [
     "유품 정리가 한창이던 저택 복도에서, 상속 절차를 위해 위촉된 감정사 권지규가 무너진 짐더미에 깔린 채 발견됐다.",
     "관계자들은 좁은 복도에 위태롭게 쌓여 있던 상자 더미가 저절로 무너진 사고로 잠정 추정했다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "최유원은 고인의 유언에 따라 카메라 컬렉션을 물려받는 대신, 그 감정가만큼 상속 정산액을 삼촌 최성호에게 지급해야 하는 처지였다. 급전이 필요했던 그녀는 컬렉션 중 가장 값나가는 카메라 세 점을 정식 감정 전에 몰래 팔아치우고 비슷한 복제품으로 채워 넣어, 실제로는 원본을 팔아 돈을 챙기면서도 공식 감정가는 낮게 만들어 정산액을 줄이려 했다. 감정사 권지규가 고인의 육필 목록과 실물을 대조하다 이 불일치를 발견하고 사건 당일 안으로 변호사에게 보고하겠다고 통보하자, 그녀는 그 보고가 나가기 전에 그를 막아야 했다.",
     "method": "사건 당일 오후, 최유원은 마지막 짐더미 정리를 돕겠다며 권지규와 함께 좁은 복도로 들어갔다. 보고 시점을 두고 언쟁이 붙자, 그녀는 복도 하단에 쌓여 있던 지지상자를 손으로 빼냈고 그 위로 쌓여 있던 상자 더미가 무너지며 권지규가 그 자리에서 깔려 의식을 잃었다.",
     "key_time_location": "사건 당일 15시 10분경, 저택 복도.",
     "cover_up": "최유원은 쓰러진 권지규를 그대로 둔 채 복도를 빠져나와, 그의 업무 수첩에서 불일치 대조 메모가 적힌 페이지를 찢어 없앴다. 그러나 그가 그날 낮 따로 자신의 카메라 메모리카드에 남겨 둔 대조 사진은 미처 확인하지 못했다.",
-    "method_archetypes": ["structural_collapse", "falling_object", "delayed_rescue"],
-    "motive_archetypes": ["inheritance", "financial_gain", "report_prevention", "crime_cover"],
-    "cover_up_target": ["cause_of_death", "evidence", "motive"],
-    "cover_up_method": ["false_accident", "evidence_removal", "object_substitution"]
+    "method_archetypes": [
+      "structural_collapse",
+      "falling_object",
+      "delayed_rescue"
+    ],
+    "motive_archetypes": [
+      "inheritance",
+      "financial_gain",
+      "report_prevention",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "motive"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal",
+      "object_substitution"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "한 달 전", "location": "L01", "actors": ["CH01"], "actual_action": "최유원이 고인의 유품 중 희귀 카메라 몇 점의 실제 시세를 알아보려 조유성에게 개인적으로 연락한다.", "world_fact": "최유원이 외부 거래상과 접촉한다." },
-    { "id": "T02", "time": "3주 전", "location": "L01", "actors": ["CH01", "CH05"], "actual_action": "최유원이 조유성에게 희귀 카메라 세 점을 몰래 판매한다.", "world_fact": "원본 카메라 세 점이 조유성에게 넘어간다." },
-    { "id": "T03", "time": "같은 날", "location": "L01", "actors": ["CH01"], "actual_action": "최유원이 진열장의 빈자리를 비슷하게 생긴 복제품 카메라로 채워 넣는다.", "world_fact": "진열장의 카메라 세 점이 복제품으로 바뀐다." },
-    { "id": "T04", "time": "2주 전", "location": "L01", "actors": ["CH03", "CH01"], "actual_action": "최성호와 최유원이 '온기유품정리'에 정식으로 유품 정리와 감정을 의뢰한다.", "world_fact": "서현빈의 팀과 감정사 권지규가 작업을 시작한다." },
-    { "id": "T05", "time": "1주 전", "location": "L03", "actors": ["V01"], "actual_action": "권지규가 서재 서랍에서 고인의 육필 수집품 목록 노트를 찾아낸다.", "world_fact": "목록 노트가 감정 작업의 기준 자료로 쓰이기 시작한다." },
-    { "id": "T06", "time": "사건 3일 전", "location": "L03", "actors": ["V01"], "actual_action": "권지규가 목록 속 일부 카메라의 시리얼 번호가 실물과 다르다는 것을 알아챈다.", "world_fact": "감정사가 바꿔치기 정황을 포착한다." },
-    { "id": "T07", "time": "사건 2일 전", "location": "L03", "actors": ["V01"], "actual_action": "권지규가 불일치가 발견된 항목들을 자신의 업무 수첩에 따로 정리해 적어 둔다.", "world_fact": "대조 메모가 수첩에 남는다." },
-    { "id": "T08", "time": "사건 전날", "location": "L01", "actors": ["V01", "CH01"], "actual_action": "권지규가 최유원에게 시리얼 번호가 다른 항목이 있다고 직접 묻는다.", "world_fact": "최유원이 감정사가 이상을 눈치챘다는 것을 알게 된다." },
-    { "id": "T09", "time": "사건 당일 오전", "location": "L04", "actors": ["CH04"], "actual_action": "강상빈이 창고에서 최유원이 낡은 상자 몇 개를 자신의 차 트렁크에 옮겨 싣는 것을 목격한다.", "world_fact": "강상빈이 그것을 개인 짐인 줄 알고 대수롭지 않게 넘긴다." },
-    { "id": "T10", "time": "사건 당일 12시", "location": "L03", "actors": ["V01"], "actual_action": "권지규가 시리얼 번호 불일치 항목들을 사진으로 찍어 남긴다.", "world_fact": "지나가던 강상빈이 그 모습을 본다." },
-    { "id": "T11", "time": "사건 당일 14시", "location": "L03", "actors": ["V01", "CH01"], "actual_action": "권지규가 최유원에게 오늘 오후 안으로 불일치 사실을 정리해 변호사에게 보고하겠다고 통보한다.", "world_fact": "최유원이 오늘 안에 사실이 드러날 위기에 처한다." },
-    { "id": "T12", "time": "사건 당일 15시", "location": "L02", "actors": ["CH01", "V01"], "actual_action": "최유원이 마지막 짐더미 정리를 돕겠다며 권지규와 함께 좁은 복도로 들어간다.", "world_fact": "둘만 복도에 남는다." },
-    { "id": "T13", "time": "같은 날 15시 10분", "location": "L02", "actors": ["CH01"], "actual_action": "보고 시점을 두고 언쟁 끝에 최유원이 복도 하단에 쌓여 있던 지지상자를 손으로 빼낸다.", "world_fact": "위에 쌓여 있던 상자 더미가 무너지며 권지규가 그 자리에서 깔려 의식을 잃는다." },
-    { "id": "T14", "time": "같은 날 15시 15분", "location": "L02", "actors": ["CH01"], "actual_action": "최유원이 쓰러진 권지규를 그대로 둔 채 복도를 빠져나온다.", "world_fact": "권지규가 방치된 채 짐더미에 깔려 있다." },
-    { "id": "T15", "time": "같은 날 15시 20분", "location": "L03", "actors": ["CH01"], "actual_action": "최유원이 권지규의 업무 수첩에서 대조 메모가 적힌 페이지를 찢어 없앤다.", "world_fact": "수첩의 결정적 페이지가 사라진다. 메모리카드 속 사진은 미처 확인하지 못한다." },
-    { "id": "T16", "time": "같은 날 15시 35분", "location": "L02", "actors": ["CH02"], "actual_action": "서현빈이 마지막 작업 확인차 복도로 갔다가 짐더미에 깔린 권지규를 발견한다.", "world_fact": "현장이 발칵 뒤집힌다." }
+    {
+      "id": "T01",
+      "time": "한 달 전",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "최유원이 고인의 유품 중 희귀 카메라 몇 점의 실제 시세를 알아보려 조유성에게 개인적으로 연락한다.",
+      "world_fact": "최유원이 외부 거래상과 접촉한다."
+    },
+    {
+      "id": "T02",
+      "time": "3주 전",
+      "location": "L01",
+      "actors": [
+        "CH01",
+        "CH05"
+      ],
+      "actual_action": "최유원이 조유성에게 희귀 카메라 세 점을 몰래 판매한다.",
+      "world_fact": "원본 카메라 세 점이 조유성에게 넘어간다."
+    },
+    {
+      "id": "T03",
+      "time": "같은 날",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "최유원이 진열장의 빈자리를 비슷하게 생긴 복제품 카메라로 채워 넣는다.",
+      "world_fact": "진열장의 카메라 세 점이 복제품으로 바뀐다."
+    },
+    {
+      "id": "T04",
+      "time": "2주 전",
+      "location": "L01",
+      "actors": [
+        "CH03",
+        "CH01"
+      ],
+      "actual_action": "최성호와 최유원이 '온기유품정리'에 정식으로 유품 정리와 감정을 의뢰한다.",
+      "world_fact": "서현빈의 팀과 감정사 권지규가 작업을 시작한다."
+    },
+    {
+      "id": "T05",
+      "time": "1주 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "권지규가 서재 서랍에서 고인의 육필 수집품 목록 노트를 찾아낸다.",
+      "world_fact": "목록 노트가 감정 작업의 기준 자료로 쓰이기 시작한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 3일 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "권지규가 목록 속 일부 카메라의 시리얼 번호가 실물과 다르다는 것을 알아챈다.",
+      "world_fact": "감정사가 바꿔치기 정황을 포착한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 2일 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "권지규가 불일치가 발견된 항목들을 자신의 업무 수첩에 따로 정리해 적어 둔다.",
+      "world_fact": "대조 메모가 수첩에 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 전날",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "권지규가 최유원에게 시리얼 번호가 다른 항목이 있다고 직접 묻는다.",
+      "world_fact": "최유원이 감정사가 이상을 눈치챘다는 것을 알게 된다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 오전",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "강상빈이 창고에서 최유원이 낡은 상자 몇 개를 자신의 차 트렁크에 옮겨 싣는 것을 목격한다.",
+      "world_fact": "강상빈이 그것을 개인 짐인 줄 알고 대수롭지 않게 넘긴다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 12시",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "권지규가 시리얼 번호 불일치 항목들을 사진으로 찍어 남긴다.",
+      "world_fact": "지나가던 강상빈이 그 모습을 본다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14시",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "권지규가 최유원에게 오늘 오후 안으로 불일치 사실을 정리해 변호사에게 보고하겠다고 통보한다.",
+      "world_fact": "최유원이 오늘 안에 사실이 드러날 위기에 처한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 15시",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "최유원이 마지막 짐더미 정리를 돕겠다며 권지규와 함께 좁은 복도로 들어간다.",
+      "world_fact": "둘만 복도에 남는다."
+    },
+    {
+      "id": "T13",
+      "time": "같은 날 15시 10분",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "보고 시점을 두고 언쟁 끝에 최유원이 복도 하단에 쌓여 있던 지지상자를 손으로 빼낸다.",
+      "world_fact": "위에 쌓여 있던 상자 더미가 무너지며 권지규가 그 자리에서 깔려 의식을 잃는다."
+    },
+    {
+      "id": "T14",
+      "time": "같은 날 15시 15분",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "최유원이 쓰러진 권지규를 그대로 둔 채 복도를 빠져나온다.",
+      "world_fact": "권지규가 방치된 채 짐더미에 깔려 있다."
+    },
+    {
+      "id": "T15",
+      "time": "같은 날 15시 20분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "최유원이 권지규의 업무 수첩에서 대조 메모가 적힌 페이지를 찢어 없앤다.",
+      "world_fact": "수첩의 결정적 페이지가 사라진다. 메모리카드 속 사진은 미처 확인하지 못한다."
+    },
+    {
+      "id": "T16",
+      "time": "같은 날 15시 35분",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서현빈이 마지막 작업 확인차 복도로 갔다가 짐더미에 깔린 권지규를 발견한다.",
+      "world_fact": "현장이 발칵 뒤집힌다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "권지규", "role": "독립 골동품 감정사", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "권지규",
+      "role": "독립 골동품 감정사",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -75,14 +251,50 @@
       "role": "고인의 손녀 / 상속인 대표",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "희귀 카메라 세 점을 몰래 팔고 복제품으로 바꿔 놓았다는 사실.", "source": "본인이 직접 함", "related_timeline": ["T02", "T03"] },
-        { "fact_id": "F-CH01-02", "content": "권지규가 오늘 오후 안으로 불일치 사실을 변호사에게 보고하겠다고 통보했다는 사실.", "source": "본인이 직접 들음", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-03", "content": "복도에서 언쟁 끝에 자신이 지지상자를 직접 빼내 짐더미를 무너뜨려 권지규를 깔리게 했다는 사실.", "source": "본인이 직접 겪음", "related_timeline": ["T13"] },
-        { "fact_id": "F-CH01-04", "content": "상속 정산액을 줄이고 판매 대금을 챙기려던 계획 전모.", "source": "본인이 저지른 일 전체" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "희귀 카메라 세 점을 몰래 팔고 복제품으로 바꿔 놓았다는 사실.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T02",
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "권지규가 오늘 오후 안으로 불일치 사실을 변호사에게 보고하겠다고 통보했다는 사실.",
+          "source": "본인이 직접 들음",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "복도에서 언쟁 끝에 자신이 지지상자를 직접 빼내 짐더미를 무너뜨려 권지규를 깔리게 했다는 사실.",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T13"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "상속 정산액을 줄이고 판매 대금을 챙기려던 계획 전모.",
+          "source": "본인이 저지른 일 전체"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그 시간엔 복도 쪽엔 가지도 않았어요, 거실에서 라벨 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "복도에서 다퉜다는 사실을 숨기려 한다." },
-        { "claim_id": "S-CH01-03", "content": "카메라요? 할아버지 물건에 제가 손댈 이유가 없죠, 다 목록대로 있을 텐데요.", "truth_status": "lie", "reason_for_limit_or_lie": "카메라를 몰래 팔고 바꿔치기한 사실을 숨기려 한다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시간엔 복도 쪽엔 가지도 않았어요, 거실에서 라벨 작업만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "복도에서 다퉜다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "카메라요? 할아버지 물건에 제가 손댈 이유가 없죠, 다 목록대로 있을 텐데요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "카메라를 몰래 팔고 바꿔치기한 사실을 숨기려 한다."
+        },
         {
           "claim_id": "S-CH01-04",
           "content": "권지규 씨가 깔린 것과는 상관없는 일이에요.",
@@ -90,7 +302,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-04",
@@ -119,16 +334,43 @@
       "role": "유품정리업체 '온기유품정리' 대표 / 현장팀장 / 시신 발견자",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 직전 복도 쪽에서 언성이 다투듯 높아지는 소리를 들었다는 것.", "source": "본인이 직접 들음" },
-        { "fact_id": "F-CH02-02", "content": "마감 확인차 복도로 갔다가 짐더미에 깔린 권지규를 발견했다는 것.", "source": "본인이 직접 겪음", "related_timeline": ["T16"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 직전 복도 쪽에서 언성이 다투듯 높아지는 소리를 들었다는 것.",
+          "source": "본인이 직접 들음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "마감 확인차 복도로 갔다가 짐더미에 깔린 권지규를 발견했다는 것.",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T16"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그냥 마감 확인하러 갔다가 발견한 거예요, 정말 놀랐어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "그날 딱히 다투는 소리 같은 건 못 들었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 말려들기 싫어서 얼버무린다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그냥 마감 확인하러 갔다가 발견한 거예요, 정말 놀랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 딱히 다투는 소리 같은 건 못 들었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 말려들기 싫어서 얼버무린다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "E03" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "E03"
+        }
       ],
       "knowledge_limits": [
         "카메라가 바꿔치기됐다는 사실은 전혀 몰랐다.",
@@ -150,16 +392,39 @@
       "role": "고인의 아들 / 상속인",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 사업 자금 사정이 어려워 아버지 유산 정산이 급했다는 것.", "source": "본인이 직접 겪음" },
-        { "fact_id": "F-CH03-02", "content": "요 며칠 최유원이 카메라 목록 확인 작업에 유난히 예민하게 굴었다는 것을 눈치챘다는 것.", "source": "본인의 관찰" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 사업 자금 사정이 어려워 아버지 유산 정산이 급했다는 것.",
+          "source": "본인이 직접 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "요 며칠 최유원이 카메라 목록 확인 작업에 유난히 예민하게 굴었다는 것을 눈치챘다는 것.",
+          "source": "본인의 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그 시각엔 계속 서재 옆방에서 변호사와 통화하고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "유원이가 아버지 애착이 남달랐던 애라, 그럴 리 없다고 생각했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그 시각엔 계속 서재 옆방에서 변호사와 통화하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "유원이가 아버지 애착이 남달랐던 애라, 그럴 리 없다고 생각했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E02", "release_trigger": "E05" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "E05"
+        }
       ],
       "knowledge_limits": [
         "복도에서 정확히 무슨 일이 있었는지는 전혀 모른다.",
@@ -182,16 +447,46 @@
       "role": "온기유품정리 스태프",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 창고에서 최유원이 낡은 상자 몇 개를 자신의 차 트렁크에 옮겨 싣는 것을 봤다는 것.", "source": "본인이 직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "그날 낮 무렵 권지규가 서재에서 무언가를 열심히 사진으로 찍고 있는 모습을 봤다는 것.", "source": "본인이 직접 목격", "related_timeline": ["T10"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오전 창고에서 최유원이 낡은 상자 몇 개를 자신의 차 트렁크에 옮겨 싣는 것을 봤다는 것.",
+          "source": "본인이 직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 낮 무렵 권지규가 서재에서 무언가를 열심히 사진으로 찍고 있는 모습을 봤다는 것.",
+          "source": "본인이 직접 목격",
+          "related_timeline": [
+            "T10"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 창고 정리하다가 딱히 이상한 건 못 봤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 최유원 씨 일에 끼어들고 싶지 않아 얼버무린다." },
-        { "claim_id": "S-CH04-02", "content": "감정사님이 뭔가를 열심히 사진 찍으시길래 꼼꼼하시다고만 생각했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 창고 정리하다가 딱히 이상한 건 못 봤어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 최유원 씨 일에 끼어들고 싶지 않아 얼버무린다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "감정사님이 뭔가를 열심히 사진 찍으시길래 꼼꼼하시다고만 생각했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "C01", "release_trigger": "E04" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E04"
+        }
       ],
       "knowledge_limits": [
         "카메라 목록이나 감정 결과의 구체적 내용은 전혀 모른다.",
@@ -214,16 +509,43 @@
       "role": "빈티지 카메라 동호회 운영자 / 중고 거래상",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "한 달 전부터 최유원에게서 희귀 카메라 세 점을 은밀히 사들였다는 것.", "source": "본인이 직접 함", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH05-02", "content": "사건 당일 오후 그녀에게서 '오늘 안으로 처리해야 한다'는 다급한 연락을 받았다는 것.", "source": "본인이 직접 겪음" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "한 달 전부터 최유원에게서 희귀 카메라 세 점을 은밀히 사들였다는 것.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "사건 당일 오후 그녀에게서 '오늘 안으로 처리해야 한다'는 다급한 연락을 받았다는 것.",
+          "source": "본인이 직접 겪음"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "저는 정식 중고 거래였을 뿐이에요, 문제 될 게 있는지 몰랐어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "오늘은 그냥 다른 물건 시세 확인차 잠깐 들른 거예요.", "truth_status": "lie", "reason_for_limit_or_lie": "최유원과의 급박한 연락 내용을 숨기려 한다." }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 정식 중고 거래였을 뿐이에요, 문제 될 게 있는지 몰랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "오늘은 그냥 다른 물건 시세 확인차 잠깐 들른 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "최유원과의 급박한 연락 내용을 숨기려 한다."
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E03", "release_trigger": "C02" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "C02"
+        }
       ],
       "knowledge_limits": [
         "복도에서 정확히 무슨 일이 있었는지는 전혀 모른다.",
@@ -241,21 +563,38 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "고인의 자택 거실",
       "access": "유품 정리 작업 기간 동안 정리팀과 상속인들이 드나드는 공용 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "정리 작업으로 여기저기 상자와 라벨지가 쌓여 있고, 벽에는 고인의 젊은 시절 사진과 오래된 카메라들이 진열돼 있다.",
       "observation_rules": [
-        { "action": "거실을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "정리 작업으로 여기저기 상자와 라벨지가 널려 있고, 벽에는 고인의 젊은 시절 사진과 오래된 카메라들이 진열돼 있다." }
+        {
+          "action": "거실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "정리 작업으로 여기저기 상자와 라벨지가 널려 있고, 벽에는 고인의 젊은 시절 사진과 오래된 카메라들이 진열돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "최성호의 휴대전화 통화 기록을 확인한다", "requires": "없음", "release_evidence_id": "E08", "result": "그날 15시 05분부터 15시 22분까지 변호사 사무실과 통화한 기록이 남아 있다." },
-        { "action": "서현빈에게 조유성이 그날 어디까지 드나들었는지 묻는다", "requires": "없음", "release_evidence_id": "E09", "result": "조유성은 그날 거실에만 머물렀고 복도 쪽 정리 구역에는 들어간 적이 없다는 진술이 확보된다." }
+        {
+          "action": "최성호의 휴대전화 통화 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "그날 15시 05분부터 15시 22분까지 변호사 사무실과 통화한 기록이 남아 있다."
+        },
+        {
+          "action": "서현빈에게 조유성이 그날 어디까지 드나들었는지 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "조유성은 그날 거실에만 머물렀고 복도 쪽 정리 구역에는 들어간 적이 없다는 진술이 확보된다."
+        }
       ]
     },
     {
@@ -266,11 +605,23 @@
       "connects_to": [],
       "base_description": "좁은 복도 양옆으로 상자가 사람 키 높이까지 쌓여 있었던 흔적이 남아 있고, 바닥에는 무너진 상자들이 아직 치워지지 않은 채 흩어져 있다.",
       "observation_rules": [
-        { "action": "복도를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "좁은 복도 양옆으로 상자가 사람 키 높이까지 쌓여 있었던 흔적이 남아 있고, 바닥에는 무너진 상자들이 아직 치워지지 않은 채 흩어져 있다." }
+        {
+          "action": "복도를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "좁은 복도 양옆으로 상자가 사람 키 높이까지 쌓여 있었던 흔적이 남아 있고, 바닥에는 무너진 상자들이 아직 치워지지 않은 채 흩어져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "무너진 짐더미의 하단 지지상자를 살펴본다", "release_evidence_id": "E01", "result": "지지상자가 원래 놓여 있던 자리에서 옆으로 어긋나 빠져 있고, 주변 먼지 무늬가 최근에 흐트러진 흔적이 뚜렷하다." },
-        { "action": "지지상자 표면의 지문과 섬유 흔적을 확인한다", "release_evidence_id": "E06", "result": "지지상자 겉면에 성인 여성으로 추정되는 손자국과, 최유원이 그날 입고 있던 니트와 같은 재질의 실 보풀이 묻어 있다." }
+        {
+          "action": "무너진 짐더미의 하단 지지상자를 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "지지상자가 원래 놓여 있던 자리에서 옆으로 어긋나 빠져 있고, 주변 먼지 무늬가 최근에 흐트러진 흔적이 뚜렷하다."
+        },
+        {
+          "action": "지지상자 표면의 지문과 섬유 흔적을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "지지상자 겉면에 성인 여성으로 추정되는 손자국과, 최유원이 그날 입고 있던 니트와 같은 재질의 실 보풀이 묻어 있다."
+        }
       ]
     },
     {
@@ -281,12 +632,28 @@
       "connects_to": [],
       "base_description": "책상 위에는 감정 작업에 쓰인 서류와 카메라 렌즈용 확대경이 놓여 있고, 벽면 책장은 절반쯤 비워져 있다.",
       "observation_rules": [
-        { "action": "서재를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "책상 위에는 감정 작업에 쓰인 서류와 카메라 렌즈용 확대경이 놓여 있고, 벽면 책장은 절반쯤 비워져 있다." }
+        {
+          "action": "서재를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위에는 감정 작업에 쓰인 서류와 카메라 렌즈용 확대경이 놓여 있고, 벽면 책장은 절반쯤 비워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "책상 위 육필 수집품 목록 노트를 확인한다", "release_evidence_id": "E02", "result": "고인이 생전 손수 정리한 카메라 목록. 모델명과 시리얼 번호, 구입 당시 사진까지 꼼꼼히 적혀 있다." },
-        { "action": "감정사의 업무 수첩 최근 페이지를 확인한다", "release_evidence_id": "E03", "result": "가장 최근 며칠 치 페이지 중 한 장이 거칠게 찢겨 나가 있다. 남은 페이지에는 '오늘 오후 안으로 정리해 변호사에게 전달'이라는 메모만 어렴풋이 남아 있다." },
-        { "action": "감정사의 가방 속 카메라 메모리카드를 확인한다", "release_evidence_id": "E04", "result": "오늘 낮에 찍힌 사진들. 카메라 세 점의 시리얼 번호 각인 부분과 고인의 목록 노트 속 사진을 나란히 놓고 비교 촬영해 두었다." }
+        {
+          "action": "책상 위 육필 수집품 목록 노트를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "고인이 생전 손수 정리한 카메라 목록. 모델명과 시리얼 번호, 구입 당시 사진까지 꼼꼼히 적혀 있다."
+        },
+        {
+          "action": "감정사의 업무 수첩 최근 페이지를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "가장 최근 며칠 치 페이지 중 한 장이 거칠게 찢겨 나가 있다. 남은 페이지에는 '오늘 오후 안으로 정리해 변호사에게 전달'이라는 메모만 어렴풋이 남아 있다."
+        },
+        {
+          "action": "감정사의 가방 속 카메라 메모리카드를 확인한다",
+          "release_evidence_id": "E04",
+          "result": "오늘 낮에 찍힌 사진들. 카메라 세 점의 시리얼 번호 각인 부분과 고인의 목록 노트 속 사진을 나란히 놓고 비교 촬영해 두었다."
+        }
       ]
     },
     {
@@ -297,12 +664,15 @@
       "connects_to": [],
       "base_description": "포장재와 완충재 상자들 사이로, 아직 반출되지 않은 개인 차량용 짐 몇 개가 눈에 띈다.",
       "observation_rules": [
-        { "action": "창고를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "포장재와 완충재 상자들 사이로, 아직 반출되지 않은 개인 차량용 짐 몇 개가 눈에 띈다." }
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "포장재와 완충재 상자들 사이로, 아직 반출되지 않은 개인 차량용 짐 몇 개가 눈에 띈다."
+        }
       ],
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -310,11 +680,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "무너진 짐더미의 하단 지지상자를 살펴본다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "지지상자가 원래 놓여 있던 자리에서 옆으로 어긋나 빠져 있고, 주변 먼지 무늬가 최근에 흐트러진 흔적이 뚜렷하다.",
-      "proves": ["짐더미의 붕괴가 자연스러운 사고가 아니라 누군가 지지상자를 인위적으로 빼냈다는 것"],
-      "does_not_prove": ["누가 그 상자를 뺐는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "짐더미의 붕괴가 자연스러운 사고가 아니라 누군가 지지상자를 인위적으로 빼냈다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 상자를 뺐는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -323,9 +701,15 @@
       "found_at": "L03",
       "discovery_condition": "책상 위 육필 수집품 목록 노트를 확인한다",
       "content": "고인이 생전 손수 정리한 카메라 목록. 모델명과 시리얼 번호, 구입 당시 사진까지 꼼꼼히 적혀 있다.",
-      "proves": ["현재 진열장의 일부 카메라가 원래 목록의 시리얼 번호와 다르다는 것"],
-      "does_not_prove": ["누가 그것을 바꿔치기했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "현재 진열장의 일부 카메라가 원래 목록의 시리얼 번호와 다르다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그것을 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -333,11 +717,20 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "감정사의 업무 수첩 최근 페이지를 확인한다",
-      "related_timeline": ["T07", "T15"],
+      "related_timeline": [
+        "T07",
+        "T15"
+      ],
       "content": "가장 최근 며칠 치 페이지 중 한 장이 거칠게 찢겨 나가 있다. 남은 페이지에는 '오늘 오후 안으로 정리해 변호사에게 전달'이라는 메모만 어렴풋이 남아 있다.",
-      "proves": ["누군가 사건 직후 수첩에서 결정적 페이지를 고의로 없앴다는 것"],
-      "does_not_prove": ["누가 그 페이지를 찢었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 사건 직후 수첩에서 결정적 페이지를 고의로 없앴다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 페이지를 찢었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -345,11 +738,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "감정사의 가방 속 카메라 메모리카드를 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "오늘 낮에 찍힌 사진들. 카메라 세 점의 시리얼 번호 각인 부분과 고인의 목록 노트 속 사진을 나란히 놓고 비교 촬영해 두었다.",
-      "proves": ["감정사가 사망 당일 실물 카메라와 목록 사이의 불일치를 직접 사진으로 증명해 뒀다는 것"],
-      "does_not_prove": ["최유원이 그 카메라들을 어떻게 처리했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "감정사가 사망 당일 실물 카메라와 목록 사이의 불일치를 직접 사진으로 증명해 뒀다는 것"
+      ],
+      "does_not_prove": [
+        "최유원이 그 카메라들을 어떻게 처리했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -357,11 +758,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "조유성에게 최유원과의 거래 경위를 묻는다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "한 달 전부터 최유원에게 개인적으로 연락받아 희귀 카메라 세 점을 사들였고, 사건 당일 오후에도 그녀에게서 '오늘 안으로 처리해야 한다'는 다급한 연락을 받았다는 증언.",
-      "proves": ["최유원이 고인의 카메라를 몰래 판매해 왔다는 것, 사건 당일에도 그 문제로 다급했다는 것"],
-      "does_not_prove": ["복도에서 정확히 무슨 일이 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "최유원이 고인의 카메라를 몰래 판매해 왔다는 것, 사건 당일에도 그 문제로 다급했다는 것"
+      ],
+      "does_not_prove": [
+        "복도에서 정확히 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E06",
@@ -370,9 +779,15 @@
       "found_at": "L02",
       "discovery_condition": "지지상자 표면의 지문과 섬유 흔적을 확인한다",
       "content": "지지상자 겉면에 성인 여성으로 추정되는 손자국과, 최유원이 그날 입고 있던 니트와 같은 재질의 실 보풀이 묻어 있다.",
-      "proves": ["최유원이 사건 당시 그 지지상자에 직접 손을 댔다는 것"],
-      "does_not_prove": ["그녀가 고의로 상자를 뺐는지, 우연히 스친 것인지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "최유원이 사건 당시 그 지지상자에 직접 손을 댔다는 것"
+      ],
+      "does_not_prove": [
+        "그녀가 고의로 상자를 뺐는지, 우연히 스친 것인지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -380,11 +795,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "강상빈에게 사건 당일 아침 창고에서 본 것을 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "사건 당일 오전 최유원이 낡은 상자 몇 개를 자신의 차 트렁크에 옮겨 싣는 것을 봤지만 개인 짐인 줄 알고 대수롭지 않게 넘겼다는 증언.",
-      "proves": ["최유원이 사건 당일에도 물건을 은밀히 빼돌리려 하고 있었다는 것"],
-      "does_not_prove": ["그것이 카메라와 관련 있는지 그 자체"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "최유원이 사건 당일에도 물건을 은밀히 빼돌리려 하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그것이 카메라와 관련 있는지 그 자체"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E08",
@@ -393,8 +816,12 @@
       "found_at": "L01",
       "discovery_condition": "최성호의 휴대전화 통화 기록을 확인한다",
       "content": "그날 15시 05분부터 15시 22분까지 변호사 사무실과 통화한 기록이 남아 있다.",
-      "proves": ["최성호가 사고가 벌어진 시각 동안 통화 중이었다는 사실을 기기 기록으로 뒷받침한다."],
-      "does_not_prove": ["통화 중 정확히 어느 방에 있었는지"],
+      "proves": [
+        "최성호가 사고가 벌어진 시각 동안 통화 중이었다는 사실을 기기 기록으로 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "통화 중 정확히 어느 방에 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -404,51 +831,96 @@
       "found_at": "L01",
       "discovery_condition": "서현빈에게 조유성이 그날 어디까지 드나들었는지 묻는다",
       "content": "조유성은 그날 거실에만 머물렀고 복도 쪽 정리 구역에는 들어간 적이 없다는 진술이 확보된다.",
-      "proves": ["조유성이 사고가 벌어진 복도 구역에 들어간 적이 없다는 사실을 제3자가 확인해 준다."],
-      "does_not_prove": ["그가 최유원과 어떤 연락을 주고받았는지"],
+      "proves": [
+        "조유성이 사고가 벌어진 복도 구역에 들어간 적이 없다는 사실을 제3자가 확인해 준다."
+      ],
+      "does_not_prove": [
+        "그가 최유원과 어떤 연락을 주고받았는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_being_in_corridor",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E01",
+          "E06"
+        ]
+      },
       "player_action": "최유원에게 지지상자가 인위적으로 빠진 흔적(E01)과 그 지지상자에 남은 그녀의 손자국(E06)을 함께 제시하며, 복도에 가지 않았다는 말과 어긋난다는 것을 지적한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "복도에 있었던 것은 인정하지만, 상자더미가 원래 부실하게 쌓여 있어 우연히 무너진 사고였을 뿐이라고 주장한다."
       },
-      "must_not_release": ["카메라를 몰래 팔고 바꿔치기한 사실", "고의로 지지상자를 빼냈다는 사실"]
+      "must_not_release": [
+        "카메라를 몰래 팔고 바꿔치기한 사실",
+        "고의로 지지상자를 빼냈다는 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_being_in_corridor",
       "to_stage": "admits_camera_swap",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03", "E05"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E03",
+          "E05"
+        ]
+      },
       "player_action": "고인의 육필 목록 노트(E02), 페이지가 찢겨나간 감정사의 업무 수첩(E03), 조유성의 거래 증언(E05)을 함께 제시해, 카메라에 손대지 않았다는 말이 거짓임을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "희귀 카메라 몇 대를 몰래 팔고 복제품으로 바꿔치기한 사실은 인정한다."
       },
-      "must_not_release": ["지지상자를 직접 빼내 짐더미를 무너뜨렸다는 사실", "상속 정산액을 줄이려던 동기"]
+      "must_not_release": [
+        "지지상자를 직접 빼내 짐더미를 무너뜨렸다는 사실",
+        "상속 정산액을 줄이려던 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_camera_swap",
       "to_stage": "confesses_pile_collapse",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E04", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E04", "E07"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E04",
+          "E07"
+        ]
+      },
       "player_action": "감정사가 미처 처리되지 못한 채 남겨 둔 메모리카드 속 대조 사진(E04)과, 그날 아침 그녀가 짐을 빼돌리는 것을 봤다는 강상빈의 증언(E07)을 함께 제시해, 보고가 나가기 전 그녀가 무엇을 했는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
@@ -457,11 +929,13 @@
       "must_not_release": []
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "상속인 대표와 위촉 감정사. 유품 정리 기간 내내 감정 작업을 함께 지켜봐 온 사이다.",
       "public_face": "감정 절차대로 협조하는 사이로 알려져 있다.",
       "says": {
@@ -472,7 +946,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "삼촌이자 공동 상속인과 위촉 감정사. 정산 절차를 함께 의뢰한 사이다.",
       "public_face": "업무로만 아는 사이로 알려져 있다.",
       "says": {
@@ -483,7 +960,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "유품정리업체 대표와 위촉 감정사. 이번 현장에서 손발을 맞춰 온 협업자다.",
       "public_face": "무난한 업무 파트너 사이로 알려져 있다.",
       "says": {
@@ -494,7 +974,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "CH01"],
+      "between": [
+        "CH04",
+        "CH01"
+      ],
       "nature": "유품정리 스태프와 상속인 대표. 같은 현장에서 며칠째 부대낀 사이다.",
       "public_face": "그냥 정리팀과 의뢰인 사이로 알려져 있다.",
       "says": {
@@ -506,7 +989,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "CH01"],
+      "between": [
+        "CH05",
+        "CH01"
+      ],
       "nature": "은밀한 거래 상대방. 한 달 전부터 카메라를 사고판 사이다.",
       "public_face": "정식 중고 거래 관계로 알려져 있다.",
       "says": {
@@ -517,7 +1003,6 @@
       "surfaces_when": "찢겨나간 업무 수첩(E03)을 확보한 뒤, 조유성에게 최유원과의 거래 경위를 캐물을 때."
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -526,7 +1011,8 @@
       "how_to_clear": "최성호 본인의 진술(S-CH03-01)과 지지상자에 남은 손자국(E06)을 나란히 놓고 대조하면, 그 손자국이 성인 여성의 것이고 최성호는 그 시각 서재 옆방에서 통화 중이었다는 것이 함께 드러난다. 통화 기록(E08)을 더하면 그가 그 시각 내내 통화 중이었다는 것이 기기 기록으로도 확인된다.",
       "must_not_imply": "최성호가 카메라 바꿔치기 사실을 사전에 알았거나 묵인했다는 인상을 주지 않는다.",
       "lingering_thread": "최성호의 사업 자금난은 이번 사건과 무관하게 여전히 해결되지 않은 채 남아, 유산 정산이 끝난 뒤에도 그의 걱정은 딱히 줄어들지 않는다.",
-      "suspicion_deepener": "사건 직후 최성호가 유독 감정 결과 지연에 예민하게 반응하며 서현빈을 다그치는 모습이 목격되면서, 그가 무언가를 서두르려 한 것처럼 보여 의심이 한층 깊어진다."
+      "suspicion_deepener": "사건 직후 최성호가 유독 감정 결과 지연에 예민하게 반응하며 서현빈을 다그치는 모습이 목격되면서, 그가 무언가를 서두르려 한 것처럼 보여 의심이 한층 깊어진다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -535,27 +1021,33 @@
       "how_to_clear": "지지상자에 남은 손자국과 섬유 흔적(E06)이 그날 현장에서 일하던 사람을 가리킨다는 것을 확인한 뒤, 조유성 본인의 진술(S-CH05-02)과 그의 거래 증언(E05)을 대조하면, 그가 카메라를 사들인 것은 맞지만 그 관여가 한 달 전부터의 거래에 한정된다는 것이 드러난다. 서현빈의 목격담(E09)을 더하면 그가 그날 거실에만 머물렀고 복도 쪽엔 들어간 적이 없다는 것이 제3자 진술로도 확인된다.",
       "must_not_imply": "조유성이 최유원의 사고 은폐 계획을 사전에 알았거나 도왔다는 인상을 주지 않는다.",
       "lingering_thread": "조유성은 사건과는 무관하다는 것이 밝혀졌지만, 최유원과 거래해 온 물건들의 출처를 뒤늦게 조사받게 되면서 그동안 대수롭지 않게 여겨온 자신의 거래 방식을 돌아보게 된다.",
-      "suspicion_deepener": "조유성의 차량이 사건 당일 오후 저택 인근 골목에 한동안 더 머물러 있었다는 이웃 주민의 목격담이 나오면서, 그가 곧장 떠나지 않았을 수도 있다는 의심이 커진다."
+      "suspicion_deepener": "조유성의 차량이 사건 당일 오후 저택 인근 골목에 한동안 더 머물러 있었다는 이웃 주민의 목격담이 나오면서, 그가 곧장 떠나지 않았을 수도 있다는 의심이 커진다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["S-CH01-02", "F-CH01-02", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "S-CH01-02",
+      "F-CH01-02",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-03",
       "motive_fact": "F-CH01-01"
     }
   },
-
   "final_deduction": {
     "responsible": "최유원(CH01)",
     "method": "언쟁 끝에 복도 하단의 지지상자를 직접 빼내 짐더미를 무너뜨려 권지규를 깔리게 했다.",
     "motive": "상속 정산액을 줄이고 몰래 판매한 대금을 챙기기 위해, 바꿔치기한 카메라의 발각을 막으려 했다.",
     "key_connection": "지지상자에 남은 손자국과, 사망 직후 사라진 감정사 수첩의 페이지가 최유원의 거짓 진술을 차례로 무너뜨렸다."
   },
-
   "ending_explanation": [
     "최유원은 상속 정산액을 줄이고 판매 대금을 챙기려 고인의 희귀 카메라 세 점을 몰래 팔고 복제품으로 바꿔 놓았다.",
     "감정사 권지규는 고인의 육필 목록과 실물을 대조하다 이 불일치를 발견하고, 사건 당일 오후 변호사에게 보고하겠다고 알렸다.",

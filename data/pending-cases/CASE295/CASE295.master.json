@@ -8,37 +8,48 @@
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 야근 뒤 몸을 풀 겸 종종 이 찜질방에 들른다. 그날 밤도 휴게실에서 식혜를 마시며 쉬고 있던 참이었다.",
     "tone": "늦은 밤 찜질방 특유의 후끈한 공기와 나른한 소음이 뒤섞인, 차분하지만 무거운 톤.",
-    "tags": ["찜질방", "사우나", "야간_매니저", "불한증막"],
-    "location_archetypes": ["resort_facility"],
+    "tags": [
+      "찜질방",
+      "사우나",
+      "야간_매니저",
+      "불한증막"
+    ],
+    "location_archetypes": [
+      "resort_facility"
+    ],
     "background": {
-      "background_archetypes": ["regular_day"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "regular_day"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contextual"
     }
   },
-
   "opening_scene": {
     "location_id": "L03",
     "detective_entry_time": "사건 당일 21:45",
     "narrative": "21시 45분, '온천월드' 휴게실엔 나른한 공기 대신 다급한 발소리가 울렸다.\n\n탐정은 식혜 잔을 내려놓다 고개를 들었다.\n\n\"저거 연재경 씨 아니에요?\"\n\n한지우가 눈을 좁히며 말했다.\n\n\"그러게, 표정이 심상치 않은데.\"\n\n탐정이 답하는 사이, 연재경이 로비 쪽에서 다급히 뛰어왔다.\n\n\"불한증막에... 대표님이 쓰러져 계세요!\"\n\n말보다 숨이 먼저 터져 나왔다.\n\n탐정과 한지우는 서둘러 불한증막으로 향했고, 후끈한 열기 속에 땀에 흠뻑 젖은 채 쓰러진 국려원과 마주쳤다."
   },
-
   "ending_scene": {
     "location_id": "L01",
     "narrative": "자정이 다 되어 갈 무렵, 불한증막엔 열기 대신 서늘한 정적만 남아 있었다.\n\n하소이는 문틀 앞에 선 채 오래도록 말이 없었다.\n\n탐정이 연재경과 목선율의 증언을 나란히 짚어 보이자, 그는 마침내 낮게 입을 열었다.\n\n\"...5년이었습니다.\"\n\n하소이가 말했다.\n\n\"그런데 그렇게 한마디로 정리되는 거였어요.\"\n\n\"그래서 문을 막아 둔 겁니다.\"\n\n탐정이 조용히 정정했다.\n\n\"우발이 아니라, 매실차부터 준비한 겁니다.\"\n\n한지우가 문틀에서 한 걸음 물러섰다.\n\n\"...그 마음이 이해가 안 되는 건 아닌데요.\"\n\n\"이해되는 것과 저지른 일은 다른 문제지.\"\n\n탐정이 대답했다.\n\n얼마 지나지 않아 하소이는 순순히 연행됐다. 곁에서 지켜보던 연재경은 그 뒤로도 그날 진작 뭔가 말했어야 했다는 자책을 한동안 떨치지 못했다.\n\n찜질방을 나서며 한지우가 식어 버린 식혜 잔을 내려다보다 말했다.\n\n\"이거, 이제 못 마시겠네요.\"\n\n\"다음에 딴 데서 마시지, 뭐.\"\n\n탐정이 유리문을 밀었다. 바깥 공기가 안쪽 더운 공기와 부딪혀 문틈에서 한 번 하얗게 서렸다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "국려원", "role": "'온천월드' 대표", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "국려원",
+      "role": "'온천월드' 대표",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "휴게실에서 쉬던 탐정이 연재경의 다급한 부름을 받고 불한증막에서 쓰러진 국려원을 발견한다.",
     "불한증막 문틀에 쐐기를 끼웠던 자국이 남아 있고, 국려원이 마신 매실차 병에서도 미세한 이물질이 발견돼 단순 사고로 보기 어렵다는 정황이 있다.",
     "사건 당일, 시설관리 기사 위단하가 급여 정산 문제로 국려원과 마찰을 빚었다는 사실이 찜질방 안팎에 알려져 있었다.",
     "사건 당일 밤, 야간 매니저 하소이가 마감 시간 전후로 불한증막 주변을 여러 차례 드나들었다는 사실이 확인됐다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "5년째 대표 국려원과 은밀한 관계를 이어 온 야간 매니저 하소이가, 국려원이 배우자 목선율과 관계를 회복하며 자신과의 관계를 정리하려 한다는 사실을 그날 오후 통보받자, 배신감과 억누르지 못한 집착에서 살해했다.",
@@ -46,61 +57,199 @@
     "key_time_location": "19:30 L03에서 이뇨제를 탄 매실차를 건네고, 20:05 L01 불한증막 문틀에 쐐기를 끼워 막음, 21:10 국려원 열탈진, 21:30 L01에서 쐐기 제거.",
     "cover_up": "하소이는 그날 저녁 매점 마감 준비만 했을 뿐이며, 국려원의 죽음은 혼자 무리하게 고온실에 있다가 벌어진 사고라고 주장한다.",
     "accomplice": "없음",
-    "method_archetypes": ["hyperthermia"],
-    "motive_archetypes": ["relationship_end", "obsession"],
-    "cover_up_target": ["cause_of_death", "relationship"],
-    "cover_up_method": ["false_accident", "evidence_removal"]
+    "method_archetypes": [
+      "hyperthermia"
+    ],
+    "motive_archetypes": [
+      "relationship_end",
+      "obsession"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "relationship"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "사건 당일 10:00", "location": "L03", "actors": ["CH01"],
+    {
+      "id": "T01",
+      "time": "사건 당일 10:00",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하소이가 매점에서 국려원이 즐겨 마시는 매실차 병에 미리 준비한 이뇨제 성분을 몰래 섞어 둔다.",
-      "world_fact": "매실차 병 뚜껑이 살짝 헐거워진 채 남는다." },
-    { "id": "T02", "time": "사건 당일 11:00", "location": "L05", "actors": ["CH01"],
+      "world_fact": "매실차 병 뚜껑이 살짝 헐거워진 채 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 11:00",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하소이가 비품창고에서 나무 쐐기 하나를 몰래 챙겨 자신의 앞치마 주머니에 넣는다.",
-      "world_fact": "창고 비품 목록에서 나무 쐐기 하나가 자리에서 빈다." },
-    { "id": "T03", "time": "사건 당일 13:00", "location": "L02", "actors": ["V01", "CH02"],
+      "world_fact": "창고 비품 목록에서 나무 쐐기 하나가 자리에서 빈다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 13:00",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "국려원이 배우자 목선율과 함께 로비에서 저녁에 둘이 오랜만에 여행을 가기로 약속한다.",
-      "world_fact": "로비 데스크 달력에 오늘 저녁 여행 메모가 적힌다." },
-    { "id": "T04", "time": "사건 당일 14:30", "location": "L03", "actors": ["V01", "CH01"],
+      "world_fact": "로비 데스크 달력에 오늘 저녁 여행 메모가 적힌다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 14:30",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "국려원이 휴게실에서 하소이에게 목선율과의 관계를 회복하기로 했으니 이제 그만 만나자고 말한다.",
-      "world_fact": "하소이가 그 자리에서 들고 있던 컵을 세게 내려놓는다." },
-    { "id": "T05", "time": "사건 당일 16:00", "location": "L02", "actors": ["CH03"],
-      "actual_action": "연재경이 매점에서 오후 내내 손님 응대와 재고 정리를 한다." },
-    { "id": "T06", "time": "사건 당일 18:00", "location": "L04", "actors": ["CH04"],
+      "world_fact": "하소이가 그 자리에서 들고 있던 컵을 세게 내려놓는다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 16:00",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "연재경이 매점에서 오후 내내 손님 응대와 재고 정리를 한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 18:00",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "위단하가 저녁 설비 점검을 마치고 퇴근한다.",
-      "world_fact": "직원 출입 기록에 18시 위단하의 퇴근이 남는다." },
-    { "id": "T07", "time": "사건 당일 19:30", "location": "L03", "actors": ["V01", "CH01"],
+      "world_fact": "직원 출입 기록에 18시 위단하의 퇴근이 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 19:30",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "국려원이 매점에서 하소이가 건넨 매실차를 받아 마신다.",
-      "world_fact": "국려원이 갈증을 유독 호소한다." },
-    { "id": "T08", "time": "사건 당일 20:00", "location": "L01", "actors": ["V01"],
-      "actual_action": "국려원이 혼자 몸을 좀 데우겠다며 고온 불한증막으로 들어간다." },
-    { "id": "T09", "time": "사건 당일 20:05", "location": "L01", "actors": ["CH01"],
+      "world_fact": "국려원이 갈증을 유독 호소한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 20:00",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "국려원이 혼자 몸을 좀 데우겠다며 고온 불한증막으로 들어간다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 20:05",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하소이가 불한증막 문 걸쇠에 나무 쐐기를 끼워 밖에서 문이 열리지 않게 막아 둔다.",
-      "world_fact": "문틀과 걸쇠 사이에 쐐기 자국이 남는다." },
-    { "id": "T10", "time": "사건 당일 21:10", "location": "L01", "actors": ["V01"],
+      "world_fact": "문틀과 걸쇠 사이에 쐐기 자국이 남는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:10",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "국려원이 갈증과 탈진 속에 오랜 시간 고온실을 빠져나가지 못한 채 쓰러진다.",
-      "world_fact": "국려원의 몸에 땀으로 흠뻑 젖은 옷이 들러붙어 있다." },
-    { "id": "T11", "time": "사건 당일 21:30", "location": "L01", "actors": ["CH01"],
+      "world_fact": "국려원의 몸에 땀으로 흠뻑 젖은 옷이 들러붙어 있다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 21:30",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하소이가 돌아와 쐐기를 제거해 문이 자연스럽게 열리는 것처럼 정리한다.",
-      "world_fact": "설류경이 로비를 지나다 그 시각 하소이가 불한증막 쪽에서 나오는 것을 목격한다." },
-    { "id": "T12", "time": "사건 당일 21:40", "location": "L02", "actors": ["CH03"],
+      "world_fact": "설류경이 로비를 지나다 그 시각 하소이가 불한증막 쪽에서 나오는 것을 목격한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:40",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "연재경이 마감 정리를 하다 불한증막 쪽 인기척이 없는 걸 이상하게 여겨 들여다보다 쓰러진 국려원을 발견한다.",
-      "world_fact": "연재경이 곧바로 119에 신고한다." }
+      "world_fact": "연재경이 곧바로 119에 신고한다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "하소이", "role": "야간 매니저", "present_location": "L02",
+      "id": "CH01",
+      "name": "하소이",
+      "role": "야간 매니저",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "21시 30분경 불한증막 쪽에 있었다.", "source": "직접 경험", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-02", "content": "그날 저녁 매실차를 국려원에게 건넸다.", "source": "직접 행동", "related_timeline": ["T01", "T07"] },
-        { "fact_id": "F-CH01-03", "content": "불한증막 문틀 걸쇠에 나무 쐐기를 끼워 막아 뒀다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-04", "content": "그날 오후 국려원에게서 배우자 목선율과 관계를 회복하며 자신과의 관계를 정리하겠다는 말을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "21시 30분경 불한증막 쪽에 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 저녁 매실차를 국려원에게 건넸다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01",
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "불한증막 문틀 걸쇠에 나무 쐐기를 끼워 막아 뒀다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "그날 오후 국려원에게서 배우자 목선율과 관계를 회복하며 자신과의 관계를 정리하겠다는 말을 들었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁은 평소처럼 매점 마감 준비만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "불한증막 쪽을 드나든 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "국려원의 죽음은 혼자 무리하게 고온실에 있다가 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 저녁은 평소처럼 매점 마감 준비만 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "불한증막 쪽을 드나든 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "국려원의 죽음은 혼자 무리하게 고온실에 있다가 벌어진 사고일 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "그냥 청소하러 지나갔을 뿐이에요.",
@@ -120,12 +269,31 @@
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "F-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH01-03"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
@@ -142,7 +310,10 @@
           "release_trigger": "S-CH01-04"
         }
       ],
-      "knowledge_limits": ["위단하와 국려원 사이의 급여 정산 마찰에 대해서는 모른다.", "목선율이 최근 자신을 어떻게 여기고 있었는지는 정확히 몰랐다."],
+      "knowledge_limits": [
+        "위단하와 국려원 사이의 급여 정산 마찰에 대해서는 모른다.",
+        "목선율이 최근 자신을 어떻게 여기고 있었는지는 정확히 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말인데 되묻는 법이 없다.",
         "sentence_length_tendency": "평소엔 한 문장으로 끝내는데, 몰리면 문장이 자꾸 이어 붙는다.",
@@ -155,19 +326,44 @@
       ]
     },
     {
-      "id": "CH02", "name": "목선율", "role": "국려원의 배우자 / 경영지원 담당", "present_location": "L02",
+      "id": "CH02",
+      "name": "목선율",
+      "role": "국려원의 배우자 / 경영지원 담당",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "최근 하소이가 국려원을 대하는 태도가 유독 날카로워졌다는 걸 느끼고 있었다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 하소이가 국려원을 대하는 태도가 유독 날카로워졌다는 걸 느끼고 있었다.",
+          "source": "직접 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-02", "content": "그이가... 요즘 저한테 다시 살갑게 대해 주려고 애쓰고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-01", "content": "그날은 저녁에 남편과 여행 갈 준비만 하고 있었을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그이가... 요즘 저한테 다시 살갑게 대해 주려고 애쓰고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날은 저녁에 남편과 여행 갈 준비만 하고 있었을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-02",
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["남편과 하소이 사이의 구체적인 관계는 최근에야 정리됐다는 것 말고는 자세히 모른다.", "사건 당일 밤 불한증막에서 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "남편과 하소이 사이의 구체적인 관계는 최근에야 정리됐다는 것 말고는 자세히 모른다.",
+        "사건 당일 밤 불한증막에서 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 다정하지만 피곤한 말투.",
         "sentence_length_tendency": "평소 차분히 말하다가, 압박받으면 말이 조심스러워진다.",
@@ -180,20 +376,50 @@
       ]
     },
     {
-      "id": "CH03", "name": "연재경", "role": "매점 담당 직원", "present_location": "L02",
+      "id": "CH03",
+      "name": "연재경",
+      "role": "매점 담당 직원",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "21시 40분경 불한증막 쪽 인기척이 없어 이상히 여겨 들여다보다 쓰러진 국려원을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH03-02", "content": "하소이가 평소 국려원에게 유독 신경 쓰는 걸 눈치채고 있었지만 모른 척해 왔다." }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "21시 40분경 불한증막 쪽 인기척이 없어 이상히 여겨 들여다보다 쓰러진 국려원을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "하소이가 평소 국려원에게 유독 신경 쓰는 걸 눈치채고 있었지만 모른 척해 왔다."
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 매점과 로비를 오가며 마감 준비를 했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날은 평소처럼 매점과 로비를 오가며 마감 준비를 했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" },
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "F-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "F-CH03-01"
+        }
       ],
-      "knowledge_limits": ["하소이와 국려원 사이에 정확히 무슨 일이 있었는지는 몰랐다.", "위단하와 국려원 사이의 마찰에 대해서는 모른다."],
+      "knowledge_limits": [
+        "하소이와 국려원 사이에 정확히 무슨 일이 있었는지는 몰랐다.",
+        "위단하와 국려원 사이의 마찰에 대해서는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 조심스러운 말투.",
         "sentence_length_tendency": "평소 짧고 신중하게 말하다가, 압박받으면 말끝을 흐린다.",
@@ -206,18 +432,38 @@
       ]
     },
     {
-      "id": "CH04", "name": "위단하", "role": "시설관리 기사", "present_location": "L04",
+      "id": "CH04",
+      "name": "위단하",
+      "role": "시설관리 기사",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "최근 급여 정산 문제로 국려원과 작은 마찰이 있었다." }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "최근 급여 정산 문제로 국려원과 작은 마찰이 있었다."
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "국려원과는 그냥 평소처럼 업무 얘기만 나눴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "정산 마찰이 있었다는 사실을 숨기려는 것이다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "국려원과는 그냥 평소처럼 업무 얘기만 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "정산 마찰이 있었다는 사실을 숨기려는 것이다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["사건 당일 밤 불한증막에서 무슨 일이 있었는지는 전혀 모른다.", "하소이와 국려원 사이의 개인적인 관계에 대해서는 모른다."],
+      "knowledge_limits": [
+        "사건 당일 밤 불한증막에서 무슨 일이 있었는지는 전혀 모른다.",
+        "하소이와 국려원 사이의 개인적인 관계에 대해서는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 무던하고 사무적인 말투.",
         "sentence_length_tendency": "평소 짧고 사실 위주로 말하며, 압박받으면 말이 퉁명스러워진다.",
@@ -230,19 +476,47 @@
       ]
     },
     {
-      "id": "CH05", "name": "설류경", "role": "단골손님", "present_location": "L02",
+      "id": "CH05",
+      "name": "설류경",
+      "role": "단골손님",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "21시 30분경 로비를 지나다 하소이가 불한증막 쪽에서 나오는 것을 목격했다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "21시 30분경 로비를 지나다 하소이가 불한증막 쪽에서 나오는 것을 목격했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-02", "content": "여기 사장님 내외가 사이좋게 지내는 걸 보면 저도 괜히 기분이 좋더라고요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 늦게까지 있다가 돌아갔을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-02",
+          "content": "여기 사장님 내외가 사이좋게 지내는 걸 보면 저도 괜히 기분이 좋더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 밤은 평소처럼 늦게까지 있다가 돌아갔을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-02",
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["하소이가 왜 그쪽에서 나왔는지 정확한 이유는 모른다.", "문 안쪽 일은 손님 처지에 알 도리가 없다."],
+      "knowledge_limits": [
+        "하소이가 왜 그쪽에서 나왔는지 정확한 이유는 모른다.",
+        "문 안쪽 일은 손님 처지에 알 도리가 없다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 느긋하고 무던한 말투.",
         "sentence_length_tendency": "평소 여유 있게 말하며, 압박받아도 크게 달라지지 않는다.",
@@ -255,211 +529,556 @@
       ]
     }
   ],
-
   "relationships": [
     {
-      "id": "REL01", "between": ["CH01", "V01"],
+      "id": "REL01",
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "5년째 함께 일하며 은밀한 관계를 이어 온 사이.",
       "public_face": "성실한 야간 매니저와 대표로만 알려져 있다.",
       "private_strain": "하소이는 그날 오후 국려원에게서 배우자 목선율과 관계를 회복하기로 했으니 그만 만나자는 말을 들었다.",
       "surfaces_when": "그날 오후 휴게실에서 있었던 대화나 두 사람의 관계에 대해 하소이에게 구체적으로 캐물을 때(F-CH01-04).",
-      "says": { "CH01": "\"대표님이요? 그냥... 오래 일한 매니저와 사장님 사이였죠. 그게 다예요.\"" }
+      "says": {
+        "CH01": "\"대표님이요? 그냥... 오래 일한 매니저와 사장님 사이였죠. 그게 다예요.\""
+      }
     },
     {
-      "id": "REL02", "between": ["CH02", "V01"],
+      "id": "REL02",
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "10년째 함께해 온 배우자.",
       "public_face": "요즘 부쩍 사이가 좋아진 부부로 알려져 있다.",
       "private_strain": "목선율은 최근 하소이가 남편을 대하는 태도가 유독 날카로워졌다는 걸 느끼고 있었다.",
       "surfaces_when": "부부 사이 최근 분위기나 하소이의 평소 태도에 대해 목선율에게 구체적으로 캐물을 때(F-CH02-01).",
-      "says": { "CH02": "\"그이가... 요즘 저랑 다시 잘 지내보자고 하던 참이었어요.\"" }
+      "says": {
+        "CH02": "\"그이가... 요즘 저랑 다시 잘 지내보자고 하던 참이었어요.\""
+      }
     },
     {
-      "id": "REL03", "between": ["CH03", "V01"],
+      "id": "REL03",
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "3년째 함께 일해 온 매점 직원과 대표.",
       "public_face": "무난한 직원-대표 관계로 알려져 있다.",
       "private_strain": "연재경은 하소이가 평소 국려원에게 유독 신경 쓰는 걸 눈치채고 있었지만 모른 척해 왔다.",
       "surfaces_when": "하소이와 국려원 사이의 평소 분위기에 대해 연재경에게 구체적으로 캐물을 때(F-CH03-02).",
-      "says": { "CH03": "\"대표님은... 그냥 좋은 사장님이셨어요. 그 이상은 몰라요.\"" }
+      "says": {
+        "CH03": "\"대표님은... 그냥 좋은 사장님이셨어요. 그 이상은 몰라요.\""
+      }
     },
     {
-      "id": "REL04", "between": ["CH04", "V01"],
+      "id": "REL04",
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "4년째 시설을 관리해 온 정비 기사와 대표.",
       "public_face": "무난한 업무 관계로 알려져 있다.",
       "private_strain": "위단하는 최근 급여 정산 문제로 국려원과 작은 마찰이 있었다.",
       "surfaces_when": "급여 정산 문제에 대해 위단하에게 구체적으로 캐물을 때(F-CH04-01).",
-      "says": { "CH04": "\"대표님과는 그냥 업무로만 부딪혔죠. 그게 답니다.\"" }
+      "says": {
+        "CH04": "\"대표님과는 그냥 업무로만 부딪혔죠. 그게 답니다.\""
+      }
     },
     {
-      "id": "REL05", "between": ["CH05", "V01"],
+      "id": "REL05",
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "10년 넘게 드나든 단골손님과 그를 반갑게 맞아 온 대표 사이.",
       "public_face": "얼굴 익힌 손님과 주인 정도로만 알려져 있다.",
       "private_strain": "설류경은 하소이가 국려원을 대하는 태도가 유독 살가웠던 걸 오래전부터 눈치채고 있었지만, 단골 손님 처지에 괜한 말을 얹고 싶지 않아 지금껏 입 밖에 낸 적이 없다.",
       "surfaces_when": "그날 밤 로비에서 무엇을 봤는지 캐물을 때(F-CH05-01) 그 짐작이 새어 나온다.",
-      "says": { "CH05": "\"사장님은 늘 반갑게 맞아 주셨어요. 저야 손님일 뿐이지만요.\"" }
+      "says": {
+        "CH05": "\"사장님은 늘 반갑게 맞아 주셨어요. 저야 손님일 뿐이지만요.\""
+      }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "불한증막", "access": "손님 공용, 사건 후엔 통제 구역", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L01",
+      "name": "불한증막",
+      "access": "손님 공용, 사건 후엔 통제 구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "황토 벽으로 둘러싸인 좁은 방 한가운데 나무 평상이 놓여 있고, 문은 안에서 밀어 여는 방식이다. 문틀 옆 걸쇠는 평소 열려 있어 눈에 잘 띄지 않는다.",
       "observation_rules": [
-        { "action": "불한증막을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "문틀 아래쪽에 긁힌 자국이 남아 있고, 평상 위엔 땀 자국이 넓게 번져 있다." }
+        {
+          "action": "불한증막을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "문틀 아래쪽에 긁힌 자국이 남아 있고, 평상 위엔 땀 자국이 넓게 번져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "불한증막 문틀을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "문틀과 걸쇠 사이에 무언가 끼웠다 뺀 듯한 쐐기 자국이 남아 있다." },
-        { "action": "평상 아래 바닥을 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "국려원이 쓰러진 자리 주변 바닥에 땀이 흥건히 고여 있고, 옷이 몸에 젖어 들러붙어 있다." }
+        {
+          "action": "불한증막 문틀을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "문틀과 걸쇠 사이에 무언가 끼웠다 뺀 듯한 쐐기 자국이 남아 있다."
+        },
+        {
+          "action": "평상 아래 바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "국려원이 쓰러진 자리 주변 바닥에 땀이 흥건히 고여 있고, 옷이 몸에 젖어 들러붙어 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "로비", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01", "L03", "L04", "L05"],
+      "id": "L02",
+      "name": "로비",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "접수 데스크 위에 달력과 방문 기록판이 나란히 놓여 있고, 그 옆 대기 의자는 늦은 밤에도 손님 몇이 앉아 있다.",
       "observation_rules": [
-        { "action": "로비를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "달력 오늘 날짜 칸에 '저녁 - 여행'이라는 메모가 적혀 있고, 그 옆 방문 기록판엔 오늘 드나든 사람들의 이름이 적혀 있다." }
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "달력 오늘 날짜 칸에 '저녁 - 여행'이라는 메모가 적혀 있고, 그 옆 방문 기록판엔 오늘 드나든 사람들의 이름이 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "로비 데스크 달력을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "오늘 날짜 칸에 국려원과 목선율이 저녁에 함께 여행을 가기로 했다는 메모가 적혀 있다." }
+        {
+          "action": "로비 데스크 달력을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "오늘 날짜 칸에 국려원과 목선율이 저녁에 함께 여행을 가기로 했다는 메모가 적혀 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "휴게실 겸 매점", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L02"],
+      "id": "L03",
+      "name": "휴게실 겸 매점",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "매점 냉장고 옆 진열대에 식혜와 매실차 병이 나란히 놓여 있고, 그 앞 평상엔 손님들이 눕거나 앉아 쉬고 있다.",
       "observation_rules": [
-        { "action": "휴게실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "매점 진열대 한쪽 매실차 자리가 눈에 띄게 비어 있다." }
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "매점 진열대 한쪽 매실차 자리가 눈에 띄게 비어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "매실차 병을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "남은 매실차 병 뚜껑이 살짝 헐거워진 채고, 바닥에 미세한 흰 가루 흔적이 가라앉아 있다." }
+        {
+          "action": "매실차 병을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "남은 매실차 병 뚜껑이 살짝 헐거워진 채고, 바닥에 미세한 흰 가루 흔적이 가라앉아 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "직원 휴게실", "access": "직원 전용", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L04",
+      "name": "직원 휴게실",
+      "access": "직원 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "출입 기록판이 문 옆에 걸려 있고, 그 아래 작은 게시판에 급여 정산 안내문이 붙어 있다.",
       "observation_rules": [
-        { "action": "직원 휴게실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "급여 정산 안내문 옆에 손글씨로 급히 쓴 이의 제기 메모가 붙어 있다." }
+        {
+          "action": "직원 휴게실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "급여 정산 안내문 옆에 손글씨로 급히 쓴 이의 제기 메모가 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "직원 출입 기록을 확인한다", "requires": "없음", "release_evidence_id": "E12", "result": "출입 기록에 18시 위단하의 퇴근이 찍혀 있고, 그 뒤로는 재입장 기록이 없다." }
+        {
+          "action": "직원 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "출입 기록에 18시 위단하의 퇴근이 찍혀 있고, 그 뒤로는 재입장 기록이 없다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "비품창고", "access": "직원 전용", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L05",
+      "name": "비품창고",
+      "access": "직원 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "청소도구와 소모품이 선반에 정리돼 있고, 그 옆 벽에 비품 목록판이 걸려 있다.",
       "observation_rules": [
-        { "action": "창고를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "비품 목록판 나무 쐐기 항목 옆 숫자가 손으로 고쳐 쓴 흔적이 있다." }
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "비품 목록판 나무 쐐기 항목 옆 숫자가 손으로 고쳐 쓴 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "창고 비품 목록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "오늘 자 목록에 나무 쐐기 하나가 재고보다 비어 있다고 표시돼 있다." }
+        {
+          "action": "창고 비품 목록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "오늘 자 목록에 나무 쐐기 하나가 재고보다 비어 있다고 표시돼 있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "문틀의 쐐기 자국", "source_type": "location", "found_at": "L01", "discovery_condition": "불한증막 문틀을 살펴본다", "related_timeline": ["T09"],
+    {
+      "id": "E01",
+      "name": "문틀의 쐐기 자국",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "불한증막 문틀을 살펴본다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "문틀과 걸쇠 사이에 무언가 끼웠다 뺀 듯한 쐐기 자국이 남아 있다.",
-      "proves": ["누군가 문이 열리지 않도록 의도적으로 막아 두었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 막았는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "탈진 정황", "source_type": "location", "found_at": "L01", "discovery_condition": "평상 아래 바닥을 살펴본다", "related_timeline": ["T10"],
+      "proves": [
+        "누군가 문이 열리지 않도록 의도적으로 막아 두었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 막았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "탈진 정황",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "평상 아래 바닥을 살펴본다",
+      "related_timeline": [
+        "T10"
+      ],
       "content": "국려원이 쓰러진 자리 주변 바닥에 땀이 흥건히 고여 있고, 옷이 몸에 젖어 들러붙어 있다.",
-      "proves": ["국려원이 오랜 시간 고온실에 갇혀 심한 탈수 상태에 빠졌다는 사실을 증명한다."],
-      "does_not_prove": ["왜 나가지 못했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "매실차 병의 이물질", "source_type": "location", "found_at": "L03", "discovery_condition": "매실차 병을 살펴본다", "related_timeline": ["T01"],
+      "proves": [
+        "국려원이 오랜 시간 고온실에 갇혀 심한 탈수 상태에 빠졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "왜 나가지 못했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "매실차 병의 이물질",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "매실차 병을 살펴본다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "남은 매실차 병 뚜껑이 살짝 헐거워진 채고, 바닥에 미세한 흰 가루 흔적이 가라앉아 있다.",
-      "proves": ["누군가 매실차에 다른 성분을 섞었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 섞었는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "빈 쐐기 재고", "source_type": "location", "found_at": "L05", "discovery_condition": "창고 비품 목록을 확인한다", "related_timeline": ["T02"],
+      "proves": [
+        "누군가 매실차에 다른 성분을 섞었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 섞었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "빈 쐐기 재고",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "창고 비품 목록을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "오늘 자 목록에 나무 쐐기 하나가 재고보다 비어 있다고 표시돼 있다.",
-      "proves": ["그날 창고에서 쐐기 하나가 사라졌다는 사실을 증명한다."],
-      "does_not_prove": ["누가 가져갔는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "여행 약속 메모", "source_type": "location", "found_at": "L02", "discovery_condition": "로비 데스크 달력을 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "그날 창고에서 쐐기 하나가 사라졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "여행 약속 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "로비 데스크 달력을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "오늘 날짜 칸에 국려원과 목선율이 저녁에 함께 여행을 가기로 했다는 메모가 적혀 있다.",
-      "proves": ["국려원과 목선율이 그날 관계를 회복하려 했다는 사실을 증명한다."],
-      "does_not_prove": ["그 사실을 하소이가 언제 알았는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "연재경의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "연재경에게 불한증막 문을 열었을 때를 묻는다",
+      "proves": [
+        "국려원과 목선율이 그날 관계를 회복하려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 사실을 하소이가 언제 알았는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "연재경의 발견 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "연재경에게 불한증막 문을 열었을 때를 묻는다",
       "content": "연재경은 21시 40분경 불한증막 쪽 인기척이 없어 이상히 여겨 들여다보다 쓰러진 국려원을 발견했다고 말한다.",
-      "proves": ["발견 시각과 그때 국려원의 상태가 이미 심각했다는 사실을 증명한다."],
-      "does_not_prove": ["그 이전 상황"],
-      "presentation_effect": ["C01"] },
-    { "id": "E07", "name": "설류경의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설류경에게 그날 밤 로비에서 본 것을 묻는다",
+      "proves": [
+        "발견 시각과 그때 국려원의 상태가 이미 심각했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 이전 상황"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "설류경의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "설류경에게 그날 밤 로비에서 본 것을 묻는다",
       "content": "설류경은 21시 30분경 로비를 지나다 하소이가 불한증막 쪽에서 나오는 것을 봤다고 말한다.",
-      "proves": ["하소이가 21시 30분경 불한증막 쪽에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 안에서 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "목선율의 관계 회복 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "목선율에게 저녁 여행 약속과 부부 사이 분위기에 대해 묻는다",
+      "proves": [
+        "하소이가 21시 30분경 불한증막 쪽에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "목선율의 관계 회복 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목선율에게 저녁 여행 약속과 부부 사이 분위기에 대해 묻는다",
       "content": "목선율은 최근 남편과 사이가 좋아져 그날 저녁 오랜만에 여행을 가기로 했다고 말한다.",
-      "proves": ["국려원 부부가 그날 관계를 회복하려 하고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["하소이가 그로 인해 무엇을 했는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E09", "name": "위단하의 정산 마찰 해명", "source_type": "testimony", "found_at": "L04", "discovery_condition": "위단하에게 급여 정산 문제로 있었던 마찰에 대해 묻는다",
+      "proves": [
+        "국려원 부부가 그날 관계를 회복하려 하고 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "하소이가 그로 인해 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "위단하의 정산 마찰 해명",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "위단하에게 급여 정산 문제로 있었던 마찰에 대해 묻는다",
       "content": "위단하는 정산 착오로 잠깐 언성이 높아졌을 뿐이고 이미 정리된 일이라며, 18시에 퇴근한 뒤로는 찜질방에 다시 오지 않았다고 말한다.",
-      "proves": ["위단하의 마찰이 단순 착오였고 18시 이후로는 현장에 없었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그날 저녁 그가 찜질방에 다시 들어왔는지까지"],
-      "presentation_effect": [] },
-    { "id": "E10", "name": "연재경의 평소 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "연재경에게 하소이와 국려원 사이의 평소 분위기에 대해 묻는다",
+      "proves": [
+        "위단하의 마찰이 단순 착오였고 18시 이후로는 현장에 없었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그날 저녁 그가 찜질방에 다시 들어왔는지까지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "연재경의 평소 목격담",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "연재경에게 하소이와 국려원 사이의 평소 분위기에 대해 묻는다",
       "content": "연재경은 하소이가 평소 국려원에게 유독 신경 쓰는 걸 눈치채고 있었지만 모른 척해 왔다고 말한다.",
-      "proves": ["하소이의 감정이 오래전부터 쌓여 온 것이라는 사실을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇을 계획했는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E11", "name": "목선율의 태도 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "목선율에게 하소이의 평소 태도에 대해 묻는다",
+      "proves": [
+        "하소이의 감정이 오래전부터 쌓여 온 것이라는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 계획했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E11",
+      "name": "목선율의 태도 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목선율에게 하소이의 평소 태도에 대해 묻는다",
       "content": "목선율은 최근 하소이가 남편을 대하는 태도가 유독 날카로워졌다는 걸 느꼈다고 말한다.",
-      "proves": ["하소이의 감정 변화를 주변 사람도 감지하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 감정이 어떤 행동으로 이어졌는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E12", "name": "위단하의 퇴근 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "직원 출입 기록을 확인한다", "related_timeline": ["T06"],
+      "proves": [
+        "하소이의 감정 변화를 주변 사람도 감지하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 감정이 어떤 행동으로 이어졌는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E12",
+      "name": "위단하의 퇴근 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "직원 출입 기록을 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "출입 기록에 18시 위단하의 퇴근이 찍혀 있고, 그 뒤로는 재입장 기록이 없다.",
-      "proves": ["위단하가 18시 이후로는 찜질방에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["그 이전의 정확한 행적"],
-      "presentation_effect": [] }
+      "proves": [
+        "위단하가 18시 이후로는 찜질방에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 이전의 정확한 행적"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_presence",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E06", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06", "E07"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_presence",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E06",
+          "E07"
+        ]
+      },
       "player_action": "연재경의 발견 진술과 설류경의 목격담을 함께 제시해, 매점 마감 준비만 했을 뿐이라는 주장과 21시 30분경 불한증막 쪽에 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "21시 30분경 불한증막 쪽에 있었던 것은 인정한다." },
-      "must_not_release": ["매실차를 건넨 사실", "쐐기를 끼운 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "21시 30분경 불한증막 쪽에 있었던 것은 인정한다."
+      },
+      "must_not_release": [
+        "매실차를 건넨 사실",
+        "쐐기를 끼운 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_presence", "to_stage": "admits_drink",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03", "E05"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_presence",
+      "to_stage": "admits_drink",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E03",
+          "E05"
+        ]
+      },
       "player_action": "매실차 병의 이물질과 탈진 정황, 여행 약속 메모를 함께 제시해, 그냥 지나갔을 뿐이라는 주장과 관계 회복 소식이 있던 날 저녁 매실차를 건네 극심한 탈수를 유도한 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "매실차를 건넨 것은 인정한다." },
-      "must_not_release": ["쐐기를 끼운 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "매실차를 건넨 것은 인정한다."
+      },
+      "must_not_release": [
+        "쐐기를 끼운 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_drink", "to_stage": "admits_wedge",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E04"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_drink",
+      "to_stage": "admits_wedge",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E01",
+          "E04"
+        ]
+      },
       "player_action": "문틀의 쐐기 자국과 창고에서 사라진 쐐기 재고를 함께 제시해, 평소처럼 챙겨 줬을 뿐이라는 주장과 미리 쐐기를 준비해 문을 막은 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "문틀에 쐐기를 끼운 것은 인정한다." },
-      "must_not_release": ["진짜 동기(관계 정리 통보에 대한 배신감)"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "문틀에 쐐기를 끼운 것은 인정한다."
+      },
+      "must_not_release": [
+        "진짜 동기(관계 정리 통보에 대한 배신감)"
+      ]
     },
     {
-      "id": "C04", "target_character": "CH01", "from_stage": "admits_wedge", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E08", "E10", "E11"],
-      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E08", "E10", "E11"] },
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_wedge",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E10",
+        "E11"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": [
+          "E08",
+          "E10",
+          "E11"
+        ]
+      },
       "player_action": "목선율의 관계 회복 증언과 연재경·목선율의 태도 목격담을 함께 제시해, 순간적인 우발이었다는 주장과 관계 정리 통보 직후 오래전부터 쌓여 온 감정이 터져 나온 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "그날 오후 관계를 정리하자는 말을 듣고 배신감을 참지 못해 매실차와 쐐기를 준비해 계획적으로 저질렀다는 것을 모두 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "그날 오후 관계를 정리하자는 말을 듣고 배신감을 참지 못해 매실차와 쐐기를 준비해 계획적으로 저질렀다는 것을 모두 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -468,7 +1087,8 @@
       "how_to_clear": "위단하의 해명 진술(E09)과 직원 출입 기록(E12)을 사건이 벌어진 밤 시간대와 대조한다.",
       "must_not_imply": "마찰이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "위단하는 그 뒤로도 정산 문제를 어떻게 마무리할지 새 관리자와 다시 이야기해봐야겠다고 생각한다.",
-      "suspicion_deepener": "급여 정산 안내문 옆에 급히 쓴 이의 제기 메모가 붙어 있었다는 정황(F-L04-OBS-01)이 드러나며, 한동안 그가 더 크게 화를 냈던 게 아니냐는 의심이 짙어진다."
+      "suspicion_deepener": "급여 정산 안내문 옆에 급히 쓴 이의 제기 메모가 붙어 있었다는 정황(F-L04-OBS-01)이 드러나며, 한동안 그가 더 크게 화를 냈던 게 아니냐는 의심이 짙어진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -480,24 +1100,35 @@
       "suspicion_deepener": "매점 진열대 한쪽 매실차 자리가 눈에 띄게 비어 있었다는 정황(F-L03-OBS-01)을 그녀가 미리 알고 있었다는 사실이 드러나며, 한동안 그녀가 뭔가 숨기고 있는 게 아니냐는 의심이 짙어진다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E07", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E07",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "이뇨제를 탄 매실차를 건네 탈수를 유도하고, 불한증막 문틀에 쐐기를 끼워 밖에서 열리지 않게 막아 국려원을 급성 열탈진으로 사망하게 한 뒤, 쐐기를 제거해 혼자 무리한 사고처럼 꾸몄다.",
       "motive_fact": "은밀한 관계를 정리하겠다는 통보를 듣고 배신감과 집착을 억누르지 못해 살해했다."
     }
   },
-
   "final_deduction": {
     "responsible": "하소이",
     "method": "10:00 매점에서 매실차에 이뇨제 성분을 몰래 섞어 두었고, 19:30 국려원에게 건넸다. 20:05 국려원이 혼자 불한증막에 들어가자 문틀 걸쇠에 쐐기를 끼워 막았고, 21:10 국려원이 갈증과 탈진 속에 쓰러졌다. 21:30 하소이는 다시 돌아와 쐐기를 제거해 혼자 무리한 사고처럼 꾸몄다.",
     "motive": "5년째 은밀한 관계를 이어 온 국려원이 배우자 목선율과 관계를 회복하며 자신과의 관계를 정리하려 한다는 사실을 그날 오후 통보받은 하소이가 배신감과 집착을 억누르지 못했다.",
     "key_connection": "연재경과 설류경의 목격담이 하소이의 초기 진술과 어긋나고, 매실차 이물질과 여행 약속 메모가 동기와 시점을 연결하며, 문틀 쐐기 자국과 빈 재고가 인위적 개입을 증명하고, 연재경과 목선율의 목격담이 오래 쌓여 온 감정을 뒷받침한다."
   },
-
   "ending_explanation": [
     "휴게실에서 쉬던 탐정이 연재경의 부름을 받고 불한증막에서 쓰러진 국려원을 발견한 표면 사건",
     "하소이가 매점 마감 준비만 했다는 주장과 연재경·설류경의 목격담이 가리키는 21시 30분경 불한증막 출입의 불일치",
