@@ -65,7 +65,28 @@ function extractTimes(text) {
       min = +m[5];
     }
     if (hour > 24 || min > 59) continue;
-    const before = text.slice(Math.max(0, m.index - 6), m.index);
+    // **시간대 말은 그 문장 안에서 뒤에 오는 시각까지 이어진다**(2026-09-26).
+    // 전에는 바로 앞 여섯 글자만 봐서, 「주문은 밤 9시 38분인데 도착은 10시
+    // 20분요」의 10시 20분이 오전으로 읽혔다. 그래서 고치라는 지적이 곧 「한
+    // 문장에 밤을 두 번 쓰라」가 됐고, 그건 사람이 쓰는 문장이 아니다. 같은
+    // 규칙이 마스터 쪽 `checkTimeReferences` 에도 있다(CLAUDE.md 「시각은
+    // 타임라인과 눈으로 맞춰볼 수 있게 적는다」). **문장을 넘지는 않는다** —
+    // 「밤 9시 38분입니다. 10시 20분 도착에」의 뒤 문장은 제 말을 따로 붙여야
+    // 한다. 더 가까운 시간대 말이 뒤에 있으면 그쪽이 이긴다(「밤 9시에 자고
+    // 아침 7시에 일어났다」).
+    const sentenceStart = Math.max(
+      ...['.', '?', '!', '…', '\n'].map((mark) => text.lastIndexOf(mark, m.index - 1)),
+      -1,
+    ) + 1;
+    const clause = text.slice(sentenceStart, m.index);
+    const near = text.slice(Math.max(0, m.index - 6), m.index);
+    // 가장 가까운 시간대 말 하나만 남겨 `applyMeridiem` 에 넘긴다.
+    const all = [...clause.matchAll(new RegExp(MERIDIEM_BEFORE.source.replace(/\\s\*\$$/, ''), 'g'))];
+    const before = MERIDIEM_BEFORE.test(near)
+      ? near
+      : all.length
+        ? all[all.length - 1][1]
+        : near;
     const hadMeridiem = Boolean(before.match(MERIDIEM_BEFORE));
     hour = applyMeridiem(hour, before);
     if (hour === 24) hour = 0;
