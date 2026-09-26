@@ -630,6 +630,13 @@ CASE008 시뮬로 전후를 비교했다. 규칙 본문은 CLAUDE.md ② 「놀�
 아무도 손대지 않은 경고였다 — 「읽는 사람 없는 경고는 부채를 세는 일일 뿐」. 관찰 한 줄을 더하는 것은
 판본을 만들 때의 재료로 남긴다(`docs/offline-master-format.md`). 사람도 없는 방은 error 그대로.
 
+## 2026-09-26: `SCENE_DIALOGUE_MASHED`를 error로
+
+오프닝·엔딩에서 대사와 지문이 한 문단에 뭉친 것을 warn으로 두고 있었다. 사용자가 코퍼스 315건
+전체(오프닝+엔딩)에서 0건임을 확인하고 error로 올리자고 했다 — 걸리는 것이 없을 때 올리는 값이
+가장 싸고, 새 사건이 들어올 때만 막는다. 같은 날 `LOCATION_HAS_NO_ACTION`은 반대로 사람 있으면
+통과로 내렸다(20곳이 사흘간 아무도 안 읽는 경고였다). 둘의 기준은 같다 — 읽는 사람 없는 경고는 두지 않는다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

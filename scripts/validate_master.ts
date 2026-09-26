@@ -1311,7 +1311,9 @@ export function checkSceneDialogueBreaks(master: Master): Issue[] {
       });
     if (mashed.length) {
       issues.push({
-        severity: 'warn',
+        // error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이 공짜였고,
+        // 대사와 지문이 한 문단에 뭉치면 오프라인 화면에서 말풍선이 깨진다.
+        severity: 'error',
         code: 'SCENE_DIALOGUE_MASHED',
         message: `${label}.narrative에 대사와 지문이 한 문단에 뭉친 줄이 ${mashed.length}개 있다 — 서술 한 덩어리, 대사 한 줄을 각각 빈 줄로 나눌 것. 예: ${mashed[0].slice(0, 40)}…`,
       });
