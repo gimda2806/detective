@@ -7,15 +7,24 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 부업으로 소규모 설비 점검을 겸하고 있어, 공방의 낡은 스팀 보일러 정기 점검을 의뢰받아 그날 오후 방문해 있었다.",
     "tone": "담담하지만 마음 한구석이 저릿한 정통 추리물",
-    "tags": ["모자_공방", "펠트_공예", "비공개_티타임"],
-    "location_archetypes": ["craft_textile"],
+    "tags": [
+      "모자_공방",
+      "펠트_공예",
+      "비공개_티타임"
+    ],
+    "location_archetypes": [
+      "craft_textile"
+    ],
     "background": {
-      "background_archetypes": ["exhibition"],
-      "background_phrasing": ["immediately_after"],
+      "background_archetypes": [
+        "exhibition"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -24,42 +33,52 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:58",
     "location_id": "L02",
     "narrative": "보일러 점검을 마친 탐정이 마지막 확인 서명을 남기려 사무실 쪽으로 걸음을 옮기던 참이었다. 접견실 안쪽에서 다급한 발소리와 함께 낮은 비명이 들려왔다.\n\n한지우가 먼저 반응했다.\n\n\"저거 성형실 쪽 아니에요? 방금 뭔가 크게 부딪히는 소리도 났는데.\"\n\n\"가보자.\"\n\n탐정이 발걸음을 서둘렀다. 습식 성형실 문을 열자, 반태주가 온수조 옆에 무릎을 꿇은 채 여경한을 물 밖으로 끌어내고 있었다. 여경한은 의식을 잃은 채 축 늘어져 있었고, 얼굴과 옷이 흠뻑 젖어 있었다.\n\n\"숨은... 쉬는 것 같긴 한데, 반응이 없어요!\"\n\n반태주가 소리쳤다. 국서린이 곧바로 뛰어들어와 119에 신고했다.\n\n한지우가 낮은 목소리로 물었다.\n\n\"저 발판, 원래 저 자리에 있던 거 맞아요? 물기도 이상하게 많이 튀어 있고.\"\n\n탐정이 발판 쪽을 유심히 살피며 고개를 끄덕였다.\n\n\"단순히 미끄러진 것치곤... 좀 이상하네.\""
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "사무실 안, 국서린이 정리하던 서류를 조용히 내려놓았다. 추다경은 더 이상 시선을 피하지 않았다.\n\n\"...맞아요. 제가 밀어 넣었어요. 발판도 제가 옮겨놓은 거고요.\"\n\n그녀는 잠시 말을 멈췄다가, 갈라진 목소리로 이었다.\n\n\"몇 번을 부탁해도... 다온이를 놓아주질 않았어요. 이대로 두면 걔가 먼저 망가질 것 같았어요.\"\n\n한지우는 말없이 그를 바라보다가, 조용히 입을 열었다.\n\n\"동생을 지키고 싶었던 마음은... 이해가 가요. 그래도 이 방법은 아니었어요.\"\n\n\"사고를 가장하려고 발판까지 미리 옮겨놨었지. 우발적인 게 아니라 계획한 거였어.\"\n\n탐정이 조용히 말을 이었다. 추다경은 고개를 떨궜다.\n\n공방을 나서며, 한지우가 문득 생각난 듯 입을 열었다.\n\n\"참, 매도현 씨 그 손수건 얘기 들으셨어요? 그거 몰래 놓고 가려다 괜히 의심만 산 거였다면서요.\"\n\n\"마음 쓰는 방식이 서툴렀을 뿐이지.\"\n\n탐정이 대꾸했다. 한지우가 바닥에 놓인 공구 가방을 대신 들어 올리다가 도로 내려놨다.\n\n\"무거운데요, 이거.\"\n\n\"놔둬.\"\n\n탐정이 가방을 어깨에 걸쳤다. 보일러실 문은 반쯤 열린 채였고, 아무도 그것을 닫으러 오지 않았다."
   },
-
   "surface_incident": [
     "티타임이 끝난 늦은 오후, 챙그늘 습식 성형실에서 대표 여경한이 온수조 옆에 쓰러진 채 발견됐다.",
     "여경한은 병원으로 옮겨졌으나 끝내 사망했다.",
     "공방 측은 발판을 헛디뎌 넘어진 사고로 추정하고 있다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "챙그늘의 수석 조수 추다경에게는, 몇 해 전 작업 중 사고로 빚을 지고 대표 여경한 소유의 다른 사업체에서 사실상 임금을 받지 못한 채 위험한 야간 작업을 떠안아온 남동생 추다온이 있다. 여경한은 그 부채를 구실 삼아 추다온을 계속 그 자리에 묶어두며 이따금 폭언과 강압적인 지시를 반복해왔고, 추다경이 몇 번이나 동생을 그만두게 해달라고 부탁해도 매번 거절당한다. 티타임 직후 추다경이 다시 한번 간곡히 부탁했지만 여경한이 오히려 동생의 근무 시간을 더 늘리겠다고 못박자, 추다경은 동생을 그 굴레에서 완전히 벗어나게 할 방법이 이것뿐이라 여기고 범행을 계획한다.",
     "method": "추다경은 손님들이 돌아간 뒤 정리를 핑계로 습식 성형실에 남아, 온수조 온도를 혼자 점검하던 여경한의 뒤로 다가가 양어깨를 붙잡고 얼굴을 온수조 물속에 강하게 눌러 넣어 붙든다.",
-    "method_archetypes": ["drowning", "staging_cover_up"],
-    "motive_archetypes": ["protection", "coercion_escape"],
-    "cover_up_target": ["responsibility", "evidence"],
-    "cover_up_method": ["false_accident", "scene_rearrangement", "evidence_removal"],
+    "method_archetypes": [
+      "drowning",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "protection",
+      "coercion_escape"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement",
+      "evidence_removal"
+    ],
     "key_time_location": "티타임 당일 16시 50분경, 습식 성형실(L02)",
     "cover_up": "추다경은 미리 옮겨둔 나무 발판으로 실족사처럼 보이게 꾸미고, 몸싸움 중 젖고 구겨진 자신의 앞치마는 세탁실 수거함 맨 아래에 숨긴다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "두 달 전 오후",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "추다경이 사무실 서류함에서 남동생 추다온의 근로계약서 사본을 몰래 확인하다가, 계약 기간이 지난 뒤에도 계속 연장되고 있다는 사실을 발견한다.",
       "world_fact": "사무실 서류함의 추다온 근로계약서 사본에, 만료일이 지난 뒤에도 매달 손으로 새로 적어 연장한 흔적이 남는다."
     },
@@ -67,49 +86,64 @@
       "id": "T02",
       "time": "한 달 전 저녁",
       "location": "L01",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "추다경이 여경한에게 동생을 그 일에서 그만 놓아달라고 부탁한다."
     },
     {
       "id": "T03",
       "time": "한 달 전 저녁",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "여경한이 부채가 아직 남았다며 추다경의 부탁을 거절한다."
     },
     {
       "id": "T04",
       "time": "티타임 당일 13시",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국서린이 티타임에 초대된 단골 손님 명단을 접견실 입구에 붙여둔다."
     },
     {
       "id": "T05",
       "time": "티타임 당일 14시",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "매도현이 진열된 신작 모자를 살펴본다."
     },
     {
       "id": "T06",
       "time": "티타임 당일 15시 40분",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "반태주가 새로 완성된 펠트 모자 블록들을 정리해 진열대에 옮긴다."
     },
     {
       "id": "T07",
       "time": "티타임 당일 16시",
       "location": "L05",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "좌하은이 그날 쓴 앞치마와 수건들을 걷어 세탁실 수거함에 넣는다."
     },
     {
       "id": "T08",
       "time": "티타임 당일 16시 10분",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "매도현이 계산을 마친 뒤에도 몰래 준비해온 손수건을 놓고 가려 접견실 안쪽으로 다시 들어간다.",
       "world_fact": "접견실 방문객 서명 장부에, 매도현이 16시 15분경 '먼저 갑니다'라고 짧게 적어둔 메모가 남는다."
     },
@@ -117,14 +151,18 @@
       "id": "T09",
       "time": "티타임 당일 16시 20분",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "여경한이 손님들을 배웅한 뒤 혼자 습식 성형실로 들어가 온수조 온도를 점검한다."
     },
     {
       "id": "T10",
       "time": "티타임 당일 16시 28분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "추다경이 습식 성형실로 들어가, 여경한이 늘 밟던 나무 발판을 온수조 쪽으로 슬쩍 옮겨놓는다.",
       "world_fact": "온수조 앞 나무 발판이 원래 위치보다 온수조 쪽으로 슬쩍 옮겨진다."
     },
@@ -132,7 +170,10 @@
       "id": "T11",
       "time": "티타임 당일 16시 50분",
       "location": "L02",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "추다경이 온수조 온도를 확인하던 여경한을 뒤에서 붙잡아 얼굴을 온수조 물속에 눌러 넣는다.",
       "world_fact": "온수조 물이 크게 튀며 성형실 바닥 곳곳이 흥건히 젖고, 옮겨진 나무 발판이 다시 한번 밀려난다."
     },
@@ -140,7 +181,9 @@
       "id": "T12",
       "time": "티타임 당일 16시 52분",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "반태주가 물 튀는 소리 뒤로 인기척이 뚝 끊긴 것을 이상하게 여겨 습식 성형실 쪽으로 다가간다.",
       "world_fact": "반태주가 성형실 문틈으로, 성형실 안쪽에서 누군가 빠르게 빠져나가는 뒷모습을 얼핏 본다."
     },
@@ -148,26 +191,31 @@
       "id": "T13",
       "time": "티타임 당일 16시 53분",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "반태주가 성형실 문을 열고 온수조에 쓰러진 여경한을 발견해 물 밖으로 끌어낸다."
     },
     {
       "id": "T14",
       "time": "티타임 당일 16시 55분",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국서린이 소란을 듣고 뛰어와 119에 신고한다."
     },
     {
       "id": "T15",
       "time": "티타임 당일 16시 58분",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "추다경이 몸싸움 중 젖고 구겨진 자신의 앞치마를 벗어 세탁실 수거함 맨 아래로 밀어 넣는다.",
       "world_fact": "세탁실 수거함 맨 아래, 그날 다른 앞치마들보다 훨씬 흠뻑 젖고 구겨진 앞치마 한 벌이 깔린다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -206,7 +254,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-05",
@@ -249,13 +300,18 @@
           "fact_id": "F-CH02-01",
           "content": "물 튀는 소리 뒤로 인기척이 뚝 끊긴 게 이상해 성형실로 다가갔다가, 쓰러진 여경한을 처음 발견했다.",
           "source": "본인 경험",
-          "related_timeline": ["T12", "T13"]
+          "related_timeline": [
+            "T12",
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "성형실 문틈으로, 안쪽에서 누군가 빠르게 빠져나가는 뒷모습을 얼핏 봤다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         }
       ],
       "initial_claims": [
@@ -270,7 +326,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -302,7 +361,10 @@
           "fact_id": "F-CH03-01",
           "content": "한 달 전 저녁, 접견실에서 추다경이 여경한에게 동생을 그 일에서 놓아달라고 사정했지만 거절당하는 걸 우연히 들었다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T02", "T03"]
+          "related_timeline": [
+            "T02",
+            "T03"
+          ]
         }
       ],
       "initial_claims": [
@@ -318,7 +380,10 @@
           "reason_for_limit_or_lie": "괜히 남의 사정을 들쑤시고 싶지 않아서"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -355,7 +420,9 @@
           "fact_id": "F-CH04-02",
           "content": "사실은 계산을 마친 뒤에도, 몰래 준비해온 손수건을 여경한 책상 서랍에 놓고 가려고 접견실 안쪽으로 다시 들어갔었다.",
           "source": "본인 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -371,7 +438,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
@@ -418,7 +488,10 @@
           "reason_for_limit_or_lie": "급여 갈등을 들키기 싫어서"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -441,11 +514,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "공방 대표와 수석 조수. 오래 함께 일해온 사이다.",
       "public_face": "믿음직한 상사와 조수 사이로 알려져 있다.",
       "says": {
@@ -456,7 +531,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "대표와 블로킹 담당 조수. 오래 함께 일해온 사이다.",
       "public_face": "성실한 조수로 신뢰받는 사이로 보인다.",
       "says": {
@@ -467,7 +545,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "대표와 경리 담당. 오래 함께 일해온 사이다.",
       "public_face": "사무 전반을 믿고 맡기는 사이로 보인다.",
       "says": {
@@ -478,7 +559,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "단골 손님과 대표. 오랫동안 모자를 맞춰온 사이다.",
       "public_face": "그냥 오래된 단골과 대표 정도로 보인다.",
       "says": {
@@ -489,7 +573,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "세탁 담당 직원과 대표. 오래 함께 일해온 사이다.",
       "public_face": "무난한 상사와 직원 사이로 보인다.",
       "says": {
@@ -499,14 +586,17 @@
       "surfaces_when": "탐정이 대표와 별문제 없었다는 진술(S-CH05-02)의 앞뒤를 캐물으면 드러난다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "접견실",
       "access": "손님과 직원 모두 드나드는 공방 앞쪽 응접 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L05"
+      ],
       "base_description": "완성된 모자들이 진열된 응접 공간. 방문객 서명 장부가 놓인 작은 책상이 입구 옆에 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -522,7 +612,10 @@
       "name": "습식 성형실",
       "access": "직원만 드나드는 통제구역. 사고 이후 통제선이 쳐졌다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L04"],
+      "connects_to": [
+        "L01",
+        "L04"
+      ],
       "base_description": "펠트를 뜨거운 물에 적셔 모양을 잡는 대형 온수조가 있는 작업실. 온수조 옆엔 늘 밟고 서는 나무 발판이 놓여 있다.",
       "observation_rules": [
         {
@@ -544,7 +637,9 @@
       "name": "사무실",
       "access": "직원과 대표만 드나드는 통제구역.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "정산 서류와 근로계약서가 보관된 서류함이 있는 사무 공간.",
       "observation_rules": [],
       "detail_rules": [
@@ -560,7 +655,9 @@
       "name": "블로킹실",
       "access": "직원만 드나드는 모자 블로킹(모양 고정) 작업 공간.",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "완성된 펠트 모자 블록들이 줄지어 놓인 작업실. 성형실과 문 하나로 연결돼 있다.",
       "observation_rules": [],
       "detail_rules": []
@@ -570,7 +667,9 @@
       "name": "세탁실 겸 보관창고",
       "access": "직원만 드나드는 창고 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "작업용 앞치마와 수건을 세탁·보관하는 창고. 안쪽엔 커다란 수거함이 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -582,7 +681,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -590,11 +688,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "온수조 주변 발판과 바닥을 살펴본다",
-      "related_timeline": ["T10", "T11"],
+      "related_timeline": [
+        "T10",
+        "T11"
+      ],
       "content": "나무 발판이 원래 자리보다 온수조 쪽으로 밀려나 있고, 바닥 여러 곳에 물이 크게 튄 자국이 마르지 않은 채 남아 있다.",
-      "proves": ["단순히 미끄러져 넘어진 사고가 아니라 몸싸움이 있었을 가능성"],
-      "does_not_prove": ["누가 그 자리에 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "단순히 미끄러져 넘어진 사고가 아니라 몸싸움이 있었을 가능성"
+      ],
+      "does_not_prove": [
+        "누가 그 자리에 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -602,11 +709,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "세탁실 수거함 맨 아래를 뒤져본다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "다른 옷가지들보다 훨씬 흠뻑 젖고 구겨진 앞치마 한 벌이 수거함 맨 아래 깔려 있다. 어깨 부분에 손으로 세게 움켜쥔 듯한 주름 자국이 남아 있다.",
-      "proves": ["누군가 사고 직후 젖은 옷을 서둘러 숨겼다는 것"],
-      "does_not_prove": ["그게 누구의 것인지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 사고 직후 젖은 옷을 서둘러 숨겼다는 것"
+      ],
+      "does_not_prove": [
+        "그게 누구의 것인지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -614,11 +729,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "반태주에게 여경한을 발견하기 직전 상황을 묻는다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "물 튀는 소리가 끊긴 뒤 이상하게 여겨 다가가다가, 성형실 문틈으로 누군가 빠르게 빠져나가는 뒷모습을 얼핏 봤다.",
-      "proves": ["사고 직전 성형실에서 누군가 빠져나갔다는 것"],
-      "does_not_prove": ["그 사람이 누구인지 정확히"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "사고 직전 성형실에서 누군가 빠져나갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 사람이 누구인지 정확히"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -626,11 +749,20 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "국서린에게 추다경과 여경한 사이에 있었던 일을 묻는다",
-      "related_timeline": ["T02", "T03"],
+      "related_timeline": [
+        "T02",
+        "T03"
+      ],
       "content": "한 달 전, 추다경이 접견실에서 여경한에게 동생을 그 일에서 놓아달라고 사정했지만 거절당하는 걸 우연히 들었다.",
-      "proves": ["추다경에게 절박한 동기가 있었다는 것"],
-      "does_not_prove": ["실제로 범행을 저질렀는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "추다경에게 절박한 동기가 있었다는 것"
+      ],
+      "does_not_prove": [
+        "실제로 범행을 저질렀는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E05",
@@ -638,11 +770,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 서류함에서 추다온의 근로계약서를 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "추다온의 근로계약서가 만료일이 지난 뒤에도 매달 손으로 새로 적어 연장된 흔적이 남아 있고, 정산되지 않은 급여 항목이 계속 쌓여 있다.",
-      "proves": ["여경한이 추다온을 부당하게 계속 묶어두고 있었다는 것"],
-      "does_not_prove": ["추다경이 이를 이유로 범행했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "여경한이 추다온을 부당하게 계속 묶어두고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "추다경이 이를 이유로 범행했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E06",
@@ -650,11 +790,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "접견실 방문객 서명 장부를 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "매도현이 16시 15분경 서명 아래에 '먼저 갑니다'라고 짧게 적어두고 나간 기록이 남아 있다.",
-      "proves": ["매도현이 사고 발생 시각(4시 50분경)보다 한참 전에 이미 자리를 떴다는 것"],
-      "does_not_prove": ["그가 그사이 다시 돌아오지 않았는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "매도현이 사고 발생 시각(4시 50분경)보다 한참 전에 이미 자리를 떴다는 것"
+      ],
+      "does_not_prove": [
+        "그가 그사이 다시 돌아오지 않았는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -664,66 +812,118 @@
       "discovery_condition": "국서린에게 사고 당시 좌하은과 함께 있었는지 묻는다",
       "related_timeline": [],
       "content": "사고 추정 시각 내내 좌하은과 함께 세탁실에서 다음 달 재고 정리 목록을 작성하고 있었다.",
-      "proves": ["좌하은에게 사고 시각 알리바이가 있다는 것"],
-      "does_not_prove": ["좌하은과 여경한 사이 급여 갈등의 정도"],
+      "proves": [
+        "좌하은에게 사고 시각 알리바이가 있다는 것"
+      ],
+      "does_not_prove": [
+        "좌하은과 여경한 사이 급여 갈등의 정도"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_presence_minimized",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
       "player_action": "추다경에게 사고 당시 행적을 캐묻고, 반태주의 목격담(E03)을 제시한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "잠깐 성형실에 들른 건 맞지만, 젖은 발판을 정리하러 간 것뿐이었다고 진술을 바꾼다."
       },
-      "must_not_release": ["여경한과의 물리적 접촉", "동생 관련 동기", "앞치마를 숨긴 사실"]
+      "must_not_release": [
+        "여경한과의 물리적 접촉",
+        "동생 관련 동기",
+        "앞치마를 숨긴 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_presence_minimized",
       "to_stage": "admits_contact_claims_accident",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
       "player_action": "온수조 주변 발판과 물 자국(E01)을 제시하며, 정리만 한 것치고는 흔적이 크다고 지적한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "여경한과 몸이 부딪힌 적은 있지만, 그가 넘어지려는 걸 붙잡으려다 그런 것뿐이라고 주장한다."
       },
-      "must_not_release": ["의도적으로 얼굴을 눌렀다는 사실", "동생 관련 동기", "앞치마를 숨긴 사실"]
+      "must_not_release": [
+        "의도적으로 얼굴을 눌렀다는 사실",
+        "동생 관련 동기",
+        "앞치마를 숨긴 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_contact_claims_accident",
       "to_stage": "admits_act_withholds_motive",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02"
+        ]
+      },
       "player_action": "세탁실 수거함에서 찾은, 흠뻑 젖고 손자국이 남은 앞치마(E02)를 제시하며 왜 그걸 숨겼는지 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "사실은 여경한의 얼굴을 온수조 물속에 직접 눌러 넣었고, 그 직후 젖은 앞치마를 세탁실 수거함에 숨겼다는 것까지 인정한다."
       },
-      "must_not_release": ["동생 관련 동기"]
+      "must_not_release": [
+        "동생 관련 동기"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "admits_act_withholds_motive",
       "to_stage": "confesses_motive",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E04", "E05"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
+      },
       "player_action": "국서린의 목격담(E04)과 추다온의 근로계약서 기록(E05)을 함께 제시하며 동기를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
@@ -732,7 +932,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -741,7 +940,8 @@
       "how_to_clear": "방문객 서명 장부에 남은 인사말(E06)을 확인하면 매도현이 16시 15분경 '먼저 갑니다'라는 메모와 함께 이미 자리를 떴다는 사실이 드러나, 사고 발생 시각(4시 50분경)과 맞지 않음이 확인된다.",
       "must_not_imply": "매도현이 범행에 가담했거나 사고 현장에 남아 있었다는 암시",
       "lingering_thread": "매도현이 놓고 간 손수건은 나중에 국서린이 발견해 그에게 돌려주기로 한다.",
-      "suspicion_deepener": "매도현이 여경한과 언쟁을 벌였다는 소문과 함께, 사고 직전 접견실 안쪽에서 서성이던 모습이 목격되며 의심이 커진다."
+      "suspicion_deepener": "매도현이 여경한과 언쟁을 벌였다는 소문과 함께, 사고 직전 접견실 안쪽에서 서성이던 모습이 목격되며 의심이 커진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -750,27 +950,39 @@
       "how_to_clear": "좌하은의 진술(S-CH05-01)과 국서린의 알리바이 확인 증언(E07)을 대조하면 두 사람이 함께 있었다는 사실이 확인돼 좌하은에게 알리바이가 있었음이 드러난다.",
       "must_not_imply": "좌하은이 범행에 가담했다는 암시",
       "lingering_thread": "좌하은의 밀린 급여 문제는 공방을 이어받을 유족 측에서 뒤늦게 정산해주기로 한다.",
-      "suspicion_deepener": "급여 갈등 사실이 알려지며 좌하은에 대한 의심이 한 차례 커진다."
+      "suspicion_deepener": "급여 갈등 사실이 알려지며 좌하은에 대한 의심이 한 차례 커진다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-01", "F-CH01-02"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "F-CH01-01",
+      "F-CH01-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "여경한의 얼굴을 온수조 물속에 강제로 눌러 넣어 익사시켰다는 사실",
       "motive_fact": "남동생 추다온을 부당한 노동 굴레에서 벗어나게 하려고 범행을 계획했다는 사실"
     }
   },
-
   "final_deduction": {
     "responsible": "추다경(CH01)",
     "method": "티타임이 끝난 직후 혼자 온수조 온도를 점검하던 여경한의 뒤로 다가가 얼굴을 온수조 물속에 강제로 눌러 넣어 익사시켰다.",
     "motive": "여경한이 남동생 추다온을 부당한 노동 조건 속에 계속 묶어두며 몇 번을 부탁해도 놓아주지 않자, 동생을 그 굴레에서 완전히 벗어나게 하려고 범행을 계획했다.",
     "key_connection": "반태주의 목격담(E03)이 사고 직전 성형실에서 누군가 빠져나갔음을 알리고, 발판과 물 자국(E01)이 몸싸움의 흔적을 보여주며, 세탁실에서 발견된 젖은 앞치마(E02)가 직접적인 은폐 행위를 증명한다. 국서린의 목격담(E04)과 근로계약서 기록(E05)이 추다경의 절박한 동기를 뒷받침한다."
   },
-
   "ending_explanation": [
     "추다경은 손님들이 돌아간 직후, 온수조 온도를 혼자 점검하던 여경한의 뒤로 다가가 얼굴을 온수조 물속에 눌러 넣어 익사시켰다.",
     "범행 전 미리 나무 발판을 옮겨둬 실족사처럼 보이게 꾸몄다.",

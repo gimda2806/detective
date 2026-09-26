@@ -8,15 +8,25 @@
     "detective_entry_type": "media_or_content_creation",
     "detective_entry": "탐정은 개인 드론 리뷰 채널에 올릴 영상을 촬영하러 스카이서킷을 찾았고, 한지우는 촬영 보조로 따라와 트랙 옆에서 구경하고 있었다.",
     "tone": "실내 경기장 특유의 열기와 조카를 향한 조용한 애정이 교차하는, 담담하면서도 뭉클한 톤. 탐정과 한지우의 가벼운 티키타카로 무게를 던다.",
-    "tags": ["드론레이싱_아레나", "실내_경기장", "조종석_부스"],
-    "location_archetypes": ["sports_facility", "workshop"],
+    "tags": [
+      "드론레이싱_아레나",
+      "실내_경기장",
+      "조종석_부스"
+    ],
+    "location_archetypes": [
+      "sports_facility",
+      "workshop"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation"],
-      "background_phrasing": ["amid"],
+      "background_archetypes": [
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "amid"
+      ],
       "background_intensity": "contextual"
     }
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -25,41 +35,50 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 18:48",
     "location_id": "L01",
     "narrative": "실내 드론레이싱 아레나 '스카이서킷' 트랙 옆, 탐정이 개인 채널에 올릴 리뷰 영상을 촬영하고 있다.\n\n한지우가 삼각대 옆에 쭈그려 앉아 화면을 들여다보며 중얼거린다.\n\n\"이 트랙, 생각보다 훨씬 좁네요.\"\n\n\"실전에서 보면 또 다르지.\"\n\n탐정이 카메라 앵글을 조정하며 대꾸한다.\n\n그 순간, 복도 너머 배터리 충전소 쪽에서 둔탁한 폭발음과 함께 매캐한 연기가 밀려온다.\n\n\"어, 방금 그 소리 뭐예요?\"\n\n한지우가 놀라 벌떡 일어서며 묻는다.\n\n달려간 충전소 안, 그을린 선반 아래 편시준이 쓰러진 채 발견된다.\n\n\"손에... 심하게 덴 자국이에요.\"\n\n한지우가 낮은 목소리로 말하며 뒷걸음질 친다.\n\n\"단순 과열은 아닌 것 같은데.\"\n\n탐정이 그을린 배터리 랙을 천천히 살피며 중얼거린다."
   },
-
   "ending_scene": {
     "location_id": "L05",
     "narrative": "관리사무실 안, 목인석이 책상 모서리를 붙든 채 고개를 떨군다.\n\n\"그 사람이... 하빈이한테 차용증까지 들이밀며 이적도 막고, 매달 돈까지 뜯어갔더군요.\"\n\n갈라진 목소리로 목인석이 말을 잇는다.\n\n\"그래서 배터리 보호회로를 저항체로 바꿔치기했습니다. 편시준이 충전기에 손을 뻗을 걸 알고 있었으니까요.\"\n\n한지우가 적던 손을 멈추고 낮게 묻는다.\n\n\"조카를 지키려고, 그 사람 손에 불을 붙인 거군요.\"\n\n목인석이 아무 대답도 하지 못한 채 어깨를 떨군다.\n\n탐정이 한 걸음 다가서 그를 본다.\n\n\"하빈 씨는 스스로 벗어날 방법을 찾고 있었을 겁니다. 당신이 대신 나설 일이 아니었어요.\"\n\n관리사무실을 나서는 두 사람 뒤로, 오세하가 충전소 쪽 안전 점검표를 새로 손보고 있는 모습이 보인다.\n\n\"저분, 이번 일로 충전소 시스템 전체를 뜯어고칠 모양이에요.\"\n\n한지우가 복도 끝을 힐끗 보며 중얼거린다.\n\n\"진작 좀 그랬어야지.\"\n\n탐정이 짧게 웃고 대꾸한다.\n\n\"그러게요. 근데 그거 아세요? 저 선반, 아직도 그을음 냄새 나요.\"\n\n한지우가 코를 슬쩍 문지르며 걸음을 서두른다."
   },
-
   "surface_incident": [
     "스카이서킷 배터리 충전소에서 정비팀장 편시준이 폭발성 화재에 휩싸여 쓰러진 채 발견돼 병원으로 옮겨졌으나 끝내 숨을 거둔다.",
     "초기 조사에서는 배터리 노후로 인한 단순 발화 사고로 추정된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "목인석은 정비실 서랍에서 우연히 발견한 차용증 사본을 통해, 조카 진하빈이 편시준에게 금전과 이적 금지 조항으로 오랫동안 통제·착취당해왔다는 사실을 알게 됐다. 조카를 그 굴레에서 벗어나게 하려는 절박한 보호 심리에서, 그는 편시준을 제거하기로 결심했다.",
-    "motive_archetypes": ["protection", "coercion_escape"],
+    "motive_archetypes": [
+      "protection",
+      "coercion_escape"
+    ],
     "method": "목인석이 편시준의 전용 배터리 팩에서 배터리관리시스템(BMS) 보호회로 칩을 몰래 제거하고, 미리 다듬어둔 저항체로 바꿔 끼워 과충전 방지 기능을 무력화했다. 편시준이 평소처럼 충전기에 배터리를 연결해 손에 쥔 순간, 과충전으로 인한 폭발성 발화가 일어나 전신 화상과 저혈량성 쇼크로 사망했다.",
-    "method_archetypes": ["electrical_tampering", "arson"],
+    "method_archetypes": [
+      "electrical_tampering",
+      "arson"
+    ],
     "key_time_location": "사건 당일 18시 45분경, 스카이서킷 배터리 충전소 충전 랙 앞.",
     "cover_up": "목인석은 평소 편시준이 배터리 정비를 직접 손보곤 했다는 점을 이용해 노후 배선 탓의 단순 발화 사고로 보이게 했고, 사건 당시 자신은 줄곧 접수 라운지에서 손님을 응대하고 있었다고 둘러댔다.",
-    "cover_up_target": ["cause_of_death", "location"],
-    "cover_up_method": ["accident_equipment_failure", "false_alibi"]
+    "cover_up_target": [
+      "cause_of_death",
+      "location"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "false_alibi"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "3주 전 저녁",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 정비실 서랍에서 소모품을 찾다가, 편시준이 진하빈에게 건넨 차용증 사본을 발견한다.",
       "world_fact": "차용증에는 진하빈이 매달 갚아야 할 금액과 함께 다른 팀 이적을 금지하는 조항이 적혀 있다."
     },
@@ -67,14 +86,18 @@
       "id": "T02",
       "time": "2주 전 오후",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "진하빈이 파일럿 부스에서 이적 제안서를 만지작거리다 편시준에게 들킨다."
     },
     {
       "id": "T03",
       "time": "10일 전 밤",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 배터리 충전소에서 편시준의 개인용 예비 배터리 팩을 몰래 분해해 내부 보호회로(BMS) 칩 위치를 확인한다.",
       "world_fact": "목인석이 분해한 배터리 팩은 편시준이 매일 개인적으로 점검에 쓰는 전용 기기다."
     },
@@ -82,14 +105,18 @@
       "id": "T04",
       "time": "1주 전 낮",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "진하빈이 메인 트랙 게시판에서 편시준이 정한 야간 추가훈련 일정표에 자신의 이름이 다시 오른 것을 확인한다."
     },
     {
       "id": "T05",
       "time": "5일 전 밤",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 정비실 공구함에서 낡은 저항체를 가져와 보호회로 칩 자리에 맞도록 다듬는다.",
       "world_fact": "다듬어진 저항체는 배터리가 정상 온도를 넘겨도 충전을 멈추지 않게 만드는 크기다."
     },
@@ -97,21 +124,28 @@
       "id": "T06",
       "time": "3일 전 오후",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "오세하가 접수 라운지에서 다음 달 예산안을 검토하다 배터리 충전소 노후 설비 교체 항목을 두고 편시준과 언쟁한다."
     },
     {
       "id": "T07",
       "time": "이틀 전 밤",
       "location": "L04",
-      "actors": ["CH01", "CH04"],
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
       "actual_action": "야간 정비를 돕던 방주열이 충전소 뒤편에서 혼자 남아 배터리 랙을 만지고 있는 목인석과 마주친다."
     },
     {
       "id": "T08",
       "time": "사건 전날 밤",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 편시준의 전용 배터리 팩 보호회로 칩을 제거하고 미리 다듬어둔 저항체로 바꿔 끼운다.",
       "world_fact": "제거된 보호회로 칩은 정비실 폐기함 바닥에 다른 부품들과 섞여 버려진다."
     },
@@ -119,28 +153,36 @@
       "id": "T09",
       "time": "사건 당일 오전",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 접수 라운지에서 방문객 응대를 맡아 평소와 다름없이 손님을 맞이한다."
     },
     {
       "id": "T10",
       "time": "사건 당일 18시 5분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목인석이 접수 업무를 잠시 방주열에게 맡기고 배터리 충전소로 가 조작한 배터리 팩이 제자리에 꽂혀 있는지 확인한다."
     },
     {
       "id": "T11",
       "time": "사건 당일 18시 20분",
       "location": "L01",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "위서은이 메인 트랙 옆 복도를 지나다 배터리 충전소에서 황급히 나오는 목인석과 마주친다."
     },
     {
       "id": "T12",
       "time": "사건 당일 18시 45분",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "편시준이 배터리 충전소에서 자신의 전용 배터리 팩을 충전기에 연결한다.",
       "world_fact": "조작된 저항체 탓에 배터리 팩 내부 온도가 제한 없이 계속 오른다."
     },
@@ -148,7 +190,9 @@
       "id": "T13",
       "time": "사건 당일 18시 47분",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "편시준이 충전 상태를 확인하려 배터리 팩을 손에 쥔 순간, 팩에서 폭발음과 함께 불길이 인다.",
       "world_fact": "발화 지점 주변 충전 랙 선반이 검게 그을린다."
     },
@@ -156,11 +200,12 @@
       "id": "T14",
       "time": "사건 당일 18시 48분",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "접수 업무를 대신 보던 방주열이 충전소 쪽에서 터진 폭발음과 짙은 연기를 보고 놀라 달려가 쓰러진 편시준을 발견한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -211,7 +256,11 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-03",
@@ -239,7 +288,9 @@
           "release_trigger": "S-CH01-04"
         }
       ],
-      "knowledge_limits": ["편시준이 정확히 몇 시에 배터리를 충전할지는 확신하지 못했다."],
+      "knowledge_limits": [
+        "편시준이 정확히 몇 시에 배터리를 충전할지는 확신하지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 압박받으면 단답으로 바뀐다",
         "sentence_length_tendency": "평소엔 차분하고 설명이 길지만 추궁당하면 문장이 급격히 짧아진다",
@@ -278,9 +329,14 @@
           "reason_for_limit_or_lie": "차용증 조항을 숨기려고"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["삼촌이 구체적으로 어떻게 배터리를 조작했는지는 전혀 몰랐다."],
+      "knowledge_limits": [
+        "삼촌이 구체적으로 어떻게 배터리를 조작했는지는 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "편안한 존댓말(해요체)",
         "sentence_length_tendency": "평소엔 씩씩하지만 이 얘기만 나오면 말끝이 흐려진다",
@@ -316,9 +372,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["목인석과 진하빈 사이의 개인적인 사정은 전혀 몰랐다."],
+      "knowledge_limits": [
+        "목인석과 진하빈 사이의 개인적인 사정은 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 사업적이고 단호한 어투",
         "sentence_length_tendency": "항상 간결하고 결론부터 말한다",
@@ -353,9 +414,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["목인석이 그날 밤 정확히 뭘 하고 있었는지는 자세히 보지 못했다."],
+      "knowledge_limits": [
+        "목인석이 그날 밤 정확히 뭘 하고 있었는지는 자세히 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "편안한 존댓말(해요체)",
         "sentence_length_tendency": "평소엔 시원시원하지만 사고 얘기만 나오면 말이 느려진다",
@@ -390,9 +456,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["목인석이 왜 그렇게 서둘렀는지는 전혀 몰랐다."],
+      "knowledge_limits": [
+        "목인석이 왜 그렇게 서둘렀는지는 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "편안한 존댓말(해요체)",
         "sentence_length_tendency": "평소 밝고 수다스럽지만 사고 얘기엔 목소리가 잦아든다",
@@ -404,11 +475,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "정비팀장과, 조카를 지키려 애써온 수석 정비사 사이의 동료 관계.",
       "public_face": "오래 손발을 맞춰온 정비팀 동료로만 알려져 있다.",
       "private_strain": "목인석은 편시준이 조카 진하빈을 차용증과 이적 금지 조항으로 착취해왔다는 사실을 알게 된 뒤 품은 살의를 먼저 꺼내지 않는다.",
@@ -419,7 +492,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "신인 파일럿과, 금전·이적 조건으로 그를 옭아맨 정비팀장 사이.",
       "public_face": "엄격하지만 유능한 관리자와 신인 선수 사이로 알려져 있다.",
       "private_strain": "진하빈은 편시준에게 차용증과 이적 금지 조항으로 오랫동안 착취당해왔다는 사실을 삼촌 앞에서도 먼저 털어놓지 않는다.",
@@ -430,7 +506,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "운영실장과 정비팀장, 예산을 두고 자주 부딪힌 사이.",
       "public_face": "업무상 의견 차이가 잦았던 동료로 알려져 있다.",
       "private_strain": "오세하는 편시준과의 예산 다툼 이면에 충전소 노후 설비를 방치한 책임을 느끼면서도 먼저 인정하지 않는다.",
@@ -441,7 +520,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "같은 정비팀에서 오래 손발을 맞춘 동료 정비사 사이.",
       "public_face": "서로를 믿고 의지하는 정비팀 동료로 알려져 있다.",
       "private_strain": "방주열은 이틀 전 밤 배터리 랙 앞에 혼자 남아 있던 목인석을 봤다는 사실을 먼저 말하지 않는다.",
@@ -453,7 +535,10 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "단골 아마추어 파일럿과, 그날의 안전관리자였던 정비팀장 사이.",
       "public_face": "특별한 접점 없는 시설 이용자와 관리자 사이로 알려져 있다.",
       "private_strain": "위서은은 사건 당일 저녁 충전소에서 황급히 나오는 목인석을 봤다는 사실을 대수롭지 않게 여기며 먼저 말하지 않는다.",
@@ -463,14 +548,16 @@
       }
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "메인 트랙",
       "access": "누구나 출입 가능, 파일럿 등록자는 트랙 안쪽까지 진입 가능",
       "access_level": "open",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "천장까지 그물망이 둘러진 실내 드론 레이싱 트랙. 관중석과 파일럿 부스가 한눈에 보인다.",
       "observation_rules": [
         {
@@ -486,7 +573,11 @@
       "name": "접수 라운지",
       "access": "출입 제한 없음, 방문 등록 데스크",
       "access_level": "open",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "방문객 접수와 안내를 담당하는 라운지. 벽면에는 그날그날의 방문자 출입 서명대가 놓여 있다.",
       "observation_rules": [
         {
@@ -508,7 +599,9 @@
       "name": "파일럿 부스",
       "access": "등록된 파일럿만 출입 가능",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "파일럿들이 FPV 고글을 쓰고 대기하는 개인 부스 공간. 각자 사물함이 있다.",
       "observation_rules": [
         {
@@ -530,7 +623,11 @@
       "name": "배터리 충전소",
       "access": "정비 인력만 출입 가능, 사건 이후 통제",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02", "L05"],
+      "connects_to": [
+        "L01",
+        "L02",
+        "L05"
+      ],
       "base_description": "드론 경주용 배터리를 충전·점검하는 랙과 작업대가 늘어선 공간. 사건 당시 폭발로 한쪽 선반이 그을려 있다.",
       "observation_rules": [
         {
@@ -562,7 +659,10 @@
       "name": "관리사무실 겸 공구창고",
       "access": "정비팀 및 운영진만 출입",
       "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "정비 공구와 예비 부품을 보관하는 창고를 겸한 관리사무실. 목인석의 개인 공구함이 놓여 있다.",
       "observation_rules": [
         {
@@ -580,7 +680,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -589,8 +688,12 @@
       "found_at": "L04",
       "discovery_condition": "충전소 폐기함을 뒤진다",
       "content": "폐기함 바닥에서 편시준 전용 배터리 팩에 들어있던 보호회로 칩이 인위적으로 뜯겨나온 채 발견된다.",
-      "proves": ["배터리 보호회로가 인위적으로 제거됐다는 사실"],
-      "does_not_prove": ["누가 그것을 제거했는지"],
+      "proves": [
+        "배터리 보호회로가 인위적으로 제거됐다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 그것을 제거했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -600,8 +703,12 @@
       "found_at": "L04",
       "discovery_condition": "충전 기록지를 대조해본다",
       "content": "수기 충전 기록지에는 편시준 명의로 기록된 마지막 충전 시각이, 실제 충전기 내부 로그가 남긴 시각보다 20분 이른 것으로 어긋나 있다.",
-      "proves": ["충전 기록상의 시간이 조작되거나 어긋나 있다는 사실"],
-      "does_not_prove": ["누가 기록을 건드렸는지"],
+      "proves": [
+        "충전 기록상의 시간이 조작되거나 어긋나 있다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 기록을 건드렸는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -611,8 +718,12 @@
       "found_at": "L02",
       "discovery_condition": "방주열에게 사건 전날 밤 행적을 묻는다.",
       "content": "방주열이 이틀 전 밤늦게까지 정비를 돕다가, 배터리 랙 앞에 혼자 남아 있던 목인석과 마주쳤다고 말한다.",
-      "proves": ["사건 전날 밤 목인석이 충전소 랙 앞에 혼자 있었다는 사실"],
-      "does_not_prove": ["그가 그 자리에서 정확히 무엇을 했는지"],
+      "proves": [
+        "사건 전날 밤 목인석이 충전소 랙 앞에 혼자 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 그 자리에서 정확히 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -622,8 +733,12 @@
       "found_at": "L05",
       "discovery_condition": "목인석의 공구함을 조사한다",
       "content": "공구함 안에서 보호회로 칩과 똑같은 크기로 다듬어진 저항체 시제품과, 납땜 인두 끝에 남은 그을음이 함께 발견된다.",
-      "proves": ["보호회로 칩과 동일한 크기로 다듬어진 저항체가 목인석의 공구함에 있었다는 사실"],
-      "does_not_prove": ["그 저항체가 실제로 배터리에 장착됐는지"],
+      "proves": [
+        "보호회로 칩과 동일한 크기로 다듬어진 저항체가 목인석의 공구함에 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그 저항체가 실제로 배터리에 장착됐는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -633,8 +748,12 @@
       "found_at": "L03",
       "discovery_condition": "진하빈에게 편시준과의 관계를 묻는다.",
       "content": "진하빈이 압박 끝에, 편시준에게 매달 상환금을 명목으로 착취당하며 이적조차 못 하게 통제받아왔다고 털어놓는다.",
-      "proves": ["편시준이 진하빈에게 금전과 이적 금지로 압박을 가해왔다는 사실"],
-      "does_not_prove": ["목인석이 그 사실을 알고 있었는지"],
+      "proves": [
+        "편시준이 진하빈에게 금전과 이적 금지로 압박을 가해왔다는 사실"
+      ],
+      "does_not_prove": [
+        "목인석이 그 사실을 알고 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -644,8 +763,12 @@
       "found_at": "L03",
       "discovery_condition": "진하빈의 사물함을 확인한다",
       "content": "편시준이 진하빈에게 건넨 차용증 사본에는 매달 상환액과 함께 다른 팀 이적을 금지하는 조항이 적혀 있다.",
-      "proves": ["편시준이 진하빈에게 차용증과 이적 금지 조항을 강요했다는 사실"],
-      "does_not_prove": ["목인석이 이 문서를 언제 처음 봤는지"],
+      "proves": [
+        "편시준이 진하빈에게 차용증과 이적 금지 조항을 강요했다는 사실"
+      ],
+      "does_not_prove": [
+        "목인석이 이 문서를 언제 처음 봤는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -655,8 +778,12 @@
       "found_at": "L01",
       "discovery_condition": "위서은에게 사건 당일 저녁 목격한 것을 묻는다.",
       "content": "위서은이 사건 당일 저녁 복도에서 배터리 충전소 쪽에서 황급히 나오던 목인석과 마주쳤다고 말한다.",
-      "proves": ["사건 당일 저녁 목인석이 충전소에서 황급히 나왔다는 사실"],
-      "does_not_prove": ["그가 충전소 안에서 무엇을 했는지"],
+      "proves": [
+        "사건 당일 저녁 목인석이 충전소에서 황급히 나왔다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 충전소 안에서 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -666,8 +793,12 @@
       "found_at": "L02",
       "discovery_condition": "출입 서명대를 확인한다",
       "content": "서명대 기록에는 목인석이 사건 당일 18시 5분경 잠시 자리를 비웠다가 18시 22분에야 되돌아온 시간 공백이 남아 있다.",
-      "proves": ["목인석이 사건 당일 저녁 접수 자리를 잠시 비웠다는 사실"],
-      "does_not_prove": ["그가 그 시간에 어디에 있었는지"],
+      "proves": [
+        "목인석이 사건 당일 저녁 접수 자리를 잠시 비웠다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 그 시간에 어디에 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -677,8 +808,12 @@
       "found_at": "L04",
       "discovery_condition": "정비 일지를 확인한다",
       "content": "정비 일지에는 이틀 전 밤 방주열이 정식으로 야간 정비 당번으로 기록돼 있고, 그 시각 목인석과 함께 있었다는 메모가 함께 남아 있다.",
-      "proves": ["방주열의 이틀 전 밤 근무가 정식으로 등록된 정기 업무였다는 사실"],
-      "does_not_prove": ["목인석이 그 자리에서 무엇을 했는지"],
+      "proves": [
+        "방주열의 이틀 전 밤 근무가 정식으로 등록된 정기 업무였다는 사실"
+      ],
+      "does_not_prove": [
+        "목인석이 그 자리에서 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -688,59 +823,93 @@
       "found_at": "L02",
       "discovery_condition": "방주열에게 그날 저녁 충전소에서 오세하를 본 적 있는지 묻는다",
       "content": "방주열은 사건 당일 저녁 오세하가 충전소에서 재고 목록에 체크 표시를 하고 금방 나가는 것을 봤다고 말한다.",
-      "proves": ["오세하가 그날 저녁 충전소에 머문 시간이 재고 확인 수준으로 짧았다는 사실을 독립적으로 뒷받침한다"],
-      "does_not_prove": ["그 시각 정확히 몇 분간 있었는지"],
+      "proves": [
+        "오세하가 그날 저녁 충전소에 머문 시간이 재고 확인 수준으로 짧았다는 사실을 독립적으로 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "그 시각 정확히 몇 분간 있었는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_visited_charging_station",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E08", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E08", "E07"]
+        "evidence_ids": [
+          "E08",
+          "E07"
+        ]
       },
       "player_action": "목인석에게 서명대 기록(E08)과 위서은의 목격담(E07)을 제시해 사건 당일 저녁 자리를 비웠던 사실을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "사건 당일 저녁 잠시 충전소에 다녀온 사실은 인정한다."
       },
-      "must_not_release": ["배터리 조작 사실", "조카 진하빈과의 관계"]
+      "must_not_release": [
+        "배터리 조작 사실",
+        "조카 진하빈과의 관계"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_visited_charging_station",
       "to_stage": "admits_circuit_tampering",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E01", "E04"]
+        "evidence_ids": [
+          "E01",
+          "E04"
+        ]
       },
       "player_action": "제거된 보호회로 칩(E01)과 공구함에서 나온 저항체(E04)를 제시해 배터리를 직접 조작했는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
         "scope": "보호회로 칩을 저항체로 바꿔치기했다는 사실은 인정하지만, 이유는 끝내 밝히지 않는다."
       },
-      "must_not_release": ["조카를 보호하려던 진짜 동기"]
+      "must_not_release": [
+        "조카를 보호하려던 진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_circuit_tampering",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E06", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
-        "evidence_ids": ["E06", "E05"]
+        "evidence_ids": [
+          "E06",
+          "E05"
+        ]
       },
       "player_action": "차용증 사본(E06)과 진하빈의 증언(E05)을 제시해 진짜 동기를 추궁한다.",
       "release": {
@@ -750,7 +919,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -759,7 +927,8 @@
       "how_to_clear": "오세하 본인의 재고 확인 진술(S-CH03-02)과 서명대 기록(E08)의 시간을 대조하면 오세하의 동선이 정상적인 업무 범위 안에 있었음이 드러난다. 방주열에게 물으면(E10) 오세하가 재고를 확인하고 금방 나갔다는 사실이 한 번 더 확인된다.",
       "must_not_imply": "오세하가 편시준의 죽음과 관련이 있다는 인상을 남기지 않는다.",
       "lingering_thread": "오세하는 이번 일을 계기로 충전소 안전관리 체계를 전면적으로 손보기 시작한다.",
-      "suspicion_deepener": "사건 직후 오세하가 충전소 출입을 유독 서둘러 통제하려 한 정황이 발견돼 한동안 의심을 더 키운다."
+      "suspicion_deepener": "사건 직후 오세하가 충전소 출입을 유독 서둘러 통제하려 한 정황이 발견돼 한동안 의심을 더 키운다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -768,27 +937,34 @@
       "how_to_clear": "그날 밤 정비 일지(E09)와 방주열 본인의 진술(S-CH04-01)을 맞춰보면 그의 야근 자체는 정상적인 업무였음이 확인된다.",
       "must_not_imply": "방주열이 목인석의 범행을 알면서도 덮어줬다는 인상을 남기지 않는다.",
       "lingering_thread": "방주열은 그날 밤 좀 더 유심히 살펴보지 못한 것에 뒤늦은 죄책감을 느낀다.",
-      "suspicion_deepener": "방주열이 처음엔 그날 밤 목인석과 마주친 사실 자체를 얼버무리며 감추려 해 의심을 키운다."
+      "suspicion_deepener": "방주열이 처음엔 그날 밤 목인석과 마주친 사실 자체를 얼버무리며 감추려 해 의심을 키운다.",
+      "character_id": "CH04"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-04", "F-CH01-05", "E06"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-04",
+      "F-CH01-05",
+      "E06"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-04",
       "motive_fact": "F-CH01-05"
     }
   },
-
   "final_deduction": {
     "responsible": "목인석",
     "method": "편시준의 전용 배터리 팩 보호회로 칩을 저항체로 바꿔치기해 과충전을 유도, 폭발성 화재를 일으켰다.",
     "motive": "조카 진하빈이 편시준에게 차용증과 이적 금지 조항으로 오랫동안 착취당해온 사실을 알고, 그녀를 그 통제에서 벗어나게 하려 했다.",
     "key_connection": "목인석이 우연히 발견한 차용증 사본(E06)과 진하빈의 증언(E05)이 그의 동기를 뒷받침한다."
   },
-
   "ending_explanation": [
     "목인석은 정비실 서랍에서 우연히 발견한 편시준 명의 차용증 사본을 통해, 조카 진하빈이 오랫동안 금전과 이적 금지 조항으로 통제당해왔다는 사실을 알게 됐다.",
     "그는 편시준의 전용 배터리 팩에서 보호회로 칩을 뜯어내고 미리 다듬어둔 저항체로 바꿔치워, 과충전으로 인한 폭발성 화재를 유도했다.",

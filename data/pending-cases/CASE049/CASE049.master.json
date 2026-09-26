@@ -8,11 +8,21 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 반년째 이곳의 회원으로, 격주로 온열관리를 받으러 다닌다. 그날도 저녁 예약을 잡고 로비에 들어서던 참이었다.",
     "tone": "회원제 프라이빗 스파 특유의 정제된 정적과, 그 정적을 깨는 동업자·직원들 사이의 미묘한 긴장.",
-    "tags": ["프라이빗_스파", "한옥_개조", "동업자_부부"],
-    "location_archetypes": ["resort_facility"],
+    "tags": [
+      "프라이빗_스파",
+      "한옥_개조",
+      "동업자_부부"
+    ],
+    "location_archetypes": [
+      "resort_facility"
+    ],
     "background": {
-      "background_archetypes": ["relocation"],
-      "background_phrasing": ["during_preparation"],
+      "background_archetypes": [
+        "relocation"
+      ],
+      "background_phrasing": [
+        "during_preparation"
+      ],
       "background_intensity": "contextual"
     }
   },
@@ -43,17 +53,34 @@
     "method": "위소담은 사건 3일 전 조제실에 혼자 남아 차유담이 심한 알레르기 반응을 보이는 성분을 넣은 연고를 만들어 두고, 사건 당일 저녁 차유담의 개인 연고 통과 몰래 바꿔치기한다. 차유담은 평소처럼 그 연고를 바르고 온열실에 들어가고, 실내 열기에 흡수가 빨라진 알레르기 성분이 전신 쇼크를 일으켜 심정지에 이른다.",
     "key_time_location": "사건 당일 21:40경, 온열실(L03).",
     "cover_up": "위소담은 원래 연고 용기를 씻어 조제실 폐기물 통 안쪽에 숨기고, 라경윤에게 차유담이 요즘 피곤해서 평소 챙기던 알레르기 약을 자주 걸렀다는 말을 흘려 자연스러운 사고사처럼 보이도록 유도한다.",
-    "method_archetypes": ["allergen_exposure", "dermal_contact", "staging_cover_up"],
-    "motive_archetypes": ["revenge", "ip_dispute"],
-    "cover_up_target": ["cause_of_death", "evidence", "identity"],
-    "cover_up_method": ["object_substitution", "evidence_removal", "witness_misdirection"]
+    "method_archetypes": [
+      "allergen_exposure",
+      "dermal_contact",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "revenge",
+      "ip_dispute"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "identity"
+    ],
+    "cover_up_method": [
+      "object_substitution",
+      "evidence_removal",
+      "witness_misdirection"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사건 3일 전 20:30",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "위소담이 마감 후 혼자 남은 조제실에서 차유담이 극심한 알레르기 반응을 보이는 견과류 추출 성분을 넣어 연고를 별도로 조제한다.",
       "world_fact": "위소담이 그날 밤 완성한 연고를 조제실 안쪽 서랍에 숨겨 두었다."
     },
@@ -61,7 +88,10 @@
       "id": "T03",
       "time": "사건 당일 20:00",
       "location": "L01",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "차유담이 다음 날 개인 일정을 이유로 오늘 온열관리 예약을 21:30으로 앞당겨 달라고 라경윤에게 부탁한다.",
       "world_fact": "라경윤이 예약 변경 메모를 데스크 위에 붙여 두었다."
     },
@@ -69,7 +99,9 @@
       "id": "T02",
       "time": "사건 당일 21:10",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "위소담이 진열장에 놓인 차유담의 개인 연고 통 내용물을 미리 만들어 둔 것으로 바꿔치기한다.",
       "world_fact": "위소담이 원래 연고 통을 씻어 조제실 폐기물 통 안쪽에 숨겼다."
     },
@@ -77,7 +109,9 @@
       "id": "T04",
       "time": "사건 당일 21:20",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "겸도윤이 정기 설비 점검 일정에 따라 온열실 온도 센서를 교정하며 실내 온도를 평소보다 조금 높게 맞춘다.",
       "world_fact": "겸도윤이 점검 기록지에 조정 시각과 수치를 적어 남겼다."
     },
@@ -85,7 +119,10 @@
       "id": "T05",
       "time": "사건 당일 21:35",
       "location": "L02",
-      "actors": ["V01", "CH05"],
+      "actors": [
+        "V01",
+        "CH05"
+      ],
       "actual_action": "차유담이 라운지에서 온유하와 인사를 나누며 개인 연고를 얼굴과 목에 바른다.",
       "world_fact": "온유하가 그 모습을 우연히 자신의 셀카 배경에 찍어 두었다."
     },
@@ -93,14 +130,18 @@
       "id": "T06",
       "time": "사건 당일 21:40",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "차유담이 온열실에 들어가 문을 닫고 평상 위에 눕는다."
     },
     {
       "id": "T07",
       "time": "사건 당일 21:55",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건이 예약 시간이 지나도 나오지 않는 차유담을 확인하러 온열실 문을 열었다가 쓰러진 그녀를 발견한다.",
       "world_fact": "표건이 발견 직후 온열실 문을 활짝 열어젖혀 두었다."
     },
@@ -108,14 +149,19 @@
       "id": "T08",
       "time": "사건 당일 21:57",
       "location": "L03",
-      "actors": ["CH01", "CH04"],
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
       "actual_action": "겸도윤이 달려와 응급처치를 시도하는 동안 표건이 119에 신고한다."
     },
     {
       "id": "T09",
       "time": "사건 당일 22:05",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "위소담이 소란을 듣고 조제실 문을 살짝 열어 복도 쪽 상황을 확인한 뒤 다시 안으로 들어간다.",
       "world_fact": "위소담이 표정 없이 서 있다 돌아서는 모습을 겸도윤이 나중에 떠올린다."
     },
@@ -123,14 +169,18 @@
       "id": "T10",
       "time": "사건 당일 22:40",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "차유담이 병원 이송 중 사망 판정을 받는다."
     },
     {
       "id": "T11",
       "time": "사건 다음날 09:00",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "라경윤이 회원들에게 \"컨디션 난조로 인한 사고\"라는 안내문을 발송한다.",
       "world_fact": "라경윤이 안내문 초안을 위소담에게 먼저 보여주고 위소담이 골라 준 표현을 그대로 반영했다."
     }
@@ -156,7 +206,9 @@
           "fact_id": "F-CH01-03",
           "content": "21:55경 예약 시간이 지나도 나오지 않는 차유담을 확인하러 온열실 문을 열었다가 쓰러진 그녀를 발견했다.",
           "source": "직접 행동",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -183,7 +235,11 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "initial_interview_range": [
+        "S-CH01-02",
+        "S-CH01-03",
+        "S-CH01-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -221,19 +277,25 @@
           "fact_id": "F-CH02-02",
           "content": "사건 3일 전 밤, 조제실에 혼자 남아 차유담이 알레르기 반응을 보이는 성분을 넣어 연고를 조제했다.",
           "source": "직접 행동",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사건 당일 저녁, 진열장에서 차유담의 개인 연고 통 내용물을 바꿔치기했다.",
           "source": "직접 행동",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH02-04",
           "content": "원래 연고 통을 씻어 조제실 폐기물 통 안쪽에 숨겼다.",
           "source": "직접 행동",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH02-05",
@@ -272,7 +334,11 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-05",
@@ -326,7 +392,9 @@
           "fact_id": "F-CH03-02",
           "content": "사건 당일 20시경 차유담의 요청으로 온열관리 예약을 21:30으로 앞당겼다.",
           "source": "직접 업무 처리",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
@@ -337,7 +405,9 @@
           "fact_id": "F-CH03-04",
           "content": "사건 다음날 위소담이 골라 준 표현대로 회원 공지문을 작성해 발송했다.",
           "source": "직접 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -352,7 +422,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -395,7 +468,9 @@
           "fact_id": "F-CH04-01",
           "content": "사건 당일 21:20경 정기 점검에 따라 온열실 온도 센서를 교정하며 실내 온도를 평소보다 높게 맞췄다.",
           "source": "직접 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -406,7 +481,9 @@
           "fact_id": "F-CH04-03",
           "content": "21:57경 표건의 신고를 듣고 온열실로 달려가 응급처치를 시도했다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -421,7 +498,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
@@ -459,13 +539,17 @@
           "fact_id": "F-CH05-01",
           "content": "21:35경 라운지에서 마주친 차유담이 얼굴과 목에 개인 연고를 바르는 걸 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "그 순간을 찍은 셀카 배경에 조제실 문틈으로 위소담이 작은 병을 흔들며 무언가를 옮겨 담는 모습이 함께 찍혔다.",
           "source": "직접 촬영",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         }
       ],
       "initial_claims": [
@@ -475,7 +559,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -502,7 +588,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "수석 조제사와 공동대표. 위소담이 입사한 1년 전부터 손발을 맞춰 온 사이다.",
       "public_face": "차유담이 유독 아끼는 후배로 알려져 있다.",
       "says": {
@@ -513,7 +602,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "6년째 온담을 함께 꾸려 온 부부이자 공동대표.",
       "public_face": "잉꼬부부로 알려져 있다.",
       "says": {
@@ -524,7 +616,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "공동대표와 1년 전 그가 직접 채용한 수석 조제사.",
       "public_face": "믿고 맡기는 사이로 알려져 있다.",
       "says": {
@@ -536,7 +631,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "3년째 함께 일해 온 매니저와 대표.",
       "public_face": "믿음직한 오른팔로 알려져 있다.",
       "says": {
@@ -547,7 +645,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "CH05"],
+      "between": [
+        "CH04",
+        "CH05"
+      ],
       "nature": "시술을 자주 맡아 온 테라피스트와 오랜 단골 회원.",
       "public_face": "편하게 농담을 주고받는 사이로 알려져 있다.",
       "says": {
@@ -564,7 +665,12 @@
       "name": "로비",
       "access": "시작부터 회원과 방문객 누구나 드나들 수 있는 응대 공간",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "나무 대문을 지나면 낮은 좌식 테이블과 안내 데스크가 놓인 로비다. 데스크 안쪽의 라경윤은 미뤄 둔 예약 문의 전화를 응대하는 척하며 자꾸 온열실 쪽 복도를 흘끔거리고, 맞은편 소파에서는 온유하가 휴대폰을 쥔 채 좀처럼 화면을 넘기지 못하고 있다.",
       "observation_rules": [
         {
@@ -580,7 +686,10 @@
       "name": "라운지",
       "access": "회원 전용 라운지, 프런트를 통해서만 진입 가능",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "다과와 개인 로커가 놓인 회원 라운지다. 창가 자리에 앉은 겸도윤이 아직 벗지 못한 시술용 장갑을 만지작거리며 같은 자리를 지키고 있고, 그 맞은편 소파 구석에는 온유하가 무릎을 세운 채 앉아 있다.",
       "observation_rules": [
         {
@@ -596,7 +705,10 @@
       "name": "온열실",
       "access": "회원 예약제로만 이용 가능한 개인 온열관리실, 사건 이후 출입이 통제됐다",
       "access_level": "sealed",
-      "connects_to": ["L01", "L02"],
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
       "base_description": "낮은 평상과 온열 장치가 놓인 개인 시술실이다. 바닥에는 아직 정리되지 못한 수건과 구급 장비 포장지가 흩어져 있고, 평상 위 담요는 누군가 급히 걷어 낸 흔적으로 한쪽이 반쯤 구겨져 있다.",
       "observation_rules": [
         {
@@ -618,7 +730,9 @@
       "name": "조제실",
       "access": "직원 전용 작업 공간, 회원은 출입할 수 없다",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "약재와 오일 병이 줄지어 놓인 작업대 앞에 위소담이 서 있다. 평소와 다름없이 저울을 조정하고 있지만, 손끝이 평소보다 느리게 움직인다.",
       "observation_rules": [
         {
@@ -650,7 +764,9 @@
       "name": "사무실",
       "access": "직원과 경영진만 드나드는 공간",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "서류함과 모니터 두 대가 놓인 작은 사무실이다. 책상 앞에 앉은 표건이 방금 통화를 마친 듯 수화기를 내려놓고, 창밖 통제선 쪽을 오래 바라보고 있다.",
       "observation_rules": [
         {
@@ -669,11 +785,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "조제실 진열장 주변을 살펴본다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "그날 21:10경, 위소담이 차유담 전용 보관대 앞에서 3분가량 머문 출입 기록이 남아 있다.",
-      "proves": ["위소담이 사건 당일 저녁 차유담의 연고 보관 구역에 접근했다"],
-      "does_not_prove": ["실제로 연고를 바꿔치기했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "위소담이 사건 당일 저녁 차유담의 연고 보관 구역에 접근했다"
+      ],
+      "does_not_prove": [
+        "실제로 연고를 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -681,11 +805,19 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "온유하에게 그날 찍은 사진을 보여 달라고 묻는다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "온유하가 그날 저녁 라운지에서 찍어 올린 셀카 배경, 조제실 문틈 사이로 위소담이 작은 병을 흔들며 무언가를 옮겨 담는 모습이 찍혀 있다.",
-      "proves": ["위소담이 사건 당일 저녁 작은 용기에 무언가를 옮겨 담고 있었다"],
-      "does_not_prove": ["그 병의 내용물이 무엇인지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "위소담이 사건 당일 저녁 작은 용기에 무언가를 옮겨 담고 있었다"
+      ],
+      "does_not_prove": [
+        "그 병의 내용물이 무엇인지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -694,8 +826,12 @@
       "found_at": "L02",
       "discovery_condition": "겸도윤에게 그날 저녁 복도에서 본 것을 묻는다",
       "content": "겸도윤은 21:35경 위소담이 조제실에서 나와 라운지 쪽 복도를 지나 다시 빠르게 되돌아가는 것을 봤다고 말한다.",
-      "proves": ["위소담이 그 시간대에 조제실을 벗어나 있었다"],
-      "does_not_prove": ["어디로 갔었는지, 무엇을 했는지"],
+      "proves": [
+        "위소담이 그 시간대에 조제실을 벗어나 있었다"
+      ],
+      "does_not_prove": [
+        "어디로 갔었는지, 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -704,11 +840,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "온열실 선반 위 연고 통을 살펴본다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "라벨은 차유담의 것이지만, 내용물의 향과 질감이 평소 쓰던 것과 미묘하게 다르다.",
-      "proves": ["차유담이 그날 밤 평소와 다른 연고를 발랐다"],
-      "does_not_prove": ["누가 바꿔 놓았는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "차유담이 그날 밤 평소와 다른 연고를 발랐다"
+      ],
+      "does_not_prove": [
+        "누가 바꿔 놓았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -717,8 +861,12 @@
       "found_at": "L05",
       "discovery_condition": "표건에게 위소담을 처음 채용했을 때의 경위를 묻는다",
       "content": "표건은 위소담을 1년 전 지인 소개로 별다른 검증 없이 채용했다고 말하지만, 그 지인이 누구인지는 기억나지 않는다고 답한다.",
-      "proves": ["위소담의 입사 경위가 불투명하다"],
-      "does_not_prove": ["위소담이 범행을 저질렀다는 것"],
+      "proves": [
+        "위소담의 입사 경위가 불투명하다"
+      ],
+      "does_not_prove": [
+        "위소담이 범행을 저질렀다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -727,9 +875,13 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "라경윤에게 그날 예약이 변경된 경위를 묻는다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "라경윤은 차유담이 사건 당일 20시경 먼저 연락해 온열관리 예약을 21:30으로 앞당겨 달라고 했다고 말한다.",
-      "proves": ["차유담이 스스로 예약 시간을 앞당겼다"],
+      "proves": [
+        "차유담이 스스로 예약 시간을 앞당겼다"
+      ],
       "does_not_prove": [],
       "presentation_effect": []
     },
@@ -740,9 +892,15 @@
       "found_at": "L04",
       "discovery_condition": "조제실 서랍 안쪽을 살펴본다",
       "content": "8년 전 폐업한 조향공방 '류하'의 기사 스크랩이 위소담의 서랍 안쪽에 숨겨져 있다. 대표였던 류인숙의 사진 속 눈매가 위소담과 닮았다.",
-      "proves": ["위소담이 '류하' 공방과 개인적 연고가 있다"],
-      "does_not_prove": ["그 연고가 이번 사건과 어떻게 이어지는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "위소담이 '류하' 공방과 개인적 연고가 있다"
+      ],
+      "does_not_prove": [
+        "그 연고가 이번 사건과 어떻게 이어지는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E08",
@@ -750,11 +908,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "조제실 폐기물 통 안쪽을 뒤져 본다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "깨끗이 씻긴 채 버려진 빈 연고 용기 하나가 있다. 라벨을 뗀 자국이 남아 있고, 용기 모양이 차유담이 쓰던 것과 같다.",
-      "proves": ["누군가 차유담의 연고 통을 비우고 씻어서 숨겼다"],
-      "does_not_prove": ["누가 그렇게 했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 차유담의 연고 통을 비우고 씻어서 숨겼다"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E09",
@@ -763,7 +929,9 @@
       "found_at": "L01",
       "discovery_condition": "라경윤에게 온열실 설비 점검 일정을 묻는다",
       "content": "라경윤은 이번 달 온열실 온도 센서 정기 점검이 사건 3일 전부터 예정되어 있었다고 확인해 준다.",
-      "proves": ["온도 조정이 사전에 예정된 루틴 점검이었다"],
+      "proves": [
+        "온도 조정이 사전에 예정된 루틴 점검이었다"
+      ],
       "does_not_prove": [],
       "presentation_effect": []
     }
@@ -774,47 +942,78 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_proximity",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E01"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E01"]
+        "evidence_ids": [
+          "E01"
+        ]
       },
       "player_action": "위소담에게 개인 물품 보관대 접근 기록을 제시해, 그날 저녁 조제실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-05",
         "scope": "그날 저녁 21:10경 진열장 앞에 잠시 다가갔던 것은 인정하지만, 물건을 확인하러 간 것뿐이라며 목적은 얼버무린다."
       },
-      "must_not_release": ["'류하' 공방과의 관계", "연고를 바꿔치기한 사실", "진짜 동기"]
+      "must_not_release": [
+        "'류하' 공방과의 관계",
+        "연고를 바꿔치기한 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "admits_proximity",
       "to_stage": "admits_identity",
-      "requires_heard_claim_ids": ["F-CH02-05", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E07"],
+      "requires_heard_claim_ids": [
+        "F-CH02-05",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
-        "evidence_ids": ["E07"]
+        "evidence_ids": [
+          "E07"
+        ]
       },
       "player_action": "위소담에게 '류하' 공방 기사 스크랩을 제시해, 이전 직장에 대해 얼버무린 진술과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-06",
         "scope": "자신이 '류하' 공방 대표 류인숙의 딸이라는 사실을 인정한다."
       },
-      "must_not_release": ["연고를 바꿔치기한 사실", "진짜 동기"]
+      "must_not_release": [
+        "연고를 바꿔치기한 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH02",
       "from_stage": "admits_identity",
       "to_stage": "confesses_tampering",
-      "requires_heard_claim_ids": ["F-CH02-06", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E02", "E04", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH02-06",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E04",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-04",
-        "evidence_ids": ["E02", "E04", "E08"]
+        "evidence_ids": [
+          "E02",
+          "E04",
+          "E08"
+        ]
       },
       "player_action": "위소담에게 온유하가 찍은 사진과 차유담의 바뀐 연고 통, 폐기물 통 속 빈 용기를 함께 제시해 그날의 행동을 묻는다.",
       "release": {
@@ -832,7 +1031,8 @@
       "actual_reason": "겸도윤은 그날 정기 설비 점검 일정에 따라 온도 센서를 교정한 것뿐이며, 온도를 높인 것은 사건과 무관한 루틴 작업이다.",
       "how_to_clear": "온열실의 온도계 점검 기록(F-L03-OBS-01)과 라경윤이 확인해 준 설비 점검 일정표(E09)를 대조해, 온도 조정이 사건 전부터 예정된 정기 일정이었음을 확인한다.",
       "must_not_imply": "겸도윤이 결백을 증명하려고 스스로 기록을 조작했다는 암시는 주지 않는다.",
-      "lingering_thread": "겸도윤은 애먼 의심을 산 게 못내 겸연쩍어, 그 뒤로 온도를 조금만 조정해도 라경윤에게 먼저 보고하는 버릇이 생긴다."
+      "lingering_thread": "겸도윤은 애먼 의심을 산 게 못내 겸연쩍어, 그 뒤로 온도를 조금만 조정해도 라경윤에게 먼저 보고하는 버릇이 생긴다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -841,12 +1041,24 @@
       "actual_reason": "다툼은 확장 이전 자금 마련 방식에 대한 의견 차이였을 뿐이고, 표건은 사건 시간대 내내 화상회의 중이라 온열실 쪽에 갈 수 없었다.",
       "how_to_clear": "겸도윤의 목격담(E03)과 라경윤의 예약 변경 진술(E06), 사무실 모니터의 화상회의 접속 기록(F-L05-OBS-01)을 종합하면 표건이 사건 직전 내내 사무실에 있었다는 사실이 확인된다.",
       "must_not_imply": "표건이 알리바이를 조작했다는 암시는 주지 않는다 — 실제로 결백하다.",
-      "lingering_thread": "표건은 결백이 밝혀진 뒤에도 정작 위소담을 채용할 때(E05) 왜 그렇게 쉽게 마음을 놓았는지 자책하며, 한동안 새로운 직원을 뽑는 일에 유난히 신중해진다."
+      "lingering_thread": "표건은 결백이 밝혀진 뒤에도 정작 위소담을 채용할 때(E05) 왜 그렇게 쉽게 마음을 놓았는지 자책하며, 한동안 새로운 직원을 뽑는 일에 유난히 신중해진다.",
+      "character_id": "CH01"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E04", "E07", "E08", "F-CH02-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E04",
+      "E07",
+      "E08",
+      "F-CH02-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "차유담의 개인 연고를 알레르기 유발 성분이 든 것으로 바꿔치기해, 고온의 온열실에서 흡수를 앞당겨 아나필락시스 쇼크로 사망하게 만들었다.",

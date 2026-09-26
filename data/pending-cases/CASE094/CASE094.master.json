@@ -5,16 +5,27 @@
     "english_title": "The Night of the Last Checkup",
     "genre": "인수 이면 수수료 은폐 / 리드줄 교살 사고사 위장",
     "setting": "지역 동물병원 체인 '초록언덕동물병원' 신도점의 마지막 날. 대형 동물병원 그룹에 인수되며 오늘 저녁 보호자 초청 고별 행사를 끝으로 문을 닫는다. 좁은 건물 안에 진료실과 원무·행정 사무실, 10년 치 진료 기록과 감사패가 쌓인 처치실 겸 물품보관실이 다닥다닥 붙어 있다.",
-    "location_archetypes": ["clinic", "private_office"],
+    "location_archetypes": [
+      "clinic",
+      "private_office"
+    ],
     "background": {
-      "background_archetypes": ["acquisition_transfer"],
-      "background_phrasing": ["on_the_day_of"],
+      "background_archetypes": [
+        "acquisition_transfer"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
       "background_intensity": "central"
     },
     "detective_entry_type": "event_attendance",
     "detective_entry": "탐정은 폐업 소식을 듣고 마지막으로 인사차 들르고 싶어, 보호자 초청 고별 행사에 참석해 로비에 앉아 있었다.",
     "tone": "폐업을 앞둔 동물병원 특유의 뒤숭숭함과, 마지막이라는 말이 주는 서운함이 뒤섞인 저녁.",
-    "tags": ["#동물병원", "#고별_행사", "#인수합병"]
+    "tags": [
+      "#동물병원",
+      "#고별_행사",
+      "#인수합병"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:45",
@@ -41,13 +52,23 @@
   "full_truth": {
     "responsible_character_id": "CH04",
     "motive": "곽민조는 인수 협상 과정에서 인수 측과 개인적으로 성사시켜 둔 이면 수수료 계약을 지키기 위해, 몇 년간 약품·소모품 구매 단가를 부풀린 허위 거래로 차액을 빼돌려 온 사실이 드러나는 것을 감당할 수 없었다. 형도완이 장부 불일치를 발견하고 오늘 고별 행사에서 인수 철회를 공개 선언하겠다고 통보하자, 그 발표를 막기 위해 그를 살해한다.",
-    "motive_archetypes": ["financial_gain"],
+    "motive_archetypes": [
+      "financial_gain"
+    ],
     "method": "곽민조는 18시 20분경 처치실까지 형도완을 뒤쫓아가 인수 철회를 거두라며 다시 실랑이를 벌이다, 18시 35분경 곁에 풀려 있던 반려동물용 리드줄로 그의 목을 졸라 살해했다. 이후 시신을 진열장 앞으로 옮기고 감사패 하나를 바닥에 넘어뜨려 넘어지다 부딪힌 사고처럼 꾸민 뒤, 형도완이 쥐고 있던 장부 사본을 챙겨 없앴다.",
-    "method_archetypes": ["strangulation", "staging_cover_up"],
+    "method_archetypes": [
+      "strangulation",
+      "staging_cover_up"
+    ],
     "key_time_location": "18:05, L05에서 언쟁 시작 / 18:35, L04에서 형도완의 목을 리드줄로 졸라 살해.",
     "cover_up": "곽민조는 저녁 내내 경영지원실에서 서류만 정리했다고 주장하며 처치실에 간 적이 없다고 잡아뗀다. 형도완의 시신은 넘어지다 부딪힌 것처럼 진열장 앞으로 옮겨 두었고, 장부 사본이 사라진 사실은 언급하지 않는다.",
-    "cover_up_target": ["financial_trace", "communication_trace"],
-    "cover_up_method": ["body_movement"],
+    "cover_up_target": [
+      "financial_trace",
+      "communication_trace"
+    ],
+    "cover_up_method": [
+      "body_movement"
+    ],
     "accomplice": "없음"
   },
   "actual_timeline": [
@@ -55,7 +76,9 @@
       "id": "T01",
       "time": "09:00",
       "location": "L05",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "곽민조가 경영지원실에서 인수 측 실무자와 통화하며 이면 수수료 지급 조건을 다시 확인한다.",
       "world_fact": "곽민조는 이 통화 내용을 누구에게도 말하지 않는다."
     },
@@ -63,7 +86,9 @@
       "id": "T02",
       "time": "10:20",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "형도완이 원무·행정 사무실에서 최근 몇 달치 약품·소모품 구매 장부를 검토하다 단가가 반복해서 어긋나는 것을 발견한다.",
       "world_fact": "형도완은 그 페이지를 복사해 따로 챙겨 둔다."
     },
@@ -71,7 +96,10 @@
       "id": "T03",
       "time": "12:40",
       "location": "L05",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "형도완이 경영지원실로 찾아가 곽민조에게 장부 불일치를 캐묻는다.",
       "world_fact": "곽민조는 전산 오류일 뿐이라며 서둘러 서류를 정리해 서랍에 넣는다."
     },
@@ -79,7 +107,9 @@
       "id": "T04",
       "time": "14:00",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "예서온이 진료실에서 고별 행사 진행표를 맞춰 인사말을 되풀이해 읽는다.",
       "world_fact": "예서온의 준비는 사건과 무관한 정례 준비다."
     },
@@ -87,7 +117,10 @@
       "id": "T05",
       "time": "15:30",
       "location": "L03",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "형도완이 봉재현에게 오늘 고별 행사 인사말 순서에 '중요 발표' 순서를 하나 추가하라고 지시한다.",
       "world_fact": "봉재현이 내용을 묻지만 형도완은 행사에서 직접 말하겠다며 넘어간다."
     },
@@ -95,7 +128,10 @@
       "id": "T06",
       "time": "16:50",
       "location": "L04",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "형도완이 처치실에서 오래된 감사패를 정리하던 반유단과 마주쳐, 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말한다.",
       "world_fact": "반유단은 대수롭지 않게 넘긴다."
     },
@@ -103,7 +139,10 @@
       "id": "T07",
       "time": "18:05",
       "location": "L05",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "형도완이 장부 사본을 들고 다시 경영지원실을 찾아가, 오늘 고별 행사에서 인수 철회를 공개 선언하겠다고 통보한다.",
       "world_fact": "곽민조는 언성을 높이며 뒤따라 나선다."
     },
@@ -111,7 +150,10 @@
       "id": "T08",
       "time": "18:20",
       "location": "L04",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "곽민조가 처치실까지 형도완을 뒤쫓아가 인수를 철회하면 안 된다며 다시 붙잡고 실랑이를 벌인다.",
       "world_fact": "형도완은 장부 사본을 손에서 놓지 않는다."
     },
@@ -119,7 +161,9 @@
       "id": "T09",
       "time": "18:35",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "곽민조가 실랑이 끝에 곁에 풀려 있던 리드줄로 형도완의 목을 졸라 살해한다.",
       "world_fact": "곽민조는 시신을 진열장 앞으로 옮기고 감사패 하나를 바닥에 넘어뜨려 사고처럼 꾸민 뒤, 형도완이 쥐고 있던 장부 사본을 챙겨 자리를 뜬다."
     },
@@ -127,7 +171,9 @@
       "id": "T10",
       "time": "19:40",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "좌하늘이 행사에 쓸 감사패를 가지러 왔다가 쓰러진 형도완을 발견한다.",
       "world_fact": "좌하늘은 말을 잇지 못한 채 로비 쪽으로 뛰쳐나가 사람들을 부른다."
     }
@@ -148,7 +194,9 @@
           "fact_id": "F-CH01-02",
           "content": "15시 30분경 형도완에게서 오늘 고별 행사 인사말에 발표 순서를 추가하라는 지시를 받았다.",
           "source": "직접 경험",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
@@ -169,7 +217,10 @@
           "reason_for_limit_or_lie": "자신이 원장을 인수 쪽으로 채근해 왔다는 사실이 드러나면 압박한 것처럼 보일까 봐 축소한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -229,7 +280,10 @@
           "reason_for_limit_or_lie": "스카우트 제안을 받은 사실을 원장에게 미안해 숨기고 있다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -263,7 +317,9 @@
           "fact_id": "F-CH03-01",
           "content": "16시 50분경 형도완이 처치실에서 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말하는 걸 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
@@ -284,7 +340,10 @@
           "reason_for_limit_or_lie": "별일 아니라고 생각해서 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -327,19 +386,25 @@
           "fact_id": "F-CH04-02",
           "content": "18시 20분경 형도완과 처치실에서 실랑이를 벌였다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH04-03",
           "content": "형도완의 목을 리드줄로 졸라 살해했다.",
           "source": "직접 행동",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-04",
           "content": "형도완이 쥐고 있던 장부 사본을 챙겨 없앴다.",
           "source": "직접 행동",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -367,7 +432,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -436,7 +504,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -463,7 +533,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "행정지원팀장과 원장. 병원 초창기부터 함께 일해 왔다.",
       "public_face": "원장과 손발이 가장 잘 맞는 실무자로 알려져 있다.",
       "says": {
@@ -474,7 +547,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "원장과 진료팀장. 원장이 후계자처럼 키워 온 사이다.",
       "public_face": "원장의 신임을 받는 오른팔로 알려져 있다.",
       "says": {
@@ -485,7 +561,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "원장과 수석 수의사. 15년째 함께 병원을 이끌어 왔다.",
       "public_face": "서로를 가장 잘 아는 진료 파트너로 알려져 있다.",
       "says": {
@@ -496,7 +575,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "원장과 그가 직접 뽑아 키운 동물간호사.",
       "public_face": "원장이 아끼는 후배 간호사로 알려져 있다.",
       "says": {
@@ -507,7 +589,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "원장과 그가 매일 아침 진료 기록을 직접 봐주는 막내 수의테크니션.",
       "public_face": "원장의 총애를 받는 신입으로 알려져 있다.",
       "says": {
@@ -518,7 +603,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "진료 지원과 경영 지원, 병원 운영의 양대 축을 맡아 온 동료.",
       "public_face": "서로 다른 업무라 부딪힐 일이 적은 사이로 알려져 있다.",
       "says": {
@@ -685,11 +773,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "행사 진행표를 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "오늘 인사말 순서 위에 원장이 손으로 적어 넣은 '중요 발표 추가' 메모가 남아 있다.",
-      "proves": ["형도완이 행사에서 무언가를 발표할 계획이었다는 사실을 증명한다."],
-      "does_not_prove": ["그 발표 내용이 무엇이었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "형도완이 행사에서 무언가를 발표할 계획이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 발표 내용이 무엇이었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -697,10 +793,16 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "봉재현에게 오늘 오후 원장의 지시를 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "형도완이 15시 30분경 고별 행사 인사말에 발표 순서를 추가하라고 지시했지만 내용은 말해주지 않았다는 진술이 확보된다.",
-      "proves": ["형도완이 그날 저녁 행사에서 무언가를 예고하고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 발표가 인수와 관련된 것인지"],
+      "proves": [
+        "형도완이 그날 저녁 행사에서 무언가를 예고하고 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 발표가 인수와 관련된 것인지"
+      ],
       "presentation_effect": []
     },
     {
@@ -709,11 +811,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "경영지원실 전화 통화 내역을 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "오늘 아침 인수 측 번호와 길게 통화한 기록이 남아 있다.",
-      "proves": ["곽민조가 인수 측과 개인적으로 별도 연락을 주고받았다는 사실을 증명한다."],
-      "does_not_prove": ["그 통화 내용이 무엇이었는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "곽민조가 인수 측과 개인적으로 별도 연락을 주고받았다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 통화 내용이 무엇이었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -722,9 +832,15 @@
       "found_at": "L05",
       "discovery_condition": "경영지원실 서랍을 살펴본다",
       "content": "서랍 안쪽에서 곽민조 개인 명의로 된 수수료 지급 조건이 적힌 계약 초안이 발견된다.",
-      "proves": ["곽민조가 인수 대금 중 개인 몫을 따로 챙기기로 했다는 사실을 증명한다."],
-      "does_not_prove": ["그가 이것 때문에 형도완을 해쳤는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "곽민조가 인수 대금 중 개인 몫을 따로 챙기기로 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 이것 때문에 형도완을 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -732,10 +848,16 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "장부 원본을 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "최근 몇 달치 약품·소모품 구매 단가가 실제 거래 내역과 맞지 않는 부분이 표시돼 있다.",
-      "proves": ["약품 구매에 실제로 단가 불일치가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가, 왜 그 단가를 조작했는지"],
+      "proves": [
+        "약품 구매에 실제로 단가 불일치가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 그 단가를 조작했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -744,11 +866,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "반유단에게 오후에 원장과 나눈 대화를 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "16시 50분경 형도완이 이 방에서 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말하는 걸 들었다는 진술이 확보된다.",
-      "proves": ["형도완이 그날 저녁 무언가를 밝히려 했다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 누구를 향한 것이었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "형도완이 그날 저녁 무언가를 밝히려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 누구를 향한 것이었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -756,11 +886,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "쓰러진 자리 주변 리드줄을 살펴본다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "리드줄 한 가닥이 다른 것과 달리 팽팽하게 당겨졌던 자국을 남긴 채 풀려 있다.",
-      "proves": ["그 리드줄이 흉기로 쓰였을 가능성을 증명한다."],
-      "does_not_prove": ["누가 그것을 사용했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "그 리드줄이 흉기로 쓰였을 가능성을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그것을 사용했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E08",
@@ -768,11 +906,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "진열장 감사패를 살펴본다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "감사패 하나가 제자리가 아니라 바닥 가까이 쓰러져 있는데, 정작 부딪혀 넘어졌다기엔 눌리거나 긁힌 자국이 없다.",
-      "proves": ["그 자리가 실제 사고 현장이 아니라 꾸며진 것일 가능성을 증명한다."],
-      "does_not_prove": ["누가 그렇게 꾸몄는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "그 자리가 실제 사고 현장이 아니라 꾸며진 것일 가능성을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그렇게 꾸몄는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E09",
@@ -781,9 +927,15 @@
       "found_at": "L03",
       "discovery_condition": "봉재현에게 그 시각 곽민조를 봤는지 묻는다",
       "content": "18시 10분경 곽민조가 다급한 얼굴로 사무실을 나가 복도 쪽으로 향하는 걸 봤다는 진술이 확보된다.",
-      "proves": ["곽민조가 실제 범행 시각대에 처치실 방향으로 이동했다는 사실을 증명한다."],
-      "does_not_prove": ["그가 실제로 처치실에 들어갔는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "곽민조가 실제 범행 시각대에 처치실 방향으로 이동했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 실제로 처치실에 들어갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E10",
@@ -792,8 +944,12 @@
       "found_at": "L02",
       "discovery_condition": "예서온의 개인 사물함을 확인한다",
       "content": "다른 동물병원에서 보낸 개인 스카우트 제안서 한 장이 접힌 채 들어 있다.",
-      "proves": ["예서온이 인수 후 이직을 준비하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그녀가 형도완의 죽음과 관련이 있는지"],
+      "proves": [
+        "예서온이 인수 후 이직을 준비하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그녀가 형도완의 죽음과 관련이 있는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -803,8 +959,12 @@
       "found_at": "L04",
       "discovery_condition": "반유단에게 그 시각 예서온의 위치를 묻는다",
       "content": "18시부터 19시까지 예서온이 계속 진료실에서 인사말을 준비하는 모습을 복도 건너편에서 봤다는 진술이 확보된다.",
-      "proves": ["예서온이 범행 시각대에 계속 진료실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그녀가 병원 소식지와 무관한지"],
+      "proves": [
+        "예서온이 범행 시각대에 계속 진료실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그녀가 병원 소식지와 무관한지"
+      ],
       "presentation_effect": []
     },
     {
@@ -814,8 +974,12 @@
       "found_at": "L01",
       "discovery_condition": "좌하늘에게 그날 저녁 이상한 점을 묻는다",
       "content": "그날 저녁 처치실 쪽 조명이 평소보다 어두웠던 것 같다는 진술이 확보된다.",
-      "proves": ["처치실에서 그날 저녁 평소와 다른 일이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["그것이 누구 때문이었는지"],
+      "proves": [
+        "처치실에서 그날 저녁 평소와 다른 일이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그것이 누구 때문이었는지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -825,47 +989,79 @@
       "target_character": "CH04",
       "from_stage": "initial",
       "to_stage": "corridor_presence_admitted",
-      "requires_heard_claim_ids": ["S-CH04-02"],
-      "requires_presented_evidence_ids": ["E09"],
+      "requires_heard_claim_ids": [
+        "S-CH04-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-02",
-        "evidence_ids": ["E09"]
+        "evidence_ids": [
+          "E09"
+        ]
       },
       "player_action": "곽민조에게 봉재현의 목격 진술을 제시하여, 저녁 내내 사무실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
         "scope": "잠깐 복도 쪽으로 나간 것은 인정한다."
       },
-      "must_not_release": ["형도완과 실랑이를 벌인 사실", "리드줄로 목을 조른 사실", "개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
+      "must_not_release": [
+        "형도완과 실랑이를 벌인 사실",
+        "리드줄로 목을 조른 사실",
+        "개인 수수료 계약 사실",
+        "장부 사본을 없앤 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH04",
       "from_stage": "corridor_presence_admitted",
       "to_stage": "scuffle_admitted",
-      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-03"],
-      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH04-02",
+        "S-CH04-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
-        "evidence_ids": ["E07", "E08"]
+        "evidence_ids": [
+          "E07",
+          "E08"
+        ]
       },
       "player_action": "당겨진 자국이 남은 리드줄과 꾸며진 감사패 흔적을 제시하여, 처치실에 가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-03",
         "scope": "몸싸움 끝에 홧김에 목을 조른 것은 인정한다."
       },
-      "must_not_release": ["개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
+      "must_not_release": [
+        "개인 수수료 계약 사실",
+        "장부 사본을 없앤 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH04",
       "from_stage": "scuffle_admitted",
       "to_stage": "motive_confessed",
-      "requires_heard_claim_ids": ["F-CH04-03", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH04-03",
+        "S-CH04-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "통화 기록과 이면 계약 초안, 약품 구매 장부를 시간순으로 연결해 제시한다.",
       "release": {
@@ -883,7 +1079,8 @@
       "how_to_clear": "예서온의 스카우트 제안서(E10)를 확인하고, 반유단의 알리바이 진술(E11)과 대조해 그 시각 그녀가 계속 진료실에 있었다는 사실을 확인한다.",
       "must_not_imply": "스카우트 제안을 받았다는 사실만으로 그녀가 사건에 연루됐다고 단정하지 않는다.",
       "lingering_thread": "예서온은 고별 행사를 무사히 마친 뒤에도, 결국 새 병원의 제안을 받아들일지 아직 결정하지 못한 채 진료실을 떠난다.",
-      "suspicion_deepener": "사건 발생 직후에도 그녀가 다른 병원 관계자로 보이는 사람과 짧게 통화하는 모습이 목격되어, 마치 이미 다른 곳을 준비해 둔 사람처럼 보인다."
+      "suspicion_deepener": "사건 발생 직후에도 그녀가 다른 병원 관계자로 보이는 사람과 짧게 통화하는 모습이 목격되어, 마치 이미 다른 곳을 준비해 둔 사람처럼 보인다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -892,12 +1089,25 @@
       "how_to_clear": "반유단의 목격담(E06)과 행사 진행표 메모(E01)를 대조해, 원장이 발표 내용을 아무에게도 미리 알리지 않았다는 사실을 확인한다.",
       "must_not_imply": "인수를 종용했다는 사실만으로 그가 형도완을 해치려 했다고 단정하지 않는다.",
       "lingering_thread": "봉재현은 정작 자신이 그렇게 지키고 싶어 했던 인수가 형도완의 죽음으로 무산될 위기에 처했다는 사실 앞에서, 자신의 채근이 무엇을 위한 것이었는지 한동안 되묻게 된다.",
-      "suspicion_deepener": "사고 이후에도 봉재현이 유독 인수 일정 걱정부터 입에 올려, 마치 형도완의 죽음보다 계약이 더 급한 사람처럼 보인다."
+      "suspicion_deepener": "사고 이후에도 봉재현이 유독 인수 일정 걱정부터 입에 올려, 마치 형도완의 죽음보다 계약이 더 급한 사람처럼 보인다.",
+      "character_id": "CH01"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E03", "E04", "E05", "E07", "E08", "E09", "F-CH04-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E03",
+      "E04",
+      "E05",
+      "E07",
+      "E08",
+      "E09",
+      "F-CH04-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH04",
       "method_fact": "실랑이 끝에 리드줄로 형도완의 목을 졸라 살해했다.",
