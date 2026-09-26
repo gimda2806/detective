@@ -108,4 +108,4 @@
 
 ## graphify
 
-`graphify-out/`에 지식 그래프가 있다. 코드베이스 질문은 `graphify query "<질문>"`부터, 관계는 `graphify path`, 개념은 `graphify explain`. `graphify-out/wiki/index.md`가 있으면 넓은 탐색은 그것으로. `GRAPH_REPORT.md`는 전체 구조를 볼 때만. 코드를 고쳤으면 `graphify update .`.
+graphify 가 설치돼 있으면 `graphify-out/`에 지식 그래프가 있다(빌드 산출물이라 저장소에는 없다 — `.gitignore`). 없으면 이 절은 건너뛴다. 코드베이스 질문은 `graphify query "<질문>"`부터, 관계는 `graphify path`, 개념은 `graphify explain`. `graphify-out/wiki/index.md`가 있으면 넓은 탐색은 그것으로. `GRAPH_REPORT.md`는 전체 구조를 볼 때만. 코드를 고쳤으면 `graphify update .`.
