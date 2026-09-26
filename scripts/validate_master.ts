@@ -17,6 +17,13 @@ import { authoredStatementContainment } from '../app/gm/response-signals';
 // 첫 대면이 무엇을 말하는지는 엔진이 이 정규식으로 가른다. 같은 판정을
 // 두 벌로 두면 검사기가 통과시킨 사건이 화면에서는 알리바이부터 말한다.
 import { ALIBI_HINT } from '../app/gm/offline-engine';
+// 은폐 두 축의 칸 표와 「선언이 문장보다 좁은가」 판정. 감사 스크립트가 같은 표를
+// 읽어야 해서 의존 없는 파일로 갈랐다(`cover-up-tables.ts` 머리 주석).
+import {
+  COVER_UP_TARGETS,
+  COVER_UP_METHODS,
+  coverUpDeclarationGaps,
+} from './cover-up-tables';
 
 type Master = any; // 실제 프로젝트에서는 case_master.schema.json에서 뽑은 타입으로 교체
 
@@ -617,6 +624,7 @@ export function validateMaster(
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkStatementGating(master, alreadyRegistered));
+  issues.push(...checkCoverUpDeclarationNarrow(master, alreadyRegistered));
   issues.push(...checkOpeningClaim(master, alreadyRegistered));
   issues.push(...checkSuspicionWeight(master, alreadyRegistered));
   issues.push(...checkTestimonyAim(master, alreadyRegistered));
@@ -4480,72 +4488,6 @@ export function checkBackgroundIntensity(
 // 상위 밑에 실제 차이를 내려 주는 것**이고, 이것은 `small_business` 110건을
 // 재료별로 쪼갠 것과 같은 원리다. 「계단에서 밀고 사고처럼 꾸며 현장을 정돈」과
 // 「죽인 뒤 CCTV 기록만 지움」은 둘 다 staging_cover_up 인데 전혀 다른 사건이다.
-const COVER_UP_TARGETS: Array<[string, string, RegExp]> = [
-  ['identity', '신원', /신원|누구인지|정체[를가]|이름[^.]{0,8}(숨|감추|바꾸)/],
-  ['motive', '동기', /동기[^.]{0,8}(숨|감추|가리)|이유[^.]{0,8}(숨|감추)|까닭[^.]{0,8}(숨|감추)/],
-  ['time', '시각', /시각[^.]{0,12}(바꾸|고치|속이|어긋|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮|속)|사망 추정 시각|시점[^.]{0,8}(바꾸|속이)/],
-  ['location', '장소', /장소[^.]{0,8}(바꾸|속이|감추)|위치[^.]{0,8}(바꾸|속이|옮)|어디서 (죽|벌어|있었)/],
-  ['cause_of_death', '사인', /사인|사고사|지병|자연사|사망 원인|병사로|심장마비/],
-  ['weapon', '흉기', /흉기|무기[를을]|범행 도구|사용한 도구/],
-  ['access_route', '출입 경로', /출입|드나든|동선|들어간 경로|잠금장치|열쇠[^.]{0,8}(숨|치우|돌려)|카드[^.]{0,8}(빌리|도용|바꾸)/],
-  ['relationship', '관계', /관계[^.]{0,8}(숨|감추|부인)|사이[^.]{0,8}(숨|감추|부인)|친분|내연|빚진|채무 관계/],
-  ['evidence', '증거', /(증거|흔적|자국|지문|잔여물|잔흔)[^.]{0,12}(지우|없애|치우|제거|닦|씻|태우|태웠|폐기)/],
-  ['responsibility', '책임', /책임[^.]{0,8}(돌리|피하|벗)|과실[^.]{0,8}(감추|돌리)|탓으로|뒤집어(씌|쓰)|누명/],
-  ['financial_trace', '금전 흔적', /송금|자금|장부|입출금|계좌|영수증|돈의 흐름|정산 자료|거래 내역/],
-  ['communication_trace', '연락 흔적', /통화|메시지|문자|메일|연락 기록|통신 기록|채팅|녹취/],
-  ['victim_behavior', '피해자의 행동', /스스로[^.]{0,10}(한|했|갔|올라|들어)|본인이[^.]{0,8}(한|했)|자발적으로|혼자[^.]{0,8}(한|했|들어|올라)/],
-  ['crime_scene', '현장', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈|손보|꾸미)|방[을를][^.]{0,8}(정리|치우)|자리[^.]{0,8}(되돌|정돈)|어질러진/],
-];
-
-
-const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
-  ['scene_rearrangement', '현장 재배치', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈)|자세[^.]{0,8}(바꾸|고치|돌려)|물건[^.]{0,10}(제자리|옮|치워|돌려)|배치[^.]{0,8}바꾸|원래대로 (돌려|놓)/],
-  ['evidence_removal', '증거 제거', /(증거|흔적|자국|지문|잔여물|잔흔|자취)[^.]{0,12}(지우|없애|치우|제거|닦|씻|폐기)|태워 없|불태|난로에 태|소각/],
-  ['evidence_placement', '증거 심기', /심어 (놓|두)|가져다 (놓|두)|일부러[^.]{0,8}(남|흘|두)|흘려 (놓|두)|누명[을를]? (씌|쓰)/],
-  // ─── 사고 위장 다섯 칸 ────────────────────────────────────────────
-  //
-  // 한 칸이던 「사고 위장」이 **코퍼스의 53%(167건)**였다(2026-09-25 실측).
-  // 임계 8%의 여섯 배라 이 칸을 고른 사건은 전부 빨개지는데, 정작
-  // **무엇이 겹치는지는 아무 말도 못 한다** — 「사고 위장을 또 썼다」는
-  // 쓰는 사람에게 「그럼 어쩌라고」밖에 안 된다.
-  //
-  // 산문을 읽어 보니 진짜 축은 **무엇을 탓하는가**였고, 그것이 갈리면
-  // **플레이어가 뒤집어야 하는 것이 갈린다** — 설비 탓이면 점검 기록·정비
-  // 로그를 파야 하고, 건강 탓이면 부검·진료 기록을 들이대야 하고, 과실
-  // 탓이면 「피해자가 평소 어떤 사람이었나」를 증언으로 뒤집어야 한다.
-  // 같은 스티커를 달고 있어서 검사기 눈에만 판박이로 보였다.
-  //
-  // **`false_accident` 는 남긴다 — 원인을 특정하지 않은 사고 위장이다.**
-  // 47건이 실제로 그렇다(「사고처럼 꾸미고 자리를 떴다」에서 끝난다).
-  // 쓰레기통이 아니라 진짜 한 칸이고, 넘치면 그때 임계가 말해 준다.
-  //
-  // 아래 넷의 정규식은 **115건을 실제로 옮길 때 쓴 것과 같은 말**이다.
-  // 선언과 폴백이 다른 말로 세면 같은 사건이 경로에 따라 다른 칸에 들어간다.
-  //
-  // 폴백을 타는 마스터는 20건뿐이고(나머지는 `cover_up_method` 선언을 읽는다)
-  // 그중 사고 위장에 걸리는 것은 5건이다. 그 5건은 `false_accident` 와 아래
-  // 한 칸에 겹쳐 세어질 수 있는데, 5건으로는 어느 칸의 비율도 1.6%밖에
-  // 못 움직여서 그대로 뒀다 — 선언을 채우면 저절로 풀린다.
-  ['false_accident', '사고 위장', /사고(처럼|로)[^.]{0,10}(꾸미|보이|위장|처리|만들)|실족(한 것|처럼)|미끄러진 것처럼|사고사로|전복 사고처럼|오작동(처럼|으로)/],
-  ['accident_equipment_failure', '사고 위장(설비 탓)', /노후|오작동|마모|고장|결함|낡[아은]|오래[된돼]|자연 이탈|누유|저절로|헐거|부식|삭아|하중을 못|부실|말썽|정비 불량|이상 없음/],
-  ['accident_victim_error', '사고 위장(피해자 과실 탓)', /부주의|실수로|함부로|헛디|서두르는|안전수칙|절차를 (어기|무시)|혼자 (위험|무리|늦게|오래|훈련|작업|점검|있다)|무리하게|단독 (훈련|작업)|규정을 (어기|무시)|넘어져|옮기다|다뤘|다루었/],
-  ['accident_victim_health', '사고 위장(피해자 건강 탓)', /과로|스트레스|지병|발작|심장마비|알레르기|탈진|저혈당|스스로 쓰러|평소 앓던/],
-  ['accident_environment', '사고 위장(환경 탓)', /벼락|낙뢰|자연재해|역풍|유탄|날씨|비가 와|결빙|강풍|정전/],
-  ['false_suicide', '자살 위장', /자살(처럼|로|한 것)|유서|스스로 목숨/],
-  ['false_intrusion', '침입 위장', /침입(한 것|처럼|으로)|외부인의 소행|강도|도둑이 든 것처럼|창(문)?을 깨/],
-  ['false_timeline', '시각 조작', /시각[^.]{0,12}(바꿔|고쳐|앞당|늦|속이|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮)|타임스탬프|순서[를을] 바꾸|알람[을를]/],
-  ['false_alibi', '알리바이 조작', /알리바이[^.]{0,8}(만들|꾸미|세우)|증인[을를][^.]{0,6}(세|만들)|같이 있었다고|함께 있었다고|내내[^.]{0,12}있었다고 (주장|말)/],
-  ['object_substitution', '물건 바꿔치기', /바꿔치기|바꿔 (놓|두|끼)|같은 것으로[^.]{0,6}(갈|바꾸)|대체품|모조|새것으로 (갈|바꾸)|멀쩡한 것으로/],
-  ['document_falsification', '서류 위조', /서류[^.]{0,10}(위조|조작|고치|바꾸)|장부[^.]{0,10}(고치|바꾸|조작)|기록부[^.]{0,10}(고치|바꾸|조작)|서명[^.]{0,8}(위조|흉내|대신)|일지[^.]{0,10}(고치|바꾸|조작)|명단[^.]{0,8}(고치|바꾸)/],
-  ['digital_record_manipulation', '전산 기록 조작', /로그[를을]|CCTV|영상[^.]{0,8}(지우|삭제|돌려)|파일[^.]{0,8}(지우|삭제)|백업[를을]?|전산|데이터[^.]{0,8}(지우|바꾸)|카메라[^.]{0,8}(끄|가리|돌려)|단말기[^.]{0,10}(시각|기록)/],
-  ['witness_misdirection', '목격자 유도', /다른 사람[을를][^.]{0,6}(지목|가리)|엉뚱한 (사람|쪽)|주의[를을][^.]{0,6}(돌|끌)|거짓 증언|말[을를] 맞추|입[을를] 맞추/],
-  ['body_movement', '시신 이동', /시신[^.]{0,10}(옮|끌|눕|이동)|몸[을를][^.]{0,6}옮|다른 곳으로 옮겨|끌어다 (눕|놓)/],
-  ['weapon_disposal', '흉기 처분', /(흉기|도구|주사기|칼|병|주사기)[^.]{0,10}(버리|치우|숨기|폐기|가져가)/],
-  ['contamination', '오염·덮어쓰기', /덮어(씌|쓰)|섞어[^.]{0,6}(넣|놓|버)|오염(시|되)|물로[^.]{0,6}(씻|흘려)|헹궈|세척|미리 씻어/],
-  ['concealment_without_staging', '손대지 않고 감추기', /그대로 (두|둔)|아무것도[^.]{0,8}(하지|건드리지|손대지)|모른 척|숨기고 (나|물러|있)|신고하지 (않|아니)|알리지 (않|아니)/],
-];
-
-
 // 이 칸은 수법 과용 판정에서 뺀다 — 옮겨서 풀 수 있는 단위가 아니다.
 const METHOD_OVERUSE_EXEMPT = new Set(['위장·은폐 조작']);
 
@@ -4611,6 +4553,30 @@ function methodPairs(keys: Set<string>): Set<string> {
  * 은폐를 두 축으로 센다 — 무엇을 감췄나(`cover_up_target`),
  * 어떻게 감췄나(`cover_up_method`), 그리고 **그 둘이 굳은 짝**.
  */
+// 선언이 문장보다 좁다 — 은폐 동사 세기(생성 스펙)의 기계 보조.
+//
+// 판정과 거른 것 셋은 `cover-up-tables.ts` 의 `coverUpDeclarationGaps` 주석에.
+// 등록된 사건은 warn(2026-09-26 사용자 승인 — 88건이 걸려 이주 루틴의 부채로
+// 남긴다), 새 사건은 error. 같은 판정을 `npm run audit:cover-up` 이 목록으로 찍는다.
+export function checkCoverUpDeclarationNarrow(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const ft = master.full_truth as Record<string, unknown> | undefined;
+  const gaps = coverUpDeclarationGaps(ft);
+  if (gaps.length === 0) return [];
+  const raw = ft?.cover_up_method;
+  const declared = Array.isArray(raw) ? raw.map(String).join(', ') : '';
+  const found = gaps.map((g) => `${g.key}(「${g.matched}」)`).join(' · ');
+  return [
+    {
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'COVER_UP_DECLARATION_NARROW',
+      message: `\`cover_up_method\` 선언은 [${declared}]인데 \`full_truth.cover_up\` 문장에서 폴백이 더 잡는 칸이 있다 — ${found}. 선언은 폴백을 대체하므로 문장보다 좁으면 그 축이 그만큼 안 세어진다. 은폐 문장의 동사를 하나씩 세어 그 수만큼 칸을 적을 것(생성 스펙 「은폐」 절). 걸린 낱말이 은폐가 아니면(오탐) 그 칸을 더하지 말고 갭 문서에 낱말을 적는다.`,
+    },
+  ];
+}
+
 export function checkCoverUpOveruse(
   caseId: string,
   master: Master,
