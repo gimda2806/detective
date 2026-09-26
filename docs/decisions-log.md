@@ -613,6 +613,15 @@ CASE008 시뮬로 전후를 비교했다. 규칙 본문은 CLAUDE.md ② 「놀�
 루틴이 시작할 때 백로그로 접고 지운다(따로 정리하는 사람을 두지 않는다), ③ 집은 항목에는 「진행 중 (브랜치)」를
 적어 두 세션이 같은 실측을 두 번 하지 않게 한다. 사용자 판단은 백로그 「사용자」 절에, 알림은 회차 기록에.
 
+## 2026-09-26: 검사기 전체 목록 문서와 판정 코드 대조 검사
+
+사용자: 「이 레포 전체의 검사기·판정기를 모아서 어떤 역할을 하는지 예시까지 적은 문서를 정리해 둬야 할 것 같다」,
+「앞으로 판정 코드를 생성할 때마다 추가로 정리해 달라」. `docs/checks.md`에 `validate_master.ts`의 판정 코드
+99개를 주제별로(교차참조 · 카드와 장소 · 서술 · 진입 시각 · 대립 단계 · 진술 · 관계 · 헛다리 · 보드 · 판본 전용 ·
+비율 · 판박이) 「무엇을 보나 · 걸리는 예 · 심각도」로 적고, `check:case`의 다른 둘, `check:offline`, `check:novel`,
+`audit:*`와 보조 명령, 런타임 백스톱, 심각도 규칙을 같이 두었다. 문장 규칙만으로는 낡으므로 `npm run check:codes`가
+코드에서 판정 코드를 뽑아 문서와 대조하고 PR 검사 첫 단계에서 선다(빠진 것은 error, 문서에만 있는 것은 알림).
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
