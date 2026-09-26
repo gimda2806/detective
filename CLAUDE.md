@@ -66,7 +66,7 @@
 
 - `data/pending-cases/<ID>/Case-No-<NNN>.offline.json`이 있으면 오프라인만 그것을 보고 AI 경로·목록 화면은 원본을 본다. 판본 13건(001~013 — 1막·2막 전부와 3막 첫 두 편).
 - **포맷 기준은 `docs/offline-master-format.md`.** 규칙은 그 문서를 고치고, 검사기를 맞추고, 벗어난 판본을 고친다(이 순서). 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `weight`·`access_level`·`connects_to`·보드 `motives`/`times`/`methods`)와 대사 모양(말 필드는 맨문장, 지문 필드는 3인칭, 증언 카드만 따옴표)이 거기 있고, `.offline.json`에만 붙는 검사(`checkOfflineSkeleton`·`checkOfflineSpeech`)가 강제한다.
-- 소설이 먼저 있는 번호는 `docs/novels/<ID>.md` 끝의 「오프라인으로 옮길 것」이 판본의 설계도다(CASE012가 첫 예). 원본은 건드리지 않는다.
+- 소설이 먼저 있는 번호는 `docs/novels/<ID>.md` 끝의 「오프라인으로 옮길 것」이 판본의 설계도다(CASE012가 첫 예). 원본은 건드리지 않는다. **판본을 만든 PR이 판본 노트 `Case-No-<NNN>.offline.md`(판본 파일 옆)를 같이 쓰고 README 판본 수를 고친다**(2026-09-26 사용자 결정 — 소설 루틴의 일이 아니고 소설에 덧붙이지 않는다. 소설 끝에는 가리키는 한 줄만).
 - 판본 뼈대 검사(`SUSPICION_THIN`·`TESTIMONY_ALL_AT_CULPRIT`/`TESTIMONY_AIM_NARROW`·`MOTIVE_SELF_DISCLOSURE`)는 `evidence[].points_at`을 쓰는 마스터에만 듣는다 — 헛다리 주인을 가리키는 카드가 둘, 증언의 진범 지목은 절반 이하, 자기 동기는 본인 입에서 먼저 나오지 않는다.
 
 **놀이 규칙**
