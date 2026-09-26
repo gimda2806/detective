@@ -265,6 +265,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE273 | 천인정, 마지막 시위 | [CASE273.md](CASE273.md) |
 | CASE274 | 정음전파사, 마지막 진공관 | [CASE274.md](CASE274.md) |
 | CASE275 | 뜯긴 한 장 | [CASE275.md](CASE275.md) |
+| CASE276 | 폭풍의 방, 마지막 테스트 | [CASE276.md](CASE276.md) |
 | CASE277 | 얼음이 지운 이름 | [CASE277.md](CASE277.md) |
 | CASE278 | 옥상에서 울리던 벨소리 | [CASE278.md](CASE278.md) |
 | CASE279 | 손잡이가 걸리지 않은 밤 | [CASE279.md](CASE279.md) |
