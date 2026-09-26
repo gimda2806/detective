@@ -5,16 +5,26 @@
     "english_title": "The Last Rounds on the Sixth Floor",
     "genre": "전공의의 진료기록 위조 발각 차단을 위한 진통펌프 조작 살해 / 펌프 로그 삭제와 간호기록 재작성을 통한 회복 중 합병증 위장",
     "setting": "정안병원은 노태인이 22년째 이끌어 온 정형외과·재활 전문병원이다. 그는 사흘 전 자신의 무릎 관절경 수술을 이 병원에서 마치고 6층 회복병동 특실에 입원해 있었다. 특별한 절차 없이 평소와 다름없이 돌아가던 야간 병동에서, 이른 새벽 그가 반응이 없다는 것이 확인된다.",
-    "location_archetypes": ["hospital"],
+    "location_archetypes": [
+      "hospital"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation"],
-      "background_phrasing": ["recently_completed"],
+      "background_archetypes": [
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "recently_completed"
+      ],
       "background_intensity": "contributory"
     },
     "detective_entry_type": "personal_stake",
     "detective_entry": "탐정은 어깨 재활 치료를 받으러 격주로 이 병원 재활의학과를 드나든 지 반년째였다. 그날도 예약된 치료 시간에 맞춰 6층으로 올라가던 길에 코드블루 방송과 마주쳤고, 몇 년째 얼굴을 익혀 온 사무국장 배지오가 다급히 도움을 청했다.",
     "tone": "이른 새벽 병동의 정적과 코드블루 방송이 뒤섞인 사설 종합병원의 팽팽한 공기.",
-    "tags": ["병원", "사제관계", "가족경영"]
+    "tags": [
+      "병원",
+      "사제관계",
+      "가족경영"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 05:50",
@@ -42,22 +52,37 @@
   "full_truth": {
     "responsible_character_id": "CH04",
     "motive": "이도경은 두 달 전 다른 환자의 처치 과정에서 실수를 저질렀고, 그 사실을 감추려 관찰 기록의 날짜와 내용을 위조했다. 노태인은 정기 기록 검토 중 이를 발견했고, 자신의 무릎 수술 회복 이후로 정식 인사위원회를 소집해 이도경의 전공의 과정을 끝내려 했다. 이도경은 그 청문회가 열리면 의사 면허와 경력이 모두 끝난다는 것을 알고 노태인의 입을 막으려 한다.",
-    "motive_archetypes": ["professional_secrecy"],
+    "motive_archetypes": [
+      "professional_secrecy"
+    ],
     "method": "이도경은 선임의가 다른 응급 수술로 자리를 비운 19시 10분경 홀로 저녁 회진을 돌았다. 그날 저녁은 특별한 인력 조정 없이 평소와 같은 근무 중이었고, 그 틈을 타 그는 노태인의 PCA 진통펌프 기저 주입 속도를 처방보다 높게 재설정했다. 밤사이 과다 주입된 마약성 진통제가 호흡을 억제해 노태인은 잠든 채 숨을 거뒀다.",
-    "method_archetypes": ["medical_procedure_tampering"],
+    "method_archetypes": [
+      "medical_procedure_tampering"
+    ],
     "key_time_location": "19:20, L01(회복병동 특실)에서 PCA 펌프 기저 주입 속도를 처방보다 높게 재설정함 / 23:50, L01에서 펌프 로그와 간호기록을 되돌려 조작을 지움.",
     "cover_up": "이도경은 23시 50분경 다시 병실에 들러 펌프의 디지털 로그에서 자신이 바꾼 조정치를 지우고 처방값으로 되돌려 표시했으며, 21시대 간호 관찰 기록도 정상 소견으로 다시 써넣었다. 그는 노태인의 사망이 평소 앓던 부정맥 병력에 따른 수술 후 합병증으로 보이게 두고, 그 시각 자신이 병실에 다녀갔다는 사실 자체를 언급하지 않는다.",
-    "cover_up_target": ["motive", "communication_trace"],
-    "cover_up_method": ["digital_record_manipulation"],
+    "cover_up_target": [
+      "motive",
+      "communication_trace"
+    ],
+    "cover_up_method": [
+      "digital_record_manipulation"
+    ],
     "accomplice": "없음",
-    "decisive_evidence_ids": ["E01", "E04", "E05"]
+    "decisive_evidence_ids": [
+      "E01",
+      "E04",
+      "E05"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "9일 전 14:20",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "노태인이 원장실에서 정기 기록 검토 중 이도경이 작성한 두 달 전 관찰 기록의 날짜가 위조된 것을 발견한다.",
       "world_fact": "노태인은 그 기록을 복사해 캐비닛에 따로 보관하고, 인사위원회 안건으로 올리기로 결심한다."
     },
@@ -65,7 +90,10 @@
       "id": "T02",
       "time": "7일 전 10:00",
       "location": "L03",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "노태인이 원장실에서 황태오에게 이도경의 기록 위조 사실과 인사위원회 소집 계획을 알린다.",
       "world_fact": "황태오는 겉으로는 동의하지만, 자신이 이도경을 직접 추천했다는 사실이 걸린다."
     },
@@ -73,7 +101,10 @@
       "id": "T03",
       "time": "사건 전날 13:00",
       "location": "L01",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "노태인이 예정되어 있던 자신의 무릎 관절경 수술을 황태오의 집도로 받고 회복병동 특실로 옮겨진다.",
       "world_fact": "수술은 순조롭게 끝나고, 노태인은 다음 날 오전 퇴원이 예정된 상태로 회복에 들어간다."
     },
@@ -81,7 +112,10 @@
       "id": "T04",
       "time": "사건 전날 14:40",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "조미래가 마취통증의학과 처방대로 PCA 진통펌프를 표준 주입 속도로 연결한다.",
       "world_fact": "펌프 설정과 저산소 경보 임계값은 처방전 그대로 기록된다."
     },
@@ -89,7 +123,9 @@
       "id": "T05",
       "time": "사건 전날 17:30",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "노태인이 원장실에서 자신의 수술 회복 이후로 날짜를 잡은 인사위원회 소집 공고문에 서명한다.",
       "world_fact": "노태인은 이 공고문을 이도경의 위조 기록 사본과 함께 봉투에 넣어 원장실 캐비닛에 넣어 둔다."
     },
@@ -97,7 +133,10 @@
       "id": "T06",
       "time": "사건 전날 19:10",
       "location": "L01",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "이도경이 선임의가 다른 응급 수술로 자리를 비운 사이 홀로 저녁 회진을 돈다.",
       "world_fact": "이도경의 회진은 평소와 다름없이 짧게 끝나, 6층 병동 누구도 그의 방문을 특별하게 여기지 않는다."
     },
@@ -105,7 +144,9 @@
       "id": "T07",
       "time": "사건 전날 19:20",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "이도경이 노태인의 PCA 펌프 기저 주입 속도를 처방보다 높게 재설정한다.",
       "world_fact": "이도경은 이 조정을 6층 병동 간호진에게도, 처방 기록에도 알리지 않는다."
     },
@@ -113,7 +154,10 @@
       "id": "T08",
       "time": "사건 전날 21:20",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "조미래가 야간 인수인계 전 마지막 순회에서 노태인이 평소처럼 대화를 나누는 것을 확인한다.",
       "world_fact": "조미래는 별다른 이상을 느끼지 못하고 노태인의 관찰 기록에 정상 소견을 남긴다."
     },
@@ -121,7 +165,9 @@
       "id": "T09",
       "time": "사건 전날 23:50",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "이도경이 다시 병실에 들러 펌프의 디지털 로그에서 조정 기록을 지우고 처방값으로 되돌려 표시한다.",
       "world_fact": "이도경은 조미래가 남긴 21시대 간호 관찰 기록도 정상 소견으로 다시 써넣는다."
     },
@@ -129,7 +175,10 @@
       "id": "T10",
       "time": "사건 당일 05:40",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "조미래가 아침 첫 순회를 돌던 중 노태인이 반응이 없는 것을 확인하고 코드블루를 발령한다.",
       "world_fact": "심폐소생술이 이어지지만 06시 05분경 사망이 확인된다."
     }
@@ -145,7 +194,9 @@
           "fact_id": "F-CH01-01",
           "content": "노태인이 이도경의 기록 위조를 발견해 인사위원회를 열려 한다는 사실을 열흘 전 직접 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
@@ -165,7 +216,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -207,7 +261,9 @@
           "fact_id": "F-CH02-01",
           "content": "21시 20분경 마지막 순회에서 노태인이 평소처럼 대화를 나누는 것을 확인했고, 별다른 이상을 느끼지 못했다.",
           "source": "직접 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
@@ -232,7 +288,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -297,7 +356,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -337,13 +399,17 @@
           "fact_id": "F-CH04-01",
           "content": "23시 50분경 다시 병실에 들러 펌프 로그를 조정값에서 처방값으로 되돌리고 간호기록을 다시 써넣었다.",
           "source": "직접 행동",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "19시 20분경 노태인의 PCA 펌프 기저 주입 속도를 처방보다 높게 재설정했다.",
           "source": "직접 행동",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH04-03",
@@ -376,7 +442,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -450,7 +519,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -485,7 +557,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "22년 역사의 병원 원장과, 그가 직접 챙겨 온 3년차 전공의.",
       "public_face": "원장이 유독 아끼는 후배라고들 한다.",
       "says": {
@@ -496,7 +571,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "원장과 부원장. 병원 초창기부터 함께 일해 온 사이다.",
       "public_face": "병원의 실질적인 두 축으로 알려져 있다.",
       "says": {
@@ -507,7 +585,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "원장과 수간호사. 병동을 함께 지켜 온 십수 년이다.",
       "public_face": "원장이 병동 운영을 전적으로 믿고 맡긴다고들 한다.",
       "says": {
@@ -518,7 +599,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "원장과 사무국장. 병원 살림을 두고 늘 부딪히는 사이다.",
       "public_face": "예산 문제로 자주 얼굴을 맞댄다고 알려져 있다.",
       "says": {
@@ -529,7 +613,10 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "장인이자 원장과, 사위이자 홍보실장. 3년째 병원 경영에 발을 들이고 있다.",
       "public_face": "가족이니 든든한 오른팔이라고들 한다.",
       "says": {
@@ -540,7 +627,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH04", "CH02"],
+      "between": [
+        "CH04",
+        "CH02"
+      ],
       "nature": "전공의와 수간호사. 병동에서 매일 마주치는 사이다.",
       "public_face": "열심히 배우는 후배를 챙겨 주는 사이로 통한다.",
       "says": {
@@ -552,7 +642,10 @@
     },
     {
       "id": "REL07",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "부원장과 홍보실장. 병원의 미래를 두고 종종 따로 얘기를 나눈다.",
       "public_face": "경영과 진료를 각각 맡은 든든한 두 사람으로 보인다.",
       "says": {
@@ -739,11 +832,20 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "PCA 펌프에 남은 인쇄 기록지를 확인한다",
-      "related_timeline": ["T07", "T09"],
+      "related_timeline": [
+        "T07",
+        "T09"
+      ],
       "content": "기저 주입 속도가 19시 20분경 큰 폭으로 올라갔다가 23시 50분경 처방값으로 되돌아온 인쇄 기록이 남아 있다.",
-      "proves": ["그 시간대에 누군가 펌프 설정을 두 차례 손댔다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 이도경이었는지"],
-      "presentation_effect": ["C02"],
+      "proves": [
+        "그 시간대에 누군가 펌프 설정을 두 차례 손댔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 이도경이었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
       "points_at": "CH04",
       "mismatch": "기록에는 두 번의 재설정이 있는데, 정상적인 처방 변경 절차상 그 시간대에 승인된 변경은 없다.",
       "reaction": {
@@ -757,11 +859,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "출입 기록 단말기를 확인한다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "23시 50분경 이도경의 출입 카드가 특실 앞 단말기에 태그된 기록이 남아 있다.",
-      "proves": ["이도경이 그 시각 특실 앞에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 병실 안에서 무엇을 했는지"],
-      "presentation_effect": ["C01"],
+      "proves": [
+        "이도경이 그 시각 특실 앞에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 병실 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": "CH04",
       "mismatch": "이도경의 저녁 회진은 19시대에 끝나는데, 태그 기록은 그보다 훨씬 늦은 시각에 남아 있다."
     },
@@ -771,11 +881,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "전자간호기록의 수정 이력을 확인한다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "21시 20분 관찰 기록이 23시 52분에 다시 수정된 이력이 남아 있다.",
-      "proves": ["누군가 21시 20분 기록을 사후에 손댔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 수정했는지"],
-      "presentation_effect": ["C02"],
+      "proves": [
+        "누군가 21시 20분 기록을 사후에 손댔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 수정했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
       "points_at": "CH04",
       "mismatch": "관찰 기록은 21시 20분 것인데, 수정 시각은 그보다 두 시간 넘게 지난 뒤다."
     },
@@ -786,9 +904,15 @@
       "found_at": "L03",
       "discovery_condition": "캐비닛 속 위조 기록 사본을 확인한다",
       "content": "두 달 전 시술 관찰 기록의 날짜와 내용이 손댄 흔적과 함께 사본으로 보관되어 있다.",
-      "proves": ["이도경이 관찰 기록을 위조했다는 사실을 증명한다."],
-      "does_not_prove": ["그가 원장을 해쳤는지"],
-      "presentation_effect": ["C03"],
+      "proves": [
+        "이도경이 관찰 기록을 위조했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 원장을 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
       "points_at": "CH04",
       "reaction": {
         "jiwoo": "\"이게... 몇 달 전 그 사고 기록이네요.\"",
@@ -801,11 +925,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "캐비닛 속 인사위원회 소집 공고문을 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "노태인이 자신의 수술 회복 이후로 정식 소집 날짜를 적어 서명한 공고문이 함께 들어 있다.",
-      "proves": ["원장이 이도경 문제로 정식 청문회를 열 계획이었다는 사실을 증명한다."],
-      "does_not_prove": ["이도경이 이 계획을 정확히 언제 알았는지"],
-      "presentation_effect": ["C03"],
+      "proves": [
+        "원장이 이도경 문제로 정식 청문회를 열 계획이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이도경이 이 계획을 정확히 언제 알았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
       "points_at": "CH04",
       "reaction": {
         "jiwoo": "\"원장님, 수술 회복하고 나면 바로 열려고 하셨던 거네요.\"",
@@ -818,10 +950,16 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "조미래에게 그날 밤 마지막 순회 상황을 묻는다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "21시 20분에 마지막으로 확인했을 때는 완전히 평소와 같았다는 진술이 확보된다.",
-      "proves": ["21시 20분까지 노태인의 상태에 특별한 이상이 없었다는 사실을 증명한다."],
-      "does_not_prove": ["그 이후에 무슨 일이 있었는지"],
+      "proves": [
+        "21시 20분까지 노태인의 상태에 특별한 이상이 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 이후에 무슨 일이 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -831,8 +969,12 @@
       "found_at": "L03",
       "discovery_condition": "황태오에게 그날 저녁 행선지를 묻는다",
       "content": "그날 저녁 다른 응급 수술로 자정 가까이까지 수술실에 있었다는 진술이 확보되며, 원장의 인사위원회 계획을 열흘 전 들었다는 사실도 함께 확인된다.",
-      "proves": ["황태오가 그날 저녁 다른 수술실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 인사위원회 논의의 세부 내용을 어디까지 알았는지"],
+      "proves": [
+        "황태오가 그날 저녁 다른 수술실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 인사위원회 논의의 세부 내용을 어디까지 알았는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -842,8 +984,12 @@
       "found_at": "L05",
       "discovery_condition": "장비구매 계약서 원본을 확인한다",
       "content": "처남이 운영하는 업체와 시세보다 높은 가격으로 맺은 긴급 구매 계약서가 발견된다.",
-      "proves": ["배지오가 처남 업체와 고가의 계약을 맺었다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 원장의 죽음과 관련 있는지"],
+      "proves": [
+        "배지오가 처남 업체와 고가의 계약을 맺었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 원장의 죽음과 관련 있는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH03"
     },
@@ -854,8 +1000,12 @@
       "found_at": "L05",
       "discovery_condition": "배지오에게 계약 경위를 묻는다",
       "content": "그 구매가 두 주 전 원장의 결재로 정식 종결된 사안이라는 진술이 확보된다.",
-      "proves": ["배지오 본인이 그 계약을 이미 종결된 사안으로 여기고 있다는 사실을 증명한다."],
-      "does_not_prove": ["결재 서류로 그것이 실제로 사실인지"],
+      "proves": [
+        "배지오 본인이 그 계약을 이미 종결된 사안으로 여기고 있다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "결재 서류로 그것이 실제로 사실인지"
+      ],
       "presentation_effect": []
     },
     {
@@ -865,8 +1015,12 @@
       "found_at": "L03",
       "discovery_condition": "결재 서류철 속 사전 승인 서명을 확인한다",
       "content": "장비구매 계약에 대한 노태인의 결재 서명이 사건 두 주 전 날짜로 남아 있다.",
-      "proves": ["그 계약이 사건과 무관하게 두 주 전 원장의 승인으로 이미 종결됐다는 사실을 증명한다."],
-      "does_not_prove": ["배지오와 원장 사이에 다른 갈등이 없었다는 것까지"],
+      "proves": [
+        "그 계약이 사건과 무관하게 두 주 전 원장의 승인으로 이미 종결됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "배지오와 원장 사이에 다른 갈등이 없었다는 것까지"
+      ],
       "presentation_effect": []
     },
     {
@@ -875,10 +1029,16 @@
       "source_type": "testimony",
       "found_at": "L06",
       "discovery_condition": "안세율에게 그날 저녁 어디 있었는지 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "지역 방송사 초청 강연에 연사로 참석해 자정 무렵까지 자리를 지켰다는 진술이 확보된다.",
-      "proves": ["안세율이 그날 저녁 병원 밖에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 병원 내부 사정을 전혀 몰랐다는 것까지"],
+      "proves": [
+        "안세율이 그날 저녁 병원 밖에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 병원 내부 사정을 전혀 몰랐다는 것까지"
+      ],
       "presentation_effect": []
     },
     {
@@ -888,8 +1048,12 @@
       "found_at": "L06",
       "discovery_condition": "행사 프로그램 인쇄물을 확인한다",
       "content": "그날 저녁 지역 방송사 강연 프로그램에 안세율의 이름과 사진이 연사로 인쇄되어 있다.",
-      "proves": ["안세율의 행선지 진술이 실제 기록과 일치한다는 사실을 증명한다."],
-      "does_not_prove": ["그가 병원 승계 문제로 불안해하지 않았다는 것까지"],
+      "proves": [
+        "안세율의 행선지 진술이 실제 기록과 일치한다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 병원 승계 문제로 불안해하지 않았다는 것까지"
+      ],
       "presentation_effect": []
     },
     {
@@ -899,8 +1063,12 @@
       "found_at": "L03",
       "discovery_condition": "이사회 안건 초안을 확인한다",
       "content": "경영 대리인으로 황태오를 우선 검토한다는 문구가 적힌 초안이 발견된다.",
-      "proves": ["원장이 경영 승계 논의에서 황태오를 우선 검토하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["안세율이 이 사실에 어떻게 반응했는지"],
+      "proves": [
+        "원장이 경영 승계 논의에서 황태오를 우선 검토하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "안세율이 이 사실에 어떻게 반응했는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH05"
     }
@@ -911,47 +1079,77 @@
       "target_character": "CH04",
       "from_stage": "initial",
       "to_stage": "late_visit_admitted",
-      "requires_heard_claim_ids": ["S-CH04-01"],
-      "requires_presented_evidence_ids": ["E02"],
+      "requires_heard_claim_ids": [
+        "S-CH04-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-01",
-        "evidence_ids": ["E02"]
+        "evidence_ids": [
+          "E02"
+        ]
       },
       "player_action": "이도경에게 출입 기록 단말기 로그를 제시하여, 저녁 회진 이후로는 병실에 가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-01",
         "scope": "23시 50분경 병실에 다시 들렀던 것은 인정한다."
       },
-      "must_not_release": ["펌프 조작 사실", "간호기록 재작성 사실", "위조 발각과 인사위원회 동기"]
+      "must_not_release": [
+        "펌프 조작 사실",
+        "간호기록 재작성 사실",
+        "위조 발각과 인사위원회 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH04",
       "from_stage": "late_visit_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_heard_claim_ids": [
+        "F-CH04-01",
+        "S-CH04-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
-        "evidence_ids": ["E01", "E03"]
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
       },
       "player_action": "PCA 펌프 인쇄 기록지와 전자간호기록 수정 이력을 함께 제시하여, 그냥 살펴봤을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
         "scope": "펌프 설정을 만졌고 기록을 고쳐 적은 것은 인정한다."
       },
-      "must_not_release": ["위조 발각과 인사위원회 동기"]
+      "must_not_release": [
+        "위조 발각과 인사위원회 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH04",
       "from_stage": "tampering_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH04-02",
+        "S-CH04-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
-        "evidence_ids": ["E04", "E05"]
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
       },
       "player_action": "캐비닛에서 나온 위조 기록 사본과 인사위원회 소집 공고문을 시간순으로 짚어, 도와주려던 것뿐이라는 주장과 비교한다.",
       "release": {
@@ -978,7 +1176,8 @@
       "how_to_clear": "결재 서류철 속 사전 승인 서명(E10)을 확인해, 그 계약이 사건과 무관하게 이미 두 주 전 원장의 승인으로 마무리됐다는 사실과 배지오의 진술(E09)을 대조한다.",
       "must_not_imply": "계약 액수가 크다는 사실만으로 그가 원장을 해쳤다고 단정하지 않는다.",
       "lingering_thread": "배지오는 이후에도 그 계약 얘기가 나올 때마다 처남 얘기까지 다시 들춰지는 것을 부담스러워한다.",
-      "suspicion_deepener": "그가 계약서 얘기만 나오면 유난히 서둘러 화제를 돌리는 모습이 목격되어, 마치 더 큰 문제를 숨기고 있는 것처럼 보인다."
+      "suspicion_deepener": "그가 계약서 얘기만 나오면 유난히 서둘러 화제를 돌리는 모습이 목격되어, 마치 더 큰 문제를 숨기고 있는 것처럼 보인다.",
+      "character_id": "CH03"
     },
     {
       "id": "R03",
@@ -991,8 +1190,19 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "F-CH04-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH04-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH04",
       "method_fact": "PCA 진통펌프의 기저 주입 속도를 처방보다 높게 재설정해 과다 주입된 마약성 진통제로 호흡을 억제시켰다.",

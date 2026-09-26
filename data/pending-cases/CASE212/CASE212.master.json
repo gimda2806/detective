@@ -7,10 +7,17 @@
     "detective_entry_type": "curious_bystander",
     "detective_entry": "탐정은 종탑 바로 옆 골목 카페 '온기'의 단골로, 그날도 오후 커피를 마시러 가던 길이었다. 종탑 안쪽에서 들려온 심상치 않은 외침과 소란에 이끌려, 스스로 판단해 계단을 오른다.",
     "tone": "잔잔하고 씁쓸한 정서 위에 탐정과 한지우의 가벼운 티키타카가 얹힌 톤",
-    "location_archetypes": ["religious_facility", "craft_restoration"],
+    "location_archetypes": [
+      "religious_facility",
+      "craft_restoration"
+    ],
     "background": {
-      "background_archetypes": ["restoration_repair"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "contributory"
     },
     "tags": [
@@ -44,10 +51,23 @@
     "responsible_character_id": "CH02",
     "motive": "8년 전, 다른 성당 종탑 복원 현장에서 부실 자재로 인한 비계 붕괴 사고가 있었다. 당시 현장 책임자였던 유해준은 사고 원인을 자재 문제가 아니라 사망한 자원봉사자 본인의 부주의로 몰아 조사 결과를 뒤집었고, 유족은 어떠한 보상도 받지 못한 채 고인의 과실로 사건이 마무리됐다. 목도경은 그 사고로 죽은 목진우의 여동생으로, 8년간 진상을 좇다 유해준이 이곳 종지기회에 있다는 걸 알고 신분을 숨긴 채 접근해 복수를 계획했다.",
     "method": "정기점검으로 편지안이 이미 균열을 발견해 소견을 남긴 두 볼트 중 하나를 완전히 풀고, 정상이던 나머지 볼트까지 몰래 헐겁게 만들어, 유해준이 볼트를 마저 조이려 몸을 숙이는 순간 종가대 전체가 쏟아지도록 했다. 카페 뒷문과 종탑 후면 비상계단을 오가며 로비를 거치지 않고 기계실에 드나들어 목격을 피했다.",
-    "method_archetypes": ["structural_collapse", "falling_object"],
-    "motive_archetypes": ["revenge", "past_crime_cover"],
-    "cover_up_target": ["responsibility", "identity"],
-    "cover_up_method": ["accident_equipment_failure", "evidence_removal", "concealment_without_staging"],
+    "method_archetypes": [
+      "structural_collapse",
+      "falling_object"
+    ],
+    "motive_archetypes": [
+      "revenge",
+      "past_crime_cover"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "identity"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal",
+      "concealment_without_staging"
+    ],
     "key_time_location": "17시 20분경, 종탑 3층 기계실(L03)에서 볼트를 훼손했다.",
     "cover_up": "볼트 훼손을 노후 설비 탓으로 보이게 하려고, 편지안이 이미 남긴 '즉시 교체 필요' 소견을 단순 정비 소홀 사고처럼 보이도록 방치했다. 작업용 장갑을 낀 채 렌치를 원래 자리에 정확히 돌려놓아 지문과 흔적을 지웠다."
   },
@@ -494,7 +514,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "유해준은 종지기회의 기술감독이었고 목도경은 8개월 전 들어온 신입 자원봉사자로, 겉으로는 감독과 신입 사이일 뿐이었다.",
       "public_face": "성실히 배우려는 신입과 그를 살뜰히 챙기는 감독으로 알려져 있다.",
       "says": {
@@ -505,7 +528,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "편지안은 종지기회 동료 기술자로 유해준과 함께 안전점검을 맡아 온 사이였다.",
       "public_face": "실력을 인정받아 유해준이 신뢰하던 동료 기술자로 알려져 있다.",
       "says": {
@@ -516,7 +542,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "손진배는 종지기회 회장으로 유해준과 오랫동안 복원 작업을 함께 이끌어 온 사이였다.",
       "public_face": "서로를 믿고 오래 손발을 맞춰 온 회장과 감독으로 알려져 있다.",
       "says": {
@@ -527,7 +556,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH05", "CH02"],
+      "between": [
+        "CH05",
+        "CH02"
+      ],
       "nature": "반유담은 종탑 옆 카페 주인으로 목도경을 성실한 단골이자 자원봉사자로 알아 온 사이였다.",
       "public_face": "자주 들르는 손님과 사장님으로 알려진 편한 사이다.",
       "says": {
@@ -539,7 +571,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "손진배는 회장으로서 성당 관리인인 마태호와 종탑 관리를 두고 자주 마주치는 사이였다.",
       "public_face": "서로 존중하며 지내는 회장과 관리인으로 알려져 있다.",
       "says": {
@@ -550,7 +585,6 @@
       "surfaces_when": "반유담의 증언(S-CH05-01)을 짚으면 그날 담배 피운 사실과 함께 그림자를 봤다는 걸 인정한다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
@@ -844,10 +878,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "유해준의 휴대폰 메시지함을 확인한다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "발신자 편지안, 사고 당일 17시경 도착한 문자. \"기계실 종가대 볼트 두 개 균열 확인했습니다, 전체 교체 시급합니다.\"",
-      "proves": ["편지안이 사고 당일 오후 이미 유해준 본인에게 직접 볼트 위험성을 경고했다는 것을 정비일지와 독립적으로 뒷받침한다"],
-      "does_not_prove": ["그 이후 실제로 누가 볼트를 조작했는지"],
+      "proves": [
+        "편지안이 사고 당일 오후 이미 유해준 본인에게 직접 볼트 위험성을 경고했다는 것을 정비일지와 독립적으로 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "그 이후 실제로 누가 볼트를 조작했는지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -972,7 +1012,8 @@
       "how_to_clear": "정비일지(E02)와 편지안의 안전점검 진술(E07)을 대조하면, 그녀가 경고한 시점과 실제 볼트가 풀린 시점 사이의 시간차가 드러나 결백이 확인된다. 유해준 휴대폰에 남은 그녀의 경고 문자(E10)도 그 시점을 정비일지와 독립적으로 뒷받침한다.",
       "must_not_imply": "그녀가 결국 범행에 가담했다거나 방관했다는 것.",
       "lingering_thread": "이 사고를 계기로 편지안은 자원봉사 복원 현장에도 정식 안전 감리 제도를 도입하자고 종지기회에 제안하기로 결심한다.",
-      "suspicion_deepener": "마태호가 사고 직전 편지안과 유해준이 언성을 높이며 다투는 걸 봤다고 증언하면서, 한동안 그녀에 대한 의심이 오히려 짙어진다."
+      "suspicion_deepener": "마태호가 사고 직전 편지안과 유해준이 언성을 높이며 다투는 걸 봤다고 증언하면서, 한동안 그녀에 대한 의심이 오히려 짙어진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -981,7 +1022,8 @@
       "how_to_clear": "반유담의 증언과 계단 창틀 아래 담배꽁초(E09)를 근거로 추궁하면, 마태호가 흡연 사실을 인정하며 목격 내용도 순순히 털어놓는다.",
       "must_not_imply": "그가 사고에 직접 관여했다는 것.",
       "lingering_thread": "마태호는 이 소동을 계기로 정말 담배를 끊어보기로 결심한다.",
-      "suspicion_deepener": "그가 처음엔 '그날 저녁엔 계단 쪽에 간 적도 없다'고 잡아떼면서 의심을 키운다."
+      "suspicion_deepener": "그가 처음엔 '그날 저녁엔 계단 쪽에 간 적도 없다'고 잡아떼면서 의심을 키운다.",
+      "character_id": "CH03"
     }
   ],
   "case_complete": {
