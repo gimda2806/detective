@@ -39,8 +39,8 @@
     "method_archetypes": ["strangulation"],
     "key_time_location": "사건 당일 17:40, 온새미로 재활센터 개인 치료실 A(L01)",
     "cover_up": "우진성은 목에 감았던 밴드를 풀어 도르래 손잡이 쪽에 얽어매고, 하연규가 혼자 기구를 쓰다 밴드에 목이 감겨 사고로 질식한 것처럼 자세를 바꿔 놓았다. 그러고는 원장실 서랍에 따로 보관돼 있던 사고 기록 원본을 챙겨 직원 휴게실 자신의 사물함 안쪽 깊숙이 숨기고 아무 일도 없었던 것처럼 자리를 떴다.",
-    "cover_up_target": ["other"],
-    "cover_up_method": ["other"],
+    "cover_up_target": ["cause_of_death", "motive"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "concealment_without_staging"],
     "decisive_evidence_ids": ["E02", "E05"]
   },
   "actual_timeline": [
