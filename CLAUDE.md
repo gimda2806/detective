@@ -18,8 +18,8 @@
 
 ## 세션 시작·끝
 
-- **시작하면 `docs/handoff.md`와 `docs/handoff/`부터 읽는다.** 여러 세션과 루틴이 같은 저장소를 고친다. 끝낼 때는 상대 작업에 영향이 가는 변경을 쪽지로 남기고, 상대가 남긴 것을 처리했으면 그 블록을 지운다(지우는 것이 「받았다」는 신호).
-- 회차 작업(소설·판본·이주)을 시작할 때는 ① `git fetch` ② README 한 줄이 아니라 **실제 파일 목록**(`ls docs/novels/`·`ls data/pending-cases/`) ③ `docs/handoff/`의 남은 쪽지 — 이 순서로 본다. 겹쳐 쓴 사고 다섯 건이 전부 이 셋 중 하나를 건너뛰어서 났다.
+- **시작하면 `docs/handoff-backlog.md`의 자기 절과 `docs/handoff/`에서 자기 앞으로 온 쪽지만 읽는다**(2026-09-26 사용자 결정 — 전부 읽는 것이 같은 항목을 다른 세션이 다시 재고 다시 쪽지로 쓰는 순환을 만들었다). 규칙은 `docs/handoff.md`. 여러 세션과 루틴이 같은 저장소를 고친다. 끝낼 때는 상대 작업에 영향이 가는 변경을 쪽지로 남기고, 상대가 남긴 것을 처리했으면 그 블록을 지운다(지우는 것이 「받았다」는 신호). 집은 항목에는 `진행 중 (브랜치)`를 적는다. 사용자 판단이 필요한 것은 백로그 「사용자」 절에, 알림은 회차 기록에.
+- 회차 작업(소설·판본·이주)을 시작할 때는 ① `git fetch` ② README 한 줄이 아니라 **실제 파일 목록**(`ls docs/novels/`·`ls data/pending-cases/`) ③ `docs/handoff-backlog.md`의 자기 절과 `docs/handoff/`에서 자기 앞으로 온 쪽지 — 이 순서로 본다. 겹쳐 쓴 사고 다섯 건이 전부 이 셋 중 하나를 건너뛰어서 났다.
 - 세션 간 충돌은 사람이 옮기지 않는다. PR 검사(`.github/workflows/pr-checks.yml`: tsc · oxlint 기준선 · build · 바뀐 마스터의 `check:case`와 `check:offline`)와 충돌 감시 루틴(`docs/conflict-watch-routine.md`)이 맡는다. 오프라인 판본(`Case-No-*.offline.json`)도 폴더 이름으로 같은 id에 모여 검사받는다.
 - 코드를 고쳤으면 `graphify update .`(설치돼 있을 때). 코드베이스 질문은 `graphify query`부터.
 
@@ -36,15 +36,17 @@
 
 **대립 단계의 질문은 거짓 진술, 답은 카드.** `requires_comparison.claim_id`는 그 사람의 S- lie이고 `requires_heard_claim_ids`에 있어야 한다(`STAGE_COMPARISON_NOT_LIE`, 원본·판본 모두 error). **단계의 요구 카드는 비교 카드와 같다** — 비교에 없는 카드를 요구에 끼우지 않는다(`STAGE_REQUIRES_BEYOND_COMPARISON`, 원본·판본 모두 error). 인정한 사실 뒤에 붙는 변명은 S- lie로 적고 그 사실에 `hidden_until`로 잠근다. 단계가 진술(S-)을 직접 내주는 모양도 된다(그 id로 본문을 쓴다). **단계가 내주는 진술은 그 단계의 질문이 아니라 다음 단계의 질문이다.** 규칙 본문은 `docs/offline-master-format.md` 「단계」 절.
 
+**시각은 타임라인과 눈으로 맞춰볼 수 있게 적는다**(2026-09-26). 타임라인은 24시간제인데 본문이 맨 「9시」라고 적으면 플레이어는 그것이 09:00인지 21:00인지 알 수 없다 — 때 표시를 붙이거나(「밤 9시」) 24시간제로 적는다(`TIME_12H_UNPAIRABLE`). 날짜말도 같다: **「사건 당일」처럼 사건을 기준으로 적은 말만 스탬프와 견줄 수 있고**, 맨 「전날」·「다음 날」은 앞 문장이나 탐정이 보는 오늘을 기준으로 삼으므로 검사가 안 본다(`TIME_DAY_LABEL_MISMATCH`). 탐정이 사건 다음날에 들어오는 사건에서 사건을 「오늘」이라 부르지 않는다(`TIME_TODAY_IS_YESTERDAY`). 셋 다 error 이고 `npm run measure:times`가 코퍼스 전수를 같은 판정으로 찍는다. 여덟 가지 오탐을 어떻게 걸렀는지는 `docs/decisions-log.md` 2026-09-26 절.
+
 **데이터 모양이 범인을 흘리지 않게.** 진범과 같은 `voice_profile.stance`를 가진 인물이 하나는 있어야 한다(`STANCE_CULPRIT_TELL`). 진범이 CH01에 쏠린 것은 `npcs`를 이름순으로 세워 화면에서 가렸다 — **`CH##`를 다시 매기지 말 것**(사방의 id가 그것을 문다).
 
-**검사기 규칙**
+**검사기 규칙** — 검사 전부의 목록과 걸리는 예는 `docs/checks.md`. **판정 코드를 새로 만들면 그 줄을 같이 쓴다** — `npm run check:codes`가 PR 검사에서 대조한다(2026-09-26 사용자 결정).
 
 - `npm run check:case <ID>`는 셋을 돌린다 — `validate_master.ts`(교차참조·비율·단계 사슬), `audit-converter-coverage.ts`(마스터 값이 `raw_text`까지 도달하는가), `audit-evidence-leak.ts`. 가운데 것이 걸리면 마스터가 아니라 변환기(`structured-master-converter.ts`)를 고친다. **스키마에 필드를 더하면 변환기 방출과 `master-index.ts` 파싱을 같이 고친다.** **`check:case`는 JSON 스키마를 돌리지 않는다** — 스키마의 `required`·설명문은 아무것도 막지 않는다.
 - **새로 넣는 검사는 warn으로 두지 않는다**(2026-09-21 사용자 결정). 기본은 등록 여부와 무관한 error이고 걸리는 마스터는 그 자리에서 고친다. warn으로 두려면 먼저 사용자 승인. 읽는 사람 없는 경고는 부채를 세는 일일 뿐이다.
-- 이미 있던 코퍼스 비율 검사·뼈대 검사는 **등록된 사건 warn·새 사건 error**. 예외로 등록 여부와 무관하게 error인 것: `UNKNOWN_ARCHETYPE_KEY`·`LEGACY_ARCHETYPE_KEY`·`CASE_COMPLETE_UNREACHABLE`·`SETTING_DEADLINE_DISCOVERY_TEMPLATE`·`STAGE_KEY_IS_OWN_TESTIMONY`·`PAIR_TWIN`·`STAGE_COMPARISON_NOT_LIE`·`STAGE_REQUIRES_BEYOND_COMPARISON`.
+- 이미 있던 코퍼스 비율 검사·뼈대 검사는 **등록된 사건 warn·새 사건 error**. **은폐 두 축(`COVER_UP_TARGET_OVERUSE`·`COVER_UP_METHOD_OVERUSE`)만은 고정 8%가 아니라 칸당 기대치(사건당 평균 라벨 수 ÷ 칸 수) 대비 배수로 센다** — 1.5배 warn, 2배 새 사건 error(2026-09-26 사용자 결정. 칸이 14·20개라 8%가 평균 점유 미만이었고, 그래서 생성 루틴이 `other`로 도망갔다). 짝 검사(`COVER_UP_PAIR_OVERUSE`)는 8% 그대로. 예외로 등록 여부와 무관하게 error인 것: `UNKNOWN_ARCHETYPE_KEY`·`LEGACY_ARCHETYPE_KEY`·`CASE_COMPLETE_UNREACHABLE`·`SETTING_DEADLINE_DISCOVERY_TEMPLATE`·`STAGE_KEY_IS_OWN_TESTIMONY`·`PAIR_TWIN`·`STAGE_COMPARISON_NOT_LIE`·`STAGE_REQUIRES_BEYOND_COMPARISON`·`TIME_12H_UNPAIRABLE`·`TIME_DAY_LABEL_MISMATCH`·`TIME_TODAY_IS_YESTERDAY`.
 - 마스터를 손으로 고칠 때 id를 타이핑하지 않는다 — `npm run ids <ID>`(대응표) · `npm run ids <ID> <이름>` · `npm run ids <ID> fix`(`red_herrings[].character_id`). 손으로 고쳤으면 `npm run build:source <ID>`도 다시 돌린다(소스 문서는 쓰기 위한 재료다).
-- 아키타입 칸에 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 — 가장 가까운 칸에 억지로 밀어 넣으면 남의 경고를 만들고 새 칸이 필요하다는 신호는 사라진다(두 번 잃는다). 경고를 없애려고 칸을 내리지 않는다. 표에 없는 키를 지어내지 말 것(옛 이름은 `LEGACY_*` 표가 옮겨 세고 `LEGACY_ARCHETYPE_KEY`가 막는다).
+- 아키타입 칸에 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 — 가장 가까운 칸에 억지로 밀어 넣으면 남의 경고를 만들고 새 칸이 필요하다는 신호는 사라진다(두 번 잃는다). 경고를 없애려고 칸을 내리지 않는다. 표에 없는 키를 지어내지 말 것(옛 이름은 `LEGACY_*` 표가 옮겨 세고 `LEGACY_ARCHETYPE_KEY`가 막는다). **선언은 폴백을 대체하므로 문장보다 좁게 적지 않는다** — 은폐 문장을 쓴 뒤 그 문장의 동사를 세어 칸을 적는다(2026-09-26 사용자 결정, 절차는 생성 스펙. 검사기가 대신 못 하는 단계다 — 폴백을 그대로 같이 돌리면 60%가 오탐). 잡음 셋을 거른 판정은 `COVER_UP_DECLARATION_NARROW`(등록 warn·새 사건 error, 2026-09-26 사용자 승인)가 뒤에서 받치고 `npm run audit:cover-up`이 목록을 찍는다 — 정밀도 75~80%라 오탐이면 칸을 더하지 말고 갭 문서에 낱말을 적는다.
 - 같은 문장을 돌려 쓴 자국은 `npm run audit:duplication`. 목록을 들고 일괄 치환하지 말 것 — 그 사건을 다시 쓸 때 같이 고친다.
 - 마스터 포맷 부채는 `npm run audit:format`이 센다. 막힌 사건은 `사전 오류로 막힌 사건: 열린 목록` 이슈 하나에 모은다.
 - `next:case-id`는 가장 작은 빈 번호(registry에 있던 번호는 건너뛴다). 번호가 곧 플레이 순서다.
@@ -96,10 +98,10 @@
 
 - **생성 루틴** — `data/pending-cases/`에 새 사건을 만들어 PR·머지까지. 스펙은 `scripts/case_generation_prompt.md`. 다섯 단계: 생성(`next:case-id`, `recent:avoid`) → `check:case` → 실패한 필드만 고쳐 재검증(전체 재생성 금지, 필드별 3회) → `build:source`·`case_registry.json` 등록·PR → 막히면 이슈 하나에 모으고 중단.
 - **이주 루틴** — 옛 마스터를 지금 스키마로. 지침 `docs/master-format-migration.md`. 빠진 필드를 채우는 것이지 사건을 다시 쓰는 것이 아니다. 5건씩.
-- **소설 루틴** — `docs/novels/`에 번호순 5편씩. 지침 `docs/novels/README.md`(회차 기록은 `rounds.md`, 되먹일 목록은 `feedback.md`로 갈랐다 — 2026-09-26), 검사 `npm run check:novel`. 런타임은 읽지 않는다. 판본의 설계도다. 겹쳐 쓴 판본(`-ver2`)은 어느 쪽도 지우지 말 것.
+- **소설 루틴** — `docs/novels/`에 번호순, **한 회차(루틴 한 턴) 한 편**(2026-09-26 사용자 결정. 그 전에는 5편씩이었다). 지침 `docs/novels/README.md`(회차 기록은 `rounds.md`, 되먹일 목록은 `feedback.md`로 갈랐다 — 2026-09-26), 검사 `npm run check:novel`. 런타임은 읽지 않는다. 판본의 설계도다. 겹쳐 쓴 판본(`-ver2`)은 어느 쪽도 지우지 말 것.
 - **충돌 감시 루틴** — `docs/conflict-watch-routine.md`. 코드를 고치거나 푸시하지 않는다.
 - **판본 루틴**(2026-09-26 사용자 결정) — 오프라인 판본을 **번호순으로, 다음 막에 비는 번호만** 만든다. 지침 `docs/offline-version-routine.md`, 입력은 `npm run audit:offline`(원본이 오프라인 필수 표를 얼마나 갖췼는지 번호순으로 세고 다음 게이트까지 비는 번호를 찍는다. 판본이 있으면 판본을 본다). 한 회차 한 번호, 원본은 건드리지 않고, 판본 노트를 같이 쓴다. 새 원본이 오프라인 완제품으로 태어나게 하는 것(생성 스펙 + 새 원본 error)은 아직 결정 전이다.
-- **시각 되먹임 루틴**(2026-09-24 사용자 결정) — 소설이 메운 시각을 마스터 `actual_timeline`으로. 지침 `docs/novel-time-feedback-routine.md`, 입력은 `check:novel`의 `TIME_NOT_IN_MASTER`(257개, 2026-09-26)를 많은 편부터 5편씩. **되먹이는 방법은 소설 루틴에 이미 있어 다시 쓰지 않았다** — 없던 것은 차례다(`docs/novels/feedback.md`가 「그 번호를 나중에 다시 쓸 때」를 전제로 쓰여 있는데 그 시점이 대부분의 번호에는 오지 않는다). 시각만은 그 조건 없이 지금 되먹일 수 있다 — `actual_timeline`의 빠진 칸은 두 경로가 같이 읽는 **원본의 결함**이고 소설이 자리를 짚어 뒀다(CASE008의 21:03: `T10`이 21:00에 제다실 `L03`에서 다호에 섞었다는데 다호는 마당 건너 `L02`다). 근거 없이 지어낸 `TIME_UNRECORDED` 62개는 같은 편을 여는 김에 적든지 뺀다.
+- **시각 되먹임 루틴**(2026-09-24 사용자 결정) — 소설이 메운 시각을 마스터 `actual_timeline`으로. 지침 `docs/novel-time-feedback-routine.md`, 입력은 `check:novel`의 `TIME_NOT_IN_MASTER`(233개, 2026-09-26 — 소설 320편에서 재측정)를 많은 편부터 5편씩. **되먹이는 방법은 소설 루틴에 이미 있어 다시 쓰지 않았다** — 없던 것은 차례다(`docs/novels/feedback.md`가 「그 번호를 나중에 다시 쓸 때」를 전제로 쓰여 있는데 그 시점이 대부분의 번호에는 오지 않는다). 시각만은 그 조건 없이 지금 되먹일 수 있다 — `actual_timeline`의 빠진 칸은 두 경로가 같이 읽는 **원본의 결함**이고 소설이 자리를 짚어 뒀다(CASE008의 21:03: `T10`이 21:00에 제다실 `L03`에서 다호에 섞었다는데 다호는 마당 건너 `L02`다). 근거 없이 지어낸 `TIME_UNRECORDED` 85개(2026-09-26)는 같은 편을 여는 김에 적든지 뺀다.
 
 ## 되돌리지 말 것
 

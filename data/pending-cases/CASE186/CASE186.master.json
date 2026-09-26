@@ -415,11 +415,21 @@
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01",
         "S-CH03-02",
         "S-CH03-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
       "knowledge_limits": [
         "정확히 누구의 목소리였는지, 안에서 무슨 일이 있었는지는 직접 보지 못해 알지 못한다."
       ],
@@ -523,10 +533,20 @@
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01",
-        "S-CH05-02"
+        "S-CH05-01"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "사고 당일 오후엔 은행 업무 때문에 자리를 비워 정확히 무슨 일이 있었는지는 알지 못한다."
       ],

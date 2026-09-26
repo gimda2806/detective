@@ -1,0 +1,1100 @@
+{
+  "case_identity": {
+    "case_id": "CASE331",
+    "title": "서명 이후",
+    "english_title": "After the Signature",
+    "genre": "경영권 승계에서 배제된 것을 알게 된 심복이 격분해 저지른 우발적 폭행치사 / 설비 결함을 이용한 사고사 위장",
+    "setting": "성일물류는 위탁 물류창고를 운영하는 중견 물류업체로, 그날 오전 대한로지스와의 지분 인수 본계약이 체결됐다. 계약 체결 직후 사무실 곳곳은 인수 후속 업무로 분주했고, 하역장에서는 자동 스트레치 랩핑 설비가 평소와 다름없이 가동되고 있었다. 외부 안전자문위원으로 초빙된 탐정은 안전관리자 강필두와 함께 그날 오전부터 설비 정기점검 체크리스트를 훑어보는 중이었다.",
+    "location_archetypes": ["logistics_center"],
+    "background": {
+      "background_archetypes": ["acquisition_transfer"],
+      "background_phrasing": ["immediately_after"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 성일물류의 외부 안전자문위원으로 초빙되어, 그날 오전부터 안전관리자 강필두와 함께 자동화 설비 정기점검 체크리스트를 검토하고 있었다.",
+    "tone": "물류창고 특유의 소음과 분주함 속에서, 계약 체결로 들뜬 사무실 공기와 하역장의 삭막한 긴장이 부딪힌다. 탐정과 한지우는 안전점검이라는 본래 용무 밖으로 갑자기 끌려 들어간다.",
+    "tags": ["물류센터", "기업인수", "자동화설비"]
+  },
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 11:28",
+    "narrative": "\"경보음이 꺼져 있네요.\"\n\n한지우가 점검표에서 눈을 떼며 중얼거렸다.\n\n하역장 쪽에서 다급한 발소리와 함께 누군가 사람을 부르는 외침이 들려왔다. 강필두가 먼저 자리를 박차고 일어났다.\n\n\"저, 잠깐 나가 봐야 할 것 같은데요.\"\n\n탐정도 체크리스트를 내려놓고 몸을 일으켰다.\n\n\"점검은 이따가 마저 하지.\"\n\n하역장 쪽으로 다가가자, 오채은이 창백한 얼굴로 뛰쳐나오며 안쪽을 가리켰다.\n\n\"대표님이... 랩핑기에...\"\n\n안쪽 라인 옆에는 하명근이 쓰러진 채 미동도 없었다.\n\n한지우가 먼저 안으로 들어섰다."
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "랩핑기의 모터가 꺼진 뒤에도 하역장은 한동안 조용했다.\n\n유경환은 파레트 더미에 등을 기댄 채, 시선을 바닥에 둔 채 움직이지 않았다.\n\n\"밀었습니다. 제가.\"\n\n한참 만에 그가 말했다.\n\n\"말릴 수만 있었으면 좋았을 텐데요.\"\n\n한지우가 조용히 대꾸했다.\n\n\"인사 발령 한 줄 때문에요.\"\n\n탐정이 그를 내려다보며 말을 이었다.\n\n\"그것도 대표님 손으로 정한 게 아니라, 그쪽에서 밀어붙인 조항이었잖습니까.\"\n\n유경환은 대답 대신 고개만 떨궜다.\n\n밖에서는 강필두가 낡은 점검 일지를 손에 든 채, 이번엔 정말 부품부터 새로 들여야겠다고 누구에게랄 것도 없이 중얼거리고 있었다.\n\n사이렌이 가까워지자 탐정과 한지우는 자리를 옮겨 라인 밖으로 나섰다.\n\n\"체크리스트, 이거 어떡하죠.\"\n\n한지우가 손에 든 종이를 흔들어 보였다.\n\n\"다음 주에 다시 오지, 뭐.\"\n\n한지우가 어이없다는 얼굴로 그를 쳐다봤다."
+  },
+  "surface_incident": [
+    "성일물류는 그날 오전 대한로지스에 지분을 매각하는 본계약을 체결했고, 사무실 곳곳이 인수 후속 업무로 분주하던 중 하역장에서 사고가 발생했다.",
+    "창고관리팀 오채은이 11시 25분경 순찰 중 자동 랩핑 라인에서 롤러에 끼인 채 쓰러진 하명근을 발견해 소리쳐 사람들을 불렀다.",
+    "구급대가 도착했을 때 하명근은 이미 숨을 거둔 뒤였고, 안전관리팀은 사고 직전까지 그 설비에 특별한 경보 신호는 없었다고 밝혔다.",
+    "평소 하명근이 설비를 직접 점검하길 좋아했던 성격이었다는 것이 알려지며, 회사 안팎에서는 안전 수칙을 지키지 않은 본인 부주의로 인한 사고로 보는 시각이 우세했다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "유경환은 15년간 하명근을 도와 성일물류를 키워 온 운영이사로, 당연히 자신이 인수 이후에도 경영 실무를 총괄할 것이라 여겨 왔다. 그날 오전 대한로지스와의 지분 인수 본계약이 체결되면서, 인수 측이 지명한 반준영이 경영관리이사로 상주하고 유경환은 지방 거점 물류센터로 발령한다는 별도 합의서 조항이 있다는 것을 그는 서명식 직후 우연히 확인했다. 하명근이 이 결정을 자신에게 미리 알리지 않고 이미 합의해 버렸다는 배신감과, 15년 동안 지켜 온 자리를 하루아침에 빼앗기게 됐다는 절박함이 겹쳐 그를 몰아붙였다.",
+    "motive_archetypes": ["succession_change", "position_defense"],
+    "method": "유경환은 하역장 한쪽에서 하명근을 붙잡고 발령 조항을 철회해 달라고 요구하며 언쟁을 벌였다. 하명근이 이미 협상단과 합의된 사안이라며 거절하자 격분한 유경환은 가동 중이던 자동 스트레치 랩핑기 롤러 쪽으로 그를 강하게 떠밀었다. 전날 밤부터 인터록이 임시로 우회 결선돼 있던 탓에 기계가 멈추지 않았고, 하명근은 롤러에 끼여 그 자리에서 숨졌다.",
+    "method_archetypes": ["machine_entrapment", "staging_cover_up"],
+    "key_time_location": "사건 당일 11시 05분~11시 06분, 성일물류 하역장 자동 랩핑 라인(L01)",
+    "cover_up": "유경환은 주위에 인기척이 없는 것을 확인하고 비상정지 버튼을 눌러 기계를 세운 뒤, 인터록 배선을 원래 상태로 되돌려 사고 이전부터 정상 작동해 온 것처럼 꾸몄다. 이어 강필두와 주고받은 인터록 관련 메신저 대화를 자신의 휴대전화에서 지우고, 하명근이 평소 설비를 직접 손보길 좋아했다는 점을 이용해 그가 혼자 점검하다 변을 당한 것처럼 주변에 흘렸다.",
+    "cover_up_target": ["responsibility", "communication_trace", "evidence"],
+    "cover_up_method": ["accident_victim_error", "digital_record_manipulation", "scene_rearrangement"],
+    "decisive_evidence_ids": ["E01", "E05", "E07", "E12", "E13", "E14", "E15"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 협상 실무진의 일원으로서 지분 매각 협상이 사실상 마무리 단계에 들어섰다는 것을 알게 된다.",
+      "world_fact": "유경환은 인수 후에도 자신이 경영 실무를 총괄할 것이라 여기고 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 8일 전 저녁",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하명근이 대한로지스 측과 마지막 조율 통화를 마친 뒤, 인수 후 경영관리를 반준영에게 맡기고 유경환은 지방 거점으로 발령한다는 별도 합의서 조항에 서명하기로 마음을 굳힌다.",
+      "world_fact": "이 조항은 협상 대표단 외에는 아무에게도 공유되지 않았다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 19:00",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "강필두가 정기 점검 중 자동 스트레치 랩핑기 안전 인터록 센서의 배선 이상을 발견한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 19:10",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "강필두가 이번 분기 부품 교체 예산이 없다는 것을 확인하고 인터록을 임시로 우회 결선해 둔다.",
+      "world_fact": "강필두는 이 사실을 점검 일지에 정식으로 올리지 않고 유경환에게만 구두로 보고했다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 22:10",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 강필두에게 사내 메신저로 그 인터록 건을 이번 분기 점검 보고서에는 올리지 말고 다음 분기로 미뤄 두라고 지시한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 09:00",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "하명근과 대한로지스 실사단이 대회의실에서 지분 인수 본계약서에 서명한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 09:40",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "반준영이 서명식이 끝난 뒤 회의실에 남아 향후 경영 이관 일정 자료를 정리하다, 별도 합의서 사본을 탁자 위에 둔 채 전화를 받으러 잠시 자리를 비운다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 10:05",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 서명식 자료를 회수하러 회의실에 들렀다가, 탁자 위에 놓인 별도 합의서 사본에서 자신의 지방 발령 조항을 발견한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 10:20",
+      "location": "L02",
+      "actors": ["CH02", "V01"],
+      "actual_action": "유경환이 하명근에게 면담을 요청하지만, 하명근은 오후 결과 보고 준비가 급하다며 하역장 설비 점검을 마치고 나서 얘기하자고 미룬다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 10:35",
+      "location": "L01",
+      "actors": ["CH03", "CH01"],
+      "actual_action": "반준영이 인수인계 서류를 받으러 창고관리팀 사무실에 들렀다가 나오는 길에 오채은과 짧게 마주쳐 인사를 나눈다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 10:50",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "하명근이 평소 습관대로 랩핑 라인 앞에 서서 오전 가동 상태를 직접 눈으로 확인한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 11:00",
+      "location": "L01",
+      "actors": ["CH02", "V01"],
+      "actual_action": "유경환이 뒤따라와 인적이 드문 하역장 한쪽에서 하명근에게 발령 조항을 철회해 달라고 요구하며 언쟁을 시작한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 11:05",
+      "location": "L01",
+      "actors": ["CH02", "V01"],
+      "actual_action": "하명근이 이미 협상단과 합의된 사안이라며 거절하자, 유경환이 격분해 가동 중이던 랩핑기 롤러 쪽으로 하명근을 강하게 떠민다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 11:06",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "인터록이 우회 결선돼 있던 랩핑기가 멈추지 않아 하명근이 롤러에 끼여 그 자리에서 숨진다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 11:07",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 주위에 인기척이 없는 것을 확인하고 비상정지 버튼을 눌러 기계를 세운다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 11:08",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 인터록 배선을 원래 상태로 되돌려 놓는다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 11:10",
+      "location": "L01",
+      "actors": ["CH01", "CH02"],
+      "actual_action": "오채은이 순찰 경로를 살짝 벗어나 창고관리팀 쪽으로 돌던 중, 하역장에서 얼굴이 하얗게 질린 채 급히 나오는 유경환과 마주친다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 11:15",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "유경환이 강필두와 주고받은 인터록 관련 메신저 대화를 자신의 휴대전화에서 삭제한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 11:25",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "오채은이 랩핑 라인의 경보음이 꺼진 채 라인이 멈춰 있는 것을 이상히 여겨 다가갔다가, 롤러에 끼인 채 쓰러진 하명근을 발견한다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 11:27",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "오채은이 복도로 뛰쳐나가 사람들을 부르고 안전관리실과 경영지원팀에 동시에 알린다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하명근",
+      "role": "성일물류 대표이자 창업주",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오채은",
+      "role": "창고관리팀 주임 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 아침 순찰 때만 해도 랩핑 라인의 경보음이 정상적으로 울렸다는 사실을 알고 있다.",
+          "source": "본인이 그날 아침 직접 순찰함"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "11시 10분쯤 유경환이 하역장 쪽에서 얼굴이 하얗게 질린 채 급히 나오는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 오전 반준영이 창고관리팀 사무실에 잠깐 들렀다 나가는 것을 봤다.",
+          "source": "본인이 그날 오전 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "이 라인, 원래 조용할 틈이 없는데 오늘따라 유독 그랬어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "11시 25분에 들어갔다가 대표님이 쓰러져 계신 걸 보고 바로 소리쳤어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "하역장 안쪽에서 유경환과 하명근 사이에 정확히 무슨 말이 오갔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 신입다운 조심스러움",
+        "sentence_length_tendency": "평소엔 짧고 간결하다가, 몰리면 말이 빨라지고 같은 말을 반복한다",
+        "verbal_tic": "당황하면 문장 끝을 흐리며 '...그런 것 같아요'로 맺는다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그게, 저도 정확히는 잘 모르겠어요...",
+        "저 진짜 아무것도 숨기는 거 없어요, 정말로요.",
+        "자꾸 물으시면 저 무서워요..."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH01-03",
+        "opens": "S-CH01-01",
+        "says": "그러고 보니 반준영 이사님도 그날 오전 저희 사무실 쪽에 잠깐 들르셨었는데, 그때 표정이 좀 딱딱했던 것 같기도 하고요.",
+        "reveals": "반준영이 그 시간에 그쪽에 들른 것은 사실이지만, 그것은 인수인계 서류를 받으러 온 것뿐이었다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "유경환",
+      "role": "운영이사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오전 대회의실에서 자신의 지방 발령 조항이 담긴 별도 합의서 사본을 봤다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 11시경 하역장에서 하명근과 발령 조항을 두고 다퉜다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "언쟁 끝에 격분해 하명근을 랩핑기 롤러 쪽으로 떠밀었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "그날 오전 백소영이 유독 불안한 얼굴로 서류를 챙기는 것을 봤다.",
+          "source": "본인이 그날 오전 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이 회사, 인수되고 나면 시스템부터 싹 다 바뀌겠죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 합의서요? 처음 듣는 얘기입니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그 시간엔 계속 사무실에 있었습니다. 하역장 쪽엔 가지도 않았어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "제가 손을 댄 건 아닙니다. 기계가 원래 그랬던 겁니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        }
+      ],
+      "knowledge_limits": [
+        "하명근이 그 순간에도 발령을 철회할 생각이 전혀 없었다는 것 외에는, 반준영이 인수 후 정확히 어떤 계획을 갖고 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 자신감 있게 주도하려는 말투",
+        "sentence_length_tendency": "평소엔 조리 있게 길게 말하다가, 몰리면 짧고 방어적으로 끊긴다",
+        "verbal_tic": "말끝에 '제 말은'을 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제 말은, 저도 당혹스럽긴 마찬가지라는 겁니다.",
+        "자꾸 이런 식으로 물으시면 저도 드릴 말씀이 없습니다.",
+        "...그건, 그럴 생각까지는 없었어요."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "총무팀장님도 요즘 조직개편 얘기로 불안해하시던데, 그쪽도 한번 살펴보시는 게 어떨까요.",
+        "reveals": "백소영이 그 무렵 불안해했던 것은 사실이지만, 그것은 총무팀 통폐합 소문 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "반준영",
+      "role": "대한로지스 경영관리이사 / 인수 후 상주 예정",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "서명식 직후 회의실에 별도 합의서 사본을 둔 채 전화를 받으러 잠시 자리를 비웠다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 오전 인수인계 서류를 받으러 창고관리팀 사무실에 들렀었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그날 오전 강필두가 평소보다 유난히 예민하게 점검 일지를 붙들고 있는 것을 봤다.",
+          "source": "본인이 그날 오전 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 회사, 인수 절차 밟으면서 보니까 생각보다 서류가 깔끔하게 정리돼 있더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "회의실에 서류 놔두고 나간 적 없습니다. 계속 자리에 있었어요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E13",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "하역장 안에서 유경환과 하명근 사이에 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 외부인다운 깍듯함",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하다가, 몰리면 말수가 줄어든다",
+        "verbal_tic": "'그러니까요'를 자주 쓴다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "그러니까요, 저도 그 부분은 좀 조심스러워지네요.",
+        "제가 굳이 숨길 이유가 있겠습니까.",
+        "...이 정도면 충분히 말씀드린 것 같은데요."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-01",
+        "says": "안전관리자님이 오늘따라 점검 일지를 붙들고 유난히 예민해 보이시던데, 그쪽도 한번 확인해 보시는 게 어떨까 싶어요.",
+        "reveals": "강필두가 그날 예민했던 것은 사실이지만, 그것은 인터록 문제를 뒤늦게 보고서에 넣을지 고민하고 있었기 때문이다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "백소영",
+      "role": "총무팀장",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "이번 조직개편으로 총무팀도 통폐합 대상이 될 수 있다는 얘기를 사내 소문으로 들어 알고 있다.",
+          "source": "사내 소문으로 들음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오전 유경환이 평소와 달리 안절부절못하는 모습을 보였다는 사실을 안다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "10시 넘어 유경환의 표정이 안 좋아지더니 11시쯤 사무실을 비웠다가 잠시 후 돌아왔다는 사실을 안다.",
+          "source": "본인이 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "다들 인수 얘기 나오고부터 부서마다 분위기가 뒤숭숭해요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "이사님요? 오늘 딱히 이상한 거 없으셨는데요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH04-03"
+        }
+      ],
+      "knowledge_limits": [
+        "하역장 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 꼼꼼하다",
+        "sentence_length_tendency": "평소엔 또박또박 정리해서 말하다가, 몰리면 말이 짧아진다",
+        "verbal_tic": "'정리하자면'을 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "정리하자면, 저는 본 대로만 말씀드리는 겁니다.",
+        "왜 자꾸 저한테 이러시는지 모르겠네요.",
+        "...더 드릴 말씀은 없습니다."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-02",
+        "opens": "S-CH04-01",
+        "says": "이사님이 오늘 유독 안절부절못하시던데, 무슨 일 있으셨나 궁금하긴 해요.",
+        "reveals": "유경환이 그날 유독 불안해 보였던 것은 사실이며, 그것이 실제로 사건이 벌어지기 직전의 모습이었다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "강필두",
+      "role": "안전관리자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "전날 저녁 점검에서 인터록 센서 배선 이상을 발견하고 임시로 우회 결선을 해 뒀다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 사실을 점검 일지에 정식으로 올리지 않고 유경환에게만 구두로 보고했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "전날 밤 유경환이 그 건을 이번 분기 보고서에서 빼고 다음 분기로 미루라고 지시했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "그날 오전 오채은이 평소 순찰 경로를 살짝 벗어나 창고관리팀 사무실 쪽으로 도는 것을 봤다.",
+          "source": "본인이 그날 오전 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "요즘 위에서 예산 얘기만 나오면 다들 말을 아껴요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "인터록 쪽은 특별히 손 볼 데 없었습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "하역장 안에서 유경환과 하명근 사이에 정확히 무슨 말이 오갔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 위축된 말투",
+        "sentence_length_tendency": "평소엔 말을 아끼며 짧게 답하다가, 몰리면 변명이 길어진다",
+        "verbal_tic": "'그게 참'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그게 참, 저도 어쩔 수 없었던 부분이 있어서요.",
+        "제가 뭘 크게 잘못했다고 생각하진 않습니다만...",
+        "...이제 그만 좀 물어봐 주셨으면 합니다."
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "오채은 씨가 오늘따라 순찰 경로를 좀 다르게 돌던데, 왜 그랬는지 여쭤보시는 것도 좋을 것 같아요.",
+        "reveals": "오채은이 경로를 살짝 벗어난 것은 사실이지만, 그것은 그날 반준영과 마주쳐 잠깐 인사를 나눴기 때문일 뿐이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH02"],
+      "nature": "성일물류를 함께 키워 온 창업주와, 15년째 운영 실무를 총괄해 온 오른팔 사이.",
+      "public_face": "다들 유경환을 하명근의 후계자나 다름없다고 여겨 왔다.",
+      "private_strain": "유경환은 하명근이 인수 별도 합의서에서 자신을 지방 거점으로 발령 낸다는 조항에 이미 서명했다는 것을 그날 오전까지 전혀 모르고 있었다.",
+      "surfaces_when": "탐정이 별도 합의서 사본(E01)과 대회의실 출입 기록(E13)을 함께 제시할 때.",
+      "says": {
+        "CH02": "대표님은... 제 15년을 다 지켜보신 분이었죠. 그 이상은 지금 드릴 말씀이 없습니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "순찰조 인사 정도로 안면을 익혀 온 창업주와 창고관리팀 직원 사이.",
+      "public_face": "오채은은 하명근을 어려워하면서도 잘 따르는 직원으로 알려져 있다.",
+      "private_strain": "오채은은 그날 아침 순찰에서 경보음이 정상적으로 울렸다는 것을 알고 있었지만, 괜한 의심을 살까 봐 먼저 말하지 않았다.",
+      "surfaces_when": "탐정이 인터록 배선 흔적(E05)을 제시하며 그날 아침 경보 상태를 물을 때.",
+      "says": {
+        "CH01": "대표님은 순찰 돌 때마다 인사도 잘 받아 주시고, 늘 편하게 대해 주셨어요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "이번 지분 인수 협상 테이블에서 처음 마주 앉은 매도인과 인수 측 실무 책임자 사이.",
+      "public_face": "두 사람은 이번 계약을 원만히 마무리한 사이로 알려져 있다.",
+      "private_strain": "반준영은 별도 합의서 사본을 회의실에 그대로 두고 자리를 비운 것을 뒤늦게 걱정하고 있었다.",
+      "surfaces_when": "탐정이 대회의실 출입 기록(E13)을 제시하며 서류 관리에 대해 물을 때.",
+      "says": {
+        "CH03": "대표님과는 이번 인수 건으로 처음 깊이 뵀는데, 원칙이 확실한 분이라는 인상을 받았습니다."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "10년 가까이 총무 실무를 함께 맞춰 온 창업주와 총무팀장 사이.",
+      "public_face": "백소영은 하명근이 가장 신뢰하는 실무자 중 하나로 알려져 있다.",
+      "private_strain": "백소영은 이번 조직개편으로 총무팀이 통폐합될 수 있다는 얘기를 듣고 불안해하면서도 하명근에게 내색하지 않았다.",
+      "surfaces_when": "탐정이 조직개편에 대해 캐물어 백소영의 속내(E16)를 들을 때.",
+      "says": {
+        "CH04": "대표님은 저희 부서 사정도 꼼꼼히 챙겨 주시던 분이었어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "설비 예산을 두고 오랫동안 부딪혀 온 창업주와 안전관리자 사이.",
+      "public_face": "다들 강필두가 원칙대로 꼼꼼히 일한다고들 말한다.",
+      "private_strain": "강필두는 예산 압박 속에서 인터록 결함을 정식으로 보고하지 않고 눈감아 온 적이 있다는 것을 하명근에게 숨겨 왔다.",
+      "surfaces_when": "탐정이 안전 점검 일지(E11)를 제시하며 인터록 문제를 캐물을 때.",
+      "says": {
+        "CH05": "대표님이랑은... 그게 참, 예산 얘기 나올 때마다 편치는 않았죠."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH02", "CH05"],
+      "nature": "같은 부서는 아니지만 설비 관리 문제로 자주 부딪혀 온 사이.",
+      "public_face": "실무진끼리 서로 협조적인 관계로 보인다.",
+      "private_strain": "강필두는 전날 밤 유경환의 지시로 인터록 결함을 이번 분기 보고서에서 빼 뒀다는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 메신저 백업 로그(E12)를 제시할 때.",
+      "says": {
+        "CH02": "강필두 씨야 늘 성실한 사람이죠. 제 말은, 그 이상 뭐가 있겠습니까.",
+        "CH05": "이사님이 시키신 일이야 저는 그냥 따랐을 뿐입니다, 그게 참."
+      }
+    },
+    {
+      "id": "REL07",
+      "between": ["CH02", "CH03"],
+      "nature": "인수인계 범위를 놓고 최근 몇 차례 부딪힌 사이.",
+      "public_face": "둘 다 인수 작업에 협조적인 실무자로 보인다.",
+      "private_strain": "유경환은 반준영이 부임하면 자신의 업무 상당 부분이 넘어간다는 사실에, 반준영 앞에서는 내내 태연한 척해 왔다.",
+      "surfaces_when": "탐정이 별도 합의서 사본(E01)을 제시하며 인수인계 범위를 캐물을 때.",
+      "says": {
+        "CH02": "반준영 이사하고는... 제 말은, 아직 서로 조율할 게 많은 사이일 뿐입니다.",
+        "CH03": "유경환 이사님과는 업무 범위를 놓고 서로 입장이 다를 때가 있었죠, 그러니까요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "하역장 자동 랩핑 라인",
+      "access": "안전화·안전모를 착용하고 출입증을 태그해야 들어갈 수 있는 제한구역.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "천장 크레인 레일 아래로 포장 완료 파레트가 줄지어 서 있고, 안쪽 자동 스트레치 랩핑 라인 앞에는 노란 안전선이 둘러져 있다. 라인 옆 바닥에는 방금까지 누군가 서 있었던 듯한 발자국이 어지럽게 남아 있고, 입구 근처에는 오채은이 굳은 얼굴로 서 있다.",
+      "observation_rules": [
+        {
+          "action": "하역장 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "라인 주변 파레트들에는 오늘 아침까지도 정상적으로 작업이 이뤄진 흔적이 남아 있고, 벽에는 인터록 점검 스티커가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "랩핑기 인터록 배선 상태를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "인터록 배선이 최근 다시 연결된 흔적이 남아 있고, 절연테이프 색이 주변 배선보다 눈에 띄게 새것이다."
+        },
+        {
+          "action": "비상정지 버튼 조작 이력을 확인한다",
+          "requires": "E05",
+          "release_evidence_id": "E07",
+          "result": "설비 제어반 로그에 11시 07분 비상정지 버튼이 눌린 기록이 남아 있다."
+        },
+        {
+          "action": "하역장 출입문 태그 기록을 확인한다",
+          "requires": "오채은",
+          "release_evidence_id": "E14",
+          "result": "11시 00분, 유경환의 사원증이 하역장 출입문을 태그한 이력이 출입 관리 시스템에 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "경영지원팀 사무실",
+      "access": "직원증이 있으면 자유롭게 드나들 수 있는 사무 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "칸막이 자리마다 인수 관련 서류 뭉치가 쌓여 있고, 창가 자리에는 유경환이 팔짱을 낀 채 굳은 얼굴로 서 있다. 안쪽 자리에서는 백소영이 전화기를 붙든 채 목소리를 낮추고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽 게시판에 이번 분기 조직개편 예고 공지문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "유경환의 업무용 PC 접속 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "11시 15분, 유경환의 계정으로 사내 메신저 대화방 하나가 삭제된 이력이 로그에 남아 있다."
+        },
+        {
+          "action": "유경환 책상 옆 옷걸이에 걸린 셔츠를 살핀다",
+          "requires": "유경환",
+          "release_evidence_id": "E09",
+          "result": "소매 끝에 기계 윤활유로 보이는 자국이 묻어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "1층 로비",
+      "access": "누구나 드나들 수 있는 개방된 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "안내 데스크 옆으로 방문증 발급대가 놓여 있고, 벽면 모니터에는 오늘 방문 예정인 실사단 명단이 떠 있다. 데스크 안쪽 직원은 자리를 비운 채다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "모니터에는 오늘 오전 대한로지스 실사단의 방문 일정과 함께, 오후 결과 보고 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04",
+      "name": "대회의실",
+      "access": "이번 서명식을 위해 임시로 통제된 회의 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "긴 탁자 위로 서명이 끝난 계약서 사본들이 그대로 놓여 있고, 창가 자리에서 반준영이 인수 후 일정표를 넘겨보고 있다.",
+      "observation_rules": [
+        {
+          "action": "회의실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "탁자 한쪽에 오늘 오후 결과 보고 일정이 적힌 메모가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "탁자 위 별도 합의서 사본을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "탁자 위에 남겨진 별도 합의서 사본에 '경영관리이사 반준영, 유경환 지방 거점 발령'이라는 조항이 표시돼 있다."
+        },
+        {
+          "action": "대회의실 출입 카드 기록을 확인한다",
+          "requires": "반준영",
+          "release_evidence_id": "E13",
+          "result": "10시 05분, 유경환의 사원증이 대회의실 출입을 태그한 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "안전관리실",
+      "access": "출입증이 있어야 들어갈 수 있는 설비 기록 보관 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02", "L03"],
+      "base_description": "벽면 캐비닛에 설비 점검 일지들이 연도별로 꽂혀 있고, 책상 위 모니터에는 안전 점검 체크리스트가 띄워져 있다. 구석 자리에 강필두가 서류를 정리하며 서 있다.",
+      "observation_rules": [
+        {
+          "action": "안전관리실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽면 캐비닛 옆에 이번 분기 설비 예산 삭감 공문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "이번 분기 안전 점검 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "이번 분기 점검 일지 어디에도 인터록 이상 항목이 기록돼 있지 않다."
+        },
+        {
+          "action": "안전관리실 서버에 백업된 메신저 로그를 확인한다",
+          "requires": "E11",
+          "release_evidence_id": "E12",
+          "result": "전날 밤 22시 10분, 유경환이 강필두에게 보낸 '인터록 건은 이번 분기 보고서에서 빼고 다음 분기로 넘기라'는 메시지 원문이 서버 백업에 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "탁자 위 별도 합의서 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "탁자 위 별도 합의서 사본을 확인한다",
+      "content": "탁자 위에 남겨진 별도 합의서 사본에 '경영관리이사 반준영, 유경환 지방 거점 발령'이라는 조항이 표시돼 있다.",
+      "proves": ["그런 조항이 실제로 합의서에 있었다는 것"],
+      "does_not_prove": ["유경환이 이 사본을 직접 봤는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "반준영의 진술 — 두고 간 서류",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반준영에게 회의실에 두고 간 서류에 대해 묻는다",
+      "content": "\"서명식 끝나고 자료 정리하다 전화를 받으러 잠깐 나갔다 왔는데, 그 사이에 유경환 이사님이 서류를 가지러 들르셨더라고요.\"",
+      "proves": ["반준영이 자리를 비운 사이 유경환이 회의실에 들렀다는 것"],
+      "does_not_prove": ["유경환이 그 사본을 실제로 읽었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "유경환 PC 접속 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "유경환의 업무용 PC 접속 로그를 확인한다",
+      "content": "11시 15분, 유경환의 계정으로 사내 메신저 대화방 하나가 삭제된 이력이 로그에 남아 있다.",
+      "proves": ["그가 그 시각 메신저 대화를 지웠다는 것"],
+      "does_not_prove": ["무슨 대화를 지웠는지는 이 로그만으로 알 수 없다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "강필두의 진술 — 전날 점검",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "강필두에게 어제 점검에서 무엇을 발견했는지 묻는다",
+      "content": "\"인터록 센서 배선에 문제가 있길래 부품이 안 들어와서 우회로 임시 결선을 해 뒀어요.\"",
+      "proves": ["인터록이 우회 결선 상태였다는 것"],
+      "does_not_prove": ["누가 그 상태를 이용했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "다시 손댄 인터록 배선",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "랩핑기 인터록 배선 상태를 살핀다",
+      "content": "인터록 배선이 최근 다시 연결된 흔적이 남아 있고, 절연테이프 색이 주변 배선보다 눈에 띄게 새것이다.",
+      "proves": ["누군가 사고 이후 이 배선을 손봤다는 것"],
+      "does_not_prove": ["정확히 누구인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "오채은의 진술 — 발견 당시",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오채은에게 발견 당시 상황을 묻는다",
+      "content": "\"경보음이 꺼져 있는데 라인은 멈춰 있어서 이상하다 싶어 다가갔어요. 그랬더니 대표님이...\"",
+      "proves": ["발견 당시 경보음이 꺼져 있었다는 것"],
+      "does_not_prove": ["언제부터 꺼져 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "비상정지 조작 로그",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "비상정지 버튼 조작 이력을 확인한다",
+      "content": "설비 제어반 로그에 11시 07분 비상정지 버튼이 눌린 기록이 남아 있다.",
+      "proves": ["11시 07분에 누군가 기계를 세웠다는 것"],
+      "does_not_prove": ["누가 눌렀는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "백소영의 진술 — 유경환의 동태",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백소영에게 그날 오전 유경환의 동태를 묻는다",
+      "content": "\"이사님이 10시 넘어서 표정이 안 좋아지시더니, 11시쯤엔 자리를 비우셨다가 좀 있다 돌아오셨어요.\"",
+      "proves": ["유경환이 11시 무렵 자리를 비웠다는 것"],
+      "does_not_prove": ["어디에 다녀왔는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "소매에 남은 윤활유 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "유경환 책상 옆 옷걸이에 걸린 셔츠를 살핀다",
+      "content": "소매 끝에 기계 윤활유로 보이는 자국이 묻어 있다.",
+      "proves": ["최근 설비 쪽에 접촉했다는 것"],
+      "does_not_prove": ["언제 어느 설비였는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "오채은의 진술 — 대표의 습관",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오채은에게 하명근 대표의 평소 습관을 묻는다",
+      "content": "\"대표님은 늘 그러셨어요. 직접 눈으로 보고 손으로 만져 보고 확인하셔야 직성이 풀리는 분이었죠.\"",
+      "proves": ["하명근이 평소 설비를 직접 점검하는 습관이 있었다는 것"],
+      "does_not_prove": ["오늘 혼자 점검하다 사고를 당했는지는 알 수 없다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "이번 분기 점검 일지",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "이번 분기 안전 점검 일지를 확인한다",
+      "content": "이번 분기 점검 일지 어디에도 인터록 이상 항목이 기록돼 있지 않다.",
+      "proves": ["그 문제가 정식 보고에서 누락됐다는 것"],
+      "does_not_prove": ["누가 누락시켰는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "서버 백업 메신저 로그",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "안전관리실 서버에 백업된 메신저 로그를 확인한다",
+      "content": "전날 밤 22시 10분, 유경환이 강필두에게 보낸 '인터록 건은 이번 분기 보고서에서 빼고 다음 분기로 넘기라'는 메시지 원문이 서버 백업에 남아 있다.",
+      "proves": ["유경환이 직접 인터록 문제를 숨기라고 지시했다는 것"],
+      "does_not_prove": ["그것이 살인과 직접 관련 있는지는 이 메시지만으로 알 수 없다"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E13",
+      "name": "대회의실 출입 카드 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "대회의실 출입 카드 기록을 확인한다",
+      "content": "10시 05분, 유경환의 사원증이 대회의실 출입을 태그한 기록이 남아 있다.",
+      "proves": ["그가 10시 05분에 회의실에 들어갔다는 것"],
+      "does_not_prove": ["안에서 무엇을 봤는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E14",
+      "name": "하역장 출입문 태그 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "하역장 출입문 태그 기록을 확인한다",
+      "content": "11시 00분, 유경환의 사원증이 하역장 출입문을 태그한 이력이 출입 관리 시스템에 확인된다.",
+      "proves": ["그가 11시에 하역장에 들어갔다는 것"],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E15",
+      "name": "오채은의 진술 — 창백한 얼굴",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오채은에게 그 무렵 하역장 주변에서 본 사람이 있는지 묻는다",
+      "content": "\"어... 11시 10분쯤이었나, 유경환 이사님이 하역장 쪽에서 얼굴이 하얗게 질린 채 급히 나오시는 걸 봤어요.\"",
+      "proves": ["11시 10분경 유경환이 창백한 얼굴로 하역장에서 나왔다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E16",
+      "name": "백소영의 진술 — 조직개편 소문",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백소영에게 조직개편 소문에 대해 묻는다",
+      "content": "\"총무팀도 통폐합 대상이라는 얘기가 돌긴 해요. 저도 마음이 편친 않죠.\"",
+      "proves": ["백소영도 조직개편으로 불안해하고 있었다는 것"],
+      "does_not_prove": ["그 불안이 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "강필두의 진술 — 예산 압박",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "강필두에게 최근 예산 압박에 대해 묻는다",
+      "content": "\"위에서 자꾸 비용 줄이라고 하니, 저도 어쩔 수 없이 눈감아 온 게 한둘이 아니에요.\"",
+      "proves": ["강필두가 평소에도 설비 문제를 눈감아 온 적이 있다는 것"],
+      "does_not_prove": ["이번 인터록 건과 직접 관련 있는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_document",
+      "requires_heard_claim_ids": ["S-CH02-02"],
+      "requires_presented_evidence_ids": ["E01", "E13"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": ["E01", "E13"]
+      },
+      "player_action": "탁자 위 별도 합의서 사본(E01)과 대회의실 출입 기록(E13)을 함께 제시하며 처음 듣는 얘기라는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-01",
+        "scope": "유경환이 그날 오전 대회의실에서 자신의 지방 발령 조항이 담긴 별도 합의서를 직접 봤다는 사실을 인정한다."
+      },
+      "must_not_release": ["하역장에서 하명근과 다퉜다는 사실", "직접 떠밀었다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_document",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-03"],
+      "requires_presented_evidence_ids": ["E14", "E15"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": ["E14", "E15"]
+      },
+      "player_action": "하역장 출입 기록(E14)과 오채은의 목격담(E15)을 함께 제시하며 계속 사무실에 있었다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "유경환이 그날 11시경 하역장에서 하명근과 발령 조항을 두고 다퉜다는 사실을 인정한다."
+      },
+      "must_not_release": ["직접 떠밀었다는 사실", "인터록을 숨기라고 지시했다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-04"],
+      "requires_presented_evidence_ids": ["E05", "E07", "E12"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": ["E05", "E07", "E12"]
+      },
+      "player_action": "다시 손댄 인터록 배선(E05)과 비상정지 조작 로그(E07), 서버 백업 메신저 로그(E12)를 함께 제시하며 손을 대지 않았다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "유경환이 언쟁 끝에 격분해 하명근을 랩핑기 롤러 쪽으로 떠밀었다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH05",
+      "surface_suspicion": "강필두가 수상해 보인다 — 그는 인터록 문제를 알고도 정식으로 보고하지 않았고, 사건 직후 유독 점검 일지를 붙들고 예민하게 굴었다.",
+      "actual_reason": "강필두가 감추는 것은 살인이 아니라 예산 압박 속에서 설비 결함을 눈감아 온 자신의 업무 태만이며, 외부 안전자문위원의 방문에 그것이 드러날까 봐 불안해했을 뿐이다.",
+      "how_to_clear": "안전 점검 일지(E11)와 서버 백업 메신저 로그(E12)를 함께 제시해 그가 유경환의 지시로 문제를 미뤄 둔 것일 뿐임을 확인한다.",
+      "must_not_imply": "강필두에게 살인 동기가 없다고 해서 그가 인터록 결함을 방치한 책임까지 사라지는 것은 아니다.",
+      "lingering_thread": "강필두는 이후 인터록을 포함한 노후 설비 전수 점검을 정식으로 요청하겠다고 다짐한다.",
+      "suspicion_deepener": "인터록 문제를 알고도 보고하지 않았다는 사실과, 점검 일지를 유독 예민하게 붙들던 태도가 겹치며 그가 뭔가를 숨기고 있다는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "반준영이 수상해 보인다 — 그는 유경환과 인수인계를 놓고 사전에 신경전을 벌였고, 사건 시각 무렵 하역장 근처에서 목격됐다.",
+      "actual_reason": "반준영이 그 시간에 그 근처에 있었던 것은 인수인계 서류를 받으러 잠깐 들른 것뿐이며, 유경환과의 신경전도 업무 범위를 둘러싼 통상적인 실무 마찰이었을 뿐이다.",
+      "how_to_clear": "오채은의 목격담(E15)과 반준영 본인의 진술(E02)을 함께 제시해 그가 그 시간에 잠깐 다녀온 경위를 확인한다.",
+      "must_not_imply": "반준영이 결백하다고 해서 그와 유경환 사이의 업무 마찰 자체가 없었다는 뜻은 아니다.",
+      "lingering_thread": "반준영은 이후에도 유경환이 맡았던 업무 범위를 어디까지 넘겨받을지를 두고 인수팀과 조율을 계속해야 한다.",
+      "suspicion_deepener": "인수인계를 둘러싼 신경전이 있었다는 사실과, 사건 시각 무렵 하역장 근처에 있었다는 사실이 겹치며 그에 대한 의심이 짙어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH02-01", "F-CH02-02", "F-CH02-03", "E12"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "F-CH02-03",
+      "motive_fact": "F-CH02-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "유경환(CH02) — 성일물류 운영이사",
+    "method": "하역장에서 하명근과 다투다 격분해 가동 중이던 자동 스트레치 랩핑기 롤러 쪽으로 그를 떠밀었다.",
+    "motive": "15년간 자신이 물려받을 것이라 여겼던 경영 실무 자리를 인수 계약의 별도 조항으로 하루아침에 빼앗기게 됐다는 사실을 그날 오전 알게 되면서, 그 결정을 되돌리려다 격분했다.",
+    "key_connection": "대회의실 출입 기록(E13)과 하역장 출입 기록(E14), 오채은의 목격담(E15)이 그가 그 시각 그 자리에 있었다는 것부터, 인터록 배선(E05)과 서버 백업 메신저 로그(E12)로 그 흔적을 지우려 한 시도까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "하명근은 그날 오전 대한로지스와 지분 인수 본계약에 서명했고, 별도 합의서에는 경영관리를 반준영에게 맡기고 유경환을 지방 거점으로 발령한다는 조항이 있었다(E01) — 이 조항은 협상 대표단 외에는 아무에게도 공유되지 않았다.",
+    "반준영은 서명식 직후 회의실에 그 사본을 두고 잠시 자리를 비웠고(E02), 서류를 가지러 들른 유경환이 대회의실에 들어간 기록(E13)이 그가 그 조항을 그 시각에 봤다는 것을 보여 준다.",
+    "면담을 미룬 하명근은 평소 습관대로 하역장에서 직접 설비를 점검했고(E10), 뒤따라온 유경환과 그 자리에서 발령 조항을 두고 다퉜다(E14, E15).",
+    "언쟁 끝에 유경환은 가동 중이던 랩핑기 쪽으로 하명근을 떠밀었다 — 인터록이 우회 결선돼 있어 기계가 멈추지 않았고, 배선이 최근 다시 손질된 흔적(E05)과 비상정지 기록(E07)이 그 직후의 정황을 보여 준다.",
+    "그 인터록 결함은 전날 밤 강필두가 발견해 임시 조치만 해 뒀던 것으로(E04), 정식 점검 일지 어디에도 기록되지 않았다(E11) — 유경환이 다음 분기로 미뤄 두라고 직접 지시했기 때문이었고, 그 메시지 원문이 서버 백업에 남아 있었다(E12).",
+    "유경환은 사건 직후 자신의 휴대전화에서 그 메신저 기록을 지웠지만(E03), 서버 백업까지는 지우지 못했다. 소매에 남은 기계 윤활유 자국(E09)도 그가 최근 설비 쪽에 있었다는 것을 뒷받침했다.",
+    "강필두가 그날 유독 예민했던 것은 인터록 문제가 드러날까 봐서였을 뿐 살인과는 무관했고(E17), 반준영이 하역장 근처에 있었던 것도 인수인계 서류를 받으러 들른 것뿐이었다(E06).",
+    "백소영은 총무팀도 통폐합 대상이 될 수 있다는 소문에 불안해하고 있었지만(E16), 그것과 사건은 관계가 없었다 — 다만 그날 유경환이 유독 안절부절못했다는 그의 관찰이 뒤늦게 의미를 갖게 됐다(E08).",
+    "오채은은 그날 아침 경보음이 정상적으로 울렸다는 것을 기억하고 있었고, 그것이 사고가 아니라 누군가 이후에 손을 댔다는 근거가 됐다."
+  ]
+}

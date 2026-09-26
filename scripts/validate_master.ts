@@ -17,6 +17,13 @@ import { authoredStatementContainment } from '../app/gm/response-signals';
 // 첫 대면이 무엇을 말하는지는 엔진이 이 정규식으로 가른다. 같은 판정을
 // 두 벌로 두면 검사기가 통과시킨 사건이 화면에서는 알리바이부터 말한다.
 import { ALIBI_HINT } from '../app/gm/offline-engine';
+// 은폐 두 축의 칸 표와 「선언이 문장보다 좁은가」 판정. 감사 스크립트가 같은 표를
+// 읽어야 해서 의존 없는 파일로 갈랐다(`cover-up-tables.ts` 머리 주석).
+import {
+  COVER_UP_TARGETS,
+  COVER_UP_METHODS,
+  coverUpDeclarationGaps,
+} from './cover-up-tables';
 
 type Master = any; // 실제 프로젝트에서는 case_master.schema.json에서 뽑은 타입으로 교체
 
@@ -612,11 +619,13 @@ export function validateMaster(
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkStageOwnTestimonyKey(master));
   issues.push(...checkTimelineOrder(master));
+  issues.push(...checkTimeReferences(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
   issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkStatementGating(master, alreadyRegistered));
+  issues.push(...checkCoverUpDeclarationNarrow(master, alreadyRegistered));
   issues.push(...checkOpeningClaim(master, alreadyRegistered));
   issues.push(...checkSuspicionWeight(master, alreadyRegistered));
   issues.push(...checkTestimonyAim(master, alreadyRegistered));
@@ -652,22 +661,18 @@ export function checkEmptyLocations(master: Master): Issue[] {
     const observations = loc.observation_rules ?? [];
     const details = loc.detail_rules ?? [];
     if (observations.length || details.length) continue;
-    // 사람이 있으면 인물 카드로 만날 수는 있으니 방이 완전히 죽지는
-    // 않는다. 그래도 방을 보는 것과 사람을 만나는 것은 다른 행동이라
-    // 그냥 넘기지 않고 warn으로 남긴다. 이미 머지된 28곳이 여기 걸리는데,
-    // 실플레이 피드백으로 마스터 하나를 고친 뒤 check:case를 다시 돌리는
-    // 것이 실제 작업 흐름이라 거기서 막히면 안 된다 — checkRelationships가
-    // 같은 이유로 같은 비대칭을 쓴다.
-    const hasPeople = peopleThere.has(loc.id);
+    // 사람이 있으면 통과다(2026-09-26 사용자 결정). 들어가면 base_description 과
+    // 거기 있는 사람이 나오고 말을 걸 수 있으므로 복도 같은 방이지 막힌 방이
+    // 아니다. 한때 warn 으로 남겼는데(「방을 보는 것과 사람을 만나는 것은 다른
+    // 행동」) 20곳·16건이 사흘간 아무도 안 읽는 경고로 남았다 — 관찰 한 줄을
+    // 더하는 것은 판본을 만들 때의 재료이고 원본에 경고로 걸 일이 아니다.
+    if (peopleThere.has(loc.id)) continue;
     issues.push({
-      severity: hasPeople ? 'warn' : 'error',
+      severity: 'error',
       code: 'LOCATION_HAS_NO_ACTION',
-      message: hasPeople
-        ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
-        : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+      message: `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이다. 관찰 한 줄이나 수색 칸 하나를 넣거나, 누군가를 이 방에 세울 것.`,
     });
   }
-
   return issues;
 }
 
@@ -760,7 +765,11 @@ const TIMELINE_DAY_PATTERNS: Array<[RegExp, number | 'neg' | 'negweek']> = [
   [/^(?:사건|사고|범행)?\s*(?:다음\s*날|다음날|이튿날)/, 1],
 ];
 
-function parseTimelineStamp(raw: string): number | null {
+/**
+ * `actual_timeline[].time` 스탬프를 「0일 0시 0분」 기준 분으로. 날짜 말이 없으면 null.
+ * 실측 스크립트가 같은 해석을 쓰기 위해 내보낸다(`scripts/measure-time-checks.mjs`).
+ */
+export function parseTimelineStamp(raw: string): number | null {
   let rest = (raw || '').trim();
   if (!rest) return null;
   let day: number | null = null;
@@ -1315,7 +1324,9 @@ export function checkSceneDialogueBreaks(master: Master): Issue[] {
       });
     if (mashed.length) {
       issues.push({
-        severity: 'warn',
+        // error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이 공짜였고,
+        // 대사와 지문이 한 문단에 뭉치면 오프라인 화면에서 말풍선이 깨진다.
+        severity: 'error',
         code: 'SCENE_DIALOGUE_MASHED',
         message: `${label}.narrative에 대사와 지문이 한 문단에 뭉친 줄이 ${mashed.length}개 있다 — 서술 한 덩어리, 대사 한 줄을 각각 빈 줄로 나눌 것. 예: ${mashed[0].slice(0, 40)}…`,
       });
@@ -1762,7 +1773,8 @@ export function checkOpeningClaim(
 
 export function checkStatementGating(
   master: Master,
-  alreadyRegistered = false,
+  // 등록 여부를 더 안 본다(2026-09-26 — 늘 error). 호출부 시그니처를 지키기 위해 남긴다.
+  _alreadyRegistered = false,
 ): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
@@ -1797,7 +1809,9 @@ export function checkStatementGating(
       .filter((id) => !gated.has(id) && !staged.has(id));
     if (open.length < UNGATED_KNOWS_LIMIT) continue;
     issues.push({
-      severity: alreadyRegistered ? 'warn' : 'error',
+      // 등록 무관 error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이
+      // 공짜였다. 면담 한 번에 아는 것이 다 나오는 인물은 새 사건에서만 막힌다.
+      severity: 'error',
       code: 'KNOWS_UNGATED_FLOOD',
       message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
     });
@@ -2518,6 +2532,234 @@ export function checkTimelineOrder(master: Master): Issue[] {
     }
     previous = { id: entry.id, time: entry.time, stamp };
   }
+  return issues;
+}
+
+// 본문의 시각을 `actual_timeline` 항목에 **붙여 보는** 검사 셋.
+//
+// 백로그에 「어제/오늘」(`0n4a8r`)과 「12/24시간제 혼용」(`shouwq`)으로 따로 적혀
+// 있던 둘은 **같은 기계**다 — 본문의 시각이 타임라인의 어느 항목인지 먼저 풀어야
+// 둘 다 답이 나오고, 붙이고 나면 항목의 **날짜**를 보면 앞이고 **시**를 보면
+// 뒤다. 경위와 실측치는 `docs/decisions-log.md` 2026-09-26 절, 코퍼스 전수는
+// `npm run measure:times` 가 같은 판정으로 찍는다.
+//
+// **아래 여섯은 전부 실측에서 오탐을 만든 자리다**(189곳 → 9곳). 하나라도 빼면
+// 그만큼 오탐이 돌아온다. 고치기 전에 `measure:times` 로 먼저 세어 볼 것.
+//
+//   1. 「06시」·「06:05」는 이미 24시간제다(앞의 0).
+//   2. 때 표시는 뒤에 오는 시각까지 이어진다 — 「낮 12시부터 1시 10분까지」.
+//   3. 그 이어짐은 다음 시각에서 끊긴다 — 「어제 6시 반에 퇴근했고 아침 7시
+//      50분에 왔어요」의 7시 50분은 어제가 아니다. 단, 범위 연결어(에서·부터)로만
+//      이어져 있으면 넘어온다 — 「새벽, 2시에서 3시 사이」.
+//   4. 「사건 당일」과 「어제」는 **자가 다르다.** 앞은 사건 기준이라 스탬프와 같은
+//      자이고, 뒤는 말하는 사람의 오늘 기준이라 진입일이 기준이다. 섞어 재면
+//      멀쩡한 마스터가 전부 어긋난 것으로 나온다(이것 하나가 오탐 151곳이었다).
+//   5. 「그날」은 안 센다 — 「지금 얘기하는 그 날」이라 사건 당일이라는 보장이 없다.
+//   6. **시각이 같다고 같은 사건이 아니다.** 본문과 타임라인 항목이 같은
+//      고유명(인물·장소)을 하나는 공유할 때만 같은 사건으로 본다.
+
+/** 플레이어가 읽지 않는 칸 + 본문이 아니라 날짜 표기인 칸. */
+const TIME_SCAN_SKIP = new Set([
+  'red_herrings[].must_not_imply',
+  'evidence[].does_not_prove[]',
+  'actual_timeline[].world_fact',
+  'actual_timeline[].actual_action',
+  'characters[].knowledge_limits[]',
+  'contradiction_stages[].must_not_release[]',
+  'case_complete.accusation_requirements.method_fact',
+  'case_complete.accusation_requirements.motive_fact',
+  'final_deduction.method',
+  'final_deduction.motive',
+  'final_deduction.key_connection',
+  'case_identity.setting',
+  'case_identity.tone',
+  'case_identity.genre',
+  'case_identity.detective_entry',
+  'full_truth.method',
+  'full_truth.motive',
+  'full_truth.cover_up',
+  'full_truth.key_time_location',
+  'characters[].initial_claims[].reason_for_limit_or_lie',
+  'actual_timeline[].time',
+  'opening_scene.detective_entry_time',
+]);
+
+const TIME_MARKERS = /오전|오후|새벽|아침|낮|저녁|밤|정오|자정|점심/g;
+/**
+ * 사건 기준 표기 — 스탬프와 같은 자다. 「그날」은 위 5번 때문에 없다.
+ *
+ * 7번(2026-09-26 실측). **「사건」이 앞에 붙은 것만 센다.** 맨 「전날」·「다음
+ * 날」·「당일」은 사건이 아니라 **앞 문장이나 탐정이 보는 오늘**을 기준으로 삼는
+ * 말이라 스탬프와 견줄 수가 없다. CASE113 의 카드 「운행 일지 마지막 줄에는
+ * 전날 18:00에」는 탐정이 사건 **다음날** 아침에 읽는 글이라 그 「전날」이 곧
+ * 사건 당일이고, 타임라인의 「사건 당일 18:00」과 어긋나지 않는다. CASE038·093
+ * 의 「다음 날 아침」·「이튿날」도 바로 앞 문장의 밤을 받는 말이다. 이 셋을
+ * 가려내지 못해 넷 중 셋이 오탐이었다.
+ */
+const TIME_ABS_DAY: Array<[RegExp, number | 'neg']> = [
+  [/(?:사건|사고|범행)\s*당일/, 0],
+  [/(?:사건|사고|범행)\s*(?:다음\s*날|다음날|이튿날)/, 1],
+  [/(?:사건|사고|범행)\s*전날/, -1],
+  [/D-day/i, 0],
+  [/D-(\d+)/, 'neg'],
+  [/(\d+)\s*일\s*전/, 'neg'],
+];
+/** 말하는 사람의 오늘 기준. */
+const TIME_REL_DAY: Array<[RegExp, number]> = [
+  [/그저께|그제/, -2],
+  [/어젯밤|어제/, -1],
+  [/오늘/, 0],
+  [/내일/, 1],
+  [/모레/, 2],
+];
+const TIME_IN_TEXT =
+  /(?<![\d:])(\d{1,2})\s*:\s*(\d{2})|(?<![\d:])(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분|\s*(반))?(?!간|계|각|점|험|장|내|외|절)/g;
+
+function walkMasterStrings(
+  node: unknown,
+  path: string,
+  hit: (path: string, text: string) => void,
+): void {
+  if (typeof node === 'string') return hit(path, node);
+  if (Array.isArray(node)) {
+    for (const value of node) walkMasterStrings(value, path + '[]', hit);
+    return;
+  }
+  if (node && typeof node === 'object')
+    for (const [key, value] of Object.entries(node))
+      walkMasterStrings(value, path ? `${path}.${key}` : key, hit);
+}
+
+function timeSentenceStart(text: string, index: number): number {
+  let cut = -1;
+  for (const mark of ['.', '。', '?', '!', '"'])
+    cut = Math.max(cut, text.lastIndexOf(mark, index - 1));
+  return cut < 0 ? 0 : cut + 1;
+}
+
+function pickDayWord(
+  head: string,
+  table: Array<[RegExp, number | 'neg']>,
+  scale: 'abs' | 'rel',
+) {
+  let best: { word: string; offset: number; scale: 'abs' | 'rel'; at: number } | null = null;
+  for (const [pattern, offset] of table)
+    for (const match of head.matchAll(new RegExp(pattern.source, 'g'))) {
+      if (best && match.index <= best.at) continue;
+      best = {
+        word: match[0].trim(),
+        offset: offset === 'neg' ? -Number(match[1]) : offset,
+        scale,
+        at: match.index,
+      };
+    }
+  return best;
+}
+
+export function checkTimeReferences(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const timeline: Array<{ day: number; hour: number; min: number; raw: string; body: string }> = [];
+  for (const entry of master.actual_timeline ?? []) {
+    const stamp = parseTimelineStamp(String(entry.time ?? ''));
+    if (stamp === null) continue;
+    const mins = ((stamp % 1440) + 1440) % 1440;
+    timeline.push({
+      day: Math.floor(stamp / 1440),
+      hour: Math.floor(mins / 60),
+      min: mins % 60,
+      raw: String(entry.time),
+      body: `${entry.world_fact ?? ''} ${entry.actual_action ?? ''}`,
+    });
+  }
+  if (!timeline.length) return issues;
+
+  // 8번(2026-09-26 실측). **진입일은 `detective_entry_time` 이 적는다.** 처음엔
+  // 타임라인의 마지막 날로 유추했는데, 발견 뒤 항목이 다음날까지 이어지는 사건
+  // (CASE106·144)에서 진입이 하루 뒤로 밀려 멀쩡한 「오늘」이 걸렸다. 탐정이 언제
+  // 들어오는지는 유추할 것이 아니라 마스터에 적혀 있다.
+  const entryStamp = parseTimelineStamp(
+    String(master.opening_scene?.detective_entry_time ?? ''),
+  );
+  if (entryStamp === null) return issues;
+  const entryDay = Math.floor(entryStamp / 1440);
+  const names: string[] = [
+    ...(master.characters ?? []),
+    ...(master.key_figures ?? []),
+    ...(master.locations ?? []),
+  ]
+    .map((item: { name?: unknown }) => item?.name)
+    .filter((name: unknown): name is string => typeof name === 'string' && name.length >= 2);
+
+  walkMasterStrings(master, '', (path, text) => {
+    if (TIME_SCAN_SKIP.has(path)) return;
+    let previousEnd = 0;
+    for (const match of text.matchAll(TIME_IN_TEXT)) {
+      const colon = match[1] !== undefined;
+      const rawHour = colon ? match[1] : match[3];
+      const hour = Number(rawHour);
+      const minute = colon ? Number(match[2]) : match[5] ? 30 : Number(match[4] ?? 0);
+      if (hour > 23) continue;
+      const padded = colon || /^0\d$/.test(rawHour); // 1번
+      const gap = text.slice(previousEnd, match.index);
+      const ranged = previousEnd > 0 && /^[\s,~\-–—]*(?:에서|부터|)[\s,~\-–—]*$/.test(gap); // 3번 예외
+      const head = text.slice(
+        Math.max(timeSentenceStart(text, match.index), ranged ? 0 : previousEnd),
+        match.index,
+      );
+      const markers = [...head.matchAll(TIME_MARKERS)];
+      const marker = markers.length ? markers[markers.length - 1][0] : null; // 2번
+      const absWord = pickDayWord(head, TIME_ABS_DAY, 'abs');
+      const relWord = pickDayWord(head, TIME_REL_DAY, 'rel');
+      const dayWord =
+        absWord && relWord ? (absWord.at > relWord.at ? absWord : relWord) : (absWord ?? relWord);
+      previousEnd = match.index + match[0].length;
+      const quoted = text.slice(Math.max(0, match.index - 24), match.index + 20).trim();
+
+      // ── B. 맨 「N시」인데 타임라인에는 그 시각이 오후로만 있다
+      if (!colon && !padded && !marker && hour >= 1 && hour <= 11) {
+        const pm = timeline.filter((row) => row.hour === hour + 12 && row.min === minute);
+        if (pm.length) {
+          issues.push({
+            severity: 'error',
+            code: 'TIME_12H_UNPAIRABLE',
+            message: `${path}의 「${hour}시${minute ? ` ${minute}분` : ''}」(…${quoted}…)은 타임라인의 "${pm[0].raw}"과 같은 시각인데 **12시간제로 적혀 플레이어가 눈으로 맞춰볼 수 없다.** 타임라인은 24시간제이고 플레이어는 그 둘을 나란히 놓고 읽는다. 때 표시를 붙이거나(「저녁 ${hour}시」·「밤 ${hour}시」) 24시간제로 적을 것. 오전을 뜻한 것이면 「오전 ${hour}시」라고 적어야 같은 혼동이 안 생긴다.`,
+          });
+        }
+      }
+
+      // ── A. 날짜말이 붙은 시각을 타임라인에 붙여 날짜를 견준다
+      if (!dayWord) continue;
+      const amMarked = marker !== null && /새벽|아침|오전|낮|정오/.test(marker);
+      const widen = !colon && !padded && !amMarked && dayWord.scale === 'abs';
+      const candidates = timeline.filter(
+        (row) => row.min === minute && (row.hour === hour || (widen && row.hour === hour + 12)),
+      );
+      if (candidates.length !== 1) continue;
+      const entry = candidates[0];
+      if (!names.some((name) => text.includes(name) && entry.body.includes(name))) continue; // 6번
+      const said = dayWord.scale === 'abs' ? dayWord.offset : entryDay + dayWord.offset;
+      if (said === entry.day) continue;
+      // 상대 표기는 **「오늘」만** 본다. 「어제」·「내일」은 인용된 메모·일정표처럼
+      // 기준일이 글 안에 따로 있는 경우가 많아 오탐이 된다(실측에서 11곳이 그랬다).
+      // 진입이 사건 다음날이고 그 일이 사건 당일일 때만 「오늘」이 확실히 틀렸다.
+      if (dayWord.scale === 'rel' && !(dayWord.offset === 0 && entryDay >= 1 && entry.day === 0))
+        continue;
+
+      if (dayWord.scale === 'abs') {
+        issues.push({
+          severity: 'error',
+          code: 'TIME_DAY_LABEL_MISMATCH',
+          message: `${path}이 「${dayWord.word}」라고 적은 일을 타임라인은 "${entry.raw}"로 적는다(…${quoted}…). **같은 사건인데 날짜 표기가 다르다** — 본문과 스탬프에 같은 인물·장소가 나오므로 같은 일이다. 둘 중 하나가 틀렸으니 어느 쪽이 맞는지 정하고 양쪽을 맞출 것. 자정을 넘긴 시각이 자주 이렇게 갈린다(00시대는 「당일 밤」이 아니라 「다음날 새벽」이다).`,
+        });
+      } else {
+        issues.push({
+          severity: 'error',
+          code: 'TIME_TODAY_IS_YESTERDAY',
+          message: `${path}이 사건을 「오늘」이라 부르는데(…${quoted}…), 타임라인의 그 일은 "${entry.raw}"이고 탐정은 그 **다음 날**에 들어온다. 말하는 사람에게 그 일은 어제다 — 「어제」나 「어젯밤」으로 적을 것. 카드가 종이 기록이면 「오늘 날짜 칸」 같은 표현도 같이 어긋난다.`,
+        });
+      }
+    }
+  });
   return issues;
 }
 
@@ -4309,6 +4551,48 @@ function ratioIssues(
 }
 
 /**
+ * 고정 문턱 대신 **기대치 대비 집중도**로 센다(2026-09-26 사용자 결정). 기대치는
+ * 「사건당 평균 라벨 수 ÷ 칸 수」 — 라벨이 칸에 고르게 흩어졌을 때 한 칸의 점유다.
+ * 다중 선택 축은 라벨 합이 100%를 넘으므로 고정 문턱은 칸 수에 따라 뜻이 달라진다
+ * (8%가 40칸 축에서는 평균의 1.6배, 14칸 축에서는 평균 미만). 배수로 보면 축마다
+ * 자기 구조에 맞는 문턱이 생기고, 새 칸을 늘리거나 라벨 습관이 바뀌어도 따라간다.
+ */
+function concentrationIssues(
+  code: string,
+  mine: Set<string>,
+  others: Array<Set<string>>,
+  slotCount: number,
+  alreadyRegistered: boolean,
+  render: (key: string, pct: string, expectedPct: string, multiplier: string, matching: number, total: number) => string,
+): Issue[] {
+  const issues: Issue[] = [];
+  if (others.length === 0 || slotCount === 0) return issues;
+  const labelsPerCase = others.reduce((sum, set) => sum + set.size, 0) / others.length;
+  const expected = labelsPerCase / slotCount;
+  if (expected <= 0) return issues;
+  for (const key of mine) {
+    const matching = others.filter((o) => o.has(key)).length;
+    const ratio = matching / others.length;
+    const multiplier = ratio / expected;
+    if (multiplier < CONCENTRATION_WARN_MULTIPLIER) continue;
+    issues.push({
+      severity:
+        multiplier >= CONCENTRATION_ERROR_MULTIPLIER ? overuseSeverity(alreadyRegistered) : 'warn',
+      code,
+      message: render(
+        key,
+        (ratio * 100).toFixed(0),
+        (expected * 100).toFixed(1),
+        multiplier.toFixed(1),
+        matching,
+        others.length,
+      ),
+    });
+  }
+  return issues;
+}
+
+/**
  * 배경 세 갈래를 각각 센다 — 칸(10%) · 계열(20%) · 서술 꼴(30%).
  * intensity 는 비율을 보지 않고, 선언이 full_truth 와 어긋나는지만 본다.
  */
@@ -4437,77 +4721,19 @@ export function checkBackgroundIntensity(
 // 상위 밑에 실제 차이를 내려 주는 것**이고, 이것은 `small_business` 110건을
 // 재료별로 쪼갠 것과 같은 원리다. 「계단에서 밀고 사고처럼 꾸며 현장을 정돈」과
 // 「죽인 뒤 CCTV 기록만 지움」은 둘 다 staging_cover_up 인데 전혀 다른 사건이다.
-const COVER_UP_TARGETS: Array<[string, string, RegExp]> = [
-  ['identity', '신원', /신원|누구인지|정체[를가]|이름[^.]{0,8}(숨|감추|바꾸)/],
-  ['motive', '동기', /동기[^.]{0,8}(숨|감추|가리)|이유[^.]{0,8}(숨|감추)|까닭[^.]{0,8}(숨|감추)/],
-  ['time', '시각', /시각[^.]{0,12}(바꾸|고치|속이|어긋|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮|속)|사망 추정 시각|시점[^.]{0,8}(바꾸|속이)/],
-  ['location', '장소', /장소[^.]{0,8}(바꾸|속이|감추)|위치[^.]{0,8}(바꾸|속이|옮)|어디서 (죽|벌어|있었)/],
-  ['cause_of_death', '사인', /사인|사고사|지병|자연사|사망 원인|병사로|심장마비/],
-  ['weapon', '흉기', /흉기|무기[를을]|범행 도구|사용한 도구/],
-  ['access_route', '출입 경로', /출입|드나든|동선|들어간 경로|잠금장치|열쇠[^.]{0,8}(숨|치우|돌려)|카드[^.]{0,8}(빌리|도용|바꾸)/],
-  ['relationship', '관계', /관계[^.]{0,8}(숨|감추|부인)|사이[^.]{0,8}(숨|감추|부인)|친분|내연|빚진|채무 관계/],
-  ['evidence', '증거', /(증거|흔적|자국|지문|잔여물|잔흔)[^.]{0,12}(지우|없애|치우|제거|닦|씻|태우|태웠|폐기)/],
-  ['responsibility', '책임', /책임[^.]{0,8}(돌리|피하|벗)|과실[^.]{0,8}(감추|돌리)|탓으로|뒤집어(씌|쓰)|누명/],
-  ['financial_trace', '금전 흔적', /송금|자금|장부|입출금|계좌|영수증|돈의 흐름|정산 자료|거래 내역/],
-  ['communication_trace', '연락 흔적', /통화|메시지|문자|메일|연락 기록|통신 기록|채팅|녹취/],
-  ['victim_behavior', '피해자의 행동', /스스로[^.]{0,10}(한|했|갔|올라|들어)|본인이[^.]{0,8}(한|했)|자발적으로|혼자[^.]{0,8}(한|했|들어|올라)/],
-  ['crime_scene', '현장', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈|손보|꾸미)|방[을를][^.]{0,8}(정리|치우)|자리[^.]{0,8}(되돌|정돈)|어질러진/],
-];
-
-
-const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
-  ['scene_rearrangement', '현장 재배치', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈)|자세[^.]{0,8}(바꾸|고치|돌려)|물건[^.]{0,10}(제자리|옮|치워|돌려)|배치[^.]{0,8}바꾸|원래대로 (돌려|놓)/],
-  ['evidence_removal', '증거 제거', /(증거|흔적|자국|지문|잔여물|잔흔|자취)[^.]{0,12}(지우|없애|치우|제거|닦|씻|폐기)|태워 없|불태|난로에 태|소각/],
-  ['evidence_placement', '증거 심기', /심어 (놓|두)|가져다 (놓|두)|일부러[^.]{0,8}(남|흘|두)|흘려 (놓|두)|누명[을를]? (씌|쓰)/],
-  // ─── 사고 위장 다섯 칸 ────────────────────────────────────────────
-  //
-  // 한 칸이던 「사고 위장」이 **코퍼스의 53%(167건)**였다(2026-09-25 실측).
-  // 임계 8%의 여섯 배라 이 칸을 고른 사건은 전부 빨개지는데, 정작
-  // **무엇이 겹치는지는 아무 말도 못 한다** — 「사고 위장을 또 썼다」는
-  // 쓰는 사람에게 「그럼 어쩌라고」밖에 안 된다.
-  //
-  // 산문을 읽어 보니 진짜 축은 **무엇을 탓하는가**였고, 그것이 갈리면
-  // **플레이어가 뒤집어야 하는 것이 갈린다** — 설비 탓이면 점검 기록·정비
-  // 로그를 파야 하고, 건강 탓이면 부검·진료 기록을 들이대야 하고, 과실
-  // 탓이면 「피해자가 평소 어떤 사람이었나」를 증언으로 뒤집어야 한다.
-  // 같은 스티커를 달고 있어서 검사기 눈에만 판박이로 보였다.
-  //
-  // **`false_accident` 는 남긴다 — 원인을 특정하지 않은 사고 위장이다.**
-  // 47건이 실제로 그렇다(「사고처럼 꾸미고 자리를 떴다」에서 끝난다).
-  // 쓰레기통이 아니라 진짜 한 칸이고, 넘치면 그때 임계가 말해 준다.
-  //
-  // 아래 넷의 정규식은 **115건을 실제로 옮길 때 쓴 것과 같은 말**이다.
-  // 선언과 폴백이 다른 말로 세면 같은 사건이 경로에 따라 다른 칸에 들어간다.
-  //
-  // 폴백을 타는 마스터는 20건뿐이고(나머지는 `cover_up_method` 선언을 읽는다)
-  // 그중 사고 위장에 걸리는 것은 5건이다. 그 5건은 `false_accident` 와 아래
-  // 한 칸에 겹쳐 세어질 수 있는데, 5건으로는 어느 칸의 비율도 1.6%밖에
-  // 못 움직여서 그대로 뒀다 — 선언을 채우면 저절로 풀린다.
-  ['false_accident', '사고 위장', /사고(처럼|로)[^.]{0,10}(꾸미|보이|위장|처리|만들)|실족(한 것|처럼)|미끄러진 것처럼|사고사로|전복 사고처럼|오작동(처럼|으로)/],
-  ['accident_equipment_failure', '사고 위장(설비 탓)', /노후|오작동|마모|고장|결함|낡[아은]|오래[된돼]|자연 이탈|누유|저절로|헐거|부식|삭아|하중을 못|부실|말썽|정비 불량|이상 없음/],
-  ['accident_victim_error', '사고 위장(피해자 과실 탓)', /부주의|실수로|함부로|헛디|서두르는|안전수칙|절차를 (어기|무시)|혼자 (위험|무리|늦게|오래|훈련|작업|점검|있다)|무리하게|단독 (훈련|작업)|규정을 (어기|무시)|넘어져|옮기다|다뤘|다루었/],
-  ['accident_victim_health', '사고 위장(피해자 건강 탓)', /과로|스트레스|지병|발작|심장마비|알레르기|탈진|저혈당|스스로 쓰러|평소 앓던/],
-  ['accident_environment', '사고 위장(환경 탓)', /벼락|낙뢰|자연재해|역풍|유탄|날씨|비가 와|결빙|강풍|정전/],
-  ['false_suicide', '자살 위장', /자살(처럼|로|한 것)|유서|스스로 목숨/],
-  ['false_intrusion', '침입 위장', /침입(한 것|처럼|으로)|외부인의 소행|강도|도둑이 든 것처럼|창(문)?을 깨/],
-  ['false_timeline', '시각 조작', /시각[^.]{0,12}(바꿔|고쳐|앞당|늦|속이|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮)|타임스탬프|순서[를을] 바꾸|알람[을를]/],
-  ['false_alibi', '알리바이 조작', /알리바이[^.]{0,8}(만들|꾸미|세우)|증인[을를][^.]{0,6}(세|만들)|같이 있었다고|함께 있었다고|내내[^.]{0,12}있었다고 (주장|말)/],
-  ['object_substitution', '물건 바꿔치기', /바꿔치기|바꿔 (놓|두|끼)|같은 것으로[^.]{0,6}(갈|바꾸)|대체품|모조|새것으로 (갈|바꾸)|멀쩡한 것으로/],
-  ['document_falsification', '서류 위조', /서류[^.]{0,10}(위조|조작|고치|바꾸)|장부[^.]{0,10}(고치|바꾸|조작)|기록부[^.]{0,10}(고치|바꾸|조작)|서명[^.]{0,8}(위조|흉내|대신)|일지[^.]{0,10}(고치|바꾸|조작)|명단[^.]{0,8}(고치|바꾸)/],
-  ['digital_record_manipulation', '전산 기록 조작', /로그[를을]|CCTV|영상[^.]{0,8}(지우|삭제|돌려)|파일[^.]{0,8}(지우|삭제)|백업[를을]?|전산|데이터[^.]{0,8}(지우|바꾸)|카메라[^.]{0,8}(끄|가리|돌려)|단말기[^.]{0,10}(시각|기록)/],
-  ['witness_misdirection', '목격자 유도', /다른 사람[을를][^.]{0,6}(지목|가리)|엉뚱한 (사람|쪽)|주의[를을][^.]{0,6}(돌|끌)|거짓 증언|말[을를] 맞추|입[을를] 맞추/],
-  ['body_movement', '시신 이동', /시신[^.]{0,10}(옮|끌|눕|이동)|몸[을를][^.]{0,6}옮|다른 곳으로 옮겨|끌어다 (눕|놓)/],
-  ['weapon_disposal', '흉기 처분', /(흉기|도구|주사기|칼|병|주사기)[^.]{0,10}(버리|치우|숨기|폐기|가져가)/],
-  ['contamination', '오염·덮어쓰기', /덮어(씌|쓰)|섞어[^.]{0,6}(넣|놓|버)|오염(시|되)|물로[^.]{0,6}(씻|흘려)|헹궈|세척|미리 씻어/],
-  ['concealment_without_staging', '손대지 않고 감추기', /그대로 (두|둔)|아무것도[^.]{0,8}(하지|건드리지|손대지)|모른 척|숨기고 (나|물러|있)|신고하지 (않|아니)|알리지 (않|아니)/],
-];
-
-
 // 이 칸은 수법 과용 판정에서 뺀다 — 옮겨서 풀 수 있는 단위가 아니다.
 const METHOD_OVERUSE_EXEMPT = new Set(['위장·은폐 조작']);
 
-const COVER_UP_OVERUSE_THRESHOLD = 0.08;
-// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다.
+// 은폐 두 축은 **고정 문턱을 쓰지 않는다**(2026-09-26 사용자 결정). 칸이 14·20개인데
+// 사건마다 라벨을 두 개쯤 적으므로 평균 점유가 12.9%·9.7%다 — 8%는 평균 **미만**이라
+// 어떤 배치로도 전부 통과가 불가능했고, 그래서 생성 루틴이 `other`로 도망가고
+// (CASE321~328) 한 사건은 수법까지 검사기를 피해 바뀌었다. 동기(37칸)·수법(35칸)·
+// 무대(52칸)는 「평균 점유 × 2」가 지금 문턱(8%·5%)과 거의 같아 그쪽은 그대로다.
+// 기대치 대비 1.5배부터 warn, 2배부터 새 사건 error(등록 사건 warn) — `concentrationIssues`.
+const CONCENTRATION_WARN_MULTIPLIER = 1.5;
+const CONCENTRATION_ERROR_MULTIPLIER = 2.0;
+// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다. 가능한 짝이
+// 190개라 8%는 평균의 열세 배 — 여기는 고정 문턱이 맞다.
 const COVER_UP_PAIR_OVERUSE_THRESHOLD = 0.08;
 
 function coverUpText(master: Master): string {
@@ -4560,6 +4786,30 @@ function methodPairs(keys: Set<string>): Set<string> {
  * 은폐를 두 축으로 센다 — 무엇을 감췄나(`cover_up_target`),
  * 어떻게 감췄나(`cover_up_method`), 그리고 **그 둘이 굳은 짝**.
  */
+// 선언이 문장보다 좁다 — 은폐 동사 세기(생성 스펙)의 기계 보조.
+//
+// 판정과 거른 것 셋은 `cover-up-tables.ts` 의 `coverUpDeclarationGaps` 주석에.
+// 등록된 사건은 warn(2026-09-26 사용자 승인 — 88건이 걸려 이주 루틴의 부채로
+// 남긴다), 새 사건은 error. 같은 판정을 `npm run audit:cover-up` 이 목록으로 찍는다.
+export function checkCoverUpDeclarationNarrow(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const ft = master.full_truth as Record<string, unknown> | undefined;
+  const gaps = coverUpDeclarationGaps(ft);
+  if (gaps.length === 0) return [];
+  const raw = ft?.cover_up_method;
+  const declared = Array.isArray(raw) ? raw.map(String).join(', ') : '';
+  const found = gaps.map((g) => `${g.key}(「${g.matched}」)`).join(' · ');
+  return [
+    {
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'COVER_UP_DECLARATION_NARROW',
+      message: `\`cover_up_method\` 선언은 [${declared}]인데 \`full_truth.cover_up\` 문장에서 폴백이 더 잡는 칸이 있다 — ${found}. 선언은 폴백을 대체하므로 문장보다 좁으면 그 축이 그만큼 안 세어진다. 은폐 문장의 동사를 하나씩 세어 그 수만큼 칸을 적을 것(생성 스펙 「은폐」 절). 걸린 낱말이 은폐가 아니면(오탐) 그 칸을 더하지 말고 갭 문서에 낱말을 적는다.`,
+    },
+  ];
+}
+
 export function checkCoverUpOveruse(
   caseId: string,
   master: Master,
@@ -4572,23 +4822,23 @@ export function checkCoverUpOveruse(
   const otherM = comparableCases.map((o) => coverUpMethods(o.master));
   const mineM = coverUpMethods(master);
   return [
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_TARGET_OVERUSE',
       coverUpTargets(master),
       otherT,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_TARGETS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐가 감추려는 것이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐가 감추려는 것이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다 — 칸당 기대치 ${expected}%의 ${mult}배. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다. 「사인을 감춘다」는 장르의 뼈대라 흔한 것이 정상이고, 이 경고는 그 위에 얼마나 더 쏠렸는가를 말한다.`,
     ),
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_METHOD_OVERUSE',
       mineM,
       otherM,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_METHODS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐 방식이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐 방식이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다 — 칸당 기대치 ${expected}%의 ${mult}배. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것. 칸이 흔해서 \`other\`로 내리는 것은 답이 아니다(짝 검사가 통째로 꺼지고 그 칸의 분모가 깎인다).`,
     ),
     ...ratioIssues(
       'COVER_UP_PAIR_OVERUSE',

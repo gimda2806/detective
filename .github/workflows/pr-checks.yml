@@ -41,6 +41,11 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # 판정 코드를 만들었으면 docs/checks.md 에 그 줄이 있어야 한다
+      # (2026-09-26 사용자 결정). 코드에서 코드를 뽑아 문서와 대조한다 — 1초.
+      - name: 판정 코드 문서 대조
+        run: npm run check:codes
+
       # 가장 빠른 신호부터. 시그니처 드리프트는 대부분 여기서 죽는다.
       - name: Typecheck
         run: npx tsc --noEmit

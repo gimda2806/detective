@@ -25,11 +25,15 @@
     "check:offline": "node --experimental-strip-types scripts/offline-playthrough-check.mjs",
     "audit:format": "node scripts/audit-master-format.mjs",
     "audit:offline": "node scripts/audit-offline-readiness.mjs",
+    "audit:cover-up": "node --experimental-strip-types scripts/audit-cover-up-declaration.mjs",
     "pools:doc": "node scripts/dump-banter-pools.mjs",
     "apply:edits": "node scripts/apply-line-edits.mjs",
     "check:spelling": "node scripts/check-spelling.mjs",
+    "check:codes": "node scripts/check-codes.mjs",
     "check:novel": "node scripts/check-novel-time.mjs",
-    "audit:duplication": "node --experimental-strip-types scripts/audit-duplication.mjs"
+    "audit:duplication": "node --experimental-strip-types scripts/audit-duplication.mjs",
+    "measure:pairs": "node scripts/measure-pair-axes.mjs",
+    "measure:times": "node scripts/measure-time-checks.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

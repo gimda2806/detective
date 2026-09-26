@@ -496,10 +496,15 @@
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01",
         "S-CH03-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
       "knowledge_limits": [
         "권채율이 소식을 듣고 정확히 어떤 반응을 보였는지는 직접 보지 못했다.",
         "제구보관실 안에서 벌어진 일은 전혀 몰랐다."
