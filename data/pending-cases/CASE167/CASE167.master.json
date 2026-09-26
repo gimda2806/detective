@@ -403,6 +403,11 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "E11",
           "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH03-02"
         }
       ],
       "knowledge_limits": [

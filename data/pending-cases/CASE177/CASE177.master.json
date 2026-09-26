@@ -384,6 +384,11 @@
       ],
       "hidden_until": [
         {
+          "fact_or_claim_id": "S-CH02-01",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "E08",
           "release_trigger": "E02"
@@ -522,6 +527,11 @@
         "S-CH04-02"
       ],
       "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH04-01"
+        },
         {
           "fact_or_claim_id": "F-CH04-03",
           "release_prerequisite": "E03",
