@@ -467,13 +467,29 @@
           "claim_id": "S-CH05-02",
           "content": "그날 저녁엔 약속에 늦어서 서둘러 나간 거였어요. 통화 기록 보시면 압니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "형준은 숫자에 밝고 일 처리가 빠른 후배였습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01",
+        "S-CH05-03",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-03"
+        }
+      ],
       "knowledge_limits": [
         "형석이 정비실에서 벌인 일은 전혀 모른다."
       ],

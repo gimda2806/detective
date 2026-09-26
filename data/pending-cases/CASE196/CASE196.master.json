@@ -522,7 +522,13 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "정비구역 안에서 벌어진 구체적인 일은 전혀 모른다."
       ],

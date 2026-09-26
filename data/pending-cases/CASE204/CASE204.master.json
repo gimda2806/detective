@@ -348,7 +348,13 @@
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
       "knowledge_limits": [
         "재홍이 삽목실에서 정확히 무엇을 했는지는 전혀 모른다."
       ],
@@ -435,12 +441,28 @@
           "claim_id": "S-CH04-01",
           "content": "며칠 전에 남편이랑 도련님이 위임장 얘기로 크게 다퉜어요. 그러고는 서로 말도 안 섞더라고요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "재헌 씨는... 늘 가족 일이라면 발 벗고 나서는 사람이었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH04-01"
+        "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
       "knowledge_limits": [
         "재홍이 그 갈등을 어떻게 해결하려 했는지는 전혀 모른다."
       ],
