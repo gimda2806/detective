@@ -98,6 +98,7 @@
 - **이주 루틴** — 옛 마스터를 지금 스키마로. 지침 `docs/master-format-migration.md`. 빠진 필드를 채우는 것이지 사건을 다시 쓰는 것이 아니다. 5건씩.
 - **소설 루틴** — `docs/novels/`에 번호순 5편씩. 지침 `docs/novels/README.md`(회차 기록은 `rounds.md`, 되먹일 목록은 `feedback.md`로 갈랐다 — 2026-09-26), 검사 `npm run check:novel`. 런타임은 읽지 않는다. 판본의 설계도다. 겹쳐 쓴 판본(`-ver2`)은 어느 쪽도 지우지 말 것.
 - **충돌 감시 루틴** — `docs/conflict-watch-routine.md`. 코드를 고치거나 푸시하지 않는다.
+- **판본 루틴**(2026-09-26 사용자 결정) — 오프라인 판본을 **번호순으로, 다음 막에 비는 번호만** 만든다. 지침 `docs/offline-version-routine.md`, 입력은 `npm run audit:offline`(원본이 오프라인 필수 표를 얼마나 갖췼는지 번호순으로 세고 다음 게이트까지 비는 번호를 찍는다. 판본이 있으면 판본을 본다). 한 회차 한 번호, 원본은 건드리지 않고, 판본 노트를 같이 쓴다. 새 원본이 오프라인 완제품으로 태어나게 하는 것(생성 스펙 + 새 원본 error)은 아직 결정 전이다.
 - **시각 되먹임 루틴**(2026-09-24 사용자 결정) — 소설이 메운 시각을 마스터 `actual_timeline`으로. 지침 `docs/novel-time-feedback-routine.md`, 입력은 `check:novel`의 `TIME_NOT_IN_MASTER`(257개, 2026-09-26)를 많은 편부터 5편씩. **되먹이는 방법은 소설 루틴에 이미 있어 다시 쓰지 않았다** — 없던 것은 차례다(`docs/novels/feedback.md`가 「그 번호를 나중에 다시 쓸 때」를 전제로 쓰여 있는데 그 시점이 대부분의 번호에는 오지 않는다). 시각만은 그 조건 없이 지금 되먹일 수 있다 — `actual_timeline`의 빠진 칸은 두 경로가 같이 읽는 **원본의 결함**이고 소설이 자리를 짚어 뒀다(CASE008의 21:03: `T10`이 21:00에 제다실 `L03`에서 다호에 섞었다는데 다호는 마당 건너 `L02`다). 근거 없이 지어낸 `TIME_UNRECORDED` 62개는 같은 편을 여는 김에 적든지 뺀다.
 
 ## 되돌리지 말 것
@@ -107,4 +108,4 @@
 
 ## graphify
 
-`graphify-out/`에 지식 그래프가 있다. 코드베이스 질문은 `graphify query "<질문>"`부터, 관계는 `graphify path`, 개념은 `graphify explain`. `graphify-out/wiki/index.md`가 있으면 넓은 탐색은 그것으로. `GRAPH_REPORT.md`는 전체 구조를 볼 때만. 코드를 고쳤으면 `graphify update .`.
+graphify 가 설치돼 있으면 `graphify-out/`에 지식 그래프가 있다(빌드 산출물이라 저장소에는 없다 — `.gitignore`). 없으면 이 절은 건너뛴다. 코드베이스 질문은 `graphify query "<질문>"`부터, 관계는 `graphify path`, 개념은 `graphify explain`. `graphify-out/wiki/index.md`가 있으면 넓은 탐색은 그것으로. `GRAPH_REPORT.md`는 전체 구조를 볼 때만. 코드를 고쳤으면 `graphify update .`.
