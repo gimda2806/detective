@@ -416,10 +416,15 @@
           "claim_id": "S-CH03-03",
           "content": "문세하 형이 그날 관중석 뒤에서 휴대폰을 좀 이상하게 보고 있긴 했어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "저는 그냥 비행이 좋아서 이 일 하는 거죠 뭐.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01",
+        "S-CH03-04",
         "S-CH03-02",
         "S-CH03-03"
       ],
@@ -428,6 +433,11 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "S-CH03-02",
           "release_trigger": "E11"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_trigger": "S-CH03-02",
+          "release_prerequisite": "C01"
         }
       ],
       "knowledge_limits": [
