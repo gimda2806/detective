@@ -1,0 +1,1480 @@
+{
+  "case_identity": {
+    "case_id": "CASE219",
+    "title": "지워진 피크",
+    "english_title": "The Erased Peak",
+    "genre": "지도교수가 국책 연구비 갱신용 논문의 실험 데이터를 조작한 사실을 박사후연구원이 알아채자, 실험실 후드의 배기 댐퍼를 잠그고 경보 센서를 무력화해 유독 용매 증기에 질식시켜 사고로 위장한 사건 / 환기 조작을 통한 흡입 중독사 위장 및 실험 기록 조작 사건",
+    "setting": "국립대 약학대학 부속 신약개발연구소 3층, 전상혁 교수 연구실. 계단을 오르면 로비 안쪽으로 박사과정 연구원들이 함께 쓰는 메인 실험실이 이어지고, 복도 끝에는 전상혁의 개인 연구실과 시약·기기 보관실이, 반대쪽에는 세미나실이 자리한다. 오늘 저녁은 한서율의 박사학위 논문 예비심사 결과를 검토하는 자리였다. 낮에 있었던 재현성 지적을 두고, 저녁 회의 도중 서율이 원자료를 마저 확인하겠다며 자리를 비운 지 얼마 되지 않은 저녁이었다.",
+    "location_archetypes": [
+      "university"
+    ],
+    "background": {
+      "background_archetypes": [
+        "evaluation"
+      ],
+      "background_phrasing": [
+        "result_review"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 이 연구소의 외부 예비심사위원으로 위촉되어, 오늘 저녁 결과 검토 회의에 이미 한지우와 함께 자리하고 있었다.",
+    "tone": "실험실 특유의 건조한 긴장과, 오래 알고 지낸 사제·동료들 사이에서 조심스레 균열을 캐내야 하는 무게.",
+    "tags": [
+      "대학_연구실",
+      "논문_심사",
+      "실험실"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "한서율",
+      "role": "약학대학 신약개발연구소 박사후연구원",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 20:20",
+    "narrative": "세미나실 문틈으로 다급한 발소리가 스쳐 지나간다.\n\n한지우가 결과 보고서에서 눈을 떼며 미간을 좁힌다.\n\n\"저거... 왜 이렇게 소란스러워요?\"\n\n\"글쎄.\"\n\n복도로 나서자 실험실 쪽에 사람들이 몰려 있는 게 보인다. 흰 가운을 입은 강희수가 창백한 얼굴로 전화기를 붙든 채 같은 자리를 맴돌고 있다.\n\n\"서율 씨가... 후드 앞에 쓰러져 있었어요.\"\n\n메인 실험실 안, 후드 유리창이 반쯤 내려온 채로 한서율이 바닥에 쓰러져 있고 그 옆으로 노란 테이프가 어설프게 둘러쳐져 있다.\n\n한지우가 목소리를 낮춘다.\n\n\"저 댐퍼... 잠금 위치인데요.\"\n\n탐정은 이미 그쪽으로 걸음을 옮기고 있다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "연구실 안, 전상혁은 책상 위에 손을 얹은 채 한참을 그대로 있다.\n\n\"...그날, 저도 압니다. 그러면 안 됐다는 거.\"\n\n전상혁의 목소리가 잦아든다.\n\n\"그냥 시간을 벌고 싶었을 뿐입니다. 그렇게까지 될 줄은...\"\n\n한지우가 수첩을 덮으며 낮게 묻는다.\n\n\"그래서 댐퍼를 잠그고, 배터리까지 빼신 거예요.\"\n\n탐정은 아무 말도 하지 않는다.\n\n창밖으로 어느새 밤이 깊었고, 아래층 실험실에서는 감식반이 마지막 사진을 찍고 있다.\n\n강희수가 보관실 앞에서 재고 대장을 품에 안은 채 서 있다가, 지나가는 탐정에게 나직이 말한다.\n\n\"저기... 이제부터는 점검 서명, 담당자가 직접 하게 바꾸려고요.\"\n\n한지우가 고개를 끄덕인다.\n\n\"그게 맞죠.\"\n\n건물을 나서며 탐정이 픽 웃는다.\n\n\"오랜만에 심사 왔다가 이게 뭐냐.\"\n\n\"그러게요. 다음엔 그냥... 논문이나 읽으러 와요, 우리.\""
+  },
+  "surface_incident": [
+    "강희수가 저녁 순찰 중 실험실 안쪽 불빛이 꺼져 있고 인기척이 없는 게 이상해 문을 열어보다, 후드 앞에 쓰러져 있는 한서율을 발견해 119에 신고했다. 구급대는 도착 당시 이미 심정지 상태였다고 밝혔다.",
+    "경찰은 현장 정황상 서율이 안전수칙을 지키지 않고 혼자 유기용매 재현실험을 하다 후드 환기 불량으로 급성 중독에 이른 사고로 보고 있다.",
+    "오늘 저녁은 한서율의 박사학위 논문 예비심사 결과를 검토하는 자리였고, 그 시각 연구소에는 소수의 연구원과 심사위원들만 남아 있었다.",
+    "문제가 된 흄후드는 사흘 전 정기 점검을 마친 것이었고, 배기 상태에는 이상이 없다는 기록이 남아 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "전상혁은 3년 전 국책 신약개발과제 갱신을 앞두고, 성과 보고서에 실을 논문의 HPLC 재현 데이터 일부를 조작했다. 한 달 전 한서율이 재현실험을 하다 원본 크로마토그램과 논문 그래프가 다르다는 것을 알아챘고, 열흘 전에는 강희수에게 '이상한 데이터를 봤다'고 지나가듯 말하기도 했다. 그런데 사건 당일 오후 2시, 예비심사위원회가 서율의 논문 예비심사에서 재현성 문제를 정식으로 지적하며 오늘 저녁 결과를 다시 검토하기로 했고, 서율은 회의 도중 '원자료를 다시 확인해서 오늘 안에 알려드리겠다'고 공개적으로 예고했다. 전상혁은 서율의 실험 노트에서 '원자료 재검토, 오늘 저녁까지 결론'이라는 메모를 보고, 이 평가에서 조작 사실이 드러나면 진행 중인 과제와 그동안 쌓아 온 것을 전부 잃는다는 생각에 그날을 넘기지 않기로 했다.",
+    "motive_archetypes": [
+      "result_rigging",
+      "evidence_destruction"
+    ],
+    "method": "전상혁은 사건 당일 오후 3시 55분경, 다른 연구원들이 자리를 비운 틈을 타 보관실에서 여벌 렌치를 챙겨 나왔다. 4시 5분경에는 메인 실험실 후드의 배기 덕트 댐퍼를 완전히 잠금 위치로 돌려놓고, 4시 10분경에는 후드 경보 센서에서 배터리를 빼 두어 증기가 쌓여도 경보가 울리지 않게 만들었다. 저녁 결과 검토 회의 도중 홀로 실험실로 내려간 한서율은 클로로포름을 다량 사용하는 재현실험을 후드 안에서 장시간 이어갔고, 배기가 되지 않는 걸 눈치채지 못한 채 유독 증기에 노출돼 저녁 8시 5분경 그 자리에서 쓰러져 숨졌다.",
+    "method_archetypes": [
+      "inhalation_toxin",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 20:05경, 메인 실험실 흄후드 앞(L02)",
+    "cover_up": "전상혁은 신고 소란을 틈타 다시 실험실로 내려가 배기 댐퍼를 원래대로 열어 두고 경보 센서에 새 배터리를 끼워 넣었다. 곧이어 연구실로 돌아가 캐비닛 옆 백업 서버에 접속해 원본 실험 데이터 폴더 전체와 서율과 주고받은 이메일 스레드 하나를 지웠고, 오늘자 안전점검 대장에는 자신이 직접 점검한 것처럼 서명을 다시 써넣었다. 탐정 앞에서는 그 시간 내내 세미나실에서 회의를 하고 있었다고 거짓 진술했고, 서율이 안전수칙을 어기고 혼자 환기도 확인하지 않은 채 무리하게 작업하다 사고를 자초한 것처럼 몰아갔다.",
+    "cover_up_target": [
+      "victim_behavior",
+      "communication_trace"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "digital_record_manipulation",
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E10",
+      "E12"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 1년 전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 국책 신약개발과제 갱신 보고서에 실을 논문의 HPLC 재현 데이터 일부를 조작한다."
+    },
+    {
+      "id": "T02",
+      "time": "한 달 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "한서율이 재현실험을 하다 원본 크로마토그램과 논문 그래프가 다르다는 것을 알아챈다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 오후",
+      "location": "L02",
+      "actors": ["V01", "CH02"],
+      "actual_action": "한서율이 원자료 폴더 전체를 개인 외장하드로 복사하는 걸 배소린이 지나가다 본다."
+    },
+    {
+      "id": "T04",
+      "time": "열흘 전",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "한서율이 강희수에게 '이상한 데이터를 봤다'고 지나가듯 말한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:00",
+      "location": "L05",
+      "actors": ["CH01", "CH04", "V01"],
+      "actual_action": "예비심사위원회가 한서율의 논문 예비심사에서 재현성 문제를 지적하며, 오늘 저녁 결과를 다시 검토하기로 한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 15:30",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 서율의 실험 노트에서 '원자료 재검토, 오늘 저녁까지 결론'이라는 메모를 본다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 15:55",
+      "location": "L04",
+      "actors": ["CH01", "CH05"],
+      "actual_action": "전상혁이 보관실에서 여벌 렌치를 챙겨 나가는 걸 임보라가 본다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 16:05",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 후드 배기 댐퍼를 잠금 위치로 돌려놓는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 16:10",
+      "location": "L02",
+      "actors": ["CH01", "CH02"],
+      "actual_action": "전상혁이 후드 경보 센서 배터리를 빼는 걸 배소린이 잠깐 들렀다가 본다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 18:00",
+      "location": "L05",
+      "actors": ["CH01", "CH04", "V01"],
+      "actual_action": "결과 검토 회의가 시작된다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 18:40",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 회의 도중 20분 가량 자리를 비운다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:40",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "한서율이 회의 중간에 나와 클로로포름을 이용한 재현실험을 홀로 시작한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 20:05",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "한서율이 후드 안에서 장시간 작업하던 중 쌓인 클로로포름 증기에 질식해 쓰러진다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 20:15",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "강희수가 저녁 순찰 중 실험실 안쪽 불빛이 꺼져 있고 인기척이 없는 게 이상해 문을 열어보다, 쓰러져 있는 서율을 발견한다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 20:30",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 신고 소란을 틈타 실험실로 내려가 배기 댐퍼를 원래대로 열어 두고 경보 센서에 새 배터리를 끼운다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 20:35",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "전상혁이 연구실로 돌아가 백업 서버에서 원본 데이터 폴더와 이메일 스레드를 지운다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "전상혁",
+      "role": "지도교수 겸 연구실 책임자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "15년 가까이 이 연구실을 이끌어 왔다.",
+          "source": "본인이 한 일",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "\"서율 군은... 우리 연구실에서 제일 꼼꼼한 친구였습니다.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "\"그 시간엔 계속 세미나실에서 결과 검토 회의를 하고 있었습니다.\"",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 오후 3시 55분경 보관실에서 렌치를 챙기고, 4시 5분경 실험실 후드 배기 댐퍼를 잠갔으며, 4시 10분경 경보 센서 배터리를 빼 두었다. 저녁 소란을 틈타 다시 실험실과 연구실을 오가며 흔적을 되돌렸다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "후드 상태만 확인하러 잠깐 내려갔던 것뿐입니다. 손도 안 댔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "F-CH01-02에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "댐퍼가 헐거워 보여서 다시 조여 둔 겁니다. 오히려 안전하게 해 놓으려던 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "F-CH01-03에서 인정한 것에 붙인 변명. C03이 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "데이터는... 제 불찰입니다. 그렇지만 서율 군을 다치게 할 생각은 한 번도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "F-CH01-04에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E20",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 그날 저녁 정확히 어디 있었는지는 모른다.",
+        "배소린이 낮에 자신을 봤다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 절제된 학자 말투.",
+        "sentence_length_tendency": "평소 차분하고 논리적으로 말하다가, 데이터 얘기가 나오면 문장이 짧아지고 끊긴다.",
+        "verbal_tic": "대답 앞에 '정리하자면'을 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 이 연구실을 지키려던 것뿐입니다.\"",
+        "\"제가 왜 그런 짓을 하겠습니까.\"",
+        "\"...더 드릴 말씀 없습니다.\""
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "배소린",
+      "role": "박사과정 연구원",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "오후 4시 10분쯤 전상혁이 혼자 후드 경보 센서를 만지고 있는 걸 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "서율이 요즘 예비심사 위원장님(윤제야)이 유난히 강하게 나온다고 걱정했었다.",
+          "source": "본인이 들은 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "어제 오후 서율이 원자료 폴더 전체를 개인 외장하드로 복사해 두는 걸 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": ["T03"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "\"서율 선배는... 저한테 실험 하나하나를 다 가르쳐 준 사람이었어요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "\"그 시간엔 계속 공용 컴퓨터로 데이터 정리하고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "댐퍼가 어떻게 조작됐는지 정확한 방법은 모른다.",
+        "전상혁과 서율 사이 데이터 문제의 구체적 내용은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 담백하다.",
+        "sentence_length_tendency": "평소 짧고 사실 위주로 말하다가, 서율 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "문장 끝에 '그랬거든요'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 본 대로 말씀드리는 거예요.\"",
+        "\"제가 뭘 숨긴다고 생각하시는 거예요?\"",
+        "\"...더는 저도 드릴 말씀이 없어요.\""
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH02-02",
+        "opens": "S-CH02-01",
+        "says": "서율 선배가 요즘 예비심사 위원장님이 유난히 강하게 나온다고 걱정했었어요. 혹시 그것 때문에 무슨 일이 생긴 건 아닐까요...",
+        "reveals": "윤제야가 최근 예비심사에서 유난히 강하게 재현성 문제를 몰아붙였다는 것."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "강희수",
+      "role": "연구실 행정·안전관리 조교",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "열흘 전 서율이 '이상한 데이터를 봤다'고 지나가듯 말했다.",
+          "source": "본인이 들은 것",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "오늘자 환기 점검 완료 서명을 담당자 대신 자신이 남겼고, 서명 시각이 실제보다 20분 늦게 찍혔다.",
+          "source": "본인이 한 일",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "최근 두 차례 임보라가 정리한 시약 재고 기록에서 클로로포름 수량이 실측과 어긋난 것을 발견했다.",
+          "source": "본인이 발견한 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "\"이 연구실 안전관리는 제가 3년째 맡고 있는데, 이런 일은 처음이에요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "\"그 시간엔 계속 보관실에서 재고 정리하고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E16",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "댐퍼가 어떻게 조작됐는지 정확한 방법은 모른다.",
+        "전상혁과 서율 사이에 무슨 대화가 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽다.",
+        "sentence_length_tendency": "평소 또박또박 말하다가, 서명 얘기가 나오면 말끝이 흐려진다.",
+        "verbal_tic": "말 앞에 '저기...'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"저기... 저는 시키는 대로 했을 뿐이에요.\"",
+        "\"제가 뭘 잘못했다는 건지 모르겠어요...\"",
+        "\"...더는 저도 몰라요.\""
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-01",
+        "says": "저기... 요즘 보라가 시약 재고 정리하다가 클로로포름 병 수량을 잘못 세는 일이 몇 번 있었어요. 혹시 그것 때문은...",
+        "reveals": "임보라의 시약 재고 기록에 최근 오차가 있었다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "윤제야",
+      "role": "학과장 겸 예비심사위원회 내부위원",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전상혁이 오늘 저녁 결과 검토 회의 도중 20분 가량 자리를 비웠다.",
+          "source": "본인이 본 것",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "서율이 회의 중 '제가 원자료 다시 확인해서 오늘 안에 알려드리겠다'고 말했다.",
+          "source": "본인이 들은 것",
+          "related_timeline": ["T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "\"한서율 군 논문은... 이번 학기 심사에서 제일 기대되는 결과물이었습니다.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "\"그 시간엔 계속 세미나실에서 다른 위원들과 회의를 하고 있었습니다.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E21",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E22",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "실험실 장비가 어떻게 조작됐는지는 모른다.",
+        "전상혁과 서율 사이의 데이터 문제를 구체적으로는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 권위적이다.",
+        "sentence_length_tendency": "평소 단정적으로 말하다가, 자리를 비운 얘기가 나오면 방어적으로 변한다.",
+        "verbal_tic": "문장 끝에 '그게 원칙입니다'를 자주 붙인다.",
+        "stance": "imperious"
+      },
+      "pressure_responses": [
+        "\"저는 원칙대로 심사했을 뿐입니다.\"",
+        "\"왜 저까지 이러시는 겁니까.\"",
+        "\"...더는 드릴 말씀 없습니다.\""
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "임보라",
+      "role": "석사과정 연구원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 오후 3시 55분쯤 전상혁이 보관실에서 렌치를 챙겨 나가는 걸 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "서율이 사흘 전 자신에게 '이번 검토 지나면 여기 분위기 많이 달라질 것 같다'고 말했다.",
+          "source": "본인이 들은 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "\"저기... 서율 선배가 제일 먼저 실험 기구 정리하는 법을 알려준 사람이었어요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "\"그 시간엔 계속 로비에서 게시판 정리하고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "댐퍼가 어떻게 조작됐는지 정확한 방법은 모른다.",
+        "전상혁이 왜 렌치를 챙겼는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽다.",
+        "sentence_length_tendency": "평소 조용히 말하다가, 재고 얘기가 나오면 목소리가 작아진다.",
+        "verbal_tic": "문장 끝에 '그런 것 같아요'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 시키는 일만 했어요.\"",
+        "\"제가 왜 의심받는지 모르겠어요.\"",
+        "\"...더는 드릴 말씀이 없어요.\""
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "지도교수와 박사후연구원. 서율이 이 연구실에서 3년째 전상혁 밑에서 연구해 왔다.",
+      "public_face": "가장 신뢰받는 사제 관계로 알려져 있다.",
+      "says": {
+        "CH01": "이 연구실 성과의 절반은 서율 군 손에서 나왔다고 해도 과언이 아닙니다."
+      },
+      "private_strain": "전상혁은 서율이 발견한 데이터 조작 사실을 숨기고 있다.",
+      "surfaces_when": "탐정이 캐비닛 속 삭제된 파일 로그(E12)와 지워진 이메일 스레드(E13)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "같은 실험대를 쓰는 선후배 연구원. 배소린이 입학할 때부터 서율에게 실험을 배웠다.",
+      "public_face": "가장 손발이 잘 맞는 선후배로 알려져 있다.",
+      "says": {
+        "CH02": "제가 헤맬 때마다 제일 먼저 도와준 사람이 서율 선배였어요."
+      },
+      "private_strain": "배소린은 오후 4시 10분쯤 전상혁이 혼자 후드 경보 센서를 만지고 있는 걸 봤다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 실험실 전자출입기록(E10)을 제시하며 배소린에게 다시 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "연구원과 안전관리 조교. 강희수가 3년째 이 연구실의 시약과 안전 관리를 도맡아 왔다.",
+      "public_face": "가장 꼼꼼하게 실험실을 챙기는 사이로 알려져 있다.",
+      "says": {
+        "CH03": "저기... 서율 선배는 안전수칙을 제일 잘 지키던 사람이었어요."
+      },
+      "private_strain": "강희수는 열흘 전 서율이 '이상한 데이터를 봤다'고 지나가듯 말했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 캐비닛 속 삭제된 파일 로그(E12)를 제시하며 강희수에게 다시 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "예비심사 대상자와 심사위원. 윤제야가 이번 학기 서율의 논문 예비심사를 주관했다.",
+      "public_face": "엄격하지만 공정한 심사위원과 유망한 연구자로 알려져 있다.",
+      "says": {
+        "CH04": "이번 학기 심사 대상자 중에서 서율 군만큼 성실하게 준비한 사람은 없었습니다."
+      },
+      "private_strain": "윤제야는 서율이 회의 중 오늘 안에 원자료를 다시 확인해 알리겠다고 말했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 윤제야의 메모(E22)를 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "선배 연구원과 막내 연구원. 임보라가 입학 후 실험 기구 다루는 법을 전부 서율에게 배웠다.",
+      "public_face": "가장 따르는 후배로 알려져 있다.",
+      "says": {
+        "CH05": "저기... 서율 선배 아니었으면 저는 아직도 피펫 하나 제대로 못 잡았을 거예요."
+      },
+      "private_strain": "임보라는 사건 당일 오후 전상혁이 보관실에서 렌치를 들고 나오는 걸 봤다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 여벌 렌치(E17)를 제시하며 임보라에게 다시 물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH02"],
+      "nature": "지도교수와 박사과정생. 배소린이 2년째 전상혁 연구실 소속이다.",
+      "public_face": "가장 편하게 지도받는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "소린 양은 시키는 대로 착실히 따라오는 학생입니다.",
+        "CH02": "교수님이 워낙 꼼꼼하셔서, 저는 배우는 게 많아요."
+      },
+      "private_strain": "배소린은 어제 오후 서율이 외장하드에 데이터를 따로 백업해 두는 걸 봤다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 공용 컴퓨터 로그(E09)를 제시하며 배소린에게 다시 물을 때."
+    },
+    {
+      "id": "REL07",
+      "between": ["CH01", "CH03"],
+      "nature": "지도교수와 안전관리 조교. 강희수가 전상혁 부임 때부터 3년째 실험실 안전을 맡아 왔다.",
+      "public_face": "가장 손발이 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "희수 씨 아니었으면 이 실험실 안전 관리는 진작 엉망이 됐을 겁니다.",
+        "CH03": "저기... 교수님이 요즘 좀 예민하시긴 했어요."
+      },
+      "private_strain": "강희수는 오늘자 환기 점검 완료 서명을 담당자 대신 자신이 남겼고 그 시각이 늦게 찍혔다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 안전점검 서명 대장(E16)을 제시하며 강희수에게 다시 물을 때."
+    },
+    {
+      "id": "REL08",
+      "between": ["CH02", "CH05"],
+      "nature": "박사과정생과 석사과정생. 두 사람이 같은 실험대를 나눠 쓰는 사이다.",
+      "public_face": "가장 편하게 서로를 챙기는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "보라는... 아직 배우는 중이지만 손이 빨라요.",
+        "CH05": "저기... 소린 언니 아니었으면 저 아직도 헤맸을 거예요."
+      },
+      "private_strain": "임보라는 최근 시약 재고 기록에서 클로로포름 수량이 몇 차례 어긋났다는 것을 배소린에게 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 시약 재고 관리대장(E19)을 제시하며 임보라에게 다시 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 & 게시판",
+      "access": "정문으로 통하는 개방된 로비, 연구소 관계자가 아니어도 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "게시판 앞, 임보라가 예비심사 결과 검토 공지문을 몇 번이고 다시 확인하고 있다. 접수 데스크 옆 안전교육 이수 현황판에는 다음 주 예정된 교육 일정이 붙어 있고, 유리문 너머로 아직 실험실 쪽 소란이 이어진다.",
+      "observation_rules": [
+        {
+          "action": "로비 분위기를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "임보라는 게시판 앞에서 같은 공지문을 몇 번이고 다시 읽고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "예비심사 일정 게시판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "오늘 저녁 6시부터 한서율 논문 예비심사 결과 검토가 열린다는 공지와 참석자 명단(전상혁·윤제야·한서율)이 붙어 있다."
+        },
+        {
+          "action": "실험실 안전교육 이수 현황판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "이수 현황판에는 임보라의 정기 안전교육이 다음 주로 예정돼 있다고 적혀 있다."
+        },
+        {
+          "action": "방문객 출입기록을 확인한다",
+          "requires": "임보라",
+          "release_evidence_id": "E03",
+          "result": "오늘 저녁 외부인 출입은 없고, 내부 인물 다섯 명의 출입 시각만 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "메인 실험실 (흄후드 구역)",
+      "access": "로비 안쪽 메인 실험실, 연구원이면 출입증으로 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "천장에 매달린 흄후드 앞, 노란 테이프 안쪽으로 한서율이 쓰러져 있던 자리가 그대로 남아 있다. 한쪽 실험대에서는 배소린이 공용 컴퓨터 화면만 들여다볼 뿐 좀처럼 자리를 뜨지 못하고 있다.",
+      "observation_rules": [
+        {
+          "action": "실험실 분위기를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "배소린은 공용 컴퓨터 화면만 응시할 뿐 좀처럼 자리를 뜨지 못한다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 서율 주변 현장을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "후드 앞 바닥에 쓰러진 한서율의 손에는 아직 실험용 장갑이 끼워져 있고, 후드 유리창은 반쯤 내려와 있다."
+        },
+        {
+          "action": "후드 배기 댐퍼를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "배기 덕트 댐퍼 레버가 완전히 잠금 위치로 돌아가 있고, 레버 주변에 최근 만진 듯한 윤활유 자국이 남아 있다."
+        },
+        {
+          "action": "후드 경보 센서를 확인한다",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "센서 배터리 칸이 텅 비어 있고, 원래 있어야 할 배터리 두 개가 보이지 않는다."
+        },
+        {
+          "action": "서율의 실험 노트를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "마지막 장에 '원자료 재검토, 오늘 저녁까지 결론'이라는 메모가 서율의 글씨로 남아 있다."
+        },
+        {
+          "action": "실험대 위 시약병들을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "클로로포름 병 뚜껑이 열린 채 놓여 있고, 사용량이 눈금 절반 아래로 줄어 있다."
+        },
+        {
+          "action": "공용 컴퓨터 로그를 확인한다",
+          "requires": "배소린",
+          "release_evidence_id": "E09",
+          "result": "어제 오후, 서율이 실험 원자료 폴더 전체를 개인 외장하드로 복사한 기록이 남아 있다."
+        },
+        {
+          "action": "실험실 전자출입기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "오후 4시 5분부터 4시 12분 사이, 전상혁 혼자 실험실을 드나든 것으로 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "지도교수 연구실",
+      "access": "실험실 옆 복도 안쪽, 전상혁과 소수 연구원만 드나드는 개인 연구실.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "좁은 연구실 안, 책상 앞에 전상혁이 앉아 통화 메모를 정리하는 척 손을 바쁘게 움직이고 있다. 책상 옆 캐비닛 한 칸은 문이 반쯤 열린 채다.",
+      "observation_rules": [
+        {
+          "action": "연구실 분위기를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "전상혁은 통화 메모를 정리하는 척하지만 같은 줄을 몇 번이고 다시 쓰고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 예비심사 결과 초안을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "결과 초안 여백에 '재현성 문제 — 원자료 재검토 요망'이라는 문구가 붉은 펜으로 강조돼 있다."
+        },
+        {
+          "action": "캐비닛 속 삭제된 파일 로그를 확인한다",
+          "requires": "강희수",
+          "release_evidence_id": "E12",
+          "result": "캐비닛 옆 백업 서버 접속 기록에, 오늘 오후 원본 실험 데이터 폴더 전체가 삭제된 로그가 남아 있다."
+        },
+        {
+          "action": "전상혁의 이메일함 출력물을 확인한다",
+          "requires": "E12",
+          "release_evidence_id": "E13",
+          "result": "서율과 주고받은 메일 중 석 달 전 스레드 하나가 통째로 삭제된 흔적이 남아 있다."
+        },
+        {
+          "action": "책상 서랍 속 여벌 배터리 팩을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "후드 센서와 같은 규격의 배터리 여러 개가 들어 있는데, 한 자리가 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "시약·기기 보관실",
+      "access": "실험실 뒤편, 안전관리 담당자만 출입하는 잠금 보관실.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "선반 가득한 시약병과 부품 상자들 사이, 강희수가 재고 목록과 점검 대장을 번갈아 확인하며 손끝으로 줄을 짚어 내려가고 있다.",
+      "observation_rules": [
+        {
+          "action": "보관실 분위기를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "강희수는 재고 대장을 넘기다 같은 페이지에서 손을 멈춘다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "시약 사용대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "클로로포름 출납 기록에 어제 오후 한서율이 다량을 인출해 간 서명이 남아 있다."
+        },
+        {
+          "action": "안전점검 서명 대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "오늘자 환기 점검 완료란에 담당자 대신 강희수의 서명이 남아 있고, 서명 시각이 실제 점검 시각보다 20분 늦게 찍혀 있다."
+        },
+        {
+          "action": "여벌 렌치를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "여벌 렌치 하나에 아직 마르지 않은 윤활유 자국이 묻어 있다."
+        },
+        {
+          "action": "보관실 출입기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "전자 도어락 로그에는 오후 3시 55분부터 4시 15분 사이, 강희수와 전상혁 두 사람만 드나든 것으로 남아 있다."
+        },
+        {
+          "action": "시약 재고 관리대장을 확인한다",
+          "requires": "임보라",
+          "release_evidence_id": "E19",
+          "result": "재고 관리대장에는 최근 두 차례 클로로포름 잔량이 실측과 다르게 기록돼 있고, 담당자 란에 임보라의 이름이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "세미나실",
+      "access": "2층 복도 끝, 심사·회의가 있을 때만 여는 세미나실.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "결과 보고서가 흩어진 테이블 앞, 윤제야가 보고서를 손에 쥔 채 좀처럼 내려놓지 못하고 있다. 벽시계는 저녁 8시를 조금 넘긴 시각을 가리킨다.",
+      "observation_rules": [
+        {
+          "action": "세미나실 분위기를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "윤제야는 결과 보고서를 손에 쥔 채 좀처럼 내려놓지 못한다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "예비심사 결과 보고서 사본을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E20",
+          "result": "보고서 사본에는 '결과 검토는 오늘 저녁 6시, 참석자 전상혁·윤제야·한서율'이라는 문구가 인쇄돼 있다."
+        },
+        {
+          "action": "회의 참석자 서명부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E21",
+          "result": "서명부에는 오후 6시부터 8시까지 서명이 이어지는데, 전상혁의 서명 옆 시각란에 오후 6시 40분부터 오후 7시경까지 빈칸이 남아 있다."
+        },
+        {
+          "action": "윤제야의 메모를 확인한다",
+          "requires": "윤제야",
+          "release_evidence_id": "E22",
+          "result": "메모에 '서율 군, 제가 원자료 다시 확인해서 오늘 안에 알려드리겠다고 했음'이라 적혀 있다."
+        },
+        {
+          "action": "심사위원 회의록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E23",
+          "result": "회의록에는 윤제야가 서율의 재현성 문제를 유난히 강하게 지적하며 '이번에 확실히 짚고 넘어가야 한다'고 말한 것으로 기록돼 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "예비심사 일정 게시판",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "예비심사 일정 게시판을 확인한다",
+      "content": "오늘 저녁 6시부터 한서율 논문 예비심사 결과 검토가 열린다는 공지와 참석자 명단(전상혁·윤제야·한서율)이 붙어 있다.",
+      "proves": ["오늘 저녁 세 사람이 결과 검토에 참석하기로 돼 있었다는 것"],
+      "does_not_prove": ["실제로 각자 그 시간 내내 거기 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E02",
+      "name": "실험실 안전교육 이수 현황판",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "실험실 안전교육 이수 현황판을 확인한다",
+      "content": "이수 현황판에는 임보라의 정기 안전교육이 다음 주로 예정돼 있다고 적혀 있다.",
+      "proves": ["임보라가 아직 정식 안전교육을 이수하지 않았다는 것"],
+      "does_not_prove": ["그것이 사고와 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E03",
+      "name": "방문객 출입기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 출입기록을 확인한다",
+      "content": "오늘 저녁 외부인 출입은 없고, 내부 인물 다섯 명의 출입 시각만 남아 있다.",
+      "proves": ["외부인의 개입은 없었다는 것"],
+      "does_not_prove": ["내부 인물 중 누가 무엇을 했는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "쓰러진 서율 주변 현장",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 서율 주변 현장을 살펴본다",
+      "content": "후드 앞 바닥에 쓰러진 한서율의 손에는 아직 실험용 장갑이 끼워져 있고, 후드 유리창은 반쯤 내려와 있다.",
+      "proves": ["그가 후드 작업 중 쓰러졌다는 것"],
+      "does_not_prove": ["왜 쓰러졌는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E05",
+      "name": "후드 배기 댐퍼",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "후드 배기 댐퍼를 살펴본다",
+      "content": "배기 덕트 댐퍼 레버가 완전히 잠금 위치로 돌아가 있고, 레버 주변에 최근 만진 듯한 윤활유 자국이 남아 있다.",
+      "proves": ["배기 댐퍼가 최근 손을 탔다는 것"],
+      "does_not_prove": ["언제 누가 그렇게 했는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01",
+      "mismatch": "정기 점검 기록에는 댐퍼가 항상 열림 위치여야 한다고 적혀 있는데, 지금은 잠금 위치로 돌아가 있다."
+    },
+    {
+      "id": "E06",
+      "name": "후드 경보 센서",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "후드 경보 센서를 확인한다",
+      "content": "센서 배터리 칸이 텅 비어 있고, 원래 있어야 할 배터리 두 개가 보이지 않는다.",
+      "proves": ["경보 센서가 무력화돼 있었다는 것"],
+      "does_not_prove": ["누가 배터리를 뺐는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E07",
+      "name": "서율의 실험 노트",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "서율의 실험 노트를 확인한다",
+      "content": "마지막 장에 '원자료 재검토, 오늘 저녁까지 결론'이라는 메모가 서율의 글씨로 남아 있다.",
+      "proves": ["서율이 오늘 저녁 안에 결론을 내리려 했다는 것"],
+      "does_not_prove": ["그 결론이 무엇이었는지"],
+      "presentation_effect": ["C04"],
+      "points_at": null,
+      "reaction": {
+        "jiwoo": "오늘 저녁까지... 뭘 결론 내리려던 걸까요.",
+        "detective": "그러게."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "실험대 위 시약병들",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "실험대 위 시약병들을 살펴본다",
+      "content": "클로로포름 병 뚜껑이 열린 채 놓여 있고, 사용량이 눈금 절반 아래로 줄어 있다.",
+      "proves": ["서율이 다량의 클로로포름을 써서 재현실험을 했다는 것"],
+      "does_not_prove": ["그 양이 위험 수준이었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E09",
+      "name": "공용 컴퓨터 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "공용 컴퓨터 로그를 확인한다",
+      "content": "어제 오후, 서율이 실험 원자료 폴더 전체를 개인 외장하드로 복사한 기록이 남아 있다.",
+      "proves": ["서율이 원자료를 따로 백업해 두었다는 것"],
+      "does_not_prove": ["그 백업을 어디에 뒀는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E10",
+      "name": "실험실 전자출입기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "실험실 전자출입기록을 확인한다",
+      "content": "오후 4시 5분부터 4시 12분 사이, 전상혁 혼자 실험실을 드나든 것으로 남아 있다.",
+      "proves": ["그 시간대 실험실에 전상혁 혼자 있었다는 것"],
+      "does_not_prove": ["그 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01",
+      "mismatch": "그 시간대는 원래 결과 검토 회의 준비로 다들 세미나실에 모여 있어야 했는데, 기록에는 전상혁 혼자 실험실을 오간 것으로만 남아 있다.",
+      "reaction": {
+        "jiwoo": "이 시간엔 교수님 혼자였네요.",
+        "detective": "회의 준비하러 다들 모여 있었어야 할 시간에."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "책상 위 예비심사 결과 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 예비심사 결과 초안을 확인한다",
+      "content": "결과 초안 여백에 '재현성 문제 — 원자료 재검토 요망'이라는 문구가 붉은 펜으로 강조돼 있다.",
+      "proves": ["예비심사에서 재현성 문제가 공식적으로 지적됐다는 것"],
+      "does_not_prove": ["그 지적이 무엇으로 이어졌는지"],
+      "presentation_effect": ["C04"],
+      "points_at": null
+    },
+    {
+      "id": "E12",
+      "name": "캐비닛 속 삭제된 파일 로그",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "캐비닛 속 삭제된 파일 로그를 확인한다",
+      "content": "캐비닛 옆 백업 서버 접속 기록에, 오늘 오후 원본 실험 데이터 폴더 전체가 삭제된 로그가 남아 있다.",
+      "proves": ["전상혁이 원본 데이터를 오늘 오후 지웠다는 것"],
+      "does_not_prove": ["그 안에 무엇이 들어 있었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거... 원본 데이터가 통째로 지워졌네요.",
+        "detective": "오늘 오후에."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "전상혁의 이메일함 출력물",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "전상혁의 이메일함 출력물을 확인한다",
+      "content": "서율과 주고받은 메일 중 석 달 전 스레드 하나가 통째로 삭제된 흔적이 남아 있다.",
+      "proves": ["전상혁이 서율과의 특정 대화를 지웠다는 것"],
+      "does_not_prove": ["그 대화의 내용이 무엇이었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이메일까지 지운 걸 보면...",
+        "detective": "숨길 게 있었단 거지."
+      }
+    },
+    {
+      "id": "E14",
+      "name": "책상 서랍 속 여벌 배터리 팩",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 속 여벌 배터리 팩을 확인한다",
+      "content": "후드 센서와 같은 규격의 배터리 여러 개가 들어 있는데, 한 자리가 비어 있다.",
+      "proves": ["그 배터리가 후드 센서에 쓰이는 것과 같은 규격이라는 것"],
+      "does_not_prove": ["실제로 거기서 빼갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E15",
+      "name": "시약 사용대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "시약 사용대장을 확인한다",
+      "content": "클로로포름 출납 기록에 어제 오후 한서율이 다량을 인출해 간 서명이 남아 있다.",
+      "proves": ["서율이 어제 다량의 클로로포름을 인출했다는 것"],
+      "does_not_prove": ["그것을 어디에 썼는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "안전점검 서명 대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "안전점검 서명 대장을 확인한다",
+      "content": "오늘자 환기 점검 완료란에 담당자 대신 강희수의 서명이 남아 있고, 서명 시각이 실제 점검 시각보다 20분 늦게 찍혀 있다.",
+      "proves": ["오늘 환기 점검 서명을 담당자 본인이 아니라 강희수가 대신했고 시각도 늦었다는 것"],
+      "does_not_prove": ["그 20분 사이 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E17",
+      "name": "여벌 렌치",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "여벌 렌치를 살펴본다",
+      "content": "여벌 렌치 하나에 아직 마르지 않은 윤활유 자국이 묻어 있다.",
+      "proves": ["누군가 최근 그 렌치로 댐퍼 작업을 했다는 것"],
+      "does_not_prove": ["정확히 언제, 누가 썼는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "보관실 출입기록판",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "보관실 출입기록판을 확인한다",
+      "content": "전자 도어락 로그에는 오후 3시 55분부터 4시 15분 사이, 강희수와 전상혁 두 사람만 드나든 것으로 남아 있다.",
+      "proves": ["그 시간대 보관실을 드나든 사람이 강희수와 전상혁뿐이었다는 것"],
+      "does_not_prove": ["두 사람이 각각 무엇을 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E19",
+      "name": "시약 재고 관리대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "시약 재고 관리대장을 확인한다",
+      "content": "재고 관리대장에는 최근 두 차례 클로로포름 잔량이 실측과 다르게 기록돼 있고, 담당자 란에 임보라의 이름이 적혀 있다.",
+      "proves": ["임보라의 재고 기록에 최근 오차가 있었다는 것"],
+      "does_not_prove": ["그 오차가 고의적인지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E20",
+      "name": "예비심사 결과 보고서 사본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "예비심사 결과 보고서 사본을 확인한다",
+      "content": "보고서 사본에는 '결과 검토는 오늘 저녁 6시, 참석자 전상혁·윤제야·한서율'이라는 문구가 인쇄돼 있다.",
+      "proves": ["오늘 저녁 결과 검토 일정과 참석자"],
+      "does_not_prove": ["실제로 전원이 끝까지 남아 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E21",
+      "name": "회의 참석자 서명부",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "회의 참석자 서명부를 확인한다",
+      "content": "서명부에는 오후 6시부터 8시까지 서명이 이어지는데, 전상혁의 서명 옆 시각란에 오후 6시 40분부터 오후 7시경까지 빈칸이 남아 있다.",
+      "proves": ["전상혁이 회의 도중 20분가량 자리를 비웠다는 것"],
+      "does_not_prove": ["그 사이 어디에 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E22",
+      "name": "윤제야의 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "윤제야의 메모를 확인한다",
+      "content": "메모에 '서율 군, 제가 원자료 다시 확인해서 오늘 안에 알려드리겠다고 했음'이라 적혀 있다.",
+      "proves": ["서율이 회의 중 오늘 안에 원자료를 재확인해 알리겠다고 말했다는 것"],
+      "does_not_prove": ["그가 실제로 무엇을 확인했는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E23",
+      "name": "심사위원 회의록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "심사위원 회의록을 확인한다",
+      "content": "회의록에는 윤제야가 서율의 재현성 문제를 유난히 강하게 지적하며 '이번에 확실히 짚고 넘어가야 한다'고 말한 것으로 기록돼 있다.",
+      "proves": ["윤제야가 이 문제를 강하게 밀어붙였다는 것"],
+      "does_not_prove": ["그 이유가 사적인 것인지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E24",
+      "name": "배소린의 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "배소린에게 사건 당일 오후 무엇을 봤는지 묻는다",
+      "content": "배소린은 오후 4시 10분쯤 전상혁 교수가 혼자 후드 경보 센서를 만지고 있는 걸 봤다고 말한다.",
+      "proves": ["전상혁이 그 시간대 혼자 후드를 만졌다는 것을 목격자가 확인해 준다는 것"],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E25",
+      "name": "배소린의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "배소린에게 사건 당일 저녁 어디 있었는지 묻는다",
+      "content": "배소린은 그 시간엔 계속 공용 컴퓨터로 데이터 정리를 하고 있었다고 말한다.",
+      "proves": ["배소린 본인의 진술 내용"],
+      "does_not_prove": ["그 진술이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E26",
+      "name": "강희수가 전한 서율의 발언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강희수에게 서율이 무슨 얘기를 했었는지 묻는다",
+      "content": "강희수는 열흘 전 서율이 '이상한 데이터를 봤다'고 지나가듯 말했다고 전한다.",
+      "proves": ["서율이 열흘 전 데이터 문제를 알아챘다는 것을 강희수가 확인해 준다는 것"],
+      "does_not_prove": ["그 데이터 문제가 누구 것이었는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E27",
+      "name": "강희수의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강희수에게 사건 당일 저녁 어디 있었는지 묻는다",
+      "content": "강희수는 그 시간엔 계속 보관실에서 재고 정리를 하고 있었다고 말한다.",
+      "proves": ["강희수 본인의 진술 내용"],
+      "does_not_prove": ["그 진술이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E28",
+      "name": "윤제야가 확인한 전상혁의 이석",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "윤제야에게 심사 회의 중 무슨 일이 있었는지 묻는다",
+      "content": "윤제야는 전상혁이 회의 도중 20분 가량 자리를 비웠다고 말한다.",
+      "proves": ["목격자가 전상혁의 이석을 확인해 준다는 것"],
+      "does_not_prove": ["그 사이 어디에 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E29",
+      "name": "윤제야의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "윤제야에게 사건 당일 저녁 어디 있었는지 묻는다",
+      "content": "윤제야는 그 시간엔 계속 세미나실에서 다른 위원들과 회의를 하고 있었다고 말한다.",
+      "proves": ["윤제야 본인의 진술 내용"],
+      "does_not_prove": ["그 진술이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E30",
+      "name": "임보라가 확인한 전상혁의 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임보라에게 사건 당일 오후 무엇을 봤는지 묻는다",
+      "content": "임보라는 오후 3시 55분쯤 전상혁이 보관실에서 렌치를 챙겨 나가는 걸 봤다고 말한다.",
+      "proves": ["목격자가 전상혁이 렌치를 소지했다는 것을 확인해 준다는 것"],
+      "does_not_prove": ["그것을 어디에 썼는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E31",
+      "name": "임보라의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임보라에게 사건 당일 저녁 어디 있었는지 묻는다",
+      "content": "임보라는 그 시간엔 계속 로비에서 게시판 정리를 하고 있었다고 말한다.",
+      "proves": ["임보라 본인의 진술 내용"],
+      "does_not_prove": ["그 진술이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E32",
+      "name": "배소린이 확인한 강희수의 행적",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "배소린에게 그날 저녁 강희수가 어디 있었는지 묻는다",
+      "content": "배소린은 사고 시각 내내 강희수가 보관실에서 재고 정리하는 소리를 들었다고 말한다.",
+      "proves": ["강희수가 사고 시각 내내 보관실에 있었다는 것"],
+      "does_not_prove": ["그녀가 잠깐도 자리를 비우지 않았는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E33",
+      "name": "강희수가 확인한 임보라의 행적",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강희수에게 그날 저녁 임보라가 어디 있었는지 묻는다",
+      "content": "강희수는 사고 시각 내내 임보라가 로비 게시판 앞에 있는 걸 봤다고 말한다.",
+      "proves": ["임보라가 사고 시각 내내 로비에 있었다는 것"],
+      "does_not_prove": ["그녀가 잠깐도 자리를 비우지 않았는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E34",
+      "name": "강희수가 확인한 윤제야의 행적",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강희수에게 그날 저녁 세미나실 쪽 상황을 묻는다",
+      "content": "강희수는 저녁 7시경 서류를 전달하러 세미나실 앞을 지나며 윤제야가 계속 자리에 앉아 있는 걸 봤다고 말한다.",
+      "proves": ["윤제야가 그 시각 세미나실 밖으로 나가지 않았다는 것"],
+      "does_not_prove": ["그가 잠깐도 자리를 비우지 않았는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E35",
+      "name": "배소린이 전한 심사 압박 정황",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "배소린에게 최근 예비심사 관련해서 들은 게 있는지 묻는다",
+      "content": "배소린은 최근 윤제야가 서율에게 유난히 깐깐하게 굴어 서율이 스트레스를 받았다고 말한다.",
+      "proves": ["윤제야가 서율을 유난히 강하게 몰아붙였다는 것"],
+      "does_not_prove": ["그것이 사적인 이유 때문인지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E36",
+      "name": "강희수가 전한 재고 관리 정황",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강희수에게 임보라의 시약 관리에 대해 들은 게 있는지 묻는다",
+      "content": "강희수는 최근 임보라가 시약 재고 정리를 하다 실수를 몇 번 저질렀다고 말한다.",
+      "proves": ["임보라의 재고 관리에 최근 실수가 있었다는 것"],
+      "does_not_prove": ["그 실수가 사고와 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_hood_presence",
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E10"]
+      },
+      "player_action": "실험실 전자출입기록(E10)을 '계속 세미나실에 있었다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그 시간에 잠깐 실험실을 오간 것은 인정하지만, 후드 상태만 확인하러 간 것뿐이라고 둘러댄다."
+      },
+      "must_not_release": ["댐퍼를 조작한 것", "데이터 조작"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_hood_presence",
+      "to_stage": "admits_damper_tamper",
+      "requires_heard_claim_ids": ["F-CH05-01", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E05", "E17"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E05", "E17"]
+      },
+      "player_action": "잠금 위치로 돌아간 배기 댐퍼(E05)와 윤활유 자국이 남은 여벌 렌치(E17)를 '손도 안 댔다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "댐퍼를 손댄 것은 인정하지만, 헐거워 보여 다시 조이려 한 것뿐이라고 주장한다."
+      },
+      "must_not_release": ["고의성", "데이터 조작"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_damper_tamper",
+      "to_stage": "admits_data_manipulation",
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E12", "E13"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E12", "E13"]
+      },
+      "player_action": "삭제된 원본 데이터 폴더 로그(E12)와 지워진 이메일 스레드(E13)를 '안전하게 해 놓으려던 것'이라는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "논문 데이터를 조작한 것과 서율이 그것을 알아챘다는 것은 인정한다. 다만 다치게 할 생각은 없었다고 부인한다."
+      },
+      "must_not_release": ["고의적 살해", "환기 조작 계획"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_data_manipulation",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH01-05"],
+      "requires_presented_evidence_ids": ["E07", "E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": ["E07", "E11"]
+      },
+      "player_action": "'오늘 저녁까지 결론'이라 적힌 서율의 실험 노트(E07)와 재현성 문제를 지적한 예비심사 결과 초안(E11)을 '다치게 할 생각은 없었다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "서율이 오늘 저녁 안에 조작을 알리려 한다는 걸 알고, 배기 댐퍼를 잠그고 경보 센서 배터리를 빼 두어 서율이 혼자 유독 증기에 노출되도록 만들었다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "강희수는 이 연구실의 안전관리를 총괄하고, 오늘자 환기 점검 완료 서명(E16)을 담당자 대신 자신이 남겼으며, 그 시간대 보관실을 자유롭게 드나들 수 있었다.",
+      "actual_reason": "강희수가 대신 서명한 것은 흔한 관행이었을 뿐, 그녀가 직접 댐퍼나 배터리에 손을 댄 적은 없다. 시약 사용대장(E15)은 그녀가 클로로포름 출납을 성실히 기록해 왔다는 것을, 배소린이 확인해 준 행적 진술(E32)은 그녀가 사고 시각 내내 보관실에서 재고 정리를 하고 있었다는 것을 보여준다.",
+      "how_to_clear": "시약 사용대장(E15)과 배소린이 확인해 준 강희수의 행적 진술(E32)을 함께 제시한다.",
+      "must_not_imply": "강희수가 점검을 소홀히 했다는 인상은 주지 않는다 — 그녀는 이상을 알아채자마자 곧바로 신고했다.",
+      "lingering_thread": "강희수는 이 일을 계기로 앞으로 안전점검 서명을 반드시 담당자 본인이 직접 하도록 절차를 바꾸자고 건의한다.",
+      "suspicion_deepener": "보관실 출입기록판(E18)에 그 시간대 그녀와 전상혁만 드나든 것으로 남아 있다는 사실이 겹치면, 캐물을수록 그녀가 뭔가 도운 것처럼 보인다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "안전관리와 장비 점검 기록을 모두 관리하며 보관실과 실험실을 자유롭게 드나들 수 있었다.",
+        "means": ["E16", "E18"],
+        "means_first_reading": "대신 남긴 점검 서명과 그 시간대 단둘이 드나든 출입기록이 겹쳐, 그녀가 뭔가 돕거나 알고 있었던 것처럼 읽힌다."
+      },
+      "cleared_by": ["E15", "E32"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "윤제야는 예비심사에서 서율의 재현성 문제를 유난히 강하게 지적했고, 회의록에도 그 압박이 뚜렷이 남아 있다.",
+      "actual_reason": "윤제야가 강하게 밀어붙인 것은 심사위원장으로서 재현성 문제를 확실히 짚고 넘어가야 한다는 직업적 원칙 때문이었을 뿐, 전상혁과의 사적인 갈등은 없었다. 심사위원 회의록(E23)은 그 지적이 정식 절차로 기록된 것이라는 것을, 강희수가 확인해 준 행적 진술(E34)은 그가 자리를 비운 적 없이 계속 세미나실에 있었다는 것을 보여준다.",
+      "how_to_clear": "심사위원 회의록(E23)과 강희수가 확인해 준 윤제야의 행적 진술(E34)을 함께 제시한다.",
+      "must_not_imply": "윤제야가 재현성 문제에 무관심했다는 인상은 주지 않는다 — 그 지적은 실제였고 정당했다.",
+      "lingering_thread": "윤제야는 이 일을 계기로 앞으로 예비심사 원자료를 심사위원회가 직접 대조하도록 절차를 바꾸자고 제안한다.",
+      "suspicion_deepener": "윤제야의 메모(E22)가 겹치면, 캐물을수록 그가 서율을 유난히 몰아붙인 것처럼 보인다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "예비심사위원으로서 회의 진행을 주도하며 서율에게 직접 압박을 가할 수 있는 위치에 있었다.",
+        "means": ["E22", "E23"],
+        "means_first_reading": "서율에게 오늘 안에 결론을 요구한 메모와, 회의록에 남은 강한 지적이 겹쳐 그가 이 문제를 개인적으로 밀어붙인 것처럼 읽힌다."
+      },
+      "cleared_by": ["E23", "E34"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R03",
+      "character_id": "CH05",
+      "surface_suspicion": "임보라는 아직 정식 안전교육을 이수하지 않았고, 최근 시약 재고 기록에 오차가 있었으며, 사고 시각 근처 로비에 혼자 있었다.",
+      "actual_reason": "재고 오차는 아직 손에 익지 않은 그녀의 미숙함 때문이었을 뿐 고의적 은폐가 아니었고, 그녀는 사고 시각 내내 로비에서 게시판 정리를 하고 있었다. 임보라의 알리바이 진술(E31)과 강희수가 확인해 준 행적 진술(E33)이 이를 보여준다.",
+      "how_to_clear": "임보라의 알리바이 진술(E31)과 강희수가 확인해 준 임보라의 행적 진술(E33)을 함께 제시한다.",
+      "must_not_imply": "임보라가 시약 관리에 무책임했다는 인상은 주지 않는다 — 그녀는 아직 배우는 중이었을 뿐이다.",
+      "lingering_thread": "임보라는 이 일을 계기로 정식 안전교육을 앞당겨 이수하기로 한다.",
+      "suspicion_deepener": "안전교육 이수 현황판(E02)이 겹치면, 캐물을수록 그녀가 아직 미숙해서 뭔가 실수한 것처럼 보인다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "시약 재고와 실험실 정리를 도맡아 보관실과 실험실을 자유롭게 드나들 수 있었다.",
+        "means": ["E02", "E19"],
+        "means_first_reading": "안전교육을 아직 이수하지 않았다는 것과 재고 기록의 오차가 겹쳐 그녀가 미숙해서 사고를 낸 것처럼 읽힌다."
+      },
+      "cleared_by": ["E31", "E33"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-02", "F-CH01-03", "F-CH01-04", "F-CH01-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "전상혁은 사건 당일 오후 4시 5분경 메인 실험실 후드의 배기 댐퍼를 잠그고 경보 센서 배터리를 빼 두었고, 저녁 8시 5분 한서율이 클로로포름 증기가 쌓인 후드 안에서 홀로 작업하다 질식해 숨졌다.",
+      "motive_fact": "조작한 논문 데이터가 오늘 저녁 예비심사 결과 검토에서 드러날 위기에 몰렸기 때문이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "전상혁",
+    "method": "전상혁은 사건 당일 오후 3시 55분경 보관실에서 여벌 렌치를 챙겨 나와, 4시 5분경 메인 실험실 후드의 배기 덕트 댐퍼를 완전히 잠금 위치로 돌려놓고 4시 10분경 경보 센서 배터리를 빼 두었다. 저녁 결과 검토 회의 도중 홀로 실험실로 내려간 한서율은 클로로포름을 다량 사용하는 재현실험을 후드 안에서 장시간 이어갔고, 배기가 되지 않는 걸 눈치채지 못한 채 유독 증기에 노출돼 저녁 8시 5분경 그 자리에서 쓰러져 숨졌다. 전상혁은 신고 소란을 틈타 다시 내려가 댐퍼를 원래대로 돌리고 배터리를 새로 끼운 뒤, 원본 데이터와 이메일 기록을 지웠다.",
+    "motive": "전상혁은 3년 전부터 국책 신약개발과제 갱신용 논문의 재현 데이터를 조작해 왔다. 한 달 전 한서율이 그 사실을 알아챘고, 사건 당일 예비심사위원회가 재현성 문제를 정식으로 지적하며 오늘 저녁 결과를 다시 검토하기로 하자, 서율은 회의 중 오늘 안에 원자료를 재확인해 알리겠다고 예고했다. 이 평가에서 조작 사실이 드러나면 모든 걸 잃는다는 생각에 범행을 저질렀다.",
+    "key_connection": "실험실 전자출입기록(E10)과 캐비닛 속 삭제된 파일 로그(E12)는, 그 시간대 홀로 실험실을 오간 손과 원본 데이터를 지운 손이 같은 사람의 것이라는 걸 함께 가리킨다."
+  },
+  "ending_explanation": [
+    "전상혁은 3년 전 국책 신약개발과제 갱신을 앞두고 성과 보고서에 실을 논문의 HPLC 재현 데이터 일부를 조작했다.",
+    "한 달 전 한서율이 재현실험을 하다 원본 크로마토그램과 논문 그래프가 다르다는 것을 알아챘고, 열흘 전에는 강희수에게 '이상한 데이터를 봤다'고 지나가듯 말했다(E26).",
+    "사건 당일 오후 2시, 예비심사위원회가 서율의 논문 예비심사에서 재현성 문제를 정식으로 지적했고(E20, E11), 서율은 저녁 회의 도중 원자료를 다시 확인해 오늘 안에 알리겠다고 예고했다(E22, E28).",
+    "전상혁은 서율의 실험 노트에서 '원자료 재검토, 오늘 저녁까지 결론'이라는 메모(E07)를 보고, 오후 3시 55분경 보관실에서 여벌 렌치를 챙겨 나왔다(E30). 오후 4시 5분경 후드 배기 댐퍼를 잠그고(E05), 오후 4시 10분경 경보 센서 배터리를 뺐다(E06, E24).",
+    "저녁 회의 도중 홀로 실험실로 내려간 한서율은 클로로포름을 다량 사용하는 재현실험을 후드 안에서 이어갔고(E08), 배기가 되지 않는 걸 눈치채지 못한 채 저녁 8시 5분경 후드 앞에 쓰러졌다(E04). 서율이 원자료 폴더 전체를 개인 외장하드로 미리 백업해 두었다는 것(E09)도 그가 이 문제를 얼마나 심각하게 보고 있었는지를 보여준다.",
+    "강희수(E27), 배소린(E25), 윤제야(E29), 임보라(E31)를 향했던 의심은 각각 시약 사용대장과 배소린의 확인 진술(E15, E32), 심사위원 회의록과 강희수의 확인 진술(E23, E34), 임보라의 알리바이와 강희수의 확인 진술(E31, E33)로 풀렸다. 윤제야가 서율을 유난히 강하게 몰아붙였다는 배소린의 전언(E35)과 임보라의 재고 관리 실수에 대한 강희수의 전언(E36)도 한때 저마다 다른 방향을 가리켰다.",
+    "실험실 전자출입기록(E10)과 회의 참석자 서명부의 빈 시간(E21)이 그 시간대 전상혁 혼자 자리를 비웠다는 것을, 잠긴 배기 댐퍼(E05)와 윤활유가 남은 여벌 렌치(E17)가 그가 직접 댐퍼에 손을 댔다는 것을 확정했다. 캐비닛 속 삭제된 파일 로그(E12)와 지워진 이메일 스레드(E13)가 그 손이 조작한 데이터를 감추려 했다는 것을, 예비심사 결과 초안(E11)과 서율의 실험 노트(E07)가 그날 저녁 무엇이 그를 몰아붙였는지를 가리켰다.",
+    "예비심사 일정 게시판(E01)과 방문객 출입기록(E03), 책상 서랍 속 여벌 배터리 팩(E14)과 시약 재고 관리대장(E19)은 각자의 자리를 메웠다. 강희수의 발견 경위와 각자의 알리바이 진술(E25, E27, E29, E31)은 처음엔 저마다 다른 곳을 가리켰지만 결국 한 사람에게로 모였다."
+  ]
+}
