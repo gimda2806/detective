@@ -392,6 +392,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE125 | 얼어붙은 서명 | [CASE125.md](CASE125.md) |
 | CASE137 | 겹친 목소리 | [CASE137.md](CASE137.md) |
 | CASE138 | 두 번째 잔 | [CASE138.md](CASE138.md) |
+| CASE139 | 개발자 란의 이름 | [CASE139.md](CASE139.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
