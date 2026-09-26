@@ -1,0 +1,1050 @@
+{
+  "case_identity": {
+    "case_id": "CASE142",
+    "title": "명단에 없는 이름",
+    "english_title": "The Name Left Off the List",
+    "genre": "특허 발명자 지분에서 배제된 데 대한 배신감으로 격분해 저지른 우발적 폭행치사 / 노후 장비 결함으로 위장한 감전사",
+    "setting": "정온생명과학연구소는 다섯 명 남짓한 인원이 효소 시약을 개발해 온 작은 민간 연구소다. 그날 오전, 연구소가 협력해 온 제약사 다온바이오와의 원천기술 이전 계약 협상이 사실상 마무리 단계에 접어들었고, 계약금과 특허 발명자 지분을 정리한 최종 배분안이 전체 회의에서 공개됐다. 기기실 한쪽에서는 교체가 미뤄져 온 노후 전기영동 장비가 여전히 가동되고 있었다.",
+    "location_archetypes": ["factory"],
+    "background": {
+      "background_archetypes": ["business_negotiation"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "unrelated_errand",
+    "detective_entry": "탐정은 같은 건물 1층 택배 보관함에서 개인 소포를 찾으러 들렀다가, 3층 복도까지 새어 나오는 탄내와 심상찮은 기척에 이끌려 계단을 올랐다.",
+    "tone": "작은 연구소 특유의 조용한 밀집감과, 계약 성사를 앞두고 들떠 있던 공기가 한순간에 가라앉는 낙차. 탐정과 한지우는 원래 볼일과 무관한 자리에 얼결에 끼어든다.",
+    "tags": ["연구소", "기술이전_협상", "노후설비"]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 11:50",
+    "narrative": "택배 보관함에서 소포를 꺼내 들고 나오는데, 3층 복도까지 탄내가 희미하게 새어 나오고 있었다.\n\n\"이 냄새, 그냥 넘어갈 건 아닌 것 같은데요.\"\n\n한지우가 코를 찡그리며 먼저 계단으로 향했다.\n\n\"넌 뭐든 일단 붙잡고 보는구나.\"\n\n탐정도 소포를 옆구리에 낀 채 뒤를 따랐다.\n\n복도 안쪽, 본실험실 문 앞에는 백겸수가 창백한 얼굴로 서 있었고, 그 너머 기기실 쪽에서 반아름의 낮은 목소리가 새어 나오고 있었다.\n\n\"저기... 소장님이 좀 이상해요.\"\n\n백겸수가 힘없이 그렇게만 말했다.\n\n한지우가 먼저 안으로 들어섰다."
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "기기실 전원은 이미 오래전에 내려가 있었고, 창밖으로는 어느새 오후 볕이 길게 늘어져 있었다.\n\n도희찬은 두꺼비집 옆 벽에 등을 기댄 채 한동안 말이 없었다.\n\n\"제 이름이 빠졌다는 걸 안 순간부터... 뭐가 어떻게 됐는지 저도 잘 모르겠습니다.\"\n\n\"전선을 갖다 댈 땐 알았을 텐데.\"\n\n탐정이 낮게 말을 받았다.\n\n도희찬은 대답 대신 고개를 떨궜다.\n\n한지우가 조용히 수첩을 덮었다.\n\n\"명단에 이름 하나 올리는 게 뭐라고요.\"\n\n밖에서는 반아름이 이사회에 재정 상황을 정식으로 보고하겠다며 서류를 챙기고 있었다.\n\n경찰차 사이렌이 건물 앞에 멎는 소리가 들려오자, 탐정과 한지우는 자리를 옮겨 복도로 나섰다.\n\n\"그나저나, 그 소포는요.\"\n\n한지우가 탐정 옆구리에 여전히 끼워져 있는 상자를 가리켰다.\n\n\"어차피 못 찾아갈 뻔했던 거, 오늘은 포기하지.\"\n\n한지우가 어이없다는 얼굴로 그를 쳐다봤다."
+  },
+  "surface_incident": [
+    "정온생명과학연구소는 다온바이오와의 기술이전 계약 협상을 그날 오전 사실상 마무리 지을 예정이었다.",
+    "행정지원팀장 반아름이 11시 48분경 회의 자료를 전달하러 기기실에 들렀다가, 미동 없이 늘어진 고민석을 보고 곧장 구급대에 신고했다.",
+    "구급대가 도착했을 때 고민석은 이미 숨을 거둔 뒤였고, 기기실 노후 전기영동 장비 주변에는 옅은 탄내가 남아 있었다.",
+    "그 장비는 최근 배선 점검 요청이 접수돼 있던 터라, 회사 안팎에서는 낡은 장비의 결함으로 인한 감전 사고로 보는 시각이 우세했다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "도희찬은 정온생명과학연구소의 핵심 촉매 효소 정제 공정을 사실상 혼자 완성해 왔지만, 특허 발명자란에는 관행대로 소장 고민석과 선임연구원 임건표만 올라 있었다. 그는 그동안 이번 다온바이오와의 기술이전 계약 협상이 마무리되면 고민석이 지분 배분을 다시 조정해 주겠다고 여러 번 약속한 것을 믿고 있었다. 그날 오전 회의에서 공개된 최종 배분안에도 자신의 이름이 여전히 빠져 있는 것을 확인하자, 그동안 쌓여 온 배신감이 폭발했다.",
+    "motive_archetypes": ["ip_dispute"],
+    "method": "회의 직후 기기실에 들른 고민석을 뒤따라간 도희찬은 지분 재조정을 다시 요구하며 언쟁을 벌였다. 고민석이 이제 와 재조정은 어렵다고 선을 긋자, 격분한 도희찬은 장비 뒤편에 벗겨진 채 늘어져 있던 노후 전기영동 장비의 전원선을 붙잡아 그의 손등에 갖다 대었다. 고민석은 그 자리에서 감전돼 숨졌다.",
+    "method_archetypes": ["electrical_tampering", "staging_cover_up"],
+    "key_time_location": "사건 당일 11시 32분~11시 34분, 정온생명과학연구소 기기실(L04)",
+    "cover_up": "도희찬은 주위에 인기척이 없는 것을 확인하고 두꺼비집을 내려 기기실 전원을 차단한 뒤, 벗겨져 있던 전원선을 원래 위치로 되감아 테이프로 감아 두었다. 이어 기기 전원 이력 로그에 접속해 그 시각 자신의 접속 기록을 지우고, 최근 접수된 배선 점검 요청을 근거로 노후 장비의 결함에 의한 사고처럼 보이게 정리했다. 그리고 그날 오전 고민석과 주고받은 지분 관련 문자메시지도 자신의 휴대전화에서 삭제했다.",
+    "cover_up_target": ["responsibility", "communication_trace", "crime_scene", "motive"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation"],
+    "decisive_evidence_ids": ["E01", "E03", "E05", "E06", "E07"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 2개월 전",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "도희찬이 새 촉매 효소 정제 공정을 완성해 연구소의 핵심 기술로 자리 잡게 만든다.",
+      "world_fact": "이 공정은 이후 다온바이오와의 기술이전 협상에서 계약금 산정의 핵심 근거가 됐다."
+    },
+    {
+      "id": "T02",
+      "time": "3주 전 오후",
+      "location": "L02",
+      "actors": ["V01", "CH03"],
+      "actual_action": "도희찬이 고민석에게 특허 발명자란에 자신의 이름을 올려 달라고 요청하지만, 고민석이 계약이 성사된 뒤 다시 논의하자며 답을 미룬다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 8일 전",
+      "location": "L05",
+      "actors": ["V01", "CH05"],
+      "actual_action": "고민석과 설우빈이 만나 기술이전 계약금 배분안 초안을 조율한다.",
+      "world_fact": "그 초안에는 발명자로 고민석과 임건표만 기재돼 있었다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 저녁",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "반아름이 이번 계약이 불발될 경우에 대비한 비상 예산안을 혼자 정리한다.",
+      "world_fact": "그 예산안에는 연구소가 반년 안에 폐업할 수도 있다는 전망이 담겨 있었다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 09:30",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "임건표가 배분안 초안에서 자신의 지분 비율이 예상보다 낮게 조정된 것을 확인하고 고민석에게 면담을 요청한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 09:50",
+      "location": "L03",
+      "actors": ["V01", "CH02"],
+      "actual_action": "고민석이 지분은 이사회 결정 사항이라 자신도 어쩔 수 없다고 답하자 임건표가 언성을 높인다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 10:00",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "고민석이 전체 연구원 회의에서 최종 계약금 배분안을 공개한다.",
+      "world_fact": "그 배분안에도 도희찬의 이름은 발명자로 올라 있지 않았다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 10:20",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "도희찬이 회의 중 배분안에서 자신의 이름이 여전히 빠진 것을 확인하고 표정이 굳는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 10:25",
+      "location": "L05",
+      "actors": ["V01", "CH05"],
+      "actual_action": "회의가 끝난 뒤 고민석이 설우빈과 남아 계약 세부 조항을 마저 검토한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 11:10",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "백겸수가 본실험실에서 시약을 정리하다가, 도희찬이 굳은 얼굴로 기기실 쪽 복도를 서성이는 것을 본다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 11:15",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "고민석이 설우빈과의 검토를 마치고 혼자 기기실에 들러 노후 전기영동 장비의 실험 결과를 확인한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 11:20",
+      "location": "L04",
+      "actors": ["CH03", "V01"],
+      "actual_action": "도희찬이 뒤따라 기기실로 들어가 지분 재조정을 다시 요구하며 고민석과 언쟁을 시작한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 11:25",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "반아름이 사무실 문틈으로 기기실 쪽에서 들려오는 도희찬과 고민석의 언성을 얼핏 듣는다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 11:32",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "고민석이 이제 와 재조정은 불가능하다고 단호히 선을 긋는다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 11:33",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "격분한 도희찬이 장비 뒤편에 벗겨진 채로 늘어져 있던 전원선을 붙잡아 든다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 11:34",
+      "location": "L04",
+      "actors": ["CH03", "V01"],
+      "actual_action": "몸싸움 중 도희찬이 그 전선을 고민석의 손등에 갖다 대 감전시킨다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 11:36",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "도희찬이 두꺼비집을 내려 기기실 전원을 차단한다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 11:38",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "도희찬이 벗겨진 전원선을 원래 위치로 되감아 테이프로 감아 둔다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 11:40",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "도희찬이 기기 전원 이력 로그에 접속해 그 시각 자신의 접속 기록을 지운다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 11:42",
+      "location": "L01",
+      "actors": ["CH03", "CH04"],
+      "actual_action": "도희찬이 본실험실 개수대에서 손을 씻다가 마침 지나가던 백겸수와 마주친다."
+    },
+    {
+      "id": "T21",
+      "time": "사건 당일 11:48",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "반아름이 회의 자료를 전달하러 기기실에 들렀다가 미동 없이 늘어진 고민석을 확인한다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "고민석",
+      "role": "정온생명과학연구소 소장",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "반아름",
+      "role": "행정지원팀장 / 시신 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "이번 계약이 불발되면 연구소가 반년 안에 폐업할 수도 있다는 재정 상황을 알고 있다.",
+          "source": "본인이 재무 자료를 관리함"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 11시 25분쯤 기기실 쪽에서 도희찬과 고민석의 언성이 높아지는 소리를 얼핏 들었다.",
+          "source": "본인이 그날 직접 들음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 오전 회의 시작 전 임건표가 고민석과 언성을 높이는 것을 얼핏 들었다.",
+          "source": "본인이 그날 직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 아침 회의 분위기가 유독 가라앉아 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "재정 상황이요? 저는 딱히 걱정할 거 없다고 생각해요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기기실 안에서 도희찬과 고민석 사이에 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 신중한 말투",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하다가, 몰리면 말수가 줄고 대답이 짧아진다",
+        "verbal_tic": "말끝에 '확인해 보니'를 자주 붙인다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "확인해 보니, 저도 다시 말씀드릴 게 많지 않네요.",
+        "자꾸 이런 식으로 물으시면 저도 곤란합니다.",
+        "...그건 제 소관이 아니라서요."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH01-03",
+        "opens": "S-CH01-01",
+        "says": "그러고 보니 오늘 아침 임건표 연구원이 소장님이랑 언성을 높이는 걸 들은 것 같기도 해요.",
+        "reveals": "임건표가 그날 아침 언쟁을 벌인 것은 사실이지만, 그것은 자신의 지분 비율에 대한 불만 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "임건표",
+      "role": "선임연구원",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 아침 자신의 지분 비율이 초안보다 낮게 조정된 것을 알고 고민석에게 항의했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 10시 30분부터 11시 40분까지 분석실에서 혼자 작업하고 있었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "도희찬이 예전부터 발명자 명단에서 계속 빠져 있는 것에 불만이 많았다는 것을 본인에게 직접 들어 알고 있다.",
+          "source": "도희찬 본인에게 들음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "그날 오전 반아름이 캐비닛 서류함 근처에서 유난히 예민하게 서두르는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "요즘 다들 계약 얘기로 예민해요, 저도 마찬가지고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 아침에 소장님이랑 다툰 적 없어요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기기실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 무뚝뚝하고 직설적인 말투",
+        "sentence_length_tendency": "평소엔 짧고 단정적으로 말하다가, 몰리면 말이 빨라지고 언성이 높아진다",
+        "verbal_tic": "말끝에 '솔직히'를 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "솔직히, 저도 이럴 줄은 몰랐습니다.",
+        "자꾸 그렇게 몰아가시면 저도 기분이 안 좋습니다.",
+        "...더 드릴 말씀 없습니다."
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "행정팀장님도 요즘 서류 문제로 유난히 예민하시던데, 한번 여쭤보시는 것도 좋을 것 같아요.",
+        "reveals": "반아름이 예민했던 것은 사실이지만, 그것은 연구소 재정 문제 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "도희찬",
+      "role": "책임연구원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "회의 직후 기기실에 들어갔다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "지분 재조정을 요구하며 고민석과 다퉜다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "발명자 명단에서 계속 배제된 배신감에 격분해 전원선을 고민석의 손등에 갖다 대 감전시켰다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "그날 오전 반아름이 서류함 근처에서 유독 서둘러 정리하는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 장비, 진작 새로 들였어야 했는데 예산 때문에 계속 미뤄졌어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 본실험실에서 다른 실험만 하고 있었습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "소장님이랑 그런 얘기 나눈 적 없습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "제가 손을 댄 적은 없습니다. 그 장비가 원래 낡아서 그랬을 뿐이에요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
+        }
+      ],
+      "knowledge_limits": [
+        "고민석이 그 전에 임건표와도 지분 문제로 다퉜다는 사실은 정확히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 신중하고 절제된 말투",
+        "sentence_length_tendency": "평소엔 짧고 정확하게 말하다가, 몰리면 문장이 뚝뚝 끊긴다",
+        "verbal_tic": "말끝에 '정확히는'을 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "정확히는... 저도 그 부분은 다시 생각해 봐야 할 것 같습니다.",
+        "자꾸 이런 식으로 몰아가시면 저도 드릴 말씀이 없습니다.",
+        "...그게, 제 의도는 그런 게 아니었어요."
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH03-04",
+        "opens": "S-CH03-01",
+        "says": "반아름 팀장님도 그날따라 서류함을 유독 급하게 정리하시던데요.",
+        "reveals": "반아름이 서둘러 정리한 것은 사실이지만, 그것은 재정 문제를 감추려던 것뿐이다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "백겸수",
+      "role": "연구지원팀 연구원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 11시 10분쯤 도희찬이 굳은 얼굴로 기기실 쪽 복도를 서성이는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 직후 반아름이 서류함을 유독 급하게 정리하는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "최근 다른 연구소에서 이직 제안을 받아 고민하고 있다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "그날 오전 설우빈이 회의 끝나고 유독 서둘러 짐을 챙겨 나가는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 장비, 저희끼리는 진작 바꿔야 한다고 얘기했었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그날 오전엔 딱히 특별한 거 없었어요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기기실 안에서 정확히 무슨 대화가 오갔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 신입다운 어색함",
+        "sentence_length_tendency": "평소엔 말을 얼버무리며 짧게 답하다가, 몰리면 말이 뒤엉킨다",
+        "verbal_tic": "당황하면 '어... 그러니까'를 자주 붙인다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "어... 그러니까, 저도 잘은 모르는데요.",
+        "저 진짜 별거 아니라고 생각했어요...",
+        "자꾸 물으시면 저 너무 떨려요..."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH04-04",
+        "opens": "S-CH04-01",
+        "says": "그러고 보니 설우빈 과장님도 회의 끝나고 되게 급하게 나가시던데요.",
+        "reveals": "설우빈이 서둘러 나간 것은 사실이지만, 그것은 본사에 급히 보고할 것이 있었기 때문이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "설우빈",
+      "role": "다온바이오 기술이전팀 과장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "회의 직후 고민석과 계약 조항을 검토하다가, 그가 기기실에 잠깐 들른다고 말했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "본사가 이번 계약 조건을 예상보다 낮게 책정했다는 사실을 아직 연구소 쪽에 공개하지 않았다는 것을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "그날 오전 백겸수가 기기실 근처에서 서성이는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이 연구소, 실무진 분위기가 다들 꽤 팽팽하더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 회의 끝나고 바로 나왔어요, 소장님이랑 따로 얘기한 건 없어요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기기실 안에서 그 뒤 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 외부인다운 깍듯함",
+        "sentence_length_tendency": "평소엔 차분하고 사무적으로 말하다가, 몰리면 대답이 짧고 건조해진다",
+        "verbal_tic": "'말씀드리자면'을 자주 쓴다",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "말씀드리자면, 저는 협력사 입장에서 드릴 수 있는 말만 드립니다.",
+        "이 이상은 본사 확인이 필요한 부분입니다.",
+        "...여기까지만 말씀드리겠습니다."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH05-03",
+        "opens": "S-CH05-01",
+        "says": "그러고 보니 아까 백겸수 연구원도 기기실 근처에서 서성이던데요.",
+        "reveals": "백겸수가 그 근처에 있었던 것은 사실이지만, 그것은 시약 정리 때문에 오간 것뿐이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH03"],
+      "nature": "핵심 공정을 사실상 혼자 완성해 온 연구원과, 그 성과를 계약 성사로 이끌어 온 소장 사이. 5년 가까이 손발을 맞춰 왔다.",
+      "public_face": "다들 도희찬을 소장이 가장 신뢰하는 연구원으로 여겨 왔다.",
+      "private_strain": "도희찬은 자신이 발명자 명단에서 계속 빠져 있는 것에 배신감을 쌓아 왔다.",
+      "surfaces_when": "탐정이 최종 계약금 배분안 문서(E14)와 기기실 출입 카드 기록(E01)을 함께 제시할 때.",
+      "says": {
+        "CH03": "소장님과는... 정확히는, 그냥 함께 일해 온 사이일 뿐입니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "오래 함께 프로젝트를 맡아 온 선임연구원과 소장 사이.",
+      "public_face": "두 사람은 서로를 신뢰하는 사제지간처럼 보인다.",
+      "private_strain": "임건표는 이번 배분안에서 자신의 지분이 예상보다 낮게 책정된 것에 불만을 품고 있었다.",
+      "surfaces_when": "탐정이 임건표의 지분 불만 진술(E09)과 분석실 작업 로그(E08)를 함께 들을 때.",
+      "says": {
+        "CH02": "소장님이야 늘 실력으로 평가해 주시는 분이었죠, 솔직히."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH01"],
+      "nature": "10년 가까이 살림을 맡아 온 행정지원팀장과 소장 사이.",
+      "public_face": "반아름은 고민석이 가장 믿고 맡기는 실무자로 알려져 있다.",
+      "private_strain": "반아름은 이번 계약이 불발되면 연구소가 반년 안에 폐업할 수도 있다는 재정 상황을 알고 있으면서도 직원들에게 알리지 않았다.",
+      "surfaces_when": "탐정이 재무 요약본(E10)을 제시하며 재정 상황을 캐물을 때.",
+      "says": {
+        "CH01": "소장님은... 확인해 보니, 늘 숫자보다 사람을 먼저 챙기시던 분이었어요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "입사 1년차 막내 연구원과 소장 사이.",
+      "public_face": "백겸수는 고민석을 어려워하면서도 잘 따르는 막내로 알려져 있다.",
+      "private_strain": "백겸수는 최근 다른 연구소에서 이직 제안을 받고 고민 중이었지만 소장에게 말하지 못했다.",
+      "surfaces_when": "탐정이 이직 제안에 대해 캐물어 그의 속내(F-CH04-03)를 들을 때.",
+      "says": {
+        "CH04": "소장님요? 어... 그러니까, 잘 챙겨주시는 분이었어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "이번 기술이전 계약을 함께 조율해 온 협상 상대 사이.",
+      "public_face": "두 사람은 이번 계약을 원만히 마무리해 가는 사이로 보인다.",
+      "private_strain": "설우빈은 본사가 이번 계약 조건을 예상보다 낮게 책정했다는 사실을 아직 연구소 쪽에 공개하지 않고 있었다.",
+      "surfaces_when": "탐정이 계약 조건에 대해 캐물어 그녀의 속내(F-CH05-02)를 들을 때.",
+      "says": {
+        "CH05": "소장님과는, 말씀드리자면, 이번 계약으로 처음 깊이 뵌 사이입니다."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH02", "CH03"],
+      "nature": "같은 프로젝트를 오래 맡아 온 동료 연구원 사이.",
+      "public_face": "실무진끼리 서로 협조적인 관계로 보인다.",
+      "private_strain": "임건표는 도희찬이 몇 차례 소장에게 발명자 명단 재조정을 요청했다는 것을 알고 못마땅해하고 있었다.",
+      "surfaces_when": "탐정이 통신 기록 복구본(E03)을 제시하며 지분 문제를 캐물을 때.",
+      "says": {
+        "CH02": "도희찬 씨야 늘 성실한 사람이죠, 솔직히 그 이상은 모르겠습니다.",
+        "CH03": "임건표 선배와는... 정확히는, 그냥 같은 프로젝트를 오래 맡아 온 사이입니다."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "본실험실",
+      "access": "출입증이 있으면 자유롭게 드나들 수 있는 개방된 실험 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "실험대마다 시약병과 기록지가 어지러이 놓여 있고, 안쪽 개수대 앞에는 백겸수가 방금 씻은 손을 말리며 서 있다. 창가 쪽 실험대에는 조금 전까지 누군가 앉아 있던 흔적으로 의자가 비스듬히 밀려나 있다.",
+      "observation_rules": [
+        {
+          "action": "본실험실 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 오전 회의 자료 사본 몇 장이 실험대 한쪽에 어지럽게 놓여 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "행정사무실",
+      "access": "직원증이 있으면 드나들 수 있는 사무 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "책상마다 계약 관련 서류철이 쌓여 있고, 안쪽 자리에서 반아름이 캐비닛 서랍을 정리하고 있다. 벽 게시판에는 이번 분기 예산 공지문이 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "행정사무실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽 게시판에 이번 분기 예산 삭감 공지문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "통신 기록 복구본을 확인한다",
+          "requires": "반아름",
+          "release_evidence_id": "E03",
+          "result": "그날 오전 도희찬이 고민석에게 보낸 '이번엔 제 이름 꼭 넣어주셔야 합니다'라는 문자와, 고민석의 짧은 답장이 통신 기록 복구본에 남아 있다."
+        },
+        {
+          "action": "행정사무실 캐비닛의 재무 요약본을 확인한다",
+          "requires": "반아름",
+          "release_evidence_id": "E10",
+          "result": "최근 재무 요약본에 이번 계약이 불발되면 반년 안에 폐업할 수도 있다는 전망이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "분석실",
+      "access": "출입증이 있으면 드나들 수 있는 분석 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L04"],
+      "base_description": "분석 장비 모니터 앞에 임건표가 앉아 데이터를 들여다보고 있고, 책상 한쪽에는 배분안 초안 출력물이 접힌 채 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "분석실 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 한쪽에 접힌 배분안 초안 출력물 여백에 붉은 밑줄이 그어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "분석실 컴퓨터 작업 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "임건표의 계정으로 10시 30분부터 11시 40분까지 분석 프로그램이 쉼 없이 실행된 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "기기실",
+      "access": "출입증을 태그해야 들어갈 수 있는 제한 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02", "L05"],
+      "base_description": "노후 전기영동 장비 옆으로 노란 통제선이 둘러져 있고, 바닥에는 급히 옮겨진 듯한 의자 자국이 남아 있다. 장비 뒤편 전선 다발은 유난히 가지런히 정리돼 있다.",
+      "observation_rules": [
+        {
+          "action": "기기실 전체를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "장비 주변 바닥에 오늘 오전까지도 사용된 흔적이 남아 있고, 벽에는 배선 점검 요청 스티커가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "기기실 출입 카드 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "10시 20분과 11시 20분, 두 차례에 걸쳐 도희찬의 사원증이 기기실 출입문을 태그한 기록이 확인된다."
+        },
+        {
+          "action": "장비 뒤편 전원선 상태를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "전원선이 최근 다시 감긴 흔적이 있고, 테이프 색이 주변보다 눈에 띄게 새것이다."
+        },
+        {
+          "action": "기기 전원 이력 로그를 확인한다",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "그날 11시 40분, 도희찬의 계정으로 전원 이력 로그 일부가 지워졌다는 것이 드러난다."
+        },
+        {
+          "action": "구급 기록지를 확인한다",
+          "requires": "반아름",
+          "release_evidence_id": "E07",
+          "result": "구급 기록지에는 고민석의 오른손 손등에 감전 특유의 선상 화상 흔적이 있다고 적혀 있었다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "접견실",
+      "access": "협상 관계자만 출입하도록 임시로 통제된 회의 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02", "L04"],
+      "base_description": "탁자 위에 서명 전 계약 서류들이 그대로 펼쳐져 있고, 창가 자리에서 설우빈이 다음 일정표를 넘겨보고 있다.",
+      "observation_rules": [
+        {
+          "action": "접견실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "탁자 한쪽에 오늘 오후 본사 보고 일정이 적힌 메모가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "탁자 위 최종 계약금 배분안 문서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "문서에는 발명자로 고민석과 임건표만 기재돼 있고, 도희찬의 이름은 어디에도 없다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "기기실 출입 카드 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "기기실 출입 카드 기록을 확인한다",
+      "content": "10시 20분과 11시 20분, 두 차례에 걸쳐 도희찬의 사원증이 기기실 출입문을 태그한 기록이 확인된다.",
+      "proves": ["도희찬이 그 시간대 기기실에 들어갔다는 것"],
+      "does_not_prove": ["안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "백겸수의 진술 — 복도에서 본 도희찬",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백겸수에게 그날 오전 도희찬을 어디서 봤는지 묻는다",
+      "content": "\"그때 도희찬 선배가 기기실 쪽 복도에서 서성이는 걸 봤어요. 표정이 많이 굳어 있었어요.\"",
+      "proves": ["도희찬이 그 시간에 기기실 쪽에 있었다는 것"],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "복구된 지분 요청 문자메시지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "통신 기록 복구본을 확인한다",
+      "content": "그날 오전 도희찬이 고민석에게 보낸 '이번엔 제 이름 꼭 넣어주셔야 합니다'라는 문자와, 고민석의 짧은 답장이 통신 기록 복구본에 남아 있다.",
+      "proves": ["두 사람이 그날 오전 지분 문제로 연락을 주고받았다는 것"],
+      "does_not_prove": ["그 뒤 직접 만나 다퉜는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "반아름의 진술 — 기기실 쪽 언쟁",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "반아름에게 그날 오전 기기실 쪽에서 들려온 소리를 묻는다",
+      "content": "\"그날 11시 25분쯤이었나... 기기실 쪽에서 언성이 높아지는 소리가 들리긴 했어요. 자세힌 못 들었지만요.\"",
+      "proves": ["그 시각 기기실에서 언쟁이 있었다는 것"],
+      "does_not_prove": ["누가 먼저 언성을 높였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "다시 감긴 전원선",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "장비 뒤편 전원선 상태를 살핀다",
+      "content": "전원선이 최근 다시 감긴 흔적이 있고, 테이프 색이 주변보다 눈에 띄게 새것이다.",
+      "proves": ["누군가 사고 이후 이 전원선을 손봤다는 것"],
+      "does_not_prove": ["정확히 누구인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "기기 전원 이력 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "기기 전원 이력 로그를 확인한다",
+      "content": "그날 11시 40분, 도희찬의 계정으로 전원 이력 로그 일부가 지워졌다는 것이 드러난다.",
+      "proves": ["도희찬이 직접 로그를 지웠다는 것"],
+      "does_not_prove": ["그것이 살인과 직접 관련 있는지는 이 로그만으로 알 수 없다"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "구급 기록지의 화상 흔적 소견",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "구급 기록지를 확인한다",
+      "content": "구급 기록지에는 고민석의 오른손 손등에 감전 특유의 선상 화상 흔적이 있다고 적혀 있었다.",
+      "proves": ["감전 부위가 손등이라는 것, 즉 접촉식 감전이었다는 것"],
+      "does_not_prove": ["누가 전선을 갖다 댔는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "분석실 작업 로그",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "분석실 컴퓨터 작업 로그를 확인한다",
+      "content": "임건표의 계정으로 10시 30분부터 11시 40분까지 분석 프로그램이 쉼 없이 실행된 기록이 남아 있다.",
+      "proves": ["임건표가 그 시간 내내 분석실에서 작업하고 있었다는 것"],
+      "does_not_prove": ["그가 잠깐도 자리를 비우지 않았는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "임건표의 진술 — 그날 아침 언쟁",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "임건표에게 그날 아침 고민석과 나눈 대화를 묻는다",
+      "content": "\"그날 아침에요? ...네, 언성이 좀 높아지긴 했죠. 제 몫이 생각보다 적어서요.\"",
+      "proves": ["임건표가 그날 아침 지분 문제로 고민석과 다퉜다는 것"],
+      "does_not_prove": ["그 다툼이 이후 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "재무 요약본",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "행정사무실 캐비닛의 재무 요약본을 확인한다",
+      "content": "최근 재무 요약본에 이번 계약이 불발되면 반년 안에 폐업할 수도 있다는 전망이 적혀 있다.",
+      "proves": ["연구소 재정이 심각했다는 것"],
+      "does_not_prove": ["그것이 사건과 직접 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "백겸수의 진술 — 반아름의 사건 직후 행동",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백겸수에게 반아름의 사건 직후 행동을 묻는다",
+      "content": "\"사건 나고 나서 반아름 팀장님이 서류함을 되게 급하게 정리하시던데... 뭘 그렇게 급하게 치우시나 싶었어요.\"",
+      "proves": ["반아름이 사건 직후 서류를 서둘러 정리했다는 것"],
+      "does_not_prove": ["무엇을 감추려 했는지는 이것만으로 알 수 없다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "설우빈의 진술 — 회의 직후 고민석의 행선지",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "설우빈에게 회의 직후 고민석과 나눈 이야기를 묻는다",
+      "content": "\"조항 몇 개를 마지막으로 확인하고 나서, 소장님은 기기실에 잠깐 들르신다고 하셨어요. 그러고는 못 뵀네요.\"",
+      "proves": ["고민석이 회의 직후 기기실로 향했다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "최종 계약금 배분안 문서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "탁자 위 최종 계약금 배분안 문서를 확인한다",
+      "content": "문서에는 발명자로 고민석과 임건표만 기재돼 있고, 도희찬의 이름은 어디에도 없다.",
+      "proves": ["도희찬이 발명자 명단에서 끝까지 빠져 있었다는 것"],
+      "does_not_prove": ["그가 그것을 이유로 살해했는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_lab_entry",
+      "requires_heard_claim_ids": ["S-CH03-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-02",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "기기실 출입 카드 기록(E01)과 백겸수의 목격담(E02)을 함께 제시하며 그 시간 내내 본실험실에 있었다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "도희찬이 회의 직후 기기실에 들어갔다는 사실을 인정한다."
+      },
+      "must_not_release": ["소장과 다퉜다는 사실", "전선으로 감전시켰다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_lab_entry",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-03"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "통신 기록 복구본(E03)과 반아름이 들은 언쟁 소리(E04)를 함께 제시하며 소장과 그런 얘기를 나눈 적 없다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "도희찬이 지분 재조정을 요구하며 고민석과 다퉜다는 사실을 인정한다."
+      },
+      "must_not_release": ["전선으로 감전시켰다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-04"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-04",
+        "evidence_ids": ["E05", "E06", "E07"]
+      },
+      "player_action": "다시 감긴 전원선(E05)과 전원 이력 로그(E06), 구급 기록지의 화상 흔적(E07)을 함께 제시하며 손을 대지 않았다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "도희찬이 발명자 명단에서 계속 배제된 배신감에 격분해 전원선을 고민석의 손등에 갖다 대 감전시켰다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "임건표가 수상해 보인다 — 그는 그날 아침 자신의 지분 비율이 낮게 책정된 것에 항의하며 고민석과 언성을 높였고, 사건 시각 무렵 정확한 행적이 알려지지 않았다.",
+      "actual_reason": "임건표가 감추는 것은 살인이 아니라 자신의 지분에 대한 불만이며, 그는 그 시간 내내 분석실에서 혼자 작업하고 있었을 뿐이다.",
+      "how_to_clear": "임건표의 지분 불만 진술(E09)과 분석실 작업 로그(E08)를 함께 제시해, 그가 그 시간 내내 분석실에서 작업하고 있었다는 것을 확인한다.",
+      "must_not_imply": "임건표에게 살인 동기가 없다고 해서 그의 지분 불만 자체가 사라지는 것은 아니다.",
+      "lingering_thread": "임건표는 이후 다음 배분안 개정 때 자신의 몫을 공식적으로 재검토해 달라고 요청하기로 한다.",
+      "suspicion_deepener": "지분 문제로 그날 아침 언쟁을 벌였다는 사실과, 사건 시각 무렵 행적이 뚜렷하지 않다는 점이 겹치며 그에 대한 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH01",
+      "surface_suspicion": "반아름이 수상해 보인다 — 그녀는 사건 직후 서류함을 유독 급하게 정리했고, 재정 상황을 묻는 질문에는 말을 아꼈다.",
+      "actual_reason": "반아름이 감추는 것은 살인이 아니라 연구소의 악화된 재정 상황과 계약 불발 시 폐업 가능성이며, 직원들의 동요를 막으려 혼자 감당해 왔을 뿐이다.",
+      "how_to_clear": "그녀의 진술과 재무 요약본(E10)을 함께 제시해, 그녀가 숨긴 것이 연구소의 재정난이었을 뿐임을 확인한다.",
+      "must_not_imply": "재정 문제를 숨겼다고 해서 그녀가 사건과 관련이 있다는 뜻은 아니다.",
+      "lingering_thread": "반아름은 이후 이사회에 재정 상황을 정식으로 보고하기로 한다.",
+      "suspicion_deepener": "사건 직후에도 서류함을 급하게 정리하려던 모습이 목격되며(E11) 그녀에 대한 의심이 짙어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH03-01", "F-CH03-02", "F-CH03-03", "E06"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "F-CH03-03",
+      "motive_fact": "F-CH03-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "도희찬(CH03) — 정온생명과학연구소 책임연구원",
+    "method": "기기실에서 고민석과 다투다 격분해, 낡은 전기영동 장비의 벗겨진 전원선을 그의 손등에 갖다 대 감전시켰다.",
+    "motive": "핵심 공정을 사실상 혼자 완성했음에도 특허 발명자 명단에서 계속 배제돼 온 데다, 그날 오전 공개된 최종 배분안에도 자신의 이름이 끝내 빠져 있는 것을 확인하면서 쌓여 온 배신감이 폭발했다.",
+    "key_connection": "기기실 출입 기록(E01)과 백겸수의 목격담(E02)이 그가 그 시각 그 자리에 있었다는 것부터, 다시 감긴 전원선(E05)과 전원 이력 로그(E06), 구급 기록지의 화상 흔적(E07)이 그 직후의 은폐 시도까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "고민석은 다온바이오와의 기술이전 계약 협상을 마무리하며 그날 오전 최종 계약금 배분안을 공개했고, 그 문서에는 발명자로 자신과 임건표만 기재돼 있었다(E14) — 핵심 공정을 완성한 도희찬의 이름은 끝내 빠져 있었다.",
+    "회의 직후 도희찬은 기기실로 향했고, 그의 사원증 출입 기록(E01)과 백겸수의 목격담(E02)이 그가 그 시각 그 자리에 있었다는 것을 보여 준다.",
+    "설우빈과의 조항 검토를 마친 고민석은 평소처럼 기기실에 들러 장비 상태를 확인했고(E12), 뒤따라온 도희찬이 지분 재조정을 다시 요구하며 언쟁을 시작했다 — 그 언성은 옆방 반아름에게도 얼핏 들렸다(E04).",
+    "고민석이 재조정은 불가능하다고 선을 긋자, 격분한 도희찬은 장비 뒤편에 벗겨진 채 늘어져 있던 전원선을 붙잡아 고민석의 손등에 갖다 댔다 — 감전 특유의 화상 흔적이 구급 기록지에 남았다(E07).",
+    "도희찬은 두꺼비집을 내려 전원을 차단한 뒤 전원선을 원래대로 되감아 두었지만, 최근 다시 감긴 흔적(E05)과 그 시각 자신의 계정으로 접속 기록이 지워진 전원 이력 로그(E06)까지 지우지는 못했다.",
+    "그가 그날 오전 지분을 다시 요구하며 고민석과 주고받은 문자메시지는 자신의 휴대전화에서 지웠지만, 통신 기록 복구본에는 원문이 남아 있었다(E03).",
+    "임건표가 그날 아침 언성을 높인 것은 사실이지만, 그것은 자신의 낮게 책정된 지분에 대한 불만 때문이었을 뿐 사건과는 무관했다(E09, E08).",
+    "반아름이 서류를 서둘러 정리한 것도 살인과는 무관했다 — 그녀가 감추던 것은 이번 계약이 불발되면 연구소가 반년 안에 폐업할 수도 있다는 재정 상황이었다(E10)."
+  ]
+}
