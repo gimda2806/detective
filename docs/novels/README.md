@@ -394,6 +394,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE138 | 두 번째 잔 | [CASE138.md](CASE138.md) |
 | CASE139 | 개발자 란의 이름 | [CASE139.md](CASE139.md) |
 | CASE141 | 관측일지의 이름 | [CASE141.md](CASE141.md) |
+| CASE142 | 끊어진 교신 | [CASE142.md](CASE142.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 

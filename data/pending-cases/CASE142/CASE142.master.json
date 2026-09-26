@@ -14,16 +14,16 @@
       "#후계자_구도"
     ],
     "location_archetypes": [
-      "other"
+      "association_club"
     ],
     "background": {
       "background_archetypes": [
-        "private_gathering"
+        "routine_meeting"
       ],
       "background_phrasing": [
         "following"
       ],
-      "background_intensity": "contextual"
+      "background_intensity": "contributory"
     }
   },
   "opening_scene": {
@@ -61,10 +61,13 @@
     ],
     "motive_archetypes": [
       "past_crime_cover",
-      "succession_change"
+      "succession_change",
+      "secret_exposure",
+      "position_defense"
     ],
     "cover_up_target": [
-      "identity"
+      "identity",
+      "motive"
     ],
     "cover_up_method": [
       "false_intrusion"
