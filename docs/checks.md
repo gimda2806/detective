@@ -7,6 +7,12 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 
 **심각도 표기.** `E` 언제나 error · `E/W` 새 사건 error, 등록된 사건(`case_registry.json`) warn · `W` 언제나 warn ·
 `E*` 등록 무관 error인 예외 여덟(CLAUDE.md 「검사기 규칙」). 새로 넣는 검사는 warn으로 두지 않는다(2026-09-21 사용자 결정).
+**AI GM 런타임 신호 39개는 여기 적지 않는다** — `app/game.ts`·`app/gm/response-signals.ts` 가
+정본이다(`FABRICATED_PROPER_NOUN`·`UNDISCOVERED_EVIDENCE_LEAK`·`INTERVIEW_TARGET_DRIFT` 등).
+마스터를 막는 검사가 아니라 **모델이 지어낸 말을 잡는 백스톱**이라 층이 다르다(CLAUDE.md ③).
+`npm run check:banter` 의 대사 슬롯 이름(`BANTER_*`·`EXCHANGE_*` 20개)도 판정 코드가 아니라
+데이터 키라 적지 않는다.
+
 **검사가 안 잡는 것**(알려진 구멍)은 `docs/handoff-backlog.md` 「검사기」 절에 있다 — 여기 없는 것을 찾으면 그쪽을 먼저 본다.
 
 검사를 더하거나 바꾸면 **이 문서의 그 줄**과 CLAUDE.md 「검사기 규칙」을 같이 고친다. **`npm run check:codes`가 `validate_master.ts`의 판정 코드가 전부 여기 적혀 있는지 대조한다**(PR 검사에 들어 있다 — 코드를 만들고 줄을 안 쓰면 빨개진다, 2026-09-26 사용자 결정).
@@ -207,7 +213,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `TIME_UNRECORDED` | 근거가 어디에도 없는 지어낸 시각 | 분위기용 「10시 40분」 |
 | `ENTRY_TIME_MISMATCH` · `ENTRY_TIME_UNPARSED` | 1장 시각이 진입 시각과 다름 / 진입 시각을 못 읽음(그 편의 다른 검사도 건너뜀) | 진입 「사건 다음날 오전」 |
 | `TIMELINE_AFTER_ENTRY_UNUSED` | 마스터엔 있는데 소설이 안 쓴 진입 이후 항목(소설 쪽 일감) | `T14`를 소설이 건너뜀 |
-| `TITLE_SCENE` 파싱 | 장 제목 「## 3. 정비구역, 밤 9시 50분」 꼴을 읽는다 — 낱말이 목록에 없으면 그 편 검사가 조용히 꺼진다(「밤」이 빠져 있던 사고) | 제목이 「저녁 무렵」이면 시각 없음으로 |
+| `TITLE_LABEL` 파싱 | 장 제목을 구분자(`—`·`,`·`·`)로 **토막 내고 토막마다** 읽는다 — 낱말이 목록에 없으면 그 편 검사가 조용히 꺼진다(「밤」이 빠져 있던 사고). **2026-09-26 이전에는 `TITLE_SCENE` 이었고 「시각으로 끝나는」 제목만 읽어 「## 1. 저녁 8시 15분 — 조정실」 꼴이 통째로 안 잡혔다**(그 편들은 역행·진입 시각 검사가 안 돈 채 「이상 없음」이 나왔다 — 다섯 편). | 제목이 「저녁 무렵」이면 구간으로 |
 
 ## 5. 감사 (`audit:*`) — 세는 것, 막지 않는 것 (⑤ 루틴·손으로. `lint:baseline`만 ②에도 있다)
 
