@@ -5281,8 +5281,43 @@ function pairChainShapeMatch(a: Master, b: Master): boolean {
 
 const overlaps = (a: Set<string>, b: Set<string>) => [...a].some((x) => b.has(x));
 
+/**
+ * 엔딩 산문을 **이름·숫자를 지운 문장**으로 쪼갠다. audit:duplication 이 쓰는
+ * 「뼈대」와 같은 생각이되 문장 단위다 — 두 엔딩이 같은 문장을 셋 이상 갖고
+ * 있으면 마무리 틀을 통째로 돌려 쓴 것이다.
+ */
+function endingSkeletonSentences(master: Master): string[] {
+  let text = String(master.ending_scene?.narrative ?? '');
+  const names = [...(master.characters ?? []), ...(master.key_figures ?? [])]
+    .map((c: { name?: unknown }) => (typeof c?.name === 'string' ? c.name : ''))
+    .filter((n) => n.length >= 2);
+  for (const name of names) text = text.split(name).join('○');
+  text = text.replace(/[0-9０-９]+/g, '#');
+  return text
+    .split(/(?<=[.。!?…」”])\s+|\n+/)
+    .map((line) => line.trim())
+    .filter((line) => line.length >= 8);
+}
+
+/** 이름·숫자를 지운 엔딩 문장이 셋 이상 글자까지 같은가. */
+const PAIR_ENDING_SAME_SENTENCES = 3;
+function pairEndingProseMatch(a: Master, b: Master): boolean {
+  const sb = new Set(endingSkeletonSentences(b));
+  return endingSkeletonSentences(a).filter((line) => sb.has(line)).length >= PAIR_ENDING_SAME_SENTENCES;
+}
+
 const PAIR_AXES: Array<[string, (a: Master, b: Master) => boolean]> = [
   ['단계 사슬 골격', pairChainShapeMatch],
+  // **엔딩 산문**(2026-09-26 사용자 결정). 소설 루틴 네 회차가 「사건은 다른데
+  // 엔딩 마지막 네 줄이 글자까지 같은 붙은 쌍」을 어느 검사도 못 본다고 적었다
+  // (221↔222 · 245~248 · 021↔022). 실측: 붙은 쌍 655 · 먼 쌍 51040 에서 이 축은
+  // 붙은 10.5% · 먼 0.16%(65배) — 필수 축인 사슬 골격(3.9배)보다 훨씬 뚜렷하다.
+  // 같이 재 본 은폐 축(1.9배)·목소리 축(1.9배)은 무작위와 구별이 안 돼 넣지 않았고,
+  // 사슬을 한 칸 완화하는 안(8.1배)은 소설 루틴이 지목한 268↔269 를 그래도 못
+  // 잡아 넣지 않았다. 넣던 날 등록된 여덟 쌍이 걸렸고 뒷번호의 엔딩을 그 자리에서
+  // 다시 썼다(판박이 규칙대로 지우지 않은 것은 사건이 아니라 마무리 틀만 같았기
+  // 때문이다 — 나머지 두 축은 사슬 골격과 동기·수법 하나였다).
+  ['엔딩 산문', pairEndingProseMatch],
   // 은폐 칸은 거의 모든 사건이 갖고 있으므로(24.6%) 수법 축에서 뺀다 —
   // METHOD_OVERUSE_EXEMPT 와 같은 이유다.
   [
@@ -5374,7 +5409,7 @@ export function checkPairTwin(
       // warn 으로 두지 않는다). 걸리는 네 쌍은 이 커밋에서 같이 고쳤다.
       severity: 'error',
       code: 'PAIR_TWIN',
-      message: `${other.caseId}와 두 편이 판박이다 — ${shared.join(' / ')}. **번호가 붙어 있어 한 사람이 연달아 푼다.** 이 쌍은 다른 검사가 구조적으로 못 본다: audit:duplication 은 3건 이상만 세고(쌍은 글자까지 같아도 목록에 안 뜬다), NEIGHBOR_TWIN 은 단계 이름이 명사만 달라도 다른 이름으로 읽으며, RANGE_TWIN 은 넷 이상이어야 센다. ${shared.includes('단계 사슬 골격') ? '**자백이 풀리는 순서가 같은 틀이다 — 명사만 갈지 말고 순서 자체를 다르게 짤 것.**' : '둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.'}`,
+      message: `${other.caseId}와 두 편이 판박이다 — ${shared.join(' / ')}. **번호가 붙어 있어 한 사람이 연달아 푼다.** 이 쌍은 다른 검사가 구조적으로 못 본다: audit:duplication 은 3건 이상만 세고(쌍은 글자까지 같아도 목록에 안 뜬다), NEIGHBOR_TWIN 은 단계 이름이 명사만 달라도 다른 이름으로 읽으며, RANGE_TWIN 은 넷 이상이어야 센다. ${shared.includes('단계 사슬 골격') ? '**자백이 풀리는 순서가 같은 틀이다 — 명사만 갈지 말고 순서 자체를 다르게 짤 것.**' : '둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.'}${shared.includes('엔딩 산문') ? ' **엔딩의 마무리 문장이 이름만 다르고 셋 이상 같다 — 뒷번호의 엔딩을 그 사건의 말로 다시 쓸 것.**' : ''}`,
     });
   }
   return issues;
