@@ -1,0 +1,1140 @@
+{
+  "case_identity": {
+    "case_id": "CASE139",
+    "title": "관측일지의 이름",
+    "english_title": "The Name in the Logbook",
+    "genre": "소행성 발견자 표기를 빼앗기게 된 데이터 분석 담당이 격분해 저지른 접촉독살 / 여분 접안렌즈에 독성 추출액을 발라 사고처럼 위장",
+    "setting": "별무리천문대는 20년 가까이 아마추어 천문 동호회가 자원으로 운영해 온 사설 관측소다. 그날 밤은 올해 유성우가 절정에 이르는 밤이었고, 마침 넉 달 전 관측소가 처음 검출한 소행성의 국제 등록 절차가 그날 마무리되는 자리이기도 했다. 회원들은 오랜만의 들뜬 공기 속에서 일반인을 위한 공개 관측회를 준비했고, 탐정은 그 행사에 참가자로 와 있었다.",
+    "location_archetypes": ["restricted_site", "temporary_site"],
+    "background": {
+      "background_archetypes": ["festival_celebration"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 그날 밤 별무리천문대가 연 유성우 공개 관측회에 일반 참가자로 참석해 있었다.",
+    "tone": "밤하늘을 향한 기대와, 넉 달간 쌓인 억울함이 조용히 뒤섞인 관측소의 공기. 탐정과 한지우는 유성우를 기다리다 말고 갑작스레 사건 속으로 끌려 들어간다.",
+    "tags": ["천문대", "유성우", "공개관측회"]
+  },
+  "opening_scene": {
+    "location_id": "L03",
+    "detective_entry_time": "사건 당일 20:15",
+    "narrative": "한지우가 접이식 테이블 위 안내 전단을 다시 가지런히 정리했다.\n\n\"오늘 새벽 두 시까진 사람 안 끊기겠는데요.\"\n\n탐정은 대꾸 없이 로비 창밖 하늘을 흘끗 올려다봤다.\n\n\"별은 잘 보이고.\"\n\n한지우가 픽 웃으며 전단을 마저 쌓았다.\n\n안내데스크 옆 무전기에서 갑자기 잡음이 튀며 다급한 목소리가 흘러나왔다.\n\n\"주관측실, 회장님이 이상해요. 누구든 좀...\"\n\n한지우가 먼저 전단을 내려놓고 복도를 향해 걸음을 옮겼다.\n\n주관측실 문을 열자, 하인철이 접안렌즈 옆에 쓰러진 채 얼굴을 감싸고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "분석실 모니터에는 강윤제가 넉 달 전 처음 띄운 소행성 궤도 그림이 아직 열려 있었다.\n\n강윤제는 책상 앞에 앉은 채 화면에서 눈을 떼지 않았다.\n\n\"여분 렌즈에... 오두 추출액을 발라 뒀습니다.\"\n\n한참 만에 그가 말했다.\n\n\"이름 한 줄이 그렇게 무거웠습니까.\"\n\n탐정이 물었다.\n\n\"넉 달이었으니까요.\"\n\n한지우가 조용히 수첩을 덮으며 나지막이 대꾸했다.\n\n\"그 넉 달, 각주 하나로 남을 뻔했네요.\"\n\n강윤제는 대답 대신 시선을 화면 쪽으로 다시 돌렸다.\n\n로비 쪽에서는 백누리가 다음 보도자료에는 발견 과정 전체를 함께 밝히겠다고 문성곤에게 말하는 소리가 들려왔다.\n\n사이렌이 가까워지자 탐정과 한지우는 분석실을 나섰다.\n\n\"저 망원경, 이제 누가 봐요.\"\n\n한지우가 복도 쪽 창을 흘끗 보며 물었다.\n\n\"별은 어차피 그대로 있을 거고.\"\n\n한지우가 픽 웃으며 탐정을 따라나섰다."
+  },
+  "surface_incident": [
+    "별무리천문대는 그날 밤 올해 유성우가 절정에 이르는 시간에 맞춰 일반인 대상 공개 관측회를 열었다.",
+    "회장 하인철이 밤 10시 40분경 주관측실에서 시연을 하던 중 눈 주위 통증을 호소하며 쓰러졌고, 도착한 구급대의 처치에도 반응하지 않아 현장에서 사망이 확인됐다.",
+    "함께 시연을 지켜보던 다른 참가자들에게는 아무 증상도 없었다.",
+    "평소 앓던 안구 질환이 갑자기 악화됐다는 시각과, 관측 장비 어딘가에 문제가 있었을 가능성을 두고 회원들 사이에 말이 오갔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "강윤제는 넉 달 전 신형 관측 소프트웨어로 근일점 통과 소행성 하나를 실제로 처음 검출해낸 사람이다. 하인철은 처음엔 관측 보고서 초안에 강윤제를 공동 발견자로 기재했으나, 후원 재단 문성곤이 재단 홍보를 위해 발견자를 단독으로 못박는 안을 제안하자 사건 5일 전 서류를 고쳐 강윤제의 이름을 각주로 내리고 자신을 단독 발견자로 바꿔 놓았다. 강윤제는 사건 당일 오후 그 수정된 초안을 우연히 열어 보고 이를 알게 됐고, 넉 달의 밤과 자신의 것이었던 발견이 문서 한 줄로 지워졌다는 배신감에 사로잡혔다.",
+    "motive_archetypes": ["reputation", "contract_breach"],
+    "method": "강윤제는 하인철이 시연 중 접안렌즈에 얼굴을 자주 붙이는 습관을 알고, 그날 오후 실험용으로 보관해 온 독성 식물 추출액(오두 뿌리에서 낸 것)을 여분 접안렌즈 고무 아이컵 안쪽에 발라 원래 렌즈와 바꿔 두었다. 하인철이 공개 시연 중 반복해서 그 렌즈에 얼굴을 대고 초점을 맞추는 사이 피부로 흡수된 독성 물질이 퍼지며 안면 마비와 호흡 곤란을 일으켰다.",
+    "method_archetypes": ["dermal_contact", "staging_cover_up"],
+    "key_time_location": "사건 당일 18시 20분경 접안렌즈 교체, 22시 10분~22시 40분 사이 주관측실(L01)에서 흡수·발현",
+    "cover_up": "강윤제는 하인철이 쓰러진 직후 소란을 틈타 오염된 접안렌즈를 여분 렌즈로 재빨리 바꿔 끼우고, 원래 렌즈는 분석실로 가져가 세척한 뒤 시약병과 함께 창고 밖 소각용 쓰레기함에 몰래 버렸다. 이어 관측 서버에 접속해 자신의 이름이 올라 있던 예전 로그 항목을 삭제해, 애초에 자신이 공동 발견자로 기재됐던 흔적 자체를 지웠다.",
+    "cover_up_target": ["weapon", "motive"],
+    "cover_up_method": ["object_substitution", "digital_record_manipulation", "concealment_without_staging"],
+    "decisive_evidence_ids": ["E04", "E06", "E07", "E10", "E13", "E14", "E19"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 4개월 전",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 신형 관측 소프트웨어로 근일점 통과 소행성 후보 하나를 처음 검출한다.",
+      "world_fact": "이 검출은 강윤제 혼자 야간 데이터를 정리하다 발견한 것이었다."
+    },
+    {
+      "id": "T02",
+      "time": "석 달 전",
+      "location": "L02",
+      "actors": ["V01", "CH05"],
+      "actual_action": "하인철이 그 검출 결과를 검토해 관측 보고서 초안을 작성하며 강윤제를 공동 발견자로 기재한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 8일 전",
+      "location": "L03",
+      "actors": ["V01", "CH04"],
+      "actual_action": "하인철이 문성곤과 만나, 재단 홍보 효과를 위해 발견자 표기를 단독으로 못박는 안을 제안받는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 5일 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하인철이 관측 보고서 최종 초안에서 강윤제의 이름을 각주로 내리고 자신을 단독 발견자로 고쳐 적는다.",
+      "world_fact": "하인철은 이 수정 사실을 강윤제에게 따로 알리지 않았다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:03",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 자신의 계정으로 수정된 보고서 초안 파일을 열어 그 변경 사실을 처음 확인한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 15:30",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 창고 시약장에서 실험용으로 보관해 온 오두 추출액 병을 몰래 꺼내 온다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 18:20",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 주관측실 여분 접안렌즈 고무 아이컵 안쪽에 오두 추출액을 발라, 하인철이 쓸 렌즈와 자리를 바꿔 둔다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 19:00",
+      "location": "L03",
+      "actors": ["CH01", "CH03"],
+      "actual_action": "오다림과 백누리가 로비에 안내 데스크를 세우고 도착하는 참가자들을 맞기 시작한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 20:15",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "오다림이 처음 온 참가자들에게 접안렌즈 사용법을 안내한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:50",
+      "location": "L03",
+      "actors": ["V01", "CH03"],
+      "actual_action": "백누리가 게시판에 붙일 발견 소식 문구를 놓고 하인철과 짧게 언성을 높인다.",
+      "world_fact": "백누리는 재단이 요청한 단독 표기 문구 그대로를 게시판에 걸자고 밀어붙였다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 22:10",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "하인철이 참가자들을 앞에 두고 시연을 시작하며 반복해서 접안렌즈에 얼굴을 대고 초점을 맞춘다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 22:40",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "하인철이 접안렌즈에서 얼굴을 뗀 직후 눈 주위가 얼얼하다며 손으로 얼굴을 감싸고 그 자리에 쓰러진다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 22:41",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "오다림이 하인철의 상태를 보고 안내데스크의 무전기를 붙잡아 도움을 청한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 22:43",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 무전이 울리기도 전부터 이미 주관측실 문 앞에 서 있다가, 소란이 커지자 안으로 들어간다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 22:46",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 사람들이 하인철을 부축하는 사이 오염된 접안렌즈를 남은 여분 렌즈로 재빨리 바꿔 끼운다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 22:49",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 분석실 개수대에서 방금 바꿔 낀 오염된 렌즈를 씻어낸다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 22:52",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "도착한 구급대가 하인철에게 응급처치를 시도하지만 반응이 없어 현장에서 사망 판정이 내려진다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 23:10",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 관측 서버에 접속해 석 달 전 자신의 이름이 함께 올라 있던 로그 항목을 삭제한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 23:20",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "강윤제가 남은 오두 추출액 병을 창고 밖 소각용 쓰레기함에 몰래 버린다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하인철",
+      "role": "별무리천문대 회장 겸 설립자",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오다림",
+      "role": "신입 회원 / 안내 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 저녁 하인철이 시연 중 접안렌즈에 얼굴을 자주 대며 눈을 찡그렸다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "소란 직후 강윤제가 무전으로 부르기도 전에 이미 주관측실 문 앞에 와 있었다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "관측회 시작 전 백누리가 게시판 문구를 놓고 하인철과 짧게 언성을 높였다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "하인철 대표님, 오늘 유독 신나 보이셨는데 이제 다 무슨 소용이겠어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "저는 그날 저녁 내내 참가자 안내만 맡고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "주관측실 안에서 정확히 무엇이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 신입다운 밝음",
+        "sentence_length_tendency": "평소엔 말이 빠르고 길게 이어지다가, 몰리면 오히려 말수가 줄어든다",
+        "verbal_tic": "설명할 때 '그게 진짜로는'을 자주 쓴다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그게 진짜로는... 저도 헷갈리는 부분이 있어서요.",
+        "저 여기 들어온 지 1년밖에 안 됐다니까요, 아는 게 얼마 없어요.",
+        "이러다 저까지 이상하게 보이는 거 아니에요...?"
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "조은솔",
+      "role": "부회장 / 장비 관리",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "강윤제가 그날 오후부터 유난히 말이 없었다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "소행성 발견 보고서 초안에 처음엔 하인철과 강윤제 두 사람 이름이 함께 있었다는 것을 안다.",
+          "source": "예전에 초안을 직접 봄"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "재단 문성곤이 다음 분기 후원 예산을 이번 보고서 반응에 걸어 두겠다고 언급한 것을 안다.",
+          "source": "본인이 그날 직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이 관측소, 저는 장비 하나하나가 어디 있는지 다 꿴다고 자부해요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "강윤제 씨요? 평소랑 다를 거 없었는데요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "주관측실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 실무자다운 간결함",
+        "sentence_length_tendency": "평소엔 항목별로 딱딱 끊어 말하다가, 몰리면 대답이 한 박자씩 늦어진다",
+        "verbal_tic": "'장부상으로는'을 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "장부상으로는... 그런 기록은 따로 안 남겨 뒀는데요.",
+        "제가 관리하는 게 한둘이 아니라서, 그 부분은 다시 확인이 필요해요.",
+        "그건 제 담당 밖의 일이라 뭐라 말씀드리기가 좀..."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "백누리",
+      "role": "홍보 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "재단 문성곤의 요청으로 자신이 먼저 발견자 단독 표기안을 하인철에게 제안했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "게시판 문구를 놓고 사건 당일 저녁 하인철과 짧게 언성을 높였다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "홍보 문구 하나 바꾸는 데도 이렇게 반응이 갈릴 줄은 몰랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 표기안, 저랑은 아무 상관없는 얘기예요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "분석실 안에서 강윤제가 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 대외적으로 다듬어진 말투",
+        "sentence_length_tendency": "평소엔 정돈된 문장으로 말하다가, 몰리면 문장이 짧아지고 끝을 흐린다",
+        "verbal_tic": "'공식적으로는'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "공식적으로는... 그 이상 드릴 말씀은 없어요.",
+        "제 입장에서 더 말씀드리는 건 곤란한데요.",
+        "그건 저 혼자 결정할 수 있는 일이 아니었어요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "문성곤",
+      "role": "후원 재단 담당자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "재단이 홍보 효과를 위해 발견자 단독 표기를 강하게 요청했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오전 하인철에게 다음 분기 후원 예산이 이번 보고서 반응에 달려 있다고 언급했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 정도 관측 결과면 저희 재단에서도 오랜만에 반가운 소식이었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "표기를 단독으로 바꾸자는 얘기, 저는 꺼낸 적 없습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "관측소 내부 인사 문제가 구체적으로 어떻게 진행돼 왔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 외부인다운 예의",
+        "sentence_length_tendency": "평소엔 차분하고 정중하게 말하다가, 몰리면 문장 사이 간격이 길어진다",
+        "verbal_tic": "'재단 입장에서는'을 자주 쓴다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "재단 입장에서는... 그 이상은 말씀드리기 어렵습니다.",
+        "제가 굳이 그런 일을 벌일 이유는 없지 않겠습니까.",
+        "...이 정도로 충분히 답변드린 것 같은데요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "강윤제",
+      "role": "데이터 분석 담당",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "강윤제가 그날 오후 자신의 계정으로 수정된 보고서 초안 파일을 열어 본 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "강윤제가 소란 직후 예상보다 빠르게 주관측실 문 앞에 있었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "강윤제가 오두 추출액을 여분 접안렌즈에 발라 두었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘 밤엔 다들 유성우에만 신경이 쏠려 있었죠. 저도 그랬고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 보고서 초안이 바뀐 줄은 오늘 오후까지 전혀 몰랐어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "저는 그 시간 내내 분석실에만 있었어요. 주관측실 쪽엔 발도 안 들였어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "그 여분 렌즈에 발라 둔 게 뭔지는 저도 몰라요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 회원들이 자신의 행적을 정확히 어떻게 보고 있는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 절제된 격식체",
+        "sentence_length_tendency": "평소엔 짧고 정확하게 말하다가, 몰리면 문장 사이 침묵이 길어진다",
+        "verbal_tic": "'정확히는'을 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "정확히는... 저도 다시 생각해 봐야 할 것 같습니다.",
+        "자꾸 그렇게 말씀하시면 저도 드릴 말씀이 없어요.",
+        "...그 이상은 저도 뭐라 말씀드리기 어렵네요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH05"],
+      "nature": "넉 달 전 소행성을 함께 검출해 낸 회장과 데이터 분석 담당 사이.",
+      "public_face": "다들 강윤제를 하인철이 가장 아끼는 실무자로 여겨 왔다.",
+      "private_strain": "강윤제는 사건 당일 오후 이미 수정된 보고서 초안을 열어 보고서도 하인철에게 그 사실을 캐묻지 않았다.",
+      "surfaces_when": "탐정이 파일 접근 기록(E07)과 후원 성과 게시물(E10)을 함께 제시할 때(C01).",
+      "says": {
+        "CH05": "대표님은... 제겐 이 일을 가르쳐 주신 분이었죠. 그 이상은 지금 드릴 말씀이 없어요."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "관측소에 들어온 지 1년 된 신입 회원과, 그를 지도해 온 회장 사이.",
+      "public_face": "하인철은 오다림을 성실한 후임으로 아꼈다고 알려져 있다.",
+      "private_strain": "오다림은 이번 관측회 시연 순서를 바꾸자고 건의했다가 하인철에게 거절당한 일로 서운함을 품고 있었다.",
+      "surfaces_when": "탐정이 라이브캠 녹화분(E18)을 제시하며 그날 시연 준비 과정을 캐물을 때.",
+      "says": {
+        "CH01": "대표님은 저한테 정말 많이 알려 주셨어요. 그만큼 엄하기도 하셨지만요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "10년 가까이 함께 관측소를 꾸려 온 부회장과 회장 사이.",
+      "public_face": "두 사람은 관측소의 두 축으로 알려져 있다.",
+      "private_strain": "조은솔은 최근 장비 예산 편성을 두고 하인철과 크게 의견이 갈렸다는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 문성곤의 진술(E12)을 들은 뒤 예산 문제를 캐물을 때.",
+      "says": {
+        "CH02": "회장님이랑은... 10년 가까이 이 일을 같이 해 온 사이니 서로 알 만큼 알죠."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "홍보를 도맡아 온 담당자와 회장 사이.",
+      "public_face": "백누리는 관측소 소식을 성실히 알려 온 사람으로 알려져 있다.",
+      "private_strain": "백누리는 재단의 요청으로 발견자 단독 표기안을 먼저 하인철에게 제안한 사람이 자신이라는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 후원 성과 게시물(E10)을 제시하며 표기 변경 경위를 캐물을 때.",
+      "says": {
+        "CH03": "대표님은 저희 쪽이 낸 자료를 늘 꼼꼼히 다시 보시는 분이었어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "이번 등록 절차로 처음 깊이 얽힌 재단 담당자와 회장 사이.",
+      "public_face": "두 사람은 순조롭게 발견 보고서 절차를 밟아 온 것으로 알려져 있다.",
+      "private_strain": "문성곤은 다음 분기 후원 예산이 이번 보고서 반응에 달려 있다는 것을 하인철에게만 알리고 다른 회원들에게는 숨겨 왔다.",
+      "surfaces_when": "탐정이 백누리의 진술(E11)을 들은 뒤 재단 예산 문제를 캐물을 때.",
+      "says": {
+        "CH04": "회장님과는... 이번 일로 이렇게 자주 뵐 사이가 될 줄 몰랐네요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH05", "CH02"],
+      "nature": "관측 데이터를 다뤄 온 분석 담당과, 장비를 관리해 온 부회장 사이.",
+      "public_face": "두 사람은 실무에서 가장 자주 부딪히는 협력자로 알려져 있다.",
+      "private_strain": "조은솔은 보고서 초안에 처음엔 강윤제의 이름도 함께 있었다는 것을 알고 있었지만 누구에게도 먼저 말하지 않았다.",
+      "surfaces_when": "탐정이 후원 성과 게시물(E10)을 제시하며 초안이 언제 바뀌었는지 캐물을 때.",
+      "says": {
+        "CH05": "은솔 씨는... 제가 뭘 하는지 가장 잘 아는 사람이었죠. 그 이상은 모르겠습니다.",
+        "CH02": "강윤제 씨야 늘 조용히 자기 일만 하는 사람이죠. 그것만큼은 확실해요."
+      }
+    },
+    {
+      "id": "REL07",
+      "between": ["CH01", "CH05"],
+      "nature": "신입 회원과, 데이터 분석을 도맡아 온 선배 회원 사이.",
+      "public_face": "오다림은 강윤제를 어려운 선배로 여겨 왔다고 알려져 있다.",
+      "private_strain": "오다림은 사건 당일 오후 강윤제가 유난히 굳어 있었다는 것을 봤지만 이유를 캐묻지 않았다.",
+      "surfaces_when": "탐정이 무전기 교신 기록(E04)을 제시하며 강윤제의 그날 오후 태도를 캐물을 때.",
+      "says": {
+        "CH01": "윤제 선배는 원래 말이 없는 편이라, 그날도 그런가 보다 했어요.",
+        "CH05": "다림 씨는... 아직 배우는 중인 후배죠. 그 이상은 없습니다."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "주관측실",
+      "access": "회원 카드가 있어야 드나들 수 있는 주관측실. 공개 시연 시간에만 안내자 동행으로 일반인도 들어올 수 있었다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "돔 천장 아래 대형 반사망원경이 창가로 기울어져 있고, 그 옆 접안렌즈 거치대는 절반쯤 비어 있다. 문가에 선 오다림은 아직 그 자리를 떠나지 못한 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "주관측실 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "거치대 절반이 비어 있고, 바닥 한쪽에는 급히 옮겨진 듯한 접이식 의자 자국이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "주관측실 접안렌즈 보관함을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "보관함에는 여분 접안렌즈 두 개가 있어야 하는데 하나만 남아 있고, 남은 하나의 고무 아이컵 안쪽에 마른 얼룩이 옅게 배어 있다."
+        },
+        {
+          "action": "하인철이 마지막으로 쓰던 접안렌즈를 확인한다",
+          "requires": "E01",
+          "release_evidence_id": "E02",
+          "result": "하인철이 마지막으로 쓴 접안렌즈는 평소와 달리 물기만 남아 있고, 사용한 흔적이 남아 있지 않다."
+        },
+        {
+          "action": "오다림에게 하인철이 쓰러지기 직전 상황을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "\"대표님이 그 렌즈에 몇 번이나 얼굴을 대셨는데, 갑자기 손으로 눈을 감싸시더라고요.\""
+        },
+        {
+          "action": "무전기 교신 기록을 확인한다",
+          "requires": "오다림",
+          "release_evidence_id": "E04",
+          "result": "22시 41분 오다림의 호출에, 강윤제가 채 몇 초도 안 돼 응답한 기록이 남아 있다."
+        },
+        {
+          "action": "구급대 응급처치 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "응급처치 기록에는 '피부 접촉성 독성 물질에 의한 호흡 부전 의심'이라는 소견이 적혀 있다."
+        },
+        {
+          "action": "여분 접안렌즈 얼룩을 감정한다",
+          "requires": "E01",
+          "release_evidence_id": "E06",
+          "result": "감정 결과 얼룩에서 오두(아코니틴) 성분이 검출된다."
+        },
+        {
+          "action": "오다림에게 소란 직후 누가 가장 먼저 왔는지 묻는다",
+          "requires": "E04",
+          "release_evidence_id": "E19",
+          "result": "\"이상하게 강윤제 씨가 제일 먼저 왔어요. 부르기도 전에 이미 문 앞에 있었달까요.\""
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "분석실",
+      "access": "직원증이 있어야 들어갈 수 있는 데이터 분석 전용실.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L04"],
+      "base_description": "모니터 두 대가 나란히 놓인 책상 안쪽에서 강윤제는 화면 아래쪽 로그창만 들여다보며 앉아 있다. 그 뒤편 선반에는 관측 노트들이 날짜별로 쌓여 있다.",
+      "observation_rules": [
+        {
+          "action": "분석실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위 메모지에는 오늘 새벽까지 이어진 데이터 정리 흔적이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "분석실 컴퓨터의 파일 접근 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 14시 03분, 강윤제의 계정이 보고서 초안 파일을 열람한 기록이 남아 있다."
+        },
+        {
+          "action": "관측 서버 로그를 확인한다",
+          "requires": "조은솔",
+          "release_evidence_id": "E08",
+          "result": "23시 10분경 삭제된 로그 항목 하나가 복구 흔적으로만 남아 있다."
+        },
+        {
+          "action": "분석실 개수대 주변을 살핀다",
+          "requires": "E02",
+          "release_evidence_id": "E09",
+          "result": "개수대 배수구에서 미량의 독성 성분이 검출된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "로비 겸 전시실",
+      "access": "행사 기간 동안 누구나 드나들 수 있는 로비 겸 전시실.",
+      "access_level": "open",
+      "connects_to": ["L01", "L04", "L05"],
+      "base_description": "전시 패널 앞에 늘어선 접이식 의자들 사이로, 백누리는 게시판 한쪽을 정리하고 있고 그 옆에서 문성곤은 손에 든 서류를 반복해 넘겨 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비 전체를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "게시판 옆 안내판에는 오늘 밤 관측 순서가 시간대별로 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "로비에 걸린 후원 성과 게시물을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "게시물 초안에는 '단독 발견자: 하인철'이라는 문구가 적혀 있고, 그 아래 각주에 강윤제의 이름이 작게 달려 있다."
+        },
+        {
+          "action": "백누리에게 발견자 표기를 단독으로 바꾸자고 제안한 경위를 묻는다",
+          "requires": "E10",
+          "release_evidence_id": "E11",
+          "result": "\"그 문구, 재단 쪽에서 먼저 요청이 와서 제가 대표님께 전한 거예요.\""
+        },
+        {
+          "action": "문성곤에게 재단이 단독 발견자를 요구한 이유를 묻는다",
+          "requires": "오다림",
+          "release_evidence_id": "E12",
+          "result": "\"저희 재단 입장에서는 발견자가 한 분으로 또렷해야 홍보하기가 수월했습니다.\""
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "창고 겸 장비보관실",
+      "access": "장비관리 담당자만 드나드는 창고.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02", "L03"],
+      "base_description": "선반마다 정리함과 시약병이 줄지어 있고, 안쪽 시약장 앞에서 조은솔은 재고 목록을 확인하며 서 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "선반 한쪽에 최근 정리한 듯한 빈 자리가 눈에 띈다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "창고 시약장을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "'오두 추출액'이라는 표시가 붙은 병 자리가 비어 있고, 먼지가 덜 앉은 흔적이 남아 있다."
+        },
+        {
+          "action": "창고 출입 카드 기록을 확인한다",
+          "requires": "조은솔",
+          "release_evidence_id": "E14",
+          "result": "사건 당일 15시 30분경, 강윤제의 출입카드가 창고 문을 태그한 기록이 남아 있다."
+        },
+        {
+          "action": "시약 반출 서명대를 확인한다",
+          "requires": "E13",
+          "release_evidence_id": "E15",
+          "result": "서명란에 '식물 표본 처리용'이라는 사유로 강윤제의 서명이 남아 있다."
+        },
+        {
+          "action": "조은솔에게 강윤제의 그날 오후 태도를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "\"그이가 그날 오후부터 유난히 말이 없었어요.\""
+        },
+        {
+          "action": "조은솔에게 소행성 발견 보고서 초안에 대해 묻는다",
+          "requires": "E10",
+          "release_evidence_id": "E17",
+          "result": "\"두 사람 이름이 같이 있었는데, 어느 순간 강윤제 씨 이름이 빠졌더라고요.\""
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "야외 관측 데크",
+      "access": "행사 기간 임시로 개방된 야외 관측 데크.",
+      "access_level": "open",
+      "connects_to": ["L03"],
+      "base_description": "삼각대들이 줄지어 밤하늘을 향해 서 있고, 그 사이로 아직 자리를 뜨지 못한 참가자 몇이 낮은 목소리로 이야기를 나누고 있다.",
+      "observation_rules": [
+        {
+          "action": "데크 전체를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "삼각대 사이 안내판에는 유성우 절정 시각이 23시로 표시돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "데크에 설치된 라이브캠 녹화분을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "라이브캠 녹화분에는 참가자들이 19시부터 데크에 모여드는 모습이 담겨 있을 뿐, 특별한 장면은 보이지 않는다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "여분 접안렌즈 보관함",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "주관측실 접안렌즈 보관함을 살핀다",
+      "content": "보관함에는 여분 접안렌즈 두 개가 있어야 하는데 하나만 남아 있고, 남은 하나의 고무 아이컵 안쪽에 마른 얼룩이 옅게 배어 있다.",
+      "proves": ["여분 렌즈 중 하나가 최근 쓰였다는 것"],
+      "does_not_prove": ["그 얼룩이 무엇인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "하인철이 쓰던 접안렌즈",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "하인철이 마지막으로 쓰던 접안렌즈를 확인한다",
+      "content": "하인철이 마지막으로 쓴 접안렌즈는 평소와 달리 물기만 남아 있고, 사용한 흔적이 남아 있지 않다.",
+      "proves": ["그 렌즈가 사후에 세척됐다는 것"],
+      "does_not_prove": ["누가 씻었는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 렌즈만 유독 깨끗하네요.",
+        "detective": "닦아 낼 이유가 있었단 소리지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "오다림의 진술 — 발견 직전 상황",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오다림에게 하인철이 쓰러지기 직전 상황을 묻는다",
+      "content": "\"대표님이 그 렌즈에 몇 번이나 얼굴을 대셨는데, 갑자기 손으로 눈을 감싸시더라고요.\"",
+      "proves": ["증상이 접안렌즈를 사용한 뒤 나타났다는 것"],
+      "does_not_prove": ["렌즈에 무엇이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "무전기 교신 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "무전기 교신 기록을 확인한다",
+      "content": "22시 41분 오다림의 호출에, 강윤제가 채 몇 초도 안 돼 응답한 기록이 남아 있다.",
+      "proves": ["강윤제가 호출 당시 이미 주관측실 근처에 있었다는 것"],
+      "does_not_prove": ["왜 그 자리에 있었는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 시각까지 정리돼 있을 줄은 몰랐네요.",
+        "detective": "무전은 다 남거든."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "구급대 응급처치 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "구급대 응급처치 기록을 확인한다",
+      "content": "응급처치 기록에는 '피부 접촉성 독성 물질에 의한 호흡 부전 의심'이라는 소견이 적혀 있다.",
+      "proves": ["사망 원인이 피부 접촉성 독성 물질일 가능성"],
+      "does_not_prove": ["그 물질의 정체와 출처"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "접안렌즈 얼룩 감정 결과",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "여분 접안렌즈 얼룩을 감정한다",
+      "content": "감정 결과 얼룩에서 오두(아코니틴) 성분이 검출된다.",
+      "proves": ["그 얼룩이 오두 성분이라는 것"],
+      "does_not_prove": ["누가 그것을 발랐는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "오두면... 그냥 화분이 아니라 작정하고 쓴 거네요.",
+        "detective": "이제 얘기가 되는군."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "분석실 파일 접근 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "분석실 컴퓨터의 파일 접근 기록을 확인한다",
+      "content": "그날 14시 03분, 강윤제의 계정이 보고서 초안 파일을 열람한 기록이 남아 있다.",
+      "proves": ["강윤제가 그 시각 수정된 초안을 열어 봤다는 것"],
+      "does_not_prove": ["그가 무엇을 느꼈는지"],
+      "presentation_effect": ["C01"],
+      "reaction": {
+        "jiwoo": "이 시간에 이 파일을요?",
+        "detective": "우연이라기엔 딱 맞아떨어지지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "관측 서버 로그 삭제 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "관측 서버 로그를 확인한다",
+      "content": "23시 10분경 삭제된 로그 항목 하나가 복구 흔적으로만 남아 있다.",
+      "proves": ["누군가 그 시각 로그 항목을 지웠다는 것"],
+      "does_not_prove": ["지워진 항목이 무엇이었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E09",
+      "name": "분석실 개수대 성분 검출",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "분석실 개수대 주변을 살핀다",
+      "content": "개수대 배수구에서 미량의 독성 성분이 검출된다.",
+      "proves": ["최근 이곳에서 오염된 물건을 씻었다는 것"],
+      "does_not_prove": ["누가 씻었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E10",
+      "name": "후원 성과 게시물 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "로비에 걸린 후원 성과 게시물을 확인한다",
+      "content": "게시물 초안에는 '단독 발견자: 하인철'이라는 문구가 적혀 있고, 그 아래 각주에 강윤제의 이름이 작게 달려 있다.",
+      "proves": ["발견자 표기가 실제로 단독으로 바뀌었다는 것"],
+      "does_not_prove": ["강윤제가 그 사실을 언제 알았는지"],
+      "presentation_effect": ["C01"],
+      "reaction": {
+        "jiwoo": "이름이 하나 빠졌네요.",
+        "detective": "누구 눈에도 보였을 텐데."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "백누리의 진술 — 표기 변경 경위",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "백누리에게 발견자 표기를 단독으로 바꾸자고 제안한 경위를 묻는다",
+      "content": "\"그 문구, 재단 쪽에서 먼저 요청이 와서 제가 대표님께 전한 거예요.\"",
+      "proves": ["표기 변경 제안이 재단에서 시작됐다는 것"],
+      "does_not_prove": ["그것이 이번 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "문성곤의 진술 — 재단의 요구 이유",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "문성곤에게 재단이 단독 발견자를 요구한 이유를 묻는다",
+      "content": "\"저희 재단 입장에서는 발견자가 한 분으로 또렷해야 홍보하기가 수월했습니다.\"",
+      "proves": ["재단이 단독 표기를 요청한 실제 이유"],
+      "does_not_prove": ["그것이 살인과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "창고 시약장의 빈 자리",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 시약장을 살핀다",
+      "content": "'오두 추출액'이라는 표시가 붙은 병 자리가 비어 있고, 먼지가 덜 앉은 흔적이 남아 있다.",
+      "proves": ["오두 추출액 병이 최근 반출됐다는 것"],
+      "does_not_prove": ["누가 반출했는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "먼지까지 다르게 앉았어요.",
+        "detective": "최근에 손댔단 소리군."
+      }
+    },
+    {
+      "id": "E14",
+      "name": "창고 출입 카드 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 출입 카드 기록을 확인한다",
+      "content": "사건 당일 15시 30분경, 강윤제의 출입카드가 창고 문을 태그한 기록이 남아 있다.",
+      "proves": ["그 시각 강윤제가 창고에 있었다는 것"],
+      "does_not_prove": ["안에서 무엇을 가져갔는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "시간이 딱 맞물리네요.",
+        "detective": "그러니 우연은 아니지."
+      }
+    },
+    {
+      "id": "E15",
+      "name": "시약 반출 서명대",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "시약 반출 서명대를 확인한다",
+      "content": "서명란에 '식물 표본 처리용'이라는 사유로 강윤제의 서명이 남아 있다.",
+      "proves": ["강윤제가 그 사유로 반출 서명을 했다는 것"],
+      "does_not_prove": ["실제로 어디에 썼는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "조은솔의 진술 — 강윤제의 태도",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "조은솔에게 강윤제의 그날 오후 태도를 묻는다",
+      "content": "\"그이가 그날 오후부터 유난히 말이 없었어요.\"",
+      "proves": ["강윤제의 태도가 그날 오후 달라졌다는 것"],
+      "does_not_prove": ["그 이유"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E17",
+      "name": "조은솔의 진술 — 보고서 초안 이름 변경",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "조은솔에게 소행성 발견 보고서 초안에 대해 묻는다",
+      "content": "\"두 사람 이름이 같이 있었는데, 어느 순간 강윤제 씨 이름이 빠졌더라고요.\"",
+      "proves": ["보고서 초안에서 강윤제의 이름이 나중에 빠졌다는 것"],
+      "does_not_prove": ["누가 그렇게 바꿨는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E18",
+      "name": "데크 라이브캠 녹화분",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "데크에 설치된 라이브캠 녹화분을 확인한다",
+      "content": "라이브캠 녹화분에는 참가자들이 19시부터 데크에 모여드는 모습이 담겨 있을 뿐, 특별한 장면은 보이지 않는다.",
+      "proves": ["행사가 예정대로 진행됐다는 것"],
+      "does_not_prove": ["주관측실 안에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E19",
+      "name": "오다림의 진술 — 가장 먼저 온 사람",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오다림에게 소란 직후 누가 가장 먼저 왔는지 묻는다",
+      "content": "\"이상하게 강윤제 씨가 제일 먼저 왔어요. 부르기도 전에 이미 문 앞에 있었달까요.\"",
+      "proves": ["강윤제가 호출 전부터 이미 그 근처에 있었다는 것"],
+      "does_not_prove": ["왜 미리 그 자리에 있었는지"],
+      "presentation_effect": ["C02"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_file_access",
+      "requires_heard_claim_ids": ["S-CH05-02"],
+      "requires_presented_evidence_ids": ["E07", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E07", "E10"]
+      },
+      "player_action": "분석실 파일 접근 기록(E07)과 후원 성과 게시물(E10)을 함께 제시하며 오늘 오후까지 몰랐다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "강윤제가 그날 오후 자신의 계정으로 수정된 보고서 초안 파일을 열어 본 사실을 인정한다."
+      },
+      "must_not_release": ["주관측실에 있었다는 사실", "독을 발랐다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_file_access",
+      "to_stage": "admits_early_arrival",
+      "requires_heard_claim_ids": ["F-CH05-01", "S-CH05-03"],
+      "requires_presented_evidence_ids": ["E04", "E19"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-03",
+        "evidence_ids": ["E04", "E19"]
+      },
+      "player_action": "무전기 교신 기록(E04)과 오다림의 목격담(E19)을 함께 제시하며 분석실에만 있었다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "강윤제가 소란 직후 예상보다 빠르게 주관측실 문 앞에 있었다는 사실을 인정한다."
+      },
+      "must_not_release": ["독을 발랐다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_early_arrival",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH05-02", "S-CH05-04"],
+      "requires_presented_evidence_ids": ["E06", "E13", "E14"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-04",
+        "evidence_ids": ["E06", "E13", "E14"]
+      },
+      "player_action": "접안렌즈 감정 결과(E06)와 시약장의 빈 자리(E13), 출입 기록(E14)을 함께 제시하며 무엇을 발랐는지 모른다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "강윤제가 오두 추출액을 여분 접안렌즈에 발라 두었다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "백누리가 재단 후원을 위해 발견자 단독 표기안을 먼저 제안한 사람이고, 사건 당일 저녁에도 하인철과 언성을 높였다는 정황이 있다.",
+      "actual_reason": "백누리가 숨긴 것은 자신이 먼저 그 제안을 꺼냈다는 자책감일 뿐, 살인과는 무관하다.",
+      "how_to_clear": "그녀의 진술(E11)과 문성곤의 진술(E12)을 함께 제시해 그 제안이 재단 쪽 요청에서 시작됐음을 확인한다.",
+      "must_not_imply": "백누리가 결백하다고 해서 그 표기 변경이 강윤제에게 준 상처가 사라지는 것은 아니다.",
+      "lingering_thread": "백누리는 이후 홍보 문구에 발견 과정 전체를 함께 밝히는 방향으로 고쳐 보겠다고 한다.",
+      "suspicion_deepener": "먼저 제안을 꺼낸 사람이 자신이라는 사실과, 사건 당일 저녁 다툼이 있었다는 사실이 겹치며 그녀에 대한 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "문성곤이 재단 예산을 이번 보고서 반응에 걸어 두고 발견자 단독 표기를 강하게 요청한 인물이고, 사고 직후에도 서둘러 자리를 정리하려 했다는 정황이 있다.",
+      "actual_reason": "문성곤이 서두른 것은 사고 직후 다음 날 다른 후원 행사 준비 때문이었을 뿐, 살인과는 무관하다.",
+      "how_to_clear": "그의 진술(E12)과 조은솔의 진술(E17)을 함께 제시해 예산 문제와 이번 사건이 무관함을 확인한다.",
+      "must_not_imply": "문성곤이 결백하다고 해서 재단이 발견자 단독화를 요구했다는 사실 자체가 사라지는 것은 아니다.",
+      "lingering_thread": "문성곤은 다음 보고서부터는 공동 발견자 표기를 재단 방침으로 명시하겠다고 한다.",
+      "suspicion_deepener": "예산을 이번 반응에 걸어 뒀다는 사실과, 사고 직후 서둘러 자리를 정리하려 했다는 사실이 겹치며 그에 대한 의심이 짙어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH05-01", "F-CH05-02", "F-CH05-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "F-CH05-03",
+      "motive_fact": "F-CH05-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "강윤제(CH05) — 별무리천문대 데이터 분석 담당",
+    "method": "행사 당일 오후 여분 접안렌즈 고무 아이컵 안쪽에 오두 추출액을 발라 원래 렌즈와 바꿔 두고, 하인철이 공개 시연 중 반복해서 그 렌즈에 얼굴을 대는 사이 피부로 독성 물질이 흡수되게 했다.",
+    "motive": "넉 달 전 자신이 처음 검출한 소행성의 발견자 표기에서, 재단의 요청으로 이름이 각주로 내려가고 하인철 단독 발견자로 서류가 바뀐 사실을 사건 당일 오후 알게 되면서 배신감과 절망에 사로잡혔다.",
+    "key_connection": "분석실 파일 접근 기록(E07)과 후원 성과 게시물(E10)이 그가 언제 그 사실을 알았는지부터, 무전기 교신 기록(E04)과 오다림의 목격담(E19)으로 그가 예상보다 빨리 주관측실에 있었던 정황까지, 그리고 렌즈 얼룩 감정 결과(E06)와 시약장의 빈 자리(E13), 출입 기록(E14)으로 오두 추출액의 출처까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "하인철은 넉 달 전 강윤제가 신형 관측 소프트웨어로 처음 검출한 소행성의 발견 보고서 초안에 처음엔 두 사람의 이름을 함께 올렸다(E17).",
+    "재단 문성곤이 홍보 효과를 위해 발견자를 단독으로 못박는 안을 요청하자(E12), 백누리가 그 제안을 먼저 하인철에게 전했고(E11) 하인철은 사건 5일 전 서류를 고쳐 강윤제의 이름을 각주로 내렸다(E10).",
+    "강윤제는 사건 당일 오후 자신의 계정으로 그 수정된 초안을 열어 보고 이 사실을 알게 됐다(E07).",
+    "강윤제는 창고 시약장에서 오두 추출액을 몰래 꺼내(E13, E14, E15) 여분 접안렌즈 고무 아이컵 안쪽에 발라 두었고(E01), 감정 결과 그 얼룩은 오두 성분으로 확인됐다(E06).",
+    "하인철이 공개 시연 중 반복해서 그 렌즈에 얼굴을 대는 사이(E03) 피부로 독성 물질이 흡수돼 쓰러졌다(E05).",
+    "소란 직후 강윤제는 무전으로 부르기도 전에 이미 주관측실 문 앞에 와 있었고(E04, E19), 오염된 렌즈를 재빨리 바꿔 낀 뒤(E02) 분석실 개수대에서 씻어냈다(E09).",
+    "이어 관측 서버에서 자신의 이름이 올라 있던 예전 로그 항목을 삭제했다(E08).",
+    "백누리가 표기 변경을 먼저 제안한 것과 문성곤이 예산을 이번 반응에 걸어 둔 것은 사실이지만, 둘 다 살인과는 무관했다(E12, E17).",
+    "조은솔은 강윤제가 그날 오후부터 유난히 말이 없었다는 것을 봤고(E16), 그것이 뒤늦게 사건을 푸는 실마리가 됐다.",
+    "데크 라이브캠 녹화분(E18)은 그 시각 참가자들이 예정대로 유성우를 기다리고 있었을 뿐, 주관측실 쪽 소란과는 무관했음을 보여 준다."
+  ]
+}
