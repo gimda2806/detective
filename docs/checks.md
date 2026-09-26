@@ -79,7 +79,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `OPENING_SCENE_MISSING_INCIDENT` | 오프닝에 표면 사건(쓰러진·숨진·발견)이 전혀 안 드러남 | 오프닝이 날씨와 건물 묘사로 끝난다 | E |
 | `OPENING_CAST_ROLLCALL` | 오프닝이 등장인물 명부가 됨 | 첫 문단에 다섯 명이 직함과 함께 줄줄이 | E/W |
 | `OPENING_INCIDENT_ONLY_HEARSAY` | 사건이 전해 들은 말로만 나오고 현장이 없음 | 「관리인이 말하기로는 …」만 있음 | E/W |
-| `SCENE_DIALOGUE_MASHED` | 대사와 지문이 한 문단에 뭉침 | 「"…" 그가 말했다. "…"」 한 줄 | W |
+| `SCENE_DIALOGUE_MASHED` | 대사와 지문이 한 문단에 뭉침(오프라인 화면에서 말풍선이 깨진다) | 「"…" 그가 말했다. "…"」 한 줄 | E (2026-09-26, 전수 0건이라 올림) |
 | `WORLD_FACT_VAGUE_SUBJECT` | `world_fact`가 대명사·지시어만 쓰고 `actors`의 이름이 없음(따로 떼어 놓으면 누구 얘기인지 모름) | 「그가 그것을 거기 두었다」 | E |
 | `CLAIM_FACT_DUPLICATE` | `knows`의 사실이 `initial_claims`의 진술과 어미만 다른 같은 말 | 진술 「9시에 나갔어요」·사실 「9시에 나갔다」 | E/W |
 
@@ -104,7 +104,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
 | `CLAIMS_ALIBI_ONLY` | 첫 면담 진술이 전부 그날 밤 자기 행적(묻기도 전에 알리바이) | 진술 셋이 「9시에…」「10시에…」「11시엔…」 | E/W |
-| `KNOWS_UNGATED_FLOOD` | `knows`가 넷 이상 전부 `hidden_until` 없이 열려 면담 한 번에 다 나옴 | 잠금 없는 사실 여섯 | E/W |
+| `KNOWS_UNGATED_FLOOD` | `knows`가 넷 이상 전부 `hidden_until` 없이 열려 면담 한 번에 다 나옴 | 잠금 없는 사실 여섯 | E (2026-09-26, 전수 0건이라 올림) |
 | `MOTIVE_SELF_DISCLOSURE` | 자기 동기·자기 변호가 잠금 없이 본인 입에서 먼저 나옴(`points_at` 있는 마스터만) | 진범의 첫 진술 「제가 유산 문제로 다툰 건 맞지만…」 | E/W |
 
 ### 2-7. 관계·인물 — 관계도의 중심은 피해자
