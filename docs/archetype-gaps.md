@@ -3024,25 +3024,25 @@ CLAUDE.md는 **「가장 가까운 칸에 억지로 밀어 넣지 말 것 — �
   꼴과 한 글자씩 어긋나 **선언이 없으면 조용히 빠진다.** 「밀치」 어간과 「난간」 단독, 「중심을 잃」을
   더하면 닫힌다.
 
-## CASE327 (생성 루틴, 2026-09-26)
+## CASE328 (생성 루틴, 2026-09-26)
 
 ### `other`로 적은 것
 
 | 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
 | --- | --- | --- | --- |
-| CASE327 | `cover_up_target` | `full_truth.cover_up` 「관리자 계정으로 접속해 그 시각 조작 이력 일부를 지우고, 상자 속 판결문 사본을 문서 세단기에 넣어 없애려 했지만 … 완전히 갈리지 않고 조각으로 남았다」 | `npm run check:case` 실측(326건 기준)으로 열네 칸을 전부 짚어 봤다 — `cause_of_death`(45.4%, 139/306) · `evidence`(29.4%, 90/306) · `responsibility`(23.5%, 72/306)부터 가장 낮은 `financial_trace`(8.2%, 25/306)까지 **열세 칸 전부가 문턱(8%) 위**였다. 이 은폐가 실제로 감추려는 것은 「접속 이력」과 「판결문 사본」 둘로 갈리는데, 앞은 `access_route`·`communication_trace`보다 사람의 신원 그 자체(`identity`)에 가깝고 뒤는 `evidence`에 가깝다 — 그런데 **`identity`(8.8%, 27/306)도 `evidence`(29.4%)도 이미 문턱 위**라 어느 쪽을 골라도 걸렸다 |
-| CASE327 | `cover_up_method` | 같은 문장 — 관리자 계정 접속 이력 삭제와 문서 세단기 파쇄 | `digital_record_manipulation`(9.2%, 28/306) · `document_falsification`(10.5%, 32/306) 둘 다 가장 가까운 칸이었지만 문턱 위였다. **문서를 파쇄한 것은 위조가 아니라 없앤 것**이라 `document_falsification`은 애초에 어긋났고, `evidence_removal`(25.2%, 77/306)은 더 크게 걸렸다. 유일하게 문턱 밑인 실제 후보 `false_intrusion`(4.6%, 14/306)은 이 사건에 외부인 침입 위장이 전혀 없어 억지로 밀어 넣을 자리가 아니었다 |
+| CASE328 | `cover_up_target` | `full_truth.cover_up` 「관리자 계정으로 접속해 그 시각 조작 이력 일부를 지우고, 상자 속 판결문 사본을 문서 세단기에 넣어 없애려 했지만 … 완전히 갈리지 않고 조각으로 남았다」 | `npm run check:case` 실측(326건 기준)으로 열네 칸을 전부 짚어 봤다 — `cause_of_death`(45.4%, 139/306) · `evidence`(29.4%, 90/306) · `responsibility`(23.5%, 72/306)부터 가장 낮은 `financial_trace`(8.2%, 25/306)까지 **열세 칸 전부가 문턱(8%) 위**였다. 이 은폐가 실제로 감추려는 것은 「접속 이력」과 「판결문 사본」 둘로 갈리는데, 앞은 `access_route`·`communication_trace`보다 사람의 신원 그 자체(`identity`)에 가깝고 뒤는 `evidence`에 가깝다 — 그런데 **`identity`(8.8%, 27/306)도 `evidence`(29.4%)도 이미 문턱 위**라 어느 쪽을 골라도 걸렸다 |
+| CASE328 | `cover_up_method` | 같은 문장 — 관리자 계정 접속 이력 삭제와 문서 세단기 파쇄 | `digital_record_manipulation`(9.2%, 28/306) · `document_falsification`(10.5%, 32/306) 둘 다 가장 가까운 칸이었지만 문턱 위였다. **문서를 파쇄한 것은 위조가 아니라 없앤 것**이라 `document_falsification`은 애초에 어긋났고, `evidence_removal`(25.2%, 77/306)은 더 크게 걸렸다. 유일하게 문턱 밑인 실제 후보 `false_intrusion`(4.6%, 14/306)은 이 사건에 외부인 침입 위장이 전혀 없어 억지로 밀어 넣을 자리가 아니었다 |
 
 ### 무엇을 보고 골랐나 — 근거 낱말
 
 | 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
 | --- | --- | --- | --- | --- |
-| CASE327 | `location_archetypes` | `court_legal_facility`(단독) | `case_identity.setting` 「지방법원 별관 기록보존소가 40년 만에 문을 닫는 날」 | 계열(`civic_legal`: `government_office`·`police_facility`·`court_legal_facility`)이 0.9%(3/326)로 가장 비어 있던 자리였다. 개별 칸도 0.6%(2/326)로 문턱(5%)에 넉넉히 못 미쳤다 |
-| CASE327 | `background_archetypes` | `relocation` · `closure_demolition` | `case_identity.setting` 「종이 기록 전량이 오늘 오후 국가기록원으로 **이관**될 예정이었다」 / 「기록보존소가 40년 만에 **문을 닫는** 날」 | `relocation`(2.5%, 8/326)·`closure_demolition`(6.8%, 22/326) 둘 다 문턱(8%) 밑이었고, 계열(`facility_change`)도 15.4%(50/325)로 20% 밑에 여유가 있었다 |
-| CASE327 | `motive_archetypes` | `identity_concealment` · `witness_removal` | `full_truth.motive` 「30년 전 다른 이름을 쓰던 시절 절도 혐의로 형사처벌을 받았고, 이후 **개명**과 신원 정리를 거쳐」 | 둘 다 코퍼스에서 가장 드문 축에 속한다(`identity_concealment` 0.9%, 3/326 · `witness_removal` 1.2%, 4/326) — 신원을 감추려던 것과 그것을 아는 사람을 없앤 것이 한 사건에서 같이 일어나는 경우가 드물었다 |
-| CASE327 | `method_archetypes` | `machine_entrapment`(단독) | `full_truth.method` 「전동 서가 조작판의 이동 버튼을 눌러버렸다. 통로 사이에 갑자기 끼인 방을주는」 | 6.4%(21/326)로 문턱(8%) 밑이었다. 압착사를 `blunt_force`(8.0%, 26/326, 문턱과 같음)로 겹쳐 적지 않고 조작판에 「끼인」 것 하나로만 좁혀 적었다 |
+| CASE328 | `location_archetypes` | `court_legal_facility`(단독) | `case_identity.setting` 「지방법원 별관 기록보존소가 40년 만에 문을 닫는 날」 | 계열(`civic_legal`: `government_office`·`police_facility`·`court_legal_facility`)이 0.9%(3/326)로 가장 비어 있던 자리였다. 개별 칸도 0.6%(2/326)로 문턱(5%)에 넉넉히 못 미쳤다 |
+| CASE328 | `background_archetypes` | `relocation` · `closure_demolition` | `case_identity.setting` 「종이 기록 전량이 오늘 오후 국가기록원으로 **이관**될 예정이었다」 / 「기록보존소가 40년 만에 **문을 닫는** 날」 | `relocation`(2.5%, 8/326)·`closure_demolition`(6.8%, 22/326) 둘 다 문턱(8%) 밑이었고, 계열(`facility_change`)도 15.4%(50/325)로 20% 밑에 여유가 있었다 |
+| CASE328 | `motive_archetypes` | `identity_concealment` · `witness_removal` | `full_truth.motive` 「30년 전 다른 이름을 쓰던 시절 절도 혐의로 형사처벌을 받았고, 이후 **개명**과 신원 정리를 거쳐」 | 둘 다 코퍼스에서 가장 드문 축에 속한다(`identity_concealment` 0.9%, 3/326 · `witness_removal` 1.2%, 4/326) — 신원을 감추려던 것과 그것을 아는 사람을 없앤 것이 한 사건에서 같이 일어나는 경우가 드물었다 |
+| CASE328 | `method_archetypes` | `machine_entrapment`(단독) | `full_truth.method` 「전동 서가 조작판의 이동 버튼을 눌러버렸다. 통로 사이에 갑자기 끼인 방을주는」 | 6.4%(21/326)로 문턱(8%) 밑이었다. 압착사를 `blunt_force`(8.0%, 26/326, 문턱과 같음)로 겹쳐 적지 않고 조작판에 「끼인」 것 하나로만 좁혀 적었다 |
 
-### 정규식 목록에 없던 낱말 (CASE327)
+### 정규식 목록에 없던 낱말 (CASE328)
 
 - **`identity_concealment`** — 폴백은 「신분을 (숨기\|감추)」·「가짜 (이름\|신원)」을 본다. 이 마스터가
   쓰는 말은 **「개명」**·**「이름 변경 신청」**이다 — 합법적으로 이름을 바꾼 뒤 그 사실 자체를 숨기는
