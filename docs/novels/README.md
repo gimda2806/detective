@@ -220,6 +220,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE232 | 정적은 각본에 없었다 | [CASE232.md](CASE232.md) |
 | CASE234 | 밸브가 터진 자리 | [CASE234.md](CASE234.md) |
 | CASE235 | 현이 끊어진 자리 | [CASE235.md](CASE235.md) |
+| CASE236 | 휴식 중 | [CASE236.md](CASE236.md) |
 | CASE237 | 그을음에 남은 이름 | [CASE237.md](CASE237.md) |
 | CASE238 | 멎어버린 숨비소리 | [CASE238.md](CASE238.md) |
 | CASE239 | 아버지의 발판 | [CASE239.md](CASE239.md) |

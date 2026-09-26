@@ -515,13 +515,24 @@
           "claim_id": "S-CH05-02",
           "content": "그날은 창고에 배송 건이 몰려서 하루 종일 거기 있었어요, 확인해 보시면 압니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "저희 쪽에서는 오르간 부품만 대는 입장이라, 공방 안쪽 돌아가는 사정까지는 잘 모릅니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01",
-        "S-CH05-02"
+        "S-CH05-02",
+        "S-CH05-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_trigger": "S-CH05-02",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": [
         "공방 내부의 개인적인 갈등에 대해서는 아는 바가 없다."
       ],
