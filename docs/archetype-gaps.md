@@ -1272,7 +1272,7 @@ CASE199는 **진짜 ②**여서(배경이 기회를 만드는데 `full_truth`가
 
 다섯 편(214 · 215 · 216 · 217 · 218)의 마스터를 읽으면서 분류 코드 여덟 칸을
 적었다. **다섯 편 다 여덟 칸이 통째로 비어 있었다.** 회차 대조표는
-[docs/novels/CASE218.md](novels/CASE218.md) 맨 뒤에 있다.
+CASE218 소설 맨 뒤에 있었다(그 편은 2026-09-26 `PAIR_TWIN` 으로 지워졌다).
 
 ### `other`로 적은 것
 
@@ -2221,7 +2221,7 @@ CASE312·313·314는 `on_the_day_of`(「사건 당일」), CASE310은 `alongside
 | `background_archetypes` | `routine_operation` (CASE310 · CASE311) | **○년째 운영 · 프리오픈**. 305·309가 같은 자리에서 걸렸고 **이 회차가 세 번째·네 번째다** |
 | `motive_archetypes` | `ip_dispute` (CASE314) | **음성 데이터 · 라이선스 · AI**. 선언이 없었으면 이 사건은 동기 축에서 **아무 칸에도 안 걸렸을 것** |
 
-다섯 편 대조표는 [`docs/novels/CASE314.md`](novels/CASE314.md) 맨 뒤에 있다.
+다섯 편 대조표는 CASE314 소설 맨 뒤에 있었다(그 편은 2026-09-26 `PAIR_TWIN` 으로 지워졌다).
 
 ## CASE315~317 (소설화 회차, 2026-09-24)
 
