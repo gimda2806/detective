@@ -397,6 +397,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE141 | 관측일지의 이름 | [CASE141.md](CASE141.md) |
 | CASE142 | 끊어진 교신 | [CASE142.md](CASE142.md) |
 | CASE218 | 떨어진 리그 | [CASE218.md](CASE218.md) |
+| CASE219 | 지워진 피크 | [CASE219.md](CASE219.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
