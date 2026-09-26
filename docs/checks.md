@@ -176,6 +176,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `BACKGROUND_INTENSITY_UNSUPPORTED` | `background_intensity`를 `contributory` 이상으로 적었는데 그 배경 낱말이 `full_truth`에 없음(정규식 목록이 좁으면 오탐 — 갭 문서에 낱말을 적는다) | 「대조 물때」가 `seasonal_peak` 목록에 없어 운다 | E/W |
 | `COVER_UP_TARGET_OVERUSE` · `COVER_UP_METHOD_OVERUSE` | **고정 8%가 아니라 칸당 기대치(사건당 평균 라벨 수 ÷ 칸 수) 대비 배수** — 1.5배 warn, 2배 새 사건 error(2026-09-26). 14·20칸이라 8%는 평균 미만이었다 | 「사인」 41% = 기대 13%의 3.2배 → 새 사건 error · 「현장 재배치」 19% = 2.0배 → warn | 배수별 |
 | `COVER_UP_PAIR_OVERUSE` | 은폐 방식 **둘의 짝**이 8% 이상(가능한 짝 190개라 8%는 평균의 열세 배) | 「사고 위장 + 증거 제거」 20% | E/W |
+| `COVER_UP_DECLARATION_NARROW` | `cover_up_method` **선언이 `full_truth.cover_up` 문장보다 좁다** — 폴백 정규식을 선언과 같이 돌려 더 잡는 칸이 있으면. 선언은 폴백을 대체하므로 좁은 선언은 그 축을 통째로 안 세어지게 한다. 잡음을 거르는 셋(`cover_up` 문장만 · 사고 위장 다섯 칸은 한 계열 · 약한 낱말 세 칸 제외)은 `cover-up-tables.ts`. 정밀도 75~80%(2026-09-26) — 오탐이면 갭 문서에 낱말을 적고 칸은 더하지 않는다. 코퍼스 목록은 `npm run audit:cover-up` | CASE016 선언 `digital_record_manipulation`·`scene_rearrangement`인데 문장이 「노후 장비의 자체 결함으로 오작동한 것처럼 … 흔적을 지우고」 | E/W |
 | `TITLE_TEMPLATE_OVERUSE` | 제목 틀(조사+관형형 서술어)이 5건 이상 | 「○가 삼킨 △」 12건 | E/W |
 
 ### 2-12. 판박이 — 틀·쌍·구간 (전 마스터를 읽어 번호가 붙은 것과 견준다)
@@ -221,6 +222,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | --- | --- | --- |
 | `audit:format` | 마스터 포맷 부채 — `masterFormatWarnings`(장소/인물 못 읽음 · 진입 시각 없음 · 관계 없음 · 단계 키가 서술문) + 「읽고 다시 써야 남는 것」(관계 모양·헛다리 해소·knows 홍수·알리바이만·자기 동기·오프닝 명부·`RANGE_TWIN`) | `--list`로 사건 id까지 |
 | `audit:offline` | 원본(판본 있으면 판본)이 오프라인 필수 표를 얼마나 갖췼나, 번호순. 필수 열은 준비도를 막고 권장 열(반박 전원·목소리·해결편)은 따로. **다음 게이트까지 비는 번호**가 판본 루틴의 입력 | 「앞에서부터 013까지 → 16편까지 비는 번호 014·015·016」 |
+| `audit:cover-up` | 은폐 선언이 문장보다 좁은 마스터의 목록(`COVER_UP_DECLARATION_NARROW`와 같은 판정, 등록 여부 표시). 인자로 `CASE###`을 주면 선언·문장·더 잡는 칸을 나란히 찍는다 — 생성 루틴 2단계가 자기 사건에, 이주 루틴이 등록 사건의 warn 부채에 쓴다 | `CASE147: weapon_disposal「주사기를 다른 의료폐기」` |
 | `audit:duplication` | 인물명·숫자를 지운 뼈대로 **3건 이상**에서 같은 문장. 필드 목록을 들고 있지 않다(전 필드) | 「외부인의 침입 흔적은 확인되지 않았다」 65건 |
 | `check:spelling` | 코퍼스와 대사 풀의 띄어쓰기·맞춤법 아홉 규칙(`scripts/lib/korean-proofread.mjs`) — 의존명사 거/것/수/지, 오래되다, -ㄹ게, -이에요, 문장부호 앞 붙임. 고치지 않고 센다 | 「실수 없이」의 「수」를 의존명사로 오인한 1건이 지금 기존 오탐 |
 | `check:banter` | 탐정·한지우 대사 풀이 **고르게** 나오나 — N건 완전 탐색 뒤 가장 쏠린 풀이 고른 분포보다 몇 %p 넘는지 | 한 풀이 +18%p |
