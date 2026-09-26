@@ -1795,7 +1795,9 @@ export function checkStatementGating(
       .filter((id) => !gated.has(id) && !staged.has(id));
     if (open.length < UNGATED_KNOWS_LIMIT) continue;
     issues.push({
-      severity: alreadyRegistered ? 'warn' : 'error',
+      // 등록 무관 error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이
+      // 공짜였다. 면담 한 번에 아는 것이 다 나오는 인물은 새 사건에서만 막힌다.
+      severity: 'error',
       code: 'KNOWS_UNGATED_FLOOD',
       message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
     });
