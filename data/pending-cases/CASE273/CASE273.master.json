@@ -4,10 +4,18 @@
     "title": "천인정, 마지막 시위",
     "english_title": "The Last Bowstring at Cheonindeong",
     "genre": "상속권을 빼앗겼다는 상실감과 배신감에서 비롯된 계획적 살인 / 일제사 사각지대를 이용한 조준 사살의 오인사고사 위장",
-    "location_archetypes": ["sports_facility"],
+    "location_archetypes": [
+      "sports_facility"
+    ],
     "background": {
-      "background_archetypes": ["routine_meeting", "inheritance"],
-      "background_phrasing": ["scheduled", "immediately_after"],
+      "background_archetypes": [
+        "routine_meeting",
+        "inheritance"
+      ],
+      "background_phrasing": [
+        "scheduled",
+        "immediately_after"
+      ],
       "background_intensity": "central"
     },
     "setting": "오랜 전통을 이어온 사설 활터 '천인정(千靭亭)'. 종중이 대대로 관리해 온 이곳은 매주 토요일 오전 정회원들이 모여 활을 쏘는 정기 모임을 열어 왔다. 최근 별세한 전 사두 한태임의 유언장 내용이 뒤늦게 공개되며, 활터 부지와 사두 자리를 종손이 아니라 수십 년간 궂은일을 도맡아 온 관리인 배도겸에게 넘긴다는 사실이 드러나 종중 안팎이 술렁이던 참이다. 오늘도 여느 토요일처럼 정기 모임이 예정대로 열린다.",
@@ -58,7 +66,7 @@
       "weapon"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_environment",
       "weapon_disposal"
     ],
     "key_time_location": "사건 당일 10시 15분, 천인정 과녁대(L02) 하단.",
@@ -658,9 +666,7 @@
       "does_not_prove": [
         "누가 그 화살을 쐈는지는 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -678,9 +684,7 @@
       "does_not_prove": [
         "그 자리에서 실제로 배도겸이 보였는지는 알 수 없다."
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -718,9 +722,7 @@
       "does_not_prove": [
         "고의였는지 실수였는지는 이 진술만으로 알 수 없다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -758,9 +760,7 @@
       "does_not_prove": [
         "누가 실제로 그 화살을 쐈는지는 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -778,9 +778,7 @@
       "does_not_prove": [
         "누구의 화살통에서 나온 것인지는 이 화살만으로 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -798,9 +796,7 @@
       "does_not_prove": [
         "표승준이 이 사실을 사전에 알았는지는 이 서류만으로 알 수 없다."
       ],
-      "presentation_effect": [
-        "C01"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -848,7 +844,6 @@
         "S-CH01-01"
       ],
       "requires_presented_evidence_ids": [
-        "E08",
         "E09"
       ],
       "requires_comparison": {
@@ -877,7 +872,6 @@
         "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
-        "E02",
         "E03"
       ],
       "requires_comparison": {
@@ -906,11 +900,7 @@
         "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
-        "E01",
-        "E04",
-        "E05",
-        "E06",
-        "E07"
+        "E05"
       ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
@@ -934,7 +924,8 @@
       "actual_reason": "유정하는 사건 당시 내내 반대편 1번 사대에 있었고, 화살 진입 각도와 사대 배치표를 맞춰 보면 1번 사대에서는 물리적으로 그 방향의 사격이 불가능하다.",
       "how_to_clear": "E01(화살 진입 각도)과 E02(사대 배치표)를 함께 제시해, 유정하가 있던 1번 사대에서는 그 궤적이 나올 수 없음을 확인한다. 국양선에게 물으면(E10) 유정하가 발사 순간까지 줄곧 1번 사대에 있었다는 사실이 한 번 더 확인된다.",
       "must_not_imply": "언쟁이 있었다는 사실만으로 유정하가 살해에 관여했다고 단정하지 않는다.",
-      "lingering_thread": "배도겸과 끝내 풀지 못했던 활터 운영 방식에 대한 앙금은, 그가 세상을 뜬 뒤에도 유정하 안에 씁쓸하게 남는다."
+      "lingering_thread": "배도겸과 끝내 풀지 못했던 활터 운영 방식에 대한 앙금은, 그가 세상을 뜬 뒤에도 유정하 안에 씁쓸하게 남는다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -943,13 +934,17 @@
       "actual_reason": "그 열쇠는 배도겸이 지병 발작에 대비해 비상용으로 조카에게 맡겨 둔 것일 뿐이며, 방하린은 유언 내용 자체를 전혀 모른 채 사건 이후에야 활터에 도착했다.",
       "how_to_clear": "F-CH04-03(국양선이 본 방하린의 뒤늦은 도착)과 S-CH03-01(방하린 본인의 열쇠 진술)을 대조해, 방하린이 사건 시각 활터에 없었다는 사실과 열쇠를 맡게 된 경위를 확인한다.",
       "must_not_imply": "열쇠를 갖고 있었다는 사실만으로 방하린이 배도겸의 죽음으로 이득을 보려 했다고 단정하지 않는다.",
-      "lingering_thread": "삼촌의 갑작스러운 죽음과 뒤늦게 밝혀진 유언 앞에서, 방하린은 자신이 그 열쇠를 맡았던 이유조차 새삼 낯설게 느끼며 유품 정리를 미룬다."
+      "lingering_thread": "삼촌의 갑작스러운 죽음과 뒤늦게 밝혀진 유언 앞에서, 방하린은 자신이 그 열쇠를 맡았던 이유조차 새삼 낯설게 느끼며 유품 정리를 미룬다.",
+      "character_id": "CH03"
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "종중 종손 표승준과 수십 년간 활터를 지켜온 관리인 배도겸.",
       "public_face": "종중 어른과 관리인으로서 예의를 지키는 사이로 알려져 있다.",
       "private_strain": "표승준은 조부 한태임의 유언에 따라 자신이 물려받아야 할 사두직과 부지가 배도겸에게 넘어가게 됐다는 사실에 상실감과 배신감을 품어왔다는 것을 먼저 꺼내지 않는다.",
@@ -960,7 +955,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "사두 대행을 맡아 온 정회원 유정하와 관리인 배도겸.",
       "public_face": "함께 활터를 꾸려 온 사이로 알려져 있다.",
       "private_strain": "유정하는 최근 활터 운영 방식 문제로 배도겸과 다퉜다는 사실을 먼저 꺼내지 않는다.",
@@ -971,7 +969,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "조카 방하린과 삼촌 배도겸.",
       "public_face": "가끔 활터를 찾는 조카와 삼촌 사이로 알려져 있다.",
       "private_strain": "방하린은 삼촌의 지병 발작에 대비해 개인 금고 열쇠를 맡아 갖고 있었다는 사실을 먼저 꺼내지 않는다.",
@@ -982,7 +983,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "CH01"],
+      "between": [
+        "CH04",
+        "CH01"
+      ],
       "nature": "천인정 총무 국양선과 종손 표승준.",
       "public_face": "행정 업무로 마주치는 사이로만 알려져 있다.",
       "private_strain": "국양선은 표승준이 며칠 전 5번 사대 자리를 자신에게 배정해달라고 부탁했다는 것을 먼저 꺼내지 않는다.",
@@ -994,7 +998,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "CH01"],
+      "between": [
+        "CH05",
+        "CH01"
+      ],
       "nature": "신입 궁사 임서혁과 종손 표승준.",
       "public_face": "같은 정회원으로 인사만 나누는 사이로 알려져 있다.",
       "private_strain": "임서혁은 발사 구호 직전 표승준이 정면이 아니라 살짝 왼쪽 아래를 겨누는 걸 봤다는 것을 먼저 말하지 않는다.",

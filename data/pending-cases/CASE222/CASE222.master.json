@@ -8,33 +8,40 @@
     "detective_entry_type": "invited_by_acquaintance",
     "detective_entry": "탐정은 합주단 대원인 오랜 친구 강유하의 초대로, 정기 연습을 구경하러 잠깐 들른 참이었다.",
     "tone": "오래된 간이역 특유의 정겨움과, 조용히 눌러온 지난 상처가 뒤늦게 터져 나오는 서늘함이 뒤섞인 분위기.",
-    "location_archetypes": ["association_club", "transport_hub"],
+    "location_archetypes": [
+      "association_club",
+      "transport_hub"
+    ],
     "background": {
-      "background_archetypes": ["performance_rehearsal"],
-      "background_phrasing": ["other"],
+      "background_archetypes": [
+        "performance_rehearsal"
+      ],
+      "background_phrasing": [
+        "other"
+      ],
       "background_intensity": "contextual"
     },
-    "tags": ["핸드벨_합주단", "폐간이역", "정기연습"]
+    "tags": [
+      "핸드벨_합주단",
+      "폐간이역",
+      "정기연습"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:00",
     "location_id": "L01",
     "narrative": "낡은 대합실 벽엔 합주단이 지나온 세월을 담은 사진들이 나란히 걸려 있었다.\n\n탐정은 강유하를 따라 저녁 연습을 구경하러 온 참이었다.\n\n한지우가 사진들을 훑어보며 중얼거렸다.\n\n\"핸드벨 동아리치고 역사가 꽤 깊네요. 사진이 이렇게 많은 걸 보면.\"\n\n\"오래된 동네일수록 이런 모임 하나쯤은 있기 마련이지.\"\n\n탐정이 심드렁하게 대꾸했다.\n\n그때 안쪽 복도에서 매캐한 탄내와 함께 나겸우의 비명 섞인 목소리가 들려왔다.\n\n\"보, 보관고에서 불이... 반요한 선생님이 쓰러져 계세요!\"\n\n대합실 의자들이 한꺼번에 뒤로 밀렸다. 사진을 가리키던 한지우의 손도 그대로 내려왔다.\n\n\"장난이 아닌 것 같은데요.\"\n\n한지우가 낮게 말했다.\n\n\"가 보자.\"\n\n탐정이 먼저 몸을 돌렸다."
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "보관고 선반은 한쪽 판이 통째로 그을려 아직 손댈 수 없는 상태였다. 탄내는 창을 다 열어 놓고도 빠지지 않았다.\n\n출입 기록부, 라벨이 뜯긴 캔, 승강장 수거함에서 나온 정품 통, 그리고 다시 꽂힌 안전핀. 목가온은 그 넷이 탁자 위에 차례로 놓이는 동안 선반 쪽만 보고 있었다.\n\n\"...안전핀은 제가 뽑아뒀어요. 불이 난 다음에 도로 꽂아 넣은 것도 저고요.\"\n\n목가온이 먼저 입을 열었다.\n\n\"20년 전 그 화재로 죽은 아이, 제 친오빠였어요. 선생님은 그 일을 없었던 것처럼 덮고 여기서 다시 시작하셨더라고요. 사진까지 걸어 놓고요.\"\n\n한지우가 대합실 쪽 벽을 한 번 돌아봤다. 거기 걸린 사진들 중 20년 전 것은 한 장도 없었다.\n\n\"그 벽에 없는 게 20년이었네요.\"\n\n한지우가 말했다.\n\n\"...네. 저는 그걸 매주 봤어요.\"\n\n목가온이 짧게 답했다.\n\n대합실에서는 나겸우가 제 보면대를 접고 있었다. 다음 연습부터는 나오지 않겠다고 했고, 남은 대원들도 붙잡지 못했다.\n\n간이역을 나서며 한지우가 걸음을 늦췄다.\n\n\"저 사진들, 결국 한 장도 제대로 못 봤어요.\"\n\n\"제대로 봤으면 더 이상했을걸.\"\n\n탐정이 대합실 쪽을 한 번 더 돌아보고 문을 밀었다."
   },
-
   "surface_incident": [
     "반요한이 벨 보관고 화재로 전신에 화상을 입은 채 쓰러져 발견됐고, 병원으로 옮겨졌으나 끝내 사망했다.",
     "화재는 보관고 안쪽 선반 부근에서 시작된 것으로 보이며, 벽에 걸린 소화기는 정상 상태로 확인됐다.",
     "그 시각 합주단 대원 목가온, 서담율, 강유하, 나겸우, 유서인이 모두 간이역 건물 안에 있었다.",
     "외부인의 침입 흔적은 발견되지 않았다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "목가온은 20년 전 반요한이 운영하던 어린이 합창단 화재로 친오빠를 잃었다. 그 원인이 반요한이 빌려 쓰던 낡은 난방기구 관리 소홀에 있었다는 사실이 당시 조용히 덮였고, 반요한은 이후 그 일을 거의 언급하지 않은 채 지금의 핸드벨 합주단을 새로 꾸려 활동을 이어왔다. 목가온은 오빠의 죽음이 아무 일도 아니었던 것처럼 지워졌다는 사실을 견딜 수 없어 신분을 숨기고 합주단에 들어왔고, 반요한에게 똑같은 방식으로 죗값을 치르게 하기로 마음먹었다.",
@@ -42,60 +49,179 @@
     "key_time_location": "사건 당일 19시 10분경, L03 벨 보관고에서 화재 발생.",
     "cover_up": "목가온은 화재 직후 정리를 돕는 척 다가가 뽑아 두었던 소화기 안전핀을 원래대로 꽂아 넣어, 사고 당시 소화기가 멀쩡했던 단순 화재 사고처럼 보이게 꾸민다. 본인은 그날 밤 보관고 근처에 간 적이 없다고 주장한다.",
     "accomplice": "없음",
-    "method_archetypes": ["arson", "automation_tampering"],
-    "motive_archetypes": ["revenge", "past_crime_cover"],
-    "cover_up_target": ["responsibility", "cause_of_death"],
-    "cover_up_method": ["false_accident", "object_substitution", "scene_rearrangement"]
+    "method_archetypes": [
+      "arson",
+      "automation_tampering"
+    ],
+    "motive_archetypes": [
+      "revenge",
+      "past_crime_cover"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "object_substitution",
+      "scene_rearrangement"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "4일 전 낮", "location": "L02", "actors": ["CH04", "V01"],
+    {
+      "id": "T01",
+      "time": "4일 전 낮",
+      "location": "L02",
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "나겸우가 연습실에서 반요한과 이번 정기연습 솔로 파트 배정을 두고 언쟁을 벌인다.",
-      "world_fact": "나겸우는 언쟁 도중 이번엔 솔로를 맡고 싶지 않다고 분명히 말한다." },
-    { "id": "T02", "time": "3일 전 22:00", "location": "L03", "actors": ["CH01"],
+      "world_fact": "나겸우는 언쟁 도중 이번엔 솔로를 맡고 싶지 않다고 분명히 말한다."
+    },
+    {
+      "id": "T02",
+      "time": "3일 전 22:00",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목가온이 아무도 없는 보관고에 몰래 들어가 정품 벨 광택 용제 캔을 인화성이 강한 값싼 대체품으로 바꿔치기한다.",
-      "world_fact": "목가온은 뜯어낸 정품 캔의 라벨을 주머니에 챙겨 넣는다." },
-    { "id": "T03", "time": "3일 전 22:10", "location": "L03", "actors": ["CH01"],
+      "world_fact": "목가온은 뜯어낸 정품 캔의 라벨을 주머니에 챙겨 넣는다."
+    },
+    {
+      "id": "T03",
+      "time": "3일 전 22:10",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목가온이 보관고 벽에 걸린 소화기의 안전핀을 몰래 뽑아 눈에 띄지 않게 다시 걸어 둔다.",
-      "world_fact": "목가온은 뽑은 안전핀을 손수건에 싸서 챙긴다." },
-    { "id": "T04", "time": "2일 전 저녁", "location": "L03", "actors": ["V01"],
+      "world_fact": "목가온은 뽑은 안전핀을 손수건에 싸서 챙긴다."
+    },
+    {
+      "id": "T04",
+      "time": "2일 전 저녁",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "반요한이 낡은 전기난로를 보관고 안으로 들여놓고 다음 연습 전 벨 광택 작업을 준비해 둔다.",
-      "world_fact": "반요한은 전기난로를 늘 켜 두던 선반 바로 옆자리에 놓아 둔다." },
-    { "id": "T05", "time": "당일 19:05", "location": "L02", "actors": ["CH02"],
+      "world_fact": "반요한은 전기난로를 늘 켜 두던 선반 바로 옆자리에 놓아 둔다."
+    },
+    {
+      "id": "T05",
+      "time": "당일 19:05",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "서담율이 연습실에서 출석을 확인하다가 반요한이 아직 보관고에서 나오지 않은 것을 알아챈다.",
-      "world_fact": "서담율은 출석부 맨 아래 반요한의 이름 옆에 물음표를 그려 넣는다." },
-    { "id": "T06", "time": "당일 19:10", "location": "L03", "actors": ["V01"],
+      "world_fact": "서담율은 출석부 맨 아래 반요한의 이름 옆에 물음표를 그려 넣는다."
+    },
+    {
+      "id": "T06",
+      "time": "당일 19:10",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "반요한이 보관고에서 혼자 벨을 광택하다 전기난로 열기에 휘발된 용제 증기가 옮겨붙어 순식간에 화염에 휩싸인다.",
-      "world_fact": "반요한은 미처 몸을 피하지 못한 채 선반 앞에 쓰러진다." },
-    { "id": "T07", "time": "당일 19:13", "location": "L03", "actors": ["CH04"],
+      "world_fact": "반요한은 미처 몸을 피하지 못한 채 선반 앞에 쓰러진다."
+    },
+    {
+      "id": "T07",
+      "time": "당일 19:13",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "나겸우가 대합실 쪽에서 그을음 냄새를 맡고 보관고로 달려가 불길 속에서 쓰러진 반요한을 발견한다.",
-      "world_fact": "나겸우는 놀라 뒷걸음질치며 비명을 지른다." },
-    { "id": "T08", "time": "당일 19:14", "location": "L01", "actors": ["CH04"],
+      "world_fact": "나겸우는 놀라 뒷걸음질치며 비명을 지른다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 19:14",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "나겸우가 대합실로 달려나와 대원들에게 다급히 소리쳐 알린다.",
-      "world_fact": "나겸우의 외침에 대합실에 있던 대원들이 일제히 보관고 쪽으로 몸을 돌린다." },
-    { "id": "T09", "time": "당일 19:25", "location": "L03", "actors": ["CH01"],
+      "world_fact": "나겸우의 외침에 대합실에 있던 대원들이 일제히 보관고 쪽으로 몸을 돌린다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 19:25",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목가온이 화재 진화 직후 어수선한 틈을 타 소화기 쪽으로 다가가, 뽑아 뒀던 안전핀을 아무도 모르게 원래 자리로 꽂아 넣는다.",
-      "world_fact": "안전핀은 다시 꽂힌 채로 남아, 사고 당시 소화기가 멀쩡했던 것처럼 보이게 된다." },
-    { "id": "T10", "time": "다음날 오전", "location": "L04", "actors": ["CH05"],
+      "world_fact": "안전핀은 다시 꽂힌 채로 남아, 사고 당시 소화기가 멀쩡했던 것처럼 보이게 된다."
+    },
+    {
+      "id": "T10",
+      "time": "다음날 오전",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "유서인이 반요한의 유품을 정리하겠다며 사무실 서류함에서 오래된 사진첩과 편지 몇 장을 미리 빼내 챙긴다.",
-      "world_fact": "유서인은 챙긴 사진첩과 편지를 자신의 가방 깊숙이 넣는다." }
+      "world_fact": "유서인은 챙긴 사진첩과 편지를 자신의 가방 깊숙이 넣는다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "반요한", "role": "핸드벨 합주단 창단자 겸 지도자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "반요한",
+      "role": "핸드벨 합주단 창단자 겸 지도자",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "목가온", "role": "핸드벨 합주단 대원 / 입단 8개월차", "present_location": "L02",
+      "id": "CH01",
+      "name": "목가온",
+      "role": "핸드벨 합주단 대원 / 입단 8개월차",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "3일 전 밤, 아무도 없는 보관고에 몰래 들어가 정품 벨 광택 용제 캔을 인화성이 강한 값싼 대체품으로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "같은 날 밤, 보관고 벽에 걸린 소화기의 안전핀을 몰래 뽑아 눈에 띄지 않게 다시 걸어 뒀다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "화재 직후 소화기 안전핀을 원래대로 꽂아 넣어 사고 당시 소화기가 멀쩡했던 것처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다.", "source": "직접 행동 및 개인사", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "3일 전 밤, 아무도 없는 보관고에 몰래 들어가 정품 벨 광택 용제 캔을 인화성이 강한 값싼 대체품으로 바꿔치기했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "같은 날 밤, 보관고 벽에 걸린 소화기의 안전핀을 몰래 뽑아 눈에 띄지 않게 다시 걸어 뒀다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "화재 직후 소화기 안전핀을 원래대로 꽂아 넣어 사고 당시 소화기가 멀쩡했던 것처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다.",
+          "source": "직접 행동 및 개인사",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 밤엔 집에 있었을 뿐 보관고 근처엔 얼씬도 안 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "용제를 바꿔치기한 행적을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이에요.", "truth_status": "truth" },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 밤엔 집에 있었을 뿐 보관고 근처엔 얼씬도 안 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "용제를 바꿔치기한 행적을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이에요.",
+          "truth_status": "truth"
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "개인 소지품을 가지러 왔을 뿐이에요.",
@@ -109,11 +235,26 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "F-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "F-CH01-02" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH01-02"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
@@ -125,7 +266,10 @@
           "release_trigger": "S-CH01-03"
         }
       ],
-      "knowledge_limits": ["반요한이 그날 저녁 정확히 몇 시에 보관고에 들어갔는지는 모른다.", "다른 대원들이 자신을 어디까지 의심하는지는 모른다."],
+      "knowledge_limits": [
+        "반요한이 그날 저녁 정확히 몇 시에 보관고에 들어갔는지는 모른다.",
+        "다른 대원들이 자신을 어디까지 의심하는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 단어 선택이 조심스럽고 절제됨",
         "sentence_length_tendency": "평소엔 짧고 신중하게 말하다가, 압박받으면 말끝을 흐리며 문장이 끊긴다.",
@@ -138,20 +282,52 @@
       ]
     },
     {
-      "id": "CH02", "name": "서담율", "role": "합주단 운영 리더 / 연습 진행 담당", "present_location": "L04",
+      "id": "CH02",
+      "name": "서담율",
+      "role": "합주단 운영 리더 / 연습 진행 담당",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 당일 저녁 출석을 확인하다 반요한이 보관고에서 늦게까지 나오지 않은 걸 알아챘다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-02", "content": "최근 몇 주간 목가온이 유독 보관고 쪽 정리를 자청해서 맡아 왔다.", "source": "직접 관찰" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 당일 저녁 출석을 확인하다 반요한이 보관고에서 늦게까지 나오지 않은 걸 알아챘다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 몇 주간 목가온이 유독 보관고 쪽 정리를 자청해서 맡아 왔다.",
+          "source": "직접 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁 출석 확인하다가 이상하다 싶어 보관고 쪽으로 가보려던 참이었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "합주단 운영 외에 대원들 개인사까지는 제가 관여할 바 아니에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 저녁 출석 확인하다가 이상하다 싶어 보관고 쪽으로 가보려던 참이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "합주단 운영 외에 대원들 개인사까지는 제가 관여할 바 아니에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["목가온이 20년 전 화재와 어떤 개인적 연관이 있는지는 전혀 모른다.", "반요한이 사망한 정확한 경위는 자세히 모른다."],
+      "knowledge_limits": [
+        "목가온이 20년 전 화재와 어떤 개인적 연관이 있는지는 전혀 모른다.",
+        "반요한이 사망한 정확한 경위는 자세히 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 사무적",
         "sentence_length_tendency": "평소 또박또박 정리해 말하다가, 대원들 사생활 얘기가 나오면 말을 아낀다.",
@@ -163,18 +339,40 @@
       ]
     },
     {
-      "id": "CH03", "name": "강유하", "role": "합주단 대원 / 탐정의 오랜 친구", "present_location": "L01",
+      "id": "CH03",
+      "name": "강유하",
+      "role": "합주단 대원 / 탐정의 오랜 친구",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 나겸우와 반요한이 솔로 파트 배정을 두고 언쟁했다.", "source": "직접 목격", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 나겸우와 반요한이 솔로 파트 배정을 두고 언쟁했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "오늘은 그냥 탐정을 연습 구경에 초대했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘은 그냥 탐정을 연습 구경에 초대했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["목가온의 개인사나 화재의 진짜 원인은 전혀 모른다."],
+      "knowledge_limits": [
+        "목가온의 개인사나 화재의 진짜 원인은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "친근한 반존대, 탐정에게는 편하게 말함",
         "sentence_length_tendency": "평소 수다스럽고 길게 말하다가, 심각한 얘기가 나오면 갑자기 목소리를 낮춘다.",
@@ -186,17 +384,40 @@
       ]
     },
     {
-      "id": "CH04", "name": "나겸우", "role": "합주단 막내 대원 / 화재 발견자", "present_location": "L02",
+      "id": "CH04",
+      "name": "나겸우",
+      "role": "합주단 막내 대원 / 화재 발견자",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "화재 직후 그을음 냄새를 맡고 보관고로 달려가 불길 속에서 쓰러진 반요한을 발견했다.", "source": "직접 경험", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "화재 직후 그을음 냄새를 맡고 보관고로 달려가 불길 속에서 쓰러진 반요한을 발견했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "냄새를 맡자마자 바로 보관고로 달려갔을 뿐이에요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "반요한 선생님이 무리하게 솔로를 맡기려 해서 부담스러워 다퉜을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "냄새를 맡자마자 바로 보관고로 달려갔을 뿐이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "반요한 선생님이 무리하게 솔로를 맡기려 해서 부담스러워 다퉜을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["보관고에서 정확히 무슨 일이 있었는지, 화재 원인은 전혀 모른다."],
+      "knowledge_limits": [
+        "보관고에서 정확히 무슨 일이 있었는지, 화재 원인은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 다소 급하고 감정적",
         "sentence_length_tendency": "평소 빠르게 말하다가 그날 얘기가 나오면 말이 떨리며 자주 멈춘다.",
@@ -208,19 +429,47 @@
       ]
     },
     {
-      "id": "CH05", "name": "유서인", "role": "합주단 최고참 대원 / 반요한의 오랜 지인", "present_location": "L05",
+      "id": "CH05",
+      "name": "유서인",
+      "role": "합주단 최고참 대원 / 반요한의 오랜 지인",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 다음 날 반요한의 유품을 정리하겠다며 사무실에서 오래된 사진첩과 편지 몇 장을 미리 챙겼다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH05-02", "content": "그 사진첩에 20년 전 반요한이 운영하던 어린이 합창단과, 화재로 다친 아이들 이야기가 담겨 있다.", "source": "개인사" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사고 다음 날 반요한의 유품을 정리하겠다며 사무실에서 오래된 사진첩과 편지 몇 장을 미리 챙겼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 사진첩에 20년 전 반요한이 운영하던 어린이 합창단과, 화재로 다친 아이들 이야기가 담겨 있다.",
+          "source": "개인사"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그냥 유품이 이것저것 흩어지지 않게 정리하려던 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "반요한의 오래전 개인적인 스캔들이 담긴 편지를 감춰 그의 명예를 지키려는 것이다." }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그냥 유품이 이것저것 흩어지지 않게 정리하려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "반요한의 오래전 개인적인 스캔들이 담긴 편지를 감춰 그의 명예를 지키려는 것이다."
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["목가온이 그 사진 속 인물과 직접적으로 어떻게 연관되는지는 전혀 모른다.", "화재가 고의였다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "목가온이 그 사진 속 인물과 직접적으로 어떻게 연관되는지는 전혀 모른다.",
+        "화재가 고의였다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 옛날식 말투",
         "sentence_length_tendency": "평소 느리고 신중하게 말하다가, 반요한의 과거 얘기가 나오면 급히 말을 돌린다.",
@@ -232,29 +481,41 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "지도자와 입단 8개월차 신입 대원.",
       "public_face": "목가온이 반요한 밑에서 열심히 배우는 성실한 신입으로 알려져 있다.",
-      "says": { "CH01": "\"...선생님이요? 그냥 잘 가르쳐 주시는 분이었죠. 더는... 드릴 말씀 없어요.\"" },
+      "says": {
+        "CH01": "\"...선생님이요? 그냥 잘 가르쳐 주시는 분이었죠. 더는... 드릴 말씀 없어요.\""
+      },
       "private_strain": "목가온은 20년 전 화재로 죽은 아이가 자신의 친오빠였고, 반요한이 그 책임을 조용히 덮은 채 지금의 합주단을 새로 꾸렸다는 사실을 견디지 못해 신분을 숨기고 들어왔다는 것을 숨기고 있다.",
       "surfaces_when": "유서인의 증언(E06)과 사물함 속 손거울(E07)을 함께 제시할 때 드러난다."
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "창단자와 20년 전부터 알던 가장 오랜 지인.",
       "public_face": "유서인이 반요한의 가장 오래된 지인으로 곁을 지켜왔다는 것은 다들 안다.",
-      "says": { "CH05": "\"...그렇더라고요. 오래 알던 사이였어요, 그게 다예요.\"" },
+      "says": {
+        "CH05": "\"...그렇더라고요. 오래 알던 사이였어요, 그게 다예요.\""
+      },
       "private_strain": "유서인은 20년 전 화재로 아이가 죽었을 때 반요한이 책임을 흐지부지 덮는 것을 알면서도 묵인했다는 사실을 숨기고 있다.",
       "surfaces_when": "사진첩 속 사연을 캐물을 때(E06) 드러난다."
     },
     {
       "id": "REL03",
-      "between": ["CH02", "CH04"],
+      "between": [
+        "CH02",
+        "CH04"
+      ],
       "nature": "연습 진행을 맡은 운영 리더와 막내 대원.",
       "public_face": "서담율이 나겸우의 출석과 연습 참여를 종종 챙겨준다는 것은 다들 안다.",
       "says": {
@@ -266,7 +527,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "탐정을 초대한 오랜 대원과 몇 달간 알고 지낸 신입 대원.",
       "public_face": "강유하는 목가온을 조용하고 성실한 신입으로만 알고 있다.",
       "says": {
@@ -277,144 +541,399 @@
       "surfaces_when": "출입 기록부(E04)를 보여주며 목가온의 최근 행적을 캐물을 때 드러난다."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "옛 대합실", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L02", "L04", "L05"],
+      "id": "L01",
+      "name": "옛 대합실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
       "base_description": "폐역이 된 간이역의 옛 대합실. 나무 의자와 안내 데스크, 합주단 활동 사진들이 걸려 있다.",
       "observation_rules": [
-        { "action": "대합실 벽에 걸린 사진들과 안내 데스크를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "벽에는 합주단 활동 사진들이 걸려 있고, 안내 데스크엔 출입 기록부가 놓여 있다." }
+        {
+          "action": "대합실 벽에 걸린 사진들과 안내 데스크를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽에는 합주단 활동 사진들이 걸려 있고, 안내 데스크엔 출입 기록부가 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "안내 데스크의 출입 기록부를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "최근 며칠간 저녁 서명란에 목가온의 서명이 이례적으로 이른 시간에 남아 있다." }
+        {
+          "action": "안내 데스크의 출입 기록부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "최근 며칠간 저녁 서명란에 목가온의 서명이 이례적으로 이른 시간에 남아 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "연습실", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "id": "L02",
+      "name": "연습실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "옛 승강장 홀을 개조한 연습 공간. 대원들의 보면대와 벨 케이스가 줄지어 놓여 있다.",
       "observation_rules": [
-        { "action": "연습실 안쪽 대원들 자리 배치와 분위기를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "다들 굳은 얼굴로 흩어져 있고, 나겸우의 보면대만 유난히 비어 있다." }
+        {
+          "action": "연습실 안쪽 대원들 자리 배치와 분위기를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "다들 굳은 얼굴로 흩어져 있고, 나겸우의 보면대만 유난히 비어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "연습실 보면대 사이에 떨어진 종이쪽지를 주워 살펴본다", "requires": "없음", "release_evidence_id": "E08", "result": "찢어진 쪽지에 '더는 못 하겠다'는 나겸우의 글씨가 적혀 있다." }
+        {
+          "action": "연습실 보면대 사이에 떨어진 종이쪽지를 주워 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "찢어진 쪽지에 '더는 못 하겠다'는 나겸우의 글씨가 적혀 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "벨 보관고", "access": "합주단 대원 동행 시 출입 가능", "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "id": "L03",
+      "name": "벨 보관고",
+      "access": "합주단 대원 동행 시 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "화물칸을 개조해 쓰던 벨 보관 공간. 화재로 선반 한쪽이 그을렸다.",
       "observation_rules": [
-        { "action": "그을음이 남은 보관고 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "선반 한쪽이 시커멓게 그을렸고, 바닥엔 녹은 플라스틱 자국이 남아 있다." }
+        {
+          "action": "그을음이 남은 보관고 내부를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "선반 한쪽이 시커멓게 그을렸고, 바닥엔 녹은 플라스틱 자국이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "구석 선반 위 용제 캔들을 하나씩 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "라벨이 뜯겨나간 캔 하나에서 정품과 다른 강한 화학약품 냄새가 난다." },
-        { "action": "벽에 걸린 소화기 상태를 자세히 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "안전핀이 꽂혀 있지만, 핀 주변에 최근 다시 끼운 듯한 긁힌 자국이 남아 있다." }
+        {
+          "action": "구석 선반 위 용제 캔들을 하나씩 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "라벨이 뜯겨나간 캔 하나에서 정품과 다른 강한 화학약품 냄새가 난다."
+        },
+        {
+          "action": "벽에 걸린 소화기 상태를 자세히 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "안전핀이 꽂혀 있지만, 핀 주변에 최근 다시 끼운 듯한 긁힌 자국이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "사무실", "access": "합주단 대원 동행 시 출입 가능", "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "id": "L04",
+      "name": "사무실",
+      "access": "합주단 대원 동행 시 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "옛 역장실을 개조한 사무 공간. 대원용 사물함과 반요한의 책상이 놓여 있다.",
       "observation_rules": [
-        { "action": "역장실을 개조한 사무공간과 대원용 사물함을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "벽 한쪽에 대원들 개인 사물함이 줄지어 있고, 반요한의 낡은 책상 서랍은 반쯤 열려 있다." }
+        {
+          "action": "역장실을 개조한 사무공간과 대원용 사물함을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "벽 한쪽에 대원들 개인 사물함이 줄지어 있고, 반요한의 낡은 책상 서랍은 반쯤 열려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "목가온의 개인 사물함 안쪽을 살펴본다", "requires": "유서인의 증언(E06)을 먼저 들어야 무엇을 찾아야 할지 알 수 있다", "release_evidence_id": "E07", "result": "손거울 뒷면에 작게 새겨진 이름과 날짜가 눈에 띈다." }
+        {
+          "action": "목가온의 개인 사물함 안쪽을 살펴본다",
+          "requires": "유서인의 증언(E06)을 먼저 들어야 무엇을 찾아야 할지 알 수 있다",
+          "release_evidence_id": "E07",
+          "result": "손거울 뒷면에 작게 새겨진 이름과 날짜가 눈에 띈다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "뒤편 승강장", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "뒤편 승강장",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "야외로 이어지는 옛 승강장. 낡은 벤치 하나가 놓여 있다.",
       "observation_rules": [
-        { "action": "옛 승강장 구석 풍경을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "유서인이 자주 나와 앉는 벤치 옆에 낡은 사진첩이 놓여 있다." }
+        {
+          "action": "옛 승강장 구석 풍경을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "유서인이 자주 나와 앉는 벤치 옆에 낡은 사진첩이 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "승강장 구석 폐기물 수거함 안을 뒤져본다", "requires": "없음", "release_evidence_id": "E03", "result": "찌그러진 정품 용제 통이 다른 쓰레기와 함께 버려져 있다." }
+        {
+          "action": "승강장 구석 폐기물 수거함 안을 뒤져본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "찌그러진 정품 용제 통이 다른 쓰레기와 함께 버려져 있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "바뀐 벨 광택 용제 캔", "source_type": "location", "found_at": "L03", "discovery_condition": "구석 선반 위 용제 캔들을 하나씩 살펴본다", "related_timeline": ["T02"],
+    {
+      "id": "E01",
+      "name": "바뀐 벨 광택 용제 캔",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구석 선반 위 용제 캔들을 하나씩 살펴본다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "라벨이 뜯겨나간 캔 하나에서 정품과 다른, 인화성이 강한 화학약품 냄새가 난다.",
-      "proves": ["보관고의 용제가 정품이 아닌 다른 것으로 바뀌어 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 바꿔치기했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E02", "name": "다시 꽂힌 소화기 안전핀", "source_type": "location", "found_at": "L03", "discovery_condition": "벽에 걸린 소화기 상태를 자세히 살펴본다", "related_timeline": ["T03", "T09"],
+      "proves": [
+        "보관고의 용제가 정품이 아닌 다른 것으로 바뀌어 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "다시 꽂힌 소화기 안전핀",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "벽에 걸린 소화기 상태를 자세히 살펴본다",
+      "related_timeline": [
+        "T03",
+        "T09"
+      ],
       "content": "안전핀은 꽂혀 있지만, 핀 주변에 최근 다시 끼운 듯한 긁힌 자국이 남아 있다.",
-      "proves": ["소화기가 한 번 뽑혔다가 화재 이후 누군가 다시 꽂아 넣었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 언제 안전핀을 다시 꽂았는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E03", "name": "폐기된 정품 용제 통", "source_type": "location", "found_at": "L05", "discovery_condition": "승강장 구석 폐기물 수거함 안을 뒤져본다", "related_timeline": ["T02"],
+      "proves": [
+        "소화기가 한 번 뽑혔다가 화재 이후 누군가 다시 꽂아 넣었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 안전핀을 다시 꽂았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "폐기된 정품 용제 통",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "승강장 구석 폐기물 수거함 안을 뒤져본다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "찌그러진 정품 용제 통이 다른 쓰레기와 함께 버려져 있다.",
-      "proves": ["정품 용제가 사건 이전에 몰래 버려졌다는 사실을 증명한다."],
-      "does_not_prove": ["누가 언제 이 통을 버렸는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "간이역 출입 기록부", "source_type": "location", "found_at": "L01", "discovery_condition": "안내 데스크의 출입 기록부를 확인한다", "related_timeline": ["T02"],
+      "proves": [
+        "정품 용제가 사건 이전에 몰래 버려졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 이 통을 버렸는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "간이역 출입 기록부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "안내 데스크의 출입 기록부를 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "최근 며칠간 저녁 서명란에 목가온의 서명이 이례적으로 이른 시간에 남아 있다.",
-      "proves": ["목가온이 화재 며칠 전 밤 늦게까지 건물 안에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그때 보관고에서 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E05", "name": "나겸우의 화재 당시 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "나겸우에게 화재 당시 상황을 묻는다", "related_timeline": ["T07", "T08"],
+      "proves": [
+        "목가온이 화재 며칠 전 밤 늦게까지 건물 안에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그때 보관고에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "나겸우의 화재 당시 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "나겸우에게 화재 당시 상황을 묻는다",
+      "related_timeline": [
+        "T07",
+        "T08"
+      ],
       "content": "그을음 냄새를 맡고서야 보관고로 달려가 불길 속에서 반요한을 발견했다는 진술이 확보된다.",
-      "proves": ["나겸우가 화재가 시작된 뒤에야 현장에 도착했다는 사실을 증명한다."],
-      "does_not_prove": ["화재의 원인"],
-      "presentation_effect": [] },
-    { "id": "E06", "name": "유서인의 옛 사진첩 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "유서인에게 사진첩 속 옛 사진과 20년 전 화재에 대해 묻는다",
+      "proves": [
+        "나겸우가 화재가 시작된 뒤에야 현장에 도착했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "화재의 원인"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "유서인의 옛 사진첩 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "유서인에게 사진첩 속 옛 사진과 20년 전 화재에 대해 묻는다",
       "content": "20년 전 반요한이 운영하던 어린이 합창단에서 화재가 나 한 아이가 숨졌고, 반요한이 그 책임 소재를 흐지부지 덮었다는 이야기를 들려준다.",
-      "proves": ["20년 전 반요한과 관련된 화재로 아이가 죽었고, 그 책임이 조용히 덮였다는 사실을 증명한다."],
-      "does_not_prove": ["그 아이가 누구와 어떤 관계였는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "사물함 속 손거울", "source_type": "location", "found_at": "L04", "discovery_condition": "목가온의 개인 사물함 안쪽을 살펴본다", "related_timeline": ["T02"],
+      "proves": [
+        "20년 전 반요한과 관련된 화재로 아이가 죽었고, 그 책임이 조용히 덮였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 아이가 누구와 어떤 관계였는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "사물함 속 손거울",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "목가온의 개인 사물함 안쪽을 살펴본다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "손거울 뒷면에 작게 새겨진 이름과 날짜가, 유서인이 언급한 20년 전 화재의 희생자 이름·시기와 정확히 일치한다.",
-      "proves": ["목가온이 20년 전 화재로 죽은 아이와 직접적인 혈연 관계였다는 사실을 증명한다."],
-      "does_not_prove": ["목가온이 이번 화재를 직접 계획했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E08", "name": "나겸우의 찢어진 쪽지", "source_type": "location", "found_at": "L02", "discovery_condition": "연습실 보면대 사이에 떨어진 종이쪽지를 주워 살펴본다",
+      "proves": [
+        "목가온이 20년 전 화재로 죽은 아이와 직접적인 혈연 관계였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "목가온이 이번 화재를 직접 계획했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "나겸우의 찢어진 쪽지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "연습실 보면대 사이에 떨어진 종이쪽지를 주워 살펴본다",
       "content": "찢어진 쪽지에 '더는 못 하겠다'는 나겸우의 글씨가 적혀 있다.",
-      "proves": ["나겸우가 최근 솔로 배정에 강한 부담과 불만을 느끼고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["나겸우가 화재에 관여했는지"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "강유하가 들은 옛 소문", "source_type": "testimony", "found_at": "L01", "discovery_condition": "강유하에게 반요한을 둘러싼 옛 소문을 들은 적 있는지 묻는다",
+      "proves": [
+        "나겸우가 최근 솔로 배정에 강한 부담과 불만을 느끼고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "나겸우가 화재에 관여했는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "강유하가 들은 옛 소문",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강유하에게 반요한을 둘러싼 옛 소문을 들은 적 있는지 묻는다",
       "content": "강유하는 예전에 반요한과 관련된 사적인 스캔들 소문을 얼핏 들은 적이 있다고 말한다.",
-      "proves": ["반요한에게 화재와 무관한 개인적 스캔들이 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 소문이 유서인이 챙긴 편지의 내용과 정확히 같은지"],
-      "presentation_effect": [] }
+      "proves": [
+        "반요한에게 화재와 무관한 개인적 스캔들이 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 소문이 유서인이 챙긴 편지의 내용과 정확히 같은지"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E04"
+        ]
+      },
       "player_action": "목가온에게 출입 기록부(E04)를 제시해, '그날 밤 집에 있었다'는 주장과 이례적으로 이른 서명 시간을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "그날 밤 잠깐 건물에 들른 것은 인정한다." },
-      "must_not_release": ["용제를 바꿔치기한 사실", "소화기 안전핀을 조작한 사실", "20년 전 사건과의 연관"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "그날 밤 잠깐 건물에 들른 것은 인정한다."
+      },
+      "must_not_release": [
+        "용제를 바꿔치기한 사실",
+        "소화기 안전핀을 조작한 사실",
+        "20년 전 사건과의 연관"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "presence_admitted", "to_stage": "solvent_admitted",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "presence_admitted",
+      "to_stage": "solvent_admitted",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
+      },
       "player_action": "바뀐 용제 캔(E01)과 버려진 정품 통(E03)을 함께 제시해, '소지품만 가지러 왔다'는 주장과 실제 용제 교체 흔적을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "정품 용제를 값싼 대체품으로 바꾼 것은 인정한다." },
-      "must_not_release": ["소화기 안전핀을 조작한 사실", "20년 전 사건과의 연관", "고의적 살인이라는 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "정품 용제를 값싼 대체품으로 바꾼 것은 인정한다."
+      },
+      "must_not_release": [
+        "소화기 안전핀을 조작한 사실",
+        "20년 전 사건과의 연관",
+        "고의적 살인이라는 사실"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "solvent_admitted", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E06", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E07"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "solvent_admitted",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E02",
+          "E07"
+        ]
+      },
       "player_action": "다시 꽂힌 소화기 안전핀(E02)으로 사고 위장 정황을 못박고, 유서인의 증언(E06)과 사물함 속 손거울(E07)로 20년 전 화재와의 혈연 관계를 함께 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "소화기 안전핀을 미리 뽑아뒀다가 화재 직후 원래대로 꽂아 넣어 사고처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다는 사실을 모두 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "소화기 안전핀을 미리 뽑아뒀다가 화재 직후 원래대로 꽂아 넣어 사고처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다는 사실을 모두 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -423,7 +942,8 @@
       "how_to_clear": "화재 당시 상황을 담은 나겸우의 진술(E05)과 연습실에서 발견된 그녀의 쪽지(E08)를 함께 대조해, 격앙된 글귀가 방화가 아니라 솔로 부담에 대한 불만이었을 뿐임을 확인한다.",
       "must_not_imply": "언쟁이 있었다는 사실만으로 나겸우가 화재에 관여했다고 단정하지 않는다.",
       "suspicion_deepener": "찢어진 채 발견된 나겸우의 쪽지(E08)에 적힌 격앙된 글귀가 먼저 알려지며, 그녀가 앙심을 품고 있었던 것 아니냐는 의심이 먼저 커진다.",
-      "lingering_thread": "솔로 부담을 둘러싼 앙금은 사건과 별개로 남아, 나겸우는 결국 이번 연습을 끝으로 합주단을 떠나기로 마음먹는다."
+      "lingering_thread": "솔로 부담을 둘러싼 앙금은 사건과 별개로 남아, 나겸우는 결국 이번 연습을 끝으로 합주단을 떠나기로 마음먹는다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -432,27 +952,39 @@
       "how_to_clear": "승강장 구석에서 발견되는 사진첩(F-L05-OBS-01)과, 그것을 두고 유서인을 압박해 캐낸 사연(E06)을 함께 제시해, 그녀가 지키려 한 것이 화재의 진실이 아니라 반요한의 사생활이었다는 사실을 확인한다. 강유하에게 물으면(E09) 반요한에게 화재와 무관한 개인적 스캔들 소문이 있었다는 사실도 확인된다.",
       "must_not_imply": "유품을 미리 챙긴 정황만으로 유서인이 화재에 관여했다고 단정하지 않는다.",
       "suspicion_deepener": "유서인이 편지를 감추며 말끝을 흐리는 모습이 먼저 알려지며, 그녀가 화재의 진짜 경위를 알면서도 숨기는 것 아니냐는 의심이 먼저 커진다.",
-      "lingering_thread": "반요한의 옛 스캔들은 사건과 별개로 뒤늦게 합주단 안에 알려지며, 그를 어떻게 기억할지를 둘러싼 대원들 사이의 불편한 뒷말로 남는다."
+      "lingering_thread": "반요한의 옛 스캔들은 사건과 별개로 뒤늦게 합주단 안에 알려지며, 그를 어떻게 기억할지를 둘러싼 대원들 사이의 불편한 뒷말로 남는다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "보관고의 벨 광택 용제를 인화성이 강한 대체품으로 바꿔치고 소화기 안전핀을 뽑아 두어, 전기난로 열기에 용제 증기가 옮겨붙어 화재가 나도록 만들었다.",
       "motive_fact": "20년 전 화재로 죽은 친오빠에 대한 책임을 반요한이 조용히 덮어 온 것에 대한 복수였다."
     }
   },
-
   "final_deduction": {
     "responsible": "목가온",
     "method": "3일 전 밤 보관고에 몰래 들어가 정품 벨 광택 용제를 인화성이 강한 값싼 대체품으로 바꿔치고 소화기 안전핀을 뽑아 두었다가, 반요한이 평소처럼 낡은 전기난로를 켠 채 혼자 벨을 광택하는 저녁 시간에 맞춰 용제 증기가 난로 열기에 옮겨붙어 화염이 번지도록 만들었다.",
     "motive": "20년 전 반요한이 운영하던 어린이 합창단 화재로 친오빠를 잃었고, 그 책임이 조용히 덮인 채 반요한이 지금의 합주단을 새로 꾸려 아무 일 없었다는 듯 활동해 온 사실을 견디지 못해 벌인 계획적 복수였다.",
     "key_connection": "출입 기록부가 목가온의 부인과 어긋나고, 바뀐 용제 캔과 버려진 정품 통이 인화성 대체품으로의 교체를 함께 가리키며, 다시 꽂힌 소화기 안전핀과 유서인의 증언·손거울에 새겨진 옛 이름이 각각 사고 위장과 20년 전 사건과의 연관을 뒷받침한다."
   },
-
   "ending_explanation": [
     "반요한이 벨 보관고 화재로 전신 화상을 입고 병원으로 옮겨졌으나 사망한 표면 사건",
     "출입 기록부가 목가온의 초기 부인과 어긋난다는 사실",

@@ -69,7 +69,7 @@
       "evidence"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_victim_error",
       "scene_rearrangement",
       "evidence_removal",
       "false_alibi"
@@ -80,7 +80,9 @@
       "id": "T01",
       "time": "08:30",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "민지호가 정비실에서 정기 안전점검 중 터빈 블레이드 마모가 기준치를 초과했음을 발견한다.",
       "world_fact": "민지호는 이 사실을 사진과 측정치로 정리해 개인 USB에 저장해 둔다."
     },
@@ -88,7 +90,10 @@
       "id": "T02",
       "time": "09:40",
       "location": "L05",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "민지호가 운영사무실에서 하진혁에게 블레이드 교체를 요구한다.",
       "world_fact": "하진혁은 지금은 곤란하다며 대화를 서둘러 끝낸다."
     },
@@ -96,7 +101,9 @@
       "id": "T03",
       "time": "11:00",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노한결이 브리핑룸에서 참가 선수들을 대상으로 안전수칙 브리핑을 진행한다.",
       "world_fact": "이 브리핑은 사건과 무관한 정례 업무다."
     },
@@ -104,7 +111,10 @@
       "id": "T04",
       "time": "13:30",
       "location": "L03",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "성다온이 정비실에서 민지호로부터 오늘 저녁 폐장 후 혼자 터빈을 재점검해 보겠다는 말을 듣는다.",
       "world_fact": "성다온은 별다른 의심 없이 알겠다고 답한다."
     },
@@ -112,7 +122,10 @@
       "id": "T05",
       "time": "15:00",
       "location": "L05",
-      "actors": ["CH03", "CH01"],
+      "actors": [
+        "CH03",
+        "CH01"
+      ],
       "actual_action": "위서진이 운영사무실에서 하진혁에게 내일모레 방송 중계 리허설과 후원사 참관 일정을 확인시킨다.",
       "world_fact": "하진혁은 건성으로 대답하며 초조한 기색을 보인다."
     },
@@ -120,7 +133,9 @@
       "id": "T06",
       "time": "20:40",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "민지호가 폐장 후 홀로 점검 해치를 열고 점검 통로로 내려갈 준비를 한다.",
       "world_fact": "민지호는 해치 옆 고리에 안전벨트를 걸어 둔다."
     },
@@ -128,7 +143,10 @@
       "id": "T07",
       "time": "20:50",
       "location": "L04",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "하진혁이 뒤따라와 민지호와 실랑이를 벌인다.",
       "world_fact": "교체 계획을 없던 일로 해달라는 하진혁의 요구가 이 다툼의 발단이다."
     },
@@ -136,7 +154,9 @@
       "id": "T08",
       "time": "21:00",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하진혁이 실랑이 끝에 민지호를 밀쳐 해치 아래로 추락시킨다.",
       "world_fact": "하진혁은 민지호의 안전벨트 고리를 풀어 두고, 그의 개인 USB를 챙겨 자리를 뜬다."
     },
@@ -144,7 +164,9 @@
       "id": "T09",
       "time": "21:30",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "채도경이 야간 개인 훈련을 위해 왔다가 해치 아래 쓰러진 민지호를 발견한다.",
       "world_fact": "채도경의 비명에 직원들과 근처에 있던 탐정이 몰려온다."
     }
@@ -165,19 +187,25 @@
           "fact_id": "F-CH01-02",
           "content": "20:50경 점검 해치 앞에서 민지호와 실랑이를 벌였다.",
           "source": "직접 행동",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "21:00경 민지호를 밀쳐 추락시켰다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "민지호의 안전벨트 고리를 풀어 두고, 그의 개인 USB를 챙겨 없앴다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -206,7 +234,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -265,7 +296,9 @@
           "fact_id": "F-CH02-02",
           "content": "11시경 예정대로 안전수칙 브리핑을 진행했다.",
           "source": "직접 행동",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         }
       ],
       "initial_claims": [
@@ -281,7 +314,10 @@
           "reason_for_limit_or_lie": "대표와의 관계상 문제를 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -318,7 +354,9 @@
           "fact_id": "F-CH03-01",
           "content": "15시경 하진혁에게 내일모레 방송 중계 리허설과 후원사 참관 일정을 확인시켰다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
@@ -333,7 +371,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -365,7 +405,9 @@
           "fact_id": "F-CH04-01",
           "content": "13:30경 민지호로부터 오늘 저녁 폐장 후 혼자 터빈을 재점검해 보겠다는 말을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -382,7 +424,10 @@
           "reason_for_limit_or_lie": "실제로 그렇게 느꼈다."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -423,7 +468,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -449,7 +496,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "플라이존 대표와 수석 정비기사. 센터 개관 때부터 함께 일해 왔다.",
       "public_face": "시설 안전은 민지호에게 전적으로 맡긴다고들 한다.",
       "private_strain": "하진혁은 민지호가 대회 전 블레이드 교체를 요구하며 방송사에도 알리겠다고 하자, 중계 계약이 확정될 때까지 그 얘기가 밖으로 나가지 않기를 원했다.",
@@ -460,7 +510,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "대표와 수석 비행 강사. 현장 안전 브리핑은 노한결이 맡아 왔다.",
       "public_face": "대표가 강습 운영을 노한결에게 일임한다고 알려져 있다.",
       "private_strain": "노한결은 정비 예산이 몇 달째 대회 마케팅으로 돌아가는 것을 알면서도 문제 삼지 않았고, 대표는 그 침묵을 당연하게 여겨 왔다.",
@@ -472,7 +525,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "수석 비행 강사와 수석 정비기사. 풍동을 사이에 두고 한쪽은 사람을, 한쪽은 기계를 맡는다.",
       "public_face": "서로의 영역을 존중하는 사이로 통한다.",
       "private_strain": "민지호는 블레이드 상태를 두고 여러 번 노한결에게 하소연했지만, 노한결은 듣기만 하고 대표에게 전하지 않았다.",
@@ -483,7 +539,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "수석 정비기사와 그에게 배우는 신입 정비기술자.",
       "public_face": "민지호가 성다온을 데리고 다니며 일을 가르쳤다고들 한다.",
       "private_strain": "성다온은 민지호의 야간 단독 점검 계획을 유일하게 들었지만 말리지도 따라가지도 않았고, 그 사실을 먼저 꺼내지 않는다.",
@@ -494,7 +553,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "대표와 대회 운영팀장. 이번 챔피언십 준비는 둘이 붙어서 해 왔다.",
       "public_face": "일정 얘기로 늘 함께 움직이는 사이로 보인다.",
       "private_strain": "위서진은 방송 중계와 후원 갱신 일정을 지키는 데만 매달렸고, 대표는 시설 문제로 그 일정이 틀어지는 것을 무엇보다 꺼렸다. 둘 다 그 압박을 입 밖에 내지 않는다.",
@@ -506,7 +568,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH02", "CH05"],
+      "between": [
+        "CH02",
+        "CH05"
+      ],
       "nature": "브리핑과 개인 지도를 맡아 온 수석 강사와 참가 선수.",
       "public_face": "성실하게 훈련을 챙겨주는 코치와 유망한 선수 사이로 알려져 있다.",
       "private_strain": "채도경은 챔피언십을 앞두고 개인 훈련 시간을 늘려 달라고 여러 번 부탁했지만, 노한결이 최근 안전 점검 일정 때문에 곤란해하며 계속 미뤄 왔다는 걸 눈치채고 있었다.",
@@ -652,11 +717,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "해치 옆 출입 기록 단말기를 되감아 본다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "20시 50분경 하진혁의 출입 카드가 이 구역 단말기에 태그된 기록이 남아 있다.",
-      "proves": ["하진혁이 그 시각 점검구역에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 민지호와 마주쳤는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "하진혁이 그 시각 점검구역에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 민지호와 마주쳤는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -664,11 +737,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "추락 지점 주변 바닥을 살펴본다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "끊어진 안전벨트 고리 조각이 발견되며, 실랑이 흔적으로 보인다.",
-      "proves": ["추락 직전 누군가와 물리적 접촉이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 상대가 누구였는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "추락 직전 누군가와 물리적 접촉이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 상대가 누구였는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -676,11 +757,20 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "성다온에게 그날 밤 들은 소리를 묻는다",
-      "related_timeline": ["T07", "T08"],
+      "related_timeline": [
+        "T07",
+        "T08"
+      ],
       "content": "21시경 해치 쪽에서 언성이 높아지는 소리를 들었으며, 하진혁의 목소리였다는 진술이 확보된다.",
-      "proves": ["해치 앞에서 하진혁과 민지호 사이에 다툼이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 다툼이 추락으로 이어졌는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "해치 앞에서 하진혁과 민지호 사이에 다툼이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 다툼이 추락으로 이어졌는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -689,9 +779,15 @@
       "found_at": "L03",
       "discovery_condition": "터빈 점검 일지를 확인한다",
       "content": "최근 정기 교체 예정이었던 터빈 블레이드 교체가 몇 차례 연기되어 왔다는 기록이 확인된다.",
-      "proves": ["안전 기준에 맞는 정비가 계속 미뤄져 왔다는 사실을 증명한다."],
-      "does_not_prove": ["누가, 왜 교체를 미뤄왔는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "안전 기준에 맞는 정비가 계속 미뤄져 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 교체를 미뤄왔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -700,9 +796,13 @@
       "found_at": "L02",
       "discovery_condition": "노한결에게 최근 정비 예산이 어디로 갔는지 묻는다",
       "content": "최근 대표가 블레이드 교체 예산을 계속 마케팅비로 돌려써 왔다는 사실을 시인한다.",
-      "proves": ["정비 예산 전용이 실제로 있었다는 사실을 증명한다."],
-      "does_not_prove": ["하진혁이 민지호를 해쳤는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "정비 예산 전용이 실제로 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "하진혁이 민지호를 해쳤는지"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -710,11 +810,17 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "민지호가 쓰던 사물함을 열어 본다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "블레이드 마모 측정치와 사진을 정리한 인쇄물이 발견되며, 안전 기준 초과 정황이 정리되어 있다.",
-      "proves": ["민지호가 안전 기준 초과 사실을 직접 파악하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["하진혁이 이를 알고 그를 해쳤는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "민지호가 안전 기준 초과 사실을 직접 파악하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "하진혁이 이를 알고 그를 해쳤는지"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -723,9 +829,15 @@
       "found_at": "L05",
       "discovery_condition": "예산 집행 내역을 확인한다",
       "content": "최근 몇 달간 정비·안전점검 예산 상당액이 대회 마케팅 비용 항목으로 전용되어 온 내역이 확인된다.",
-      "proves": ["정비 예산이 다른 용도로 전용되어 왔다는 사실을 증명한다."],
-      "does_not_prove": ["그 결정을 누가 내렸는지 구체적으로"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "정비 예산이 다른 용도로 전용되어 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 결정을 누가 내렸는지 구체적으로"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E08",
@@ -734,8 +846,12 @@
       "found_at": "L05",
       "discovery_condition": "위서진에게 그 시각 하진혁과 나눈 대화를 묻는다",
       "content": "15시경 실제로 방송 중계 리허설 일정을 확인했을 뿐이라는 진술이 확보된다.",
-      "proves": ["위서진의 그 시각 행동이 순수한 일정 확인이었다는 사실을 증명한다."],
-      "does_not_prove": ["그녀가 시설 사정을 전혀 몰랐다는 것까지"],
+      "proves": [
+        "위서진의 그 시각 행동이 순수한 일정 확인이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그녀가 시설 사정을 전혀 몰랐다는 것까지"
+      ],
       "presentation_effect": []
     },
     {
@@ -745,8 +861,12 @@
       "found_at": "L01",
       "discovery_condition": "선수 명단 게시판을 확인한다",
       "content": "참가 선수 명단에는 여러 이름이 올라 있지만, 오늘 야간 시간대엔 채도경만 개인 훈련을 예약해 두었다는 사실이 확인된다.",
-      "proves": ["채도경이 그 시간 유일한 야간 훈련 예약자였다는 사실을 증명한다."],
-      "does_not_prove": ["그녀가 사건과 완전히 무관하다는 것"],
+      "proves": [
+        "채도경이 그 시간 유일한 야간 훈련 예약자였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그녀가 사건과 완전히 무관하다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -755,10 +875,16 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "하진혁에게 15시경 위서진과 나눈 대화를 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "15시경 위서진과 함께 방송 중계 리허설 일정을 확인했을 뿐이라는 진술이 확보된다.",
-      "proves": ["위서진의 그 시각 행동이 순수한 일정 확인이었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그녀가 시설 사정을 전혀 몰랐다는 것까지"],
+      "proves": [
+        "위서진의 그 시각 행동이 순수한 일정 확인이었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그녀가 시설 사정을 전혀 몰랐다는 것까지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -768,47 +894,78 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "hatch_area_presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E01"]
+        "evidence_ids": [
+          "E01"
+        ]
       },
       "player_action": "하진혁에게 출입 기록 단말기를 제시하여, 저녁 내내 운영사무실에 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "해치 근처에 잠깐 들렀던 것은 인정한다."
       },
-      "must_not_release": ["민지호를 밀친 사실", "정비 예산 전용/교체 지연 동기", "USB를 없앤 사실"]
+      "must_not_release": [
+        "민지호를 밀친 사실",
+        "정비 예산 전용/교체 지연 동기",
+        "USB를 없앤 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "hatch_area_presence_admitted",
       "to_stage": "scuffle_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E02", "E03"]
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
       },
       "player_action": "끊어진 안전벨트 고리 조각과 성다온의 언쟁 목격담을 제시하여, 마주치지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "실랑이 끝에 손이 먼저 나갔다는 것은 인정한다."
       },
-      "must_not_release": ["정비 예산 전용/교체 지연 동기", "USB를 없앤 사실"]
+      "must_not_release": [
+        "정비 예산 전용/교체 지연 동기",
+        "USB를 없앤 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "scuffle_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06", "E07"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E04", "E07"]
+        "evidence_ids": [
+          "E04",
+          "E07"
+        ]
       },
       "player_action": "터빈 점검 일지, 노한결의 예산 증언, 민지호의 사물함 기록, 예산 집행 내역을 시간순으로 연결해 제시한다.",
       "release": {
@@ -826,7 +983,8 @@
       "how_to_clear": "위서진의 통화 진술(E08)과 하진혁의 일정 확인 진술(E10)을 맞춰 보아, 그 시각 실제로 방송 중계 일정만 확인하고 있었다는 사실을 확인한다.",
       "must_not_imply": "일정에 집착했다는 사실만으로 사건에 연루됐다고 단정하지 않는다.",
       "lingering_thread": "위서진은 이후에도 내일모레 방송 계약이 예정대로 진행될 수 있을지 마지막까지 확신하지 못한 채 발표를 기다려야 하는 처지가 된다.",
-      "suspicion_deepener": "사고 직후에도 그녀가 방송사 담당자에게 태연히 전화를 거는 모습이 목격되어, 마치 사망 사실을 대수롭지 않게 여기는 것처럼 보인다."
+      "suspicion_deepener": "사고 직후에도 그녀가 방송사 담당자에게 태연히 전화를 거는 모습이 목격되어, 마치 사망 사실을 대수롭지 않게 여기는 것처럼 보인다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -835,12 +993,26 @@
       "how_to_clear": "민지호의 개인 사물함 기록(E06)과 성다온의 진술을 대조해, 그가 마모 정도의 심각성을 몰랐다는 사실을 확인한다.",
       "must_not_imply": "계획을 미리 알았다는 사실만으로 그가 사건에 가담했다고 단정하지 않는다.",
       "lingering_thread": "성다온은 자신이 그날 밤 민지호의 점검 계획에 한마디라도 이의를 제기했더라면 어땠을까 하는 생각을 한동안 떨치지 못한다.",
-      "suspicion_deepener": "사고 이후 성다온이 유독 말을 아끼고 정비실에 틀어박혀 있는 모습이 마치 뭔가 숨기는 것처럼 보인다."
+      "suspicion_deepener": "사고 이후 성다온이 유독 말을 아끼고 정비실에 틀어박혀 있는 모습이 마치 뭔가 숨기는 것처럼 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "터빈 교체를 요구하던 민지호를 점검 해치 앞에서 밀쳐 추락시켰다.",

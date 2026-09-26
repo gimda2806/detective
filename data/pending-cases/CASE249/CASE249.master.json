@@ -7,60 +7,86 @@
     "detective_entry_type": "unrelated_errand",
     "detective_entry": "탐정은 전날 우연히 마주친 회원 좌하빈이 두고 간 우산을 대신 찾아주러, 스튜디오 데스크에 맡겨진 물건을 받으러 들렀을 뿐이다.",
     "tone": "잔잔하지만 씁쓸한 정통 추리극",
-    "tags": ["필라테스_스튜디오", "1대1_레슨", "골목_상가"],
-    "location_archetypes": ["sports_facility"],
+    "tags": [
+      "필라테스_스튜디오",
+      "1대1_레슨",
+      "골목_상가"
+    ],
+    "location_archetypes": [
+      "sports_facility"
+    ],
     "background": {
-      "background_archetypes": ["regular_day"],
-      "background_phrasing": ["other"],
+      "background_archetypes": [
+        "regular_day"
+      ],
+      "background_phrasing": [
+        "other"
+      ],
       "background_intensity": "incidental"
     }
   },
-
   "key_figures": [
-    { "id": "V01", "name": "표다온", "role": "필라테스 리포머 스튜디오 '코어라인' 원장", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "표다온",
+      "role": "필라테스 리포머 스튜디오 '코어라인' 원장",
+      "status": "deceased"
+    }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:00",
     "location_id": "L01",
     "narrative": "이른 아침, 탐정은 어제 마주친 회원이 두고 간 우산을 찾아주려 '코어라인' 데스크에 들른다.\n\n데스크에 앉아 있던 직원이 인사를 하려다 말고, 안쪽 프라이빗룸 쪽에서 들려오는 다급한 발소리에 고개를 돌린다.\n\n한지우가 먼저 그쪽을 돌아본다.\n\n\"저기 좀 이상한데요.\"\n\n\"우산 찾으러 왔다가 이게 뭔 일이야.\"\n\n탐정이 한숨 섞인 목소리로 대꾸하며 몸을 돌린다.\n\n프라이빗룸 쪽 복도 끝, 문이 활짝 열려 있고 그 안쪽 리포머 옆 바닥에 사람이 캐리지에 깔린 채 쓰러져 있다. 문 앞에 선 강사 하나는 그 자리에서 얼어붙은 채 움직이지 못한다.\n\n한지우의 목소리가 잦아든다.\n\n\"저거 진짜 쓰러지신 거예요?\"\n\n\"가서 확인하자.\"\n\n탐정이 이미 복도를 걷고 있다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "여청하의 손끝이 떨리기 시작한다.\n\n\"그 사람은... 나였어야 했어요.\"\n\n여청하가 낮게 내뱉는다.\n\n\"3년이었어요. 근데 그 상자 하나로 다 끝나는 거였어요.\"\n\n한지우가 짧게 숨을 고르고 나서 조용히 입을 연다.\n\n\"볼트를 뺀 것도, 퍼티로 메운 것도, 전부 그날 밤 혼자 계획한 거였겠죠.\"\n\n여청하는 대답 대신 고개를 떨군다.\n\n탐정이 낮은 목소리로 정리한다.\n\n\"표다온 씨가 관계를 끝내고 다른 사람과 새로 시작하려 한다는 걸 알게 된 순간, 당신은 그 사실을 받아들이는 대신 그 사람 자체를 지우기로 한 거군요. 마스터키로 남아 정지볼트를 빼고 퍼티로 메운 뒤, 다음 날 아침 그가 늘 하던 혼자만의 워밍업 순서를 그대로 이용한 거고요.\"\n\n여청하는 끝내 아무 말도 하지 못한다.\n\n사건 정리를 마치고 스튜디오를 나서는 길, 한지우가 슬쩍 옆구리를 찌른다.\n\n\"근데 그 우산, 결국 못 찾으셨죠?\"\n\n탐정이 헛웃음을 터뜨린다.\n\n\"그러게. 이럴 줄 알았으면 그냥 새로 하나 사고 말 걸.\"\n\n두 사람 뒤로, 태민준이 남은 회원들에게 스튜디오를 당분간 자신이 맡아 운영하겠다고 담담히 말을 건네는 소리가 들려온다."
   },
-
   "surface_incident": [
     "필라테스 스튜디오 '코어라인'의 원장 표다온이 이른 아침 프라이빗룸에서 리포머 캐리지에 깔린 채 쓰러져 발견됐다.",
     "119 대응 결과 현장에서 사망이 확인됐으며, 경찰은 기구 결함에 의한 안전사고 가능성을 조사 중이다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "3년간 비밀리에 이어온 연인 관계를 표다온이 일방적으로 정리했고, 여청하는 그 사실을 받아들이지 못한 채 집착했다. 이후 원장의 개인 사물함에서 다른 사람과 새로 시작하려는 정황(커플링 상자)을 확인한 여청하는 격분해 계획적으로 살해를 결심했다.",
-    "motive_archetypes": ["obsession", "relationship_end"],
+    "motive_archetypes": [
+      "obsession",
+      "relationship_end"
+    ],
     "method": "여청하는 마감 직후 데스크 대여 기록부에 정식으로 서명하고 마스터키를 빌려 정비실에 남았다. 캐리지 정지볼트를 렌치로 제거한 뒤 볼트 구멍을 목공용 퍼티로 메워 육안으로 드러나지 않게 마감했고, 정비 일지에는 점검을 마쳤다고 거짓으로 적었다. 다음 날 이른 아침 표다온이 평소처럼 혼자 워밍업을 하며 캐리지를 빠르게 밀어내자, 정지볼트가 없는 레일 끝으로 캐리지가 그대로 이탈해 가슴을 강타했다.",
-    "method_archetypes": ["machine_malfunction", "blunt_force"],
+    "method_archetypes": [
+      "machine_malfunction",
+      "blunt_force"
+    ],
     "key_time_location": "전날 밤(마감 직후) 정비실(L04)과 프라이빗룸(L03)",
     "cover_up": "볼트 구멍을 목공용 퍼티로 메워 조작 흔적을 지우고, 정비 일지에 '레일 점검 완료, 이상 없음'이라고 거짓으로 기재해 사고사처럼 보이게 했다.",
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["false_accident", "document_falsification", "concealment_without_staging"]
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "document_falsification",
+      "concealment_without_staging"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T07",
       "time": "전날 17시 50분경",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "방윤슬이 마감 정산을 마치고 일찍 퇴근한다."
     },
     {
       "id": "T01",
       "time": "전날 18시경(마감 직후)",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "여청하가 마감 직후 정비실에 남아 캐리지 정지볼트를 렌치로 풀어 제거한다.",
       "world_fact": "여청하는 제거한 볼트를 정비 도구함에 넣어두지 않고 자신의 개인 가방에 챙겨 넣는다."
     },
@@ -68,7 +94,9 @@
       "id": "T02",
       "time": "전날 18시 20분경",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "여청하가 볼트 구멍을 목공용 퍼티로 메워 육안으로 드러나지 않게 마감한다.",
       "world_fact": "여청하는 정비 일지에 '레일 점검 완료, 이상 없음'이라고 거짓으로 적어 넣는다."
     },
@@ -76,21 +104,28 @@
       "id": "T03",
       "time": "전날 18시 30분경",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "여청하가 데스크 대여 기록부에 마스터키 대여 서명을 남긴다."
     },
     {
       "id": "T04",
       "time": "전날 21시 40분경",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "여청하가 프라이빗룸 앞 복도에서 표다온과 격한 말다툼을 벌인다."
     },
     {
       "id": "T05",
       "time": "전날 21시 45분경",
       "location": "L06",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "좌하빈이 라커룸에서 나서던 길에 복도 너머로 격앙된 언쟁 소리를 엿듣는다.",
       "world_fact": "좌하빈은 그 목소리 중 하나가 여청하의 것이라고 알아챈다."
     },
@@ -98,15 +133,19 @@
       "id": "T06",
       "time": "전날 21시 50분경",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "태민준이 정비실에 들러 자신의 개인 리포머 스프링을 새 스프링으로 교체한다.",
       "world_fact": "태민준은 작업을 마친 뒤 정비 일지 옆 개인 장비 기록표에 자신의 이름을 적어 넣는다."
     },
-{
+    {
       "id": "T08",
       "time": "사건 당일 6시경",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "표다온이 평소처럼 개장 전 혼자 프라이빗룸에서 레그프레스 워밍업 시퀀스를 시작한다.",
       "world_fact": "빠른 속도로 캐리지를 밀어내는 순간 정지볼트가 없는 레일 끝으로 캐리지가 그대로 이탈해 표다온의 가슴을 강타한다."
     },
@@ -114,11 +153,12 @@
       "id": "T09",
       "time": "사건 당일 7시경",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "온유겸이 평소보다 이르게 출근해, 잠겨 있어야 할 프라이빗룸 문이 열려 있는 것을 이상하게 여겨 들여다보다 쓰러진 표다온을 발견한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -126,22 +166,83 @@
       "role": "수석 강사 / 표다온과 비밀리에 연인 관계였던 인물",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "표다온과 3년간 비밀리에 연인 관계였다.", "source": "본인 경험" },
-        { "fact_id": "F-CH01-02", "content": "표다온이 몇 주 전 관계를 완전히 정리하자고 통보했다.", "source": "본인 경험" },
-        { "fact_id": "F-CH01-03", "content": "사건 전날 밤 실제로는 늦게까지 스튜디오에 남아있었다.", "source": "본인 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-04", "content": "캐리지 정지볼트를 렌치로 제거하고 퍼티로 구멍을 메워 흔적을 숨겼다.", "source": "본인 행동", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH01-05", "content": "표다온이 다른 사람과 새로 시작하려 한다는 사실에 격분해 계획적으로 범행했다.", "source": "본인 행동", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "표다온과 3년간 비밀리에 연인 관계였다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "표다온이 몇 주 전 관계를 완전히 정리하자고 통보했다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사건 전날 밤 실제로는 늦게까지 스튜디오에 남아있었다.",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "캐리지 정지볼트를 렌치로 제거하고 퍼티로 구멍을 메워 흔적을 숨겼다.",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "표다온이 다른 사람과 새로 시작하려 한다는 사실에 격분해 계획적으로 범행했다.",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어제는 마감 직후 바로 퇴근했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 사실을 숨기려 함" },
-        { "claim_id": "S-CH01-02", "content": "표다온 원장님과는 그냥 오래된 동료 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "관계와 동기를 숨기려 함" },
-        { "claim_id": "S-CH01-03", "content": "정비실은 어제 손댄 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 흔적을 숨기려 함" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어제는 마감 직후 바로 퇴근했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 사실을 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "표다온 원장님과는 그냥 오래된 동료 사이였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "관계와 동기를 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "정비실은 어제 손댄 적이 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 흔적을 숨기려 함"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E06", "release_trigger": "C01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E03", "release_trigger": "C02" },
-        { "fact_or_claim_id": "F-CH01-05", "release_prerequisite": "E04", "release_trigger": "C03" }
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E03",
+          "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E04",
+          "release_trigger": "C03"
+        }
       ],
       "knowledge_limits": [
         "정비 기술과 리포머 구조에 대해 전문적으로 알고 있다.",
@@ -164,16 +265,43 @@
       "role": "강사 / 스튜디오 확장 사업 논의 파트너",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 전날 밤 정비실에서 자신의 개인 리포머 스프링을 손보고 있었다.", "source": "본인 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-02", "content": "최근 표다온과 스튜디오 확장 사업 방향을 두고 의견 차이가 있었다.", "source": "본인 경험" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 전날 밤 정비실에서 자신의 개인 리포머 스프링을 손보고 있었다.",
+          "source": "본인 경험",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 표다온과 스튜디오 확장 사업 방향을 두고 의견 차이가 있었다.",
+          "source": "본인 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 밤 정비실 근처엔 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "개인 장비를 손보러 간 것을 알리고 싶지 않아서(범행과 무관한 개인적 이유)" },
-        { "claim_id": "S-CH02-02", "content": "원장님과는 사업적으로 잘 지냈어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 밤 정비실 근처엔 가지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "개인 장비를 손보러 간 것을 알리고 싶지 않아서(범행과 무관한 개인적 이유)"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "원장님과는 사업적으로 잘 지냈어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "E07" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "E07"
+        }
       ],
       "knowledge_limits": [
         "여청하와 표다온의 관계는 전혀 몰랐다.",
@@ -195,14 +323,33 @@
       "role": "데스크 매니저 / 마스터키 대여 기록 관리 담당",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "마스터키 대여 기록을 관리하는 담당자다.", "source": "업무" },
-        { "fact_id": "F-CH03-02", "content": "태민준이 요즘 표다온과 사업 방향으로 다퉜다는 소문을 들었다.", "source": "소문" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "마스터키 대여 기록을 관리하는 담당자다.",
+          "source": "업무"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "태민준이 요즘 표다온과 사업 방향으로 다퉜다는 소문을 들었다.",
+          "source": "소문"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "전 그날 일찍 퇴근해서 잘 몰라요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "요즘 태민준 강사님이 원장님이랑 뭔가 트러블 있었단 소리는 들었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "전 그날 일찍 퇴근해서 잘 몰라요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "요즘 태민준 강사님이 원장님이랑 뭔가 트러블 있었단 소리는 들었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "범행 당일 밤 직접 목격한 것은 전혀 없다.",
@@ -224,13 +371,30 @@
       "role": "신입 강사 / 시신 최초 발견자",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 아침 프라이빗룸 문을 열었다가 쓰러진 표다온을 발견했다.", "source": "목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "평소 표다온은 개장 한 시간 전 혼자 프라이빗룸에서 워밍업을 했다.", "source": "업무 지식" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 아침 프라이빗룸 문을 열었다가 쓰러진 표다온을 발견했다.",
+          "source": "목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "평소 표다온은 개장 한 시간 전 혼자 프라이빗룸에서 워밍업을 했다.",
+          "source": "업무 지식"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "제가 문을 열자마자 바로 발견했어요, 이상한 건 못 봤어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "제가 문을 열자마자 바로 발견했어요, 이상한 건 못 봤어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "정비 기록이나 마스터키 관리에는 접근 권한이 없다.",
@@ -252,15 +416,39 @@
       "role": "오랜 회원 / 탐정의 지인",
       "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "전날 밤 늦게 스튜디오 근처를 지나다가 언쟁하는 소리를 들었다.", "source": "목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH05-02", "content": "그 목소리 중 하나가 여청하였다는 걸 알아챘다.", "source": "목격", "related_timeline": ["T05"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "전날 밤 늦게 스튜디오 근처를 지나다가 언쟁하는 소리를 들었다.",
+          "source": "목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 목소리 중 하나가 여청하였다는 걸 알아챘다.",
+          "source": "목격",
+          "related_timeline": [
+            "T05"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "어제 우산을 두고 가서 오늘 찾으러 왔어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "어제 우산을 두고 가서 오늘 찾으러 왔어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-CH05-01", "release_trigger": "C01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "C01"
+        }
       ],
       "knowledge_limits": [
         "스튜디오 내부 사정은 회원으로서 아는 정도뿐이다.",
@@ -277,11 +465,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "스튜디오를 함께 키워 온 원장과 수석 강사이자, 3년간 아무도 모르게 이어온 연인 사이였다.",
       "public_face": "손발이 잘 맞는 원장과 오래된 수석 강사로만 알려져 있다.",
       "private_strain": "여청하는 표다온과 3년간 비밀리에 연인 사이였고, 몇 주 전 일방적으로 관계를 정리당한 뒤에도 그것을 받아들이지 못했다는 것을 먼저 꺼내지 않는다.",
@@ -292,7 +482,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "스튜디오 확장 사업을 함께 논의해 온 원장과 강사 사이.",
       "public_face": "사업 이야기를 스스럼없이 나누는 동업자에 가까운 사이로 알려져 있다.",
       "private_strain": "태민준은 스튜디오 확장 방향을 두고 표다온과 부딪혔던 일을 사업적 의견 차이라고만 말하며 그 앙금은 먼저 꺼내지 않는다.",
@@ -303,7 +496,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "원장과, 들어온 지 얼마 안 된 신입 강사 사이.",
       "public_face": "배우는 쪽과 가르치는 쪽으로 아직 서먹한 사이로 알려져 있다.",
       "private_strain": "온유겸은 원장의 워밍업 시간을 누구보다 잘 알면서도 그날 아침 문 앞에서 한참을 망설였다는 것을 묻기 전에는 입에 올리지 않는다.",
@@ -314,7 +510,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "원장과, 접수와 마스터키 관리를 도맡아 온 데스크 매니저 사이.",
       "public_face": "열쇠와 장부를 통째로 맡길 만큼 신임하는 사이로 알려져 있다.",
       "private_strain": "방윤슬은 마스터키 대여 기록을 관리하면서도 전날 반납되지 않은 것을 아침까지 눈치채지 못했다는 것을 먼저 말하지 않는다.",
@@ -325,7 +524,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "3년째 같은 강사의 개인레슨만 받아 온 회원과 그 수석 강사 사이.",
       "public_face": "수업으로 오래 얼굴을 봐 온 편한 사이로 알려져 있다.",
       "private_strain": "좌하빈은 전날 밤 들은 언쟁 소리 중 하나가 여청하의 목소리였다고 확신하면서도, 3년을 배운 강사를 의심하는 꼴이 될까 봐 그 이름만은 빼고 이야기한다.",
@@ -336,20 +538,32 @@
       }
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "데스크 라운지",
       "access": "누구나 드나들 수 있는 로비 겸 데스크",
       "access_level": "open",
-      "connects_to": ["L02", "L04", "L05", "L06"],
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05",
+        "L06"
+      ],
       "base_description": "회원 접수와 마스터키 보관함이 있는 로비. 벽면엔 예약 명단이 붙어 있다.",
       "observation_rules": [
-        { "action": "데스크 주변을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "예약 명단과 마스터키 보관함이 눈에 띈다." }
+        {
+          "action": "데스크 주변을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "예약 명단과 마스터키 보관함이 눈에 띈다."
+        }
       ],
       "detail_rules": [
-        { "action": "마스터키 대여 기록부를 확인한다", "release_evidence_id": "E06", "result": "전날 마감 이후 마스터키가 반납되지 않은 기록을 발견한다." }
+        {
+          "action": "마스터키 대여 기록부를 확인한다",
+          "release_evidence_id": "E06",
+          "result": "전날 마감 이후 마스터키가 반납되지 않은 기록을 발견한다."
+        }
       ]
     },
     {
@@ -357,13 +571,25 @@
       "name": "메인 레슨룸",
       "access": "레슨 시간에는 회원과 강사가 자유롭게 드나든다",
       "access_level": "open",
-      "connects_to": ["L01", "L03", "L04"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "리포머 여러 대가 나란히 놓인 개인레슨용 메인 공간.",
       "observation_rules": [
-        { "action": "메인 레슨룸을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "리포머 여러 대가 나란히 놓여 있고 벽면엔 강사별 개인레슨 스케줄표가 붙어 있다." }
+        {
+          "action": "메인 레슨룸을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "리포머 여러 대가 나란히 놓여 있고 벽면엔 강사별 개인레슨 스케줄표가 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "태민준에게 정비실에 있었던 이유를 캐묻는다", "release_evidence_id": "E07", "result": "태민준이 자신의 개인 장비를 손보러 간 것뿐이라며 근거를 보여준다." }
+        {
+          "action": "태민준에게 정비실에 있었던 이유를 캐묻는다",
+          "release_evidence_id": "E07",
+          "result": "태민준이 자신의 개인 장비를 손보러 간 것뿐이라며 근거를 보여준다."
+        }
       ]
     },
     {
@@ -371,13 +597,23 @@
       "name": "프라이빗룸",
       "access": "사건 현장으로 통제된 프라이빗룸, 평소엔 원장 전용 예약제로만 출입 가능",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "표다온이 매일 혼자 워밍업을 하던 개인 전용 공간. 리포머 한 대가 놓여 있다.",
       "observation_rules": [
-        { "action": "프라이빗룸 현장을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "캐리지가 레일 끝단에서 완전히 이탈해 바닥에 나뒹굴고 있다." }
+        {
+          "action": "프라이빗룸 현장을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "캐리지가 레일 끝단에서 완전히 이탈해 바닥에 나뒹굴고 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "캐리지 정지 지점 레일 끝을 살펴본다", "release_evidence_id": "E03", "result": "볼트 구멍에 퍼티가 발라진 흔적을 발견한다." }
+        {
+          "action": "캐리지 정지 지점 레일 끝을 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "볼트 구멍에 퍼티가 발라진 흔적을 발견한다."
+        }
       ]
     },
     {
@@ -385,14 +621,30 @@
       "name": "정비실",
       "access": "직원만 마스터키로 출입 가능한 정비실",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02", "L03"],
+      "connects_to": [
+        "L01",
+        "L02",
+        "L03"
+      ],
       "base_description": "공구함과 여분 부품, 정비 일지가 있는 작은 창고.",
       "observation_rules": [
-        { "action": "정비실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "공구함과 여분 부품, 벽에 걸린 정비 일지가 보인다." }
+        {
+          "action": "정비실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "공구함과 여분 부품, 벽에 걸린 정비 일지가 보인다."
+        }
       ],
       "detail_rules": [
-        { "action": "정비 도구함을 살펴본다", "release_evidence_id": "E01", "result": "포장을 뜯지 않은 새 정지볼트 하나를 발견한다." },
-        { "action": "정비 일지를 확인한다", "release_evidence_id": "E02", "result": "전날 '이상 없음'이라고 적힌 거짓 기재를 발견한다." }
+        {
+          "action": "정비 도구함을 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "포장을 뜯지 않은 새 정지볼트 하나를 발견한다."
+        },
+        {
+          "action": "정비 일지를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "전날 '이상 없음'이라고 적힌 거짓 기재를 발견한다."
+        }
       ]
     },
     {
@@ -400,13 +652,23 @@
       "name": "원장 개인 사무실",
       "access": "원장 개인 열쇠로만 열리는 사무실",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "표다온의 책상과 개인 사물함이 있는 작은 사무실.",
       "observation_rules": [
-        { "action": "원장 개인 사무실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 다이어리와 개인 사물함 열쇠가 놓여 있다." }
+        {
+          "action": "원장 개인 사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위에 다이어리와 개인 사물함 열쇠가 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "원장 개인 사물함을 살펴본다", "release_evidence_id": "E04", "result": "뜯지 않은 커플링 상자를 발견한다." }
+        {
+          "action": "원장 개인 사물함을 살펴본다",
+          "release_evidence_id": "E04",
+          "result": "뜯지 않은 커플링 상자를 발견한다."
+        }
       ]
     },
     {
@@ -414,17 +676,26 @@
       "name": "라커룸",
       "access": "회원이라면 누구나 드나드는 라커룸",
       "access_level": "open",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "회원용 사물함이 늘어선 탈의 공간.",
       "observation_rules": [
-        { "action": "라커룸을 둘러본다", "release_fact_id": "F-L06-OBS-01", "result": "회원 사물함들 사이로 탐정 앞으로 맡겨진 우산이 보인다." }
+        {
+          "action": "라커룸을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "회원 사물함들 사이로 탐정 앞으로 맡겨진 우산이 보인다."
+        }
       ],
       "detail_rules": [
-        { "action": "좌하빈에게 전날 밤 들은 소리를 묻는다", "release_evidence_id": "E05", "result": "전날 밤 들었던 언쟁 소리에 대한 증언을 듣는다." }
+        {
+          "action": "좌하빈에게 전날 밤 들은 소리를 묻는다",
+          "release_evidence_id": "E05",
+          "result": "전날 밤 들었던 언쟁 소리에 대한 증언을 듣는다."
+        }
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -432,11 +703,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "정비 도구함을 살펴본다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "정비 도구함 안에 캐리지 정지볼트와 정확히 같은 규격의 새 볼트 하나가 포장도 뜯기지 않은 채 남아 있다. 정품 여분은 원래 두 개가 있어야 하는데 하나가 비어 있다.",
-      "proves": ["누군가 정지볼트를 제거하고 새 것으로 교체하려 했다는 정황"],
-      "does_not_prove": ["누가 그 볼트를 제거했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 정지볼트를 제거하고 새 것으로 교체하려 했다는 정황"
+      ],
+      "does_not_prove": [
+        "누가 그 볼트를 제거했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -444,11 +723,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "정비 일지를 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "정비 일지에는 사건 전날 '레일 점검 완료, 이상 없음'이라고 적혀 있고, 그 필체는 여청하가 평소 쓰는 손글씨와 일치한다.",
-      "proves": ["여청하가 사건 전날 정비실에서 점검을 했다고 거짓 기재했다는 것"],
-      "does_not_prove": ["볼트를 실제로 제거했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "여청하가 사건 전날 정비실에서 점검을 했다고 거짓 기재했다는 것"
+      ],
+      "does_not_prove": [
+        "볼트를 실제로 제거했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -456,11 +743,20 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "캐리지 정지 지점 레일 끝을 살펴본다",
-      "related_timeline": ["T02", "T08"],
+      "related_timeline": [
+        "T02",
+        "T08"
+      ],
       "content": "캐리지가 이탈한 레일 끝 정지볼트 구멍에 목공용 퍼티가 발라져 있고, 그 안쪽에 나사산이 그대로 남아 있다 — 볼트가 부러진 게 아니라 누군가 일부러 빼낸 뒤 구멍을 메운 흔적이다.",
-      "proves": ["캐리지 이탈이 사고가 아니라 인위적으로 조작된 것"],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "캐리지 이탈이 사고가 아니라 인위적으로 조작된 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -469,9 +765,15 @@
       "found_at": "L05",
       "discovery_condition": "원장 개인 사물함을 살펴본다",
       "content": "사물함 안쪽에 아직 뜯지 않은 커플링 상자가 있고, 안쪽에 새겨진 이니셜은 여청하의 것이 아니다.",
-      "proves": ["표다온이 여청하가 아닌 다른 사람과 새로 관계를 시작했다는 정황"],
-      "does_not_prove": ["그 사실이 언제, 어떻게 여청하에게 전해졌는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "표다온이 여청하가 아닌 다른 사람과 새로 관계를 시작했다는 정황"
+      ],
+      "does_not_prove": [
+        "그 사실이 언제, 어떻게 여청하에게 전해졌는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -479,11 +781,17 @@
       "source_type": "testimony",
       "found_at": "L06",
       "discovery_condition": "좌하빈에게 전날 밤 들은 소리를 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "좌하빈은 전날 밤 늦게 스튜디오 앞을 지나다 안에서 격앙된 언쟁 소리를 들었고, 그중 한 목소리가 여청하의 것이었다고 증언한다.",
-      "proves": ["여청하가 사건 전날 밤 표다온과 격한 언쟁을 벌였다는 것"],
-      "does_not_prove": ["그 언쟁의 구체적 내용"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "여청하가 사건 전날 밤 표다온과 격한 언쟁을 벌였다는 것"
+      ],
+      "does_not_prove": [
+        "그 언쟁의 구체적 내용"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -491,11 +799,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "마스터키 대여 기록부를 확인한다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "대여 기록부에는 사건 전날 마감 시각 이후 여청하가 마스터키를 대여해 갔고, 다음 날 아침까지 반납 기록이 없다고 적혀 있다.",
-      "proves": ["여청하가 마감 후에도 스튜디오에 남아 있었다는 것"],
-      "does_not_prove": ["그 시간 동안 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "여청하가 마감 후에도 스튜디오에 남아 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 시간 동안 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -503,53 +819,108 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "태민준에게 정비실에 있었던 이유를 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "태민준은 그날 밤 정비실에 간 것은 맞지만, 자신의 개인 리포머 스프링을 손보러 간 것뿐이라고 진술하며, 개인 장비 기록표에 남은 자신의 서명을 보여준다.",
-      "proves": ["태민준이 정비실에 있었던 것은 개인적 이유였다는 것"],
-      "does_not_prove": ["여청하의 행적과 무관함을 완전히 증명하지는 못함"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "태민준이 정비실에 있었던 것은 개인적 이유였다는 것"
+      ],
+      "does_not_prove": [
+        "여청하의 행적과 무관함을 완전히 증명하지는 못함"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_stayed_late",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E06"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E06"
+        ]
+      },
       "player_action": "마스터키 대여기록(E06)을 제시해 어제 마감 직후 퇴근했다는 진술과 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "사실 어제 늦게까지 스튜디오에 남아있었다고 인정한다(이유는 아직 밝히지 않는다)." },
-      "must_not_release": ["볼트 제거 사실", "연애 관계", "동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "사실 어제 늦게까지 스튜디오에 남아있었다고 인정한다(이유는 아직 밝히지 않는다)."
+      },
+      "must_not_release": [
+        "볼트 제거 사실",
+        "연애 관계",
+        "동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_stayed_late",
       "to_stage": "admits_bolt_removal",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E02", "E03"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E03"
+        ]
+      },
       "player_action": "정비 도구함(E01), 정비 일지(E02), 레일 볼트 구멍(E03)을 제시해 정비실에 손댄 적 없다는 말과 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "정지볼트를 직접 제거하고 퍼티로 흔적을 지웠다고 인정한다(동기는 아직 밝히지 않는다)." },
-      "must_not_release": ["동기", "연애 관계"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "정지볼트를 직접 제거하고 퍼티로 흔적을 지웠다고 인정한다(동기는 아직 밝히지 않는다)."
+      },
+      "must_not_release": [
+        "동기",
+        "연애 관계"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_bolt_removal",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E04"
+        ]
+      },
       "player_action": "커플링 상자(E04)와 좌하빈의 언쟁 목격 증언(E05)을 제시해 '그냥 동료 사이였다'는 말과 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH01-05", "scope": "3년간 이어온 비밀 연애가 끝났다는 사실과, 표다온이 다른 사람과 새로 시작하려 한다는 것을 알고 격분해 계획적으로 범행했다고 완전히 자백한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "3년간 이어온 비밀 연애가 끝났다는 사실과, 표다온이 다른 사람과 새로 시작하려 한다는 것을 알고 격분해 계획적으로 범행했다고 완전히 자백한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -558,27 +929,33 @@
       "how_to_clear": "정비 일지 필적 대조(E02)와 태민준의 개인 장비 정비 증언(E07)에 남아있는 개인 장비 기록표 서명으로 해소된다.",
       "must_not_imply": "태민준이 범인인 것처럼 단정하지 않는다.",
       "lingering_thread": "태민준이 남은 회원들을 위해 당분간 스튜디오 운영을 맡기로 한다.",
-      "suspicion_deepener": "방윤슬이 '요즘 태민준 강사님이 원장님이랑 뭔가 트러블 있었던 것 같다'는 소문을 전달하며 의심이 깊어진다."
+      "suspicion_deepener": "방윤슬이 '요즘 태민준 강사님이 원장님이랑 뭔가 트러블 있었던 것 같다'는 소문을 전달하며 의심이 깊어진다.",
+      "character_id": "CH02"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-03", "F-CH01-04", "F-CH01-05"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-03",
+      "F-CH01-04",
+      "F-CH01-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-04",
       "motive_fact": "F-CH01-05"
     }
   },
-
   "final_deduction": {
     "responsible": "여청하",
     "method": "필라테스 리포머 캐리지 정지볼트를 제거하고 퍼티로 구멍을 메워, 피해자가 평소처럼 혼자 워밍업을 하다 캐리지에 가슴을 강타당해 사망하게 만들었다.",
     "motive": "3년간 이어온 비밀 연애가 일방적으로 끝난 데다, 피해자가 다른 사람과 새로 시작하려 한다는 사실을 알고 격분해 계획적으로 살해했다.",
     "key_connection": "마스터키 대여 기록(E06), 정비 일지 필적과 볼트 구멍의 인위적 흔적(E01, E02, E03), 사물함 속 커플링 상자(E04)와 좌하빈의 목격 증언(E05)이 서로 맞물려 여청하를 범인으로 지목한다."
   },
-
   "ending_explanation": [
     "여청하는 3년간 표다온과 비밀 연애 관계를 이어왔으나, 표다온이 일방적으로 관계를 정리했다.",
     "여청하는 표다온이 새로운 상대와 시작하려 한다는 사실(사물함 속 커플링 상자)을 확인하고 격분했다.",

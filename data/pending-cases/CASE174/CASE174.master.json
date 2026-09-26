@@ -861,9 +861,7 @@
       "does_not_prove": [
         "실제 작업자가 누구인지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -912,9 +910,7 @@
       "does_not_prove": [
         "노경화가 그 뒤 하도윤과 정확히 무슨 대화를 나눴는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -929,9 +925,7 @@
       "does_not_prove": [
         "하도윤이 그것을 알면서도 자기 것이라고 소개했는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E10",
@@ -964,9 +958,7 @@
       "does_not_prove": [
         "다시 연결한 사람이 누구인지 확정하지는 못한다"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E12",
@@ -1029,8 +1021,7 @@
       ],
       "requires_presented_evidence_ids": [
         "E02",
-        "E03",
-        "E11"
+        "E03"
       ],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
@@ -1059,9 +1050,7 @@
         "S-CH04-04"
       ],
       "requires_presented_evidence_ids": [
-        "E05",
-        "E08",
-        "E09",
+        "E02",
         "E12"
       ],
       "requires_comparison": {
@@ -1087,7 +1076,8 @@
       "how_to_clear": "이사 업체 작업 확인서(E10)와 배정운의 진술(E11)을 맞춰 보아, 환기팬 분리가 애초에 그날 오후로 예정돼 있던 일이었음을 확인한다.",
       "must_not_imply": "설비를 손댔다는 사실만으로 그가 사고나 사건에 책임이 있다고 단정하지 않는다.",
       "lingering_thread": "배정운은 그날 자신이 배선을 손댄 순서 하나만 달랐어도 무언가 달라졌을까 하는 생각을 한동안 떨치지 못한다.",
-      "suspicion_deepener": "노경화가 쓰러진 뒤에도 배정운이 유독 인화실 근처에 얼씬거리지 않으려 하는 모습이 마치 뭔가 찔리는 것처럼 보인다."
+      "suspicion_deepener": "노경화가 쓰러진 뒤에도 배정운이 유독 인화실 근처에 얼씬거리지 않으려 하는 모습이 마치 뭔가 찔리는 것처럼 보인다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -1096,7 +1086,8 @@
       "how_to_clear": "계약 서명 일정표(E06)와 신재익의 해명(E07)을 맞춰 보아, 서두른 이유가 애초에 정해져 있던 사내 결재 기한 때문이었음을 확인한다.",
       "must_not_imply": "일정을 서둘렀다는 사실만으로 그가 사건에 연루됐다고 단정하지 않는다.",
       "lingering_thread": "신재익은 계약이 예정대로 마무리된 뒤에도, 자신이 소개받았던 연작이 다른 사람의 것이었다는 사실을 뒤늦게 알고 회사에 뭐라 보고해야 할지 한동안 골머리를 앓는다.",
-      "suspicion_deepener": "노경화가 쓰러진 직후에도 신재익이 태연히 본사에 전화를 거는 모습이 목격되어, 마치 그 일을 대수롭지 않게 여기는 것처럼 보인다."
+      "suspicion_deepener": "노경화가 쓰러진 직후에도 신재익이 태연히 본사에 전화를 거는 모습이 목격되어, 마치 그 일을 대수롭지 않게 여기는 것처럼 보인다.",
+      "character_id": "CH03"
     }
   ],
   "case_complete": {

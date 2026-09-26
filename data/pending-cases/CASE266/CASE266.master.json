@@ -5,16 +5,27 @@
     "english_title": "The Hour the Indigo Boiled",
     "genre": "백여산에게 오랜 개인적 감정을 품어온 수석 제자의 상실감과 소유욕에서 비롯된 계획적 살인 / 염색 가마솥 발판 지지대 훼손에 의한 낙상 화상사 위장",
     "setting": "지방 소도시 한옥마을 골목 안쪽, 30년 가까이 천연염색을 이어온 공방 '쪽빛방'. 대표 백여산이 홀로 세워 키워 온 곳으로, 수석 제자 도경우가 10년 넘게 실무를 도맡아 왔고 조카 심로하가 곁에서 살림과 장부를 챙겨 왔다. 이번 주는 지역 갤러리 큐레이터 예강준이 백여산의 회고전을 준비하며 며칠째 자료를 정리하러 드나들었고, 오랜 단골 반경아도 저녁마다 들러 함께 시간을 보내곤 했다. 탐정은 20여 년 전 이곳에서 짧게 도제 생활을 했던 인연으로, 오랜만에 안부를 전하러 한지우와 함께 들른 참이었다. 특별한 마감이나 행사 없이 흘러가는 평범한 저녁, 뒷마당 가마솥 앞에서 홀로 마감 염색을 하던 백여산이 발판이 부서지는 소리와 함께 쓰러진다.",
-    "location_archetypes": ["craft_textile"],
+    "location_archetypes": [
+      "craft_textile"
+    ],
     "background": {
-      "background_archetypes": ["regular_day", "exhibition"],
-      "background_phrasing": ["during_preparation"],
+      "background_archetypes": [
+        "regular_day",
+        "exhibition"
+      ],
+      "background_phrasing": [
+        "during_preparation"
+      ],
       "background_intensity": "contextual"
     },
     "detective_entry_type": "returning_former_affiliate",
     "detective_entry": "탐정은 20여 년 전 이곳 쪽빛방에서 짧게 도제 생활을 했던 인연으로, 오랜만에 백여산에게 안부를 전하러 한지우와 함께 들른 참이었다.",
     "tone": "차분하지만 먹먹한 정통 추리",
-    "tags": ["천연염색_공방", "한옥마을_골목", "가마솥_작업장"]
+    "tags": [
+      "천연염색_공방",
+      "한옥마을_골목",
+      "가마솥_작업장"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:05",
@@ -31,10 +42,21 @@
   ],
   "full_truth": {
     "responsible_character_id": "CH01",
-    "motive_archetypes": ["obsession"],
-    "method_archetypes": ["induced_fall", "other"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["false_accident", "evidence_removal"],
+    "motive_archetypes": [
+      "obsession"
+    ],
+    "method_archetypes": [
+      "induced_fall",
+      "other"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ],
     "motive": "도경우는 20년 가까이 백여산 곁에서 수석 제자로 지내며 개인적인 감정을 오랫동안 숨겨 왔으나, 백여산이 반경아와 함께 공방을 정리하고 강진으로 이주하기로 결심했다는 사실을 우연히 알게 되자 완전히 버려진다는 상실감과 소유욕이 뒤엉켜 계획적으로 살해를 저질렀다.",
     "method": "도경우는 백여산이 매일 저녁 마감 직전 홀로 가마솥 앞 발판에 올라서서 염색을 젓는 습관을 파악해 두었다가, 사건 전날 밤 발판을 지지하는 나무다리 이음부를 톱으로 얇게 갈아 두었다. 다음 날 저녁 백여산이 평소처럼 발판에 올라서자 이음부가 그대로 부러지며 균형을 잃었고, 펄펄 끓는 염색 가마솥 안으로 떨어져 전신 화상을 입었다.",
     "key_time_location": "사건 당일 19시경, 쪽빛방 뒷마당 가마솥 앞(L01)",
@@ -45,7 +67,9 @@
       "id": "T01",
       "time": "사건 6일 전 오후",
       "location": "L05",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백여산이 서재 책상에서 강진 지역 부동산 계약서 초안에 반경아와 함께 서명할 날짜를 표시한다.",
       "world_fact": "서재 책상 위 계약서 초안에 백여산과 반경아가 함께 서명하기로 한 날짜가 붉은 펜으로 동그라미 쳐진 채 남는다."
     },
@@ -53,7 +77,10 @@
       "id": "T02",
       "time": "사건 5일 전 19시",
       "location": "L03",
-      "actors": ["V01", "CH05"],
+      "actors": [
+        "V01",
+        "CH05"
+      ],
       "actual_action": "백여산과 반경아가 접객실에서 강진 이주 후의 살림 계획을 상의한다.",
       "world_fact": "접객실 탁자 위에 백여산과 반경아가 함께 살펴본 강진 지역 집 매물 사진 몇 장이 그대로 남아 있다가 다음 날 아침 심로하가 치운다."
     },
@@ -61,7 +88,9 @@
       "id": "T03",
       "time": "사건 5일 전 19시 40분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "도경우가 접객실 문밖에서 백여산과 반경아의 이주 계획 대화를 엿듣는다.",
       "world_fact": "그날 이후 도경우가 평소보다 늦게까지 혼자 작업실에 남는 일이 잦아진다."
     },
@@ -69,7 +98,9 @@
       "id": "T04",
       "time": "사건 3일 전 밤",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "도경우가 창고에서 손톱과 여분의 나무 조각을 챙긴다.",
       "world_fact": "창고 공구함에 늘 걸려 있던 손톱 하나가 사라지고, 바닥에는 마른 톱밥 부스러기가 새로 떨어져 있다."
     },
@@ -77,7 +108,9 @@
       "id": "T05",
       "time": "사건 전날 늦은 밤",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "도경우가 뒷마당 가마솥 앞 발판 다리 이음부를 톱으로 얇게 갈아낸다.",
       "world_fact": "발판 다리 이음부가 겉보기엔 멀쩡해 보이지만 손으로 눌러보면 힘없이 휘청거릴 정도로 얇아져 있다."
     },
@@ -85,7 +118,9 @@
       "id": "T06",
       "time": "사건 당일 19시경",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백여산이 가마솥 앞 발판 위에서 마지막 염색을 젓는다.",
       "world_fact": "발판 다리 이음부가 그대로 부러지며 백여산이 균형을 잃고 끓는 가마솥 안으로 떨어진다."
     },
@@ -93,7 +128,9 @@
       "id": "T07",
       "time": "사건 당일 19시 5분경",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "도경우가 부러진 발판 잔해 조각 하나를 슬쩍 앞치마 주머니에 숨긴다.",
       "world_fact": "도경우가 불을 줄이는 사이 발판 잔해 조각이 앞치마 주머니 속으로 사라진다."
     }
@@ -117,19 +154,25 @@
           "fact_id": "F-CH01-01",
           "content": "백여산이 반경아와 함께 강진으로 이주하며 공방을 정리할 계획이라는 사실을 사건 며칠 전 우연히 엿들어 알고 있었다는 것",
           "source": "우연한 목격",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "사건 전날 밤 뒷마당 가마솥 앞 발판 다리 이음부를 톱으로 얇게 갈아 두었다는 행위",
           "source": "본인 행위",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "오랜 세월 백여산에게 품어온 개인적인 감정과 상실감이 진짜 범행 동기였다는 사실",
           "source": "본인 심리",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -152,7 +195,11 @@
           "reason_for_limit_or_lie": "진짜 동기와 범행 전모를 숨기려 함"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -205,7 +252,9 @@
           "reason_for_limit_or_lie": "지분 정산 문제로 다퉜던 사실을 밝히기 꺼림"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -247,7 +296,9 @@
           "reason_for_limit_or_lie": "계약 조건으로 다퉜던 사실을 밝히기 꺼림"
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -279,7 +330,9 @@
           "fact_id": "F-CH04-01",
           "content": "사건 며칠 전부터 도경우가 평소와 달리 밤늦게까지 작업실에 남아 있었고 창고를 자주 드나들었다는 목격",
           "source": "직접 목격",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -299,7 +352,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-00", "S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-00",
+        "S-CH04-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "가마솥이나 발판 정비 기술적인 부분은 잘 알지 못한다."
@@ -329,7 +385,10 @@
           "fact_id": "F-CH05-01",
           "content": "백여산과 연인 관계였으며 함께 강진으로 이주해 새로운 공방을 열기로 계획했다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T01", "T02"]
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
         }
       ],
       "initial_claims": [
@@ -339,7 +398,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "쪽빛방 내부 인사나 도경우의 개인사는 자세히 알지 못한다."
@@ -361,7 +422,9 @@
       "name": "쪽빛방 뒷마당",
       "access": "직원과 가족이 주로 드나들고, 손님은 안내를 받아야 들어갈 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "대형 무쇠 가마솥과 염색 발판이 놓인 야외 작업 공간. 백여산이 매일 저녁 마감 직전 이곳에서 홀로 염색을 젓곤 했다.",
       "observation_rules": [
         {
@@ -383,7 +446,11 @@
       "name": "염색 작업실",
       "access": "제자들과 견습생이 상시 드나드는 실내 작업 공간.",
       "access_level": "restricted",
-      "connects_to": ["L03", "L01", "L04"],
+      "connects_to": [
+        "L03",
+        "L01",
+        "L04"
+      ],
       "base_description": "염료통과 작업대가 늘어선 실내 작업실. 개인 작업대마다 서랍이 달려 있다.",
       "observation_rules": [
         {
@@ -405,7 +472,11 @@
       "name": "접객실",
       "access": "정문을 통해 손님과 방문객 누구나 들어올 수 있다.",
       "access_level": "open",
-      "connects_to": ["L06", "L02", "L05"],
+      "connects_to": [
+        "L06",
+        "L02",
+        "L05"
+      ],
       "base_description": "다과상과 응접 탁자가 놓인 공간. 백여산이 손님을 맞이하던 곳이다.",
       "observation_rules": [
         {
@@ -421,7 +492,9 @@
       "name": "도구 창고",
       "access": "직원만 드나드는 창고로, 공구 반출 시 대장에 기록을 남겨야 한다.",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "목공 도구와 자재를 보관하는 창고. 공구 사용 대장이 선반 위에 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -437,7 +510,9 @@
       "name": "백여산의 서재",
       "access": "평소엔 잠겨 있고 백여산 본인만 드나든다.",
       "access_level": "sealed",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "책상과 오래된 서류함이 놓인 조용한 방. 백여산이 개인적인 용무를 처리하던 곳이다.",
       "observation_rules": [
         {
@@ -459,7 +534,9 @@
       "name": "한옥마을 골목 입구",
       "access": "마을 누구나 지나다니는 공용 골목.",
       "access_level": "open",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "쪽빛방 대문으로 이어지는 좁은 돌담길. 저녁이면 인적이 드물어진다.",
       "observation_rules": [
         {
@@ -479,10 +556,16 @@
       "found_at": "L04",
       "discovery_condition": "창고 공구함을 조사한다",
       "content": "창고 공구함에서 늘 걸려 있던 손톱 하나가 보이지 않고, 그 자리 바닥에는 최근 떨어진 것으로 보이는 마른 톱밥 부스러기가 남아 있다.",
-      "related_timeline": ["T04"],
-      "proves": ["최근 누군가 이 창고에서 손톱을 가져가 목재를 가공했다는 사실"],
-      "does_not_prove": ["그것이 도경우라는 것"],
-      "presentation_effect": ["C04"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "최근 누군가 이 창고에서 손톱을 가져가 목재를 가공했다는 사실"
+      ],
+      "does_not_prove": [
+        "그것이 도경우라는 것"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -491,10 +574,17 @@
       "found_at": "L01",
       "discovery_condition": "가마솥 앞 발판 잔해를 조사한다",
       "content": "부러진 발판 다리 이음부 단면이 고르게 갈려 있어, 자연스럽게 부러진 것이 아니라 미리 얇게 손질된 흔적으로 보인다.",
-      "related_timeline": ["T05", "T06"],
-      "proves": ["발판이 사고가 아니라 사전에 인위적으로 손상되어 있었다는 사실"],
-      "does_not_prove": ["누가 손상시켰는지"],
-      "presentation_effect": ["C05"]
+      "related_timeline": [
+        "T05",
+        "T06"
+      ],
+      "proves": [
+        "발판이 사고가 아니라 사전에 인위적으로 손상되어 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 손상시켰는지"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -503,10 +593,16 @@
       "found_at": "L05",
       "discovery_condition": "서재 책상 위 서류를 살펴본다",
       "content": "강진 지역 작업실 부지 계약서 초안에 백여산과 반경아가 함께 서명하기로 한 날짜가 붉은 펜으로 표시되어 있다.",
-      "related_timeline": ["T01"],
-      "proves": ["백여산이 반경아와 함께 이주를 구체적으로 준비하고 있었다는 사실"],
-      "does_not_prove": ["도경우가 이 계획을 사전에 알고 있었는지"],
-      "presentation_effect": ["C05"]
+      "related_timeline": [
+        "T01"
+      ],
+      "proves": [
+        "백여산이 반경아와 함께 이주를 구체적으로 준비하고 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "도경우가 이 계획을 사전에 알고 있었는지"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -515,8 +611,12 @@
       "found_at": "L03",
       "discovery_condition": "심로하에게 최근 백여산과 다툰 적 있는지 묻는다",
       "content": "심로하는 몇 달 전 지분 정산 문제로 백여산과 다퉜지만, 이미 합의금까지 받고 지난달에 마무리됐다고 인정한다.",
-      "proves": ["심로하와 백여산 사이에 최근 금전 갈등이 있었다는 사실"],
-      "does_not_prove": ["그 갈등이 해결되지 않은 채 남아 있었다는 것"],
+      "proves": [
+        "심로하와 백여산 사이에 최근 금전 갈등이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그 갈등이 해결되지 않은 채 남아 있었다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -526,8 +626,12 @@
       "found_at": "L03",
       "discovery_condition": "예강준에게 회고전 계약 문제로 다툰 적 있는지 묻는다",
       "content": "예강준은 회고전 계약 조건을 두고 백여산과 이견이 있었지만, 지난주 조율을 마치고 최종 합의했다고 인정한다.",
-      "proves": ["예강준과 백여산 사이에 최근 갈등이 있었다는 사실"],
-      "does_not_prove": ["그 갈등이 미해결 상태였다는 것"],
+      "proves": [
+        "예강준과 백여산 사이에 최근 갈등이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그 갈등이 미해결 상태였다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -537,10 +641,18 @@
       "found_at": "L02",
       "discovery_condition": "주단이에게 요즘 도경우가 평소와 달랐던 점이 있는지 묻는다",
       "content": "주단이는 사건 며칠 전부터 도경우가 밤늦게까지 혼자 작업실에 남아 있었고, 평소보다 자주 창고를 드나들었다고 증언한다.",
-      "related_timeline": ["T04"],
-      "proves": ["도경우가 사건 며칠 전부터 평소와 다른 행동을 보였다는 사실"],
-      "does_not_prove": ["정확히 무엇을 했는지"],
-      "presentation_effect": ["C04"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "도경우가 사건 며칠 전부터 평소와 다른 행동을 보였다는 사실"
+      ],
+      "does_not_prove": [
+        "정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E07",
@@ -549,10 +661,18 @@
       "found_at": "L03",
       "discovery_condition": "심로하에게 도경우가 최근 이상한 질문을 한 적 있는지 묻는다",
       "content": "심로하는 며칠 전 도경우가 뜬금없이 '정말 다 정리하고 떠나시는 거예요?'라고 캐물었던 게 이상했다고 증언한다.",
-      "related_timeline": ["T03"],
-      "proves": ["도경우가 이주 계획을 사전에 알고 있었다는 사실"],
-      "does_not_prove": ["그가 어떻게 알게 됐는지"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T03"
+      ],
+      "proves": [
+        "도경우가 이주 계획을 사전에 알고 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 어떻게 알게 됐는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E08",
@@ -561,10 +681,17 @@
       "found_at": "L03",
       "discovery_condition": "반경아에게 백여산과의 관계에 대해 묻는다",
       "content": "반경아는 백여산과 오랜 단골 이상의 관계였으며, 공방을 정리하고 함께 강진으로 내려가 새로 시작하려던 참이었다고 인정한다.",
-      "related_timeline": ["T01", "T02"],
-      "proves": ["백여산과 반경아가 실제로 연인 관계였고 구체적인 이주 계획이 있었다는 사실"],
-      "does_not_prove": ["도경우가 이 관계를 어떻게 알게 됐는지"],
-      "presentation_effect": ["C05"]
+      "related_timeline": [
+        "T01",
+        "T02"
+      ],
+      "proves": [
+        "백여산과 반경아가 실제로 연인 관계였고 구체적인 이주 계획이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "도경우가 이 관계를 어떻게 알게 됐는지"
+      ],
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -573,9 +700,15 @@
       "found_at": "L02",
       "discovery_condition": "도경우의 개인 작업대 서랍을 조사한다",
       "content": "서랍 안쪽에는 젊은 시절 백여산과 도경우가 나란히 찍은 빛바랜 사진 여러 장과, 부치지 못한 것으로 보이는 짧은 메모 한 장이 함께 들어 있다.",
-      "proves": ["도경우가 오랫동안 백여산에게 개인적인 감정을 품어왔다는 사실"],
-      "does_not_prove": ["그것이 살해 동기라는 것"],
-      "presentation_effect": ["C05"]
+      "proves": [
+        "도경우가 오랫동안 백여산에게 개인적인 감정을 품어왔다는 사실"
+      ],
+      "does_not_prove": [
+        "그것이 살해 동기라는 것"
+      ],
+      "presentation_effect": [
+        "C05"
+      ]
     },
     {
       "id": "E10",
@@ -584,9 +717,15 @@
       "found_at": "L02",
       "discovery_condition": "주단이에게 심로하와 백여산 사이에 오간 돈을 본 적 있는지 묻는다",
       "content": "주단이는 지난달 심로하가 백여산에게서 봉투를 받아 그 자리에서 장부에 적어 넣는 것을 옆에서 봤다고 말한다.",
-      "proves": ["심로하와 백여산 사이의 지분 문제가 지난달에 돈이 오가며 매듭지어졌다는 사실"],
-      "does_not_prove": ["그 돈이 정확히 얼마였는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "심로하와 백여산 사이의 지분 문제가 지난달에 돈이 오가며 매듭지어졌다는 사실"
+      ],
+      "does_not_prove": [
+        "그 돈이 정확히 얼마였는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E11",
@@ -595,9 +734,15 @@
       "found_at": "L03",
       "discovery_condition": "반경아에게 백여산이 회고전 준비에 대해 말한 것이 있는지 묻는다",
       "content": "반경아는 백여산이 지난주 갤러리 쪽과 회고전 조건을 다 정리했다며 홀가분해했다고 말한다.",
-      "proves": ["예강준과 백여산의 계약 갈등이 사건 전에 이미 끝나 있었다는 사실"],
-      "does_not_prove": ["예강준이 그 결과에 만족했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "예강준과 백여산의 계약 갈등이 사건 전에 이미 끝나 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "예강준이 그 결과에 만족했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -606,90 +751,131 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_dispute_settled",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E10"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E10"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E10"]
+        "evidence_ids": [
+          "E10"
+        ]
       },
       "player_action": "심로하에게 주단이가 본 봉투와 장부(E10) 이야기를 옮기며, 갈등이 없었다는 최초 진술을 다시 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "심로하가 지분 정산 문제로 다툼이 있었지만 이미 지난달 합의금까지 받고 마무리됐다는 사실을 인정한다."
       },
-      "must_not_release": ["도경우 관련 사실"]
+      "must_not_release": [
+        "도경우 관련 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_contract_settled",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E11"],
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E11"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-01",
-        "evidence_ids": ["E11"]
+        "evidence_ids": [
+          "E11"
+        ]
       },
       "player_action": "예강준에게 반경아가 들은 말(E11)을 옮기며, 갈등이 없었다는 최초 진술을 다시 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
         "scope": "예강준이 전시 계약 조건으로 갈등이 있었지만 지난주 조율을 마치고 합의했다는 사실을 인정한다."
       },
-      "must_not_release": ["도경우 관련 사실"]
+      "must_not_release": [
+        "도경우 관련 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_knew_relocation_plan",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E07"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E07"]
+        "evidence_ids": [
+          "E07"
+        ]
       },
       "player_action": "심로하가 전한 도경우의 수상한 질문(E07)을 근거로 이주 얘기를 몰랐다는 도경우의 진술을 다시 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "도경우가 백여산의 이주 계획을 사건 며칠 전부터 이미 알고 있었다는 사실을 인정한다."
       },
-      "must_not_release": ["발판 훼손 행위", "범행 동기"]
+      "must_not_release": [
+        "발판 훼손 행위",
+        "범행 동기"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "admits_knew_relocation_plan",
       "to_stage": "admits_tampering_prep",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E06"]
+        "evidence_ids": [
+          "E06"
+        ]
       },
       "player_action": "주단이의 목격 증언(E06)과 창고 공구함 흔적(E01)을 근거로 창고에 간 적 없다는 도경우의 진술을 다시 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "도경우가 사건 전날 밤 창고에서 손톱을 가져가 발판 다리 이음부를 손질했다는 사실을 인정한다."
       },
-      "must_not_release": ["범행 동기"]
+      "must_not_release": [
+        "범행 동기"
+      ]
     },
     {
       "id": "C05",
       "target_character": "CH01",
       "from_stage": "admits_tampering_prep",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E08", "E09"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E09"]
+        "evidence_ids": [
+          "E09"
+        ]
       },
       "player_action": "발판 훼손 흔적(E02), 이주 계약서(E03), 반경아의 증언(E08), 개인 서랍 속 사진과 메모(E09)를 한꺼번에 제시하며 도경우의 진짜 동기와 범행 전모를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "도경우가 오랜 세월 백여산에게 품어온 개인적인 감정과 상실감을 인정하며, 발판 다리를 미리 손질해 백여산을 가마솥에 떨어뜨려 살해했다는 사실 전체를 인정한다."
       },
-      "must_not_release": ["트릭의 구체적인 발판 가공 세부 기술"]
+      "must_not_release": [
+        "트릭의 구체적인 발판 가공 세부 기술"
+      ]
     }
   ],
   "red_herrings": [
@@ -700,7 +886,8 @@
       "how_to_clear": "주단이가 본 봉투와 장부(E10)를 심로하의 증언(E04) 및 초기 진술(S-CH02-01)과 대조해 갈등이 이미 해결됐음을 확인한다.",
       "must_not_imply": "심로하가 사고 당일 뒷마당에 접근했다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후 심로하는 백여산의 뜻을 이어 쪽빛방 운영을 그대로 물려받기로 한다.",
-      "suspicion_deepener": "장부에서 지분 정산 관련 이체 내역이 갑자기 끊겨 있던 걸 주단이가 먼저 발견해 의심을 키운다."
+      "suspicion_deepener": "장부에서 지분 정산 관련 이체 내역이 갑자기 끊겨 있던 걸 주단이가 먼저 발견해 의심을 키운다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -709,13 +896,17 @@
       "how_to_clear": "반경아가 들은 말(E11)을 예강준의 증언(E05) 및 초기 진술(S-CH03-01)과 대조해 갈등이 이미 해결됐음을 확인한다.",
       "must_not_imply": "예강준이 사고 당일 뒷마당 근처에 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "예강준은 예정대로 회고전을 강행하되, 마지막 코너에 도경우가 만들었던 염색 견본도 함께 전시하기로 한다.",
-      "suspicion_deepener": "계약서 조항 하나가 최근 급히 수정된 흔적이 있다는 얘기를 심로하가 먼저 전해 들려주며 의심이 커진다."
+      "suspicion_deepener": "계약서 조항 하나가 최근 급히 수정된 흔적이 있다는 얘기를 심로하가 먼저 전해 들려주며 의심이 커진다.",
+      "character_id": "CH03"
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "20년 가까이 스승과 수석 제자로 지내 온 사이. 백여산이 공방 실무 전반을 도경우에게 맡겨 왔다.",
       "public_face": "누구보다 가까운 사제지간으로 알려져 있다.",
       "says": {
@@ -726,7 +917,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "오랜 단골로 드나들다 최근 연인 사이가 된 관계. 함께 강진으로 이주해 새 공방을 열 계획까지 세워 뒀다.",
       "public_face": "가까운 손님 정도로만 알려져 있다.",
       "says": {
@@ -737,7 +931,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "삼촌과 조카 사이. 심로하가 공방 살림과 장부를 도맡아 챙겨 왔다.",
       "public_face": "가족이니 다툴 일 없는 사이로 알려져 있다.",
       "says": {
@@ -748,7 +945,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "수석 제자와 신입 견습생 사이. 도경우가 공방 실무를 하나하나 가르쳐 왔다.",
       "public_face": "잘 챙겨 주는 선배와 따르는 후배로 알려져 있다.",
       "says": {
@@ -760,7 +960,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH03"],
+      "between": [
+        "CH02",
+        "CH03"
+      ],
       "nature": "장부를 챙기는 조카와 회고전을 준비하는 큐레이터 사이. 전시 준비로 최근 자주 마주쳤다.",
       "public_face": "일 때문에 오가는 사이 정도로만 알려져 있다.",
       "says": {
@@ -772,8 +975,20 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH02-01", "F-CH03-01", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04", "C05"],
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH03-01",
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "발판 다리 이음부 훼손 흔적(E02)과 창고 공구함에서 사라진 손톱·톱밥 흔적(E01)이 확인된다.",

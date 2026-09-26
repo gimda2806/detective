@@ -8,33 +8,40 @@
     "detective_entry_type": "event_attendance",
     "detective_entry": "탐정은 게임 전문 매체 기고를 위해 노바돔의 데모데이 프레스 프리뷰에 초청받아 한지우와 함께 로비에서 체험 순서를 기다리고 있었다. 안내 방송 대신 무전기 너머로 다급한 목소리가 흘러나온 건 그로부터 얼마 지나지 않아서였다.",
     "tone": "투자 유치라는 화려한 목표와 그 이면의 데이터 은폐가 대비되는 신생 VR 스타트업 분위기.",
-    "tags": ["VR_체험관", "투자_데모데이", "시뮬레이터_캡슐"],
-    "location_archetypes": ["other"],
+    "tags": [
+      "VR_체험관",
+      "투자_데모데이",
+      "시뮬레이터_캡슐"
+    ],
+    "location_archetypes": [
+      "other"
+    ],
     "background": {
-      "background_archetypes": ["product_demo", "business_negotiation"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "product_demo",
+        "business_negotiation"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "central"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 21:55",
     "location_id": "L01",
     "narrative": "저녁 데모데이 부스에는 헤드셋 시연 화면이 아직 지지직대며 돌아간다. 그 앞을 지키던 스태프들의 표정만 화면보다 더 하얗게 굳어 있다.\n\n탐정과 한지우는 체험 순서를 기다리며 로비 소파에 앉아 있던 참이다. 그런데 순서를 부르는 안내 방송 대신, 무전기 너머로 다급한 목소리가 흘러나온다.\n\n소재인이 무전기를 손에 쥔 채 감도훈 쪽으로 달려간다. 체험홀 안쪽에서 서은교가 신작 캡슐에 탄 채 의식을 잃고 쓰러져 있는 것이 발견된 직후다.\n\n\"실장님이 안 움직여요!\"\n\n소재인이 무전기를 쥔 손을 떨며 소리친다.\n\n로비 여기저기서 낮은 술렁임이 인다.\n\n한지우가 벽에 붙은 체험 예약표를 흘끗 본다.\n\n\"이 시간대는 원래 서은교 실장님 혼자 캡슐 테스트하는 슬롯이었나 보네요.\"\n\n탐정이 눈썹을 살짝 올린다.\n\n\"...그러고 보니, 혼자?\"\n\n한지우가 예약표에서 눈을 떼지 않은 채 말한다.\n\n\"네. 그리고 그게 딱 지금 제일 이상한 부분이고요.\""
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "체험홀 조명은 이미 다 내려갔고, 대표 사무실 창으로는 부스 하나가 혼자 돌아가는 화면빛만 들어왔다.\n\n탐정이 밸브 점검 지시부터 로그가 덮어씌워진 시각까지를 한 줄로 이어 놓자, 표건하는 책상 모서리를 붙든 채 한참을 서 있었다.\n\n\"...이번 라운드만 닫으면, 다 제자리로 돌려놓을 수 있다고 생각했습니다.\"\n\n그가 겨우 입을 열었다.\n\n\"나윤재 씨한텐 캘리브레이션이라고만 했어요. 그 시간에 은교 실장이 혼자 들어간다는 것도 알고 있었고요. 그런데도... 밸브를 열라는 말은 끝내 안 했습니다.\"\n\n한지우가 수첩을 덮으며 짧게 말했다.\n\n\"로그는 덮어써지는데, 사람이 들어간 시각은 안 덮어써지더라고요.\"\n\n탐정은 대답 대신 화면빛이 들어오는 창 쪽으로 고개를 돌렸다.\n\n두 사람이 복도로 나설 무렵, 감도훈이 인사팀 직원 앞에 대관 장부를 펼쳐 놓고 뭔가를 설명하고 있었다. 살인과는 무관했지만, 그의 몫은 그의 몫대로 정산될 밤이었다.\n\n\"저 사람도 오늘 밤 안엔 못 끝나겠는데요.\"\n\n한지우가 말했다.\n\n탐정이 돌아가는 부스를 한 번 더 보고 대꾸했다.\n\n\"다음 데모데이엔 헤드셋보다 사람이 먼저 보였으면 좋겠다.\""
   },
-
   "surface_incident": [
     "프레스 프리뷰가 아직 돌아가던 밤, 콘텐츠 디렉터 서은교가 홀로 신작 캡슐 단독 테스트를 하던 중 의식을 잃은 채 발견된다.",
     "사고 당시 그녀가 있던 캡슐의 배기 밸브가 평소와 달리 잠긴 상태였다는 사실이 뒤늦게 확인된다.",
     "대표 표건하, 개발팀장 나윤재, 홍보팀장 소재인, 콘텐츠 프로듀서 위재희, 시설관리팀장 감도훈이 그날 저녁 모두 노바돔 안에 있었다.",
     "체험홀 출입은 사원증으로만 열리고, 그날 밤 기록에 사외 인원의 태그는 한 건도 없다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "표건하는 사용자 생체 데이터를 무단 수집·조작해 투자 실사 자료에 제출했고, 콘텐츠 디렉터 서은교가 원본 로그를 발견해 데모데이 전에 투자사에 알리겠다고 압박했다.",
@@ -42,81 +49,253 @@
     "key_time_location": "21:10, L04에서 나윤재에게 배기 밸브 재점검 지시 / 21:40, L02에서 서은교 의식 잃음 / 21:50 발견 후 22:05 밸브 로그를 정상 기록으로 덮어써 은폐.",
     "cover_up": "사고가 알려지자 표건하는 곧장 캡슐 캘리브레이션 시스템에 접속해, 밸브를 잠그라고 지시했던 로그 항목을 정상 수치로 바꿔치기했다. 면담 중에는 데이터 조작 자체를 부인하며, 그날 밤은 일찍 퇴근해 체험관 근처에도 없었다고 잡아뗐다.",
     "accomplice": "없음 (나윤재는 정기 캘리브레이션이라 믿고 지시를 따랐을 뿐 공범이 아니다).",
-    "method_archetypes": ["oxygen_deprivation", "staging_cover_up"],
-    "motive_archetypes": ["crime_cover", "secret_exposure"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["digital_record_manipulation", "false_alibi"]
+    "method_archetypes": [
+      "oxygen_deprivation",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "secret_exposure"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "digital_record_manipulation",
+      "false_alibi"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "5일 전 09:00", "location": "L01", "actors": ["CH05"],
+    {
+      "id": "T01",
+      "time": "5일 전 09:00",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "감도훈이 사설 스트리머 대관 문의자에게 뒷돈을 받는다.",
-      "world_fact": "그 대가로 폐장 후 무단 대관을 허락해 매출에 잡히지 않는 개인 수입을 챙긴다는 사실은 이 사건과는 무관한 별개의 문제다." },
-    { "id": "T02", "time": "4일 전 11:00", "location": "L03", "actors": ["CH01"],
+      "world_fact": "그 대가로 폐장 후 무단 대관을 허락해 매출에 잡히지 않는 개인 수입을 챙긴다는 사실은 이 사건과는 무관한 별개의 문제다."
+    },
+    {
+      "id": "T02",
+      "time": "4일 전 11:00",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건하가 사용자 생체 데이터 원본 로그를 조작된 요약본으로 바꿔치기한다.",
-      "world_fact": "조작된 제출본 사본이 사무실 서류함에 남는다." },
-    { "id": "T03", "time": "4일 전 15:00", "location": "L03", "actors": ["CH03"],
+      "world_fact": "조작된 제출본 사본이 사무실 서류함에 남는다."
+    },
+    {
+      "id": "T03",
+      "time": "4일 전 15:00",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "소재인이 표건하로부터 그 조작된 요약본을 데모데이 홍보자료로 정리해 달라는 요청을 받는다.",
-      "world_fact": "소재인은 이 요약본이 조작된 것인 줄은 전혀 모른다." },
-    { "id": "T04", "time": "3일 전 10:15", "location": "L05", "actors": ["V01"],
+      "world_fact": "소재인은 이 요약본이 조작된 것인 줄은 전혀 모른다."
+    },
+    {
+      "id": "T04",
+      "time": "3일 전 10:15",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "서은교가 캡슐 소프트웨어 업데이트 작업 중, 자동 정리되지 않고 남아 있던 백업 폴더에서 원본 생체 데이터 로그를 우연히 발견한다.",
-      "world_fact": "원본 수집 범위가 요약본과 다르다는 사실을 알게 된다." },
-    { "id": "T05", "time": "3일 전 20:30", "location": "L05", "actors": ["V01"],
+      "world_fact": "원본 수집 범위가 요약본과 다르다는 사실을 알게 된다."
+    },
+    {
+      "id": "T05",
+      "time": "3일 전 20:30",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "서은교가 개인 노트에 데모데이 전 투자사에 이 사실을 알리겠다고 적어 놓는다.",
-      "world_fact": "" },
-    { "id": "T06", "time": "어제 19:00", "location": "L03", "actors": ["V01", "CH01"],
+      "world_fact": ""
+    },
+    {
+      "id": "T06",
+      "time": "어제 19:00",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "서은교가 표건하에게 데이터 무단수집 사실을 알고 있다고 추궁한다.",
-      "world_fact": "서은교는 데모데이 전 투자사에 알리겠다고 못박는다." },
-    { "id": "T07", "time": "어제 19:10", "location": "L03", "actors": ["CH04"],
+      "world_fact": "서은교는 데모데이 전 투자사에 알리겠다고 못박는다."
+    },
+    {
+      "id": "T07",
+      "time": "어제 19:10",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "위재희가 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 듣는다.",
-      "world_fact": "유리벽 너머라 소리만 새어 나와, 위재희가 알아들은 낱말은 한 마디도 없다." },
-    { "id": "T08", "time": "사고 당일 21:00", "location": "L02", "actors": ["V01"],
+      "world_fact": "유리벽 너머라 소리만 새어 나와, 위재희가 알아들은 낱말은 한 마디도 없다."
+    },
+    {
+      "id": "T08",
+      "time": "사고 당일 21:00",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "서은교가 다른 직원들이 없는 늦은 시간, 신작 캡슐 단독 최종 테스트를 위해 체험홀에 오른다.",
-      "world_fact": "이 시간대 체험홀에는 그녀 혼자만 있기로 되어 있었다." },
-    { "id": "T09", "time": "사고 당일 21:10", "location": "L04", "actors": ["CH01", "CH02"],
+      "world_fact": "이 시간대 체험홀에는 그녀 혼자만 있기로 되어 있었다."
+    },
+    {
+      "id": "T09",
+      "time": "사고 당일 21:10",
+      "location": "L04",
+      "actors": [
+        "CH01",
+        "CH02"
+      ],
       "actual_action": "표건하가 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 재점검하라고 지시한다.",
-      "world_fact": "나윤재는 정기 캘리브레이션이라는 설명을 그대로 믿는다." },
-    { "id": "T10", "time": "사고 당일 21:15", "location": "L04", "actors": ["CH02"],
+      "world_fact": "나윤재는 정기 캘리브레이션이라는 설명을 그대로 믿는다."
+    },
+    {
+      "id": "T10",
+      "time": "사고 당일 21:15",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "나윤재가 그 캡슐의 배기 밸브를 잠가 놓는다.",
-      "world_fact": "캡슐이 겉보기엔 정상 작동하는 것처럼 보이지만 장시간 가동되면 내부 산소 농도가 서서히 떨어지는 상태가 된다." },
-    { "id": "T11", "time": "사고 당일 21:20", "location": "L02", "actors": ["CH02"],
+      "world_fact": "캡슐이 겉보기엔 정상 작동하는 것처럼 보이지만 장시간 가동되면 내부 산소 농도가 서서히 떨어지는 상태가 된다."
+    },
+    {
+      "id": "T11",
+      "time": "사고 당일 21:20",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "나윤재가 정비를 마친 캡슐 제어판 표시를 정상으로 되돌려 놓는다.",
-      "world_fact": "" },
-    { "id": "T12", "time": "사고 당일 21:40", "location": "L02", "actors": ["V01"],
+      "world_fact": ""
+    },
+    {
+      "id": "T12",
+      "time": "사고 당일 21:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "서은교가 장시간 몰입 테스트 도중 배기 밸브가 잠긴 캡슐 안에서 산소 결핍으로 의식을 잃는다.",
-      "world_fact": "밸브 자체의 기계적 결함이 아니라 잠긴 상태였다는 사실은 캡슐 외관만으로는 확인하기 어렵다." },
-    { "id": "T13", "time": "사고 당일 21:50", "location": "L02", "actors": ["CH01"],
+      "world_fact": "밸브 자체의 기계적 결함이 아니라 잠긴 상태였다는 사실은 캡슐 외관만으로는 확인하기 어렵다."
+    },
+    {
+      "id": "T13",
+      "time": "사고 당일 21:50",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건하가 순찰 중 경고등이 꺼진 채 방치된 서은교를 발견한다.",
-      "world_fact": "" },
-    { "id": "T14", "time": "사고 당일 22:05", "location": "L02", "actors": ["CH01", "CH02"],
+      "world_fact": ""
+    },
+    {
+      "id": "T14",
+      "time": "사고 당일 22:05",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "CH02"
+      ],
       "actual_action": "표건하가 나윤재에게 캡슐 밸브 로그를 정상 기록으로 덮어쓰라고 지시한다.",
-      "world_fact": "원래 밸브 개폐 기록은 따로 삭제되어 사라진다." },
-    { "id": "T15", "time": "사고 당일 22:15", "location": "L01", "actors": ["CH01"],
+      "world_fact": "원래 밸브 개폐 기록은 따로 삭제되어 사라진다."
+    },
+    {
+      "id": "T15",
+      "time": "사고 당일 22:15",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건하가 로비에 남아 있던 실사단과 직원들을 불러 모아 사고를 알린다.",
-      "world_fact": "" },
-    { "id": "T16", "time": "사고 당일 22:20", "location": "L01", "actors": ["CH01"],
+      "world_fact": ""
+    },
+    {
+      "id": "T16",
+      "time": "사고 당일 22:20",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건하가 묻지도 않은 말을 덧붙인다 — 자기는 저녁에 나갔다가 연락을 받고 되돌아온 것이라고.",
-      "world_fact": "같은 시각 표건하의 사원증은 노바돔 로비 리더에 아직 찍히고 있었다." },
-    { "id": "T17", "time": "다음날 08:00", "location": "L01", "actors": ["CH01"],
+      "world_fact": "같은 시각 표건하의 사원증은 노바돔 로비 리더에 아직 찍히고 있었다."
+    },
+    {
+      "id": "T17",
+      "time": "다음날 08:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표건하가 데모데이 관계자들 앞에서 장비 오작동에 의한 사고임을 공식 발표한다.",
-      "world_fact": "탐정이 그 자리에 서서 밤을 꼬박 새운 뒤에 나온 발표다." }
+      "world_fact": "탐정이 그 자리에 서서 밤을 꼬박 새운 뒤에 나온 발표다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "서은교", "role": "수석 콘텐츠 디렉터 / 사망자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "서은교",
+      "role": "수석 콘텐츠 디렉터 / 사망자",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "표건하", "role": "노바돔 대표 / 투자 유치 총괄", "present_location": "L03",
+      "id": "CH01",
+      "name": "표건하",
+      "role": "노바돔 대표 / 투자 유치 총괄",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "사용자 생체 데이터 로그를 조작된 버전으로 바꿔치기해 투자 실사 자료에 제출했다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라고 지시했다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 나윤재에게 밸브 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사용자 생체 데이터 로그를 조작된 버전으로 바꿔치기해 투자 실사 자료에 제출했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사고 당일 21:10경 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라고 지시했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사고 발견 직후 나윤재에게 밸브 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T13",
+            "T14",
+            "T16"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 체험관에 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "투자 실사 자료의 사용자 데이터는 정상적으로 수집·보고된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "데이터 무단수집 사실과 살해 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 체험관에 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "투자 실사 자료의 사용자 데이터는 정상적으로 수집·보고된 것이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "데이터 무단수집 사실과 살해 동기를 숨기기 위해서다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "데모데이 준비 때문이었을 뿐이에요. 밸브니 데이터니 하는 건 저하고 상관없어요.",
@@ -130,11 +309,26 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C02",
+          "release_trigger": "E01"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-03",
@@ -146,7 +340,9 @@
           "release_trigger": "S-CH01-03"
         }
       ],
-      "knowledge_limits": ["서은교가 개인 노트에 폭로 계획을 적어뒀거나 원본 로그 백업을 남겨뒀다는 사실은 모른다."],
+      "knowledge_limits": [
+        "서은교가 개인 노트에 폭로 계획을 적어뒀거나 원본 로그 백업을 남겨뒀다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 쓰며 스타트업 대표 특유의 자신감 있는 언변을 앞세운다.",
         "sentence_length_tendency": "평소엔 여유롭게 비전을 늘어놓듯 길게 말하지만, 압박받으면 문장이 급격히 짧아지고 방어적으로 변한다.",
@@ -159,20 +355,54 @@
       ]
     },
     {
-      "id": "CH02", "name": "나윤재", "role": "시뮬레이터 개발팀장 / 캡슐 정비 담당", "present_location": "L04",
+      "id": "CH02",
+      "name": "나윤재",
+      "role": "시뮬레이터 개발팀장 / 캡슐 정비 담당",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 표건하로부터 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 표건하로부터 캡슐 밸브 로그를 정상 기록으로 덮어쓰라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사고 당일 21:10경 표건하로부터 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라는 지시를 받았다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사고 발견 직후 표건하로부터 캡슐 밸브 로그를 정상 기록으로 덮어쓰라는 지시를 받았다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T14"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 평소처럼 정기 캘리브레이션만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 평소처럼 정기 캘리브레이션만 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E03", "release_trigger": "S-CH02-01" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C02", "release_trigger": "E04" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E04"
+        }
       ],
-      "knowledge_limits": ["그 지시가 무엇을 노린 것이었는지는 나윤재가 끝내 모른다."],
+      "knowledge_limits": [
+        "그 지시가 무엇을 노린 것이었는지는 나윤재가 끝내 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)에 기술 용어를 섞어 쓴다.",
         "sentence_length_tendency": "평소엔 수치와 단위를 붙여 짧게 답하는데, 그날 밤 얘기가 나오면 설명이 자꾸 앞으로 되감긴다.",
@@ -186,19 +416,46 @@
       ]
     },
     {
-      "id": "CH03", "name": "소재인", "role": "홍보팀장 / 데모데이 진행 담당", "present_location": "L01",
+      "id": "CH03",
+      "name": "소재인",
+      "role": "홍보팀장 / 데모데이 진행 담당",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "표건하가 조작된 사용자 데이터 요약본을 데모데이 홍보자료로 정리해 달라고 요청했다.", "source": "업무 정보", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "서은교가 최근 자신에게 원본 데이터 로그를 열람할 수 있는지 물어봤다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "표건하가 조작된 사용자 데이터 요약본을 데모데이 홍보자료로 정리해 달라고 요청했다.",
+          "source": "업무 정보",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "서은교가 최근 자신에게 원본 데이터 로그를 열람할 수 있는지 물어봤다.",
+          "source": "직접 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "요즘 특별히 누가 자료 요청을 한 적은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 서은교가 원본 로그를 캐물었던 사실을 숨긴다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "요즘 특별히 누가 자료 요청을 한 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 서은교가 원본 로그를 캐물었던 사실을 숨긴다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["서은교의 죽음이 데이터 조작과 관련 있다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "서은교의 죽음이 데이터 조작과 관련 있다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)에 보도자료 문장이 섞여 나오고, 말끝을 늘 공지처럼 맺는다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 답하다가, 자료 이야기가 나오면 급격히 말을 아낀다.",
@@ -211,18 +468,41 @@
       ]
     },
     {
-      "id": "CH04", "name": "위재희", "role": "VR 콘텐츠 프로듀서 / 서은교의 동료", "present_location": "L05",
+      "id": "CH04",
+      "name": "위재희",
+      "role": "VR 콘텐츠 프로듀서 / 서은교의 동료",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사고 전날 저녁, 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사고 전날 저녁, 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 들었다.",
+          "source": "우연히 들음",
+          "related_timeline": [
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "대표님과 서은교 실장님 사이에 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "평소 자신을 챙겨준 표건하를 감싸고, 데모데이를 앞두고 괜한 소란에 휘말리기 싫어서다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "대표님과 서은교 실장님 사이에 특별한 갈등은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "평소 자신을 챙겨준 표건하를 감싸고, 데모데이를 앞두고 괜한 소란에 휘말리기 싫어서다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["자신이 참여한 콘텐츠의 사용자 데이터가 조작되었다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "자신이 참여한 콘텐츠의 사용자 데이터가 조작되었다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)을 쓰되 늘 한 박자 늦게 답하고, 문장 앞에 '아'를 한 번 붙였다 간다.",
         "sentence_length_tendency": "평소엔 짧고 신중하게 답하다가, 대표 이야기가 나오면 말이 빨라진다.",
@@ -235,18 +515,41 @@
       ]
     },
     {
-      "id": "CH05", "name": "감도훈", "role": "시설관리팀장 / 안전관리 담당", "present_location": "L01",
+      "id": "CH05",
+      "name": "감도훈",
+      "role": "시설관리팀장 / 안전관리 담당",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사설 스트리머에게 뒷돈을 받고 폐장 후 야간 대관을 허락했다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사설 스트리머에게 뒷돈을 받고 폐장 후 야간 대관을 허락했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "서은교 실장님은 야간 테스트 들어갈 때마다 저한테 문자 한 통씩 남기시던 분이에요. 그게 습관이었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "무단 대관 문제가 드러나 회사에서 불이익을 받을까 봐 숨긴다." }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "서은교 실장님은 야간 테스트 들어갈 때마다 저한테 문자 한 통씩 남기시던 분이에요. 그게 습관이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "무단 대관 문제가 드러나 회사에서 불이익을 받을까 봐 숨긴다."
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L01-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["서은교의 죽음이나 데이터 무단수집 문제에 대해서는 전혀 모른다."],
+      "knowledge_limits": [
+        "서은교의 죽음이나 데이터 무단수집 문제에 대해서는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)을 쓰며 시설관리자 특유의 방어적 태도를 보인다.",
         "sentence_length_tendency": "평소엔 또박또박 말하다가, 대관 얘기가 나오면 문장이 뚝뚝 끊긴다.",
@@ -259,11 +562,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "노바돔의 대표와 그가 발탁한 수석 콘텐츠 디렉터",
       "public_face": "표건하가 데모데이 콘텐츠 총괄을 서은교에게 전적으로 믿고 맡겨 온, 신뢰받는 파트너 관계로 알려져 있다.",
       "private_strain": "서은교는 자동 정리되지 않은 백업 폴더에서 조작된 사용자 데이터의 원본 로그를 발견했고, 데모데이 전 투자사에 알리겠다고 표건하를 직접 추궁했다.",
@@ -274,7 +579,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "수석 콘텐츠 디렉터와 홍보팀장",
       "public_face": "데모데이 준비를 함께 조율해 온 동료 사이로 알려져 있다.",
       "private_strain": "서은교는 최근 소재인에게 원본 데이터 로그를 열람할 수 있는지 슬쩍 물어봤고, 소재인은 그 질문이 심상치 않다는 걸 눈치챘으면서도 캐묻지 않고 넘겼다.",
@@ -285,7 +593,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "같은 콘텐츠팀에서 나란히 일해 온 동료",
       "public_face": "위재희가 서은교를 업무상 잘 따르는 동료로 알려져 있다.",
       "private_strain": "위재희는 사고 전날 저녁 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 들었지만, 데모데이를 앞두고 소란을 만들기 싫어 표건하를 감싸며 그 사실을 숨겨 왔다.",
@@ -296,7 +607,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "대표와 그가 직접 지시를 내리는 개발팀장",
       "public_face": "표건하가 나윤재에게 캡슐 정비를 전적으로 맡겨 온, 위아래가 분명한 업무 관계로 알려져 있다.",
       "private_strain": "표건하는 '정기 캘리브레이션'이라 속여 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 잠그게 했고, 나윤재는 그 지시를 의심 없이 따른 것이 사고 이후 자신의 책임처럼 느껴져 괴로워하고 있다.",
@@ -308,7 +622,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH05"],
+      "between": [
+        "CH03",
+        "CH05"
+      ],
       "nature": "데모데이를 함께 준비해 온 홍보팀장과 시설관리팀장",
       "public_face": "행사 동선과 시설 점검을 매번 손발 맞춰 온 사이로 알려져 있다.",
       "private_strain": "소재인은 최근 로비 출입기록에서 낯선 야간 기록을 봤지만 데모데이 준비에 쫓겨 감도훈에게 캐묻지 않고 넘어갔고, 감도훈은 그 덕에 무단 대관 사실이 묻힐 수 있었다는 걸 알면서도 먼저 밝히지 않았다.",
@@ -319,182 +636,453 @@
       }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 / 데모데이 라운지", "access": "시작부터 가능",
+      "id": "L01",
+      "name": "로비 / 데모데이 라운지",
+      "access": "시작부터 가능",
       "base_description": "투자자 실사단을 위한 데모데이 안내판과 부스가 늘어선 노바돔 로비. 안쪽 복도로 대표실과 체험홀, 직원 라운지로 이어진다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "데모데이 일정 안내판에 서은교가 이 늦은 시간대에 캡슐 단독 테스트를 신청했다는 기록이 붙어 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "데모데이 일정 안내판에 서은교가 이 늦은 시간대에 캡슐 단독 테스트를 신청했다는 기록이 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "표건하가 처음 주장한 것보다 훨씬 늦은 시각까지 건물에 남아 있었다는 출입 기록이 확인된다." },
-        { "action": "감도훈의 사원증 기록을 확인한다", "requires": "없음", "release_evidence_id": "E09", "result": "감도훈의 사원증이 그날 밤 21시부터 22시까지 기계실 구역에서 한 번도 찍히지 않고 계속 남아 있었다는 사실이 확인된다." }
+        {
+          "action": "출입기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "표건하가 처음 주장한 것보다 훨씬 늦은 시각까지 건물에 남아 있었다는 출입 기록이 확인된다."
+        },
+        {
+          "action": "감도훈의 사원증 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "감도훈의 사원증이 그날 밤 21시부터 22시까지 기계실 구역에서 한 번도 찍히지 않고 계속 남아 있었다는 사실이 확인된다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "시뮬레이터 체험홀", "access": "시작부터 가능",
+      "id": "L02",
+      "name": "시뮬레이터 체험홀",
+      "access": "시작부터 가능",
       "base_description": "신작 모션 시뮬레이터 캡슐 여섯 대가 부채꼴로 놓인 메인 체험홀. 가운데 3번 캡슐만 해치가 열린 채 고정돼 있고, 그 앞 바닥에 서은교를 끌어낸 자리가 그대로 남아 있다.",
       "observation_rules": [
-        { "action": "체험홀을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "서은교가 쓰러진 캡슐 옆에 경고등이 꺼진 채 방치돼 있다." }
+        {
+          "action": "체험홀을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "서은교가 쓰러진 캡슐 옆에 경고등이 꺼진 채 방치돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "캡슐 내부를 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "캡슐 배기 밸브가 감식 결과 사고 당시 잠긴 상태였다는 사실이 확인된다." }
+        {
+          "action": "캡슐 내부를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "캡슐 배기 밸브가 감식 결과 사고 당시 잠긴 상태였다는 사실이 확인된다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "대표 사무실", "access": "시작부터 가능",
+      "id": "L03",
+      "name": "대표 사무실",
+      "access": "시작부터 가능",
       "base_description": "투자 실사 서류와 데모데이 일정표가 쌓인 대표 표건하의 개인 사무실.",
       "observation_rules": [
-        { "action": "대표 사무실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "책상 위에 투자사 로고가 찍힌 실사 자료 봉투가 놓여 있다." }
+        {
+          "action": "대표 사무실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위에 투자사 로고가 찍힌 실사 자료 봉투가 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "서류함을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "표건하가 투자사에 제출한 조작된 사용자 데이터 요약본이 발견된다." }
+        {
+          "action": "서류함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "표건하가 투자사에 제출한 조작된 사용자 데이터 요약본이 발견된다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "개발팀 정비실", "access": "시작부터 가능",
+      "id": "L04",
+      "name": "개발팀 정비실",
+      "access": "시작부터 가능",
       "base_description": "시뮬레이터 캡슐 정비 공구와 점검 로그가 보관된 개발팀 정비실.",
       "observation_rules": [
-        { "action": "정비실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "정비 공구함 옆에 캡슐 밸브 점검 체크리스트가 최근 것으로 갈아 끼워져 있다." }
+        {
+          "action": "정비실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "정비 공구함 옆에 캡슐 밸브 점검 체크리스트가 최근 것으로 갈아 끼워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "정비 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다." }
+        {
+          "action": "정비 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "직원 라운지", "access": "시작부터 가능",
+      "id": "L05",
+      "name": "직원 라운지",
+      "access": "시작부터 가능",
       "base_description": "직원들의 개인 사물함과 휴게 공간이 있는 라운지.",
       "observation_rules": [
-        { "action": "직원 라운지를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "창가 쪽 맨 끝, 서은교의 사물함만 문이 반 뼘쯤 열린 채 잠기지 않았다." }
+        {
+          "action": "직원 라운지를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "창가 쪽 맨 끝, 서은교의 사물함만 문이 반 뼘쯤 열린 채 잠기지 않았다."
+        }
       ],
       "detail_rules": [
-        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "서은교가 따로 떠 둔 원본 생체 로그 백업본이 나온다. 서버에서 지워진 구간이 여기엔 그대로 남아 있다." },
-        { "action": "노트를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "'데모데이 전에 투자사에 알린다'고 적어 둔 수첩이 나온다. 마지막 장에 날짜가 동그라미로 표시돼 있다." }
+        {
+          "action": "개인 사물함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "서은교가 따로 떠 둔 원본 생체 로그 백업본이 나온다. 서버에서 지워진 구간이 여기엔 그대로 남아 있다."
+        },
+        {
+          "action": "노트를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "'데모데이 전에 투자사에 알린다'고 적어 둔 수첩이 나온다. 마지막 장에 날짜가 동그라미로 표시돼 있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "서은교의 원본 생체 데이터 로그 사본", "source_type": "location", "found_at": "L05", "discovery_condition": "개인 사물함을 확인한다", "related_timeline": ["T04"],
+    {
+      "id": "E01",
+      "name": "서은교의 원본 생체 데이터 로그 사본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "개인 사물함을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "서은교가 따로 떠 둔 원본 생체 로그 백업본이 나온다. 서버에서 지워진 구간이 여기엔 그대로 남아 있다.",
-      "proves": ["실제 수집된 데이터 범위가 표건하의 제출본과 다르다는 사실을 증명한다."],
-      "does_not_prove": ["누가 데이터를 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "조작된 사용자 데이터 요약본", "source_type": "location", "found_at": "L03", "discovery_condition": "서류함을 확인한다", "related_timeline": ["T02"],
+      "proves": [
+        "실제 수집된 데이터 범위가 표건하의 제출본과 다르다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 데이터를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "조작된 사용자 데이터 요약본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "서류함을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "표건하가 투자사에 제출한 조작된 사용자 데이터 요약본이 발견된다.",
-      "proves": ["표건하가 실제 제출한 데이터가 원본과 다르다는 사실을 증명한다."],
-      "does_not_prove": ["그 요약본이 서은교가 쓰러진 밤과 어떻게 이어지는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E03", "name": "정비실 점검 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "정비 로그를 확인한다", "related_timeline": ["T09", "T10"],
+      "proves": [
+        "표건하가 실제 제출한 데이터가 원본과 다르다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 요약본이 서은교가 쓰러진 밤과 어떻게 이어지는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "정비실 점검 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정비 로그를 확인한다",
+      "related_timeline": [
+        "T09",
+        "T10"
+      ],
       "content": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다.",
-      "proves": ["밸브 점검이 이례적인 시각에 지시되었다는 사실을 증명한다."],
-      "does_not_prove": ["고의였는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "캡슐 밸브 감식 결과", "source_type": "location", "found_at": "L02", "discovery_condition": "캡슐 내부를 살펴본다", "related_timeline": ["T12"],
+      "proves": [
+        "밸브 점검이 이례적인 시각에 지시되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "고의였는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "캡슐 밸브 감식 결과",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "캡슐 내부를 살펴본다",
+      "related_timeline": [
+        "T12"
+      ],
       "content": "캡슐 배기 밸브가 감식 결과 사고 당시 잠긴 상태였다는 사실이 확인된다.",
-      "proves": ["사고 당시 배기 밸브가 인위적으로 잠겨 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 언제 잠갔는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "나윤재의 지시 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "나윤재에게 그날 저녁 지시받은 내용을 묻는다", "related_timeline": ["T09"],
+      "proves": [
+        "사고 당시 배기 밸브가 인위적으로 잠겨 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 잠갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "나윤재의 지시 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "나윤재에게 그날 저녁 지시받은 내용을 묻는다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "나윤재가 21:10경 표건하로부터 캡슐 배기 밸브를 재점검하라는 지시를 받았다는 진술을 확보한다.",
-      "proves": ["표건하가 사고 직전 직접 밸브 점검을 지시했다는 사실을 증명한다."],
-      "does_not_prove": ["그 말을 한 사람이 무엇을 바라고 했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "서은교의 노트", "source_type": "location", "found_at": "L05", "discovery_condition": "노트를 확인한다", "related_timeline": ["T05"],
+      "proves": [
+        "표건하가 사고 직전 직접 밸브 점검을 지시했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 말을 한 사람이 무엇을 바라고 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "서은교의 노트",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "노트를 확인한다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "'데모데이 전에 투자사에 알린다'고 적어 둔 수첩이 나온다. 마지막 장에 날짜가 동그라미로 표시돼 있다.",
-      "proves": ["서은교가 혼자 삭이고 넘어갈 생각이 아니었다는 것을, 마지막 장에 동그라미 쳐 둔 날짜가 말해 준다."],
-      "does_not_prove": ["그 계획을 표건하가 어디까지 전해 들었는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "로비 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "출입기록을 확인한다", "related_timeline": ["T13", "T14"],
+      "proves": [
+        "서은교가 혼자 삭이고 넘어갈 생각이 아니었다는 것을, 마지막 장에 동그라미 쳐 둔 날짜가 말해 준다."
+      ],
+      "does_not_prove": [
+        "그 계획을 표건하가 어디까지 전해 들었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "로비 출입기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입기록을 확인한다",
+      "related_timeline": [
+        "T13",
+        "T14"
+      ],
       "content": "표건하가 처음 주장한 것보다 훨씬 늦은 시각까지 건물에 남아 있었다는 출입 기록이 확인된다.",
-      "proves": ["표건하가 건물을 나선 시각이 서은교가 캡슐에서 실려 나온 뒤였다는 사실을 증명한다."],
-      "does_not_prove": ["그 사이에 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "감도훈의 나윤재 평판 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "감도훈에게 나윤재의 평소 정비 태도를 묻는다",
+      "proves": [
+        "표건하가 건물을 나선 시각이 서은교가 캡슐에서 실려 나온 뒤였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 사이에 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "감도훈의 나윤재 평판 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "감도훈에게 나윤재의 평소 정비 태도를 묻는다",
       "content": "감도훈에게 물으니, 나윤재는 정비 수칙을 어긴 전례가 없는 꼼꼼한 사람이라는 평가가 돌아온다.",
-      "proves": ["나윤재가 평소 독단적으로 설비를 조작할 사람이 아니라는 정황을 뒷받침한다."],
-      "does_not_prove": ["그날 밤 지시를 의심 없이 따른 이유"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "감도훈의 기계실 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "감도훈의 사원증 기록을 확인한다",
+      "proves": [
+        "나윤재가 평소 독단적으로 설비를 조작할 사람이 아니라는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그날 밤 지시를 의심 없이 따른 이유"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "감도훈의 기계실 출입기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "감도훈의 사원증 기록을 확인한다",
       "content": "감도훈의 사원증이 그날 밤 21시부터 22시까지 기계실 구역에서 한 번도 찍히지 않고 계속 남아 있었다는 사실이 출입기록에서 확인된다.",
-      "proves": ["감도훈이 사고 추정 시각 동안 기계실을 벗어나지 않았다는 사실을 증명한다."],
-      "does_not_prove": ["무단 대관 문제 자체를 부정하지는 않는다"],
-      "presentation_effect": [] }
+      "proves": [
+        "감도훈이 사고 추정 시각 동안 기계실을 벗어나지 않았다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "무단 대관 문제 자체를 부정하지는 않는다"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_late_presence",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_late_presence",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E07"
+        ]
+      },
       "player_action": "표건하의 말과 출입기록(E07)에 찍힌 사원증 시각을 나란히 놓고, 어느 쪽이 먼저인지 따진다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 체험관에 남아 있었다는 사실은 인정한다." },
-      "must_not_release": ["나윤재에게 밸브 점검을 지시한 사실", "밸브 로그를 조작한 사실", "데이터 조작 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "그날 밤 늦게까지 체험관에 남아 있었다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "나윤재에게 밸브 점검을 지시한 사실",
+        "밸브 로그를 조작한 사실",
+        "데이터 조작 사실"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_valve_order",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05", "E03"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_late_presence",
+      "to_stage": "admits_valve_order",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E05",
+          "E03"
+        ]
+      },
       "player_action": "나윤재의 지시 진술(E05)과 정비실 점검 로그(E03)를 제시해, 데모데이 준비 때문이었다는 주장과 실제로 21:10경 밸브 점검을 지시한 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "나윤재에게 배기 밸브를 점검하라고 지시한 사실은 인정한다." },
-      "must_not_release": ["데이터 조작 사실", "폭로를 막으려 한 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "나윤재에게 배기 밸브를 점검하라고 지시한 사실은 인정한다."
+      },
+      "must_not_release": [
+        "데이터 조작 사실",
+        "폭로를 막으려 한 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_valve_order", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02", "E04", "E06"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_valve_order",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E04",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E04",
+          "E06"
+        ]
+      },
       "player_action": "원본 데이터 로그 사본(E01), 조작된 요약본(E02), 캡슐 밸브 감식 결과(E04), 서은교의 노트(E06)를 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "사용자 생체 데이터를 무단 수집하고 조작해 투자사에 제출한 사실과, 그 폭로를 막기 위해 고의로 캡슐 배기 밸브를 잠그게 했으며 서은교가 의식을 잃는 것을 알면서도 방치했다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "사용자 생체 데이터를 무단 수집하고 조작해 투자사에 제출한 사실과, 그 폭로를 막기 위해 고의로 캡슐 배기 밸브를 잠그게 했으며 서은교가 의식을 잃는 것을 알면서도 방치했다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
       "surface_suspicion": "나윤재가 사고 직전 서은교가 테스트할 캡슐을 마지막으로 만진 당사자이며, 처음엔 그 사실을 먼저 밝히지 않았다.",
       "actual_reason": "나윤재는 표건하의 '정기 캘리브레이션' 지시를 그대로 믿고 따랐을 뿐, 밸브를 잠근 진짜 목적이나 서은교가 그 시간에 혼자 테스트한다는 사실이 살인과 연결된다는 것을 전혀 몰랐다. 사고 이후에도 자신의 정비 실수로 사망 사고가 난 것처럼 보일까 봐 먼저 말하지 못했을 뿐이다.",
       "how_to_clear": "정비실 점검 로그(E03)와 나윤재의 지시 진술(E05)을 시간순으로 대조하고, 감도훈에게 확인한 나윤재의 평소 정비 태도(E08)까지 더하면, 밸브를 잠근 목적이 실제로는 표건하의 지시였을 뿐 그 자신의 독단적 판단이 아니었음을 확인한다.",
-      "cleared_by": ["E03", "E05", "E08"],
+      "cleared_by": [
+        "E03",
+        "E05",
+        "E08"
+      ],
       "clearing_points_at": "CH01",
       "must_not_imply": "캡슐을 마지막으로 만진 당사자라는 사실만으로 나윤재를 살인 혐의자로 단정하지 않는다.",
       "lingering_thread": "나윤재는 혐의를 벗은 뒤에도, 표건하의 지시를 곧이곧대로 따랐던 것을 두고 앞으로는 캘리브레이션 지시를 문서로 남겨 달라고 요구하게 됐다.",
-      "suspicion_deepener": "처음 질문했을 때 나윤재는 그날 저녁 평소처럼 정기 캘리브레이션만 했을 뿐이라고 발뺌해, 늦은 시간에 밸브를 손댄 사실 자체를 굳이 감추려는 것처럼 보인다."
+      "suspicion_deepener": "처음 질문했을 때 나윤재는 그날 저녁 평소처럼 정기 캘리브레이션만 했을 뿐이라고 발뺌해, 늦은 시간에 밸브를 손댄 사실 자체를 굳이 감추려는 것처럼 보인다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
       "surface_suspicion": "감도훈이 최근 사설 스트리머에게 뒷돈을 받고 폐장 후 무단 대관을 해온 사실이 드러나고, 계속 무언가를 숨기는 듯한 태도를 보인다.",
       "actual_reason": "감도훈이 숨기던 것은 매출에 잡히지 않는 개인 수입을 챙기려 한 무단 대관 문제였을 뿐, 서은교의 죽음이나 데이터 무단수집과는 무관하다.",
       "how_to_clear": "로비 출입기록(E07)이 보여주는 그날 밤 실제 동선과 감도훈의 기계실 출입기록(E09)을 대조하고, 감도훈이 말하는 대관 경위까지 더해 그가 사고 시각 내내 기계실을 벗어나지 않았고 대관 문의자와는 그와 무관한 낮 시간대에만 접촉했음을 확인한다.",
-      "cleared_by": ["E07", "E09"],
+      "cleared_by": [
+        "E07",
+        "E09"
+      ],
       "clearing_points_at": "CH01",
       "must_not_imply": "뒷돈을 받았다는 사실만으로 감도훈을 살인에 연루시키지 않는다.",
       "lingering_thread": "감도훈의 무단 대관 문제는 이 사건과 별개로 남아, 데모데이 이후 별도의 사내 감사로 이어질 가능성이 있다.",
-      "suspicion_deepener": "감도훈은 처음엔 대관 문의자와 개인적으로 만난 적도 없다고 잡아떼다가, 재차 추궁받자 '시설 점검 문제로 잠깐 얘기했을 뿐'이라며 말을 바꿔 의심을 키운다."
+      "suspicion_deepener": "감도훈은 처음엔 대관 문의자와 개인적으로 만난 적도 없다고 잡아떼다가, 재차 추궁받자 '시설 점검 문제로 잠깐 얘기했을 뿐'이라며 말을 바꿔 의심을 키운다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "나윤재에게 캡슐 배기 밸브를 몰래 잠그게 해 서은교가 산소 결핍으로 쓰러지도록 방치했다.",
       "motive_fact": "사용자 생체 데이터 무단수집·조작 사실이 데모데이 전에 폭로되는 것을 막기 위해서였다."
     }
   },
-
   "final_deduction": {
     "responsible": "표건하",
     "method": "시뮬레이터 개발팀장 나윤재에게 '정기 캘리브레이션'을 핑계로 서은교가 테스트할 캡슐의 배기 밸브를 몰래 잠그게 하고, 서은교가 늦은 밤 혼자 캡슐 테스트를 하다 산소 결핍으로 의식을 잃도록 방치했다.",
     "motive": "사용자 생체 데이터를 무단 수집·조작해 투자 실사 자료에 제출했고, 콘텐츠 디렉터 서은교가 원본 로그를 발견해 데모데이 전에 투자사에 알리겠다고 압박했다.",
     "key_connection": "출입기록상 알리바이 공백, 나윤재의 지시 진술과 정비 로그가 가리키는 밸브 조작 시각, 조작된 데이터 요약본과 서은교의 노트가 독립적으로 같은 동기를 가리킨다."
   },
-
   "ending_explanation": [
     "단독 테스트 중 사고사라는 표면적 사고",
     "사원증이 마지막으로 찍힌 시각과 본인이 말한 퇴근 시각 사이의 두 시간",

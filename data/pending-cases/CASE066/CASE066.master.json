@@ -5,16 +5,26 @@
     "english_title": "The Night the Signal Died",
     "genre": "공동개발 특허 단독 출원 발각 차단을 위한 환기팬 타이머 조작 질식사 살해 / 타이머 모듈 바꿔치기와 정비 일지 조작을 통한 노후 설비 사고사 위장",
     "setting": "청람관측소는 이관영이 18년째 이끌어 온 사설 아마추어무선·재난통신 자원봉사 단체다. 두 주 전 지방자치단체와 함께 비상 중계망 확장 공사를 마치고 새 안테나 타워를 세웠다. 그날은 확장 이후 처음 여는 정기 야간 당직일이었고, 이른 새벽 관측탑 정비실에서 그가 의식을 잃은 채 쓰러진 모습으로 발견된다.",
-    "location_archetypes": ["utility_facility"],
+    "location_archetypes": [
+      "utility_facility"
+    ],
     "background": {
-      "background_archetypes": ["opening_completion"],
-      "background_phrasing": ["recently_completed"],
+      "background_archetypes": [
+        "opening_completion"
+      ],
+      "background_phrasing": [
+        "recently_completed"
+      ],
       "background_intensity": "contextual"
     },
     "detective_entry_type": "group_member",
     "detective_entry": "탐정은 청람관측소 정회원으로 격주 목요일마다 야간 당직을 함께 서 온 지 3년째였다. 확장 공사 이후 처음 여는 당직일이라 한지우와 함께 일찌감치 도착했는데, 평소엔 반쯤 열려 있던 정비실 문이 그날따라 안에서 걸쇠가 걸려 있었다.",
     "tone": "새로 올린 안테나 타워와 낡은 목조 라운지가 뒤섞인, 자원봉사 단체 특유의 헐렁하면서도 팽팽한 공기.",
-    "tags": ["아마추어무선", "재난통신자원봉사", "사제관계"]
+    "tags": [
+      "아마추어무선",
+      "재난통신자원봉사",
+      "사제관계"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 05:35",
@@ -42,22 +52,40 @@
   "full_truth": {
     "responsible_character_id": "CH03",
     "motive": "문태경은 석 달 전 독립해 스타트업을 준비하며, 이관영과 3년 전 함께 개발한 계전 중계기 회로 설계를 두 달 전 자신 단독 명의로 특허 출원했다. 열흘 전 이관영은 특허청 공개공고에서 이를 발견했고, 확장 공사가 끝나면 직접 확인해 정리하려 했다. 문태경은 이 특허가 스타트업 투자 유치의 유일한 근거였고, 공동 개발 사실이 밝혀져 출원이 무효화되면 사업 전체가 무너진다는 절박함에 이관영의 입을 막으려 한다.",
-    "motive_archetypes": ["ip_dispute", "financial_gain"],
+    "motive_archetypes": [
+      "ip_dispute",
+      "financial_gain"
+    ],
     "method": "문태경은 사건 전날 21시 50분경 지하 배전실에서 예비 타이머 모듈을 챙기고, 22시 10분경 정비실 환기팬 자동 제어반의 타이머 설정을 조작해 새벽 충전 시간대 환기 스케줄이 꺼지도록 만들었다. 배터리 충전 중 발생한 가스가 빠지지 못하고 쌓였고, 이관영이 새벽 당직 루틴대로 점검하러 들어갔다가 산소 결핍으로 의식을 잃고 쓰러져 숨졌다.",
-    "method_archetypes": ["toxic_gas_buildup", "automation_tampering"],
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "automation_tampering"
+    ],
     "key_time_location": "22:10, L01(안테나 타워 정비실)에서 환기팬 자동 제어반의 타이머 설정을 조작해 환기를 막음 / 06:15, L01에서 조작한 타이머 모듈을 정상 모듈로 되돌려 끼움.",
     "cover_up": "문태경은 사람들이 이관영 곁에 몰려 있던 사건 당일 06시 15분경 제어반에서 조작해 둔 타이머 모듈을 떼어내 예비함에 있던 정상 모듈로 갈아 끼우고, 떼어낸 조작 모듈은 자신의 작업실 공구함 바닥에 숨겼다. 06시 40분경에는 지하 배전실 정비 일지에 환기팬 타이머가 전임 관리인 시절부터 노후했다는 사후 메모를 다른 필기구로 끼워 넣어, 사고 원인이 설비 노후로 보이게 했다.",
-    "cover_up_target": ["motive", "crime_scene"],
-    "cover_up_method": ["witness_misdirection", "false_timeline"],
+    "cover_up_target": [
+      "motive",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "witness_misdirection",
+      "false_timeline"
+    ],
     "accomplice": "없음",
-    "decisive_evidence_ids": ["E09", "E10", "E11"]
+    "decisive_evidence_ids": [
+      "E09",
+      "E10",
+      "E11"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "두 달 전 오후",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "문태경이 개인 작업실 노트북으로 계전 중계기 회로 설계를 자신 단독 명의로 특허 출원한다.",
       "world_fact": "문태경은 공동 개발자였던 이관영에게 특허 출원 사실을 알리지 않는다."
     },
@@ -65,7 +93,9 @@
       "id": "T02",
       "time": "열흘 전 오전",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "이관영이 회장실 컴퓨터로 특허청 공개공고를 확인하다가, 함께 만든 회로 설계가 문태경 단독 명의로 등록된 것을 발견한다.",
       "world_fact": "이관영은 그 화면을 인쇄해 회장실 책상 서랍 안쪽에 넣어 두고, 확장 공사가 끝나면 문태경을 직접 불러 확인해 보기로 한다."
     },
@@ -73,7 +103,10 @@
       "id": "T03",
       "time": "닷새 전 저녁",
       "location": "L03",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "이관영이 회장실에서 하진욱에게 \"공사 끝나면 한 사람하고 정리할 일이 있다\"고 지나가듯 말한다.",
       "world_fact": "하진욱은 예산 문제인 줄 알고 크게 신경 쓰지 않는다."
     },
@@ -81,7 +114,14 @@
       "id": "T04",
       "time": "사건 전날 19:00",
       "location": "L02",
-      "actors": ["V01", "CH01", "CH02", "CH03", "CH04", "CH05"],
+      "actors": [
+        "V01",
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05"
+      ],
       "actual_action": "회원들이 라운지에 모여 확장 준공을 자축하는 술자리를 연다.",
       "world_fact": "다들 늦게까지 남아 있다가 하나둘 자리를 뜬다."
     },
@@ -89,7 +129,9 @@
       "id": "T05",
       "time": "사건 전날 20:15",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하진욱이 라운지 구석에서 이번 분기 회비 정산액이 장부와 20만 원 가까이 안 맞는다는 것을 알아챈다.",
       "world_fact": "하진욱은 이관영에게 바로 알리지 않고 혼자 다시 맞춰 보기로 한다."
     },
@@ -97,7 +139,9 @@
       "id": "T06",
       "time": "사건 전날 20:40",
       "location": "L06",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "배가현이 컨테이너 사무실에서 지자체 정산 담당자와 통화하며 시범망 사업 주관을 다음 분기부터 자신이 속한 협회로 옮기는 방안을 논의한다.",
       "world_fact": "성지오가 컨테이너 앞을 지나다 그 통화의 끝자락만 얼핏 듣는다."
     },
@@ -105,7 +149,10 @@
       "id": "T07",
       "time": "사건 전날 21:20",
       "location": "L02",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "이관영이 자리를 정리하며 문태경에게 \"다들 가면 회장실로 잠깐 와\"라고 조용히 부른다.",
       "world_fact": "문태경은 그것이 특허 얘기라는 것을 직감하고 표정이 굳는다."
     },
@@ -113,7 +160,9 @@
       "id": "T08",
       "time": "사건 전날 21:50",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "문태경이 지하 배전실 예비 부품함에서 낡은 환기팬 타이머 모듈 하나를 몰래 챙긴다.",
       "world_fact": "마침 배전실에 있던 오소림에게 \"정비실 환기팬 타이머가 낡아 보여서 미리 봐 두려고요\"라고 둘러댄다."
     },
@@ -121,7 +170,9 @@
       "id": "T09",
       "time": "사건 전날 22:10",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "문태경이 정비실 환기팬 자동 제어반의 타이머 설정을 조작해 새벽 충전 시간대 환기 스케줄을 꺼 놓는다.",
       "world_fact": "문태경은 조작한 설정 화면을 평소와 같은 정상 모드처럼 보이도록 되돌려 놓는다."
     },
@@ -129,7 +180,9 @@
       "id": "T10",
       "time": "사건 전날 22:20",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "이관영이 회장실에서 홀로 문태경을 기다리다, 그가 끝내 오지 않자 특허 출원 인쇄물을 다시 서랍에 넣고 자리에서 일어난다.",
       "world_fact": "이관영은 다음 날 아침 당직 교대 전에 문태경을 직접 찾아가 묻기로 마음을 정한다."
     },
@@ -137,7 +190,9 @@
       "id": "T11",
       "time": "사건 당일 05:20",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "이관영이 새벽 당직 루틴대로 정비실에 올라가 배터리 랙 상태를 점검하러 들어간다.",
       "world_fact": "환기가 되지 않아 쌓인 가스에 이관영은 산소가 부족해져 그 자리에서 의식을 잃고 쓰러진다."
     },
@@ -145,7 +200,10 @@
       "id": "T12",
       "time": "사건 당일 05:35",
       "location": "L01",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "오소림이 예비 열쇠로 잠긴 정비실 문을 열고, 함께 있던 탐정과 한지우가 안에서 쓰러진 이관영을 발견한다.",
       "world_fact": "즉시 심폐소생술을 시도하지만 반응이 없다."
     },
@@ -153,7 +211,9 @@
       "id": "T13",
       "time": "사건 당일 06:15",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "문태경이 사람들이 이관영 주변에 몰려 있는 틈을 타 제어반에서 조작해 둔 타이머 모듈을 떼어내 예비함에 있던 정상 모듈로 바꿔 끼운다.",
       "world_fact": "문태경은 떼어낸 조작 모듈을 자신의 작업실 공구함 바닥에 숨긴다."
     },
@@ -161,7 +221,9 @@
       "id": "T14",
       "time": "사건 당일 06:40",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "문태경이 지하 배전실 정비 일지 마지막 페이지에 \"환기팬 타이머 노후, 전임 관리인 시절부터 지적됐던 사항\"이라는 메모를 다른 필기구로 사후에 끼워 적는다.",
       "world_fact": "문태경은 이 메모가 사고를 설비 노후 탓으로 보이게 할 것이라 생각한다."
     }
@@ -177,13 +239,17 @@
           "fact_id": "F-CH01-01",
           "content": "닷새 전 저녁 이관영에게서 '공사 끝나면 한 사람하고 정리할 일이 있다'는 말을 지나가듯 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "이번 분기 회비 정산액이 장부보다 20만 원 가까이 비어 있다는 것을 사건 전날 저녁 확인했다.",
           "source": "직접 경험",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
@@ -208,7 +274,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -260,13 +329,17 @@
           "fact_id": "F-CH02-01",
           "content": "뒤풀이 자리를 정리하던 중, 21시 넘어 이관영이 문태경에게 따로 말을 건네고 문태경 표정이 눈에 띄게 굳는 것을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "라운지를 정리하다 컨테이너 사무실 쪽을 지나며 배가현이 사업 주관 변경 얘기를 하는 통화를 얼핏 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
@@ -286,7 +359,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -337,19 +413,26 @@
           "fact_id": "F-CH03-01",
           "content": "사건 당일 06시 15분경 정비실 환기팬 제어반에서 조작해 둔 타이머 모듈을 떼어내 정상 모듈로 갈아 끼우고, 떼어낸 모듈은 작업실 공구함 바닥에 숨겼다.",
           "source": "직접 행동",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "사건 전날 22시 10분경 정비실 환기팬 자동 제어반의 타이머 설정을 조작해 새벽 환기 스케줄이 꺼지도록 만들었다.",
           "source": "직접 행동",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "두 달 전 이관영과 함께 개발한 계전 중계기 회로 설계를 자신 단독 명의로 특허 출원했고, 열흘 전 이관영이 이를 발견해 확장 공사가 끝나면 정리하려 했다는 것을 사건 전날 저녁 직감했다.",
           "source": "직접 경험",
-          "related_timeline": ["T01", "T07"]
+          "related_timeline": [
+            "T01",
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -377,7 +460,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -432,7 +518,9 @@
           "fact_id": "F-CH04-01",
           "content": "사건 전날 21시 50분경 문태경이 배전실에 들러 낡은 타이머 모듈을 챙기며 '정비실 환기팬 타이머가 낡아 보여서 봐 두려고요'라고 말했다.",
           "source": "직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -462,7 +550,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -518,7 +609,9 @@
           "fact_id": "F-CH05-02",
           "content": "그날 밤 통화가 길어진 것은 지자체 담당자가 서류 양식을 자꾸 바꿔 달라고 요구했기 때문이다.",
           "source": "직접 경험",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH05-03",
@@ -538,7 +631,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -578,7 +674,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "18년 클럽을 이끈 회장과, 5년 넘게 곁에서 기술을 배운 수제자 격 후배 엔지니어.",
       "public_face": "회장이 가장 아끼는 후계자로 다들 여긴다.",
       "says": {
@@ -589,7 +688,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "회장과 부회장. 클럽 창립 때부터 15년을 함께해 온 사이다.",
       "public_face": "회장의 가장 오랜 동지로 통한다.",
       "says": {
@@ -600,7 +702,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "회장과 갓 들어온 신입 회원. 알고 지낸 지 반년이 채 안 됐다.",
       "public_face": "회장이 유독 신입을 살갑게 챙긴다고들 한다.",
       "says": {
@@ -611,7 +716,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "회장과 시설 관리인. 건물 구석구석을 함께 돌본 지 8년째다.",
       "public_face": "회장이 관리인을 전적으로 신뢰한다고들 한다.",
       "says": {
@@ -622,7 +730,10 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "회장과 지자체 협력 담당자. 시범망 사업으로 반년째 손발을 맞춰 왔다.",
       "public_face": "사업 파트너로서 관계가 매끄럽다고 알려져 있다.",
       "says": {
@@ -633,7 +744,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "부회장과 후배 엔지니어. 클럽 운영 회의에서 자주 부딪히는 사이다.",
       "public_face": "세대 차이는 있어도 서로 존중한다고들 한다.",
       "says": {
@@ -645,7 +759,10 @@
     },
     {
       "id": "REL07",
-      "between": ["CH02", "CH05"],
+      "between": [
+        "CH02",
+        "CH05"
+      ],
       "nature": "신입 회원과 지자체 협력 담당자. 이번 확장 공사 때 처음 마주쳤다.",
       "public_face": "서로 데면데면한 사이로 보인다.",
       "says": {
@@ -857,11 +974,20 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "환기팬 제어반의 설정 이력을 확인한다",
-      "related_timeline": ["T09", "T13"],
+      "related_timeline": [
+        "T09",
+        "T13"
+      ],
       "content": "자동 환기 스케줄이 사건 전날 22시 10분경부터 꺼져 있다가 사건 당일 06시 15분경 다시 정상으로 돌아온 설정 이력이 남아 있다.",
-      "proves": ["그 시간대 누군가 환기 스케줄을 조작했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C01"],
+      "proves": [
+        "그 시간대 누군가 환기 스케줄을 조작했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": null,
       "mismatch": "설정은 저절로 바뀌지 않는데, 그 시간대에만 수동 조작 이력이 남아 있다."
     },
@@ -872,9 +998,15 @@
       "found_at": "L01",
       "discovery_condition": "정비실 바닥을 살펴본다",
       "content": "제어반 아래 바닥에 최근 열었다 닫은 나사 자국과 함께 작은 나사 하나가 떨어져 있다.",
-      "proves": ["누군가 최근 제어반 패널을 열었다 닫았다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 사고 전인지 후인지"],
-      "presentation_effect": ["C02"],
+      "proves": [
+        "누군가 최근 제어반 패널을 열었다 닫았다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 사고 전인지 후인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
       "points_at": null
     },
     {
@@ -883,11 +1015,19 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "성지오에게 그날 뒤풀이 분위기를 묻는다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "21시 넘어 이관영이 자리를 정리하며 문태경에게 따로 말을 건넸고, 문태경 표정이 눈에 띄게 굳었다는 진술이 확보된다.",
-      "proves": ["이관영과 문태경 사이에 그날 밤 심상치 않은 대화가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["무슨 얘기였는지"],
-      "presentation_effect": ["C01"],
+      "proves": [
+        "이관영과 문태경 사이에 그날 밤 심상치 않은 대화가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "무슨 얘기였는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": "CH03"
     },
     {
@@ -897,8 +1037,12 @@
       "found_at": "L02",
       "discovery_condition": "성지오에게 그날 밤 이상하게 느낀 것이 있는지 묻는다",
       "content": "뒤풀이를 정리하다 컨테이너 사무실 쪽을 지나며 배가현이 사업 주관 변경 얘기를 하는 통화를 얼핏 들었다는 진술이 확보된다.",
-      "proves": ["그날 밤 배가현이 사업 이관 문제로 통화하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 회장의 죽음과 관련 있는지"],
+      "proves": [
+        "그날 밤 배가현이 사업 이관 문제로 통화하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 회장의 죽음과 관련 있는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH05"
     },
@@ -908,11 +1052,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "책상 서랍 속 인쇄물을 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "문태경 단독 명의로 등록된 특허 공개공고 화면이 인쇄되어 서랍 안쪽에 들어 있다.",
-      "proves": ["이관영이 문태경의 단독 특허 출원 사실을 알고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["문태경이 회장의 죽음과 관련 있는지"],
-      "presentation_effect": ["C03"],
+      "proves": [
+        "이관영이 문태경의 단독 특허 출원 사실을 알고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "문태경이 회장의 죽음과 관련 있는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
       "points_at": "CH03",
       "reaction": {
         "jiwoo": "\"이거... 문태경 씨 혼자 이름으로 올라가 있는데요?\"",
@@ -926,8 +1078,12 @@
       "found_at": "L03",
       "discovery_condition": "회비 장부를 확인한다",
       "content": "이번 분기 정산액이 실제 잔액보다 20만 원 가까이 비어 있는 것으로 기록돼 있다.",
-      "proves": ["회비 정산에 차액이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 고의였는지"],
+      "proves": [
+        "회비 정산에 차액이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 고의였는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH01"
     },
@@ -938,8 +1094,12 @@
       "found_at": "L03",
       "discovery_condition": "정정된 정산 내역서를 확인한다",
       "content": "다음 날 오전 다시 작성된 정산 내역서에는 착오였던 항목이 빠져 있고 잔액이 정확히 맞아떨어진다.",
-      "proves": ["그 차액이 단순 착오였고 이미 바로잡혔다는 사실을 증명한다."],
-      "does_not_prove": ["하진욱이 다른 문제와는 무관하다는 것까지"],
+      "proves": [
+        "그 차액이 단순 착오였고 이미 바로잡혔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "하진욱이 다른 문제와는 무관하다는 것까지"
+      ],
       "presentation_effect": [],
       "points_at": null
     },
@@ -949,11 +1109,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "부품 재고 대장을 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "사건 전날 21시 50분경 예비 타이머 모듈 하나가 출고 기록 없이 재고에서 빠진 것으로 확인된다.",
-      "proves": ["그 시각 누군가 재고에서 타이머 모듈을 가져갔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 가져갔는지"],
-      "presentation_effect": ["C01"],
+      "proves": [
+        "그 시각 누군가 재고에서 타이머 모듈을 가져갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": null
     },
     {
@@ -962,11 +1130,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "오소림에게 그날 밤 배전실에서 있었던 일을 묻는다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "21시 50분쯤 문태경이 배전실에 들러 낡은 타이머 모듈을 챙기며 환기팬 타이머가 낡아 보여서 봐 두려 한다고 말했다는 진술이 확보된다.",
-      "proves": ["문태경이 그 시각 배전실에서 타이머 모듈을 가져갔다는 사실을 증명한다."],
-      "does_not_prove": ["그가 그것으로 무엇을 했는지"],
-      "presentation_effect": ["C01"],
+      "proves": [
+        "문태경이 그 시각 배전실에서 타이머 모듈을 가져갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 그것으로 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": "CH03"
     },
     {
@@ -975,11 +1151,17 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "정비 일지 마지막 페이지를 확인한다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "사건 당일 06시 40분 무렵 끼워 적힌 듯한 메모가 다른 필기구로 쓰여 있고, 페이지 여백이 다른 기록들과 어긋나 있다.",
-      "proves": ["누군가 사망 이후 정비 일지에 손을 대 기록을 추가했다는 사실을 증명한다."],
-      "does_not_prove": ["그 메모를 쓴 사람이 누구인지"],
-      "presentation_effect": ["C03"],
+      "proves": [
+        "누군가 사망 이후 정비 일지에 손을 대 기록을 추가했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 메모를 쓴 사람이 누구인지"
+      ],
+      "presentation_effect": [],
       "points_at": null,
       "reaction": {
         "jiwoo": "\"필체가 확실히 다른데요, 이거...\"",
@@ -992,11 +1174,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "공구함 바닥을 살펴본다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "타이머 설정이 조작된 채인 환기팬 제어 모듈이 낡은 천에 싸여 숨겨져 있다.",
-      "proves": ["누군가 이 모듈로 환기 스케줄을 조작한 뒤 숨겼다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 정비실 제어반에서 나온 것인지"],
-      "presentation_effect": ["C02"],
+      "proves": [
+        "누군가 이 모듈로 환기 스케줄을 조작한 뒤 숨겼다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 정비실 제어반에서 나온 것인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
       "points_at": "CH03",
       "mismatch": "정비실 제어반에 지금 끼워진 모듈과 일련번호가 정확히 일치한다.",
       "reaction": {
@@ -1011,8 +1201,12 @@
       "found_at": "L06",
       "discovery_condition": "배가현에게 사업 주관 변경 통화에 대해 묻는다",
       "content": "지자체 담당자가 먼저 제안한 내용이고 이관영에게도 이미 알린 사안이라는 해명이 확보된다.",
-      "proves": ["배가현 본인이 그 논의를 이미 공유된 사안으로 여기고 있다는 사실을 증명한다."],
-      "does_not_prove": ["문서로 그것이 실제로 사실인지"],
+      "proves": [
+        "배가현 본인이 그 논의를 이미 공유된 사안으로 여기고 있다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "문서로 그것이 실제로 사실인지"
+      ],
       "presentation_effect": [],
       "points_at": null
     },
@@ -1023,8 +1217,12 @@
       "found_at": "L06",
       "discovery_condition": "협력 보고서 사본을 확인한다",
       "content": "사업 주관 변경 논의 사실이 지난주 이관영과 공유된 이메일 스레드로 남아 있다.",
-      "proves": ["그 논의가 사건과 무관하게 이미 진행 중이던 사안이었다는 사실을 증명한다."],
-      "does_not_prove": ["배가현과 이관영 사이에 다른 갈등이 없었다는 것까지"],
+      "proves": [
+        "그 논의가 사건과 무관하게 이미 진행 중이던 사안이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "배가현과 이관영 사이에 다른 갈등이 없었다는 것까지"
+      ],
       "presentation_effect": [],
       "points_at": null
     },
@@ -1035,8 +1233,12 @@
       "found_at": "L02",
       "discovery_condition": "성지오에게 그날 몇 시에 귀가했는지 묻는다",
       "content": "21시 30분쯤 집으로 돌아갔고 그 이후 상황은 전혀 모른다는 진술이 확보된다.",
-      "proves": ["성지오가 사건 발생 추정 시각에는 건물에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 사람들의 행적까지"],
+      "proves": [
+        "성지오가 사건 발생 추정 시각에는 건물에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 사람들의 행적까지"
+      ],
       "presentation_effect": [],
       "points_at": null
     },
@@ -1047,8 +1249,12 @@
       "found_at": "L03",
       "discovery_condition": "하진욱에게 회비 정산 문제를 묻는다",
       "content": "이중 입력한 영수증 하나를 뒤늦게 발견해 다음 날 바로 정정했다는 해명이 확보된다.",
-      "proves": ["하진욱 본인이 그 차액을 착오로 설명하고 있다는 사실을 증명한다."],
-      "does_not_prove": ["장부 기록으로 그것이 실제로 사실인지"],
+      "proves": [
+        "하진욱 본인이 그 차액을 착오로 설명하고 있다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "장부 기록으로 그것이 실제로 사실인지"
+      ],
       "presentation_effect": [],
       "points_at": null
     },
@@ -1059,8 +1265,12 @@
       "found_at": "L02",
       "discovery_condition": "성지오에게 그날 밤 하진욱의 모습이 어땠는지 묻는다",
       "content": "뒤풀이 자리 구석에서 하진욱이 장부를 들고 한참 계산기를 두드리며 혼잣말하는 걸 봤다는 진술이 확보된다.",
-      "proves": ["하진욱이 그날 밤 장부 문제로 혼자 계산하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그것이 고의적인 은폐였는지"],
+      "proves": [
+        "하진욱이 그날 밤 장부 문제로 혼자 계산하고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그것이 고의적인 은폐였는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH01"
     },
@@ -1071,8 +1281,12 @@
       "found_at": "L06",
       "discovery_condition": "배가현에게 정비실 열쇠 관리에 대해 묻는다",
       "content": "정비실과 배전실 열쇠는 관리인만 모두 갖고 있다는 걸 알고 있다는 진술이 확보된다.",
-      "proves": ["오소림만 두 곳의 열쇠를 모두 갖고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 그 열쇠로 무엇을 했는지"],
+      "proves": [
+        "오소림만 두 곳의 열쇠를 모두 갖고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 그 열쇠로 무엇을 했는지"
+      ],
       "presentation_effect": [],
       "points_at": "CH04"
     }
@@ -1083,47 +1297,72 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "module_swap_admitted",
-      "requires_heard_claim_ids": ["S-CH03-02"],
-      "requires_presented_evidence_ids": ["E09"],
+      "requires_heard_claim_ids": [
+        "S-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
-        "evidence_ids": ["E09"]
+        "evidence_ids": [
+          "E09"
+        ]
       },
       "player_action": "문태경에게 오소림의 목격담을 제시하여, 배전실 쪽엔 간 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
         "scope": "사건 당일 새벽 제어반의 타이머 모듈을 갈아 끼운 것은 인정한다."
       },
-      "must_not_release": ["환기 스케줄을 미리 꺼 둔 사실", "특허 관련 동기"]
+      "must_not_release": [
+        "환기 스케줄을 미리 꺼 둔 사실",
+        "특허 관련 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "module_swap_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-03"],
-      "requires_presented_evidence_ids": ["E11"],
+      "requires_heard_claim_ids": [
+        "F-CH03-01",
+        "S-CH03-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E11"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
-        "evidence_ids": ["E11"]
+        "evidence_ids": [
+          "E11"
+        ]
       },
       "player_action": "공구함 바닥에서 나온, 타이머 설정이 조작된 채인 제어 모듈을 제시하여, 그냥 손봐 두려던 것뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "사건 전날 밤 환기 스케줄을 직접 조작해 꺼 두었다는 것은 인정한다."
       },
-      "must_not_release": ["특허 관련 동기"]
+      "must_not_release": [
+        "특허 관련 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "tampering_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-04"],
-      "requires_presented_evidence_ids": ["E05", "E10"],
+      "requires_heard_claim_ids": [
+        "F-CH03-02",
+        "S-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-04",
-        "evidence_ids": ["E05"]
+        "evidence_ids": [
+          "E05"
+        ]
       },
       "player_action": "서랍 속 특허청 공개공고 인쇄물과 정비 일지의 사후 메모를 함께 제시하여, 사고를 예상하지 못했을 뿐이라는 주장과 비교한다.",
       "release": {
@@ -1159,12 +1398,24 @@
       "how_to_clear": "오소림의 목격담(E09)과 부품 재고 대장(E08), 성지오의 귀가 시각 진술(E14)을 대조해, 그가 그 시각 자리를 비우지 않았다는 사실과 다른 사람들의 동선이 서로 맞아떨어진다는 것을 확인한다.",
       "must_not_imply": "열쇠를 가지고 있었다는 사실만으로 그가 회장을 해쳤다고 단정하지 않는다.",
       "lingering_thread": "오소림은 이후에도 자신이 열쇠를 넘긴 순간들을 하나하나 되짚어 보며 자책을 떨치지 못한다.",
-      "suspicion_deepener": "사건 직후에도 그가 유독 열쇠 목록부터 챙기며 누가 언제 무엇을 가져갔는지 캐묻고 다니는 모습이 목격되어, 마치 자신에게 쏠릴 의심을 앞서 지우려는 것처럼 보인다."
+      "suspicion_deepener": "사건 직후에도 그가 유독 열쇠 목록부터 챙기며 누가 언제 무엇을 가져갔는지 캐묻고 다니는 모습이 목격되어, 마치 자신에게 쏠릴 의심을 앞서 지우려는 것처럼 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E03", "E09", "E11", "E05", "E10", "F-CH03-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E03",
+      "E09",
+      "E11",
+      "E05",
+      "E10",
+      "F-CH03-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "정비실 환기팬 자동 제어반의 타이머를 조작해 새벽 충전 시간대 환기가 되지 않게 만들어 가스가 쌓이게 하고, 새벽 점검 중 산소 결핍으로 질식사하게 했다.",

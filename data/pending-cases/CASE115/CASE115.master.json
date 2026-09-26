@@ -13,10 +13,18 @@
       "#VIP_초청행사",
       "#명품_감정"
     ],
-    "location_archetypes": ["repair_shop", "retail_shop"],
+    "location_archetypes": [
+      "repair_shop",
+      "retail_shop"
+    ],
     "background": {
-      "background_archetypes": ["appraisal", "private_gathering"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "appraisal",
+        "private_gathering"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "contributory"
     }
   },
@@ -52,7 +60,7 @@
       "evidence"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_victim_error",
       "false_alibi",
       "evidence_removal"
     ],
@@ -857,9 +865,7 @@
       "does_not_prove": [
         "누가 처음 그 처리를 지시했는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -1018,7 +1024,6 @@
         "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
-        "E05",
         "E08"
       ],
       "requires_comparison": {
@@ -1083,7 +1088,8 @@
       "how_to_clear": "배도아의 증언(E03)을 CCTV 로그(E04)와 대조한다 — 10시 33분경 메인 홀 화면에서 사라졌다 돌아온 것은 곽지완이고, 배도아의 행동은 그날 아침 그의 지시로 통을 옮긴 심부름에 그친다. 창고 작업일지(E10)에도 그 직후 그녀가 창고로 돌아와 다른 작업을 했다는 기록이 독립적으로 남아 있다.",
       "must_not_imply": "배도아가 세척액을 옮긴 행위 자체에 살해 의도가 있었다는 암시는 하지 않는다.",
       "lingering_thread": "배도아는 혐의를 벗고 나서도, 자기가 옮긴 통이 사고와 무관했다는 사실을 곽지완에게 어떻게 말해야 할지 한동안 망설였다.",
-      "suspicion_deepener": "배도아가 처음 조사받을 때 세척액을 옮긴 사실을 먼저 말하지 않고 숨기려 해서 의심이 커진다. 이유는 그저 자기가 사고 원인을 제공한 것 같아 겁먹었기 때문이다."
+      "suspicion_deepener": "배도아가 처음 조사받을 때 세척액을 옮긴 사실을 먼저 말하지 않고 숨기려 해서 의심이 커진다. 이유는 그저 자기가 사고 원인을 제공한 것 같아 겁먹었기 때문이다.",
+      "character_id": "CH01"
     }
   ],
   "case_complete": {

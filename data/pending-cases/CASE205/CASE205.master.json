@@ -7,15 +7,24 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 개인적으로 관심 있던 폴리 사운드 워크숍에 참가비를 내고 참가했다가, 워크숍이 끝난 뒤 개인 세션 견적을 상담하려고 스튜디오에 남아 있었다.",
     "tone": "담담하지만 씁쓸한 여운이 남는 정통 추리물",
-    "tags": ["폴리사운드_스튜디오", "사운드_워크숍", "클로즈드_서클"],
-    "location_archetypes": ["production_studio"],
+    "tags": [
+      "폴리사운드_스튜디오",
+      "사운드_워크숍",
+      "클로즈드_서클"
+    ],
+    "location_archetypes": [
+      "production_studio"
+    ],
     "background": {
-      "background_archetypes": ["workshop"],
-      "background_phrasing": ["immediately_after"],
+      "background_archetypes": [
+        "workshop"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -24,56 +33,70 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:50",
     "location_id": "L01",
     "narrative": "워크숍이 끝나고 참가자들이 하나둘 짐을 챙겨 나가는 사이, 탐정은 개인 세션 견적 얘기를 마치고 로비를 나서려던 참이었다.\n\n그때 폴리 스테이지 안쪽에서 둔탁한 소리와 다급한 발소리가 잇따라 들렸다.\n\n\"저거, 소품 떨어지는 소리치고는 좀 이상한데요.\"\n\n한지우가 먼저 그쪽으로 고개를 돌리며 말했다.\n\n\"가보자.\"\n\n스테이지로 들어서자, 천장 리깅에서 늘어진 밧줄 아래 신입 사운드 테크니션이 옆구리를 움켜쥔 채 쓰러져 있었다. 조은유가 그를 흔들며 이름을 부르고 있었고, 곧 하선우가 뛰어들어와 119에 신고했다.\n\n\"의식이 없어요. 숨은 쉬는데... 반응이 없어요.\"\n\n한지우가 낮게 말했다.\n\n\"저 위에 매달려 있던 게 원래 저렇게 내려와 있는 거야?\"\n\n탐정이 천장 리깅 쪽으로 시선을 옮기며 물었다.\n\n한지우가 고개를 젓더니, 바닥에 떨어진 모래주머니를 가만히 내려다봤다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "믹싱 컨트롤룸 유리창 너머로 폴리 스테이지가 내려다보였다. 도재헌은 콘솔 앞에 앉은 채 더 이상 말을 돌리지 않았다.\n\n\"...맞습니다. 제가 클램프를 풀어놨습니다. 그리고 버튼도 제가 눌렀어요.\"\n\n그는 잠시 숨을 고르더니, 낮게 말을 이었다.\n\n\"은유가... 다음 달에 윤형이랑 같이 떠난다는 얘길 듣고, 그냥... 그게 다 끝이라는 생각밖에 안 들었어요.\"\n\n한지우는 아무 말 없이 그를 바라보다가, 낮은 목소리로 입을 열었다.\n\n\"그게 다 끝이라고 생각했다는 이유로, 누군가의 진짜 끝을 만든 거네요.\"\n\n\"클램프를 미리 풀어놓고, 부품까지 준비해뒀어. 우발적인 게 아니라 계획한 거였어.\"\n\n탐정이 조용히 말을 이었다. 도재헌은 아무 대답도 하지 못했다.\n\n스튜디오를 나서며, 한지우가 문득 생각난 듯 입을 열었다.\n\n\"그러고 보니 오다인 씨, 결국 다른 작업실 알아본다고 했죠. 크레딧 문제로.\"\n\n\"그것도 결국 이 사건이랑은 별개로 남는 얘기지.\"\n\n탐정이 대꾸했다.\n\n\"그러네요. 근데 탐정님, 우리 오늘 견적 상담은 결국 못 받은 거 아니에요?\"\n\n\"...그런 것 같네.\"\n\n탐정이 짧게 대답했다."
   },
-
   "surface_incident": [
     "워크숍이 끝난 늦은 오후, 스튜디오 신입 사운드 테크니션 노윤형이 폴리 스테이지에서 낙하한 카운터웨이트에 옆구리를 맞고 쓰러진 채 발견됐다.",
     "노윤형은 구급대에 의해 병원으로 옮겨졌으나 끝내 사망했다.",
     "스튜디오 측은 노후 장비의 결함으로 인한 불행한 사고로 추정하고 있다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH03",
     "motive": "오랫동안 조은유를 마음에 두고 있던 도재헌은, 그녀가 노윤형과 함께 다음 달 스튜디오를 떠나 해외로 이주하기로 확정했다는 사실을 우연히 엿듣고 나서 상실감과 질투에 사로잡혀 범행을 계획한다.",
     "method": "도재헌은 사고 이틀 전 밤 리프트 플랫폼 천장 카운터웨이트 고정 클램프의 볼트 하나를 몰래 풀어놓고, 사고 당일 오후 개인 카드로 예비 부품을 미리 주문해둔다. 워크숍이 끝난 뒤 노윤형에게 새 이펙트를 혼자 시험해보라고 권해 리프트 플랫폼 위로 올려보낸 다음, 컨트롤룸 콘솔에서 리프트 버튼을 눌러 카운터웨이트를 작동시킨다. 미리 풀어둔 클램프가 그대로 빠지며 모래주머니가 낙하해 노윤형의 옆구리를 강타한다.",
-    "method_archetypes": ["falling_object", "staging_cover_up"],
-    "motive_archetypes": ["jealousy"],
-    "cover_up_target": ["responsibility", "evidence"],
-    "cover_up_method": ["false_accident", "object_substitution", "evidence_removal"],
+    "method_archetypes": [
+      "falling_object",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "jealousy"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "object_substitution",
+      "evidence_removal"
+    ],
     "key_time_location": "사고 당일 16시 41분, 폴리 스테이지(L01)와 믹싱 컨트롤룸(L02)",
     "cover_up": "구급대가 도착하기 전, 도재헌은 소품 보관실로 가 파손된 클램프를 미리 준비해둔 새 부품으로 몰래 바꿔 끼우고, 원래 부품을 폐기물통 바닥에 숨겨 노후 장비 결함에 의한 사고처럼 보이게 만든다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "이틀 전 20시경",
       "location": "L04",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "조은유와 노윤형이 라운지 소파에 나란히 앉아, 다음 달 함께 스튜디오를 그만두고 해외로 떠나기로 확정했다는 이야기를 낮은 목소리로 나눈다."
     },
     {
       "id": "T02",
       "time": "이틀 전 20시경",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "마침 맞은편 소파에서 혼자 커피를 마시고 있던 도재헌이, 둘의 대화를 우연히 엿듣는다."
     },
     {
       "id": "T03",
       "time": "이틀 전 23시경",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "도재헌이 다음 날 워크숍 준비를 핑계로 혼자 스튜디오에 남아, 리프트 플랫폼 천장 리깅의 카운터웨이트 고정 클램프 볼트 하나를 몰래 풀어놓는다.",
       "world_fact": "리프트 플랫폼 천장 리깅의 카운터웨이트 고정 클램프는 원래 볼트 두 개로 고정돼 있었지만, 도재헌이 그중 하나만 남기고 몰래 풀어놓아 하중을 버티지 못하는 상태가 된다."
     },
@@ -81,21 +104,28 @@
       "id": "T04",
       "time": "사고 당일 10시",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하선우가 워크숍 참가자들 앞에서 새로 들인 리프트 플랫폼의 카운터웨이트 낙하 이펙트 기능을 시범으로 보여준다."
     },
     {
       "id": "T05",
       "time": "사고 당일 14시",
       "location": "L04",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "오다인이 최근 발매된 작업물의 크레딧에 자신의 이름이 빠진 것을 두고 노윤형에게 언성을 높이며 따진다."
     },
     {
       "id": "T06",
       "time": "사고 당일 15시",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "도재헌이 개인 명의 카드로 스튜디오 구매대행 앱을 통해 리프트 클램프 예비 부품을 긴급 주문한다.",
       "world_fact": "스튜디오 구매대행 앱에는 도재헌 명의로 사고 당일 15시경 리프트 클램프 예비 부품을 긴급 주문한 내역이 남는다."
     },
@@ -103,28 +133,37 @@
       "id": "T07",
       "time": "사고 당일 16시 30분",
       "location": "L02",
-      "actors": ["CH03", "V01"],
+      "actors": [
+        "CH03",
+        "V01"
+      ],
       "actual_action": "워크숍이 끝나고 참가자들이 돌아가는 사이, 도재헌이 노윤형에게 새 카운터웨이트 이펙트를 혼자 시험 녹음해보라고 권하며 컨트롤룸 자리를 비켜준다."
     },
     {
       "id": "T08",
       "time": "사고 당일 16시 35분",
       "location": "L05",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "워크숍 참가자들과 함께 나갔던 오다인이 두고 간 이어폰 케이스를 챙기러 로비에 다시 들렀다가 곧바로 나간다."
     },
     {
       "id": "T09",
       "time": "사고 당일 16시 40분",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "노윤형이 리프트 플랫폼 위에 올라, 발밑 소품을 조정하며 혼자 테스트 녹음을 시작한다."
     },
     {
       "id": "T10",
       "time": "사고 당일 16시 41분",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "도재헌이 컨트롤룸 콘솔에서 리프트 버튼을 눌러 천장의 카운터웨이트 사판을 작동시킨다.",
       "world_fact": "미리 절반만 남아 있던 고정 클램프가 사판 작동과 동시에 완전히 빠지며, 매달려 있던 모래주머니가 리프트 플랫폼 위로 떨어진다."
     },
@@ -132,33 +171,40 @@
       "id": "T11",
       "time": "사고 당일 16시 41분",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "노윤형이 낙하한 모래주머니에 옆구리를 강타당해 리프트 플랫폼 위에서 쓰러진다."
     },
     {
       "id": "T12",
       "time": "사고 당일 16시 43분",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "로비로 향하던 조은유가 컨트롤룸 유리창 너머로 노윤형이 쓰러지는 모습을 보고 곧장 스테이지로 달려간다."
     },
     {
       "id": "T13",
       "time": "사고 당일 16시 44분",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소동을 듣고 달려온 하선우가 쓰러진 노윤형을 발견하고 즉시 119에 신고한다."
     },
     {
       "id": "T14",
       "time": "사고 당일 16시 50분",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "구급대가 도착하기 전, 도재헌이 소품 보관실로 가 파손된 클램프 부품을 미리 준비해둔 새 부품으로 몰래 바꿔 끼우고 원래 부품을 폐기물통 바닥에 숨긴다.",
       "world_fact": "폐기물통 바닥에는 볼트 구멍이 새로 긁힌 흔적이 남은 원래 클램프 부품이 새 부품과 바뀐 채 숨겨진다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -184,7 +230,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "장비 도입과 설치 총괄까지는 알지만, 리프트 플랫폼 조작 로그의 세부 사용자 계정까지는 확인하지 않았다."
@@ -210,7 +259,9 @@
           "fact_id": "F-CH02-01",
           "content": "나와 노윤형은 다음 달 함께 스튜디오를 그만두고 해외로 이주할 계획이었다.",
           "source": "본인의 직접 계획",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         }
       ],
       "initial_claims": [
@@ -226,7 +277,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -286,7 +340,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-04"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH03-05",
@@ -329,13 +386,17 @@
           "fact_id": "F-CH04-01",
           "content": "노윤형과 최근 발매작의 크레딧 배분 문제로 다퉜다.",
           "source": "본인 경험",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "워크숍이 끝나고 짐을 안 챙긴 걸 깨닫고 다시 스튜디오에 잠깐 들렀다가 바로 나갔다.",
           "source": "본인 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -352,7 +413,10 @@
           "reason_for_limit_or_lie": "다시 들렀던 사실이 의심을 살까 봐 숨김"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
@@ -384,13 +448,18 @@
           "fact_id": "F-CH05-01",
           "content": "이틀 전 저녁 라운지에서 조은유와 노윤형이 해외 이주 계획을 상의하는 걸 우연히 들었고, 도재헌이 그 근처 소파에 앉아 있던 것도 기억한다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T01", "T02"]
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "도재헌이 사고 당일 오후 스튜디오 구매대행 앱으로 리프트 클램프 예비 부품을 긴급 주문한 내역이 있다.",
           "source": "본인이 구매대행 앱 관리자 권한으로 확인",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -406,7 +475,10 @@
           "reason_for_limit_or_lie": "남의 사생활을 함부로 말하고 싶지 않아서"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -434,11 +506,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "연인 사이. 다음 달 함께 스튜디오를 그만두고 해외로 이주하기로 확정한 상태였다.",
       "public_face": "그냥 같은 스튜디오에서 일하는 동료 사이로 알려져 있다.",
       "says": {
@@ -449,7 +523,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "같은 스튜디오에서 일하는 동료. 업무상 접점은 거의 없었다.",
       "public_face": "특별한 접점 없는 동료 사이로 보인다.",
       "says": {
@@ -460,7 +537,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "같은 스튜디오에서 오래 일한 동료.",
       "public_face": "그냥 친한 동료 사이 정도로 보인다.",
       "says": {
@@ -472,7 +552,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "스튜디오 대표와 신입 사운드 테크니션. 하선우가 직접 뽑아 들인 신입이었다.",
       "public_face": "대표가 신입을 아끼는 사이로 알려져 있다.",
       "says": {
@@ -483,7 +566,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "같은 스튜디오 폴리 아티스트. 최근 발매작 크레딧 배분 문제로 다퉜다.",
       "public_face": "업무상 의견 차이가 있었던 정도로 알려져 있다.",
       "says": {
@@ -494,7 +580,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH05", "CH01"],
+      "between": [
+        "CH05",
+        "CH01"
+      ],
       "nature": "스튜디오 매니저와 대표. 워크숍 운영을 함께 맡아온 사이다.",
       "public_face": "손발이 잘 맞는 상사와 부하 직원으로 보인다.",
       "says": {
@@ -505,14 +594,17 @@
       "surfaces_when": "탐정이 장비 도입 경위(S-CH01-01)를 근거로 검증 절차를 캐물으면 그제야 드러난다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "폴리 스테이지",
       "access": "워크숍 참가자와 스튜디오 직원 누구나 드나들 수 있는 메인 작업 공간. 사고 이후 통제선이 쳐졌다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L03", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L05"
+      ],
       "base_description": "천장에 리프트 플랫폼과 카운터웨이트 리깅이 매달린 폴리 사운드 스테이지. 바닥에는 자갈함, 유리조각통, 물탱크 등 각종 폴리 소품들이 놓여 있다.",
       "observation_rules": [
         {
@@ -534,7 +626,10 @@
       "name": "믹싱 컨트롤룸",
       "access": "직원과 워크숍 강사만 드나드는 통제구역. 유리창으로 폴리 스테이지를 내려다볼 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L05"],
+      "connects_to": [
+        "L01",
+        "L05"
+      ],
       "base_description": "믹싱 콘솔과 리프트 플랫폼 조작 버튼이 있는 통제실. 유리창 너머로 폴리 스테이지 전체가 한눈에 보인다.",
       "observation_rules": [
         {
@@ -556,7 +651,9 @@
       "name": "소품 보관실",
       "access": "직원만 드나드는 창고.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "자갈, 유리조각, 금속판 등 폴리 소품 재료와 낡은 장비 부속들을 쌓아둔 창고. 안쪽에 대형 폐기물통이 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -572,7 +669,9 @@
       "name": "라운지",
       "access": "워크숍 참가자와 직원이 자유롭게 쉬는 공간.",
       "access_level": "open",
-      "connects_to": ["L05"],
+      "connects_to": [
+        "L05"
+      ],
       "base_description": "소파와 커피머신이 있는 휴게 공간. 워크숍 쉬는 시간마다 사람들이 모였다.",
       "observation_rules": [],
       "detail_rules": []
@@ -582,13 +681,16 @@
       "name": "로비",
       "access": "출입구 겸 접수 공간. 누구나 드나든다.",
       "access_level": "open",
-      "connects_to": ["L01", "L02", "L04"],
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04"
+      ],
       "base_description": "스튜디오 입구의 작은 로비. 워크숍 참가자들의 신발장과 안내 데스크가 있다.",
       "observation_rules": [],
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -596,11 +698,20 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "리프트 플랫폼 상부 리깅을 살펴본다",
-      "related_timeline": ["T03", "T10"],
+      "related_timeline": [
+        "T03",
+        "T10"
+      ],
       "content": "천장 리깅에 남은 카운터웨이트 고정 클램프는 볼트 구멍 두 개 중 하나가 비어 있고, 낙하한 모래주머니가 그 아래 바닥에 놓여 있다.",
-      "proves": ["사고가 단순한 노후 결함이 아니라 인위적으로 조작된 것일 가능성이 크다"],
-      "does_not_prove": ["누가 클램프를 풀었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고가 단순한 노후 결함이 아니라 인위적으로 조작된 것일 가능성이 크다"
+      ],
+      "does_not_prove": [
+        "누가 클램프를 풀었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -608,11 +719,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "폐기물통 안쪽을 뒤져본다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "볼트 구멍이 새로 긁힌 흔적이 남은 원래 클램프 부품이 쓰레기 밑에 숨겨져 있다. 스테이지에 남아 있던 부품과는 다른 물건이다.",
-      "proves": ["사고 직후 누군가 클램프 부품을 몰래 바꿔 끼우고 원래 부품을 숨겼다"],
-      "does_not_prove": ["언제 새 부품이 준비됐는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직후 누군가 클램프 부품을 몰래 바꿔 끼우고 원래 부품을 숨겼다"
+      ],
+      "does_not_prove": [
+        "언제 새 부품이 준비됐는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -620,11 +739,19 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "민서인에게 구매대행 앱 로그에 대해 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "스튜디오 구매대행 앱에는 도재헌 명의로 사고 당일 15시경 리프트 클램프 예비 부품을 긴급 주문한 내역이 남아 있다.",
-      "proves": ["도재헌이 사고가 나기 전부터 부품을 준비해뒀다는 것, 즉 사고 후 당황해서 바꿨다는 말이 거짓이라는 것"],
-      "does_not_prove": ["왜 부품을 미리 준비했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "도재헌이 사고가 나기 전부터 부품을 준비해뒀다는 것, 즉 사고 후 당황해서 바꿨다는 말이 거짓이라는 것"
+      ],
+      "does_not_prove": [
+        "왜 부품을 미리 준비했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -632,11 +759,20 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "민서인에게 이틀 전 라운지에서 있었던 일을 묻는다",
-      "related_timeline": ["T01", "T02"],
+      "related_timeline": [
+        "T01",
+        "T02"
+      ],
       "content": "이틀 전 저녁, 조은유와 노윤형이 라운지에서 이주 계획을 상의했고, 그 근처 소파에 도재헌이 혼자 앉아 있었다.",
-      "proves": ["도재헌이 두 사람의 이주 계획을 엿들을 기회가 있었다는 것"],
-      "does_not_prove": ["도재헌이 실제로 대화를 들었는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "도재헌이 두 사람의 이주 계획을 엿들을 기회가 있었다는 것"
+      ],
+      "does_not_prove": [
+        "도재헌이 실제로 대화를 들었는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E05",
@@ -644,11 +780,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "믹싱 콘솔의 장비 사용 로그를 조회한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "사고 추정 시각인 16시 41분, 리프트 버튼이 눌린 세션이 도재헌 계정으로 기록돼 있다.",
-      "proves": ["도재헌이 사고 당시 컨트롤룸에서 리프트를 조작했다는 것"],
-      "does_not_prove": ["클램프가 왜 풀려 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "도재헌이 사고 당시 컨트롤룸에서 리프트를 조작했다는 것"
+      ],
+      "does_not_prove": [
+        "클램프가 왜 풀려 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E06",
@@ -656,10 +800,16 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "민서인에게 워크숍 끝난 뒤 드나든 사람이 있었는지 묻는다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "오다인이 워크숍이 끝나고 다 나간 줄 알았는데, 16시 35분경 잠깐 다시 로비에 나타났다가 금방 사라졌다.",
-      "proves": ["오다인이 사고 직전 시각에 잠깐 스튜디오에 다시 들렀다는 것"],
-      "does_not_prove": ["오다인이 사고와 관련이 있는지"],
+      "proves": [
+        "오다인이 사고 직전 시각에 잠깐 스튜디오에 다시 들렀다는 것"
+      ],
+      "does_not_prove": [
+        "오다인이 사고와 관련이 있는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -670,21 +820,33 @@
       "discovery_condition": "민서인에게 사고 직후 하선우가 정리한 물품이 무엇인지 묻는다",
       "related_timeline": [],
       "content": "민서인은 하선우가 그때 치운 것이 스테이지 바닥에 흩어져 있던 소품 정리함들뿐이었고, 리프트 리깅이나 클램프 쪽에는 손을 댄 적이 없다고 확인해준다.",
-      "proves": ["하선우가 정리한 것이 리프트 리깅과 무관한 소품뿐이었다는 것을 그의 진술과 독립적으로 뒷받침한다"],
-      "does_not_prove": ["하선우가 애초에 왜 그렇게 서둘러 정리하려 했는지"],
+      "proves": [
+        "하선우가 정리한 것이 리프트 리깅과 무관한 소품뿐이었다는 것을 그의 진술과 독립적으로 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "하선우가 애초에 왜 그렇게 서둘러 정리하려 했는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_presence_minimized",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E05"] },
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "도재헌에게 사고 당시 행적을 캐묻고, 믹싱 콘솔 사용 로그(E05)를 제시한다.",
       "release": {
         "claim_or_fact_id": "S-CH03-02",
@@ -701,39 +863,74 @@
       "target_character": "CH03",
       "from_stage": "admits_presence_minimized",
       "to_stage": "admits_swap_panicked",
-      "requires_heard_claim_ids": ["S-CH03-02"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
-      "requires_comparison": { "claim_id": "S-CH03-02", "evidence_ids": ["E01", "E02"] },
+      "requires_heard_claim_ids": [
+        "S-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-02",
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
+      },
       "player_action": "리프트 리깅에서 발견한 헐거워진 클램프(E01)와 폐기물통에서 찾은 원래 부품(E02)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "S-CH03-03",
         "scope": "부품을 몰래 바꿔 끼운 건 맞지만, 사고 이후 당황해서 책임을 피하려고 그런 것뿐이라고 진술한다."
       },
-      "must_not_release": ["부품을 사전에 주문해둔 사실", "동기(질투와 이주 계획)"]
+      "must_not_release": [
+        "부품을 사전에 주문해둔 사실",
+        "동기(질투와 이주 계획)"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_swap_panicked",
       "to_stage": "admits_premeditation",
-      "requires_heard_claim_ids": ["S-CH03-03"],
-      "requires_presented_evidence_ids": ["E03"],
-      "requires_comparison": { "claim_id": "S-CH03-03", "evidence_ids": ["E03"] },
+      "requires_heard_claim_ids": [
+        "S-CH03-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
       "player_action": "사고 당일 15시에 이미 부품을 주문한 구매 기록(E03)을 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "사고가 나기도 전인 15시에 이미 예비 부품을 준비해뒀다는 사실을 인정하며, 이 일이 우발적 사고가 아니라 계획된 일이었음을 시인한다."
       },
-      "must_not_release": ["동기(질투와 이주 계획)"]
+      "must_not_release": [
+        "동기(질투와 이주 계획)"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH03",
       "from_stage": "admits_premeditation",
       "to_stage": "confesses_motive",
-      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-05"],
-      "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": { "claim_id": "S-CH03-05", "evidence_ids": ["E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH03-02",
+        "S-CH03-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-05",
+        "evidence_ids": [
+          "E04"
+        ]
+      },
       "player_action": "민서인에게 들은, 두 사람의 이주 계획을 도재헌이 엿들었을 정황(E04)을 제시하며 동기를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-03",
@@ -742,7 +939,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -751,7 +947,8 @@
       "how_to_clear": "오다인이 워크숍 종료 후 잠깐 다시 나타났다가 사라졌다는 목격담(E06)을 확인한 뒤, 믹싱 콘솔 사용 로그(E05)의 사고 시각과 대조하면 그녀가 그 시각 이전에 이미 스튜디오를 떠나 있었음이 드러난다.",
       "must_not_imply": "오다인이 범행에 가담했거나 사고 현장에 있었다는 암시",
       "lingering_thread": "오다인은 결국 크레딧 문제를 계기로 스튜디오를 떠나 다른 작업실을 알아보기로 한다.",
-      "suspicion_deepener": "오다인이 워크숍 종료 후 스튜디오에 잠깐 다시 나타났다가 사라졌다는 목격담(E06)이 나오며 의심이 커진다."
+      "suspicion_deepener": "오다인이 워크숍 종료 후 스튜디오에 잠깐 다시 나타났다가 사라졌다는 목격담(E06)이 나오며 의심이 커진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -760,27 +957,38 @@
       "how_to_clear": "그가 정리한 것은 리프트 플랫폼 주변의 사건과 무관한 소품들뿐이고, 실제 증거인 클램프와 모래주머니(E01)는 그대로 남아 있었다는 사실을 확인하면 의심이 해소된다. 민서인의 확인(E07)도 그가 리프트 리깅 쪽에는 손을 대지 않았다는 것을 그의 진술과 독립적으로 뒷받침한다.",
       "must_not_imply": "하선우가 범행에 가담했다는 암시",
       "lingering_thread": "하선우는 이 사고를 계기로 리프트 플랫폼 장비를 폐기하고 워크숍을 한동안 중단하기로 한다.",
-      "suspicion_deepener": "구급대가 도착하기 전, 하선우가 현장 소품들을 서둘러 정리하려는 모습이 목격되며 은폐 의심이 커진다."
+      "suspicion_deepener": "구급대가 도착하기 전, 하선우가 현장 소품들을 서둘러 정리하려는 모습이 목격되며 은폐 의심이 커진다.",
+      "character_id": "CH01"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "F-CH03-02", "F-CH03-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-02",
+      "F-CH03-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "카운터웨이트 고정 클램프를 사전에 풀어놓고 부품까지 준비해둔 뒤, 노윤형을 혼자 리프트 플랫폼에 올려보내고 컨트롤룸에서 버튼을 눌러 낙하시켰다는 사실",
       "motive_fact": "조은유와 노윤형의 해외 이주 계획을 우연히 엿듣고 질투와 상실감에 사로잡혀 범행을 계획했다는 사실"
     }
   },
-
   "final_deduction": {
     "responsible": "도재헌(CH03)",
     "method": "리프트 플랫폼 천장 카운터웨이트 고정 클램프를 사전에 풀어놓고 예비 부품을 미리 주문해둔 뒤, 노윤형을 혼자 리프트 플랫폼에 올려보내고 컨트롤룸 콘솔에서 리프트 버튼을 눌러 카운터웨이트를 낙하시켜 살해했다.",
     "motive": "오랫동안 조은유를 마음에 두고 있던 도재헌이, 그녀가 노윤형과 함께 해외로 떠나기로 확정했다는 사실을 우연히 엿듣고 상실감과 질투에 사로잡혀 범행을 계획했다.",
     "key_connection": "구매대행 기록(E03)이 사고 이전 시점의 부품 주문을 증명하고, 믹싱 콘솔 사용 로그(E05)가 사고 시각 도재헌의 컨트롤룸 접속을 증명하며, 민서인의 증언(E04)이 그가 두 사람의 이주 계획을 엿들을 기회가 있었음을 뒷받침한다."
   },
-
   "ending_explanation": [
     "도재헌은 이틀 전 밤, 리프트 플랫폼 천장 카운터웨이트 고정 클램프의 볼트 하나를 몰래 풀어놓았다.",
     "사고 당일 오후, 그는 개인 명의로 예비 부품을 미리 주문해두었다.",

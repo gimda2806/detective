@@ -66,9 +66,19 @@ function extractTimes(text) {
     }
     if (hour > 24 || min > 59) continue;
     const before = text.slice(Math.max(0, m.index - 6), m.index);
+    const hadMeridiem = Boolean(before.match(MERIDIEM_BEFORE));
     hour = applyMeridiem(hour, before);
     if (hour === 24) hour = 0;
-    out.push({ hour, min, raw: m[0].trim(), index: m.index });
+    // **오전·오후를 알 수 없는 표기인가.** `21:45` 는 그 자체로 24시간제라
+    // 뒤집을 여지가 없고, 「밤 9시 45분」도 앞말이 정해 준다. 남는 것은
+    // 「9시 45분」처럼 **앞말 없는 1~11시**뿐이다. 아래 notesClock 이 이것만
+    // 12시간 뒤집어 인정한다.
+    // 고유어 표기(`8시 45분`·`8시`)만 뒤집을 여지가 있다 — `20:45` 는 그
+    // 자체로 24시간제다. TIME_RE 의 1·2 가 「N시 M분」, 3 이 「N시」, 4·5 가
+    // `HH:MM` 이다(순서를 헷갈리면 조건이 통째로 뒤집힌다).
+    const koreanHour = m[1] !== undefined || m[3] !== undefined;
+    const ambiguous = koreanHour && !hadMeridiem && hour >= 1 && hour <= 11;
+    out.push({ hour, min, raw: m[0].trim(), index: m.index, ambiguous });
   }
   return out;
 }
@@ -107,10 +117,21 @@ function sceneTimeOf(paragraph) {
 //
 // 제목의 시각이 전부 장면 시계인 것은 아니다 — 「8. 22시라는 숫자」 ·
 // 「10. 어젯밤 20시」 · 「6. 21시 28분부터 47분까지」는 **이야기 중인** 시각이다.
-// 「N. [장소,] <시각>[무렵|쯤|경]」으로 **끝나는** 꼴만 장면 라벨로 본다.
-// 93편을 통틀어 이렇게 걸러지는 제목이 아홉 개뿐이라 경계가 깨끗하다.
-const TITLE_SCENE =
-  /^\s*\d+\.\s*(?:[^,]*,\s*)?(?:(?:다음\s*날|이튿날|그날)\s*)?(?:(새벽|이른 아침|아침|오전|한낮|낮|오후|해질녘|초저녁|저녁|한밤중|한밤|심야|자정|동틀 무렵|밤)\s*)?(?:(\d{1,2})\s*(?::(\d{2})|시(?:\s*(\d{1,2})\s*분)?))?\s*(?:무렵|쯤|경|께)?\s*$/;
+// 그래서 **시각만으로 이루어진 토막**만 장면 라벨로 본다.
+//
+// 한때 이것을 「제목이 시각으로 **끝나는** 꼴」로 잡았는데, 그러면 이 폴더에
+// 흔한 **「N. <시각> — <장소>」가 통째로 안 잡힌다**(2026-09-23 쪽지
+// `wizardly-hamilton-dh2hqo`, 2026-09-26 실측으로 확인). 재 보니 **제목에
+// 시각을 적고도 장면 시각이 하나도 안 잡히는 편이 11편**이고, 그 편들은
+// 역행 검사와 진입 시각 검사가 **통째로 안 돈 채 「이상 없음」**이 나왔다
+// (일부러 역행을 넣어 시험해도 아무것도 안 나왔다). 꼬리가 붙어 일부 장만
+// 새던 편이 25편 더 있다.
+//
+// 그래서 제목을 **구분자(`—`·`–`·`-`·`,`·`·`)로 토막 내고 토막마다** 본다.
+// 경계는 그대로다 — 「22시라는 숫자」는 토막 전체가 시각이 아니라 여전히
+// 안 걸리고, 「어젯밤 20시」도 `어젯`이 남아 안 걸린다.
+const TITLE_LABEL =
+  /^(?:(다음\s*날|이튿날|그날)\s*)?(?:(새벽|이른 아침|아침|오전|한낮|낮|오후|해질녘|초저녁|저녁|한밤중|한밤|심야|자정|동틀 무렵|밤)\s*)?(?:(\d{1,2})\s*(?::(\d{2})|시(?:\s*(\d{1,2})\s*분)?))?\s*(?:무렵|쯤|경|께)?$/;
 
 // 시간대 말만 있는 제목(「원장 개인 다실, 낮」)은 **점이 아니라 구간**이다.
 // 점으로 눌러 버리면 「오전 7시 30분」 다음의 「아침」이 5시로 읽혀 거짓
@@ -122,24 +143,35 @@ const TITLE_BAND = {
   "한밤중": [21, 29], "심야": [21, 29], "자정": [22, 26], "동틀 무렵": [4, 8],
 };
 
-/** 장 제목에서 장면 시각을 뽑는다. 숫자면 점, 시간대 말뿐이면 구간. */
+/**
+ * 장 제목에서 장면 시각을 뽑는다. 숫자면 점, 시간대 말뿐이면 구간.
+ *
+ * 「다음 날」·「이튿날」은 **버리지 않고 하루로 읽는다**(`nextDay`). 버리던
+ * 동안 「저녁 8시 → 다음 날 아침 9시」가 자정 넘김 어림(직전이 저녁이고
+ * 지금이 6시 전일 때만 하루를 올린다)에 안 걸려 **거짓 역행**이 났다.
+ */
 function titleTimeOf(title) {
-  const m = title.match(TITLE_SCENE);
-  if (!m) return null;
-  const [, word, h, mm1, mm2] = m;
-  if (h !== undefined) {
-    let hour = +h;
-    const min = mm1 !== undefined ? +mm1 : mm2 !== undefined ? +mm2 : 0;
-    if (hour > 24 || min > 59) return null;
-    if (word && /오후|저녁|밤|한밤|심야|해질녘|초저녁/.test(word) && hour < 12) hour += 12;
-    // 「낮 1시」= 13시, 「낮 12시」= 12시.
-    if (word && /낮/.test(word) && hour >= 1 && hour <= 5) hour += 12;
-    if (hour === 24) hour = 0;
-    return { hour, min, raw: title.trim(), band: null };
-  }
-  if (word && TITLE_BAND[word]) {
-    const [lo, hi] = TITLE_BAND[word];
-    return { hour: lo, min: 0, raw: title.trim(), band: [lo, hi] };
+  const body = title.trim().replace(/^\s*\d+\.\s*/, "");
+  if (body === title.trim()) return null; // 「N.」으로 시작하지 않으면 장 제목이 아니다
+  for (const piece of body.split(/\s*[—–]\s*|\s*[,·]\s*|\s+-\s+/)) {
+    const m = piece.trim().match(TITLE_LABEL);
+    if (!m) continue;
+    const [, dayWord, word, h, mm1, mm2] = m;
+    const nextDay = /다음\s*날|이튿날/.test(dayWord ?? "") ? 1 : 0;
+    if (h !== undefined) {
+      let hour = +h;
+      const min = mm1 !== undefined ? +mm1 : mm2 !== undefined ? +mm2 : 0;
+      if (hour > 24 || min > 59) continue;
+      if (word && /오후|저녁|밤|한밤|심야|해질녘|초저녁/.test(word) && hour < 12) hour += 12;
+      // 「낮 1시」= 13시, 「낮 12시」= 12시.
+      if (word && /낮/.test(word) && hour >= 1 && hour <= 5) hour += 12;
+      if (hour === 24) hour = 0;
+      return { hour, min, raw: title.trim(), band: null, nextDay };
+    }
+    if (word && TITLE_BAND[word]) {
+      const [lo, hi] = TITLE_BAND[word];
+      return { hour: lo, min: 0, raw: title.trim(), band: [lo, hi], nextDay };
+    }
   }
   return null;
 }
@@ -185,6 +217,18 @@ function parseMasterTime(s) {
 
 const toMinutes = (t) => t.day * 1440 + t.hour * 60 + t.min;
 const hhmm = (h, m) => `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+
+/** 한 장의 본문이 그 시각에 닿는가 — 「오후 10시 35분」·「22:35」 둘 다 본다. */
+function sceneReachesTime(section, t) {
+  for (const m of section.matchAll(TIME_RE)) {
+    const h = m[1] !== undefined ? +m[1] : m[3] !== undefined ? +m[3] : +m[4];
+    const min = m[2] !== undefined ? +m[2] : m[5] !== undefined ? +m[5] : 0;
+    if (min !== t.min) continue;
+    // 소설은 12시간제로 적고(「오후 10시 35분」) 마스터는 24시간제다.
+    if (h === t.hour || h + 12 === t.hour) return true;
+  }
+  return false;
+}
 
 /** 마스터 전체에서 언급되는 모든 "HH:MM"을 모은다(본문 문자열 포함). */
 function collectMasterClock(master) {
@@ -270,9 +314,8 @@ function checkNovel(novelFile) {
   // 장면 시각은 `## N. 제목` 바로 다음 문단에만 선다. 본문 중간에서 시각으로
   // 시작하는 문단은 기록을 옮겨 적거나("22:00 — 자동에서 수동.") 탐정이 시각을
   // 따지는 자리라("21:20에 퇴근한 사람도 아니다") 흐름과 무관하다.
-  const scenes = body
-    .split(/^##\s+/m)
-    .slice(1)
+  const sections = body.split(/^##\s+/m).slice(1);
+  const scenes = sections
     .map((section, chapter) => {
       const paragraphs = section.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
       // 제목 줄이 먼저다 — 93편 전부가 거기에 시간표를 적는다. 첫 문단의
@@ -313,12 +356,21 @@ function checkNovel(novelFile) {
   let prevRawHour = entry ? entry.hour : 0;
   for (const t of scenes.filter((x) => !isFlashback(x))) {
     let cur = day * 1440 + t.hour * 60 + t.min;
-    // 자정을 넘긴 경우: 새벽으로 돌아왔으면 날짜를 하나 올려 본다.
-    // **직전 장이 저녁일 때만 올린다.** 조건이 「새벽으로 돌아왔으면」뿐이면
-    // 새벽 장이 이어질 때마다 다시 걸려 하루씩 밀어 올리고, 그러면 역행이
-    // 통째로 덮인다 — 「새벽 4시 → 새벽 1시」가 이틀에 걸친 것으로 읽혔다.
-    // 자정은 한 번만 넘는다.
-    if (prev !== null && cur < prev && t.hour < 6 && prevRawHour >= 18) {
+    // **제목이 「이튿날」이라고 적었으면 그 말을 믿는다.** 아래 자정 넘김
+    // 어림은 「직전이 저녁이고 지금이 6시 전」일 때만 도는데, 「저녁 8시 →
+    // 이튿날 아침 9시」는 그 조건에 안 걸려 거짓 역행이 났다(2026-09-26
+    // 실측 — 217·228·233·234 넷에서 여섯 건). **모자랄 때만 올린다**:
+    // 이튿날 장이 연달아 와도 두 번 올리지 않고, 이미 앞선 장이 자정을
+    // 넘겨 뒀으면 그대로 둔다.
+    if (t.nextDay && prev !== null && cur <= prev) {
+      day += 1;
+      cur += 1440;
+    } else if (prev !== null && cur < prev && t.hour < 6 && prevRawHour >= 18) {
+      // 자정을 넘긴 경우: 새벽으로 돌아왔으면 날짜를 하나 올려 본다.
+      // **직전 장이 저녁일 때만 올린다.** 조건이 「새벽으로 돌아왔으면」뿐이면
+      // 새벽 장이 이어질 때마다 다시 걸려 하루씩 밀어 올리고, 그러면 역행이
+      // 통째로 덮인다 — 「새벽 4시 → 새벽 1시」가 이틀에 걸친 것으로 읽혔다.
+      // 자정은 한 번만 넘는다.
       day += 1;
       cur += 1440;
     }
@@ -333,15 +385,40 @@ function checkNovel(novelFile) {
 
   /* 3. 오프닝이 진입 시각과 맞는가
      1장이 시각 없이 산문으로 열리는 것은 정상이므로(마스터 오프닝이 그런 경우가
-     있다) 1장에 시각이 찍혀 있을 때만 본다. */
+     있다) 1장에 시각이 찍혀 있을 때만 본다.
+
+     **1장이 진입보다 일찍 열리는 것은 정상일 수 있다.** `detective_entry_type`이
+     「이미 그 자리에 있었다」류면(초대받아 앉아 있었다·마감을 기다리고 있었다)
+     소설은 탐정이 **기다리는 데서** 열고 사건이 터지는 순간에 닿는다 —
+     CASE302 의 1장은 「밤 8시 30분」에 회중시계를 찾으러 서 있다가
+     「두 시간 남짓 흐른 오후 10시 35분」에 비명을 듣는데, 그 10시 35분이
+     마스터의 진입 시각이다. CASE190 도 같다(1장 4시 32분, 진입 4시 40분이
+     같은 장 안에 있다). 그래서 **1장이 이르면 그 장 안에서 진입 시각에
+     닿는지**를 보고, 닿으면 넘긴다. 1장이 진입보다 **늦은** 것은 그대로
+     경고다 — 소설이 진입 자체를 건너뛴 것이다. */
   if (entry && scenes.length && scenes[0].chapter === 0) {
     const first = scenes[0];
-    if (first.hour !== entry.hour || first.min !== entry.min) {
-      add(
-        "warn",
-        "ENTRY_TIME_MISMATCH",
-        `첫 장면 시각 "${first.raw}"이 진입 시각 ${hhmm(entry.hour, entry.min)}과 다르다.`,
-      );
+    // **구간 제목(「자정」·「이른 아침」)은 점과 견주지 않는다 — 품는지만 본다.**
+    // 구간의 `hour` 는 아래끝일 뿐이라 점으로 읽으면 「자정」(22~26시)이 22시가
+    // 되어 진입 00:06 과 다르다고 운다. 2026-09-26 에 제목 읽기를 고쳐 이
+    // 편들이 처음 검사에 들어오자마자 그 꼴로 둘 나왔다(208·213). 자정을
+    // 넘는 구간이 있으므로 +24 도 같이 본다.
+    const bandHolds =
+      first.band &&
+      ((entry.hour >= first.band[0] && entry.hour <= first.band[1]) ||
+        (entry.hour + 24 >= first.band[0] && entry.hour + 24 <= first.band[1]));
+    if (!bandHolds && (first.hour !== entry.hour || first.min !== entry.min)) {
+      const firstMin = first.hour * 60 + first.min;
+      const entryMin = entry.hour * 60 + entry.min;
+      const reachesEntry =
+        firstMin < entryMin && sceneReachesTime(sections[0] ?? "", entry);
+      if (!reachesEntry) {
+        add(
+          "warn",
+          "ENTRY_TIME_MISMATCH",
+          `첫 장면 시각 "${first.raw}"이 진입 시각 ${hhmm(entry.hour, entry.min)}과 다르다.`,
+        );
+      }
     }
   }
 
@@ -361,11 +438,16 @@ function checkNovel(novelFile) {
   // 그중 CASE019 의 표건우 도착 06:20 은 `R01.how_to_clear` 가 「도착 시각을
   // 대조한다」고 부르는데 마스터 어디에도 그 시각이 없는 자리였다. 그래서 둘로
   // 가른다 — 적혀 있으면 TIME_NOT_IN_MASTER(확인됐다는 뜻), 없으면 TIME_UNRECORDED.
+  // **12시간 뒤집기는 모호한 표기에만 준다**(2026-09-24). 전에는 노트의 모든
+  // 시각에 ±12 변형을 같이 넣어서, 그 절에 `21:45` 가 적혀 있으면 소설 본문의
+  // `09:45` 까지 「적혀 있다」로 통과했다 — 여덟 자리가 그렇게 새고 있었다.
+  // 그렇다고 확장을 통째로 빼면 멀쩡한 것이 깨진다: 노트는 표 칸이라 짧게
+  // 「8시 45분」이라고만 적는 일이 잦고(CASE142 의 20:45, CASE187 의 21:51),
+  // 그건 파서가 08:45·09:51 로 읽는다. 그래서 **앞말 없는 1~11시**만 뒤집는다.
   const notesClock = new Set(
     extractTimes(cut === -1 ? "" : raw.slice(cut)).flatMap((t) => {
       const keys = [hhmm(t.hour, t.min)];
-      if (t.hour < 12) keys.push(hhmm(t.hour + 12, t.min));
-      else keys.push(hhmm(t.hour - 12, t.min));
+      if (t.ambiguous) keys.push(hhmm(t.hour + 12, t.min));
       return keys;
     }),
   );

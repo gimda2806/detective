@@ -1452,6 +1452,14 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 }
 
 /* 접힌 갈래. 줄을 긋고 눌리지 않게 하되 **자리에는 남긴다**. */
+/* 떠올리게 한 말이 아직 수첩에 없는 후보 — 접힌 것과 달리 줄을 긋지 않는다. */
+.hyp-candidate--locked {
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .hyp-candidate--refuted {
   border-style: dashed;
   background: transparent;

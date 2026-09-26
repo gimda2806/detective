@@ -7,49 +7,71 @@
     "detective_entry_type": "legal_or_official_obligation",
     "detective_entry": "탐정이 시 소비자분쟁조정위원회 위원으로 위촉돼, 신단비가 제기한 자개 문갑 수리 지연 클레임의 현장확인 절차를 밟기 위해 공방을 방문한다.",
     "tone": "씁쓸한 여운이 남는 생활밀착형 하드보일드",
-    "tags": ["목공_복원공방", "재개발구역", "가업승계"],
-    "location_archetypes": ["craft_wood", "craft_restoration"],
+    "tags": [
+      "목공_복원공방",
+      "재개발구역",
+      "가업승계"
+    ],
+    "location_archetypes": [
+      "craft_wood",
+      "craft_restoration"
+    ],
     "background": {
-      "background_archetypes": ["inheritance"],
-      "background_phrasing": ["amid"],
+      "background_archetypes": [
+        "inheritance"
+      ],
+      "background_phrasing": [
+        "amid"
+      ],
       "background_intensity": "central"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:40",
     "location_id": "L01",
     "narrative": "공방 문을 열고 들어서자 다락으로 이어지는 계단 아래로 구급대원들이 분주히 움직이고 있었다.\n\n한지우가 계단 난간을 힐끗 보며 낮게 말했다.\n\n\"조정 현장확인차 왔는데, 분위기가 심상치 않은데요.\"\n\n\"그러게. 일단 상황부터 보자.\"\n\n탐정이 대꾸하며 안으로 들어서자, 계단 아래 쓰러져 있던 서지한이 들것에 실려 옮겨지고 있었다.\n\n동생이라는 남자가 창백한 얼굴로 구급대원 곁을 서성이며 두서없이 상황을 설명하고 있었다.\n\n한지우가 그 모습을 지켜보다 탐정에게 다가와 속삭였다.\n\n\"저 사람, 우리가 여기 온 이유랑은 상관없는 사람 같은데요.\"\n\n\"상관없어도 지금은 여기 있잖아. 눈은 열어 둬.\""
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "다락 도구걸이엔 여전히 나무 부스러기 냄새가 배어 있었다. 유겨울은 오랫동안 비어 있는 작업대만 바라보다 입을 열었다.\n\n\"형이 서명만 해줬으면... 저도 이렇게까지는 안 갔어요.\"\n\n목소리가 떨렸다.\n\n\"지분은 저한테도 있는 건데, 형은 늘 저를 그냥 도와주는 사람 취급했어요. 그날도 서명 얘기를 꺼내니까 또 비웃길래, 순간 눈이 돌았습니다.\"\n\n한지우가 조용히 말했다.\n\n\"그래도 그게 사람 목숨보다 중요한 일은 아니었잖아요.\"\n\n유겨울은 아무 대답도 하지 못한 채 고개를 떨궜다.\n\n한편 백결이 그날 서둘러 다녀간 매각 조건과 그 개발업체의 영업 방식은, 이 사건과는 별개로 재개발조합 차원에서 다시 들여다봐야 할 문제로 남았다.\n\n공방을 나서는 길, 신단비가 여전히 접수증을 손에 쥔 채 두 사람을 붙잡았다.\n\n\"그, 제 문갑은... 이제 어떻게 되는 건가요?\"\n\n한지우가 픽 웃으며 탐정을 돌아봤다.\n\n\"이것도 우리 담당인가요?\"\n\n\"아니. 근데 오늘은 그냥 대신 물어봐 주자.\"\n\n탐정이 신단비를 향해 몸을 돌리며 말했다."
   },
-
   "surface_incident": [
     "고재문 공방 공동 운영자 서지한(43)이 다락 계단 아래에서 두부 손상을 입은 채 쓰러져 발견돼 병원으로 옮겨졌으나 끝내 숨졌다.",
     "경찰은 노후 계단 난간 파손에 따른 실족사로 추정하고 있다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "유겨울은 4년 전 아버지에게서 이복형 서지한과 공방을 공동으로 상속받았지만, 최근 재개발조합 편입으로 건물 시세가 크게 뛰자 지분을 현금화하고 싶어 했다. 그러나 공방을 끝까지 지키려는 서지한이 매각 동의서 서명을 거부하며 시간을 끌자, 이대로면 자신의 지분이 영영 묶여버릴 거라는 조급함이 점점 형에 대한 원망으로 번져 결국 살해를 결심하게 된다.",
     "method": "사고 당일 저녁, 유겨울이 다락에서 서지한에게 매각 동의서 서명을 다시 요구하다 격한 언쟁 끝에 도구걸이에 있던 나무망치로 서지한의 뒤통수를 가격해 그 자리에서 절명시킨다. 이후 시신을 계단 초입까지 끌어다 놓고, 계단 난간 고정 볼트를 손으로 풀어 헐거워진 난간을 붙잡다 굴러떨어진 사고처럼 보이게 꾸민다.",
     "key_time_location": "결정적 가격은 사고 당일 19시경 L02 다락에서 벌어지고, 시신 이동과 난간 조작은 같은 곳에서 19시 10분부터 19시 12분 사이에 이어진다.",
     "cover_up": "유겨울은 흉기로 쓴 나무망치를 하역장 목재 폐기함 밑에 숨기고, 자신이 직접 119에 신고해 형이 계단에서 굴러떨어진 것 같다고 진술하며, 이후에도 계단이 예전부터 부실했다고 거듭 주장해 노후 시설 사고라는 인상을 굳히려 한다.",
-    "method_archetypes": ["blunt_force", "staging_cover_up"],
-    "motive_archetypes": ["development_profit", "ownership_dispute"],
-    "cover_up_target": ["cause_of_death", "weapon"],
-    "cover_up_method": ["false_accident", "body_movement", "weapon_disposal"]
+    "method_archetypes": [
+      "blunt_force",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "development_profit",
+      "ownership_dispute"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "weapon"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "body_movement",
+      "weapon_disposal"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "4년 전 봄",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "서지한과 유겨울이 아버지 명의의 공방을 공동으로 상속받는 상속재산분할협의서에 나란히 서명한다.",
       "world_fact": "그 상속재산분할협의서 사본은 지금도 공방 사무실 서류함 맨 아래 칸에 보관돼 있다."
     },
@@ -57,7 +79,9 @@
       "id": "T02",
       "time": "사고 3주 전 저녁",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 몰래 작성한 매각 동의서 초안을 서지한의 책상 위에 올려둔다.",
       "world_fact": "유겨울이 작성한 그 매각 동의서 초안은 지금도 서지한의 책상 서랍 안에 서명 없이 남아 있다."
     },
@@ -65,7 +89,10 @@
       "id": "T03",
       "time": "사고 열흘 전 오후",
       "location": "L04",
-      "actors": ["CH01", "CH04"],
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
       "actual_action": "백결이 유겨울을 찾아와 재개발로 오른 건물 시세를 근거로 형 설득을 부추기는 개별 매각 조건을 제시한다.",
       "world_fact": "백결이 그날 건넨 매각 조건 요약서 사본은 유겨울의 차량 안에 여전히 보관돼 있다."
     },
@@ -73,7 +100,10 @@
       "id": "T04",
       "time": "사고 5일 전 오후",
       "location": "L01",
-      "actors": ["CH05", "CH02"],
+      "actors": [
+        "CH05",
+        "CH02"
+      ],
       "actual_action": "신단비가 기한을 크게 넘긴 자개 문갑 수리 건으로 소비자분쟁조정 신청서를 접수한다.",
       "world_fact": "신단비가 그날 접수한 조정 신청서 사본은 시 소비자분쟁조정위원회에 남아 있다."
     },
@@ -81,7 +111,10 @@
       "id": "T05",
       "time": "사고 당일 18시",
       "location": "L01",
-      "actors": ["CH01", "CH04"],
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
       "actual_action": "백결이 최종 매각 조건서를 들고 다시 찾아와 유겨울에게 건넨다.",
       "world_fact": "백결은 서류를 건넨 뒤 18시 10분경 서둘러 공방을 떠났다."
     },
@@ -89,7 +122,9 @@
       "id": "T06",
       "time": "사고 당일 18시",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조민준이 다락 조명을 끄고 퇴근 정리를 마친다.",
       "world_fact": "조민준이 그날 마지막으로 확인한 다락 조명 스위치는 꺼진 채였다."
     },
@@ -97,14 +132,19 @@
       "id": "T07",
       "time": "사고 당일 18시 50분",
       "location": "L02",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "유겨울이 다락에서 서지한과 매각 동의서 서명 문제로 언쟁한다."
     },
     {
       "id": "T08",
       "time": "사고 당일 18시 52분",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "조민준이 퇴근길에 계단 아래서 언쟁 소리를 듣는다.",
       "world_fact": "조민준이 그때 들은 언쟁 소리는 다락 계단 위쪽에서 흘러나오고 있었다."
     },
@@ -112,7 +152,9 @@
       "id": "T09",
       "time": "사고 당일 19시",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 격분해 도구걸이의 나무망치로 서지한의 뒤통수를 가격한다.",
       "world_fact": "유겨울이 휘두른 그 일격에 서지한은 그 자리에서 절명했다."
     },
@@ -120,14 +162,18 @@
       "id": "T10",
       "time": "사고 당일 19시 10분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 서지한의 시신을 계단 초입까지 끌어다 놓는다."
     },
     {
       "id": "T11",
       "time": "사고 당일 19시 12분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 계단 난간 고정 볼트를 손으로 풀어 헐겁게 만든다.",
       "world_fact": "유겨울이 그때 풀어놓은 난간 고정 볼트는 계단 초입 난간 기둥 아래쪽에 헐겁게 걸쳐진 채로 남아 있다."
     },
@@ -135,7 +181,9 @@
       "id": "T12",
       "time": "사고 당일 19시 15분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 나무망치를 하역장 목재 폐기함 밑에 숨긴다.",
       "world_fact": "유겨울이 숨긴 그 나무망치는 지금도 하역장 목재 폐기함 바닥 밑에 놓여 있다."
     },
@@ -143,18 +191,21 @@
       "id": "T13",
       "time": "사고 당일 19시 30분",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유겨울이 형이 계단에서 굴러떨어진 것 같다고 119에 신고한다."
     },
     {
       "id": "T14",
       "time": "사고 당일 19시 40분",
       "location": "L01",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "신단비가 예정된 조정 현장확인 시각에 맞춰 도착한다."
     }
   ],
-
   "key_figures": [
     {
       "id": "V01",
@@ -163,7 +214,6 @@
       "status": "deceased"
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -175,25 +225,33 @@
           "fact_id": "F-CH01-01",
           "content": "사고 당일 18시 50분경 다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁을 벌였다.",
           "source": "본인 행동",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "서지한의 시신을 계단 초입까지 끌어다 놓고 난간 고정 볼트를 직접 손으로 풀었다.",
           "source": "본인 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "흉기로 쓴 나무망치를 하역장 목재 폐기함 밑에 숨겼다.",
           "source": "본인 행동",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-05",
           "content": "지분을 현금화하지 못할 거라는 조급함과 매각 압박에 격분해, 다락에서 도구걸이의 나무망치로 서지한의 뒤통수를 가격해 살해했다.",
           "source": "본인 행동",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -216,7 +274,11 @@
           "reason_for_limit_or_lie": "살해 사실과 동기를 숨기려는 최종 부인."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -264,13 +326,17 @@
           "fact_id": "F-CH02-01",
           "content": "퇴근 준비를 하다 계단 아래서 유겨울과 서지한이 언성을 높이는 소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "그날 18시 10분경 백결이 서류를 챙겨 서둘러 공방을 나서는 것을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -290,7 +356,11 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "다락 안에서 정확히 무슨 일이 있었는지는 보지 못했다.",
@@ -336,7 +406,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "사고 당일 저녁 공방에 없었기 때문에 그 시간에 정확히 무슨 일이 있었는지는 모른다."
@@ -362,7 +435,9 @@
           "fact_id": "F-CH04-01",
           "content": "그날 18시경 유겨울에게 최종 매각 조건서를 건네고 18시 10분경 공방을 떠났다.",
           "source": "본인 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -377,7 +452,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "유겨울이 그날 밤 실제로 무슨 일을 벌였는지는 전혀 모른다."
@@ -403,7 +481,9 @@
           "fact_id": "F-CH05-01",
           "content": "닷새 전 자개 문갑 수리가 기한을 크게 넘겨 소비자분쟁조정 신청서를 접수했다.",
           "source": "본인 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -418,7 +498,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "형제 사이의 갈등이나 사고 경위에 대해서는 전혀 아는 바가 없다."
@@ -435,14 +518,17 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "공방 작업장",
       "access": "영업시간 중 손님도 드나들 수 있는 1층 작업 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "각종 목공 도구와 복원 중인 가구들이 놓인 1층 작업 공간으로, 안쪽 다락 계단과 사무실, 하역장으로 이어지는 통로가 나 있다.",
       "observation_rules": [],
       "detail_rules": []
@@ -452,7 +538,9 @@
       "name": "다락 자재보관실",
       "access": "직원만 상시 출입하는 자재 보관 및 작업 준비 공간으로, 계단으로 1층과 연결된다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "원목 자재가 쌓인 다락 공간으로, 사고 이후 계단 초입이 통제줄로 막혀 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -468,7 +556,9 @@
       "name": "사무실 겸 서류실",
       "access": "직원만 드나드는 사무 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "상속 서류와 거래 장부가 쌓인 좁은 사무 공간으로, 책상 하나와 서류함이 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -484,7 +574,9 @@
       "name": "하역장",
       "access": "배송 차량이 드나드는 뒤편 하역 공간으로, 직원과 배송업체만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "목재 자재와 폐기물이 쌓인 뒤편 하역장.",
       "observation_rules": [],
       "detail_rules": [
@@ -496,7 +588,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -505,10 +596,18 @@
       "found_at": "L02",
       "discovery_condition": "다락 계단 난간을 자세히 살펴본다",
       "content": "계단 초입 난간 기둥을 고정하는 볼트가 나사산은 멀쩡한 채로 손힘만으로 빠질 만큼 헐겁게 걸쳐져 있고, 공구로 깎이거나 부식된 흔적은 전혀 없다.",
-      "related_timeline": ["T11"],
-      "proves": ["누군가 사고 직전 난간 고정 볼트를 손으로 일부러 풀어놓았다"],
-      "does_not_prove": ["그것이 유겨울의 소행이라는 것"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T11"
+      ],
+      "proves": [
+        "누군가 사고 직전 난간 고정 볼트를 손으로 일부러 풀어놓았다"
+      ],
+      "does_not_prove": [
+        "그것이 유겨울의 소행이라는 것"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -517,10 +616,19 @@
       "found_at": "L04",
       "discovery_condition": "하역장 목재 폐기함 속을 뒤져본다",
       "content": "목재 폐기함 바닥 밑에 나무망치 한 자루가 숨겨져 있고, 망치 머리 부분에 마른 혈흔과 짧은 머리카락 몇 가닥이 엉겨붙어 있다.",
-      "related_timeline": ["T09", "T12"],
-      "proves": ["이 나무망치가 실제 흉기로 쓰였다"],
-      "does_not_prove": ["누가 이것을 사용했는지"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T09",
+        "T12"
+      ],
+      "proves": [
+        "이 나무망치가 실제 흉기로 쓰였다"
+      ],
+      "does_not_prove": [
+        "누가 이것을 사용했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -529,10 +637,18 @@
       "found_at": "L01",
       "discovery_condition": "조민준에게 그날 저녁 계단 쪽에서 들은 소리를 묻는다",
       "content": "조민준은 퇴근 준비를 하던 중 다락 계단 아래서 유겨울과 서지한이 언성을 높이는 소리를 들었다고 진술한다.",
-      "related_timeline": ["T08"],
-      "proves": ["유겨울이 사고 직전 서지한과 다락에서 언쟁했다"],
-      "does_not_prove": ["그 언쟁이 폭력으로 이어졌는지"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T08"
+      ],
+      "proves": [
+        "유겨울이 사고 직전 서지한과 다락에서 언쟁했다"
+      ],
+      "does_not_prove": [
+        "그 언쟁이 폭력으로 이어졌는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -541,9 +657,15 @@
       "found_at": "L01",
       "discovery_condition": "조민준에게 그날 저녁 백결의 방문 시간을 묻는다",
       "content": "조민준은 그날 18시 10분경 백결이 서류를 챙겨 서둘러 공방을 나서는 것을 봤다고 진술한다.",
-      "related_timeline": ["T05"],
-      "proves": ["백결이 사고 발생 훨씬 전에 이미 공방을 떠났다"],
-      "does_not_prove": ["그가 그 이후 다시 돌아오지 않았다는 것까지 증명하지는 않는다"],
+      "related_timeline": [
+        "T05"
+      ],
+      "proves": [
+        "백결이 사고 발생 훨씬 전에 이미 공방을 떠났다"
+      ],
+      "does_not_prove": [
+        "그가 그 이후 다시 돌아오지 않았다는 것까지 증명하지는 않는다"
+      ],
       "presentation_effect": []
     },
     {
@@ -553,10 +675,19 @@
       "found_at": "L03",
       "discovery_condition": "서지한의 책상 서랍을 조사한다",
       "content": "서랍 안에는 유겨울이 작성한 매각 동의서 초안이 서명 없이 들어 있고, 여백에는 '형, 이번엔 좀 생각해봐'라는 손글씨 메모가 붙어 있다.",
-      "related_timeline": ["T02"],
-      "proves": ["유겨울이 서지한에게 지속적으로 매각 서명을 요구해왔다"],
-      "does_not_prove": ["그가 그 문제로 형을 해쳤다는 것"],
-      "presentation_effect": ["C01", "C03"]
+      "related_timeline": [
+        "T02"
+      ],
+      "proves": [
+        "유겨울이 서지한에게 지속적으로 매각 서명을 요구해왔다"
+      ],
+      "does_not_prove": [
+        "그가 그 문제로 형을 해쳤다는 것"
+      ],
+      "presentation_effect": [
+        "C01",
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -565,60 +696,98 @@
       "found_at": "L01",
       "discovery_condition": "백결에게 유겨울에게만 별도로 제시한 매각 조건에 대해 묻는다",
       "content": "백결은 사고 당일 저녁 유겨울에게만 최종 매각 조건서를 개별적으로 건넸으며, 지분을 현금화하고 싶어 하는 쪽은 유겨울이었다고 진술한다.",
-      "related_timeline": ["T05"],
-      "proves": ["유겨울이 형과 별개로 매각을 강하게 원하고 있었다"],
-      "does_not_prove": ["그 조급함이 살해로 이어졌다는 것"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T05"
+      ],
+      "proves": [
+        "유겨울이 형과 별개로 매각을 강하게 원하고 있었다"
+      ],
+      "does_not_prove": [
+        "그 조급함이 살해로 이어졌다는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_argument",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E03", "E05"]
+        "evidence_ids": [
+          "E03",
+          "E05"
+        ]
       },
       "player_action": "유겨울이 '별다른 얘기 없었다'고 버틸 때, 조민준의 목격 증언(E03)과 서명 없이 남은 매각 동의서 초안(E05)을 함께 제시해 언쟁 정황을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "유겨울이 사고 직전 다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁했다는 사실을 인정한다. 다만 그 이후 무슨 일이 있었는지는 밝히지 않는다."
       },
-      "must_not_release": ["가격 사실", "난간 조작 사실", "동기"]
+      "must_not_release": [
+        "가격 사실",
+        "난간 조작 사실",
+        "동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_argument",
       "to_stage": "admits_staging",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E02"]
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
       },
       "player_action": "유겨울이 '계단이 원래 부실했다'고 버틸 때, 손으로 푼 흔적이 뚜렷한 난간 볼트(E01)와 혈흔이 남은 나무망치(E02)를 함께 제시해 사전 조작과 은닉 정황을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "유겨울이 계단 난간 고정 볼트를 직접 풀어 사고처럼 꾸미고 흉기로 쓴 나무망치를 숨겼다는 사실을 인정한다. 다만 직접 가격했는지는 여전히 얼버무린다."
       },
-      "must_not_release": ["직접 가격했다는 사실", "동기"]
+      "must_not_release": [
+        "직접 가격했다는 사실",
+        "동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_staging",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "유겨울이 '그냥 사고였다'고 버틸 때, 매각 동의서 초안(E05)과 백결의 증언(E06)을 함께 제시해 그가 형과 별개로 매각을 조급하게 원했던 정황을 지적한다.",
       "release": {
@@ -628,7 +797,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -637,14 +805,17 @@
       "how_to_clear": "조민준의 증언(E04)과 백결 본인의 진술을 통해 그가 사고 발생 훨씬 전인 18시 10분경 이미 공방을 떠났다는 사실을 확인한다.",
       "must_not_imply": "백결이 매각을 압박한 사실 자체가 거짓이라는 인상을 주어서는 안 된다 — 그가 유겨울에게 개별적으로 조건을 제시하며 형 설득을 부추긴 것은 실제 사실로 남는다.",
       "lingering_thread": "백결이 유겨울에게 개별적으로 제시했던 매각 조건과 그 개발업체의 영업 방식은, 이 사건과는 별개로 재개발조합 차원에서 다시 들여다봐야 할 문제로 남는다.",
-      "suspicion_deepener": "사고 당일 저녁 건물 앞에서 백결의 차량과 비슷한 차량이 늦게까지 서성였다는 이웃 상인의 부정확한 목격담이 돌며 한동안 그가 유력 용의자로 지목된다."
+      "suspicion_deepener": "사고 당일 저녁 건물 앞에서 백결의 차량과 비슷한 차량이 늦게까지 서성였다는 이웃 상인의 부정확한 목격담이 돌며 한동안 그가 유력 용의자로 지목된다.",
+      "character_id": "CH04"
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "4년 전 아버지에게서 공방을 공동으로 물려받은 이복형제, 서지한과 유겨울.",
       "public_face": "함께 가업을 잇는 형제 사이로 알려져 있다.",
       "private_strain": "유겨울은 재개발조합 편입으로 건물 시세가 크게 뛰자 지분을 현금화하고 싶어 했지만, 서지한이 매각 동의서 서명을 거부하며 시간을 끄는 것에 조급함과 원망을 품어왔다는 것을 먼저 꺼내지 않는다.",
@@ -655,7 +826,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "부부로 지내 온 배우자, 남하율과 서지한.",
       "public_face": "다정한 부부 사이로 알려져 있다.",
       "private_strain": "남하율은 남편이 끝까지 매각에 동의하지 않을 생각이었다는 것을 직접 들었다는 사실을 먼저 꺼내지 않는다.",
@@ -666,7 +840,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "재개발 시행사 영업 담당 백결과 매각을 거부해 온 공동 대표.",
       "public_face": "업무로 마주치는 시행사 직원과 대표 사이로 알려져 있다.",
       "private_strain": "백결은 그날 저녁 유겨울에게 최종 매각 조건서를 건네고 서둘러 공방을 나섰다는 것을 먼저 꺼내지 않는다.",
@@ -677,7 +854,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "오랜 세월 함께 일해 온 수석 목공과 공동 대표.",
       "public_face": "가장 오래 손발을 맞춘 직원과 대표 사이로 알려져 있다.",
       "private_strain": "조민준은 퇴근 준비를 하다 다락 계단 아래서 유겨울과 서지한이 언성을 높이는 소리를 들었다는 것을 먼저 말하지 않았다.",
@@ -688,7 +868,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "자개 문갑 수리를 맡긴 고객 신단비와 그 공방을 이끌어 온 대표.",
       "public_face": "수리를 맡긴 손님과 공방 대표로만 알려져 있다.",
       "private_strain": "신단비는 수리가 기한을 크게 넘겨 결국 소비자분쟁조정 신청서를 접수했다는 사실을 먼저 꺼내지 않는다.",
@@ -698,24 +881,29 @@
       }
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-03", "F-CH01-05"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-03",
+      "F-CH01-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-03",
       "motive_fact": "F-CH01-05"
     }
   },
-
   "final_deduction": {
     "responsible": "유겨울",
     "method": "사고 당일 저녁 다락에서 매각 동의서 서명 문제로 언쟁하다 격분해 나무망치로 서지한의 뒤통수를 가격해 살해한 뒤, 시신을 계단 초입으로 옮기고 난간 고정 볼트를 손으로 풀어 실족사처럼 꾸몄다.",
     "motive": "재개발로 치솟은 건물 시세를 현금화하고 싶었던 유겨울이, 매각에 끝내 동의하지 않으려던 서지한 때문에 지분이 영영 묶일 거라는 조급함에 살의를 품었다.",
     "key_connection": "조민준의 목격 증언(E03)과 서명 없는 매각 동의서 초안(E05)이 사고 직전의 언쟁을 확인시켰고, 손으로 푼 흔적이 뚜렷한 난간 볼트(E01)와 혈흔이 남은 나무망치(E02)가 사전 조작과 흉기를 증명했으며, 백결의 증언(E06)이 유겨울만의 조급한 매각 동기를 드러냈다."
   },
-
   "ending_explanation": [
     "유겨울은 재개발로 치솟은 건물 시세를 현금화하고 싶었지만, 공방을 끝까지 지키려는 서지한이 매각 동의서 서명을 거부하며 시간을 끌었다.",
     "지분이 영영 묶일 거라는 조급함이 원망으로 번져, 사고 당일 저녁 다락에서 서명을 다시 요구하다 격분해 나무망치로 서지한을 가격해 살해했다.",

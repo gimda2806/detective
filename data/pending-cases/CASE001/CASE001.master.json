@@ -8,7 +8,11 @@
     "detective_entry_type": "accompanying_someone",
     "detective_entry": "해마다 이 집 아카시아 꿀을 사는 한지우를 따라, 첫 채밀 날 아침 꿀을 받으러 산길을 올라왔다.",
     "tone": "산속 아침의 고요와 그 안에 오래 묵은 약속. 탐정과 한지우의 담담한 티키타카가 첫 사건의 무게를 받친다.",
-    "tags": ["양봉장", "아카시아", "첫채밀"],
+    "tags": [
+      "양봉장",
+      "아카시아",
+      "첫채밀"
+    ],
     "location_archetypes": [
       "agricultural_worksite"
     ],
@@ -246,6 +250,11 @@
         {
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E10",
           "release_trigger": "S-CH01-01"
         }
       ],
@@ -508,6 +517,11 @@
           "fact_or_claim_id": "F-CH04-03",
           "release_prerequisite": "E06",
           "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-02"
         }
       ],
       "knowledge_limits": [
@@ -1177,7 +1191,8 @@
       "how_to_clear": "서명란이 비어 있는 계약서(E06)와 정미래가 본 아침(E08)을 나란히 놓는다 — 아들이 원한 것은 오늘의 서명이었고, 쏘이기 직전 트럭 쪽에서 올라온 사람은 아들이 아니다.",
       "must_not_imply": "빚이 있다는 것만으로 그가 아버지의 죽음을 원했다고 단정하지 않는다.",
       "lingering_thread": "사건이 끝난 뒤 배준서에게는 벌통 60개와 서명되지 않은 계약서가 남는다. 벌은 이사를 못 시킨다.",
-      "suspicion_deepener": "배준서가 도로 보상 담당과 아버지 몰래 여러 번 통화했다는 것이 드러나면서 의심이 짙어진다."
+      "suspicion_deepener": "배준서가 도로 보상 담당과 아버지 몰래 여러 번 통화했다는 것이 드러나면서 의심이 짙어진다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -1186,7 +1201,8 @@
       "how_to_clear": "안수경의 진술(S-CH03-01)을 트럭 공구함의 펜과 트랩(E07), 과수원 쪽 면만 젖은 철망(E12)과 대조한다 — 그가 새벽에 있던 곳은 경계 건너 자기 밭이고, 없어진 것들은 벌지기의 트럭에 있었으며, 그가 뿌린 약은 벌밭 쪽으로 넘어간 적이 없다.",
       "must_not_imply": "고소 이야기가 오갔다는 것만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "도로가 나지 않으면 과수원과 벌집의 30년 싸움은 그대로 이어진다.",
-      "suspicion_deepener": "안수경이 오늘 새벽 바람이 벌밭 쪽으로 불 때 약을 뿌렸다는 말이 돌면서 의심이 커진다."
+      "suspicion_deepener": "안수경이 오늘 새벽 바람이 벌밭 쪽으로 불 때 약을 뿌렸다는 말이 돌면서 의심이 커진다.",
+      "character_id": "CH03"
     }
   ],
   "motives": [

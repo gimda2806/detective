@@ -8,37 +8,49 @@
     "detective_entry_type": "volunteer_or_helper",
     "detective_entry": "탐정은 몇 달째 '책등'의 기증도서 제본 봉사에 참여해 온 자원봉사자로, 그날도 한지우와 함께 작업대에 앉아 표지 작업을 돕고 있었다.",
     "tone": "오래된 인쇄소 골목의 차분한 공방 분위기와, 오랜 관계를 놓지 못한 집착이 서서히 드러나는 긴장감이 공존한다.",
-    "tags": ["고서적_복원공방", "헌책방_봉사", "치정"],
-    "location_archetypes": ["craft_restoration", "specialty_shop"],
+    "tags": [
+      "고서적_복원공방",
+      "헌책방_봉사",
+      "치정"
+    ],
+    "location_archetypes": [
+      "craft_restoration",
+      "specialty_shop"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation", "restoration_repair"],
-      "background_phrasing": ["on_the_day_of"],
+      "background_archetypes": [
+        "routine_operation",
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 20:10",
     "location_id": "L03",
     "narrative": "제본 작업실 한쪽 작업대에서 탐정과 한지우가 기증도서 표지를 다듬고 있을 때, 복도 쪽에서 다급한 외침이 들려온다.\n\n복원실 문 앞에 몰려든 사람들 사이로 들여다본 안쪽, 낡은 대형 재단기 옆에 안지율이 쓰러져 있다. 목 왼쪽으로 흘러나온 피가 바닥 나무결을 따라 번져 있고, 재단기의 안전 손잡이는 걸리지 않은 채 헐렁하게 늘어져 있다.\n\n한지우가 낮은 목소리로 중얼거린다.\n\n\"이거, 안전장치가 걸렸으면 안 일어났을 사고인데요.\"\n\n\"낡아서 그런 걸 수도 있고.\"\n\n탐정이 재단기를 살피며 답한다.\n\n\"아닐 수도 있고.\"\n\n한지우가 문고리를 살펴보며 고개를 젓는다.\n\n\"문은 안에서 잠겨 있었다는데, 그럼 얘기가 좀 복잡해지네요.\""
   },
-
   "ending_scene": {
     "location_id": "L05",
     "narrative": "사무실 안, 노다호는 책상 위에 흩어진 메시지 출력물과 봉사 일정표를 한동안 내려다보다 입을 열었다.\n\n\"...9일 전에 손잡이 잠금쇠를 풀어놨습니다.\"\n\n노다호가 낮게 말했다.\n\n\"낡은 기계니까, 사고처럼 보일 줄 알았어요. 지율이가 절 떠나겠다고 했을 때... 도저히 받아들일 수가 없었습니다. 그날 저녁 혼자 복원실에 있을 거란 것도, 일정표를 보고 알았고요.\"\n\n한지우는 아무 말 없이 수첩을 내려다보다 낮은 목소리로 물었다.\n\n\"그렇게까지 해서 붙잡고 싶었던 게, 정말 그 사람이었어요?\"\n\n노다호는 대답하지 못했다.\n\n공방을 나서는 길, 저녁 공기가 제법 차가웠다.\n\n한지우가 옷깃을 여미며 투덜거렸다.\n\n\"이번 달 제본 봉사는 이걸로 끝인 거죠? 다음 달엔 다른 데서 봐요, 진짜.\"\n\n\"또 나오게 될걸.\"\n\n탐정이 픽 웃으며 걸음을 옮겼다.\n\n헌책방 앞, 한로린은 안지율이 마무리하지 못한 원고를 조심스레 상자에 옮겨 담고 있었다. 남은 복원 작업은 자신이 끝까지 이어받겠다고, 그녀는 낮은 목소리로 되뇌었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "안지율", "role": "원로 복원사 / 공방 수석 복원가", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "안지율",
+      "role": "원로 복원사 / 공방 수석 복원가",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "사건 당일 20시 10분경 복원실에서 안지율이 재단기 옆에 쓰러진 채 발견됐다.",
     "안지율의 목 왼쪽에 깊은 열상이 있으며, 재단기 안전 손잡이가 걸리지 않은 상태였다.",
     "그날 저녁 공방에는 대표 노다호, 직원 우수윤, 자원봉사 코디네이터 서다준, 외부 방문자 한로린이 있었다.",
     "복원실 문은 안쪽에서 잠겨 있었고 외부인의 침입 흔적은 없었다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "노다호는 15년 가까이 안지율과 비밀 관계를 이어왔지만, 그녀가 다른 도시의 스튜디오로 옮기며 관계를 완전히 정리하겠다고 말하자 이를 받아들이지 못했다. 여러 차례 마음을 돌리려 했지만 거절당하자, 그는 그녀를 놓아줄 바에는 곁에 영원히 붙잡아 두겠다는 뒤틀린 결심을 굳혔다.",
@@ -46,65 +58,188 @@
     "key_time_location": "9일 전 낮, L03 복원실에서 안전 손잡이 손질 / 사건 당일 19시 15분, L03 복원실에서 재단기 낙하 사고.",
     "cover_up": "노다호는 낡은 장비의 오작동에 의한 단순 사고사로 보이도록 안전 손잡이를 원래 상태와 비슷하게 되돌려 놓았고, 사람들에게는 그날 저녁 계속 사무실에서 서류 작업을 했을 뿐이라고 말했다.",
     "accomplice": "없음",
-    "method_archetypes": ["machine_malfunction", "exsanguination"],
-    "motive_archetypes": ["obsession", "relationship_end"],
-    "cover_up_target": ["cause_of_death"],
-    "cover_up_method": ["false_accident", "scene_rearrangement"]
+    "method_archetypes": [
+      "machine_malfunction",
+      "exsanguination"
+    ],
+    "motive_archetypes": [
+      "obsession",
+      "relationship_end"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "scene_rearrangement"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "20일 전 오후", "location": "L01", "actors": ["V01"],
+    {
+      "id": "T01",
+      "time": "20일 전 오후",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "안지율이 한로린의 스튜디오로부터 정식 채용 제안을 수락한다.",
-      "world_fact": "안지율은 이 소식을 아직 아무에게도 알리지 않는다." },
-    { "id": "T02", "time": "17일 전 저녁", "location": "L05", "actors": ["V01"],
+      "world_fact": "안지율은 이 소식을 아직 아무에게도 알리지 않는다."
+    },
+    {
+      "id": "T02",
+      "time": "17일 전 저녁",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "안지율이 노다호의 사무실을 찾아가 두 사람의 관계를 완전히 정리하겠다고 말한다.",
-      "world_fact": "안지율은 다음 달 다른 도시로 옮길 거라는 사실도 함께 전한다." },
-    { "id": "T03", "time": "9일 전 낮", "location": "L03", "actors": ["CH02"],
+      "world_fact": "안지율은 다음 달 다른 도시로 옮길 거라는 사실도 함께 전한다."
+    },
+    {
+      "id": "T03",
+      "time": "9일 전 낮",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노다호가 복원실에서 낡은 대형 재단기의 안전 손잡이 잠금쇠를 혼자 점검하겠다며 우수윤을 다른 작업으로 돌려보낸다.",
-      "world_fact": "노다호는 그 직후 공용 공구함에서 특수 렌치를 챙겨 나간 뒤 창고에 돌려놓지 않는다." },
-    { "id": "T04", "time": "9일 전 늦은 오후", "location": "L06", "actors": ["CH03"],
+      "world_fact": "노다호는 그 직후 공용 공구함에서 특수 렌치를 챙겨 나간 뒤 창고에 돌려놓지 않는다."
+    },
+    {
+      "id": "T04",
+      "time": "9일 전 늦은 오후",
+      "location": "L06",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "우수윤이 창고에서 공구함을 정리하다 특수 렌치 하나가 자리에 없는 것을 발견한다.",
-      "world_fact": "우수윤은 대수롭지 않게 여기고 분실물 목록에만 짧게 적어 둔다." },
-    { "id": "T05", "time": "8일 전 오후", "location": "L02", "actors": ["CH01"],
+      "world_fact": "우수윤은 대수롭지 않게 여기고 분실물 목록에만 짧게 적어 둔다."
+    },
+    {
+      "id": "T05",
+      "time": "8일 전 오후",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "채재현이 제본 작업실에서 안지율과 오래된 가죽 표지의 화학 처리 방식을 두고 언성을 높이며 다툰다.",
-      "world_fact": "채재현은 그 다툼 직후 바로 지방 워크숍 일정으로 사흘간 지역을 떠난다." },
-    { "id": "T06", "time": "5일 전 오전", "location": "L01", "actors": ["CH05"],
+      "world_fact": "채재현은 그 다툼 직후 바로 지방 워크숍 일정으로 사흘간 지역을 떠난다."
+    },
+    {
+      "id": "T06",
+      "time": "5일 전 오전",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "한로린이 헌책방에 들러 안지율과 근로계약서 서명 일정을 사건 당일 저녁으로 잡는다.",
-      "world_fact": "한로린은 그 자리에서 계약서 사본 한 부를 안지율에게 미리 건넨다." },
-    { "id": "T07", "time": "3일 전 밤", "location": "L05", "actors": ["CH02"],
+      "world_fact": "한로린은 그 자리에서 계약서 사본 한 부를 안지율에게 미리 건넨다."
+    },
+    {
+      "id": "T07",
+      "time": "3일 전 밤",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노다호가 사무실 컴퓨터로 안지율에게 다시 생각해 달라는 메시지를 보낸다.",
-      "world_fact": "그 메시지에는 관계를 끝내면 공방 일도 예전 같지 않을 거라는 문장이 담긴다." },
-    { "id": "T08", "time": "사건 당일 오후", "location": "L02", "actors": ["CH04"],
+      "world_fact": "그 메시지에는 관계를 끝내면 공방 일도 예전 같지 않을 거라는 문장이 담긴다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 오후",
+      "location": "L02",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "서다준이 이번 달 기증도서 제본 봉사 일정표를 작성해 참가자들에게 나눠준다.",
-      "world_fact": "일정표에는 안지율이 저녁 마감 뒤 개인 소장 원고를 복원실에서 혼자 마무리할 거라는 메모가 적혀 있다." },
-    { "id": "T09", "time": "사건 당일 18시 50분", "location": "L03", "actors": ["CH02"],
+      "world_fact": "일정표에는 안지율이 저녁 마감 뒤 개인 소장 원고를 복원실에서 혼자 마무리할 거라는 메모가 적혀 있다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 18시 50분",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노다호가 복원실에 들어가 재단기 옆에서 잠시 서성이다 나온다.",
-      "world_fact": "복도에서 마주친 우수윤은 노다호가 그 시각 사무실에 있어야 한다고만 알고 있어 이상하게 여기지 않는다." },
-    { "id": "T10", "time": "사건 당일 19시", "location": "L03", "actors": ["V01"],
+      "world_fact": "복도에서 마주친 우수윤은 노다호가 그 시각 사무실에 있어야 한다고만 알고 있어 이상하게 여기지 않는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 19시",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "안지율이 봉사 마감 후 복원실에 홀로 남아 개인 소장 원고의 표지 재단 작업을 시작한다.",
-      "world_fact": "복원실 문은 안지율이 방해받지 않으려 안에서 걸어 잠근 상태다." },
-    { "id": "T11", "time": "사건 당일 19시 15분", "location": "L03", "actors": ["V01"],
+      "world_fact": "복원실 문은 안지율이 방해받지 않으려 안에서 걸어 잠근 상태다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19시 15분",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "안지율이 재단기 페달을 밟자 안전 손잡이가 걸리지 않은 날이 그대로 떨어져 내린다.",
-      "world_fact": "낙하한 날은 안지율의 목 왼쪽을 스치며 경동맥 부근에 깊은 열상을 남긴다." },
-    { "id": "T12", "time": "사건 당일 20시 10분", "location": "L03", "actors": ["CH04"],
+      "world_fact": "낙하한 날은 안지율의 목 왼쪽을 스치며 경동맥 부근에 깊은 열상을 남긴다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 20시 10분",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "서다준이 마감 정리를 위해 복원실을 확인하러 갔다가 쓰러진 안지율을 발견한다.",
-      "world_fact": "서다준은 즉시 소리쳐 다른 봉사자들을 부른다." }
+      "world_fact": "서다준은 즉시 소리쳐 다른 봉사자들을 부른다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "채재현", "role": "대표의 여동생 / 독립 북아티스트", "present_location": "L02",
+      "id": "CH01",
+      "name": "채재현",
+      "role": "대표의 여동생 / 독립 북아티스트",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "안지율과 화학 처리 방식을 두고 다퉜다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-02", "content": "다툼 직후부터 사건 당일까지 사흘간 지방 워크숍 현장에 있었다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "안지율과 화학 처리 방식을 두고 다퉜다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "다툼 직후부터 사건 당일까지 사흘간 지방 워크숍 현장에 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T05"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-00", "content": "오빠는요, 그게, 이 공방 하나만 보고 살아온 사람이에요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-01", "content": "며칠 전 작업 방식 문제로 다툰 건 맞지만, 그 직후부터 사건 당일까지 사흘 내내 지방 워크숍 현장에 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH01-00",
+          "content": "오빠는요, 그게, 이 공방 하나만 보고 살아온 사람이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "며칠 전 작업 방식 문제로 다툰 건 맞지만, 그 직후부터 사건 당일까지 사흘 내내 지방 워크숍 현장에 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-00", "S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-00",
+        "S-CH01-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["노다호가 재단기를 손봤다는 사실이나 두 사람의 관계는 전혀 모른다."],
+      "knowledge_limits": [
+        "노다호가 재단기를 손봤다는 사실이나 두 사람의 관계는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다",
         "sentence_length_tendency": "평소엔 설명이 긴 편이나 압박받으면 문장이 급격히 짧아진다",
@@ -117,15 +252,49 @@
       ]
     },
     {
-      "id": "CH02", "name": "노다호", "role": "공방 대표 / 창업주의 아들", "present_location": "L05",
+      "id": "CH02",
+      "name": "노다호",
+      "role": "공방 대표 / 창업주의 아들",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "안지율과 15년 가까이 비밀 관계를 이어왔고, 17일 전 그녀가 관계를 완전히 정리하겠다고 말했다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "9일 전 복원실 재단기 안전 손잡이 잠금쇠를 몰래 손봤다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-03", "content": "사건 당일 18시 50분경 복원실에 잠깐 들어갔다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "안지율과 15년 가까이 비밀 관계를 이어왔고, 17일 전 그녀가 관계를 완전히 정리하겠다고 말했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "9일 전 복원실 재단기 안전 손잡이 잠금쇠를 몰래 손봤다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사건 당일 18시 50분경 복원실에 잠깐 들어갔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업을 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "안지율과는 그냥 오래된 동료 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "관계를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 저녁엔 계속 사무실에서 서류 작업을 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "안지율과는 그냥 오래된 동료 사이였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "관계를 숨기기 위해서다."
+        },
         {
           "claim_id": "S-CH02-03",
           "content": "재단기 상태를 확인하러 갔을 뿐이에요.",
@@ -139,11 +308,26 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "E01", "release_trigger": "S-CH02-01" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C02", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "C02",
+          "release_trigger": "E04"
+        },
         {
           "fact_or_claim_id": "S-CH02-03",
           "release_prerequisite": "F-CH02-03",
@@ -155,7 +339,9 @@
           "release_trigger": "S-CH02-03"
         }
       ],
-      "knowledge_limits": ["한로린과 안지율 사이의 정확한 계약 조건은 모른다."],
+      "knowledge_limits": [
+        "한로린과 안지율 사이의 정확한 계약 조건은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 시종일관 유지한다",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 압박받으면 문장이 오히려 길어지며 변명이 늘어난다",
@@ -169,20 +355,54 @@
       ]
     },
     {
-      "id": "CH03", "name": "우수윤", "role": "복원 보조 / 5년차 직원", "present_location": "L02",
+      "id": "CH03",
+      "name": "우수윤",
+      "role": "복원 보조 / 5년차 직원",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "9일 전 창고 공구함에서 특수 렌치 하나가 사라진 것을 발견했다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "9일 전 창고 공구함에서 특수 렌치 하나가 사라진 것을 발견했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 평소처럼 정리하고 일찍 퇴근했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "며칠 전 공구함에서 특수 렌치 하나가 없어진 걸 발견해 분실물 대장에 적어뒀어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 저녁엔 평소처럼 정리하고 일찍 퇴근했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "며칠 전 공구함에서 특수 렌치 하나가 없어진 걸 발견해 분실물 대장에 적어뒀어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E02", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["노다호가 안전 손잡이를 왜 손봤는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "노다호가 안전 손잡이를 왜 손봤는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)",
         "sentence_length_tendency": "평소엔 또박또박 말하지만 압박받으면 말끝을 흐리고 문장이 짧아진다",
@@ -195,20 +415,54 @@
       ]
     },
     {
-      "id": "CH04", "name": "서다준", "role": "자원봉사 프로그램 코디네이터 / 최초 발견자", "present_location": "L02",
+      "id": "CH04",
+      "name": "서다준",
+      "role": "자원봉사 프로그램 코디네이터 / 최초 발견자",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오후 봉사 일정표에 안지율이 저녁에 혼자 복원 작업을 할 거라고 적어뒀다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "사건 당일 20시 10분 복원실에서 쓰러진 안지율을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오후 봉사 일정표에 안지율이 저녁에 혼자 복원 작업을 할 거라고 적어뒀다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 당일 20시 10분 복원실에서 쓰러진 안지율을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T12"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-00", "content": "봉사 프로그램 챙기는 게 은근히 할 일이 많아요, 그러니까요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-01", "content": "20시 10분쯤 마감 정리를 하러 복원실에 갔다가 쓰러진 안지율을 발견해 바로 사람들을 불렀어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-00",
+          "content": "봉사 프로그램 챙기는 게 은근히 할 일이 많아요, 그러니까요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-01",
+          "content": "20시 10분쯤 마감 정리를 하러 복원실에 갔다가 쓰러진 안지율을 발견해 바로 사람들을 불렀어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-00", "S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-00",
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["노다호와 안지율의 관계나 재단기 손질 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "노다호와 안지율의 관계나 재단기 손질 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)",
         "sentence_length_tendency": "평소 차분하게 조곤조곤 말하지만 그날 얘기가 나오면 문장이 뚝뚝 끊긴다",
@@ -221,18 +475,45 @@
       ]
     },
     {
-      "id": "CH05", "name": "한로린", "role": "타 지역 복원 스튜디오 대표 / 안지율의 새 고용주", "present_location": "L01",
+      "id": "CH05",
+      "name": "한로린",
+      "role": "타 지역 복원 스튜디오 대표 / 안지율의 새 고용주",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 저녁 안지율과 근로계약서 서명 약속이 있었다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "안지율의 재능을 몇 년 전부터 눈여겨봐 왔다.", "source": "개인 소회" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 저녁 안지율과 근로계약서 서명 약속이 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "안지율의 재능을 몇 년 전부터 눈여겨봐 왔다.",
+          "source": "개인 소회"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-00", "content": "솔직히 말씀드리면, 이 바닥에서 재능 있는 사람을 알아보는 눈 하나는 자신 있습니다.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-01", "content": "그날 저녁 계약서 서명 때문에 방문하기로 되어 있었는데, 도착하기 전에 이미 소란이 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-00",
+          "content": "솔직히 말씀드리면, 이 바닥에서 재능 있는 사람을 알아보는 눈 하나는 자신 있습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 저녁 계약서 서명 때문에 방문하기로 되어 있었는데, 도착하기 전에 이미 소란이 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-00", "S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-00",
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["노다호와 안지율의 관계나 재단기 손질 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "노다호와 안지율의 관계나 재단기 손질 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 사업가다운 말투",
         "sentence_length_tendency": "평소 간결하고 사무적이나 감정이 상하면 문장이 길어지고 목소리가 커진다",
@@ -245,11 +526,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "공방 대표와 15년 가까이 실무를 이끌어 온 원로 복원사. 창업주 시절부터 이어진 사이다.",
       "public_face": "가장 오래 손발을 맞춘 대표와 수석 복원가로 알려져 있다.",
       "says": {
@@ -260,7 +543,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "대표의 여동생이자 독립 북아티스트와 원로 복원사. 작업 방식을 두고 종종 의견을 나누던 사이다.",
       "public_face": "가끔 기술적으로 부딪히긴 해도 서로를 존중하는 사이로 알려져 있다.",
       "says": {
@@ -271,7 +557,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "타 지역 복원 스튜디오 대표와 원로 복원사. 몇 년 전부터 그녀의 재능을 눈여겨봐 온 사이다.",
       "public_face": "정식으로 스카우트 제안을 주고받은 사이로 알려져 있다.",
       "says": {
@@ -282,7 +571,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "남매. 아버지의 공방을 오빠가 물려받은 뒤에도 채재현은 종종 들러 작업을 도왔다.",
       "public_face": "사이좋은 남매로 알려져 있다.",
       "says": {
@@ -294,7 +586,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "5년차 복원 보조 직원과 대표. 창고 공구 관리도 우수윤의 몫이었다.",
       "public_face": "무난하게 지내는 직원과 대표 사이로 알려져 있다.",
       "says": {
@@ -306,7 +601,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "자원봉사 프로그램 코디네이터와 원로 복원사. 매달 봉사 일정표를 짜며 마주쳐 온 사이다.",
       "public_face": "봉사 프로그램을 통해서만 아는 사이로 알려져 있다.",
       "says": {
@@ -316,151 +614,409 @@
       "surfaces_when": "봉사 일정표 메모(E06)를 제시할 때"
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "헌책방", "access": "시작부터 출입 가능", "access_level": "open",
-      "connects_to": ["L02"],
+      "id": "L01",
+      "name": "헌책방",
+      "access": "시작부터 출입 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "낡은 헌책들이 벽면 가득 꽂혀 있고, 카운터 위에는 이번 달 기증도서 목록과 서류철이 놓여 있다.",
       "observation_rules": [
-        { "action": "헌책방을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "카운터 위 서류철 사이에 근로계약서로 보이는 서류 봉투가 끼워져 있다." }
+        {
+          "action": "헌책방을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "카운터 위 서류철 사이에 근로계약서로 보이는 서류 봉투가 끼워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "헌책방 카운터에 남은 서류를 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "안지율과 한로린 스튜디오 사이의 근로계약서 사본이 사건 당일 저녁 서명 예정이었음을 보여준다." }
+        {
+          "action": "헌책방 카운터에 남은 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "안지율과 한로린 스튜디오 사이의 근로계약서 사본이 사건 당일 저녁 서명 예정이었음을 보여준다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "제본 작업실", "access": "봉사자 누구나 출입 가능", "access_level": "open",
-      "connects_to": ["L01", "L03", "L06", "L05"],
+      "id": "L02",
+      "name": "제본 작업실",
+      "access": "봉사자 누구나 출입 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L06",
+        "L05"
+      ],
       "base_description": "공동 작업대 여러 개가 놓여 있고, 오늘 마무리하지 못한 기증도서들이 쌓여 있다.",
       "observation_rules": [
-        { "action": "제본 작업실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "벽에 붙은 이번 달 봉사 일정표에 손 글씨 메모가 여러 개 적혀 있다." }
+        {
+          "action": "제본 작업실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽에 붙은 이번 달 봉사 일정표에 손 글씨 메모가 여러 개 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "그날 봉사 일정표를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "일정표 메모에 안지율이 마감 후 복원실에서 개인 소장 원고를 혼자 마무리할 예정이라고 적혀 있다." }
+        {
+          "action": "그날 봉사 일정표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "일정표 메모에 안지율이 마감 후 복원실에서 개인 소장 원고를 혼자 마무리할 예정이라고 적혀 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "복원실", "access": "직원 및 허가받은 인원만 출입 가능", "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "id": "L03",
+      "name": "복원실",
+      "access": "직원 및 허가받은 인원만 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "습도 조절 장치와 대형 재단기, 개인 작업대가 있는 방. 사건 이후 통제선이 쳐져 있다.",
       "observation_rules": [
-        { "action": "복원실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "재단기 주변 바닥에 최근 누군가 무릎을 꿇고 작업한 듯한 흔적이 남아 있다." }
+        {
+          "action": "복원실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "재단기 주변 바닥에 최근 누군가 무릎을 꿇고 작업한 듯한 흔적이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "재단기 안전 손잡이를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "안전 손잡이 잠금쇠 나사산이 최근 손으로 다시 조인 흔적과 함께 헐거워져 있다." },
-        { "action": "안지율의 휴대전화 메시지함을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "17일 전 안지율이 노다호에게 보낸 결별 메시지와 3일 전 노다호가 보낸 답장이 남아 있다." }
+        {
+          "action": "재단기 안전 손잡이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "안전 손잡이 잠금쇠 나사산이 최근 손으로 다시 조인 흔적과 함께 헐거워져 있다."
+        },
+        {
+          "action": "안지율의 휴대전화 메시지함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "17일 전 안지율이 노다호에게 보낸 결별 메시지와 3일 전 노다호가 보낸 답장이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "보존서고", "access": "직원만 출입 가능, 열쇠 필요", "access_level": "sealed",
+      "id": "L04",
+      "name": "보존서고",
+      "access": "직원만 출입 가능, 열쇠 필요",
+      "access_level": "sealed",
       "connects_to": [],
       "base_description": "온습도가 엄격히 관리되는 서고. 창업주 대부터 내려온 희귀 장서들이 보관돼 있다.",
       "observation_rules": [
-        { "action": "보존서고를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "서가 한 칸에 안지율의 이름이 적힌 개인 소장 원고 상자가 따로 놓여 있다." }
+        {
+          "action": "보존서고를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "서가 한 칸에 안지율의 이름이 적힌 개인 소장 원고 상자가 따로 놓여 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L05", "name": "대표 사무실", "access": "직원 및 방문객 안내 시 출입 가능", "access_level": "restricted",
+      "id": "L05",
+      "name": "대표 사무실",
+      "access": "직원 및 방문객 안내 시 출입 가능",
+      "access_level": "restricted",
       "connects_to": [],
       "base_description": "책상 위에 결재 서류와 컴퓨터가 놓여 있는 작은 사무실.",
       "observation_rules": [
-        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 달력에 오늘 저녁 일정이 비어 있는 채로 표시돼 있다." }
+        {
+          "action": "사무실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 달력에 오늘 저녁 일정이 비어 있는 채로 표시돼 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L06", "name": "뒤뜰 창고", "access": "직원만 출입 가능", "access_level": "restricted",
+      "id": "L06",
+      "name": "뒤뜰 창고",
+      "access": "직원만 출입 가능",
+      "access_level": "restricted",
       "connects_to": [],
       "base_description": "공구함과 여분 자재가 보관된 작은 창고.",
       "observation_rules": [
-        { "action": "창고를 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "공구함 뚜껑 한쪽 경첩이 최근 자주 여닫은 듯 헐거워져 있다." }
+        {
+          "action": "창고를 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "공구함 뚜껑 한쪽 경첩이 최근 자주 여닫은 듯 헐거워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "공구함 안을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "재단기 안전장치에 맞는 특수 렌치 한 자루만 자리가 비어 있고, 분실물 대장에는 9일 전 날짜로 짧게 기록돼 있다." }
+        {
+          "action": "공구함 안을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "재단기 안전장치에 맞는 특수 렌치 한 자루만 자리가 비어 있고, 분실물 대장에는 9일 전 날짜로 짧게 기록돼 있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "우수윤의 복도 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "우수윤에게 그날 저녁 본 것을 묻는다", "related_timeline": ["T09"],
+    {
+      "id": "E01",
+      "name": "우수윤의 복도 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "우수윤에게 그날 저녁 본 것을 묻는다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "우수윤이 사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다는 진술이 확보된다.",
-      "proves": ["노다호가 사건 당일 저녁 복원실 근처에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 시각에 재단기 앞에 무릎을 꿇었는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E02", "name": "재단기 안전 손잡이 손상 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "재단기 안전 손잡이를 살펴본다", "related_timeline": ["T03"],
+      "proves": [
+        "노다호가 사건 당일 저녁 복원실 근처에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 시각에 재단기 앞에 무릎을 꿇었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "재단기 안전 손잡이 손상 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "재단기 안전 손잡이를 살펴본다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "안전 손잡이 잠금쇠 나사산이 최근 손으로 다시 조인 흔적과 함께 헐거워져 있다.",
-      "proves": ["누군가 최근 안전장치를 인위적으로 손봤다는 사실을 증명한다."],
-      "does_not_prove": ["누가, 언제 손봤는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "창고 공구함의 특수 렌치 자리", "source_type": "location", "found_at": "L06", "discovery_condition": "공구함 안을 확인한다", "related_timeline": ["T03", "T04"],
+      "proves": [
+        "누군가 최근 안전장치를 인위적으로 손봤다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 언제 손봤는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "창고 공구함의 특수 렌치 자리",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "공구함 안을 확인한다",
+      "related_timeline": [
+        "T03",
+        "T04"
+      ],
       "content": "재단기 안전장치에 맞는 특수 렌치 한 자루만 자리가 비어 있고, 분실물 대장에는 9일 전 날짜로 짧게 기록돼 있다.",
-      "proves": ["안전장치를 손보는 데 쓰인 도구가 9일 전 창고에서 사라졌다는 사실을 증명한다."],
-      "does_not_prove": ["누가 렌치를 가져갔는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "안지율의 개인 메시지함", "source_type": "location", "found_at": "L03", "discovery_condition": "안지율의 휴대전화 메시지함을 확인한다", "related_timeline": ["T02", "T07"],
+      "proves": [
+        "안전장치를 손보는 데 쓰인 도구가 9일 전 창고에서 사라졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 렌치를 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "안지율의 개인 메시지함",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "안지율의 휴대전화 메시지함을 확인한다",
+      "related_timeline": [
+        "T02",
+        "T07"
+      ],
       "content": "17일 전 안지율이 노다호에게 보낸 결별 메시지와 3일 전 노다호가 보낸 답장이 남아 있다.",
-      "proves": ["두 사람이 비밀 연인 관계였고 안지율이 최근 관계를 정리하려 했다는 사실을 증명한다."],
-      "does_not_prove": ["노다호가 실제로 안전장치를 손봤는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "서다준의 발견 당시 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "서다준에게 문을 열었을 때 무엇을 봤는지 묻는다", "related_timeline": ["T12"],
+      "proves": [
+        "두 사람이 비밀 연인 관계였고 안지율이 최근 관계를 정리하려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "노다호가 실제로 안전장치를 손봤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "서다준의 발견 당시 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "서다준에게 문을 열었을 때 무엇을 봤는지 묻는다",
+      "related_timeline": [
+        "T12"
+      ],
       "content": "서다준이 20시 10분경 복원실에서 쓰러진 안지율을 발견해 곧바로 사람들을 불렀다는 진술이 확보된다.",
-      "proves": ["사망 발견 시각과 정황을 증명한다."],
-      "does_not_prove": ["사망 원인이 사고인지 고의인지"],
-      "presentation_effect": [] },
-    { "id": "E06", "name": "봉사 일정표", "source_type": "location", "found_at": "L02", "discovery_condition": "그날 봉사 일정표를 확인한다", "related_timeline": ["T08"],
+      "proves": [
+        "사망 발견 시각과 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "사망 원인이 사고인지 고의인지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "봉사 일정표",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "그날 봉사 일정표를 확인한다",
+      "related_timeline": [
+        "T08"
+      ],
       "content": "일정표 메모에 안지율이 마감 후 복원실에서 개인 소장 원고를 혼자 마무리할 예정이라고 적혀 있다.",
-      "proves": ["노다호가 안지율이 그날 저녁 복원실에 홀로 있을 것을 미리 알 수 있었다는 사실을 증명한다."],
-      "does_not_prove": ["노다호가 실제로 안전장치를 손봤는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "한로린과의 근로계약서 사본", "source_type": "location", "found_at": "L01", "discovery_condition": "헌책방 카운터에 남은 서류를 확인한다", "related_timeline": ["T06"],
+      "proves": [
+        "노다호가 안지율이 그날 저녁 복원실에 홀로 있을 것을 미리 알 수 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "노다호가 실제로 안전장치를 손봤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "한로린과의 근로계약서 사본",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "헌책방 카운터에 남은 서류를 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "안지율과 한로린 스튜디오 사이의 근로계약서 사본이 사건 당일 저녁 서명 예정이었음을 보여준다.",
-      "proves": ["한로린이 사건 당일 방문한 이유가 계약 서명 때문이었음을 증명한다."],
-      "does_not_prove": ["안지율의 죽음과 직접적 관련이 있는지"],
-      "presentation_effect": [] },
-    { "id": "E08", "name": "채재현의 워크숍 참가자 명단", "source_type": "testimony", "found_at": "L02", "discovery_condition": "채재현에게 다툰 뒤 사흘을 어디서 보냈는지 묻는다", "related_timeline": ["T05"],
+      "proves": [
+        "한로린이 사건 당일 방문한 이유가 계약 서명 때문이었음을 증명한다."
+      ],
+      "does_not_prove": [
+        "안지율의 죽음과 직접적 관련이 있는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "채재현의 워크숍 참가자 명단",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채재현에게 다툰 뒤 사흘을 어디서 보냈는지 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "채재현이 다툼 직후부터 사흘간 지방 워크숍 현장에 있었다는 사실이 워크숍 참가자 명단과 함께 확인된다.",
-      "proves": ["채재현이 사건 당일 다른 지역에 있었다는 사실을 증명한다."],
+      "proves": [
+        "채재현이 사건 당일 다른 지역에 있었다는 사실을 증명한다."
+      ],
       "does_not_prove": [],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "서다준의 확인 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "서다준에게 채재현이 정말 워크숍 참가자 명단에 있었는지 확인해 달라고 요청한다", "related_timeline": ["T05"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "서다준의 확인 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "서다준에게 채재현이 정말 워크숍 참가자 명단에 있었는지 확인해 달라고 요청한다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "서다준은 봉사 일정 관리 차원에서 워크숍 주최 측에 따로 확인한 결과, 채재현이 다툼 다음 날부터 사건 당일까지 사흘 내내 현장 교육에 참석한 기록이 있다고 말한다.",
-      "proves": ["채재현이 다툼 이후 사건 당일까지 지방 워크숍에 가 있었다는 사실을 외부 확인으로 뒷받침한다."],
-      "does_not_prove": ["채재현과 노다호 사이 불화가 실제로 어떻게 풀렸는지는 알 수 없다."],
-      "presentation_effect": [] }
+      "proves": [
+        "채재현이 다툼 이후 사건 당일까지 지방 워크숍에 가 있었다는 사실을 외부 확인으로 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "채재현과 노다호 사이 불화가 실제로 어떻게 풀렸는지는 알 수 없다."
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "admits_presence",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E01"] },
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_presence",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
       "player_action": "노다호에게 우수윤의 목격담을 제시하여, 그날 저녁 계속 사무실에만 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "복원실 근처에 잠깐 들른 것은 인정한다." },
-      "must_not_release": ["재단기를 손본 사실", "안지율과의 관계", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "복원실 근처에 잠깐 들른 것은 인정한다."
+      },
+      "must_not_release": [
+        "재단기를 손본 사실",
+        "안지율과의 관계",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "admits_presence", "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E03"] },
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_presence",
+      "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": [
+        "F-CH02-03",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
+      },
       "player_action": "재단기 안전 손잡이 손상 흔적과 사라진 특수 렌치 기록을 함께 제시하여, 단순히 살펴봤을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "9일 전 안전 손잡이를 손봤다는 사실은 인정한다." },
-      "must_not_release": ["안지율과의 관계", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "9일 전 안전 손잡이를 손봤다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "안지율과의 관계",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "admits_tampering", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E04", "E06"],
-      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E04", "E06"] },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_tampering",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": [
+        "F-CH02-02",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E04",
+          "E06"
+        ]
+      },
       "player_action": "안지율과 주고받은 메시지 기록과 봉사 일정표를 함께 제시하여, 의도치 않은 점검이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "안지율과의 관계와 그녀가 떠나려 했다는 사실, 그리고 그녀가 그날 저녁 혼자 복원실에 있을 것을 미리 알고 재단기를 손봤다는 사실을 모두 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH02-01",
+        "scope": "안지율과의 관계와 그녀가 떠나려 했다는 사실, 그리고 그녀가 그날 저녁 혼자 복원실에 있을 것을 미리 알고 재단기를 손봤다는 사실을 모두 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -469,7 +1025,8 @@
       "how_to_clear": "E08(워크숍 참가자 명단)과 서다준의 외부 확인 진술(E09)을 대조해 다툼 이후 사흘간의 부재를 확인한다.",
       "must_not_imply": "다퉜다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
       "suspicion_deepener": "채재현이 다툼 이후 오빠 노다호와도 한동안 연락을 끊었다는 사실이 알려지며, 남매 사이의 불화가 사건과 관련 있는 것처럼 보이는 시점이 먼저 온다.",
-      "lingering_thread": "다툼의 발단이 됐던 화학 처리법 문제는 사건과 무관하게 남아, 채재현은 이후에도 안지율의 방식이 옳았다는 걸 선뜻 인정하지 않은 채 남는다."
+      "lingering_thread": "다툼의 발단이 됐던 화학 처리법 문제는 사건과 무관하게 남아, 채재현은 이후에도 안지율의 방식이 옳았다는 걸 선뜻 인정하지 않은 채 남는다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -478,27 +1035,36 @@
       "how_to_clear": "E07(계약서 사본)과 도착 시각 확인을 통해 방문 목적과 시간대를 대조한다.",
       "must_not_imply": "안지율을 스카우트했다는 사실만으로 그녀의 죽음에 책임이 있다고 단정하지 않는다.",
       "suspicion_deepener": "한로린이 안지율의 짐 일부를 미리 자기 차에 실어 둔 정황이 먼저 드러나며, 마치 무언가를 서둘러 처리하려 한 것처럼 보인다.",
-      "lingering_thread": "한로린은 사건 이후에도 안지율이 마무리하지 못한 개인 소장 원고 복원을 대신 이어받아 완성하겠다고 다짐하며, 그녀의 재능을 기리는 방식으로 남는다."
+      "lingering_thread": "한로린은 사건 이후에도 안지율이 마무리하지 못한 개인 소장 원고 복원을 대신 이어받아 완성하겠다고 다짐하며, 그녀의 재능을 기리는 방식으로 남는다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E06", "F-CH02-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E06",
+      "F-CH02-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "복원실 재단기의 안전 손잡이 잠금쇠를 미리 손봐 안지율이 페달을 밟는 순간 날이 떨어지도록 만들었다.",
       "motive_fact": "오랜 비밀 관계를 정리하고 떠나려는 안지율을 놓아줄 수 없다는 집착을 받아들이지 못했다."
     }
   },
-
   "final_deduction": {
     "responsible": "노다호",
     "method": "9일 전 복원실 재단기의 안전 손잡이 잠금쇠를 몰래 손봐, 안지율이 페달을 밟는 순간 날이 그대로 떨어지도록 만들어 두었다.",
     "motive": "15년간 이어온 비밀 관계를 완전히 정리하고 다른 도시로 떠나려는 안지율을 붙잡을 수 없다는 사실을 받아들이지 못했다.",
     "key_connection": "우수윤의 목격담이 노다호의 초기 진술과 어긋나고, 사라진 렌치와 손잡이 손상 흔적이 손질 시점을 특정하며, 메시지 기록과 봉사 일정표가 그가 안지율의 이별 의사와 그녀의 그날 밤 동선을 모두 미리 알고 있었다는 사실을 독립적으로 뒷받침한다. 서다준의 발견 당시 진술은 정확한 사망 시각을 특정해 이 모든 정황을 하나로 묶는다."
   },
-
   "ending_explanation": [
     "원로 복원사 안지율의 사고사로 보였던 죽음이라는 표면 사건",
     "노다호가 사건 당일 저녁 복원실 근처에 있었다는 사실",

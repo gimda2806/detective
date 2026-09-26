@@ -810,7 +810,7 @@
       "content": "토크렌치 하나에 최근 사용한 듯한 미세한 브레이크 오일 자국이 묻어 있다 — 그날 오전 브레이크 작업은 이미 끝나 있었는데도.",
       "proves": ["그날 오후 누군가 브레이크 관련 작업을 다시 했다"],
       "does_not_prove": ["그게 누구였는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -822,7 +822,7 @@
       "content": "리프트 옆 바닥에 새로 떨어진 브레이크 오일 자국이 있다. 그날 오전 교체 작업 때 쓰인 자리와는 다른 위치다.",
       "proves": ["오전 작업 자리와 다른 곳에서 브레이크 오일이 다뤄졌다"],
       "does_not_prove": ["그 시점이 정확히 언제인지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -846,7 +846,7 @@
       "content": "조태민 명의 서명이 담긴 지분 양도 각서가 서류철에 들어 있다. 서명일은 8년 전 3월 14일로 적혀 있다.",
       "proves": ["성진모터스가 지분 양도 각서 한 장으로 여진태 단독 명의가 됐다"],
       "does_not_prove": ["그 서명이 실제로 조태민 본인의 것인지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이 각서, 조태민 서명이 들어가 있는데요.",
         "detective": "그런데 정작 본인은 이런 게 있는 줄도 모르는 눈치였지."
@@ -862,7 +862,7 @@
       "content": "지운 검색 기록 대부분이 삭제됐지만, 임시 저장 파일 하나에 '조태민 출입국 조회'라는 검색어가 사건 전날 날짜로 남아 있다.",
       "proves": ["여진태가 사건 전날 조태민의 출입국 기록을 조회했다"],
       "does_not_prove": ["그가 그 정보로 무엇을 하려 했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "검색 기록을 지웠는데, 임시 파일에 흔적이 남았어요.",
         "detective": "지운다고 다 없어지는 건 아니지."
@@ -919,7 +919,7 @@
       "content": "타이어 자국이 램프 초입에서는 얕게 제동한 흔적을 남기다가, 급커브 구간부터는 전혀 남아 있지 않다.",
       "proves": ["처음 몇 차례는 제동이 됐지만 급커브 구간에서 브레이크가 완전히 듣지 않았다"],
       "does_not_prove": ["왜 그 구간에서만 그랬는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -931,7 +931,7 @@
       "content": "조태민의 가방 속에 낡은 여권 사본이 들어 있다. 8년 전 3월 한 달 내내 캐나다 출입국 도장이 찍혀 있다.",
       "proves": ["8년 전 3월 조태민은 국내에 있지 않았다"],
       "does_not_prove": ["그 사실을 누가 알고 있었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "여권 도장 날짜가... 각서 서명일이랑 겹치는데요.",
         "detective": "그때 조태민은 여기 없었다는 뜻이지."
@@ -1104,7 +1104,7 @@
       "from_stage": "initial",
       "to_stage": "admits_alone",
       "requires_heard_claim_ids": ["F-CH02-02", "S-CH05-02"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E04"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
         "claim_id": "S-CH05-02",
         "evidence_ids": ["E04"]
@@ -1122,7 +1122,7 @@
       "from_stage": "admits_alone",
       "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["F-CH05-03", "F-CH01-01", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E05", "E11", "E12"],
+      "requires_presented_evidence_ids": ["E12"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E12"]
@@ -1140,7 +1140,7 @@
       "from_stage": "admits_dispute",
       "to_stage": "confesses_manipulation",
       "requires_heard_claim_ids": ["F-CH05-04", "F-CH04-03", "F-CH02-03", "S-CH05-03"],
-      "requires_presented_evidence_ids": ["E09", "E06", "E10"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH05-03",
         "evidence_ids": ["E09"]

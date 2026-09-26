@@ -67,7 +67,7 @@
     ],
     "cover_up_method": [
       "concealment_without_staging",
-      "false_accident"
+      "accident_equipment_failure"
     ]
   },
   "actual_timeline": [
@@ -1533,7 +1533,9 @@
       "evidence_for": [
         "E02",
         "E03"
-      ]
+      ],
+      "suggested_by": ["S-CH03-02", "E03", "E02"],
+      "cue": "위조 감정서"
     },
     {
       "id": "M02",
@@ -1542,6 +1544,8 @@
       "evidence_for": [
         "E06"
       ],
+      "suggested_by": ["F-CH01-02", "S-CH01-02", "E06"],
+      "cue": "경매 실적",
       "refutation": "재감정을 서둘러 달라고 압박한 건 맞습니다. 그런데 감정사가 죽으면 경매가 섭니다. 경매가 내일인데. 제일 손해 보는 사람이 접니다.",
       "refutation_releases": "F-CH01-02",
       "refuted_by": "CH01"
@@ -1553,6 +1557,8 @@
       "evidence_for": [
         "E07"
       ],
+      "suggested_by": ["F-CH02-01", "S-CH02-02", "E07"],
+      "cue": "위약금",
       "refutation": "일정상 위약금 조항은 위탁자 쪽 권리예요. 감정사가 없어지면 일정은 더 밀립니다. 제가 재촉한 이유가 그거예요. 제 손으로 일정을 부술 리가요.",
       "refutation_releases": "F-CH02-01",
       "refuted_by": "CH02"
@@ -1564,6 +1570,8 @@
       "evidence_for": [
         "E09"
       ],
+      "suggested_by": ["S-CH05-02", "F-CH05-01", "F-CH04-02"],
+      "cue": "후대 모작",
       "refutation": "감정가에 불만이 있었어요. 그래서 문자도 보냈고요. 재감정을 요구하겠다는 문자예요. 재감정할 사람을 없애면 제 백자는 누가 다시 봐요?",
       "refutation_releases": "F-CH05-02",
       "refuted_by": "CH05"
@@ -1577,6 +1585,8 @@
       "evidence_for": [
         "E08"
       ],
+      "suggested_by": ["F-CH05-01", "F-CH04-02", "E08"],
+      "cue": "19:50",
       "refutation": "기록상 언쟁 뒤에도 감정사님은 전시홀에 계셨습니다. 감정실로 들어가신 건 20시 40분이에요. 그때까지 제 눈앞에 계셨습니다.",
       "refutation_releases": "F-CH04-02",
       "refuted_by": "CH04"
@@ -1588,13 +1598,17 @@
       "evidence_for": [
         "E01",
         "E03"
-      ]
+      ],
+      "suggested_by": ["E03", "E01", "F-CH04-02"],
+      "cue": "21:00 호출"
     },
     {
       "id": "T03",
       "text": "22:30 순찰 무렵",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["F-CH04-01", "S-CH04-01"],
+      "cue": "22:30 순찰",
       "refutation": "22시 30분엔 감정실 불이 꺼져 있었어요. 문틈으로 봤습니다. 감정사님이 일하고 계셨으면 불이 켜져 있었을 겁니다. 그때 이미… 안에 아무도 없다고 생각했어요.",
       "refutation_releases": "F-CH04-03",
       "refuted_by": "CH04"
@@ -1604,6 +1618,8 @@
       "text": "다음날 아침, 발견 직전",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["F-CH01-03", "F-CH04-01"],
+      "cue": "금고를 열었을 때",
       "refutation": "제가 다이얼을 돌려 열었을 때 이미… 몸이 차가웠어요. 아침에 그렇게 된 게 아닙니다.",
       "refutation_releases": "F-CH01-03",
       "refuted_by": "CH01"
@@ -1618,7 +1634,9 @@
         "E04",
         "E05",
         "E10"
-      ]
+      ],
+      "suggested_by": ["F-CH03-05", "E04", "E05"],
+      "cue": "배선함"
     },
     {
       "id": "H02",
@@ -1627,6 +1645,8 @@
       "evidence_for": [
         "E10"
       ],
+      "suggested_by": ["F-CH04-04", "F-CH01-04", "E10"],
+      "cue": "닫히면 잠기고",
       "refutation": "그 금고 비상 레버는 지난봄에 점검받았어요. 점검표가 제 집무실에 있습니다. 고장 날 게 아니었어요.",
       "refutation_releases": "F-CH01-04",
       "refuted_by": "CH01"
@@ -1636,6 +1656,8 @@
       "text": "감정실 문을 밖에서 잠가 방 안에 가뒀다",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["S-CH04-01", "F-CH01-03"],
+      "cue": "감정실",
       "refutation": "감정실 문은 잠그는 문이 아닙니다. 밤에도 그냥 닫아 둬요. 그 금고는 열쇠도 없고요. 닫히면 잠기고, 밖에서는 다이얼, 안에서는 비상 레버뿐입니다. 사람을 가두려면 금고밖에 없어요.",
       "refutation_releases": "F-CH04-04",
       "refuted_by": "CH04"
@@ -1647,6 +1669,8 @@
       "evidence_for": [
         "E04"
       ],
+      "suggested_by": ["F-CH01-04", "E11", "F-CH04-04"],
+      "cue": "지난봄에 점검",
       "refutation": "비상 레버가 살아 있었으면 선배가 안에서 열었겠죠. 그러라고 단 거니까요. …배선함이 잘려 있었다면서요. 금고 옆 벽에 붙은 거요.",
       "refutation_releases": "F-CH03-05",
       "refuted_by": "CH03"

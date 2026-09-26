@@ -785,7 +785,7 @@
       "content": "고리 옆 바닥에 클램프 안전핀이 떨어져 있다. 핀 자체는 손상 없이 멀쩡하고, 마모로 저절로 빠졌다기보다는 누군가 일부러 뽑아 둔 모양으로 놓여 있다.",
       "proves": ["안전핀이 저절로 마모돼 빠진 것이 아니다"],
       "does_not_prove": ["누가, 언제 뽑았는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH03",
       "mismatch": "1차 소견은 노후 부품이 저절로 풀린 사고였는데, 정작 핀은 멀쩡한 채로 일부러 뽑아 둔 것처럼 놓여 있다.",
       "reaction": {
@@ -872,7 +872,7 @@
       "content": "난간 한 구간에 밧줄을 세게 당긴 자국이 최근 것으로 남아 있다. 자국의 방향은 조명바가 떨어진 방향과 정확히 일치한다.",
       "proves": ["누군가 그 자리에서 밧줄을 당겨 조명바를 떨어뜨렸다"],
       "does_not_prove": ["그게 누구였는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -884,7 +884,7 @@
       "content": "공구가방 안쪽 깊숙한 자리에서 '분기 안전 점검 – 원본'이라고 적힌 서류 봉투가 나온다. 봉투 속 기록에는 3주 전 사고 항목이 그대로 남아 있다.",
       "proves": ["배건우가 사라진 원본 점검 기록을 가지고 있었다"],
       "does_not_prove": ["그가 왜 그것을 챙겼는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH03",
       "mismatch": "본사에 제출된 보고서에는 3주 전 사고가 빠져 있는데, 배건우의 가방 속 사본에는 그 항목이 그대로 남아 있다.",
       "reaction": {
@@ -901,7 +901,7 @@
       "content": "본사에 제출된 분기 안전 점검 보고서 사본에는 모든 항목이 이상 없음으로 적혀 있다. 3주 전 사고가 있던 날짜의 점검란만 글씨체가 미묘하게 다르다.",
       "proves": ["3주 전 사고 항목이 보고서에서 의도적으로 빠졌다"],
       "does_not_prove": ["누가 그것을 고쳤는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null,
       "mismatch": "3주 전 실제로 사고가 있었는데, 정식 보고서에는 그 항목이 통째로 빠진 채 전부 이상 없음으로 적혀 있다.",
       "reaction": {
@@ -1025,7 +1025,7 @@
       "from_stage": "initial",
       "to_stage": "admits_grid_presence",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH03-02"],
-      "requires_presented_evidence_ids": ["E02", "E07"],
+      "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
         "evidence_ids": ["E02"]
@@ -1043,7 +1043,7 @@
       "from_stage": "admits_grid_presence",
       "to_stage": "admits_clamp_tamper",
       "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-02"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
         "evidence_ids": ["E04"]
@@ -1061,7 +1061,7 @@
       "from_stage": "admits_clamp_tamper",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-03"],
-      "requires_presented_evidence_ids": ["E08", "E09", "E10"],
+      "requires_presented_evidence_ids": ["E10"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
         "evidence_ids": ["E10"]

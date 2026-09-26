@@ -1,514 +1,1268 @@
 {
   "case_identity": {
     "case_id": "CASE125",
-    "title": "대장에 없는 이름",
-    "english_title": "A Name Missing From the Ledger",
-    "genre": "국제 브리딩 협약 혈통기록 조작 은폐 / 마취제 카트리지 조작 사고사 위장",
-    "setting": "국제 혈통관리기구와의 공동 브리딩 협약식을 사흘 앞둔 도심 동물원 대형육식동물관. 협약식 준비로 분주한 저녁, 정기 건강검진을 준비하던 수석 사육사가 맹수사 뒤편 처치실에서 심정지 상태로 발견된다.",
-    "detective_entry_type": "transit",
-    "detective_entry": "탐정은 법원 서류 제출을 마치고 다음 약속으로 향하던 길에, 지하철 환승 시간을 아끼려 한지우와 함께 동물원 후문 산책로를 가로질러 가고 있었다.",
-    "tone": "국제 협약이라는 성과 뒤에 조작이 감춰진 동물원 배경.",
-    "tags": ["동물원", "브리딩_협약식", "맹수사"],
-    "location_archetypes": ["other"],
+    "title": "얼어붙은 서명",
+    "english_title": "A Frozen Signature",
+    "genre": "8년 전 위조한 자격증 발각을 막기 위해 벌인 살인 / 질소 퍼지 유도 질식사와 정비일지 조작을 통한 사고 위장",
+    "setting": "정로 생명과학 감정연구소는 법원과 보험사, 입양기관의 의뢰를 받아 유전자 감정과 친자·혈연 확인을 전문으로 해 온 소규모 민간 기관이다. 최근 개발한 신형 분석기를 투자사에 처음 선보이는 시연회가 오늘 오후로 잡혀 있어, 아침부터 직원들의 손길이 바빴다. 저온시료보관실은 장기 보관용 유전자 시료의 변질을 막기 위해 질소 가스로 내부 공기를 주기적으로 치환하는 방식을 쓰고 있다.",
+    "location_archetypes": [
+      "research_laboratory"
+    ],
     "background": {
-      "background_archetypes": ["contract_signing"],
-      "background_phrasing": ["approaching"],
-      "background_intensity": "central"
-    }
+      "background_archetypes": [
+        "product_demo"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "media_or_content_creation",
+    "detective_entry": "탐정은 최근 취미로 운영하는 과학 교양 블로그에 올릴 글감을 찾다가, 지인의 소개로 오늘 열리는 신형 유전자 분석기 시연회를 취재하러 왔다.",
+    "tone": "차분하고 사무적인 공기 위로 시연회 준비의 부산함이 겹치고, 그 틈에서 탐정과 한지우는 뜻하지 않게 사건 한복판으로 끌려 들어간다.",
+    "tags": [
+      "법과학_연구소",
+      "저온보관실",
+      "투자_시연회",
+      "동료_관계"
+    ]
   },
-
   "opening_scene": {
-    "detective_entry_time": "사건 다음날 08:00",
-    "location_id": "L01",
-    "narrative": "탐정은 법원 서류 제출을 막 마치고 다음 약속 시간에 쫓기고 있었다. 지하철 환승 계단보다 동물원 후문 산책로가 더 빠르다는 한지우의 말에, 두 사람은 정문 로비를 가로질러 가는 지름길을 택했다.\n그런데 로비 안쪽 사육사 전용 통로에서 분주한 발소리와 무전기 소리가 뒤섞여 들려왔다. 안내데스크에 있던 채선호의 얼굴이 하얗게 질렸고, 잠시 후 원장 고범준이 직접 뒷문을 열고 나와 남은 직원들 앞에 섰다.\n\"맹수사 처치실에서 사고가 있었습니다. 여산하 사육사가 심정지 상태로 쓰러진 채 발견됐고, 지금 응급조치 중입니다.\"\n침착한 목소리와 달리, 손끝은 문고리를 놓지 못하고 있었다.\n한지우가 그 손을 흘끗 보고는 탐정 쪽으로 몸을 기울였다.\n\"지름길로 왔다가 이게 무슨 일이래요.\"\n탐정이 픽 웃었다.\n\"환승 시간 아끼려다 사건 하나 주웠네.\"\n\"제 말이요.\"\n한지우가 벽에 붙은 협약식 일정표를 가리켰다.\n\"근데 저기 보면, 이 시간에 수석 사육사님 혼자 정기 건강검진 준비한다고 적혀 있거든요. 사고보다 그게 더 궁금한데요.\""
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 14:30",
+    "narrative": "\"이 장비, 실제로 보니까 생각보다 작네요.\"\n\n한지우가 전시대에 놓인 분석기 앞에서 목을 빼고 들여다봤다.\n\n탐정은 대꾸 없이 시연장 뒤편에 놓인 팸플릿을 한 장 집어 훑었다. 연구소 소개 옆에 오늘 방문할 투자사 세 곳의 이름이 나란히 적혀 있었다.\n\n\"블로그에 올릴 사진이나 몇 장 찍자.\"\n\n\"그럴 줄 알고 벌써 열 장 찍었어요.\"\n\n한지우가 휴대폰을 흔들어 보였다.\n\n그때 복도 안쪽에서 누군가 다급하게 사람을 부르는 소리가 들렸다. 시연 준비를 하던 직원 하나가 하얗게 질린 얼굴로 시연장 문을 밀고 들어왔다.\n\n\"저기, 혹시 도와주실 수 있으세요? 저온보관실에 품질관리실장님이 쓰러져 있는데, 숨을 안 쉬시는 것 같아요...\"\n\n한지우가 먼저 몸을 일으켰다.\n\n\"사진은 나중에 찍죠.\"\n\n\"그러게.\"\n\n탐정도 자리에서 일어섰다."
   },
-
   "ending_scene": {
-    "location_id": "L03",
-    "narrative": "원장실 책상 위엔 여산하가 남긴 원본 대조 메모와, 허위로 조작된 혈통관리대장 사본, 그리고 그녀의 기록장이 나란히 펼쳐져 있었다.\n\n탐정이 시간 순서대로 짚어 나가자, 고범준은 한참 입을 열지 못했다.\n\n\"...협약 하나 지키겠다고, 사람을...\"\n\n그가 말을 채 잇지 못했다.\n\n\"예은결 씨한텐 정기 점검이라고만 했습니다. 그 시간에 여산하가 혼자 처치실에 있다는 것도 알고 있었고요. 그런데도 카트리지를 그대로 뒀습니다.\"\n\n한지우가 잠시 침묵하다가 조용히 입을 열었다.\n\n\"...선생님은 대조표를 한 줄씩 손으로 맞춰 두셨더라고요. 어긋나는 데마다 빨간 줄을 그어서요.\"\n\n고범준은 그 말에 손에 쥔 안경을 내려놓았다.\n\n두 사람이 원장실을 나설 무렵, 로비에서는 채선호가 감사팀 직원 앞에서 진땀을 빼고 있었다. 유지보수 업체 리베이트 문제였다. 죽음과는 무관했지만, 그의 몫은 그의 몫대로 정산될 참이었다.\n\n한지우가 그쪽을 흘끗 보며 말했다.\n\n\"이 로비가 오늘 하루 종일 이 모양이겠네요.\"\n\n탐정이 시계를 보며 물었다.\n\n\"그건 그렇고, 나 원래 약속은 어떻게 됐지?\"\n\n한지우가 웃음을 터뜨렸다.\n\n\"이 와중에 그게 제일 궁금해요? ...뭐, 다음 지하철 타면 되죠.\""
+    "location_id": "L02",
+    "narrative": "저온시료보관실 앞 통로에 남은 냉기가 아직 가시지 않았다.\n\n곽서준은 벽에 등을 기댄 채 한동안 말이 없었다.\n\n\"...선반 쪽으로 몸을 돌리는 순간, 저도 모르게 손이 갔습니다.\"\n\n그가 마침내 입을 열었다.\n\n\"8년이었어요. 그걸 잃으면 저한텐 아무것도 안 남으니까.\"\n\n한지우가 수첩을 덮지 않은 채 그를 바라봤다.\n\n\"그 8년 동안 진짜였던 건 없었던 거네요.\"\n\n한지우가 낮게 말했다.\n\n탐정은 잠시 창밖을 보다 조용히 대꾸했다.\n\n\"그게 잠금장치를 풀 이유는 안 돼.\"\n\n복도 저편에서는 채영묵이 이사회에 스스로 연구비 건을 보고하겠다고 낮은 목소리로 통화하고 있었다.\n\n해가 완전히 기울고 나서야 경찰이 곽서준을 데리고 나갔다.\n\n\"저녁은 뭐 드실 거예요?\"\n\n한지우가 물었다.\n\n\"시연회 팸플릿에 나온 그 카페나 가 보든가.\"\n\n\"거긴 투자자용 아니에요?\"\n\n\"그럼 우리가 투자자 하면 되지.\"\n\n한지우가 픽 웃으며 계단을 내려섰다."
   },
-
   "surface_incident": [
-    "협약식을 사흘 앞둔 늦은 저녁, 수석 사육사 여산하가 홀로 정기 건강검진 준비를 하던 중 맹수사 뒤편 처치실에서 심정지 상태로 쓰러진 채 발견된다.",
-    "사고 당시 그녀가 쓰던 다트건의 마취제 카트리지가 평소와 달리 고농도로 교체된 상태였다는 사실이 뒤늦게 확인된다.",
-    "원장 고범준, 부사육사 예은결, 수의사 반다온, 시설관리팀장 채선호, 신입 사육사 구하늘이 그날 저녁 모두 동물원 안에 있었다.",
-    "사육사 전용 통로는 야간에 카드로만 열리고, 그날 기록에 방문객 카드는 한 장도 찍히지 않았다."
+    "정로 생명과학 감정연구소는 이번 주 신형 유전자 분석기 시연회를 앞두고 투자사 관계자들을 맞을 준비를 하고 있었다.",
+    "14시 35분경 품질관리실장 오건호가 저온시료보관실 안에서 쓰러진 채 발견됐다.",
+    "구급대가 도착했을 때 오건호는 이미 숨을 거둔 뒤였고, 그 시각 보관실에 외부인이 들어온 흔적은 없었던 것으로 곧 확인됐다.",
+    "보관실 문에는 정기 점검 중이라는 표시가 붙어 있었지만, 그런 점검이 예정돼 있었다고 기억하는 직원은 없었다."
   ],
-
   "full_truth": {
-    "responsible_character_id": "CH01",
-    "motive": "고범준은 국제 혈통관리기구와의 공동 브리딩 협약에 필요한 혈통관리대장에, 근친번식 위험이 있는 개체를 허위 부모 개체로 등록해 조작했다. 수석 사육사 여산하가 원본 기록과 대조하다가 이를 발견해 협약식 전 국제기구에 알리겠다고 압박했다.",
-    "method": "부사육사 예은결에게 '정기 점검'을 핑계로 여산하가 쓸 다트건의 마취제 카트리지를 몰래 고농도로 교체시키고, 여산하가 건강검진 준비 중 다트에 찔려 심정지 상태에 빠지도록 방치했다.",
-    "key_time_location": "21:10, L04에서 예은결에게 카트리지 교체 지시 / 21:40, L02에서 여산하 심정지 / 21:50 발견 후 22:05 다트건 사용 로그를 정상 기록으로 덮어써 은폐.",
-    "cover_up": "여산하가 심정지 상태로 발견되자, 고범준은 가장 먼저 다트건 사용 기록부터 조작했다. 카트리지를 고농도로 바꾼 흔적이 남은 로그를 정상 수치로 덮어쓴 다음, 혈통관리대장 조작 사실은 완강히 부인하고 그날 밤엔 동물원에 있지도 않았다고 둘러댔다.",
-    "accomplice": "없음 (예은결은 정기 점검이라 믿고 지시를 따랐을 뿐 공범이 아니다).",
-    "method_archetypes": ["drug_overdose", "staging_cover_up"],
-    "motive_archetypes": ["reputation", "report_prevention"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["digital_record_manipulation", "false_alibi"]
+    "responsible_character_id": "CH02",
+    "motive": "곽서준은 8년 전 국가공인 유전자감식 자격시험에 대리 응시자를 내세워 합격했고, 그 자격을 바탕으로 지금의 자리까지 올라왔다. 오건호가 시연회를 앞두고 진행한 전 직원 등록번호 대조에서 그 불일치를 발견하고 조용히 확인하려 하자, 8년간 쌓아 온 경력 전체가 무너질 것을 막기 위해 그를 죽였다.",
+    "motive_archetypes": [
+      "professional_secrecy",
+      "past_crime_cover"
+    ],
+    "method": "13시 55분, 곽서준은 오건호를 저온시료보관실로 데려가 자신의 자격 문제에 대해 설명을 요구받았다. 14시 02분, 오건호가 선반 안쪽 시료 상자를 확인하려 몸을 돌린 사이 곽서준은 비상 열쇠함의 열쇠로 제어반의 수동 잠금을 풀고 정기 일정에 없던 질소 퍼지를 작동시킨 뒤 문을 잠갔다. 밀폐된 방 안의 산소가 급격히 낮아지며 오건호는 의식을 잃고 숨졌다.",
+    "method_archetypes": [
+      "oxygen_deprivation",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 14시 02분, 저온시료보관실(L02)",
+    "cover_up": "곽서준은 사고처럼 보이도록 정비일지 프로그램에 접속해 이번 주 질소 퍼지가 정기 점검 일정이었던 것처럼 새 항목을 만들어 넣었고, 오건호와 따로 만난 사실 자체를 숨기려 했다.",
+    "cover_up_target": [
+      "identity",
+      "relationship"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E11",
+      "E17"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "5일 전 09:00", "location": "L01", "actors": ["CH04"],
-      "actual_action": "채선호가 도어락·CCTV 유지보수 업체로부터 뒷돈을 받는다.",
-      "world_fact": "그 대가로 계약 갱신 심사에서 유리한 평가를 챙겨준다는 사실은 이 사건과는 무관한 별개의 문제다." },
-    { "id": "T02", "time": "4일 전 11:00", "location": "L03", "actors": ["CH01"],
-      "actual_action": "고범준이 근친번식 위험이 있는 개체를 허위 부모 개체로 혈통관리대장에 등록한다.",
-      "world_fact": "조작된 혈통관리대장 사본이 원장실 서류함에 남는다." },
-    { "id": "T03", "time": "4일 전 15:00", "location": "L03", "actors": ["CH03"],
-      "actual_action": "반다온이 고범준으로부터 그 혈통관리대장을 국제기구 제출용으로 정리해 달라는 요청을 받는다.",
-      "world_fact": "반다온은 이 혈통관리대장이 조작된 것인 줄은 전혀 모른다." },
-    { "id": "T04", "time": "3일 전 09:50", "location": "L06", "actors": ["V01"],
-      "actual_action": "여산하가 국제기구 제출 서류를 최종 검토하다가, 원본 혈통기록과 수치가 어긋나는 걸 알아채고 대조 끝에 조작을 발견한다.",
-      "world_fact": "대조 내용을 메모로 남겨 개인 사물함에 보관해 둔다." },
-    { "id": "T05", "time": "3일 전 20:30", "location": "L06", "actors": ["V01"],
-      "actual_action": "여산하가 개인 기록장에 협약식 전 국제기구에 이 사실을 알리겠다고 적어 놓는다.",
-      "world_fact": "" },
-    { "id": "T06", "time": "어제 19:00", "location": "L03", "actors": ["V01", "CH01"],
-      "actual_action": "여산하가 고범준에게 혈통관리대장 조작 사실을 알고 있다고 추궁한다.",
-      "world_fact": "여산하는 협약식 전 국제기구에 알리겠다고 못박는다." },
-    { "id": "T07", "time": "어제 19:10", "location": "L03", "actors": ["CH05"],
-      "actual_action": "구하늘이 원장실 근처에서 고범준과 여산하가 언성을 높이는 소리를 우연히 듣는다.",
-      "world_fact": "복도 끝이라 낱말은 흩어지고, 구하늘이 붙잡은 것은 높아졌다 낮아지는 목소리뿐이다." },
-    { "id": "T08", "time": "사고 당일 21:00", "location": "L02", "actors": ["V01"],
-      "actual_action": "여산하가 다른 직원들이 없는 늦은 시간, 정기 건강검진 준비를 위해 처치실에 홀로 들어간다.",
-      "world_fact": "이 시간대 처치실에는 그녀 혼자만 있기로 되어 있었다." },
-    { "id": "T09", "time": "사고 당일 21:10", "location": "L04", "actors": ["CH01", "CH02"],
-      "actual_action": "고범준이 예은결에게 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라고 지시한다.",
-      "world_fact": "예은결은 정기 점검이라는 설명을 그대로 믿는다." },
-    { "id": "T10", "time": "사고 당일 21:15", "location": "L04", "actors": ["CH02"],
-      "actual_action": "예은결이 그 다트건의 마취제 카트리지를 고농도로 교체한다.",
-      "world_fact": "다트건이 겉보기엔 정상 작동하는 것처럼 보이지만 마취제 농도가 기준치를 넘는 상태가 된다." },
-    { "id": "T11", "time": "사고 당일 21:20", "location": "L02", "actors": ["CH02"],
-      "actual_action": "예은결이 점검을 마친 다트건 표시등을 정상으로 되돌려 놓는다.",
-      "world_fact": "" },
-    { "id": "T12", "time": "사고 당일 21:40", "location": "L02", "actors": ["V01"],
-      "actual_action": "여산하가 점검 중 다트에 찔려 과다 투여된 마취제로 심정지 상태에 빠진다.",
-      "world_fact": "다트건 자체의 기계적 결함이 아니라 카트리지가 교체됐다는 사실은 외관만으로는 확인하기 어렵다." },
-    { "id": "T13", "time": "사고 당일 21:55", "location": "L02", "actors": ["CH01"],
-      "actual_action": "고범준이 처치실 문이 열린 채 인기척이 없는 걸 이상하게 여겨 들어가 보다, 쓰러진 여산하를 발견한다.",
-      "world_fact": "" },
-    { "id": "T14", "time": "사고 당일 22:05", "location": "L02", "actors": ["CH01", "CH02"],
-      "actual_action": "고범준이 예은결에게 다트건 사용 로그를 정상 기록으로 덮어쓰라고 지시한다.",
-      "world_fact": "원래 카트리지 교체 기록은 따로 삭제되어 사라진다." },
-    { "id": "T15", "time": "사고 당일 22:15", "location": "L01", "actors": ["CH01"],
-      "actual_action": "고범준이 로비에 남아 있던 직원들을 불러 모아 사고를 알린다.",
-      "world_fact": "" },
-    { "id": "T16", "time": "사고 당일 22:20", "location": "L01", "actors": ["CH01"],
-      "actual_action": "고범준이 그 말 끝에 한 줄을 보탠다 — 자기는 퇴근했다가 소식을 듣고 다시 들어왔다고.",
-      "world_fact": "같은 시각 고범준의 출입카드는 동물원 후문 리더에 아직 찍히고 있었다." },
-    { "id": "T17", "time": "다음날 08:00", "location": "L01", "actors": ["CH01"],
-      "actual_action": "고범준이 관계자들 앞에서 장비 오작동에 의한 사고임을 공식 발표한다.",
-      "world_fact": "탐정이 후문 산책로를 가로질러 들어선 것이 바로 그 말이 끝나는 참이다." }
+    {
+      "id": "T01",
+      "time": "나흘 전 오전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "오건호가 시연회를 앞두고 진행하던 전 직원 자격 등록번호 대조 작업 중 곽서준의 등록번호가 국가 시스템에서 다른 사람 이름으로 조회되는 것을 발견한다."
+    },
+    {
+      "id": "T02",
+      "time": "이틀 전 저녁",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
+      "actual_action": "오건호가 곽서준에게 시연회 준비와는 별개로 조용히 확인하고 싶은 게 있다며 개인적으로 이야기할 시간을 청한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 밤",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "곽서준이 사물함 깊숙이 넣어 둔 8년 전 대리시험 관련 인화물을 다시 꺼내 확인하며 잠을 이루지 못한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 08:30",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "오건호가 저온시료보관실 제어반 앞에서 이번 주 정기 질소 퍼지 점검 일정이 없다는 것을 정비 일정표로 다시 확인한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 13:40",
+      "location": "L03",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "곽서준이 오건호에게 시연 준비로 다들 바쁜 지금이 조용히 얘기하기 좋겠다며 저온시료보관실로 함께 가자고 먼저 제안한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 13:55",
+      "location": "L02",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "오건호가 태블릿에 띄운 등록번호 대조 화면을 곽서준에게 보여주며 설명을 요구한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 14:02",
+      "location": "L02",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "오건호가 선반 안쪽 시료 상자를 확인하려 몸을 돌린 사이, 곽서준이 비상 열쇠함의 열쇠로 제어반의 수동 잠금을 풀고 정기 일정에 없던 질소 퍼지를 작동시킨 뒤 문을 잠근다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14:10",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "곽서준이 복도로 나와 아무 일 없었다는 듯 분석실로 돌아가 시연 자료를 정리한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 14:25",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "곽서준이 공용 정비일지 프로그램에 접속해 이번 주 질소 퍼지가 정기 점검 일정이었던 것처럼 새 항목을 만들어 넣는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 14:35",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "나연우가 저온시료보관실 문 옆 경보등이 평소와 달리 곧바로 빨간불로 켜져 있는 것을 이상하게 여겨 안을 들여다보다 쓰러진 오건호를 발견한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:40",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "비상벨 소리를 듣고 달려온 봉재유가 외부 밸브를 잠그고 문을 강제로 연다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "여산하", "role": "수석 사육사 / 사망자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "오건호",
+      "role": "품질관리실장",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "고범준", "role": "동물원장", "present_location": "L03",
+      "id": "CH01",
+      "name": "채영묵",
+      "role": "소장",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "근친번식 위험이 있는 개체를 허위 부모 개체로 혈통관리대장에 조작해 등록했다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 예은결에게 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라고 지시했다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 예은결에게 다트건 사용 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
-      ],
-      "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 동물원에 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "혈통관리대장은 전부 정상적으로 등록된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "혈통 조작 사실과 살해 동기를 숨기기 위해서다." },
         {
-          "claim_id": "S-CH01-03",
-          "content": "협약 준비 때문이었을 뿐이에요. 다트건이니 혈통관리대장이니 하는 건 저하고 상관없어요.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+          "fact_id": "F-CH01-01",
+          "content": "13시 48분경 사무실 유선 전화로 개인 대부업체 담당자와 통화했다는 사실은 인정한다.",
+          "source": "본인이 겪음"
         },
         {
-          "claim_id": "S-CH01-04",
-          "content": "정상적인 점검이었을 뿐 여산하를 해칠 생각은 없었어요.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+          "fact_id": "F-CH01-02",
+          "content": "지난 두 차례 연구비 항목의 일부를 개인 계좌로 이체했다가 되돌린 사실은 인정한다.",
+          "source": "본인이 겪음"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+      "initial_claims": [
         {
-          "fact_or_claim_id": "S-CH01-03",
-          "release_prerequisite": "F-CH01-03",
-          "release_trigger": "S-CH01-01"
+          "claim_id": "S-CH01-01",
+          "content": "투자 유치만 성사되면 이 연구소도 한시름 놓을 텐데, 오늘 그것 때문에 다들 날이 서 있었죠.",
+          "truth_status": "truth"
         },
         {
-          "fact_or_claim_id": "S-CH01-04",
-          "release_prerequisite": "F-CH01-02",
-          "release_trigger": "S-CH01-03"
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 소장실에 있었습니다. 자리를 뜬 적 없어요.",
+          "truth_status": "lie"
         }
       ],
-      "knowledge_limits": ["여산하가 원본 대조 메모를 따로 만들어 사물함에 보관해뒀다는 사실은 모른다."],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "오건호가 자신의 계좌 문제까지 알아냈는지는 정확히 모른다."
+      ],
       "voice_profile": {
-        "formality_register": "격식체(합니다)를 쓰며 원장 특유의 신뢰감 있는 언변을 앞세운다.",
-        "sentence_length_tendency": "평소엔 협약의 의미를 늘어놓듯 길게 말하지만, 압박받으면 문장이 급격히 짧아지고 방어적으로 변한다.",
-        "verbal_tic": "'우리 동물원은 신뢰로 운영됩니다'를 자주 쓴다."
+        "formality_register": "격식체(합니다), 대표 자리답게 말을 정리해서 한다",
+        "sentence_length_tendency": "평소엔 문장이 차분하고 길다가, 몰리면 말끝을 흐리며 짧아진다",
+        "verbal_tic": "말끝에 '아시다시피'를 자주 붙인다",
+        "stance": "unruffled"
       },
       "pressure_responses": [
-        "우리 동물원은 신뢰로 운영됩니다. 이런 걸로 흔들릴 곳 아니에요.",
-        "혈통 관리는 제가 직접 책임지고 챙깁니다. 그게 문제 될 게 뭡니까.",
-        "...이쯤 하시죠. 협약식이 모레입니다."
+        "그 얘기는 나중에 하시죠, 지금은 시연이 먼저입니다.",
+        "제가 왜 그런 걸 숨기겠습니까.",
+        "...그건, 개인적인 사정입니다."
       ]
     },
     {
-      "id": "CH02", "name": "예은결", "role": "부사육사 / 다트건 관리 담당", "present_location": "L04",
+      "id": "CH02",
+      "name": "곽서준",
+      "role": "수석 분석사",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 고범준으로부터 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 고범준으로부터 다트건 사용 로그를 정상 기록으로 덮어쓰라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "13시 55분경 오건호와 함께 저온시료보관실에 들어갔다는 사실은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "오건호로부터 자신의 자격증 등록 이력에 문제가 있다는 지적을 받았다는 사실은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 이후 정비일지 프로그램에 접속해 이번 주 정기 점검 항목을 새로 만들어 넣었다는 사실은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "오건호가 선반 안쪽을 확인하려 몸을 돌린 사이 제어반의 수동 잠금을 손으로 풀고 비정기 질소 퍼지를 작동시킨 뒤 문을 잠갔다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-02", "content": "선생님은 카트리지를 끼우기 전에 라벨을 소리 내서 두 번 읽으시던 분이에요. 저도 그렇게 배웠고요.", "truth_status": "truth", "reason_for_limit_or_lie": "숨기는 것이 아니라, 자기 일에 대해 가장 먼저 꺼낼 수 있는 말이어서다." },
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 평소처럼 정기 점검만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘 시연 장비 최종 점검하느라 아침부터 정신이 하나도 없었습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 낮에 오건호 실장님이랑 따로 얘기한 적 없습니다. 시연 준비로 다들 바빴어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그냥 시연 준비 관련해서 잠깐 얘기만 나눴을 뿐, 별다른 건 없었습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "질소 퍼지는 원래 이번 주 정기 점검 일정이었습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "잠금장치엔 손도 대지 않았습니다. 그건 자동으로 작동했을 겁니다.",
+          "truth_status": "lie"
+        }
       ],
-      "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E03", "release_trigger": "S-CH02-01" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C02", "release_trigger": "E04" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH02-05"
+        }
       ],
-      "knowledge_limits": ["그 지시가 무엇을 노린 것이었는지는 예은결이 끝내 모른다."],
+      "knowledge_limits": [
+        "오건호가 이미 다른 누구에게 이 얘기를 했는지는 몰랐다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말(해요)에 사육·의료 용어를 섞어 쓴다.",
-        "sentence_length_tendency": "평소엔 투여량과 체중을 숫자로만 붙여 답하는데, 그날 밤 얘기가 나오면 같은 설명을 두 번씩 되풀이한다.",
-        "verbal_tic": "'저는 지시받은 대로만...'으로 자주 운을 뗀다."
+        "formality_register": "표준 존댓말, 침착하고 절제된 말투를 유지한다",
+        "sentence_length_tendency": "평소엔 문장이 담담하고 여유 있다가, 몰리면 오히려 더 느려지고 뜸을 들인다",
+        "verbal_tic": "말끝에 '그렇게 알고 계시면 됩니다'를 자주 붙인다",
+        "stance": "unruffled"
       },
       "pressure_responses": [
-        "저는 지시받은 대로만... 위에서 갈라는 걸 간 거예요.",
-        "점검이라고 하셨으니까요. 원장님 지시에 제가 왜냐고 물어본 적은 없습니다.",
-        "...그만 물으세요. 저는 그날 밤부터 다트건 충전음이 자꾸 들려요.",
-        "진짜예요. 다시 정상으로 돌려놓을 생각이었다고요."
+        "그렇게 알고 계시면 됩니다, 제가 더 드릴 말씀은 없습니다.",
+        "자꾸 이러시면 저도 곤란합니다.",
+        "...그건, 제가 설명드릴 수 있는 부분이 아니네요."
       ]
     },
     {
-      "id": "CH03", "name": "반다온", "role": "수의사 / 협약 서류 검토 담당", "present_location": "L05",
+      "id": "CH03",
+      "name": "나연우",
+      "role": "검사 보조원",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "고범준이 혈통관리대장을 국제기구 제출용으로 정리해 달라고 요청했다.", "source": "업무 정보", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "여산하가 최근 자신에게 원본 혈통기록을 열람할 수 있는지 물어봤다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "13시 50분경 복도를 지나다 저온시료보관실 안에서 언성이 다소 높아지는 걸 얼핏 들었다는 사실은 인정한다.",
+          "source": "본인이 겪음"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "요즘 특별히 누가 원본 기록을 요청한 적은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 여산하가 원본 기록을 캐물었던 사실을 숨긴다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "실장님은 뭐든 두 번 세 번씩 확인하시는 분이라, 다들 조금은 피곤해하면서도 믿고 따랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그냥 지나가다 우연히 본 것뿐이에요, 별생각 없었어요.",
+          "truth_status": "lie"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-02"
+        }
       ],
-      "knowledge_limits": ["여산하의 죽음이 혈통관리대장 조작과 관련 있다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "안쪽에서 정확히 무슨 대화가 오갔는지는 듣지 못했다."
+      ],
       "voice_profile": {
-        "formality_register": "격식체(합니다)를 쓰며 의료진 특유의 신중한 태도를 유지한다.",
-        "sentence_length_tendency": "평소엔 사실 위주로 짧게 답하다가, 서류 이야기가 나오면 급격히 말을 아낀다.",
-        "verbal_tic": "'그건 제가 검토만 하는 거라서요'를 자주 쓴다."
+        "formality_register": "표준 존댓말, 조심스럽고 예의 바르다",
+        "sentence_length_tendency": "평소엔 문장이 짧고 또박또박하다가, 몰리면 말끝이 흐려지고 자주 끊긴다",
+        "verbal_tic": "말끝에 '그런 것 같아요'를 자주 붙인다",
+        "stance": "skittish"
       },
       "pressure_responses": [
-        "그건 제가 검토만 하는 거라서요. 하루에도 몇 건씩 올라오는데 그걸 다 외우진 못합니다.",
-        "선생님이랑 무슨 얘길 나눴는지까지 적어 가셔야 하는 겁니까?",
-        "...한 가지 말씀 안 드린 게 있긴 합니다. 그건 이 사건하곤 아무 상관이 없어요."
+        "그건... 잘못 들은 걸 수도 있어요.",
+        "제가 괜히 이상한 소리 한 건 아닌지 모르겠어요.",
+        "그냥... 그때 좀 이상하다고만 느꼈어요."
       ]
     },
     {
-      "id": "CH04", "name": "채선호", "role": "시설관리팀장", "present_location": "L01",
+      "id": "CH04",
+      "name": "제하은",
+      "role": "사업개발팀 대리",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "도어락·CCTV 유지보수 업체로부터 뒷돈을 받아왔다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오건호에게 자격 점검 결과를 시연회가 끝날 때까지만 미뤄 달라고 부탁한 적이 있다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "여산하 선생님은 처치실 문 잠그는 걸 한 번도 잊은 적이 없는 분이에요. 저희 팀에선 그게 제일 유명했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "리베이트 문제가 드러나 불이익을 받을까 봐 숨긴다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "오늘 시연만 잘 끝나면 이 연구소도 한 단계 올라설 수 있는 자리였는데, 다들 그것만 보고 있었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "실장님이 요즘 뭘 하고 계셨는지는 저도 자세힌 몰라요.",
+          "truth_status": "lie"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH04-02"
+        }
       ],
-      "knowledge_limits": ["여산하의 죽음이나 혈통관리대장 조작 문제에 대해서는 전혀 모른다."],
+      "knowledge_limits": [
+        "오건호가 구체적으로 무엇을 확인하고 있었는지까지는 듣지 못했다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말(해요)을 쓰며 방어적인 태도를 보인다.",
-        "sentence_length_tendency": "평소엔 또박또박 말하다가, 거래처 얘기가 나오면 문장이 뚝뚝 끊긴다.",
-        "verbal_tic": "'다 시설 운영 때문에 그런 거예요'를 자주 쓴다."
+        "formality_register": "표준 존댓말, 사근사근하고 붙임성이 있다",
+        "sentence_length_tendency": "평소엔 문장이 빠르고 밝다가, 몰리면 말이 갑자기 짧아지고 조심스러워진다",
+        "verbal_tic": "말끝에 '그렇잖아요'를 자주 붙인다",
+        "stance": "courteous"
       },
       "pressure_responses": [
-        "다 시설 운영 때문에 그런 거예요. 그게 선생님 일하고 무슨 상관이 있다는 겁니까?",
-        "그 시간엔 정문 도어락 붙들고 씨름하고 있었습니다.",
-        "...네, 그건 제가 했어요. 그렇다고 제가 다트건까지 손댔겠습니까."
+        "제가 뭘 숨기겠어요, 그렇잖아요.",
+        "이런 거로 저를 의심하시는 거예요?",
+        "...그건 그냥, 부탁이었을 뿐이에요."
       ]
     },
     {
-      "id": "CH05", "name": "구하늘", "role": "신입 사육사", "present_location": "L06",
+      "id": "CH05",
+      "name": "봉재유",
+      "role": "설비관리 기사",
+      "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 전날 저녁, 원장실 근처에서 고범준과 여산하가 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "지난달 산소 감지 센서 추가 설치 예산을 오건호에게 반려당했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "원장님과 여산하 선배 사이에 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "평소 자신을 챙겨준 고범준을 감싸고, 협약식을 앞두고 괜한 소란에 휘말리기 싫어서다." }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그 방 온도 관리 하나 잘못되면 몇 년치 시료가 다 못 쓰게 됩니다. 다들 우습게 보는데 제일 예민한 일이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "예산 문제는 저랑 실장님 사이에 별일 아니었습니다.",
+          "truth_status": "lie"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E06", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH05-02"
+        }
       ],
-      "knowledge_limits": ["여산하의 죽음이 혈통관리대장 조작과 관련 있다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "그 방 잠금장치를 누가 조작했는지는 알지 못한다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말(해요)을 쓰되 질문마다 먼저 고개를 끄덕이고 나서 답한다.",
-        "sentence_length_tendency": "평소엔 짧고 신중하게 답하다가, 원장 이야기가 나오면 말이 빨라진다.",
-        "verbal_tic": "'저는 아직 배우는 중이라서요'를 자주 붙인다."
+        "formality_register": "표준 존댓말, 무뚝뚝하고 필요한 말만 한다",
+        "sentence_length_tendency": "평소엔 문장이 짧고 건조하다가, 몰리면 오히려 말수가 더 줄어든다",
+        "verbal_tic": "말끝에 '뭐, 그렇습니다'를 자주 붙인다",
+        "stance": "guarded"
       },
       "pressure_responses": [
-        "저는 아직 배우는 중이라서요. 원장님도 사람인데, 협약식 앞두고 예민해지실 수 있는 거잖아요.",
-        "제가 이걸 말하면 협약식에 문제 생기는 거 아니에요?",
-        "...그날 일은 자꾸 떠올리고 싶지가 않아서요. 죄송합니다."
+        "제가 왜 그런 일을 벌이겠습니까, 뭐, 그렇습니다.",
+        "더 물으셔도 똑같은 말만 나옵니다.",
+        "...예산 얘기는 이제 그만하시죠."
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
-      "nature": "동물원을 이끄는 원장과 그가 신뢰해 온 수석 사육사",
-      "public_face": "협약식 준비를 여산하에게 전적으로 맡겨 온, 서로 없으면 안 되는 사이로 알려져 있다.",
-      "private_strain": "여산하는 국제기구 제출 서류를 검토하다 혈통 기록이 어긋나는 걸 알아채고 조작을 발견했으며, 협약식 전 국제기구에 알리겠다며 고범준을 직접 추궁했다.",
-      "surfaces_when": "허위로 등록된 혈통관리대장 사본(E02)과 여산하의 기록장(E06)을 나란히 들이밀었을 때.",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "3년째 함께 일해 온 소장과 품질관리실장 사이. 연구소 살림 전반을 실질적으로 오건호가 챙겨 왔다.",
+      "public_face": "다들 소장과 실장이 손발이 잘 맞는 관계라고 알고 있다.",
+      "private_strain": "채영묵은 최근 두 차례 연구비 항목의 계좌 이체 정황을 오건호가 눈치챘을까 봐 마음을 졸이고 있었다.",
+      "surfaces_when": "탐정이 통화 기록(E12)과 상환 안내문(E13)을 함께 제시할 때.",
       "says": {
-        "CH01": "\"산하가... 대조를 하다 뭔가 오해한 겁니다. 등록 절차상 문제는 없었어요.\""
+        "CH01": "그 친구만큼 꼼꼼한 사람 없었죠. 그게 다입니다."
       }
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
-      "nature": "협약 서류를 함께 매만져 온 수석 사육사와 수의사",
-      "public_face": "여산하가 반다온에게 건강검진 항목 검토를 늘 믿고 맡겨 온 사이로 알려져 있다.",
-      "private_strain": "여산하가 며칠 전 반다온에게 원본 혈통기록을 열람할 수 있는지 지나가듯 물었고, 반다온은 그 물음이 심상치 않다는 걸 느꼈으면서도 굳이 캐묻지 않았다.",
-      "surfaces_when": "원장실에서 발견된 제출용 서류 봉투(F-L03-OBS-01)를 근거로 반다온에게 여산하가 무엇을 물었는지 되짚었을 때.",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "8년을 함께 일해 온 선임 분석사와, 신참 시절 그를 직접 가르쳤던 실장 사이.",
+      "public_face": "다들 두 사람이 이 연구소를 지금 수준까지 끌어올린 실무의 두 축이라고 말한다.",
+      "private_strain": "곽서준은 오건호가 자신의 자격증 등록 이력에서 이상한 점을 발견했다는 것을 그날에야 알게 됐다.",
+      "surfaces_when": "탐정이 공유 문서함 메모(E11)를 제시할 때.",
       "says": {
-        "CH03": "\"원본 기록 얘기는... 산하 선생님이 지나가듯 물으시긴 했는데, 그때는 그냥 검토 때문인 줄 알았죠.\""
+        "CH02": "실장님 없이는 이 연구소 자격 유지 자체가 안 됐을 겁니다. 그 이상은... 잘 모르겠네요."
       }
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
-      "nature": "수석 사육사와 이제 막 들어온 신입",
-      "public_face": "구하늘이 여산하를 스승처럼 따르는 사이로 알려져 있다.",
-      "private_strain": "구하늘은 사고 전날 저녁 원장실 근처에서 고범준과 여산하가 언성을 높이는 소리를 들었지만, 자신을 거둬준 고범준을 감싸느라 그 얘기를 꺼내지 않고 있다.",
-      "surfaces_when": "사료·장비 보관실 점검 로그(E03)로 그 시각을 짚어가며 구하늘에게 그날 저녁 원장실 근처에서 무엇을 들었는지 물었을 때.",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "입사 1년 차 보조원과, 그를 직접 지도해 온 실장 사이.",
+      "public_face": "나연우는 실장님을 잘 따르는 후배로 알려져 있다.",
+      "private_strain": "나연우는 최근 저온시료보관실 경보 설정이 평소와 달라진 것을 눈치챘지만 괜한 참견으로 보일까 봐 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 경보 설정 이력(E04)을 제시하며 물을 때.",
       "says": {
-        "CH05": "\"그게, 저는 잘 몰라서요. 원장님도 사람인데 목소리 좀 높이실 수도 있잖아요.\""
+        "CH03": "실장님은... 저한테 제일 잘해 주신 분이었어요."
       }
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
-      "nature": "원장과 그가 직접 부리는 부사육사",
-      "public_face": "고범준이 예은결에게 다트건 관리를 도맡겨 온, 지시 한 번이면 움직이는 사이로 알려져 있다.",
-      "private_strain": "고범준은 '정기 점검'이라 속여 예은결에게 여산하가 쓸 다트건의 카트리지를 고농도로 바꾸게 했고, 예은결은 아무 의심 없이 그 지시를 따른 것이 사고 이후 자기 책임처럼 느껴져 잠을 못 이루고 있다.",
-      "surfaces_when": "사료·장비 보관실 점검 로그(E03)를 들이밀며 그날 21시 10분 지시의 속뜻을 캐물었을 때.",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "사업개발팀 대리와 품질관리실장, 이번 시연회를 함께 준비해 온 사이.",
+      "public_face": "두 사람이 이번 투자 유치 건에서 손발을 맞춰 온 걸로 알려져 있다.",
+      "private_strain": "제하은은 오건호에게 자격 점검 결과를 시연회가 끝날 때까지만 미뤄 달라고 부탁한 적이 있다.",
+      "surfaces_when": "탐정이 제하은의 진술(E09)을 들은 뒤 되물을 때.",
       "says": {
-        "CH01": "\"은결 씨한텐 정기 점검이라고만 했습니다. 굳이 더 알려줄 이유가 없었으니까요.\"",
-        "CH02": "\"점검이라고 하셔서 점검인 줄 알았죠. 제가 원장님 지시를 되물을 자리는 아니잖아요.\""
+        "CH04": "실장님이 워낙 원칙적인 분이라 저도 조심스러웠죠."
       }
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH04"],
-      "nature": "장비를 사이에 두고 매일 마주치는 부사육사와 시설관리팀장",
-      "public_face": "다트건이며 도어락이며, 손볼 게 있으면 늘 서로부터 먼저 연락받는 사이로 알려져 있다.",
-      "private_strain": "예은결은 최근 채선호가 유지보수 업체 사람과 자주 따로 만나는 걸 눈치챘지만 자기 일도 아니라 넘어갔고, 채선호는 그 덕에 리베이트 문제가 묻힐 수 있었다는 걸 알면서도 먼저 밝히지 않았다.",
-      "surfaces_when": "로비에 남은 야간 출입 정황(F-L01-OBS-01)을 근거로 채선호에게 리베이트를 캐물어 확인시킨 뒤, 예은결에게도 그 무렵 낌새를 못 챘는지 되물었을 때.",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "설비관리 기사와, 안전 예산을 두고 자주 부딪혀 온 실장 사이.",
+      "public_face": "둘이 예산 문제로 종종 다툰다는 건 다들 아는 얘기다.",
+      "private_strain": "봉재유는 자신이 요청한 산소 감지 센서 예산을 오건호가 반려한 것에 여전히 서운함을 갖고 있다.",
+      "surfaces_when": "탐정이 봉재유의 진술(E14)을 들은 뒤 예산 문제를 되물을 때.",
       "says": {
-        "CH02": "\"선호 씨가 업체 사람 만나는 거야 몇 번 봤는데... 저랑 상관없는 일이라 신경 안 썼어요.\"",
-        "CH04": "\"다 시설 운영 때문에 그런 거예요. 은결 씨가 뭘 봤는지는 제가 알 바 아니고요.\""
+        "CH05": "예산 얘기만 나오면 서로 언성이 좀 높아지긴 했습니다."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH02",
+        "CH05"
+      ],
+      "nature": "실험 결과 관리와 설비 유지보수를 놓고 종종 의견이 갈려 온 동료 사이.",
+      "public_face": "둘 다 맡은 일에는 철저하다는 평이지만 스타일이 다르다고들 한다.",
+      "private_strain": "봉재유는 최근 곽서준이 저온시료보관실 제어반 접근 권한을 유독 자주 확인하는 것을 이상하게 여겼다.",
+      "surfaces_when": "탐정이 제어반 조작 이력(E02)에 대해 물을 때.",
+      "says": {
+        "CH02": "설비 쪽은 재유 씨가 워낙 꼼꼼해서 저야 편하죠.",
+        "CH05": "그 방 권한 확인이야 다들 하는 거 아닌가요, 저야 모르죠."
       }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 / 안내센터", "access": "시작부터 가능",
-      "base_description": "국제 혈통관리기구와의 공동 브리딩 협약식을 앞두고 방문객 안내와 협약 일정 게시가 이뤄지는 동물원 로비. 안쪽 통로로 원장실, 맹수사 처치실, 사료·장비 보관실, 동물병원 진료실, 사육사 휴게실로 이어진다.",
+      "id": "L01",
+      "name": "로비 겸 접수처",
+      "access": "방문객이면 누구나 드나들 수 있는 개방된 공간.",
+      "access_level": "open",
+      "connects_to": [
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "정문 옆 안내판에 오늘 시연회 일정이 붙어 있고, 접수대 위에는 방문객 응대 일지가 펼쳐져 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "협약식 일정표에 여산하가 이 시간대 정기 건강검진 준비를 단독으로 진행한다는 기록이 붙어 있다." }
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "정문 옆 안내판에 오늘 오후 투자사 시연회 일정이 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "고범준이 처음 주장한 것보다 훨씬 늦은 시각까지 동물원에 남아 있었다는 출입 기록이 확인된다." },
-        { "action": "채선호의 사원증 기록을 확인한다", "requires": "없음", "release_evidence_id": "E09", "result": "채선호의 사원증이 그날 밤 21시부터 22시까지 정문 구역에서 한 번도 찍히지 않고 계속 남아 있었다는 사실이 확인된다." }
+        {
+          "action": "방문객 응대 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "오늘 방문 예정인 투자사 세 곳의 이름과 도착 예정 시각이 적힌 응대 일지가 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "맹수사 뒤편 처치실", "access": "시작부터 가능",
-      "base_description": "정기 건강검진과 마취 처치가 이뤄지는 맹수사 뒤편 처치실. 안쪽 철창 너머로 사자사가 바로 붙어 있고, 처치대와 약품장 사이 좁은 바닥에 여산하가 쓰러졌던 자리만 아직 비워져 있다.",
+      "id": "L02",
+      "name": "저온시료보관실",
+      "access": "직원 카드키와 별도 승인이 있어야 드나들 수 있는 통제 구역.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ],
+      "base_description": "출입문에 노란 통제 테이프가 둘러쳐 있고, 안쪽 선반 한 줄이 평소보다 밀려나 있다. 문 옆 제어반 화면은 아직 켜진 채로 남아 있다.",
       "observation_rules": [
-        { "action": "처치실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "여산하가 쓰러진 처치대 옆 다트건 표시등이 꺼진 채 방치돼 있다." }
+        {
+          "action": "보관실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "조명이 유독 낮게 맞춰져 있고, 벽면 온도계가 정상 범위보다 낮은 숫자를 가리키고 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "처치대를 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "독성검사 소견에 따르면 사고 당시 사용된 다트의 마취제 농도가 기준치를 훨씬 초과했다는 사실이 확인된다." }
+        {
+          "action": "제어반 조작 이력을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "제어반 로그 화면에 낯선 시각의 조작 기록이 남아 있다."
+        },
+        {
+          "action": "출입 태그 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "문 옆 태그 리더기에 그날 오후의 출입 기록이 저장돼 있다."
+        },
+        {
+          "action": "경보 설정 이력을 확인한다",
+          "requires": "E02",
+          "release_evidence_id": "E04",
+          "result": "경보 설정 화면에 그날 경보가 울린 방식이 남아 있다."
+        },
+        {
+          "action": "선반 안쪽 시료 상자를 살핀다",
+          "requires": "나연우",
+          "release_evidence_id": "E05",
+          "result": "선반 안쪽 상자 틈에서 태블릿 하나가 떨어져 있다."
+        },
+        {
+          "action": "비상 열쇠함을 확인한다",
+          "requires": "E03",
+          "release_evidence_id": "E17",
+          "result": "벽에 붙은 비상 열쇠함에 사용 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "원장실", "access": "시작부터 가능",
-      "base_description": "협약 제출 서류와 혈통관리대장이 쌓인 원장 고범준의 개인 원장실.",
+      "id": "L03",
+      "name": "분석실",
+      "access": "연구소 직원이면 자유롭게 드나들 수 있는 실무 공간.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L06"
+      ],
+      "base_description": "실험대마다 시료 라벨이 정갈하게 붙어 있고, 안쪽 자리에서 곽서준이 시연용 자료를 넘겨보고 있다. 창가 쪽에서는 나연우가 장비 하나를 조용히 정리하고 있다.",
       "observation_rules": [
-        { "action": "원장실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "책상 위에 국제 혈통관리기구 제출용 서류 봉투가 놓여 있다." }
+        {
+          "action": "분석실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "벽면 게시판에 이번 주 정비 일정표 출력본이 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "서류함을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "실제 혈통과 다르게 허위로 등록된 혈통관리대장 사본이 발견된다." }
+        {
+          "action": "공용 정비일지 프로그램 접속 이력을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "정비일지 프로그램 접속 이력이 시스템에 남아 있다."
+        },
+        {
+          "action": "지난달 확정된 정비 일정표 원본을 확인한다",
+          "requires": "E06",
+          "release_evidence_id": "E07",
+          "result": "게시판 옆 서류철에서 지난달 확정된 정비 일정표 원본이 나온다."
+        },
+        {
+          "action": "사물함 안쪽을 살핀다",
+          "requires": "곽서준",
+          "release_evidence_id": "E08",
+          "result": "사물함 깊숙한 곳에서 오래된 인화물 한 장이 나온다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "사료·장비 보관실", "access": "시작부터 가능",
-      "base_description": "다트건 점검 로그와 마취제 카트리지가 보관된 사료·장비 보관실.",
+      "id": "L04",
+      "name": "소장실",
+      "access": "소장과 허가받은 직원만 드나드는 공간.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "책상 위에 투자 유치 관련 서류가 쌓여 있고, 채영묵이 창가에 서서 투자사 명단을 넘겨보고 있다.",
       "observation_rules": [
-        { "action": "장비 보관실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "다트건 점검 체크리스트가 최근 것으로 교체돼 있다." }
+        {
+          "action": "소장실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "벽 한쪽에 연구소 설립 이후의 실적표가 걸려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "다트건 점검 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "여산하가 쓸 다트건의 마취제 카트리지가 그날 21시 10분경 이례적으로 늦게 교체되었다는 기록이 남아 있다." }
+        {
+          "action": "공유 서버의 최근 수정 문서함을 확인한다",
+          "requires": "채영묵",
+          "release_evidence_id": "E11",
+          "result": "최근 수정 문서함에서 낯선 파일 하나가 눈에 띈다."
+        },
+        {
+          "action": "책상 위 통화 기록부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "유선 전화 통화 기록부에 그날 오후의 통화 내역이 적혀 있다."
+        },
+        {
+          "action": "책상 서랍 속 개인 서류를 확인한다",
+          "requires": "E12",
+          "release_evidence_id": "E13",
+          "result": "서랍 안쪽에서 개인 명의로 된 안내문 한 장이 나온다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "동물병원 진료실", "access": "시작부터 가능",
-      "base_description": "협약 제출 서류의 건강 검진 항목을 검토하는 동물병원 진료실. 수의사 반다온이 상시 근무한다.",
+      "id": "L05",
+      "name": "시연장",
+      "access": "오늘만 투자사 방문객에게도 열려 있는 공간.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "투자자용 좌석과 스크린이 준비돼 있고, 제하은이 마이크 상태를 점검하며 분주히 오가고 있다.",
       "observation_rules": [
-        { "action": "진료실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "국제기구 제출 서류의 건강 검진 항목을 검토한 흔적이 책상 위에 남아 있다." }
+        {
+          "action": "시연장을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "무대 옆에 오늘 시연할 신형 분석 장비가 세워져 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L06", "name": "사육사 휴게실", "access": "시작부터 가능",
-      "base_description": "사육사들의 개인 사물함과 휴게 공간이 있는 사육사 휴게실.",
+      "id": "L06",
+      "name": "설비제어실",
+      "access": "설비관리 담당자만 드나드는 통제 구역.",
+      "access_level": "sealed",
+      "connects_to": [
+        "L03"
+      ],
+      "base_description": "배관과 밸브가 늘어선 좁은 통로 안쪽에서 봉재유가 압력 게이지를 들여다보고 있다.",
       "observation_rules": [
-        { "action": "사육사 휴게실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "출입문 옆 맨 끝, 여산하의 사물함만 문이 반 뼘쯤 열린 채 잠기지 않았다." }
+        {
+          "action": "설비제어실을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "벽면 도면에 저온시료보관실로 이어지는 질소 배관 경로가 표시돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "여산하가 원본 혈통기록과 등록 내용을 한 줄씩 맞춰 본 대조표가 나온다. 어긋나는 개체마다 붉은 표시가 그어져 있다." },
-        { "action": "기록장을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "'협약식 전에 국제기구에 알린다'고 적어 둔 기록장이 나온다. 그 아래로는 아무것도 적혀 있지 않다." }
+        {
+          "action": "다른 냉각 설비 점검 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "인접한 냉각 설비 점검 일지에 그 시각 서명이 남아 있다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "여산하의 원본 대조 메모", "source_type": "location", "found_at": "L06", "discovery_condition": "개인 사물함을 확인한다", "related_timeline": ["T04"],
-      "content": "여산하가 원본 혈통기록과 등록 내용을 한 줄씩 맞춰 본 대조표가 나온다. 어긋나는 개체마다 붉은 표시가 그어져 있다.",
-      "proves": ["국제 혈통관리기구에 등록된 부모 개체 정보가 실제 원본 기록과 다르다는 사실을 증명한다."],
-      "does_not_prove": ["고범준이 이를 의도적으로 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "허위 등록된 혈통관리대장 사본", "source_type": "location", "found_at": "L03", "discovery_condition": "서류함을 확인한다", "related_timeline": ["T02"],
-      "content": "실제 혈통과 다르게 허위로 등록된 혈통관리대장 사본이 발견된다.",
-      "proves": ["원장실에 보관된 제출용 혈통관리대장이 원본과 다르게 조작되었다는 사실을 증명한다."],
-      "does_not_prove": ["그 대장이 여산하가 쓰러진 밤과 어떻게 이어지는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E03", "name": "사료·장비 보관실 다트건 점검 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "다트건 점검 로그를 확인한다", "related_timeline": ["T09", "T10"],
-      "content": "여산하가 쓸 다트건의 마취제 카트리지가 그날 21시 10분경 이례적으로 늦게 교체되었다는 기록이 남아 있다.",
-      "proves": ["마취제 카트리지 교체가 이례적인 시각에 이뤄졌다는 사실을 증명한다."],
-      "does_not_prove": ["고의였는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "독성검사 소견", "source_type": "location", "found_at": "L02", "discovery_condition": "처치대를 살펴본다", "related_timeline": ["T12"],
-      "content": "독성검사 소견에 따르면 사고 당시 사용된 다트의 마취제 농도가 기준치를 훨씬 초과했다는 사실이 확인된다.",
-      "proves": ["사고 당시 사용된 장비가 인위적으로 고농도 상태였다는 사실을 증명한다."],
-      "does_not_prove": ["누가 언제 카트리지를 교체했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "예은결의 지시 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "예은결에게 그날 지시받은 내용을 묻는다", "related_timeline": ["T09"],
-      "content": "예은결이 21:10경 고범준으로부터 다트건 카트리지를 재점검하라는 지시를 받았다는 진술을 확보한다.",
-      "proves": ["고범준이 사고 직전 직접 카트리지 점검을 지시했다는 사실을 증명한다."],
-      "does_not_prove": ["카트리지를 바꾸라는 그 말이 어디까지 계산된 것이었는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "여산하의 기록장", "source_type": "location", "found_at": "L06", "discovery_condition": "기록장을 확인한다", "related_timeline": ["T05"],
-      "content": "'협약식 전에 국제기구에 알린다'고 적어 둔 기록장이 나온다. 그 아래로는 아무것도 적혀 있지 않다.",
-      "proves": ["여산하가 대장을 고쳐 달라고 요구한 것이 아니라 국제기구에 넘길 작정이었다는 사실을 증명한다."],
-      "does_not_prove": ["고범준이 그 결심의 어디까지를 알고 있었는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "로비 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "출입기록을 확인한다", "related_timeline": ["T13", "T14"],
-      "content": "고범준이 처음 주장한 것보다 훨씬 늦은 시각까지 동물원에 남아 있었다는 출입 기록이 확인된다.",
-      "proves": ["고범준이 후문을 빠져나간 시각이 여산하가 실려 나간 뒤였다는 사실을 증명한다."],
-      "does_not_prove": ["그 사이에 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "반다온의 예은결 평판 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "반다온에게 예은결의 평소 점검 태도를 묻는다",
-      "content": "반다온에게 물으니, 예은결은 지시받은 절차를 벗어난 적이 없는 꼼꼼한 사람이라는 평가가 돌아온다.",
-      "proves": ["예은결이 평소 독단적으로 장비를 조작할 사람이 아니라는 정황을 뒷받침한다."],
-      "does_not_prove": ["그날 밤 지시를 의심 없이 따른 이유"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "채선호의 정문 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "채선호의 사원증 기록을 확인한다",
-      "content": "채선호의 사원증이 그날 밤 21시부터 22시까지 정문 구역에서 한 번도 찍히지 않고 계속 남아 있었다는 사실이 확인된다.",
-      "proves": ["채선호가 사고 추정 시각 동안 정문을 벗어나지 않았다는 사실을 증명한다."],
-      "does_not_prove": ["리베이트 문제 자체를 부정하지는 않는다"],
-      "presentation_effect": [] }
+    {
+      "id": "E01",
+      "name": "방문객 응대 일지",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 응대 일지를 확인한다",
+      "content": "오늘 방문 예정인 투자사 세 곳의 이름과 도착 예정 시각이 적힌 응대 일지가 있다.",
+      "proves": [
+        "오늘 오후 투자사 시연회가 예정돼 있었다는 것"
+      ],
+      "does_not_prove": [
+        "시연회와 사건이 직접 관련 있는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "제어반 조작 이력",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "제어반 조작 이력을 확인한다",
+      "content": "14시 02분, 수동 잠금 해제와 함께 비정기 질소 퍼지가 작동한 기록이 제어반 로그에 남아 있다.",
+      "proves": [
+        "14시 02분 질소 퍼지가 수동으로 작동됐다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "출입 태그 기록을 확인한다",
+      "content": "13시 55분 곽서준과 오건호의 사원증이 함께 출입을 태그했고, 14시 10분 곽서준의 사원증만 단독으로 퇴장을 태그한 기록이 남아 있다. 그 뒤로는 아무도 출입한 기록이 없다.",
+      "proves": [
+        "13시 55분 두 사람이 함께 들어갔고 곽서준만 먼저 나왔다는 것"
+      ],
+      "does_not_prove": [
+        "안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "경보 설정 이력",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "경보 설정 이력을 확인한다",
+      "content": "정기 점검이라면 5분간 예비 경보가 울린 뒤 퍼지가 작동해야 하지만, 이번엔 예비 경보 없이 곧바로 경보가 울린 기록이 남아 있다.",
+      "proves": [
+        "이번 퍼지가 정기 점검이 아니라 비정기로 작동했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 작동시켰는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "떨어진 태블릿",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "선반 안쪽 시료 상자를 살핀다",
+      "content": "선반 안쪽 상자 틈에서 오건호의 태블릿이 떨어져 있고, 화면에는 자격 등록번호 대조 페이지가 그대로 열려 있다.",
+      "proves": [
+        "오건호가 그 안에서 등록번호 대조 화면을 보여주고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 화면을 누구에게 보여주고 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "정비일지 접속 이력",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "공용 정비일지 프로그램 접속 이력을 확인한다",
+      "content": "14시 25분, 곽서준의 계정으로 이번 주 질소 퍼지 정기 점검 항목이 새로 추가된 접속 기록이 남아 있다.",
+      "proves": [
+        "곽서준이 사건 이후에 정비 일정을 새로 만들어 넣었다는 것"
+      ],
+      "does_not_prove": [
+        "그 이전에 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "지난달 확정 정비 일정표",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "지난달 확정된 정비 일정표 원본을 확인한다",
+      "content": "지난달 말 확정된 정비 일정표 원본에는 이번 주 질소 퍼지 점검 항목이 없다.",
+      "proves": [
+        "이번 주 퍼지 점검이 원래 예정에 없었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 왜 새로 끼워 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "사물함 속 인화물",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사물함 안쪽을 살핀다",
+      "content": "사물함 깊숙한 곳에서 8년 전 국가공인 자격시험 대리 응시를 부탁하는 내용의 옛 문자메시지 캡처 인화물 한 장이 나온다.",
+      "proves": [
+        "곽서준이 8년 전 대리시험으로 자격을 취득했다는 것"
+      ],
+      "does_not_prove": [
+        "오건호가 그 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "제하은의 진술 — 미뤄진 점검",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "제하은에게 오건호가 이번 주 자격 점검을 왜 미뤘는지 묻는다",
+      "content": "\"실장님이 하루만 더 시간을 달라고 하셔서, 시연회 끝나고 마저 봐도 되지 않겠냐고 제가 먼저 말씀드렸어요.\"",
+      "proves": [
+        "오건호가 시연회 직전 자격 점검을 마무리 짓지 못한 상태였다는 것"
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 더 확인하려 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E10",
+      "name": "채영묵의 진술 — 등록번호 대조",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "채영묵에게 오건호가 최근 어떤 업무를 맡고 있었는지 묻는다",
+      "content": "\"이번 시연 앞두고 전 직원 자격 등록번호를 국가 시스템이랑 하나하나 대조하고 있다고 들었습니다. 원래 꼼꼼한 친구라 그러려니 했죠.\"",
+      "proves": [
+        "오건호가 전 직원의 자격 등록번호를 대조하는 작업을 하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누구의 번호에서 문제가 발견됐는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E11",
+      "name": "공유 문서함의 대조 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "공유 서버의 최근 수정 문서함을 확인한다",
+      "content": "최근 수정 문서함에 '자격증 등록번호 대조_초안' 파일이 있다. 곽서준의 등록번호가 국가 등록 시스템에서 다른 사람 이름으로 조회된다는 메모가 적혀 있다.",
+      "proves": [
+        "곽서준의 자격증 등록 이력에 실제로 문제가 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 문제가 살인의 이유가 됐는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E12",
+      "name": "유선 전화 통화 기록부",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 통화 기록부를 확인한다",
+      "content": "13시 48분부터 14시 03분까지 소장실 유선 전화로 외부 번호와 통화한 기록이 있다. 발신 번호를 조회하면 개인 대부업체로 확인된다.",
+      "proves": [
+        "채영묵이 그 시각 내내 통화 중이었다는 것",
+        "채영묵이 개인 대부업체와 연락하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "통화 내용이 무엇이었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "서랍 속 상환 안내문",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 서랍 속 개인 서류를 확인한다",
+      "content": "서랍 안쪽에서 개인 명의 상환 안내문이 나온다. 지난 두 차례 연구비 항목의 일부 금액이 개인 계좌로 이체됐다가 다시 돌아온 정황이 함께 적혀 있다.",
+      "proves": [
+        "채영묵이 연구비 일부를 개인적으로 돌려썼다가 갚아 왔다는 것"
+      ],
+      "does_not_prove": [
+        "그것이 이번 살인과 관련 있는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "봉재유의 진술 — 반려된 예산",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "봉재유에게 최근 예산 신청이 반려된 적 있는지 묻는다",
+      "content": "\"지난달에 산소 감지 센서 추가 설치 예산을 올렸는데 실장님이 반려하셨어요. 그날도 전 다른 냉각 설비 손보느라 여기 없었습니다.\"",
+      "proves": [
+        "봉재유가 오건호에게 예산을 반려당한 적이 있다는 것",
+        "봉재유가 사건 시각 다른 설비를 점검하고 있었다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "나연우의 진술 — 경보등 색",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "나연우에게 그날 경보등 색이 왜 이상했는지 묻는다",
+      "content": "\"평소엔 초록불만 켜져 있는데, 그날은 문을 보자마자 빨간불이 계속 깜빡이고 있었어요. 그런 건 처음 봤어요.\"",
+      "proves": [
+        "평소와 다른 즉각적인 경보가 울렸다는 것"
+      ],
+      "does_not_prove": [
+        "그 경보가 왜 그렇게 울렸는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E16",
+      "name": "곽서준의 진술 — 시연 준비",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "곽서준에게 오늘 시연 준비로 맡은 업무를 묻는다",
+      "content": "\"저는 분석기 시연 시나리오랑 샘플 데이터 쪽을 맡았습니다. 오전 내내 그것만 붙들고 있었어요.\"",
+      "proves": [
+        "곽서준이 오늘 시연 준비를 맡고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "오전 내내 자리를 비우지 않았는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "비상 열쇠함 사용 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "비상 열쇠함을 확인한다",
+      "content": "벽에 붙은 비상 열쇠함에 14시 01분 곽서준의 사원증 태그로 열쇠가 인출됐다가 14시 03분 반납된 기록이 남아 있다.",
+      "proves": [
+        "곽서준이 그 시각 제어반 비상 열쇠를 직접 사용했다는 것"
+      ],
+      "does_not_prove": [
+        "그 열쇠로 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E18",
+      "name": "인접 냉각 설비 점검 일지",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "다른 냉각 설비 점검 일지를 확인한다",
+      "content": "13시 50분부터 14시 15분까지 B동 냉각 설비를 점검했다는 봉재유의 서명이 점검 일지에 남아 있다.",
+      "proves": [
+        "봉재유가 그 시간대에 다른 곳에서 설비를 점검하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 잠깐도 자리를 비우지 않았는지"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_late_presence",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
-      "player_action": "고범준 앞에 출입기록(E07)을 펼쳐 놓고, 후문을 나선 시각이 언제였는지 한 번 더 말하게 한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 동물원에 남아 있었다는 사실은 인정한다." },
-      "must_not_release": ["예은결에게 카트리지 교체를 지시한 사실", "다트건 로그를 조작한 사실", "혈통관리대장 조작 사실"]
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_together",
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E03",
+          "E05"
+        ]
+      },
+      "player_action": "출입 태그 기록(E03)과 선반 안쪽에서 나온 태블릿(E05)을 함께 제시하며 오건호와 따로 얘기한 적 없다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-01",
+        "scope": "곽서준이 13시 55분경 오건호와 함께 저온시료보관실에 들어갔다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "구체적으로 무슨 얘기를 나눴는지",
+        "질소 퍼지가 작동한 사실"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_cartridge_order",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05", "E03"] },
-      "player_action": "예은결의 지시 진술(E05)과 사료·장비 보관실 점검 로그(E03)를 제시해, 협약 준비 때문이었다는 주장과 실제로 21:10경 카트리지 교체를 지시한 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "예은결에게 다트건 카트리지를 재점검하라고 지시한 사실은 인정한다." },
-      "must_not_release": ["혈통관리대장 조작 사실", "폭로를 막으려 한 동기"]
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_together",
+      "to_stage": "admits_knew_discrepancy",
+      "requires_heard_claim_ids": [
+        "F-CH02-01",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09",
+        "E11"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E09",
+          "E11"
+        ]
+      },
+      "player_action": "제하은의 진술(E09)과 공유 문서함의 대조 메모(E11)를 함께 제시하며 잠깐 인사만 나눴을 뿐 별다른 얘기는 없었다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "곽서준이 오건호로부터 자신의 자격증 등록 이력에 문제가 있다는 지적을 받았다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "퍼지가 어떻게 작동했는지",
+        "정비 일지를 손댔다는 사실"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_cartridge_order", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02", "E04", "E06"] },
-      "player_action": "원본 대조 메모(E01), 허위 등록된 혈통관리대장 사본(E02), 독성검사 소견(E04), 기록장(E06)을 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "국제 혈통관리기구 제출용 대장을 조작해 허위 등록한 사실과, 그 폭로를 막기 위해 고의로 여산하가 쓸 다트건의 마취제 카트리지를 고농도로 교체시켰으며 그녀가 쓰러지는 것을 알면서도 방치했다는 사실을 인정한다." },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_knew_discrepancy",
+      "to_stage": "admits_falsified_log",
+      "requires_heard_claim_ids": [
+        "F-CH02-02",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E06",
+          "E07"
+        ]
+      },
+      "player_action": "정비일지 접속 이력(E06)과 지난달 확정된 정비 일정표(E07)를 함께 제시하며 퍼지가 정기 점검이었다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "곽서준이 사고 이후 정비일지 프로그램에 접속해 이번 주 정기 점검 항목을 새로 만들어 넣었다는 사실을 인정한다."
+      },
+      "must_not_release": [
+        "직접 잠금장치를 해제했다는 사실",
+        "고의로 문을 잠갔다는 사실"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH02",
+      "from_stage": "admits_falsified_log",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH02-03",
+        "S-CH02-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E17",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-05",
+        "evidence_ids": [
+          "E17",
+          "E02"
+        ]
+      },
+      "player_action": "비상 열쇠함 사용 기록(E17)과 제어반 로그(E02)를 함께 제시하며 잠금장치에 손대지 않았다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "곽서준이 오건호가 선반 안쪽을 확인하려 몸을 돌린 사이 제어반의 수동 잠금을 손으로 풀고 비정기 질소 퍼지를 작동시킨 뒤 문을 잠갔다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
-      "surface_suspicion": "예은결이 사고 직전 마지막으로 다트건을 조작한 당사자이며, 처음엔 그 사실을 먼저 밝히지 않았다.",
-      "actual_reason": "예은결은 고범준의 '정기 점검' 지시를 그대로 믿고 따랐을 뿐, 카트리지를 교체한 진짜 목적이나 여산하가 그 시간에 홀로 처치실에 있다는 사실이 살해와 연결된다는 것을 전혀 몰랐다. 사고 이후에도 자신의 실수로 사고가 난 것처럼 보일까 봐 먼저 말하지 못했을 뿐이다.",
-      "how_to_clear": "사료·장비 보관실 점검 로그(E03)와 예은결의 지시 진술(E05)을 시간순으로 대조하고, 반다온에게 확인한 예은결의 평소 점검 태도(E08)까지 더하면, 카트리지를 교체한 목적이 실제로는 고범준의 지시였을 뿐 그 자신의 독단적 판단이 아니었음을 확인한다.",
-      "cleared_by": ["E03", "E05", "E08"],
-      "clearing_points_at": "CH01",
-      "must_not_imply": "다트건을 마지막으로 조작한 당사자라는 사실만으로 예은결을 살인 혐의자로 단정하지 않는다.",
-      "lingering_thread": "예은결은 혐의를 벗은 뒤에도, 카트리지 교체를 지시받은 대로만 처리했던 것을 반성하며 이후로는 마취제 카트리지 교체마다 재고 대장에 직접 서명을 남기게 됐다.",
-      "suspicion_deepener": "처음 질문했을 때 예은결은 그날 저녁 평소처럼 정기 점검만 했을 뿐이라고 발뺌해, 늦은 시간에 카트리지를 손댄 사실 자체를 굳이 감추려는 것처럼 보인다."
+      "character_id": "CH01",
+      "surface_suspicion": "채영묵이 수상해 보인다 — 사건 시각 무렵 자리를 비웠다는 것을 처음엔 숨기려 했고, 개인 대부업체와의 통화 기록까지 나온다.",
+      "actual_reason": "채영묵이 감추는 것은 살인이 아니라, 지난 연구비 항목 일부를 개인적으로 돌려썼다가 갚아 온 사채 빚 문제뿐이다.",
+      "how_to_clear": "통화 기록(E12)과 서랍 속 상환 안내문(E13)을 함께 제시해 그가 그 시각 통화 중이었다는 것과 빚의 성격을 확인한다.",
+      "must_not_imply": "채영묵이 결백하다고 해서 연구비를 개인적으로 돌려쓴 일 자체가 없었다는 뜻은 아니다.",
+      "lingering_thread": "채영묵은 이후 연구비 유용 건을 이사회에 스스로 보고하기로 한다.",
+      "suspicion_deepener": "자리를 비운 사실을 처음엔 얼버무리려 한 태도와, 그가 재정적으로 궁지에 몰려 있었다는 사실이 겹치며 의심이 짙어진다."
     },
     {
       "id": "R02",
-      "surface_suspicion": "채선호가 최근 도어락·CCTV 유지보수 업체로부터 뒷돈을 받아온 사실이 드러나고, 계속 무언가를 숨기는 듯한 태도를 보인다.",
-      "actual_reason": "채선호가 숨기던 것은 유지보수 업체로부터 받은 리베이트 문제였을 뿐, 여산하의 죽음이나 혈통관리대장 조작과는 무관하다.",
-      "how_to_clear": "로비 출입기록(E07)이 보여주는 그날 밤 실제 동선과 채선호의 정문 출입기록(E09)을 대조하고, 채선호가 말하는 거래 경위까지 더해 그가 사고 시각 내내 정문을 벗어나지 않았고 거래처와는 그와 무관한 낮 시간대에만 접촉했음을 확인한다.",
-      "cleared_by": ["E07", "E09"],
-      "clearing_points_at": "CH01",
-      "must_not_imply": "뒷돈을 받았다는 사실만으로 채선호를 살인에 연루시키지 않는다.",
-      "lingering_thread": "채선호의 리베이트 문제는 이 사건과 별개로 남아, 협약식 이후 별도의 감사와 계약 재검토로 이어질 가능성이 있다.",
-      "suspicion_deepener": "채선호는 처음엔 거래처와 개인적으로 만난 적도 없다고 잡아떼다가, 재차 추궁받자 '유지보수 계약 문제로 잠깐 얘기했을 뿐'이라며 말을 바꿔 의심을 키운다."
+      "character_id": "CH05",
+      "surface_suspicion": "봉재유가 수상해 보인다 — 저온시료보관실 설비를 가장 잘 아는 사람이고, 오건호에게 예산을 반려당한 일로 쌓인 불만도 드러난다.",
+      "actual_reason": "봉재유가 감추는 것은 그날 자신이 다른 냉각 설비 점검 때문에 자리를 비워 정작 필요한 순간에 없었다는 민망함과, 예산 문제로 쌓인 오래된 불만뿐이다.",
+      "how_to_clear": "B동 점검 일지(E18)와 봉재유의 진술(E14)을 함께 제시해 그 시각 다른 곳에 있었다는 것과 예산 문제의 성격을 확인한다.",
+      "must_not_imply": "봉재유가 결백하다고 해서 예산 문제로 쌓인 불만 자체가 없었다는 뜻은 아니다.",
+      "lingering_thread": "봉재유는 이후에도 안전 설비 예산 문제를 정식으로 다시 건의해 보기로 한다.",
+      "suspicion_deepener": "설비를 가장 잘 아는 사람이라는 점과, 예산을 반려당한 데 대한 오래된 불만이 겹치며 의심이 짙어진다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH02-02",
+      "F-CH02-03",
+      "F-CH02-04",
+      "E11"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
-      "suspect": "CH01",
-      "method_fact": "예은결에게 다트건의 마취제 카트리지를 고농도로 몰래 교체시켜 여산하가 정기 점검 중 다트에 찔려 심정지하도록 방치했다.",
-      "motive_fact": "국제 혈통관리기구와의 공동 브리딩 협약을 앞두고 허위로 조작한 혈통관리대장이 협약식 전에 폭로되는 것을 막기 위해서였다."
+      "suspect": "CH02",
+      "method_fact": "F-CH02-04",
+      "motive_fact": "E11"
     }
   },
-
   "final_deduction": {
-    "responsible": "고범준",
-    "method": "부사육사 예은결에게 '정기 점검'을 핑계로 여산하가 쓸 다트건의 마취제 카트리지를 고농도로 교체시키고, 여산하가 정기 점검 중 다트에 찔려 심정지 상태에 빠지도록 방치했다.",
-    "motive": "국제 혈통관리기구와의 공동 브리딩 협약을 앞두고 근친번식 위험이 있는 개체의 혈통관리대장을 허위로 조작해 등록했고, 수석 사육사 여산하가 원본 기록을 발견해 협약식 전 폭로하겠다고 압박했다.",
-    "key_connection": "출입기록상 알리바이 공백, 예은결의 지시 진술과 사료·장비 보관실 로그가 가리키는 카트리지 교체 시각, 원본 대조 메모와 기록장이 독립적으로 같은 동기를 가리킨다."
+    "responsible": "곽서준(CH02) — 정로 생명과학 감정연구소 수석 분석사",
+    "method": "오건호가 선반 안쪽 시료 상자를 확인하려 몸을 돌린 사이, 곽서준이 비상 열쇠함의 열쇠로 제어반의 수동 잠금을 풀고 정기 일정에 없던 질소 퍼지를 작동시킨 뒤 문을 잠갔다.",
+    "motive": "8년 전 대리시험으로 취득한 자격증 등록 이력의 불일치를 오건호가 발견해 알려 오자, 그동안 쌓아 온 경력 전체가 무너질 것을 막으려 했다.",
+    "key_connection": "출입 태그 기록(E03)과 비상 열쇠함 사용 기록(E17), 정비일지 접속 이력(E06)이 그가 그 시각 그 자리에 있었다는 것부터 사고를 꾸며 낸 시도까지 하나로 이었다."
   },
-
   "ending_explanation": [
-    "단독 정기 점검 중 사고사라는 표면적 사고",
-    "후문 기록이 말하는 퇴장 시각과 본인 진술 사이에 남은 공백",
-    "다트건 마취제 카트리지가 사고 직전 이례적으로 고농도로 교체되었다는 사료·장비 보관실 로그",
-    "허위로 조작된 혈통관리대장 사본과 여산하의 기록장이 가리키는 폭로 동기",
-    "국제 협약을 지키려던 압박이 결국 동료를 방치하는 결과로 이어진 결말"
+    "오건호는 이번 시연회를 앞두고 전 직원의 자격증 등록번호를 국가 시스템과 대조하는 정기 점검을 진행하고 있었다(E10) — 하루만 더 시간을 달라던 그의 말은 그 확인 때문이었다(E09).",
+    "그가 공유 문서함에 남긴 대조 초안은 곽서준의 등록번호가 국가 시스템에서 전혀 다른 사람 이름으로 조회된다는 것을 보여 준다(E11) — 8년 전 대리시험으로 취득한 자격이었다(E08).",
+    "13시 55분, 곽서준은 오건호에게 조용히 얘기하자며 저온시료보관실로 데려갔고, 둘이 함께 들어간 기록이 출입 태그에 남아 있다(E03). 나연우는 그 무렵 복도에서 언성이 다소 높아지는 걸 얼핏 들었다(F-CH03-01).",
+    "14시 02분, 오건호가 선반 안쪽 시료 상자를 확인하려 몸을 돌린 사이 곽서준은 비상 열쇠함에서 열쇠를 꺼내 제어반의 수동 잠금을 풀고 비정기 질소 퍼지를 작동시킨 뒤 문을 잠갔다(E17, E02) — 정기 점검이라면 5분의 예비 경보가 울렸어야 했지만, 이번엔 경보가 곧바로 울렸다(E04, E15).",
+    "곽서준은 14시 10분 아무 일 없었다는 듯 분석실로 돌아갔다가, 14시 25분 정비일지 프로그램에 접속해 이번 주 정기 점검 항목을 새로 만들어 넣었다 — 그러나 지난달 확정된 정비 일정표에는 그런 일정이 없었다(E06, E07).",
+    "오늘 오후로 잡혀 있던 투자사 시연회 응대 일지에는 세 곳의 방문 예정 시각이 적혀 있었다(E01) — 연구소 전체가 그 준비로 분주했던 것이 사건의 배경이었다.",
+    "14시 35분, 나연우가 평소와 다른 경보등 색을 이상하게 여겨 안을 들여다보다 쓰러진 오건호를 발견했다.",
+    "곽서준은 그날 오전 내내 시연 시나리오와 샘플 데이터만 붙들고 있었다고 말했지만(E16), 그 사이에 오건호와 조용히 만날 시간을 따로 냈다는 사실은 쏙 빼놓은 것이었다.",
+    "채영묵이 그 시각 개인 대부업체와 통화하며 자리를 비운 것은 사실이지만(E12), 그것은 지난 연구비 항목 일부를 개인적으로 돌려썼다가 갚아 온 사정 때문이었을 뿐 이번 사건과는 무관했다(E13).",
+    "봉재유가 오건호에게 안전 센서 예산을 반려당한 일로 불만을 갖고 있었던 것도 사실이지만, 그 시각 그는 다른 냉각 설비를 손보느라 자리를 비운 상태였다(E14, E18).",
+    "제하은이 오건호에게 점검 결과를 시연회 이후로 미뤄 달라 부탁한 것은 사업상의 조바심 때문이었을 뿐, 그 역시 사건과는 별개였다(F-CH04-01)."
   ]
 }

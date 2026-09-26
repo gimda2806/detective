@@ -68,7 +68,7 @@
       "evidence"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_victim_error",
       "evidence_removal"
     ]
   },
@@ -701,9 +701,7 @@
       "does_not_prove": [
         "누가 내용물을 바꿔치기했는지"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -803,9 +801,7 @@
       "does_not_prove": [
         "실제로 누가 손을 댔는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -860,7 +856,6 @@
         "S-CH01-01"
       ],
       "requires_presented_evidence_ids": [
-        "E01",
         "E04"
       ],
       "requires_comparison": {
@@ -889,8 +884,7 @@
       ],
       "requires_presented_evidence_ids": [
         "E02",
-        "E05",
-        "E06"
+        "E05"
       ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
@@ -915,7 +909,8 @@
       "how_to_clear": "E05(빈 시제품 봉지) 발견 시각과 임채돈이 창고를 나선 시각(T01)을 대조한다. 백여랑에게 물으면(E07) 바꿔치기가 일어난 시간대에 임채돈이 매장 앞 창가에서 도로 상황만 보고 있었다는 사실이 한 번 더 확인된다.",
       "must_not_imply": "외부인이라는 사실만으로 재고 조작에 관여했다고 단정하지 않는다.",
       "lingering_thread": "임채돈이 매번 라벨 없는 임시 박스로 배송해 온 관행은 사건과 별개로, 이후 공방의 재고 관리 방식을 다시 점검하게 만드는 계기로 남는다.",
-      "suspicion_deepener": "임채돈이 폭설 전 마지막으로 창고를 드나든 외부인이었다는 사실과, 평소에도 서류 없이 물건을 놓고 가는 경우가 잦았다는 백여랑의 언급이 처음엔 그를 유력한 용의자로 보이게 한다."
+      "suspicion_deepener": "임채돈이 폭설 전 마지막으로 창고를 드나든 외부인이었다는 사실과, 평소에도 서류 없이 물건을 놓고 가는 경우가 잦았다는 백여랑의 언급이 처음엔 그를 유력한 용의자로 보이게 한다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -924,7 +919,8 @@
       "how_to_clear": "추상혁의 초기 진술(S-CH03-01)과 성리안의 목격(F-CH05-02)을 대조해 그가 범행 시간대에 휴게실에 있었음을 확인한다.",
       "must_not_imply": "사적인 얘기를 우연히 들었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "한서인이 봄에 이곳을 떠나 새로운 삶을 시작하려 했다는 사실은, 사건과 별개로 그녀를 아끼던 사람들에게 뒤늦은 아쉬움으로 남는다.",
-      "suspicion_deepener": "추상혁이 유일하게 한서인의 사적인 통화 내용을 알고 있었다는 사실이, 그가 뭔가 숨기고 있는 것처럼 처음엔 의심스러워 보이게 만든다."
+      "suspicion_deepener": "추상혁이 유일하게 한서인의 사적인 통화 내용을 알고 있었다는 사실이, 그가 뭔가 숨기고 있는 것처럼 처음엔 의심스러워 보이게 만든다.",
+      "character_id": "CH03"
     }
   ],
   "case_complete": {

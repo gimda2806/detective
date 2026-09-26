@@ -9,7 +9,12 @@
     "detective_entry": "탐정은 후원회 담당자로 일하는 대학 동창 석하은의 초대로 공개 리허설을 보러 왔다가, 휴식 시간 도중 무대 뒤에서 터진 소란과 마주친다.",
     "tone": "낡은 소극장 특유의 먼지 냄새와 후원자들의 기대, 무대 뒤에서 새어 나온 다급함이 뒤섞인 밤.",
     "tags": ["#소극장", "#공개_리허설", "#극단"],
-    "location_archetypes": ["production_studio"]
+    "location_archetypes": ["production_studio"],
+    "background": {
+      "background_archetypes": ["performance_rehearsal"],
+      "background_phrasing": ["during"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "location_id": "L01",
@@ -42,6 +47,9 @@
     "method_archetypes": ["electrocution", "electrical_tampering", "staging_cover_up"],
     "key_time_location": "20:15, L04에서 하윤성과 반소진이 함께 들어감 / 20:20, L04에서 언쟁 / 20:25, L04에서 몸싸움 끝에 감전사.",
     "cover_up": "반소진은 낡은 배전반의 만성적 결함으로 인한 사고라고 주장하며, 그날 오후 자신이 직접 배선을 우회해 둔 사실과 사고 직후 우회선을 치운 사실은 언급하지 않는다.",
+    "cover_up_target": ["crime_scene", "cause_of_death"],
+    "cover_up_method": ["evidence_removal", "accident_equipment_failure"],
+    "decisive_evidence_ids": ["E01", "E02", "E04", "E08", "E09"],
     "accomplice": "없음"
   },
   "actual_timeline": [
@@ -218,7 +226,8 @@
       "voice_profile": {
         "formality_register": "격식체, 후원자·이사회 앞에서 다져진 매끄러운 존댓말",
         "sentence_length_tendency": "평소엔 차분하고 설명하듯 긴 문장, 압박받으면 급격히 짧고 방어적으로 끊어짐",
-        "verbal_tic": "'저희 극단은'이라는 말머리를 자주 쓴다"
+        "verbal_tic": "'저희 극단은'이라는 말머리를 자주 쓴다",
+        "stance": "guarded"
       },
       "pressure_responses": [
         "지금 이 상황에 그런 질문이 무슨 의미가 있습니까?",
@@ -272,7 +281,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말, 배우들을 다그칠 때도 예의는 지키는 편",
         "sentence_length_tendency": "평소엔 지시하듯 또박또박한 문장, 압박받으면 말이 빨라지고 끊긴다",
-        "verbal_tic": "'타이밍'이라는 말을 자주 쓴다"
+        "verbal_tic": "'타이밍'이라는 말을 자주 쓴다",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "지금 이 타이밍에 그런 질문이라니, 좀 당황스럽네요.",
@@ -330,7 +340,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말, 무대 위에서 다져진 또렷한 말투",
         "sentence_length_tendency": "평소엔 시원시원하게 말하지만 압박받으면 말끝을 흐린다",
-        "verbal_tic": "'그게'로 말을 자주 시작한다"
+        "verbal_tic": "'그게'로 말을 자주 시작한다",
+        "stance": "skittish"
       },
       "pressure_responses": [
         "그게... 개인적인 일이라 말씀드리기 좀 그래요.",
@@ -377,7 +388,8 @@
       "voice_profile": {
         "formality_register": "방어적 단답형, 존댓말이지만 필요한 말만 한다",
         "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 침묵이 길어진다",
-        "verbal_tic": "'제 담당은 아니라서요'를 자주 붙인다"
+        "verbal_tic": "'제 담당은 아니라서요'를 자주 붙인다",
+        "stance": "guarded"
       },
       "pressure_responses": [
         "제 담당은 아니라서요... 더 아는 건 없어요.",
@@ -429,7 +441,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말, 붙임성 있고 사근사근한 어투",
         "sentence_length_tendency": "평소엔 빠르고 밝은 어투, 충격받으면 말이 자주 끊긴다",
-        "verbal_tic": "'저기'를 자주 붙인다"
+        "verbal_tic": "'저기'를 자주 붙인다",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
         "저기... 그건 저도 잘 모르겠어요.",
@@ -677,7 +690,7 @@
       "content": "18시 30분경 점검 때 배전반 문이 평소보다 뻑뻑했지만 공연 시작이 임박해 별다른 조치 없이 넘어갔다는 진술이 확보된다.",
       "proves": ["사망 이전부터 이미 배전반에 이상이 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 이상이 누구 때문에 생겼는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -700,7 +713,7 @@
       "content": "이번 분기 지원금 집행 내역과 실제 영수증이 어긋나는 항목들에 표시가 되어 있는 수첩이 발견된다.",
       "proves": ["하윤성이 지원금 집행 문제를 직접 파악하고 있었다는 사실을 증명한다."],
       "does_not_prove": ["그가 이를 누구에게 알렸는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -802,7 +815,7 @@
       "from_stage": "confrontation_admitted",
       "to_stage": "embezzlement_confessed",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E04", "E05"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E02", "E04"]

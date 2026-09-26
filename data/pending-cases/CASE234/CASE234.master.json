@@ -69,7 +69,7 @@
       "evidence"
     ],
     "cover_up_method": [
-      "false_accident",
+      "accident_equipment_failure",
       "false_alibi",
       "evidence_removal"
     ],
@@ -872,7 +872,8 @@
       "how_to_clear": "출입 서명부(E01)에 남은 노진하의 서명·응대 기록을 통해, 노진하가 오전 내내 사대 인근을 벗어나지 않았음을 확인한다.",
       "must_not_imply": "지난 대회에서의 불만만으로 관여를 단정하지 않는다.",
       "lingering_thread": "노진하와 최원각 사이의 해묵은 라이벌 의식은 그의 죽음과 별개로, 노진하에게 정리되지 못한 감정으로 남는다.",
-      "suspicion_deepener": "노진하가 사건 직후에도 유독 지난 대회 판정 얘기를 다시 꺼내며 불만을 터뜨린다."
+      "suspicion_deepener": "노진하가 사건 직후에도 유독 지난 대회 판정 얘기를 다시 꺼내며 불만을 터뜨린다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -881,13 +882,17 @@
       "how_to_clear": "출입 서명부(E01)에 남은 설이경의 서명·응대 기록을 통해, 설이경이 오전 내내 로비를 벗어나지 않았음을 확인한다.",
       "must_not_imply": "회비 문제로 다퉜다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "회비 정산 문제는 결국 최원각의 죽음과 별개로, 설이경이 새로 정리해야 할 숙제로 남는다.",
-      "suspicion_deepener": "설이경이 사건 직후 유독 회비 장부부터 먼저 챙기며 초조한 기색을 보인다."
+      "suspicion_deepener": "설이경이 사건 직후 유독 회비 장부부터 먼저 챙기며 초조한 기색을 보인다.",
+      "character_id": "CH05"
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "12년 전 부상으로 선수 생활을 접은 유망주와, 그를 곁에 두고 챙겨 온 튜닝 마스터 사이.",
       "public_face": "최원각과 강여솔은 오랜 세월 함께 일해 온 스승과 제자 같은 사이로 알려져 있다.",
       "says": {
@@ -898,7 +903,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "25년 전 함께 적중정을 세운 공동설립자이자 사업 파트너.",
       "public_face": "목준영과 최원각은 적중정을 함께 세운 공동설립자로 알려져 있다.",
       "says": {
@@ -909,7 +917,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "작년 대회 판정을 둘러싼 해묵은 라이벌 관계.",
       "public_face": "노진하는 적중정의 오랜 경쟁 참가자로 알려져 있다.",
       "says": {
@@ -920,7 +931,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "클럽 회비 정산을 둘러싼 최근 갈등.",
       "public_face": "설이경은 적중정의 등록·회계를 맡아 온 담당자로 알려져 있다.",
       "says": {
@@ -931,7 +945,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "레인지마스터와 튜닝 보조, 같은 공방을 오가는 동료 사이.",
       "public_face": "편도현과 강여솔은 적중정에서 함께 일하는 동료로만 알려져 있다.",
       "says": {
@@ -942,7 +959,6 @@
       "surfaces_when": "밸브 정비 흔적(E02)을 제시하며 어젯밤 일을 캐물을 때 드러난다."
     }
   ],
-
   "case_complete": {
     "required_established_facts": [
       "E02",

@@ -1,0 +1,1845 @@
+{
+  "case_identity": {
+    "case_id": "CASE013",
+    "title": "용해로가 삼킨 증언",
+    "english_title": "What the Furnace Silenced",
+    "genre": "무형문화재 인증 비리 은폐 / 공방 화상질식사 위장",
+    "setting": "국가무형문화재 보유자 심사를 앞둔 오래된 유리공예 공방 겸 전시장. 안쪽에는 상시 가동 중인 용해로가 있다.",
+    "detective_entry": "탐정은 개인적으로 유리 소품을 사러 공방에 들렀다가, 마침 그날 아침 벌어진 소동과 우연히 마주친다.",
+    "tone": "장인의 자존심과 계승의 압박이 뒤섞인 폐쇄적인 공방 분위기.",
+    "tags": [
+      "유리공예_공방",
+      "무형문화재_심사"
+    ],
+    "location_archetypes": [
+      "craft_glass"
+    ],
+    "background": {
+      "background_archetypes": [
+        "review_certification"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "송지원",
+      "role": "공방 기록 담당자 (이수 일지·심사 서류 관리)",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:05",
+    "location_id": "L03",
+    "narrative": "공방 앞 전시장 통유리 너머로 아침 햇살이 비스듬히 든다.\n\n탐정은 얼마 전부터 눈여겨보던 유리잔을 사러 왔을 뿐이다. 그런데 안쪽 작업실 쪽에서 다급한 외침이 들린다.\n\n문을 밀고 들어서자, 오하늘이 용해로실 문 앞에 주저앉아 사람들을 부르고 있다. 그 안쪽 고열 작업대 근처에 송지원이 쓰러져 있다.\n\n백소민이 창백한 얼굴로 달려온다.\n\n탐정이 용해로실 쪽을 살피며 묻는다.\n\n\"환기팬은 원래 이 시간에 꺼져 있어?\"\n\n한지우가 조용히 다가와 상황을 살핀다.\n\n\"손님으로 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "공방장 사무실, 최덕구는 벽에 걸린 인증서들을 등지고 한참 동안 말이 없었다.\n\n탐정이 위조된 이수 일지와 송지원의 메모, 로가 두 달 꺼져 있던 보수 공사 기록과 갈아 끼운 자물쇠의 기록을 시간순으로 늘어놓자, 그의 어깨가 서서히 무너져 내렸다.\n\n\"...심사 서류의 이수 기록은, 제가 손을 댔습니다.\"\n\n최덕구가 낮게 말했다.\n\n\"지원이가 그걸 알아채고 위원회에 알리겠다고 했을 때, 제 손으로 쌓아온 게 전부 무너질 거라는 생각밖에 안 들었어요. 그래서 환기팬을 끄고 밸브를 만졌습니다. 그렇게까지 될 줄은... 아니, 변명이겠죠.\"\n\n한지우가 낮게 말했다.\n\n\"쌓아온 인증서들이 결국 이렇게 됐네요.\"\n\n그는 조용히 수첩을 덮었다.\n\n탐정이 짧게 답했다.\n\n\"쌓은 걸 지키려다 더 크게 무너뜨린 거지.\"\n\n전시장 쪽에서는 백소민이 여전히 정리되지 않은 공방의 장부를 붙든 채 서 있었다. 심사 결과와 상관없이, 오래된 재정난은 이 사건이 끝난 뒤에도 그녀 혼자 감당해야 할 몫으로 남아 있었다.\n\n공방을 나서며 탐정이 중얼거렸다.\n\n\"그 유리잔, 결국 못 샀네.\"\n\n한지우가 슬쩍 웃으며 답했다.\n\n\"다음에 오시면 할인이라도 해달라고 하세요.\""
+  },
+  "surface_incident": [
+    "이른 아침 용해로실에서 공방 기록 담당자 송지원이 쓰러진 채 발견되었다.",
+    "관계자들은 배기팬 고장으로 인한 단순 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "최덕구는 국가무형문화재 보유자 심사 서류에 실제로는 완성하지 못한 핵심 색유리 기법의 이수 기록을 위조해 제출했다. 공방의 기록 담당자 송지원이 서류 정리 중 이수 일지의 필적과 날짜 불일치를 발견하고 심사위원회에 알리겠다고 통보하자, 명장 지정이 무산되고 위조 사실이 드러나는 것을 막기 위해 그를 살해했다.",
+    "method": "최덕구는 사건 당일 새벽 용해로실 환기팬을 차단기로 꺼두고 가스 밸브 조절기를 조작해 불완전연소 가스가 실내에 차오르게 만든 뒤, 배관 점검을 핑계로 송지원을 불러들여 의식을 잃게 했다. 이후 밸브와 차단기를 원상태로 되돌려 놓고, 쓰러진 송지원을 고열 작업대 근처로 옮겨 낙상·화상 사고처럼 현장을 재배치했다.",
+    "key_time_location": "사건 당일 5시~6시 10분, L02 용해로실.",
+    "cover_up": "최덕구는 환기팬이 갑자기 고장 났다고 둘러대고, 송지원이 야간에 혼자 위험한 점검 작업을 하다 사고를 당한 것처럼 현장을 정리했다.",
+    "accomplice": "없음",
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "crime_scene",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "scene_rearrangement",
+      "body_movement"
+    ],
+    "decisive_evidence_ids": [
+      "E05",
+      "E04"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 4개월 전",
+      "location": "L04",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했다.",
+      "world_fact": "위조된 이수 일지가 기록보관실에 정식 기록으로 등록되었다."
+    },
+    {
+      "id": "T02",
+      "time": "열흘 전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "송지원이 서류 정리 중 이수 일지의 필적과 날짜 불일치를 알아챘다.",
+      "world_fact": "위조 의심 메모가 송지원의 개인 수첩에 남았다."
+    },
+    {
+      "id": "T03",
+      "time": "이틀 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "송지원이 심사위원회 앞 문제 제기 이메일 초안을 작성했다.",
+      "world_fact": "미발송 이메일 초안이 송지원의 업무 컴퓨터에 저장되었다."
+    },
+    {
+      "id": "T04",
+      "time": "하루 전 저녁",
+      "location": "L05",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
+      "actual_action": "송지원이 최덕구에게 위조 사실을 심사위원회에 알리겠다고 통보했다.",
+      "world_fact": "최덕구가 위조 발각과 명장 지정 무산 위기를 인지했다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 4시 50분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 복도에서 혼자 용해로실로 들어가는 최덕구를 목격했다.",
+      "world_fact": "최덕구의 이른 새벽 단독 출입이 목격되었다."
+    },
+    {
+      "id": "T06",
+      "time": "5시",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 용해로실 배기팬 차단기를 내렸다.",
+      "world_fact": "용해로실 환기가 정지되었다."
+    },
+    {
+      "id": "T07",
+      "time": "5시 5분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 가스 밸브 조절기를 조작했다.",
+      "world_fact": "용해로실에 불완전연소 가스(일산화탄소)가 차오르기 시작했다."
+    },
+    {
+      "id": "T08",
+      "time": "5시 20분",
+      "location": "L02",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "최덕구가 배관 점검을 핑계로 송지원을 용해로실로 불러들였다.",
+      "world_fact": "송지원이 밀폐된 용해로실 안에 들어갔다."
+    },
+    {
+      "id": "T09",
+      "time": "5시 40분",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "송지원이 가스에 의식을 잃었다.",
+      "world_fact": "송지원이 의식불명 상태로 쓰러졌다."
+    },
+    {
+      "id": "T10",
+      "time": "5시 50분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 쓰러진 송지원을 고열 작업대 근처로 옮겼다.",
+      "world_fact": "현장이 낙상 사고처럼 재배치되었다."
+    },
+    {
+      "id": "T11",
+      "time": "6시",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 가스 밸브 조절기를 원래 위치로 되돌렸다.",
+      "world_fact": "밸브 조작 흔적이 겉보기엔 사라졌다."
+    },
+    {
+      "id": "T12",
+      "time": "6시 10분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 배기팬 차단기를 다시 올렸다.",
+      "world_fact": "환기팬이 다시 정상 가동되었다."
+    },
+    {
+      "id": "T13",
+      "time": "7시",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 용해로실 안을 들여다봤다.",
+      "world_fact": "오하늘이 쓰러진 송지원을 발견했다."
+    },
+    {
+      "id": "T14",
+      "time": "7시 5분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 소리쳐 사람들을 불러모았다.",
+      "world_fact": "공방 사람들이 용해로실 앞으로 모여들었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오하늘",
+      "role": "공방 막내 제자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "4시 50분경 복도에서 최덕구가 혼자 용해로실로 들어가는 모습을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "7시경 용해로실 고열 작업대 옆에 쓰러진 송지원을 발견했다.",
+          "source": "직접 목격/발견자",
+          "related_timeline": [
+            "T13"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "실사일이라 새벽 4시 반부터 나와 작업실 바닥부터 닦고 있었다. 그때 복도 끝 용해로실 팬 소리는 평소처럼 났고 아무도 없었다.",
+          "source": "본인"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "쓰러진 송지원 옆 고열 작업대 위에는 아무것도 올려져 있지 않았다. 새벽에 뜨거운 것을 다루다 넘어졌다면 다루던 것이 있어야 한다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T13"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "용해로실 문은 복도 쪽으로 열리는 철문이지만 잠금장치가 없다. 안에서 밀면 열리고, 밖에서 잠글 자물쇠도 없다.",
+          "source": "본인"
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "7시에 발견했을 때 송지원의 손은 이미 차가웠고, 그때 팬은 돌고 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T13"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "최덕구는 심사 준비를 시작한 뒤로 새벽에 로를 보러 오는 날이 잦았다.",
+          "source": "본인"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "제가 평소보다 일찍 출근했다가 쓰러져 있는 송지원 선생님을 발견하고 소리쳐서 사람들을 불렀어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "선생님은 원래 새벽에 로를 보러 오세요. 심사 준비 시작하고 나서는요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "작업대 위에 아무것도 없었어요. 그게 계속 이상했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-07",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "최덕구가 용해로실 안에서 정확히 무엇을 했는지는 보지 못했다.",
+        "이수 일지가 위조됐다는 것도, 자물쇠를 누가 갈았는지도 모른다."
+      ],
+      "pressure_responses": [
+        "제가 말씀드린 그대로예요. 일찍 와서 발견했을 뿐이에요.",
+        "몇 번을 여쭤보셔도 똑같아요, 정말로요.",
+        "…이상한 게 있어도 제가 여쭤볼 처지가 아니었어요."
+      ],
+      "voice_profile": {
+        "formality_register": "막내다운 존댓말. 스승 얘기에는 「선생님」이 먼저 나온다.",
+        "sentence_length_tendency": "짧게 끊고, 확신이 없으면 말끝을 흐린다.",
+        "verbal_tic": "'…요'로 끝을 늘인다.",
+        "stance": "skittish"
+      },
+      "comic_tell": "당황하면 앞치마 끈을 두 번 고쳐 묶는다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH01-01",
+        "opens": "S-CH01-02",
+        "says": "…선생님은 원래 새벽에 로를 보러 오세요. 심사 준비 시작하고 나서는요. 그날도 그랬을 거예요. 여쭤볼 처지는 아니었지만요.",
+        "reveals": "최덕구가 심사 준비 뒤로 새벽에 자주 나왔다는 것이 나온다. 그날 새벽에 본 것은 이 사람이 먼저 말하지 않는다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "강윤재",
+      "role": "라이벌 유리공예가 / 합동 전시 협업 논의차 방문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 몇 달간 최덕구와 합동 전시 협업을 논의해 왔다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "공방 안에서 최덕구의 심사 준비에 관해 좋지 않은 뒷말이 돈다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업계 소문"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "오늘 약속은 9시였고 보름 전에 잡혔다. 공방까지는 차로 두 시간 거리라 7시에 전시장 문으로 들어온 것도 일찍 온 것이다.",
+          "source": "본인"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "예전 같은 명장 심사에서 최덕구와 공개적으로 경쟁했다. 그 무렵 이 공방 로가 한 여름 내내 꺼져 있었다는 얘기를 업계에서 들었다.",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저랑 최덕구 선생님은 요즘 합동 전시를 준비하고 있었어요. 오늘도 그 일로 왔다가 이 소동을 겪었네요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "약속은 아홉 시였습니다. 일곱 시에 온 건 길이 막힐까 봐서요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "최 선생 심사 준비에 뒷말이 도는 건 저도 들었습니다. 내용은 모릅니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-03"
+        }
+      ],
+      "knowledge_limits": [
+        "최덕구가 정확히 무엇을 위조했는지, 송지원을 살해했다는 사실은 전혀 모른다.",
+        "뒷말의 내용은 모른다."
+      ],
+      "pressure_responses": [
+        "말씀드렸잖아요, 협업 때문에 온 겁니다.",
+        "...그 이상은 저도 잘 모릅니다.",
+        "자꾸 캐물으셔도 제가 아는 건 그게 답니다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말이지만 상대를 「최 선생」이라 부른다. 자기 작업 얘기엔 말이 커진다.",
+        "sentence_length_tendency": "단정한 단문. 과거 얘기에는 한 박자 쉰다.",
+        "verbal_tic": "'…죠'로 단정한다.",
+        "stance": "imperious"
+      },
+      "comic_tell": "말하다 진열장 유리에 비친 자기 작품 자리를 눈으로 찾는다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH02-02",
+        "opens": "S-CH02-03",
+        "says": "…뒷말이요? 설비 예산을 안주인이 쥐고 있다는 얘기까지 돌았어요. 팬이 삼 년을 그대로였다면 누가 안 고친 건지 뻔하죠.",
+        "reveals": "설비 예산을 백소민이 관리한다는 것과 팬이 오래 손대지 않은 채였다는 것이 나온다. 그것이 고장이 아니었다는 것은 이 사람이 모른다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "최덕구",
+      "role": "공방장 / 명장 지정 심사 대상자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "국가무형문화재 보유자 심사가 이번 분기 실사 대상이다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "위조가 발각되면 보유자 지정이 무산되고 형사 고발 대상이 될 수 있다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "새벽에 용해로실 환기팬과 가스 밸브를 조작해 송지원을 쓰러뜨렸다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06",
+            "T07",
+            "T08",
+            "T09",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "새벽에 심사 준비를 핑계로 일찍 출근해 있었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "강윤재는 예전 같은 명장 심사에서 자신과 경쟁했고, 그 뒤로 이 공방 얘기를 업계에 옮기고 다녔다고 들었다.",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "환기팬이 갑자기 고장 나서 일어난 사고 같습니다. 저는 그날 평소보다 늦게 출근했습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 자신이 현장에 있었다는 사실과 환기팬을 일부러 껐다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "송지원씨와는 특별한 갈등이 없었습니다. 성실한 직원이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사 서류 위조를 알아챈 송지원과의 갈등과 살해 동기를 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "단순히 심사 준비 때문이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "그분을 크게 다치게 할 생각은 없었고 단지 사고처럼 보이게 하려 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-04",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "송지원을 완전히 살해할 의도였다는 것과 서류 위조 자체는 마지막까지 부인하려 한다."
+      ],
+      "pressure_responses": [
+        "이미 말씀드렸습니다. 그날 늦게 출근했어요.",
+        "...몇 번을 물으셔도 같은 대답입니다.",
+        "지금 절 의심하시는 겁니까? 사고였다고 말씀드렸잖습니까.",
+        "그만하시죠. 더 드릴 말씀 없습니다."
+      ],
+      "voice_profile": {
+        "formality_register": "무게를 실은 존댓말. 「저희 같은 데는요」로 공방을 대신 말한다.",
+        "sentence_length_tendency": "짧고 단정하다가, 궁하면 한 문장이 길어진다.",
+        "verbal_tic": "'…입니다'로 못을 박는다.",
+        "stance": "imperious"
+      },
+      "comic_tell": "서류함 위 먼지를 손끝으로 훑는다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-05",
+        "opens": "S-CH03-02",
+        "says": "…강 선생이 하필 오늘 온 겁니다. 예전 심사 때 일을 잊은 사람은 아니에요. 협업이라는 말이 얼마나 가는지는 저도 모르죠.",
+        "reveals": "두 사람이 예전 같은 심사에서 경쟁했다는 것이 나온다. 강윤재가 그 뒤 무엇을 했는지는 소문이다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "백소민",
+      "role": "최덕구의 아내 / 공방 운영 매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "하루 전 저녁 사무실에서 최덕구와 송지원이 언성을 높이는 것을 우연히 들었다.",
+          "source": "우연히 들음",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 공방 재정이 어려워 이번 심사 통과 여부에 사활을 걸고 있었다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "환기 설비 유지보수 예산을 오래 직접 관리해 왔다. 예산을 쥔 사람이라 팬이 고장 나면 가장 먼저 아는데, 3년 동안 수리 요청이 한 번도 없었다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "늘 7시 넘어 출근하고 새벽에 공방에 온 적이 없다.",
+          "source": "본인"
+        },
+        {
+          "fact_id": "F-CH04-05",
+          "content": "남이 싸운 것을 먼저 옮기지 않는다. 그렇게 배웠다.",
+          "source": "본인"
+        },
+        {
+          "fact_id": "F-CH04-06",
+          "content": "오하늘이 그날 새벽 4시 반부터 나와 있었다고 들었다. 막내가 실사일 새벽에 그렇게 일찍 온 적은 없었다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 심사 준비로 다들 예민했어요. 남편도 스트레스가 심했고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "남편이 그날 몇 시에 나왔는지는… 저는 일곱 시 넘어서 왔으니 모르죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-06",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "남편이 서류를 위조했거나 송지원을 살해했다는 사실은 전혀 몰랐다.",
+        "언성을 높인 내용은 듣지 못했다."
+      ],
+      "pressure_responses": [
+        "말씀드린 대로예요. 다들 예민했을 뿐이에요.",
+        "몇 번을 여쭤보셔도… 정말 그것뿐이에요.",
+        "남이 싸운 걸 제가 왜 먼저 옮깁니까. 그렇게 배웠어요."
+      ],
+      "voice_profile": {
+        "formality_register": "장부 넘기듯 차분한 존댓말. 남편은 「남편」, 직원은 이름에 「씨」.",
+        "sentence_length_tendency": "고르게 짧다. 숫자가 나오면 정확해진다.",
+        "verbal_tic": "'…죠'로 확인한다.",
+        "stance": "unruffled"
+      },
+      "comic_tell": "말하면서 장부 모서리를 손톱으로 맞춘다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-06",
+        "opens": "S-CH04-02",
+        "says": "…하늘이는요. 그날 새벽 네 시 반에 나와 있었대요. 청소 때문이라는데, 삼 년 동안 그 시간에 온 적이 없어요.",
+        "reveals": "오하늘이 그날 유독 이른 새벽에 나와 있었다는 것이 나온다. 그 이유는 이 사람이 모른다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "정하율",
+      "role": "심사위원회 실사 담당 조사관",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "심사위원회 규정상 위조가 발각되면 보유자 지정 취소 및 형사 고발 대상이 된다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "송지원이 실사 직전 위원회에 별도로 연락해 온 이력이 있다는 사실을 안다(규정상 구체적 내용은 밝힐 수 없었다).",
+          "source": "업무 기록"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "설비 점검 기록도 심사 서류의 일부라 기록 담당자가 맡는다. 실사 전날 밤이나 새벽에 점검 기록을 맞춰 보자는 요청이면 담당자는 거절하기 어렵다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "규정상 이수 일지 캐비닛 열쇠는 공방장과 기록 담당자 둘만 가진다. 자물쇠를 갈 권한은 공방장에게만 있다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "실사일 아침 8시에 위원회 차량으로 도착했다. 배차 기록이 위원회에 있다.",
+          "source": "본인"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "정기 실사차 왔는데, 마침 이런 일이 벌어졌네요. 서류부터 확인해봐야겠습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "설비 점검 기록도 저희가 보는 서류입니다. 기록 담당자 소관이고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "송지원 씨와 업무상 오간 연락은 있었습니다. 내용은 규정상 말씀드릴 수 없습니다.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "실사 직전 송지원이 위원회에 먼저 연락해 온 사실을 규정 뒤에 두고 말하지 않는다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "송지원이 구체적으로 무엇을 제보하려 했는지, 누가 살해했는지는 전혀 모른다.",
+        "공방 사람들 사이의 사정은 모른다."
+      ],
+      "pressure_responses": [
+        "이미 답변드렸습니다. 정기 실사차 방문한 것뿐입니다.",
+        "규정상 더 드릴 말씀은 없습니다.",
+        "같은 질문을 반복하셔도 답변은 동일합니다.",
+        "이건 제가 본 게 아닙니다. 지금 보고 있는 겁니다."
+      ],
+      "voice_profile": {
+        "formality_register": "규정을 앞에 세운 딱딱한 존댓말. 「규정상」으로 문장을 연다.",
+        "sentence_length_tendency": "짧고 완결된 문장. 감정어가 없다.",
+        "verbal_tic": "'규정상'으로 시작한다.",
+        "stance": "procedural"
+      },
+      "comic_tell": "답하기 전에 서류 가장자리를 한 번 맞춰 정리한다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH05-03",
+        "opens": "S-CH05-03",
+        "says": "…설비 점검 기록이 삼 년째 같은 내용입니다. 예산을 쥔 쪽에서 손을 안 댔다는 뜻이죠. 백 매니저님 소관으로 압니다.",
+        "reveals": "설비 점검 기록이 오래 바뀌지 않았고 예산은 백소민 소관이라는 것이 나온다. 그것이 고장이 없었다는 뜻인지는 이 사람이 판단하지 않는다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "CH03",
+        "V01"
+      ],
+      "nature": "공방장과 기록 담당자, 오랜 신뢰로 이어진 사이.",
+      "public_face": "최덕구는 송지원을 성실하고 꼼꼼한 직원으로 신뢰해 왔다고 말한다.",
+      "private_strain": "송지원이 이수 일지의 필적·날짜 불일치를 발견해 심사위원회에 알리겠다고 통보하면서, 최덕구에게는 그가 명장 지정을 무너뜨릴 위협으로 바뀌었다.",
+      "surfaces_when": "탐정이 위조된 이수 일지(E01)와 송지원의 위조 의심 메모(E02)를 함께 제시할 때.",
+      "says": {
+        "CH03": "지원이는 성실한 직원이었죠. 믿고 맡길 만한 사람이었습니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "CH03",
+        "CH04"
+      ],
+      "nature": "부부이자 공방장과 운영 매니저.",
+      "public_face": "백소민은 요즘 심사 준비로 다들 예민했고 남편도 스트레스가 심했다고 말한다.",
+      "private_strain": "백소민은 공방의 오랜 재정난 때문에 이번 심사 통과에 사활을 걸었지만, 남편이 심사 서류를 위조했다는 사실도 송지원과의 다툼도 전혀 모르고 있었다.",
+      "surfaces_when": "탐정이 하루 전 저녁의 갈등 진술(E07)을 근거로 그날 부부 사이에 무슨 얘기가 오갔는지 캐물을 때.",
+      "says": {
+        "CH03": "소민이는... 이번 심사에 저보다 더 매달렸어요. 공방 사정이 사정이니까요.",
+        "CH04": "남편이요? 요즘 부쩍 예민했어요. 심사 준비 때문이라고만 생각했죠."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
+      "nature": "막내 제자와 스승인 공방장.",
+      "public_face": "오하늘은 평소처럼 이른 아침 출근했다가 쓰러진 송지원을 발견했을 뿐이라고 말한다.",
+      "private_strain": "오하늘은 새벽에 최덕구가 혼자 용해로실로 들어가는 모습을 목격했지만, 스승에 대한 믿음 때문에 먼저 나서서 캐묻지 않고 있었다.",
+      "surfaces_when": "탐정이 오하늘에게 새벽 출근길에 본 것을 직접 물을 때(E05).",
+      "says": {
+        "CH01": "선생님이요? 늘 존경해 왔어요. 그날 새벽에 뭘 하셨는지는… 여쭤볼 처지가 아니었죠.",
+        "CH03": "하늘이는 성실한 막내입니다. 그날 일찍 나온 것도 다 저 배우겠다고 그런 거겠죠."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "CH02",
+        "CH03"
+      ],
+      "nature": "과거 같은 명장 심사에서 공개적으로 경쟁했던 라이벌 유리공예가.",
+      "public_face": "강윤재는 최근 최덕구와 합동 전시를 협업하는 우호적인 사이로 보인다고 말한다.",
+      "private_strain": "강윤재는 최덕구의 심사 준비에 대한 좋지 않은 뒷말을 들었으면서도 구체적으로 캐묻지 않았고, 과거 경쟁 이력 탓에 이번 협업 제안이 진심인지에는 의문이 남아 있다.",
+      "surfaces_when": "탐정이 두 사람의 과거 명장 심사 경쟁 이력을 캐물으며 강윤재가 들었다는 뒷말(F-CH02-02)을 되짚을 때.",
+      "says": {
+        "CH02": "최 선생님이랑은 요즘 합동 전시를 준비하고 있었어요. 예전 일은... 이제 다 지난 얘기죠.",
+        "CH03": "강 선생과는 요즘 전시 협업을 논의하는 사이입니다. 그 이상도 이하도 아니에요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "CH01",
+        "V01"
+      ],
+      "nature": "공방 막내 제자와 기록 담당자, 함께 이른 아침 공방 문을 여는 사이.",
+      "public_face": "오하늘은 송지원을 자상하게 챙겨 주던 선배로 기억한다고 말한다.",
+      "private_strain": "오하늘은 며칠 전 송지원이 유독 조용히 서류를 살펴보며 무언가 걱정하는 눈치였다는 것을 눈치챘지만, 무슨 일인지 먼저 물어보지는 못했다.",
+      "surfaces_when": "탐정이 오하늘에게 송지원의 최근 모습에 대해 캐물으며 위조 의심 메모(E02)를 보여줄 때.",
+      "says": {
+        "CH01": "지원 선생님이요? 요 며칠 뭔가 골똘히 생각하시는 것 같긴 했어요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH04",
+        "V01"
+      ],
+      "nature": "공방 운영 매니저와 기록 담당자, 서류 업무로 자주 부딪히는 사이.",
+      "public_face": "백소민은 송지원을 꼼꼼하고 믿음직한 직원으로 평가했다고 말한다.",
+      "private_strain": "백소민은 최근 송지원이 심사 서류 정리를 유독 오래 붙들고 있는 것을 이상하게 여겼지만, 바쁜 시기라 그런가 보다 하고 넘어갔다.",
+      "surfaces_when": "탐정이 백소민에게 송지원의 최근 근무 태도를 캐물으며 미발송 이메일 초안(E06)을 언급할 때.",
+      "says": {
+        "CH04": "지원씨요? 성실했죠. 요즘 유독 서류만 붙들고 있긴 했지만요."
+      }
+    },
+    {
+      "id": "REL07",
+      "between": [
+        "CH05",
+        "V01"
+      ],
+      "nature": "심사위원회 실사 담당 조사관과 공방 기록 담당자, 실사 절차로 마주치는 사이.",
+      "public_face": "정하율은 정기 실사차 왔을 뿐 송지원과는 개인적인 친분이 없다고 말한다.",
+      "private_strain": "정하율은 실사 직전 송지원이 위원회에 별도로 연락해 온 이력이 있다는 사실을 알고 있었지만, 규정상 그 내용을 먼저 밝히지 않고 있었다.",
+      "surfaces_when": "탐정이 정하율에게 송지원과의 사전 연락 이력을 캐물을 때(S-CH05-03).",
+      "says": {
+        "CH05": "업무상 오간 연락은 있었습니다. 그 이상은 규정상 말씀드리기 어렵네요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공방 앞 전시장",
+      "access": "시작부터 출입 가능 (공방 방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "완성된 유리 공예품이 진열된 전시장 겸 판매 공간이다. 통유리 너머로 안쪽 작업실이 들여다보이고, 진열장 두 번째 칸에 손잡이 없는 유리잔 하나가 그대로 놓여 있다. 카운터에는 방문객 기록부와 장부가 겹쳐 있다. 강윤재가 코트를 벗지 않은 채 문 쪽에 서 있고, 백소민은 카운터 뒤에서 장부를 붙들고 있다.",
+      "observation_rules": [
+        {
+          "action": "전시장을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "진열장 한쪽에 이번 국가무형문화재 보유자 심사 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "전시장 방문객 기록부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "강윤재의 이름이 오늘 오전 9시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명은 7시로 남아 있다. 예약은 보름 전 날짜다."
+        },
+        {
+          "action": "카운터의 설비 예산 장부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "환기 설비 유지보수 예산 항목이 3년째 같은 금액으로 이월돼 있고, 담당자 서명은 전부 백소민이다. 집행란은 3년 내내 비어 있다."
+        }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L03"
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "용해로실",
+      "access": "공방 직원만 출입 가능. 사건 이후 통제 구역으로 지정됨.",
+      "base_description": "상시 가동 중인 대형 용해로가 있는 방이다. 문 앞에만 서도 열이 밀려 나오고 유리 가루 냄새가 마른 종이 냄새처럼 섞여 있다. 송지원이 쓰러져 있던 자리는 고열 작업대 바로 옆인데, 작업대 위에는 아무것도 올려져 있지 않다. 천장의 배기팬은 낮게, 일정하게 돌고 있다. 벽면에는 배기팬 전기 패널과 가스 밸브 조절기가 나란히 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "용해로실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "고장 났다던 배기팬이 지금 돌고 있다. 그런데 패널 아래 벽에는 팬이 한동안 멈춰 있었을 때 앉는 그을음이 얇게 남아 있다. 용해로실 문은 복도 쪽으로 열리는 무거운 철문이다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "가스 밸브 조절기를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "밸브 조절기 표면 나사 둘레에 공구를 물린 자국이 나 있다. 금속이 벗겨져 아래쪽 색이 드러난 자리고, 그 옆에 손자국이 얇게 남아 있다. 최근 것이다."
+        },
+        {
+          "action": "배기팬 전기 패널을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "패널 안쪽 자동 기록 장치의 종이 띠에 5시 차단, 6시 10분 복구가 찍혀 있다. 한 시간 10분이다."
+        }
+      ],
+      "access_level": "sealed",
+      "connects_to": [
+        "L03"
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "공방 작업실",
+      "access": "시작부터 출입 가능 (공방 직원들의 주 작업 공간)",
+      "base_description": "여러 개의 개인 작업대와 도구가 놓인 공방의 메인 작업 공간이다. 복도를 통해 안쪽 용해로실로, 반대편으로 기록보관실과 공방장 사무실로 이어진다. 송지원의 작업대만 다른 자리보다 유독 말끔하게 정리돼 있고, 그 위에 켜진 채 잠긴 컴퓨터가 있다. 오하늘이 자기 작업대 앞에 손에 아무것도 들지 않은 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "송지원의 작업대만 다른 자리보다 유독 말끔하게 정리돼 있다. 어제 저녁에 정리하고 간 사람의 자리다 — 오늘 마저 하려던 일이 있던 사람의."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "송지원의 개인 컴퓨터 이메일함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "심사위원회에 이수 기록 위조 의혹을 제기하려던 미발송 이메일 초안이 열려 있다. 본문은 「그해 여름 로가 꺼져 있던 기간에」까지 쓰다가 문장 중간에서 끊겨 있다."
+        },
+        {
+          "action": "오하늘에게 백소민이 평소 몇 시에 출근하는지 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "사모님은 늘 7시 넘어서 오고, 새벽엔 거의 본 적이 없다는 진술이 나온다."
+        }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04",
+        "L05"
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "기록보관실",
+      "access": "제한적 출입 (공방장과 기록 담당자만 열쇠 소지, 심사위원회 실사 시 개방)",
+      "base_description": "이수 일지와 심사 서류 원본이 보관된 방이다. 캐비닛과 서류함이 벽을 채우고, 문 옆 첫 캐비닛의 자물쇠만 다른 것들과 광택이 다르다. 안쪽 책상에 정하율이 서류를 맞춰 놓고 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "기록보관실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "이수 일지 캐비닛 자물쇠가 최근 새것으로 교체된 흔적이 있다. 열쇠를 가진 사람은 공방장과 기록 담당자 둘뿐이라고 문 옆 안내에 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "이수 일지 보관함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "이수 일지 상 최덕구의 색유리 기법 이수 날짜가 4년 전 그해 여름으로 적혀 있는데, 그 줄만 필적이 다르고 잉크가 새것이다."
+        },
+        {
+          "action": "설비 보수 공사 기록을 확인한다",
+          "requires": "E01",
+          "release_evidence_id": "E11",
+          "result": "4년 전 그해 여름, 이 공방의 용해로가 두 달 동안 꺼져 있었다는 보수 공사 기록이 서류함에 있다. 이수 일지의 날짜가 바로 그 두 달 안에 들어간다."
+        },
+        {
+          "action": "송지원의 개인 수첩을 확인한다",
+          "requires": "E06",
+          "release_evidence_id": "E02",
+          "result": "송지원이 필적과 날짜 불일치를 정리해 둔 메모와 심사위원회 제보 계획이 적혀 있다. 「내부 보고 경로는 공방장을 거친다」는 줄에 밑줄이 두 번 그어져 있다."
+        },
+        {
+          "action": "캐비닛 자물쇠 교체 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "이수 일지 캐비닛 자물쇠가 엿새 전 새것으로 갈렸다. 교체 사유란은 비어 있고 결재란에는 공방장 도장만 찍혀 있다."
+        },
+        {
+          "action": "심사위원회 규정집을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "위조가 발각될 경우 보유자 지정 취소는 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다."
+        },
+        {
+          "action": "정하율에게 설비 점검 기록은 누가 맡는지 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "설비 점검 기록도 심사 서류라 기록 담당자 소관이고, 실사 전에 맞춰 보자는 요청이면 담당자는 새벽이라도 간다는 말이 나온다."
+        }
+      ],
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "공방장 사무실",
+      "access": "제한적 출입 (공방장과 허가받은 인물만)",
+      "base_description": "책상과 서류함이 놓인 공방장의 개인 사무실이다. 벽 한 면이 인증서와 수상 패로 덮여 있고 액자가 줄을 맞춰 걸려 있다. 최덕구는 책상 앞에 서 있고 앉지 않는다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽에 걸린 인증서 열댓 개 중 기울어진 것이 하나 있다. 하필 가장 최근 것이고, 그것만 액자 뒷면 고정쇠가 새것이다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍의 우편물을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "공방 앞으로 온 대출 상환 독촉장이 서랍에 있다. 수신인은 백소민이고 기한이 심사 결과 발표일 다음 주다."
+        },
+        {
+          "action": "최덕구에게 강윤재와의 과거를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "예전 같은 심사에서 경쟁했고 그 뒤로 이 공방 얘기를 업계에 옮기고 다녔다는 말이 나온다."
+        }
+      ],
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "위조된 이수 일지 원본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "이수 일지 보관함을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "이수 일지 상 최덕구의 색유리 기법 이수 날짜가 4년 전 그해 여름으로 적혀 있다. 그 줄만 필적이 다르고 잉크가 새것이다.",
+      "proves": [
+        "최덕구가 심사 서류를 위조했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이 위조가 송지원의 죽음과 직접 관련 있는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "열 줄 중 한 줄만 필적과 잉크가 다르다"
+    },
+    {
+      "id": "E02",
+      "name": "송지원의 위조 의심 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "송지원의 개인 수첩을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "송지원이 필적과 날짜 불일치를 정리해 둔 메모와 심사위원회 제보 계획이 적혀 있다. 「내부 보고 경로는 공방장을 거친다」는 줄에 밑줄이 두 번 그어져 있다.",
+      "proves": [
+        "송지원이 위조 사실을 인지하고 신고할 계획이었다는 사실을 증명한다.",
+        "작업실 컴퓨터의 미발송 이메일 초안(E06)이 같은 의혹을 문장 중간까지 쓰고 있어, 이 메모가 혼자 떠도는 의심이 아니었다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그를 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "제보할 사람이 제보 경로가 막혔다고 적어 두었다"
+    },
+    {
+      "id": "E03",
+      "name": "가스 밸브 조절기의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "가스 밸브 조절기를 확인한다",
+      "related_timeline": [
+        "T07",
+        "T11"
+      ],
+      "content": "밸브 조절기 표면 나사 둘레에 공구를 물린 자국이 나 있다. 금속이 벗겨져 아래쪽 색이 드러난 자리고, 그 옆에 손자국이 얇게 남아 있다. 최근 것이다.",
+      "proves": [
+        "밸브가 사고 직전 인위적으로 조작되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "손으로 돌아가면 안 되는 상시 가동 로의 밸브에 공구 자국이 있다"
+    },
+    {
+      "id": "E04",
+      "name": "배기팬 전기 패널 조작 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배기팬 전기 패널을 확인한다",
+      "related_timeline": [
+        "T06",
+        "T12"
+      ],
+      "content": "패널 안쪽 자동 기록 장치의 종이 띠에 5시 차단, 6시 10분 복구가 찍혀 있다. 한 시간 10분이다.",
+      "proves": [
+        "환기팬이 사고 당시 의도적으로 차단되었다가 다시 복구되었다는 사실을 증명한다.",
+        "고장 난 팬은 스스로 고쳐지지 않는다 — 6시 10분에 다시 올린 손이 있다.",
+        "설비 점검 기록을 맞춰 보자는 말(E13)이 새벽 5시 20분의 유일한 명분이었다면, 팬이 꺼진 5시와 맞물린다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "고장이라던 팬이 정확한 시각에 꺼지고 정확한 시각에 다시 켜졌다"
+    },
+    {
+      "id": "E05",
+      "name": "오하늘의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오하늘에게 새벽 출근길에 본 것을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "\"네 시 오십 분쯤이었어요. 복도 끝에서 선생님이 혼자 용해로실로 들어가시는 걸 봤어요. 그 시간에 거기 계신 게 처음은 아니라서… 여쭤보진 않았어요.\"",
+      "proves": [
+        "최덕구가 그날 늦게 출근했다는 자신의 주장과 맞지 않는다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "용해로실 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH03",
+      "mismatch": "늦게 출근했다는 사람이 4시 50분 복도에 있었다"
+    },
+    {
+      "id": "E06",
+      "name": "송지원의 미발송 이메일 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "송지원의 개인 컴퓨터 이메일함을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "심사위원회에 이수 기록 위조 의혹을 제기하려던 미발송 이메일 초안이 열려 있다. 본문은 「그해 여름 로가 꺼져 있던 기간에」까지 쓰다가 문장 중간에서 끊겨 있다. 어제 저녁에 저장된 채다.",
+      "proves": [
+        "송지원이 위조 사실을 신고할 계획이었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "최덕구가 이 계획을 알고 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "보내려던 사람이 문장 중간에서 멈추고 다음 날 죽었다"
+    },
+    {
+      "id": "E07",
+      "name": "백소민의 갈등 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백소민에게 최근 남편과 송지원 사이에 있었던 일을 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "\"어제 저녁에 사무실에서 남편하고 지원씨가 언성을 높이는 걸 들었어요. 내용은 못 들었어요. 남이 싸운 걸 제가 왜 먼저 옮깁니까. 그렇게 배웠어요.\"",
+      "proves": [
+        "사망 전날 저녁 최덕구와 송지원 사이에 심각한 갈등이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "갈등의 구체적인 내용"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "갈등이 없었다는 사람이 전날 저녁 언성을 높였다"
+    },
+    {
+      "id": "E08",
+      "name": "심사위원회 규정집",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "심사위원회 규정집을 확인한다",
+      "content": "위조가 발각될 경우 보유자 지정 취소는 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다.",
+      "proves": [
+        "최덕구에게 위조 발각을 막을 강력한 동기가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 그가 송지원을 살해했는지",
+        "전날 저녁 사무실에서 언성이 높아진 것(E07)이 이 규정 때문이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "위조가 드러나면 지정 취소가 아니라 고발이다",
+      "related_timeline": []
+    },
+    {
+      "id": "E09",
+      "name": "강윤재의 방문 예약 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "전시장 방문객 기록부를 확인한다",
+      "related_timeline": [],
+      "content": "강윤재의 이름이 오늘 오전 9시 방문 예약으로 적혀 있고, 그 옆에 실제 도착 서명은 7시로 남아 있다. 예약은 보름 전 날짜다.",
+      "proves": [
+        "강윤재가 사건 당일 7시에야 공방에 도착했다는 사실을 증명한다.",
+        "약속이 보름 전에 잡힌 9시였다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 그 전에 공방 근처에 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "아홉 시 약속에 일곱 시에 온 사람이 있다"
+    },
+    {
+      "id": "E10",
+      "name": "오하늘이 아는 백소민의 출근 시간",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오하늘에게 백소민이 평소 몇 시에 출근하는지 묻는다",
+      "related_timeline": [],
+      "content": "\"사모님은 늘 일곱 시 넘어서 오세요. 그날도 다르지 않았을 거예요. 새벽엔 거의 본 적이 없어요.\"",
+      "proves": [
+        "백소민이 사건 당일 범행 추정 시각(5시~6시 10분)에 공방에 없었을 가능성이 높다는 것을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그날 정확히 몇 시에 도착했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "새벽에 없던 사람이 새벽 일을 설명해야 하는 자리에 있다"
+    },
+    {
+      "id": "E11",
+      "name": "용해로 보수 공사 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "설비 보수 공사 기록을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "4년 전 그해 여름, 이 공방의 용해로가 두 달 동안 꺼져 있었다는 보수 공사 기록이 서류함에 있다. 이수 일지에 적힌 색유리 기법 이수 날짜가 바로 그 두 달 안에 들어간다.",
+      "proves": [
+        "이수 일지의 날짜가 실제로는 아무것도 만들 수 없던 기간이라는 것을 증명한다.",
+        "위조가 서류 용어가 아니라 눈으로 확인되는 것이 된다."
+      ],
+      "does_not_prove": [
+        "누가 그 줄을 적었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "불이 꺼져 있던 두 달에 색유리 기법을 이수했다고 적혀 있다"
+    },
+    {
+      "id": "E12",
+      "name": "캐비닛 자물쇠 교체 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "캐비닛 자물쇠 교체 기록을 확인한다",
+      "related_timeline": [
+        "T02",
+        "T03"
+      ],
+      "content": "이수 일지 캐비닛 자물쇠가 엿새 전 새것으로 갈렸다. 교체 사유란은 비어 있고 결재란에는 공방장 도장만 찍혀 있다. 열쇠는 공방장과 기록 담당자 둘뿐이었다.",
+      "proves": [
+        "열흘 전 알아챈 뒤 이틀 전 위원회에 직접 연락하기까지, 그 사이 기록 담당자가 기록에서 잘렸다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "자물쇠를 간 사람이 무엇을 알았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "열쇠 둘 중 하나가 자물쇠를 갈았고 사유란이 비어 있다"
+    },
+    {
+      "id": "E13",
+      "name": "정하율이 말한 점검 기록의 소관",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "정하율에게 설비 점검 기록은 누가 맡는지 묻는다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "\"설비 점검 기록도 심사 서류입니다. 기록 담당자 소관이고요. 실사 전에 맞춰 보자는 요청이면, 담당자는 새벽이라도 갑니다. 그 기록이 삼 년째 같은 내용인데, 예산은 백 매니저님 소관으로 압니다.\"",
+      "proves": [
+        "송지원이 새벽 5시 20분에 용해로실에 들어갈 이유가 있었다는 것을 뒷받침한다.",
+        "설비 점검 기록이 3년째 바뀌지 않았다는 것을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그 요청을 했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "기록 담당자가 새벽에 배관을 보러 갈 이유가 그 한 줄뿐이다"
+    },
+    {
+      "id": "E14",
+      "name": "백소민이 아는 수리 요청 이력",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백소민에게 환기팬 수리 이력을 묻는다",
+      "related_timeline": [],
+      "content": "\"팬이 고장이라뇨. 설비 예산은 제가 쥐고 있어요. 삼 년 동안 수리 요청은 한 번도 없었고, 그 팬은 지금도 돌고 있잖아요.\"",
+      "proves": [
+        "팬은 고장 난 적이 없다는 것을 뒷받침한다 — 고장 난 팬은 스스로 고쳐지지 않는다."
+      ],
+      "does_not_prove": [
+        "누가 팬을 껐는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "고장이라던 팬이 돌고 있고 수리 요청은 없다"
+    },
+    {
+      "id": "E15",
+      "name": "최덕구가 말한 옛 경쟁",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "최덕구에게 강윤재와의 과거를 묻는다",
+      "related_timeline": [],
+      "content": "\"강 선생은 예전 같은 심사에서 저와 붙었던 사람입니다. 그 뒤로 이 공방 얘기를 업계에 옮기고 다녔죠. 하필 오늘 온 겁니다.\"",
+      "proves": [
+        "두 사람이 과거 같은 심사에서 경쟁했다는 것을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "강윤재가 오늘 무엇을 하러 왔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "협업 상대라는 사람을 경쟁자로 부른다"
+    },
+    {
+      "id": "E16",
+      "name": "설비 예산 장부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "카운터의 설비 예산 장부를 확인한다",
+      "related_timeline": [],
+      "content": "환기 설비 유지보수 예산 항목이 3년째 같은 금액으로 이월돼 있고, 담당자 서명은 전부 백소민이다. 집행란은 3년 내내 비어 있다.",
+      "proves": [
+        "환기 설비 예산을 백소민이 관리했고 3년 동안 집행이 없었다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "집행이 없었던 이유"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "설비를 관리한다는 사람이 3년을 손대지 않았다"
+    },
+    {
+      "id": "E17",
+      "name": "대출 상환 독촉장",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "책상 서랍의 우편물을 확인한다",
+      "related_timeline": [],
+      "content": "공방 앞으로 온 대출 상환 독촉장이 서랍에 있다. 수신인은 백소민이고 기한이 심사 결과 발표일 다음 주다.",
+      "proves": [
+        "공방 재정난이 심사 결과와 맞물려 있었다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 재정난이 이 사건과 관계있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "심사 결과에 매달릴 이유가 종이로 남아 있다"
+    },
+    {
+      "id": "E18",
+      "name": "강윤재가 말한 약속",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강윤재에게 오늘 약속이 몇 시였는지 묻는다",
+      "related_timeline": [],
+      "content": "\"약속은 아홉 시였습니다. 보름 전에 잡았고, 여기까지 차로 두 시간이에요. 일곱 시에 온 건 길이 막힐까 봐서고요.\"",
+      "proves": [
+        "강윤재의 약속이 보름 전에 잡힌 9시였고 차로 두 시간 거리라는 것을 뒷받침한다 — 방문객 기록부(E09)와 맞물린다."
+      ],
+      "does_not_prove": [
+        "그가 전날 어디 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "아홉 시 약속에 일곱 시에 온 이유를 본인이 먼저 댄다"
+    },
+    {
+      "id": "E19",
+      "name": "백소민이 말한 막내의 새벽",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백소민에게 오하늘의 그날 출근을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "\"하늘이는 그날 새벽 네 시 반에 나와 있었대요. 청소 때문이라는데, 삼 년 동안 그 시간에 온 적이 없어요.\"",
+      "proves": [
+        "오하늘이 그날 유독 이른 새벽에 공방에 있었다는 것을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 시간에 무엇을 봤는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "삼 년 동안 없던 새벽 출근이 하필 그날이다"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
+      "player_action": "최덕구에게 오하늘의 새벽 목격 진술을 제시하여, 그날 늦게 출근했다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "새벽에 일찍 나와 있었다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "송지원을 불러들인 사실",
+        "가스 밸브 조작 사실",
+        "서류 위조 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": [
+        "F-CH03-04",
+        "S-CH03-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "밸브 조절기의 공구 자국과 배기팬 전기 패널의 조작 기록을 제시하여, 단순히 이른 준비 때문이었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "환기팬과 밸브를 조작해 송지원을 쓰러뜨린 것은 인정한다."
+      },
+      "must_not_release": [
+        "서류 위조 사실",
+        "명확한 살해 의도"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH03-03",
+        "S-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E11",
+        "E02",
+        "E12"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-04",
+        "evidence_ids": [
+          "E01",
+          "E11",
+          "E02",
+          "E12"
+        ]
+      },
+      "player_action": "위조된 이수 일지와 로가 꺼져 있던 두 달의 보수 공사 기록, 송지원의 위조 의심 메모와 갈아 끼운 자물쇠 기록을 시간순으로 이어 제시하여, 사고처럼 보이게 하려 했을 뿐이라는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "명장 지정 심사 서류에 이수 기록을 위조한 사실과, 이를 알아챈 송지원이 심사위원회에 알리겠다고 하자 그를 막기 위해 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "라이벌 유리공예가 강윤재가 하필 사건 당일 아침 공방을 찾아와 있었고, 최덕구의 심사 준비에 대한 뒷말을 알고 있었다.",
+      "actual_reason": "강윤재는 합동 전시 협업 논의차 미리 잡혀 있던 방문 약속으로 왔을 뿐이며, 사건 당일 새벽 시간대에는 공방 근처에도 없었다. 다만 심사 준비에 관한 뒷말을 들었으면서도 구체적으로 캐묻지 않은 것은 사실로 남는다.",
+      "how_to_clear": "방문객 기록부(E09)와 강윤재 본인의 약속 진술(E18)을 오하늘의 목격 시각(E05)과 나란히 놓는다 — 약속은 보름 전에 잡힌 9시였고 차로 두 시간 거리에서 7시에 들어온 사람이, 4시 50분 복도에 있을 수는 없다. 그 시각 용해로실로 들어간 사람은 최덕구 혼자다.",
+      "must_not_imply": "협업 관계였다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "강윤재는 혐의를 벗지만, 옛 경쟁 이력 때문에 이번 방문의 진의를 의심하는 시선이 완전히 걷히지는 않는다.",
+      "suspicion_deepener": "최덕구가 강윤재를 경쟁자로 부르고(E15) 예약(E09)보다 두 시간 일찍 도착한 것이 확인되어, 협업이라는 방문 이유가 새삼 석연치 않게 느껴진다.",
+      "character_id": "CH02",
+      "cleared_by": [
+        "E09",
+        "E05"
+      ],
+      "clearing_points_at": "CH03",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "약속보다 두 시간 일찍, 소동이 나기 직전에 전시장 문으로 들어왔다.",
+        "means": [
+          "E09",
+          "E15"
+        ]
+      }
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "아내이자 운영 매니저인 백소민이 공방 재정난과 심사 결과에 사활을 걸고 있어, 그녀에게도 결과를 지키려는 동기가 있어 보인다.",
+      "actual_reason": "백소민은 재정난을 알고 있었고 남편의 스트레스를 걱정했을 뿐, 서류 위조나 송지원과의 갈등, 살해 사실은 전혀 몰랐다.",
+      "how_to_clear": "오하늘이 아는 출근 시간(E10)과 백소민 본인의 수리 이력 진술(E14)을 나란히 놓는다 — 새벽에 공방에 없던 사람이고, 예산을 쥔 사람이라 팬이 고장 난 적이 없다는 것을 가장 먼저 아는 사람이다. 그 말이 곧 고장이라는 첫 주장을 깬다.",
+      "must_not_imply": "재정적 이해관계가 있다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "공방의 오랜 재정난은 이번 사건과 별개로 남아, 심사 결과와 무관하게 앞으로도 백소민이 계속 풀어야 할 문제로 남는다.",
+      "suspicion_deepener": "환기 설비 예산 장부(E16)에 3년 동안 집행이 없고 그 서명이 전부 그녀의 것이며, 서랍의 독촉장(E17)이 심사 결과 발표 다음 주를 기한으로 두고 있어, 설비 이상과의 연관이 한층 짙어 보인다.",
+      "character_id": "CH04",
+      "cleared_by": [
+        "E10",
+        "E14"
+      ],
+      "clearing_points_at": "CH03",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "설비 예산을 쥐고 있어 팬을 손볼 수 있는 자리에 있었다.",
+        "means": [
+          "E16",
+          "E17"
+        ]
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E11",
+      "E12",
+      "F-CH03-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "환기팬을 차단하고 가스 밸브를 조작해 용해로실에 일산화탄소를 채운 뒤, 배관 점검을 핑계로 송지원을 불러들여 의식을 잃게 하고 사고로 위장했다.",
+      "motive_fact": "국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했는데, 이를 알아챈 송지원이 심사위원회에 알리겠다고 하자 발각을 막기 위해 그를 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "최덕구",
+    "method": "새벽 용해로실 배기팬을 차단하고 가스 밸브 조절기를 조작해 불완전연소 가스를 채운 뒤, 배관 점검을 핑계로 송지원을 불러들여 의식을 잃게 하고 낙상·화상 사고처럼 현장을 재배치했다.",
+    "motive": "국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했는데, 이를 알아챈 송지원이 심사위원회에 알리겠다고 통보하자 명장 지정 무산과 형사 고발을 막기 위해 살해했다.",
+    "key_connection": "오하늘의 새벽 목격 진술이 최덕구의 초기 주장과 어긋나고, 밸브·배기팬의 조작 흔적이 사고가 아닌 인위적 개입임을 보여주며, 위조된 이수 일지와 송지원의 메모·미발송 이메일이 조작 이전의 진짜 사실과 살해 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 아침 용해로실에서 기록 담당자 송지원이 쓰러진 채 발견된 표면 사건",
+    "공방장 최덕구가 새벽에 이미 나와 있었다는 목격 진술(E05)과, 막내가 그날 새벽 네 시 반에 나와 있었던 이유(E19)",
+    "가스 밸브 조절기와 배기팬 전기 패널에 남은 조작 흔적 — 고장 난 팬은 스스로 고쳐지지 않는다(E04, E14)",
+    "점검 기록을 맞춰 보자는 명분(E13)이 기록 담당자를 새벽 다섯 시 이십 분에 그 방으로 부른 유일한 이유였다는 것",
+    "위조된 이수 일지와 로가 꺼져 있던 두 달(E11), 송지원의 위조 의심 메모와 문장 중간에서 끊긴 미발송 이메일(E06), 전날 저녁 사무실의 언성(E07)이 가리키는 마지막 이틀",
+    "명장 계승을 둘러싼 압박이 결국 기록 담당자를 살해하는 결과로 이어진 결말"
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "심사 서류에 위조한 이수 기록이 실사 날 폭로될 위기에 몰려서",
+      "truth": true,
+      "evidence_for": [
+        "E02",
+        "E06",
+        "E11"
+      ],
+      "suggested_by": [
+        "F-CH02-02",
+        "S-CH05-03",
+        "E06"
+      ],
+      "cue": "뒷말"
+    },
+    {
+      "id": "M02",
+      "text": "재정난에 몰린 운영 매니저가 심사 결과를 지키려고",
+      "truth": false,
+      "evidence_for": [
+        "E17",
+        "E16"
+      ],
+      "suggested_by": [
+        "F-CH04-02",
+        "S-CH04-01"
+      ],
+      "cue": "재정",
+      "refutation": "심사에 매달린 건 맞아요. 그런데 심사 통과에 사활을 건 사람이 심사 서류 담당자를 없앱니까. 지원씨가 없으면 실사 서류부터 못 냅니다. 저는 일곱 시 넘어 왔어요.",
+      "refutation_releases": "F-CH04-04",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "M03",
+      "text": "옛 심사 경쟁자가 라이벌의 명장 지정을 무너뜨리려고",
+      "truth": false,
+      "evidence_for": [
+        "E15",
+        "E09"
+      ],
+      "suggested_by": [
+        "F-CH03-05",
+        "S-CH02-03"
+      ],
+      "cue": "경쟁",
+      "refutation": "제가 최 선생을 무너뜨리고 싶었으면 위원회에 편지 한 통이면 됩니다. 뒷말은 저도 들었어요. 사람을 해칠 이유가 아니라 협업을 미룰 이유였죠.",
+      "refutation_releases": "F-CH02-02",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "M04",
+      "text": "실사를 앞두고 기록 담당자의 실수를 덮으려던 위원회 쪽의 압박",
+      "truth": false,
+      "evidence_for": [
+        "E13"
+      ],
+      "suggested_by": [
+        "S-CH05-01",
+        "F-CH05-01"
+      ],
+      "cue": "실사",
+      "refutation": "저희는 기록을 덮는 쪽이 아니라 뒤지는 쪽입니다. 송지원 씨 서류에 실수는 없었어요. 오히려 실사 직전에 저희 쪽에 먼저 연락해 온 사람입니다.",
+      "refutation_releases": "S-CH05-03",
+      "refuted_by": "CH05"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "5시에서 6시 10분 사이, 팬이 꺼져 있던 한 시간 10분",
+      "truth": true,
+      "evidence_for": [
+        "E04",
+        "E05"
+      ],
+      "suggested_by": [
+        "E04",
+        "F-CH01-01",
+        "F-L02-OBS-01"
+      ],
+      "cue": "6시 10분"
+    },
+    {
+      "id": "T02",
+      "text": "4시 50분 이전, 아직 아무도 나오지 않은 새벽",
+      "truth": false,
+      "evidence_for": [
+        "E05"
+      ],
+      "suggested_by": [
+        "F-CH01-03",
+        "S-CH01-01"
+      ],
+      "cue": "4시 반",
+      "refutation": "네 시 반에 제가 작업실에 있었어요. 그때 복도 끝 용해로실 팬 소리는 평소처럼 났어요. 아무도 없었고요.",
+      "refutation_releases": "F-CH01-03",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T03",
+      "text": "6시 10분 이후, 팬이 다시 돌기 시작한 뒤",
+      "truth": false,
+      "evidence_for": [
+        "E04"
+      ],
+      "suggested_by": [
+        "E04",
+        "S-CH03-01"
+      ],
+      "cue": "복구",
+      "refutation": "일곱 시에 제가 봤을 때 선생님 손은 이미 차가웠어요. 팬은 돌고 있었고요. 팬이 돌고 나서 쓰러진 게 아니에요.",
+      "refutation_releases": "F-CH01-06",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T04",
+      "text": "7시, 발견 직전",
+      "truth": false,
+      "evidence_for": [
+        "E10"
+      ],
+      "suggested_by": [
+        "S-CH01-01",
+        "F-CH01-02"
+      ],
+      "cue": "7시경",
+      "refutation": "일곱 시에 제가 전시장 문을 열고 들어왔습니다. 그때 이미 안쪽에서 소리가 났어요. 발견이 일곱 시지 사고가 일곱 시가 아니죠.",
+      "refutation_releases": "F-CH02-03",
+      "refuted_by": "CH02"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "환기팬 차단기를 내리고 가스 밸브를 조작해 일산화탄소를 채운 뒤, 쓰러진 사람을 고열 작업대 옆으로 옮겨 사고처럼 꾸몄다",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "F-L02-OBS-01",
+        "E03",
+        "F-CH01-04"
+      ],
+      "cue": "밸브 조절기"
+    },
+    {
+      "id": "H02",
+      "text": "환기팬이 갑자기 고장 나 가스가 찬 사고",
+      "truth": false,
+      "evidence_for": [
+        "E14"
+      ],
+      "suggested_by": [
+        "S-CH03-01",
+        "F-L02-OBS-01"
+      ],
+      "cue": "고장",
+      "refutation": "팬이 고장이라뇨. 예산은 제가 쥐고 있어요. 삼 년 동안 수리 요청이 한 번도 없었고, 그 팬은 지금도 돌고 있잖아요. 고장 난 팬이 혼자 고쳐집니까.",
+      "refutation_releases": "F-CH04-03",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "H03",
+      "text": "고열 작업대에서 뜨거운 것을 다루다 넘어진 낙상·화상 사고",
+      "truth": false,
+      "evidence_for": [
+        "E03"
+      ],
+      "suggested_by": [
+        "F-CH01-02",
+        "S-CH01-01"
+      ],
+      "cue": "고열 작업대",
+      "refutation": "작업대 위에 아무것도 없었어요. 새벽에 뜨거운 걸 다루다 넘어졌으면 다루던 게 있어야죠. 그게 계속 이상했어요.",
+      "refutation_releases": "F-CH01-04",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H04",
+      "text": "누군가 밖에서 용해로실 문을 잠가 가둬 두었다",
+      "truth": false,
+      "evidence_for": [
+        "E03"
+      ],
+      "suggested_by": [
+        "F-L02-OBS-01",
+        "F-CH01-02"
+      ],
+      "cue": "철문",
+      "refutation": "그 문은 잠기지 않아요. 자물쇠도 없고, 안에서 밀면 열려요. 가둘 수가 없는 방이에요.",
+      "refutation_releases": "F-CH01-05",
+      "refuted_by": "CH01"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 저는 네 시 반부터 작업실 바닥을 닦고 있었어요. 그 방엔 발견할 때 처음 들어갔고요.",
+      "releases": "F-CH01-03"
+    },
+    "CH02": {
+      "text": "제가요? 약속은 아홉 시였고 저는 일곱 시에 전시장 문으로 들어왔습니다. 방문 기록부에 서명이 있어요.",
+      "releases": "F-CH02-03"
+    },
+    "CH04": {
+      "text": "저는 늘 일곱 시 넘어 와요. 새벽에 공방에 온 적이 없어요. 하늘이한테 물어보세요.",
+      "releases": "F-CH04-04"
+    },
+    "CH05": {
+      "text": "저는 실사 때문에 오늘 아침 여덟 시에 처음 이 공방에 왔습니다. 배차 기록은 위원회에 있고요.",
+      "releases": "F-CH05-05"
+    }
+  },
+  "resolution": {
+    "who": "최덕구였다. 4시 50분에 혼자 용해로실로 들어가는 것을 오하늘이 봤고, 배기팬 기록 장치에는 5시 차단과 6시 10분 복구가 찍혀 있다. 고장 난 팬은 스스로 고쳐지지 않는다.",
+    "when": "5시에 팬을 끄고 5시 5분에 밸브를 조작했으며, 5시 20분에 송지원을 불러들였다. 6시 10분에 팬을 다시 올렸다.",
+    "why": "국가무형문화재 보유자 심사 서류에 로가 꺼져 있던 두 달 안의 날짜로 이수 기록을 위조해 제출했는데, 이를 알아챈 송지원이 실사 전 위원회에 알리겠다고 통보했다.",
+    "how": "배기팬 차단기를 내리고 가스 밸브 조절기를 공구로 돌려 일산화탄소를 채운 뒤, 점검 기록을 맞춰 보자며 송지원을 불러들였다. 의식을 잃자 고열 작업대 옆으로 옮기고 밸브와 차단기를 되돌렸다."
+  }
+}

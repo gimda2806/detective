@@ -11,10 +11,18 @@
       "외딴섬",
       "해양유물전시관"
     ],
-    "location_archetypes": ["museum_exhibition", "utility_facility"],
+    "location_archetypes": [
+      "museum_exhibition",
+      "utility_facility"
+    ],
     "background": {
-      "background_archetypes": ["review_certification", "inspection_audit"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "review_certification",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -28,7 +36,7 @@
     "narrative": "창밖이 희끄무레해질 무렵에야 전시관 사무실의 이야기가 끝났다. 밤새 등탑과 수장고와 창고를 오간 신발에 재가 묻어 있고, 책상 위에는 그동안 모인 기록들이 펼쳐진 채다.\n\n서도협은 그 기록들을 한참 들여다보았다. 고재원이 22시 30분에 본 것, 개인 장부에 찍힌 입금 내역, 복제품 밑면의 낯선 각인, 그리고 유단비가 문 너머로 들은 문가온의 마지막 말.\n\n\"저 각인은.\"\n\n그가 입을 열었다.\n\n\"가온이가 알아볼 거라고 생각을 못 했습니다. 들어온 지 넉 달 된 앱니다.\"\n\n그는 잠시 말을 끊었다가 이었다.\n\n\"전수조사 얘기가 나온 게 봄이었어요. 그때부터 하나씩 되사 오려고 했는데, 값이 벌써 세 배가 됐더군요. 감정서 원본을 보여주겠다고 램프실로 부를 때만 해도 설득할 생각이었습니다. 정말입니다.\"\n\n\"설득이 안 되니까 상자를 드셨고요.\"\n\n탐정이 말했다.\n\n서도협은 대답하지 않았다. 그것으로 대답이 됐다.\n\n창고 쪽에서는 고재원이 아직 자리를 뜨지 않고 있다. 지난달 등유 재고가 두 번 맞지 않았는데 장부 실수려니 하고 넘겼다는 말을, 새벽 내내 세 번쯤 되풀이했다. 그 셈이 맞았더라도 22시의 램프실은 달라지지 않았을 것이다. 그래도 그는 그 말을 한 번 더 할 사람처럼 보인다.\n\n게스트하우스를 나서자 선착장 쪽 하늘이 먼저 밝아 오고 있었다. 첫 배까지는 아직 시간이 남았다.\n\n\"휴가는 이걸로 다 갔네.\"\n\n한지우가 옆에 와 섰다. 한동안 둘 다 바다만 봤다.\n\n\"체크아웃 12시니까 두 시간은 주무실 수 있어요.\"\n\n탐정이 그를 돌아봤다.\n\n\"...알아보고 있었어?\"\n\n\"관장님 자백받으시는 동안 유단비 씨한테 물어봤죠.\""
   },
   "surface_incident": [
-    "새벽, 학예사 문가온이 등탑 램프실 화재 잔해 속에서 숨진 채 발견되었다.",
+    "한밤중, 학예사 문가온이 등탑 램프실 화재 잔해 속에서 숨진 채 발견되었다.",
     "화재는 처음엔 낡은 등유 램프의 누유로 인한 사고로 추정되었으나, 시신에서 화재 이전에 가해진 것으로 보이는 두부 손상 흔적이 발견되었다.",
     "관장 서도협, 유물정리 담당 방주안, 게스트하우스 관리인 유단비, 시설 기사 고재원, 문화재청 자문위원 도현우가 그날 밤 모두 섬 안에 있었다.",
     "외부인이 섬에 들어온 흔적은 확인되지 않았다."
@@ -40,10 +48,25 @@
     "key_time_location": "22:00, L02 등탑 램프실에서 둔기로 가격해 살해 / 22:20, L02에서 방화로 위장.",
     "cover_up": "서도협은 화재가 낡은 등유 램프의 누유로 인한 사고라고 주장하며, 자신은 그 시각 계속 전시관 사무실에서 서류 작업을 했다고 진술하려 한다.",
     "accomplice": "없음",
-    "method_archetypes": ["blunt_force", "arson", "staging_cover_up"],
-    "motive_archetypes": ["crime_cover", "secret_exposure", "financial_gain"],
-    "cover_up_target": ["cause_of_death", "evidence", "crime_scene"],
-    "cover_up_method": ["false_accident", "evidence_removal"]
+    "method_archetypes": [
+      "blunt_force",
+      "arson",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "secret_exposure",
+      "financial_gain"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -697,9 +720,7 @@
       "does_not_prove": [
         "누가 바꿔치기했는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -751,9 +772,7 @@
       "does_not_prove": [
         "정확히 무엇을 알리려 했는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -860,9 +879,7 @@
         "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
-        "E04",
-        "E05",
-        "E07"
+        "E05"
       ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
@@ -886,7 +903,8 @@
       "how_to_clear": "도현우의 초기 진술을 고재원의 목격담(E08), 그리고 밤새 로비를 지킨 유단비의 확인(E09)과 대조한다 — 22시 30분경 램프실 쪽에서 나온 것은 서도협이며, 유단비는 그 시각까지 도현우가 방을 나서는 것을 보지 못했다.",
       "must_not_imply": "심사를 서두른다는 점만으로 그가 방화나 살인에 관여했다고 단정하지 않는다.",
       "lingering_thread": "도현우는 혐의를 벗지만, 일정을 서둘러 통보했다는 사실 때문에 전시관 직원들 사이에서 한동안 곱지 않은 시선을 받는다.",
-      "suspicion_deepener": "그가 최근 서도협에게 전수조사 일정을 앞당기겠다고 강하게 통보한 메모가 발견되어, 서도협을 궁지로 몰아넣었다는 정황이 한층 뚜렷해진다."
+      "suspicion_deepener": "그가 최근 서도협에게 전수조사 일정을 앞당기겠다고 강하게 통보한 메모가 발견되어, 서도협을 궁지로 몰아넣었다는 정황이 한층 뚜렷해진다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -895,7 +913,8 @@
       "how_to_clear": "등유 재고 대장(E06)의 기록 시점과 고재원 자신의 목격담(E08)이 가리키는 위치가 서로 일치함을 확인한다 — 그가 반출량 증가를 표시해 둔 것과 22시 30분에 창고에 있었다는 것이 맞물린다.",
       "must_not_imply": "등유 관리를 맡고 있다는 사실만으로 방화에 관여했다고 단정하지 않는다.",
       "lingering_thread": "고재원은 재고 이상을 진작 알아챘으면서도 대수롭지 않게 넘겼다는 사실에 자책하며, 이번 일을 계기로 등대 시설 전체의 안전 점검을 자원해서 맡겠다고 나선다.",
-      "suspicion_deepener": "그가 최근 재고 이상을 발견하고도 이를 즉시 보고하지 않은 채 혼자 조용히 확인만 하고 다녔다는 사실이 드러나, 그가 뭔가를 숨기고 있는 것처럼 보인다."
+      "suspicion_deepener": "그가 최근 재고 이상을 발견하고도 이를 즉시 보고하지 않은 채 혼자 조용히 확인만 하고 다녔다는 사실이 드러나, 그가 뭔가를 숨기고 있는 것처럼 보인다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

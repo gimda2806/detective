@@ -58,7 +58,7 @@
       "cause_of_death"
     ],
     "cover_up_method": [
-      "false_accident"
+      "accident_equipment_failure"
     ]
   },
   "actual_timeline": [
@@ -453,6 +453,11 @@
           "fact_or_claim_id": "F-CH03-02",
           "release_prerequisite": "F-CH02-01",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-02"
         }
       ],
       "knowledge_limits": [
@@ -1075,7 +1080,8 @@
       "how_to_clear": "변지호의 진술(S-CH03-01, S-CH03-02)을 신유경의 야간 목격 증언(E08), 그리고 장비 대여 기록부(E09)와 대조한다 — 22시 50분경 정비고에 불이 켜져 있던 시각에 그가 정리한 것은 재시험용 개인 장비였고, 그 자리에서 마주친 것은 나오는 곽태민이었다(F-CH03-02).",
       "must_not_imply": "불합격에 대한 서운함만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "변지호는 혐의를 벗지만, 불합격 판정을 내린 사람이 없어진 뒤에도 재시험 준비는 그대로 남아 한동안 마음이 편치 않다.",
-      "suspicion_deepener": "그가 불합격 판정 이후 인다연에 대한 불만을 동료들에게 여러 차례 토로했다는 사실이 추가로 확인되어, 앙심이 생각보다 깊었던 것처럼 보인다."
+      "suspicion_deepener": "그가 불합격 판정 이후 인다연에 대한 불만을 동료들에게 여러 차례 토로했다는 사실이 추가로 확인되어, 앙심이 생각보다 깊었던 것처럼 보인다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -1084,7 +1090,8 @@
       "how_to_clear": "E05의 인증 서류 불일치 내용과 안태경의 이의 제기 초안(E10), 그리고 그의 초기 진술(S-CH05-01, S-CH05-02)을 비교해 언쟁의 배경을 확인한다.",
       "must_not_imply": "언쟁했다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "안태경이 이전부터 의심해 온 대리점의 무자격 재하청 유통 정황은 이번 사건과는 별개로 남아, 이후 본사 차원의 조사로 이어질 수 있다.",
-      "suspicion_deepener": "그가 사고 며칠 전부터 클럽의 납품 문제로 본사에 정식 이의 제기를 준비하고 있었다는 사실이 드러나, 갈등이 단순한 말다툼 이상이었던 것처럼 보인다."
+      "suspicion_deepener": "그가 사고 며칠 전부터 클럽의 납품 문제로 본사에 정식 이의 제기를 준비하고 있었다는 사실이 드러나, 갈등이 단순한 말다툼 이상이었던 것처럼 보인다.",
+      "character_id": "CH05"
     }
   ],
   "case_complete": {

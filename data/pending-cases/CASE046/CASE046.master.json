@@ -1116,9 +1116,7 @@
         "그 상태가 약 때문인지 지병 때문인지",
         "부딪힌 시각"
       ],
-      "presentation_effect": [
-        "C03"
-      ],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "부딪힌 자국은 엄지손톱만 한데 멍은 손바닥 두 개예요. 이거 비율이 이상한데요.",
         "detective": "안에서 계속 새고 있었다는 소리다."
@@ -1173,9 +1171,7 @@
         "위장약을 누가 통에 채웠는지",
         "그 알약의 정체"
       ],
-      "presentation_effect": [
-        "C01"
-      ],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "봉투 일곱 장 어디에도 위장약이 없어요. 통에 든 건 여기서 나간 게 아닙니다.",
         "detective": "그럼 그 통은 아무 기록에도 안 걸려 있다는 거다."
@@ -1453,9 +1449,7 @@
       "does_not_prove": [
         "그 발소리의 주인이 어느 방에 들어갔는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -1489,7 +1483,6 @@
       ],
       "requires_presented_evidence_ids": [
         "E01",
-        "E05",
         "E10"
       ],
       "requires_comparison": {
@@ -1553,9 +1546,7 @@
       ],
       "requires_presented_evidence_ids": [
         "E02",
-        "E03",
-        "E11",
-        "E16"
+        "E11"
       ],
       "requires_comparison": {
         "claim_id": "S-CH03-05",

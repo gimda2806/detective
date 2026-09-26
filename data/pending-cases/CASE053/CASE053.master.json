@@ -13,10 +13,19 @@
       "#외곽_산업단지",
       "#상사와_부하"
     ],
-    "location_archetypes": ["research_laboratory", "warehouse"],
+    "location_archetypes": [
+      "research_laboratory",
+      "warehouse"
+    ],
     "background": {
-      "background_archetypes": ["festival_celebration", "product_demo", "inspection_audit"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "festival_celebration",
+        "product_demo",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
@@ -50,10 +59,25 @@
     "key_time_location": "14:05, L02 발사통제실에서 수동 점화 신호 입력 / 14:10, L03 시험발사대 점검구에서 남건우 사망.",
     "cover_up": "좌현민은 사고 직후 정식 조사도 시작되기 전에 '노후 배선 결함으로 인한 불의의 사고'라고 단정해 발표했고, 명도훈에게 통제실 콘솔을 재부팅하도록 지시해 표준 로그 화면에서 조작 흔적을 지우려 했다.",
     "accomplice": "없음",
-    "method_archetypes": ["machine_malfunction", "automation_tampering", "staging_cover_up"],
-    "motive_archetypes": ["crime_cover", "report_prevention"],
-    "cover_up_target": ["cause_of_death", "evidence", "responsibility"],
-    "cover_up_method": ["false_accident", "digital_record_manipulation", "witness_misdirection"]
+    "method_archetypes": [
+      "machine_malfunction",
+      "automation_tampering",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "digital_record_manipulation",
+      "witness_misdirection"
+    ]
   },
   "actual_timeline": [
     {
@@ -1077,7 +1101,8 @@
       "how_to_clear": "E01(백업 로그)이 재부팅과 무관하게 별도 서버에 남아 있다는 사실과, F-CH02-02/F-CH02-03을 비교해 그가 지시를 따랐을 뿐임을 확인한다. 자재 반입 서명대장(E10)에도 그 시간대 그의 서명이 남아 있어, 자리를 비웠다는 진술 자체가 독립적으로 뒷받침된다.",
       "must_not_imply": "재부팅했다는 사실만으로 그가 조작에 가담했다고 단정하지 않는다.",
       "lingering_thread": "명도훈은 이후로도 자신이 그때 화면을 더 유심히 보지 않은 것을 계속 자책한다.",
-      "suspicion_deepener": "명도훈이 사고 직후 누구보다 먼저 콘솔을 재부팅했다는 사실이 알려지며, 한동안 그가 무언가를 감추려 한 것 아니냐는 의심을 받는다."
+      "suspicion_deepener": "명도훈이 사고 직후 누구보다 먼저 콘솔을 재부팅했다는 사실이 알려지며, 한동안 그가 무언가를 감추려 한 것 아니냐는 의심을 받는다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -1086,7 +1111,8 @@
       "how_to_clear": "E09(출입기록)의 방문 시각과 그의 초기 진술을 대조해 도착 시각이 사고보다 한참 이르다는 것을 확인한다.",
       "must_not_imply": "미리 와 있었다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "편지호는 사고 처리와 별개로 이번 계약 점검 결과를 예정대로 보고할 수 있을지, 계약이 무산될 경우 지자체 예산 집행에 어떤 파장이 미칠지를 계속 신경 썼다.",
-      "suspicion_deepener": "편지호가 사고 직후에도 태연히 서류 가방을 정리하며 예정된 점검 일정을 묻는 모습이 목격되어, 마치 사고에 무심한 것처럼 보인다."
+      "suspicion_deepener": "편지호가 사고 직후에도 태연히 서류 가방을 정리하며 예정된 점검 일정을 묻는 모습이 목격되어, 마치 사고에 무심한 것처럼 보인다.",
+      "character_id": "CH05"
     }
   ],
   "case_complete": {

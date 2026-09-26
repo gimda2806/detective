@@ -652,22 +652,18 @@ export function checkEmptyLocations(master: Master): Issue[] {
     const observations = loc.observation_rules ?? [];
     const details = loc.detail_rules ?? [];
     if (observations.length || details.length) continue;
-    // 사람이 있으면 인물 카드로 만날 수는 있으니 방이 완전히 죽지는
-    // 않는다. 그래도 방을 보는 것과 사람을 만나는 것은 다른 행동이라
-    // 그냥 넘기지 않고 warn으로 남긴다. 이미 머지된 28곳이 여기 걸리는데,
-    // 실플레이 피드백으로 마스터 하나를 고친 뒤 check:case를 다시 돌리는
-    // 것이 실제 작업 흐름이라 거기서 막히면 안 된다 — checkRelationships가
-    // 같은 이유로 같은 비대칭을 쓴다.
-    const hasPeople = peopleThere.has(loc.id);
+    // 사람이 있으면 통과다(2026-09-26 사용자 결정). 들어가면 base_description 과
+    // 거기 있는 사람이 나오고 말을 걸 수 있으므로 복도 같은 방이지 막힌 방이
+    // 아니다. 한때 warn 으로 남겼는데(「방을 보는 것과 사람을 만나는 것은 다른
+    // 행동」) 20곳·16건이 사흘간 아무도 안 읽는 경고로 남았다 — 관찰 한 줄을
+    // 더하는 것은 판본을 만들 때의 재료이고 원본에 경고로 걸 일이 아니다.
+    if (peopleThere.has(loc.id)) continue;
     issues.push({
-      severity: hasPeople ? 'warn' : 'error',
+      severity: 'error',
       code: 'LOCATION_HAS_NO_ACTION',
-      message: hasPeople
-        ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
-        : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+      message: `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이다. 관찰 한 줄이나 수색 칸 하나를 넣거나, 누군가를 이 방에 세울 것.`,
     });
   }
-
   return issues;
 }
 
@@ -1315,7 +1311,9 @@ export function checkSceneDialogueBreaks(master: Master): Issue[] {
       });
     if (mashed.length) {
       issues.push({
-        severity: 'warn',
+        // error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이 공짜였고,
+        // 대사와 지문이 한 문단에 뭉치면 오프라인 화면에서 말풍선이 깨진다.
+        severity: 'error',
         code: 'SCENE_DIALOGUE_MASHED',
         message: `${label}.narrative에 대사와 지문이 한 문단에 뭉친 줄이 ${mashed.length}개 있다 — 서술 한 덩어리, 대사 한 줄을 각각 빈 줄로 나눌 것. 예: ${mashed[0].slice(0, 40)}…`,
       });
@@ -1402,6 +1400,8 @@ type HypothesisCandidateShape = {
   refutation?: string;
   refutation_releases?: string;
   refuted_by?: string;
+  suggested_by?: string[];
+  cue?: string;
 };
 
 export function checkHypothesisBoard(master: Master): Issue[] {
@@ -1455,6 +1455,126 @@ export function checkHypothesisBoard(master: Master): Issue[] {
     }
   }
   const culprit = shape.full_truth?.responsible_character_id;
+
+  // 재료(suggested_by)·핵심어(cue) — 1막의 화폐는 말(2026-09-25 사용자 결정).
+  // 후보를 떠올리게 하는 재료가 하나는 있어야 하고, 그 재료의 본문에 핵심어가
+  // 그대로 들어 있어야 한다. 「떠오르는가」는 사람만 보지만 「그 말이 적혀
+  // 있는가」는 기계가 본다. 파일 안에 suggested_by 가 하나라도 있으면 그
+  // 파일은 이 규칙에 들어온 것이고, 그때는 후보 전원(정답·오답)이 가져야
+  // 한다 — 오답의 재료가 곧 소거의 길이다. 아직 안 옮긴 판본은
+  // docs/offline-master-format.md 「지금 벗어나 있는 판본」에 적는다.
+  const optedIn = lists.some(([, list]) =>
+    (list ?? []).some((item) => Array.isArray(item.suggested_by)),
+  );
+  if (optedIn) {
+    const textById = new Map<string, string>();
+    for (const item of master.evidence ?? []) {
+      const card = item as { id?: string; name?: string; content?: string; proves?: string[] };
+      if (card.id) {
+        textById.set(
+          card.id,
+          [card.name, card.content, ...(card.proves ?? [])].filter(Boolean).join(' '),
+        );
+      }
+    }
+    for (const character of master.characters ?? []) {
+      const holder = character as {
+        knows?: Array<{ fact_id?: string; content?: string }>;
+        initial_claims?: Array<{ claim_id?: string; content?: string }>;
+      };
+      for (const fact of holder.knows ?? []) {
+        if (fact.fact_id) textById.set(fact.fact_id, fact.content ?? '');
+      }
+      for (const claim of holder.initial_claims ?? []) {
+        if (claim.claim_id) textById.set(claim.claim_id, claim.content ?? '');
+      }
+    }
+    for (const location of master.locations ?? []) {
+      const rules = (
+        location as {
+          observation_rules?: Array<{ release_fact_id?: string; result?: string; description?: string; content?: string }>;
+        }
+      ).observation_rules;
+      for (const rule of rules ?? []) {
+        if (rule.release_fact_id) {
+          textById.set(rule.release_fact_id, rule.result ?? rule.description ?? rule.content ?? '');
+        }
+      }
+    }
+    // 2막에서만 풀리는 진술은 1막 재료가 못 된다 — 단계가 내주는 것(release),
+    // 카드를 **제시**해야 열리는 것(hidden_until 의 E##: 1막은 제시가 닫혀
+    // 있다), 단계 뒤에 열리는 것(C##). CASE012 M01 이 그런 재료 셋만 달고
+    // 있어 완주 검사에서 네 칸을 못 굳혔다(2026-09-25).
+    const actTwoOnly = new Set<string>();
+    for (const stage of (master as { contradiction_stages?: Array<{ release?: { claim_or_fact_id?: string } }> }).contradiction_stages ?? []) {
+      if (stage.release?.claim_or_fact_id) actTwoOnly.add(stage.release.claim_or_fact_id);
+    }
+    for (const character of master.characters ?? []) {
+      const gates = (character as { hidden_until?: Array<{ fact_or_claim_id?: string; release_prerequisite?: string }> }).hidden_until ?? [];
+      for (const gate of gates) {
+        if (gate.fact_or_claim_id && /^(E|C)\d{2}$/.test(gate.release_prerequisite ?? '')) {
+          actTwoOnly.add(gate.fact_or_claim_id);
+        }
+      }
+    }
+    // 관계 질문 뒤에 새는 말(points_finger 의 opens·because)은 잠겨 있어도
+    // 1막에서 들린다 — 그 길로 나오는 진술은 2막 전용이 아니다.
+    for (const character of master.characters ?? []) {
+      const finger = (character as { points_finger?: { opens?: string; because?: string } }).points_finger;
+      for (const id of [finger?.opens, finger?.because]) {
+        if (id) actTwoOnly.delete(id);
+      }
+    }
+    const norm = (text: string) => text.replace(/\s+/g, '');
+    for (const [name, list] of lists) {
+      for (const item of list ?? []) {
+        const where = `${name}.${item.id}`;
+        const suggesters = item.suggested_by ?? [];
+        if (suggesters.length && suggesters.every((id) => actTwoOnly.has(id))) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_ACT2_ONLY',
+            message: `${where}.suggested_by(${suggesters.join(', ')}) 가 전부 2막에서만 풀리는 것이다(단계가 내주거나 카드 제시·단계 뒤에 열리는 진술). 1막에서 들을 수 있는 말을 하나는 넣는다 — 없으면 이 후보는 1막에서 영영 안 열린다.`,
+          });
+        }
+        if (!suggesters.length) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_MISSING',
+            message: `${where} 에 suggested_by 가 없다. 이 후보를 떠올리게 하는 말(F-/S-)이나 카드(E)를 하나는 적는다 — 없으면 오프라인에서 이 후보는 영영 적을 수 없다.`,
+          });
+          continue;
+        }
+        const unknown = suggesters.filter((id) => !textById.has(id));
+        if (unknown.length) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_UNKNOWN',
+            message: `${where}.suggested_by 의 ${unknown.join(', ')} 가 이 마스터에 없다.`,
+          });
+        }
+        const cue = (item.cue ?? '').trim();
+        if (!cue) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_CUE_MISSING',
+            message: `${where} 에 cue 가 없다. 재료 본문에 그대로 들어 있는 핵심어 한 토막을 적는다(「재산분할」·「21시 25분」).`,
+          });
+          continue;
+        }
+        const hit = suggesters.some((id) =>
+          norm(textById.get(id) ?? '').includes(norm(cue)),
+        );
+        if (!hit) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_CUE_MISSING',
+            message: `${where} 의 cue 「${cue}」 가 suggested_by(${suggesters.join(', ')}) 어느 본문에도 없다. 그 말을 듣고 이 후보가 떠오르려면 그 낱말이 거기 적혀 있어야 한다.`,
+          });
+        }
+      }
+    }
+  }
 
   for (const [name, list] of lists) {
     if (!list || !list.length) {
@@ -1640,7 +1760,8 @@ export function checkOpeningClaim(
 
 export function checkStatementGating(
   master: Master,
-  alreadyRegistered = false,
+  // 등록 여부를 더 안 본다(2026-09-26 — 늘 error). 호출부 시그니처를 지키기 위해 남긴다.
+  _alreadyRegistered = false,
 ): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
@@ -1675,7 +1796,9 @@ export function checkStatementGating(
       .filter((id) => !gated.has(id) && !staged.has(id));
     if (open.length < UNGATED_KNOWS_LIMIT) continue;
     issues.push({
-      severity: alreadyRegistered ? 'warn' : 'error',
+      // 등록 무관 error 다(2026-09-26 사용자 결정) — 코퍼스 315건 전체가 0건이라 올리는 값이
+      // 공짜였다. 면담 한 번에 아는 것이 다 나오는 인물은 새 사건에서만 막힌다.
+      severity: 'error',
       code: 'KNOWS_UNGATED_FLOOD',
       message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
     });
@@ -2818,7 +2941,8 @@ export function checkStageQuestion(master: Master): Issue[] {
       id: string;
       target_character?: string;
       requires_heard_claim_ids?: string[];
-      requires_comparison?: { claim_id?: string };
+      requires_presented_evidence_ids?: string[];
+      requires_comparison?: { claim_id?: string; evidence_ids?: string[] };
     }>;
   };
   const claims = new Map<string, { owner: string; truth?: string }>();
@@ -2876,6 +3000,22 @@ export function checkStageQuestion(master: Master): Issue[] {
         severity: 'error',
         code: 'STAGE_COMPARISON_NOT_LIE',
         message: `${where} ${cmp} 가 requires_heard_claim_ids 에 없다. 아직 안 들은 진술을 깰 수는 없다.`,
+      });
+    }
+    // 답은 카드다 — 단계가 요구하는 카드는 그 거짓말과 비교하는 카드여야
+    // 한다. 비교에 없는 카드를 요구에 끼우면 플레이어는 거짓말과 부딪치는
+    // 카드를 다 내밀고도 「한 장이 빠졌어요」에서 막히고, 그 한 장은 남의
+    // 얘기라 짐작할 길이 없다(CASE008 C01 의 E07 — 서준혁 헛다리 카드가
+    // 강태민 알리바이 단계에 끼어 있었다. 2026-09-25 실플레이).
+    const compared = stage.requires_comparison?.evidence_ids ?? [];
+    const beyond = (stage.requires_presented_evidence_ids ?? []).filter(
+      (id) => !compared.includes(id),
+    );
+    if (compared.length && beyond.length) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_REQUIRES_BEYOND_COMPARISON',
+        message: `${stage.id}.requires_presented_evidence_ids 에 비교 카드가 아닌 ${beyond.join(', ')} 가 있다. 단계의 답은 requires_comparison.evidence_ids 뿐이어야 한다 — 그 카드가 다른 자리(헛다리·다음 단계)의 것이면 거기로 옮긴다.`,
       });
     }
   }
@@ -4170,6 +4310,48 @@ function ratioIssues(
 }
 
 /**
+ * 고정 문턱 대신 **기대치 대비 집중도**로 센다(2026-09-26 사용자 결정). 기대치는
+ * 「사건당 평균 라벨 수 ÷ 칸 수」 — 라벨이 칸에 고르게 흩어졌을 때 한 칸의 점유다.
+ * 다중 선택 축은 라벨 합이 100%를 넘으므로 고정 문턱은 칸 수에 따라 뜻이 달라진다
+ * (8%가 40칸 축에서는 평균의 1.6배, 14칸 축에서는 평균 미만). 배수로 보면 축마다
+ * 자기 구조에 맞는 문턱이 생기고, 새 칸을 늘리거나 라벨 습관이 바뀌어도 따라간다.
+ */
+function concentrationIssues(
+  code: string,
+  mine: Set<string>,
+  others: Array<Set<string>>,
+  slotCount: number,
+  alreadyRegistered: boolean,
+  render: (key: string, pct: string, expectedPct: string, multiplier: string, matching: number, total: number) => string,
+): Issue[] {
+  const issues: Issue[] = [];
+  if (others.length === 0 || slotCount === 0) return issues;
+  const labelsPerCase = others.reduce((sum, set) => sum + set.size, 0) / others.length;
+  const expected = labelsPerCase / slotCount;
+  if (expected <= 0) return issues;
+  for (const key of mine) {
+    const matching = others.filter((o) => o.has(key)).length;
+    const ratio = matching / others.length;
+    const multiplier = ratio / expected;
+    if (multiplier < CONCENTRATION_WARN_MULTIPLIER) continue;
+    issues.push({
+      severity:
+        multiplier >= CONCENTRATION_ERROR_MULTIPLIER ? overuseSeverity(alreadyRegistered) : 'warn',
+      code,
+      message: render(
+        key,
+        (ratio * 100).toFixed(0),
+        (expected * 100).toFixed(1),
+        multiplier.toFixed(1),
+        matching,
+        others.length,
+      ),
+    });
+  }
+  return issues;
+}
+
+/**
  * 배경 세 갈래를 각각 센다 — 칸(10%) · 계열(20%) · 서술 꼴(30%).
  * intensity 는 비율을 보지 않고, 선언이 full_truth 와 어긋나는지만 본다.
  */
@@ -4320,7 +4502,35 @@ const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
   ['scene_rearrangement', '현장 재배치', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈)|자세[^.]{0,8}(바꾸|고치|돌려)|물건[^.]{0,10}(제자리|옮|치워|돌려)|배치[^.]{0,8}바꾸|원래대로 (돌려|놓)/],
   ['evidence_removal', '증거 제거', /(증거|흔적|자국|지문|잔여물|잔흔|자취)[^.]{0,12}(지우|없애|치우|제거|닦|씻|폐기)|태워 없|불태|난로에 태|소각/],
   ['evidence_placement', '증거 심기', /심어 (놓|두)|가져다 (놓|두)|일부러[^.]{0,8}(남|흘|두)|흘려 (놓|두)|누명[을를]? (씌|쓰)/],
+  // ─── 사고 위장 다섯 칸 ────────────────────────────────────────────
+  //
+  // 한 칸이던 「사고 위장」이 **코퍼스의 53%(167건)**였다(2026-09-25 실측).
+  // 임계 8%의 여섯 배라 이 칸을 고른 사건은 전부 빨개지는데, 정작
+  // **무엇이 겹치는지는 아무 말도 못 한다** — 「사고 위장을 또 썼다」는
+  // 쓰는 사람에게 「그럼 어쩌라고」밖에 안 된다.
+  //
+  // 산문을 읽어 보니 진짜 축은 **무엇을 탓하는가**였고, 그것이 갈리면
+  // **플레이어가 뒤집어야 하는 것이 갈린다** — 설비 탓이면 점검 기록·정비
+  // 로그를 파야 하고, 건강 탓이면 부검·진료 기록을 들이대야 하고, 과실
+  // 탓이면 「피해자가 평소 어떤 사람이었나」를 증언으로 뒤집어야 한다.
+  // 같은 스티커를 달고 있어서 검사기 눈에만 판박이로 보였다.
+  //
+  // **`false_accident` 는 남긴다 — 원인을 특정하지 않은 사고 위장이다.**
+  // 47건이 실제로 그렇다(「사고처럼 꾸미고 자리를 떴다」에서 끝난다).
+  // 쓰레기통이 아니라 진짜 한 칸이고, 넘치면 그때 임계가 말해 준다.
+  //
+  // 아래 넷의 정규식은 **115건을 실제로 옮길 때 쓴 것과 같은 말**이다.
+  // 선언과 폴백이 다른 말로 세면 같은 사건이 경로에 따라 다른 칸에 들어간다.
+  //
+  // 폴백을 타는 마스터는 20건뿐이고(나머지는 `cover_up_method` 선언을 읽는다)
+  // 그중 사고 위장에 걸리는 것은 5건이다. 그 5건은 `false_accident` 와 아래
+  // 한 칸에 겹쳐 세어질 수 있는데, 5건으로는 어느 칸의 비율도 1.6%밖에
+  // 못 움직여서 그대로 뒀다 — 선언을 채우면 저절로 풀린다.
   ['false_accident', '사고 위장', /사고(처럼|로)[^.]{0,10}(꾸미|보이|위장|처리|만들)|실족(한 것|처럼)|미끄러진 것처럼|사고사로|전복 사고처럼|오작동(처럼|으로)/],
+  ['accident_equipment_failure', '사고 위장(설비 탓)', /노후|오작동|마모|고장|결함|낡[아은]|오래[된돼]|자연 이탈|누유|저절로|헐거|부식|삭아|하중을 못|부실|말썽|정비 불량|이상 없음/],
+  ['accident_victim_error', '사고 위장(피해자 과실 탓)', /부주의|실수로|함부로|헛디|서두르는|안전수칙|절차를 (어기|무시)|혼자 (위험|무리|늦게|오래|훈련|작업|점검|있다)|무리하게|단독 (훈련|작업)|규정을 (어기|무시)|넘어져|옮기다|다뤘|다루었/],
+  ['accident_victim_health', '사고 위장(피해자 건강 탓)', /과로|스트레스|지병|발작|심장마비|알레르기|탈진|저혈당|스스로 쓰러|평소 앓던/],
+  ['accident_environment', '사고 위장(환경 탓)', /벼락|낙뢰|자연재해|역풍|유탄|날씨|비가 와|결빙|강풍|정전/],
   ['false_suicide', '자살 위장', /자살(처럼|로|한 것)|유서|스스로 목숨/],
   ['false_intrusion', '침입 위장', /침입(한 것|처럼|으로)|외부인의 소행|강도|도둑이 든 것처럼|창(문)?을 깨/],
   ['false_timeline', '시각 조작', /시각[^.]{0,12}(바꿔|고쳐|앞당|늦|속이|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮)|타임스탬프|순서[를을] 바꾸|알람[을를]/],
@@ -4339,8 +4549,16 @@ const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
 // 이 칸은 수법 과용 판정에서 뺀다 — 옮겨서 풀 수 있는 단위가 아니다.
 const METHOD_OVERUSE_EXEMPT = new Set(['위장·은폐 조작']);
 
-const COVER_UP_OVERUSE_THRESHOLD = 0.08;
-// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다.
+// 은폐 두 축은 **고정 문턱을 쓰지 않는다**(2026-09-26 사용자 결정). 칸이 14·20개인데
+// 사건마다 라벨을 두 개쯤 적으므로 평균 점유가 12.9%·9.7%다 — 8%는 평균 **미만**이라
+// 어떤 배치로도 전부 통과가 불가능했고, 그래서 생성 루틴이 `other`로 도망가고
+// (CASE321~328) 한 사건은 수법까지 검사기를 피해 바뀌었다. 동기(37칸)·수법(35칸)·
+// 무대(52칸)는 「평균 점유 × 2」가 지금 문턱(8%·5%)과 거의 같아 그쪽은 그대로다.
+// 기대치 대비 1.5배부터 warn, 2배부터 새 사건 error(등록 사건 warn) — `concentrationIssues`.
+const CONCENTRATION_WARN_MULTIPLIER = 1.5;
+const CONCENTRATION_ERROR_MULTIPLIER = 2.0;
+// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다. 가능한 짝이
+// 190개라 8%는 평균의 열세 배 — 여기는 고정 문턱이 맞다.
 const COVER_UP_PAIR_OVERUSE_THRESHOLD = 0.08;
 
 function coverUpText(master: Master): string {
@@ -4405,23 +4623,23 @@ export function checkCoverUpOveruse(
   const otherM = comparableCases.map((o) => coverUpMethods(o.master));
   const mineM = coverUpMethods(master);
   return [
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_TARGET_OVERUSE',
       coverUpTargets(master),
       otherT,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_TARGETS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐가 감추려는 것이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐가 감추려는 것이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다 — 칸당 기대치 ${expected}%의 ${mult}배. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다. 「사인을 감춘다」는 장르의 뼈대라 흔한 것이 정상이고, 이 경고는 그 위에 얼마나 더 쏠렸는가를 말한다.`,
     ),
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_METHOD_OVERUSE',
       mineM,
       otherM,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_METHODS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐 방식이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐 방식이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다 — 칸당 기대치 ${expected}%의 ${mult}배. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것. 칸이 흔해서 \`other\`로 내리는 것은 답이 아니다(짝 검사가 통째로 꺼지고 그 칸의 분모가 깎인다).`,
     ),
     ...ratioIssues(
       'COVER_UP_PAIR_OVERUSE',
@@ -5114,8 +5332,43 @@ function pairChainShapeMatch(a: Master, b: Master): boolean {
 
 const overlaps = (a: Set<string>, b: Set<string>) => [...a].some((x) => b.has(x));
 
+/**
+ * 엔딩 산문을 **이름·숫자를 지운 문장**으로 쪼갠다. audit:duplication 이 쓰는
+ * 「뼈대」와 같은 생각이되 문장 단위다 — 두 엔딩이 같은 문장을 셋 이상 갖고
+ * 있으면 마무리 틀을 통째로 돌려 쓴 것이다.
+ */
+function endingSkeletonSentences(master: Master): string[] {
+  let text = String(master.ending_scene?.narrative ?? '');
+  const names = [...(master.characters ?? []), ...(master.key_figures ?? [])]
+    .map((c: { name?: unknown }) => (typeof c?.name === 'string' ? c.name : ''))
+    .filter((n) => n.length >= 2);
+  for (const name of names) text = text.split(name).join('○');
+  text = text.replace(/[0-9０-９]+/g, '#');
+  return text
+    .split(/(?<=[.。!?…」”])\s+|\n+/)
+    .map((line) => line.trim())
+    .filter((line) => line.length >= 8);
+}
+
+/** 이름·숫자를 지운 엔딩 문장이 셋 이상 글자까지 같은가. */
+const PAIR_ENDING_SAME_SENTENCES = 3;
+function pairEndingProseMatch(a: Master, b: Master): boolean {
+  const sb = new Set(endingSkeletonSentences(b));
+  return endingSkeletonSentences(a).filter((line) => sb.has(line)).length >= PAIR_ENDING_SAME_SENTENCES;
+}
+
 const PAIR_AXES: Array<[string, (a: Master, b: Master) => boolean]> = [
   ['단계 사슬 골격', pairChainShapeMatch],
+  // **엔딩 산문**(2026-09-26 사용자 결정). 소설 루틴 네 회차가 「사건은 다른데
+  // 엔딩 마지막 네 줄이 글자까지 같은 붙은 쌍」을 어느 검사도 못 본다고 적었다
+  // (221↔222 · 245~248 · 021↔022). 실측: 붙은 쌍 655 · 먼 쌍 51040 에서 이 축은
+  // 붙은 10.5% · 먼 0.16%(65배) — 필수 축인 사슬 골격(3.9배)보다 훨씬 뚜렷하다.
+  // 같이 재 본 은폐 축(1.9배)·목소리 축(1.9배)은 무작위와 구별이 안 돼 넣지 않았고,
+  // 사슬을 한 칸 완화하는 안(8.1배)은 소설 루틴이 지목한 268↔269 를 그래도 못
+  // 잡아 넣지 않았다. 넣던 날 등록된 여덟 쌍이 걸렸고 뒷번호의 엔딩을 그 자리에서
+  // 다시 썼다(판박이 규칙대로 지우지 않은 것은 사건이 아니라 마무리 틀만 같았기
+  // 때문이다 — 나머지 두 축은 사슬 골격과 동기·수법 하나였다).
+  ['엔딩 산문', pairEndingProseMatch],
   // 은폐 칸은 거의 모든 사건이 갖고 있으므로(24.6%) 수법 축에서 뺀다 —
   // METHOD_OVERUSE_EXEMPT 와 같은 이유다.
   [
@@ -5142,7 +5395,37 @@ const PAIR_AXES: Array<[string, (a: Master, b: Master) => boolean]> = [
     const rb = neighborRoleSet(b);
     return [...ra].filter((x) => rb.has(x)).length >= 3;
   }],
+  // ─── 은폐 두 축 (2026-09-26) ──────────────────────────────────
+  //
+  // 이 검사는 **붙은 쌍을 하나도 못 잡고 있었다**(2026-09-26 실측 —
+  // 코퍼스 329건에서 붙은 쌍 0.00%, 먼 쌍 0.13%). 네 쌍을 지운 뒤로 잠들어
+  // 있었고, 그 사이 세 쪽지가 같은 쌍을 손으로 지목했다
+  // (`wizardly-hamilton-nflhyn` 이 CASE021↔022 를 「줄거리가 한 칸도 안
+  // 어긋나는데 축이 하나 모자라 안 걸린다」고 적었다).
+  //
+  // 은폐 두 축을 더하면 **붙은 쌍 2.44% 대 먼 쌍 0.22% — 10.9배**다.
+  // 지금 설계를 정당화한 근거가 「사슬을 끼우면 3.9배」였으니 그보다 세다.
+  // 사슬 필수는 그대로 둔다 — 빼면 2.8배로 무너진다.
+  //
+  // **두 칸 이상 겹칠 때만 켠다.** 한 칸 겹침은 흔하다(`증거 제거` 23.6% ·
+  // `현장 재배치` 19.9%). 한 칸으로 켜면 붙은 쌍이 16 → 43 으로 늘고 는
+  // 것의 대부분이 흔한 칸 하나만 공유한다 — CASE042↔044 가 그랬다
+  // (`증거 제거` 하나뿐이고 나머지 은폐는 전혀 다르다). 두 칸으로 조이면
+  // 11.3배에서 10.9배로 거의 안 떨어지면서 지적이 절반 이하가 된다.
+  //
+  // 「사고 위장」을 다섯으로 가른 것(같은 날)이 이 축을 날카롭게 만들었다 —
+  // 한 칸이던 때는 코퍼스의 53%가 그 칸이라 겹쳐도 아무 뜻이 없었다.
+  ['은폐 방식', (a, b) => sharedCount(coverUpMethods(a), coverUpMethods(b)) >= 2],
+  ['은폐 대상', (a, b) => sharedCount(coverUpTargets(a), coverUpTargets(b)) >= 2],
 ];
+
+const sharedCount = (a: Set<string>, b: Set<string>) =>
+  [...a].filter((x) => b.has(x)).length;
+
+/** 두 마스터가 공유하는 PAIR_TWIN 축의 이름. 실측 스크립트가 같은 판정을 쓰기 위해 내보낸다. */
+export function pairSharedAxes(a: Master, b: Master): string[] {
+  return PAIR_AXES.filter(([, test]) => test(a, b)).map(([label]) => label);
+}
 
 // `alreadyRegistered` 를 받지 않는다 — 다른 과용 검사들과 달리 이 검사는
 // 등록 여부로 severity 가 갈리지 않으므로, 안 쓰는 인자를 남겨 두면 다음
@@ -5163,9 +5446,7 @@ export function checkPairTwin(
     // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
     if (n < self) continue;
 
-    const shared = PAIR_AXES.filter(([, test]) => test(master, other.master)).map(
-      ([label]) => label,
-    );
+    const shared = pairSharedAxes(master, other.master);
     if (shared.length < PAIR_MIN_AXES) continue;
     // 「단계 사슬 골격」은 **필수 축**이다(2026-09-22 실측). 축 셋만으로는
     // 252건에서 붙은 쌍 1.32% · 먼 쌍 0.66%로 2.0배에 그치는데, 사슬을 끼우면
@@ -5179,7 +5460,7 @@ export function checkPairTwin(
       // warn 으로 두지 않는다). 걸리는 네 쌍은 이 커밋에서 같이 고쳤다.
       severity: 'error',
       code: 'PAIR_TWIN',
-      message: `${other.caseId}와 두 편이 판박이다 — ${shared.join(' / ')}. **번호가 붙어 있어 한 사람이 연달아 푼다.** 이 쌍은 다른 검사가 구조적으로 못 본다: audit:duplication 은 3건 이상만 세고(쌍은 글자까지 같아도 목록에 안 뜬다), NEIGHBOR_TWIN 은 단계 이름이 명사만 달라도 다른 이름으로 읽으며, RANGE_TWIN 은 넷 이상이어야 센다. ${shared.includes('단계 사슬 골격') ? '**자백이 풀리는 순서가 같은 틀이다 — 명사만 갈지 말고 순서 자체를 다르게 짤 것.**' : '둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.'}`,
+      message: `${other.caseId}와 두 편이 판박이다 — ${shared.join(' / ')}. **번호가 붙어 있어 한 사람이 연달아 푼다.** 이 쌍은 다른 검사가 구조적으로 못 본다: audit:duplication 은 3건 이상만 세고(쌍은 글자까지 같아도 목록에 안 뜬다), NEIGHBOR_TWIN 은 단계 이름이 명사만 달라도 다른 이름으로 읽으며, RANGE_TWIN 은 넷 이상이어야 센다. ${shared.includes('단계 사슬 골격') ? '**자백이 풀리는 순서가 같은 틀이다 — 명사만 갈지 말고 순서 자체를 다르게 짤 것.**' : '둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.'}${shared.includes('엔딩 산문') ? ' **엔딩의 마무리 문장이 이름만 다르고 셋 이상 같다 — 뒷번호의 엔딩을 그 사건의 말로 다시 쓸 것.**' : ''}`,
     });
   }
   return issues;

@@ -8,107 +8,286 @@
     "detective_entry_type": "media_or_content_creation",
     "detective_entry": "탐정은 아날로그 사진 인화 문화를 소개하는 짧은 영상 콘텐츠를 만들기 위해 며칠째 '멈춘 셔터'를 드나들며 촬영을 이어오던 중, 그날도 촬영차 들렀다가 암실 쪽 소동과 마주친다.",
     "tone": "오랜 원망이 파국으로 치닫는, 씁쓸하고 담담한 여운의 정통 추리 분위기.",
-    "location_archetypes": ["association_club", "photo_video_studio"],
+    "location_archetypes": [
+      "association_club",
+      "photo_video_studio"
+    ],
     "background": {
-      "background_archetypes": ["regular_day", "private_gathering"],
-      "background_phrasing": ["other"],
+      "background_archetypes": [
+        "regular_day",
+        "private_gathering"
+      ],
+      "background_phrasing": [
+        "other"
+      ],
       "background_intensity": "contributory"
     },
-    "tags": ["아날로그_사진동아리", "인화_암실", "30주년_문집"]
+    "tags": [
+      "아날로그_사진동아리",
+      "인화_암실",
+      "30주년_문집"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 20:00",
     "location_id": "L02",
     "narrative": "저녁 8시. 라운지 쪽 필름 건조대를 찍어 두려고 세워 둔 카메라가 아직 돌아가고 있었다.\n\n암실 문을 붙든 채 계서준이 라운지를 향해 소리쳤다. 말이 되지 않는 소리였다.\n\n며칠째 이 지하를 드나들던 탐정은 카메라를 그대로 두고 붉은 조명 아래로 들어갔다.\n\n수세조 옆 바닥에 형준서가 쓰러져 있었다.\n\n\"확대기 스위치가 아직 올라가 있는데요.\"\n\n한지우가 벽 쪽을 가리켰다.\n\n\"손에 물이 묻은 채로 저걸 올렸다면 얘기가 달라지지.\"\n\n탐정은 수세조 테두리를 따라 불빛을 옮겼다. 쇠붙이 한 곳에 무언가를 붙였다 뗀 자국이 남아 있었다.\n\n\"여기요. 테이프 자국 같은데, 누가 뗐을까요.\"\n\n\"붙인 사람이 뗐겠지.\""
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "필름 현상실, 경도윤은 렌즈 클리너 천을 손가락 사이에서 몇 번 접었다 폈다.\n\n탐정이 다시 감긴 전선과 가방 안쪽의 피복 조각, 수세조 테두리에 남은 테이프 자국을 차례로 늘어놓는 동안 그는 아무것도 부인하지 않았다.\n\n\"...그 일은 제 안에서 8년 내내 끝난 적이 없었어요.\"\n\n경도윤이 나직이 말했다.\n\n\"그런데 문집 얘기를 듣는 순간, 그게 다시 사람들 입에 오르내리는 걸 견딜 수가 없더라고요.\"\n\n\"그래서 이번에는 선배가 그 사진을 못 싣게 하신 거고요.\"\n\n한지우가 말했다.\n\n경도윤이 천을 내려놓았다.\n\n\"전선을 고정하면서도, 제가 정말 이걸 할 거라곤 믿지 않았던 것 같아요.\"\n\n\"그런데 아침에 다시 와서 감으셨잖아요.\"\n\n그 말에는 답이 없었다.\n\n얼마 뒤 계단을 올라오는 길, 근우진이 갓 나온 30주년 기념 문집 견본을 품에 안고 서 있었다.\n\n\"모자란 인쇄비는 제가 채웠어요, 진짜로요.\"\n\n\"그 안에 8년 전 사진도 들어갔습니까.\"\n\n탐정이 물었다.\n\n\"...뺐습니다. 이번엔 본인한테 먼저 물어보고 넣으려고요.\"\n\n육하람은 라운지 게시판 앞에 서서, 문집 공지문 옆에 오래 붙어 있던 사진전 스크랩 기사를 떼어 내고 있었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "형준서", "role": "동아리 창립 멤버 / 암실 관리자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "형준서",
+      "role": "동아리 창립 멤버 / 암실 관리자",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "이른 저녁, 인화 암실에서 형준서가 수세조 옆에 쓰러진 채 발견되고, 병원 이송 후 감전에 의한 심정지로 사망 판정을 받는다.",
     "확대기 전선 한쪽 피복이 벗겨졌다가 다시 감긴 흔적이 발견된다.",
     "수세조 테두리 쇠붙이 부분에 최근 무언가를 붙였다 뗀 자국이 남아 있다.",
     "외부인의 침입 흔적은 확인되지 않는다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "경도윤은 8년 전, 처음으로 완성한 작품을 지역 아마추어 사진전에 출품하려 했다. 당시 동아리를 대표해 접수를 맡았던 형준서는 그 구도가 자신의 옛 스승 작품과 닮았다며 주최 측에 먼저 의혹을 제기해 접수 자체를 취소시켰다 — 사실은 형준서 자신이 그 스승에게 인정받지 못한 데서 비롯된 열등감 때문이었다. 그 일로 경도윤은 사진을 그만두다시피 했고, 8년 동안 그 앙금을 묵혀 왔다. 최근 다시 동아리에 나오기 시작했는데, 형준서가 30주년 기념 문집에 그 시절 이야기와 사진을 다시 싣고 싶다고 하자 눌러 왔던 원망이 되살아나 그를 없애기로 결심한다.",
     "method": "경도윤은 사흘 전 정기 점검을 핑계로 혼자 인화 암실 확대기 전선 피복을 미리 벗겨 두었다가, 사건 당일 다른 회원들이 라운지에 모인 틈을 타 그 전선을 수세조 테두리 쇠붙이에 닿도록 절연테이프로 고정해 두었다. 형준서가 그날 찍은 필름을 인화하며 인화지를 헹구려 수세조에 손을 담근 채 확대기 스위치를 올리자, 물을 타고 전류가 흘러 그 자리에서 감전돼 심정지에 이르렀다.",
     "key_time_location": "사건 당일 19:00~19:35, L02 인화 암실에서 전선 고정 및 감전 발생.",
     "cover_up": "경도윤은 다음날 이른 아침 다시 암실에 들러 벗겨졌던 전선을 절연테이프로 다시 감아 낡은 배선 탓처럼 보이게 정리했지만, 미처 회수하지 못한 테이프 조각 하나를 수세조 테두리 밑에 남겼다.",
-    "method_archetypes": ["electrocution", "electrical_tampering"],
-    "motive_archetypes": ["revenge", "reputation"],
-    "cover_up_target": ["responsibility", "evidence"],
-    "cover_up_method": ["false_accident", "scene_rearrangement"],
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "revenge",
+      "reputation"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "scene_rearrangement"
+    ],
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "8년 전 저녁", "location": "L01", "actors": ["V01", "CH01"],
+    {
+      "id": "T01",
+      "time": "8년 전 저녁",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "형준서가 라운지에서 경도윤에게, 그의 출품작이 표절로 판정돼 지역 사진전 접수가 취소됐다고 전한다.",
-      "world_fact": "사실 그 판정은 형준서가 먼저 주최 측에 의혹을 제기해 나온 것이었다." },
-    { "id": "T02", "time": "몇 주 전", "location": "L01", "actors": ["CH01"],
-      "actual_action": "경도윤이 라운지에서 오랜만에 동아리 재가입 신청서를 작성한다." },
-    { "id": "T03", "time": "열흘 전", "location": "L04", "actors": ["CH04"],
+      "world_fact": "사실 그 판정은 형준서가 먼저 주최 측에 의혹을 제기해 나온 것이었다."
+    },
+    {
+      "id": "T02",
+      "time": "몇 주 전",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "경도윤이 라운지에서 오랜만에 동아리 재가입 신청서를 작성한다."
+    },
+    {
+      "id": "T03",
+      "time": "열흘 전",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "근우진이 자료보관실에서 30주년 기념 문집에 실을 사진들을 정리하다 경도윤의 8년 전 출품작 사진을 발견한다.",
-      "world_fact": "근우진이 그 사진을 형준서에게 보여주며 문집에 싣고 싶다고 제안한다." },
-    { "id": "T04", "time": "닷새 전", "location": "L01", "actors": ["V01", "CH01"],
+      "world_fact": "근우진이 그 사진을 형준서에게 보여주며 문집에 싣고 싶다고 제안한다."
+    },
+    {
+      "id": "T04",
+      "time": "닷새 전",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "형준서가 라운지에서 경도윤에게 30주년 문집에 그 시절 이야기와 사진을 함께 싣고 싶다고 말한다.",
-      "world_fact": "경도윤은 표정 없이 알겠다고만 답하고 자리를 뜬다." },
-    { "id": "T05", "time": "사흘 전 20:10", "location": "L02", "actors": ["CH01"],
+      "world_fact": "경도윤은 표정 없이 알겠다고만 답하고 자리를 뜬다."
+    },
+    {
+      "id": "T05",
+      "time": "사흘 전 20:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "경도윤이 인화 암실에서 정기 점검을 핑계로 혼자 확대기 전선 피복을 벗겨 살펴본다.",
-      "world_fact": "벗겨낸 전선 피복 조각 하나가 경도윤의 작업 가방 속에 남는다." },
-    { "id": "T06", "time": "당일 18:30", "location": "L01", "actors": ["CH02"],
+      "world_fact": "벗겨낸 전선 피복 조각 하나가 경도윤의 작업 가방 속에 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "당일 18:30",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "육하람이 라운지에서 그날 저녁 참석자 이름과 도착 시각을 명단에 적는다.",
-      "world_fact": "명단에 형준서와 경도윤의 도착 시각이 나란히 남는다." },
-    { "id": "T07", "time": "당일 18:50", "location": "L04", "actors": ["V01", "CH04"],
+      "world_fact": "명단에 형준서와 경도윤의 도착 시각이 나란히 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "당일 18:50",
+      "location": "L04",
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "형준서와 근우진이 자료보관실에서 문집 인쇄 예산 문제로 언성을 높인다.",
-      "world_fact": "근우진이 먼저 자리를 뜨고, 형준서는 자료들을 정리한 뒤 뒤따라 나간다." },
-    { "id": "T08", "time": "당일 19:00", "location": "L02", "actors": ["CH01"],
+      "world_fact": "근우진이 먼저 자리를 뜨고, 형준서는 자료들을 정리한 뒤 뒤따라 나간다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 19:00",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "경도윤이 다른 회원들이 라운지에 모여 있는 틈을 타 인화 암실에서 벗겨둔 전선을 수세조 테두리 쇠붙이에 닿도록 절연테이프로 고정해 둔다.",
-      "world_fact": "테두리에 붙인 절연테이프 조각 일부가 헐겁게 남는다." },
-    { "id": "T09", "time": "당일 19:20", "location": "L02", "actors": ["V01"],
-      "actual_action": "형준서가 인화 암실에 들어와 그날 찍은 필름들을 확대기로 인화하기 시작한다." },
-    { "id": "T10", "time": "당일 19:35", "location": "L02", "actors": ["V01"],
+      "world_fact": "테두리에 붙인 절연테이프 조각 일부가 헐겁게 남는다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 19:20",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "형준서가 인화 암실에 들어와 그날 찍은 필름들을 확대기로 인화하기 시작한다."
+    },
+    {
+      "id": "T10",
+      "time": "당일 19:35",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "형준서가 인화지를 헹구려 수세조에 손을 담근 채 확대기 스위치를 올린다.",
-      "world_fact": "전류가 물을 타고 흘러 형준서가 그 자리에서 감전돼 쓰러진다." },
-    { "id": "T11", "time": "당일 19:35", "location": "L03", "actors": ["CH03"],
+      "world_fact": "전류가 물을 타고 흘러 형준서가 그 자리에서 감전돼 쓰러진다."
+    },
+    {
+      "id": "T11",
+      "time": "당일 19:35",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "섭윤재가 필름 현상실에서 몰래 쓰던 개인 필름을 동아리 정착액에 담그던 중 암실 쪽에서 나는 둔탁한 소리를 듣는다.",
-      "world_fact": "섭윤재는 대수롭지 않게 여기고 하던 작업을 계속한다." },
-    { "id": "T12", "time": "당일 19:40", "location": "L03", "actors": ["CH01"],
-      "actual_action": "경도윤이 필름 현상실 구석에 가방을 놓아둔 채 잠시 밖으로 나간다." },
-    { "id": "T13", "time": "당일 20:00", "location": "L02", "actors": ["CH05"],
+      "world_fact": "섭윤재는 대수롭지 않게 여기고 하던 작업을 계속한다."
+    },
+    {
+      "id": "T12",
+      "time": "당일 19:40",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "경도윤이 필름 현상실 구석에 가방을 놓아둔 채 잠시 밖으로 나간다."
+    },
+    {
+      "id": "T13",
+      "time": "당일 20:00",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "계서준이 마감 정리를 위해 형준서를 부르러 인화 암실 문을 연다.",
-      "world_fact": "계서준은 쓰러져 있는 형준서를 발견하고 그대로 얼어붙는다." },
-    { "id": "T14", "time": "당일 20:01", "location": "L01", "actors": ["CH05"],
-      "actual_action": "계서준이 라운지로 뛰어나가 육하람과 근우진에게 상황을 알린다." },
-    { "id": "T15", "time": "다음날 08:00", "location": "L02", "actors": ["CH01"],
+      "world_fact": "계서준은 쓰러져 있는 형준서를 발견하고 그대로 얼어붙는다."
+    },
+    {
+      "id": "T14",
+      "time": "당일 20:01",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "계서준이 라운지로 뛰어나가 육하람과 근우진에게 상황을 알린다."
+    },
+    {
+      "id": "T15",
+      "time": "다음날 08:00",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "경도윤이 이른 아침 다시 암실에 들러 벗겨졌던 전선을 절연테이프로 다시 감아 낡은 배선처럼 정리한다.",
-      "world_fact": "미처 회수하지 못한 절연테이프 조각 하나가 수세조 테두리 밑에 남는다." }
+      "world_fact": "미처 회수하지 못한 절연테이프 조각 하나가 수세조 테두리 밑에 남는다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "경도윤", "role": "동아리 재가입 회원 / 프리랜서 사진가", "present_location": "L03",
+      "id": "CH01",
+      "name": "경도윤",
+      "role": "동아리 재가입 회원 / 프리랜서 사진가",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "8년 전 형준서가 자신의 출품작을 표절로 몰아 사진전 접수를 취소시켰다는 사실과, 최근 형준서가 30주년 문집에 그 이야기를 다시 실으려 했다.", "source": "직접 경험", "related_timeline": ["T01", "T04"] },
-        { "fact_id": "F-CH01-02", "content": "사흘 전 정기 점검을 핑계로 혼자 확대기 전선 피복을 벗겨 살펴봤다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 19시경 벗겨둔 전선을 수세조 테두리에 절연테이프로 고정해 뒀다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "사건 당일 저녁 늦게까지 필름 현상실 근처에 남아 있었다.", "source": "직접 경험", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH01-05", "content": "다음날 아침 다시 암실에 들러 전선을 원래대로 감아 정리했다.", "source": "직접 행동", "related_timeline": ["T15"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "8년 전 형준서가 자신의 출품작을 표절로 몰아 사진전 접수를 취소시켰다는 사실과, 최근 형준서가 30주년 문집에 그 이야기를 다시 실으려 했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T01",
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사흘 전 정기 점검을 핑계로 혼자 확대기 전선 피복을 벗겨 살펴봤다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사건 당일 19시경 벗겨둔 전선을 수세조 테두리에 절연테이프로 고정해 뒀다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "사건 당일 저녁 늦게까지 필름 현상실 근처에 남아 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "다음날 아침 다시 암실에 들러 전선을 원래대로 감아 정리했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T15"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁엔 잠깐 얼굴만 비추고 일찍 집으로 돌아갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 발각을 피하려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "형준서와는 그냥 예전부터 알고 지낸 사이일 뿐, 특별한 사연은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "8년 전 앙금을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 저녁엔 잠깐 얼굴만 비추고 일찍 집으로 돌아갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 발각을 피하려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "형준서와는 그냥 예전부터 알고 지낸 사이일 뿐, 특별한 사연은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "8년 전 앙금을 숨기려는 것이다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "가방을 두고 나가는 바람에 다시 가지러 온 것뿐이에요.",
@@ -122,13 +301,36 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E06" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-05", "release_prerequisite": "C03", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C03", "release_trigger": "S-CH01-02" },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-02"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-04",
@@ -140,7 +342,10 @@
           "release_trigger": "S-CH01-03"
         }
       ],
-      "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디 있었는지는 자세히 모른다.", "계서준이 몇 시에 암실 문을 열지는 몰랐다."],
+      "knowledge_limits": [
+        "다른 사람들이 그날 저녁 정확히 어디 있었는지는 자세히 모른다.",
+        "계서준이 몇 시에 암실 문을 열지는 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 평소엔 무뚝뚝하고 절제된 말투.",
         "sentence_length_tendency": "평소엔 짧고 건조하게 말하고, 압박받으면 문장이 자주 끊기며 말끝이 흐려진다.",
@@ -153,17 +358,41 @@
       ]
     },
     {
-      "id": "CH02", "name": "육하람", "role": "동아리 총무", "present_location": "L01",
+      "id": "CH02",
+      "name": "육하람",
+      "role": "동아리 총무",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 저녁 참석자 명단에 형준서와 경도윤의 도착 시각을 적어 두었다.", "source": "직접 행동", "related_timeline": ["T06"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 저녁 참석자 명단에 형준서와 경도윤의 도착 시각을 적어 두었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁 참석자 명단을 순순히 보여주며, 특별히 이상한 점은 없었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "형준서 선배는 문집 일이라면 늘 발 벗고 나서는 분이었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 저녁 참석자 명단을 순순히 보여주며, 특별히 이상한 점은 없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "형준서 선배는 문집 일이라면 늘 발 벗고 나서는 분이었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["암실 안에서 정확히 무슨 일이 있었는지는 모른다.", "경도윤이 열쇠나 도구를 어떻게 썼는지는 모른다."],
+      "knowledge_limits": [
+        "암실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "경도윤이 열쇠나 도구를 어떻게 썼는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 총무 특유의 사무적이고 꼼꼼한 말투.",
         "sentence_length_tendency": "평소엔 또박또박 정리해서 말하고, 압박받으면 말이 빨라진다.",
@@ -175,19 +404,48 @@
       ]
     },
     {
-      "id": "CH03", "name": "섭윤재", "role": "오랜 회원 / 인화 보조", "present_location": "L03",
+      "id": "CH03",
+      "name": "섭윤재",
+      "role": "오랜 회원 / 인화 보조",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 저녁 몰래 개인 필름을 정착액에 담그던 중, 19시 35분경 암실 쪽에서 나는 둔탁한 소리를 들었다.", "source": "직접 경험", "related_timeline": ["T11"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 저녁 몰래 개인 필름을 정착액에 담그던 중, 19시 35분경 암실 쪽에서 나는 둔탁한 소리를 들었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T11"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 혼자 조용히 작업만 했을 뿐, 특별히 들은 것도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동아리 정착액을 몰래 쓴 것을 들킬까 봐 그 시간대 얘기 자체를 피한 것으로, 사건과는 무관한 개인적 사정이다." },
-        { "claim_id": "S-CH03-02", "content": "형준서 선배는 암실 쓸 때마다 뒷정리까지 꼼꼼히 챙기는 분이었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 저녁엔 혼자 조용히 작업만 했을 뿐, 특별히 들은 것도 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동아리 정착액을 몰래 쓴 것을 들킬까 봐 그 시간대 얘기 자체를 피한 것으로, 사건과는 무관한 개인적 사정이다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "형준서 선배는 암실 쓸 때마다 뒷정리까지 꼼꼼히 챙기는 분이었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E05", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["암실 안에서 정확히 무슨 일이 있었는지는 모른다.", "경도윤과 형준서 사이 사정은 전혀 모른다."],
+      "knowledge_limits": [
+        "암실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "경도윤과 형준서 사이 사정은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 평소엔 느긋하고 붙임성 있는 말투.",
         "sentence_length_tendency": "평소엔 편하게 길게 말하다가, 그날 저녁 얘기가 나오면 말이 짧아진다.",
@@ -200,18 +458,42 @@
       ]
     },
     {
-      "id": "CH04", "name": "근우진", "role": "동아리 자료 정리 봉사자 / 30주년 문집 편집자", "present_location": "L04",
+      "id": "CH04",
+      "name": "근우진",
+      "role": "동아리 자료 정리 봉사자 / 30주년 문집 편집자",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 문집 인쇄 예산 문제로 형준서와 언쟁했다.", "source": "직접 경험", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 저녁 문집 인쇄 예산 문제로 형준서와 언쟁했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁 형준서와 다툰 적 없다고, 그냥 인사만 나눴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "예산 문제로 다툰 것이 민망해 숨기려 한 것으로, 사건과는 무관한 개인적 민망함이다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 저녁 형준서와 다툰 적 없다고, 그냥 인사만 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "예산 문제로 다툰 것이 민망해 숨기려 한 것으로, 사건과는 무관한 개인적 민망함이다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["암실 안에서 무슨 일이 있었는지는 전혀 모른다.", "경도윤이 전선을 손봤다는 사실은 몰랐다."],
+      "knowledge_limits": [
+        "암실 안에서 무슨 일이 있었는지는 전혀 모른다.",
+        "경도윤이 전선을 손봤다는 사실은 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 열정적이고 다소 급한 말투.",
         "sentence_length_tendency": "평소엔 빠르게 설명하듯 말하고, 압박받으면 말이 방어적으로 바뀐다.",
@@ -223,16 +505,36 @@
       ]
     },
     {
-      "id": "CH05", "name": "계서준", "role": "신입 회원 / 시신 발견자", "present_location": "L01",
+      "id": "CH05",
+      "name": "계서준",
+      "role": "신입 회원 / 시신 발견자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "마감 정리를 위해 형준서를 부르러 암실 문을 열었다가 쓰러진 그를 발견해 곧장 라운지로 뛰어나갔다.", "source": "직접 목격", "related_timeline": ["T13", "T14"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "마감 정리를 위해 형준서를 부르러 암실 문을 열었다가 쓰러진 그를 발견해 곧장 라운지로 뛰어나갔다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T13",
+            "T14"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "마감 정리를 하려고 형준서를 부르러 갔다가 쓰러진 그를 발견해 바로 알렸어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "마감 정리를 하려고 형준서를 부르러 갔다가 쓰러진 그를 발견해 바로 알렸어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["전날 저녁 암실 안에서 무슨 일이 있었는지는 전혀 모른다.", "경도윤과 형준서 사이 사정은 전혀 모른다."],
+      "knowledge_limits": [
+        "전날 저녁 암실 안에서 무슨 일이 있었는지는 전혀 모른다.",
+        "경도윤과 형준서 사이 사정은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 신입 특유의 조심스럽고 다급한 말투.",
         "sentence_length_tendency": "평소엔 짧고 급하게 말하고, 그날 얘기가 나오면 말이 더 빨라진다.",
@@ -244,11 +546,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "8년 전 사진전 표절 시비로 얽힌 뒤 데면데면해진 동아리 선후배.",
       "public_face": "다들 두 사람이 예전부터 알고 지낸 사이 정도로만 알고 있다.",
       "says": {
@@ -259,7 +563,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "동아리 자료를 정리하며 우연히 경도윤의 8년 전 사진을 다시 찾아낸 사이.",
       "public_face": "근우진은 경도윤을 문집에 도움 될 소재를 준 사람 정도로만 알고 있다.",
       "says": {
@@ -271,7 +578,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "동아리 살림을 도맡아 온 총무와 창립 멤버.",
       "public_face": "육하람은 형준서를 오래 손발을 맞춰 온 믿음직한 창립 멤버로만 알고 있다.",
       "says": {
@@ -282,7 +592,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "같은 암실을 오래 써 온 오랜 회원과 암실 관리자.",
       "public_face": "섭윤재는 형준서를 그냥 오래 같이 어울린 동아리 선배로만 알고 있다.",
       "says": {
@@ -293,7 +606,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "30주년 기념 문집을 함께 준비해 온 편집자와 창립 멤버.",
       "public_face": "근우진은 형준서와 문집 작업을 함께해 온 사이로만 알려져 있다.",
       "says": {
@@ -304,7 +620,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH05", "CH02"],
+      "between": [
+        "CH05",
+        "CH02"
+      ],
       "nature": "마감 정리를 함께 챙기는 신입과 총무.",
       "public_face": "계서준은 육하람을 마감 시간마다 마주치는 총무 정도로만 알고 있다.",
       "says": {
@@ -315,131 +634,384 @@
       "surfaces_when": "탐정이 계서준의 발견 당시 진술(F-CH05-01)을 짚으며 요즘 마감 분위기를 물으면, 육하람이 그제야 그 사정을 털어놓는다."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "접수처 겸 라운지", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "id": "L01",
+      "name": "접수처 겸 라운지",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "낡은 소파와 기다란 테이블이 놓인 공용 공간. 벽면엔 동아리원들이 찍은 사진들과 30주년 기념 문집 관련 공지문이 붙어 있다.",
       "observation_rules": [
-        { "action": "라운지를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "게시판에 붙은 30주년 기념 문집 공지문 옆에 오래된 사진전 스크랩 기사 한 장이 함께 붙어 있다." }
+        {
+          "action": "라운지를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판에 붙은 30주년 기념 문집 공지문 옆에 오래된 사진전 스크랩 기사 한 장이 함께 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "육하람에게 그날 저녁 참석자 명단을 묻는다", "requires": "없음", "release_evidence_id": "E03", "result": "18:30경, 형준서와 경도윤을 포함한 참석자들의 도착 시각이 적힌 명단이 확보된다." }
+        {
+          "action": "육하람에게 그날 저녁 참석자 명단을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "18:30경, 형준서와 경도윤을 포함한 참석자들의 도착 시각이 적힌 명단이 확보된다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "인화 암실", "access": "평소엔 인화 작업 중 출입이 제한되지만, 탐정은 사건 조사를 이유로 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L02",
+      "name": "인화 암실",
+      "access": "평소엔 인화 작업 중 출입이 제한되지만, 탐정은 사건 조사를 이유로 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "낡은 확대기 여러 대와 큼직한 수세조가 놓인 암실. 붉은 조명 아래로 수세조 옆 바닥에 옅은 얼룩이 남아 있다.",
       "observation_rules": [
-        { "action": "인화 암실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "확대기 스위치 주변에 물기가 말라붙은 자국이 남아 있다." }
+        {
+          "action": "인화 암실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "확대기 스위치 주변에 물기가 말라붙은 자국이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "수세조 테두리를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "수세조 테두리 쇠붙이 부분에 최근 붙였다 뗀 듯한 절연테이프 조각이 남아 있다." },
-        { "action": "확대기 전선을 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "확대기 전선 한쪽 피복이 최근 벗겨졌다가 다시 감긴 흔적이 있다." },
-        { "action": "수세조 옆 바닥을 살펴본다", "requires": "없음", "release_evidence_id": "E05", "result": "수세조 옆 시멘트 바닥에 옅게 그을린 자국이 남아 있다." }
+        {
+          "action": "수세조 테두리를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "수세조 테두리 쇠붙이 부분에 최근 붙였다 뗀 듯한 절연테이프 조각이 남아 있다."
+        },
+        {
+          "action": "확대기 전선을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "확대기 전선 한쪽 피복이 최근 벗겨졌다가 다시 감긴 흔적이 있다."
+        },
+        {
+          "action": "수세조 옆 바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "수세조 옆 시멘트 바닥에 옅게 그을린 자국이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "필름 현상실", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L03",
+      "name": "필름 현상실",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "필름 현상 탱크와 정착액 통들이 늘어선 방. 구석엔 회원들의 개인 가방 몇 개가 놓여 있다.",
       "observation_rules": [
-        { "action": "필름 현상실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "정착액 통 하나가 유난히 많이 줄어들어 있다." }
+        {
+          "action": "필름 현상실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "정착액 통 하나가 유난히 많이 줄어들어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "섭윤재에게 그날 저녁 들은 소리를 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "19시 35분경 암실 쪽에서 둔탁한 소리를 들었다는 진술이 확보된다." },
-        { "action": "경도윤의 작업 가방을 살펴본다", "requires": "없음", "release_evidence_id": "E06", "result": "벗겨진 전선 피복 조각 하나가 가방 안쪽에서 발견된다." },
-        { "action": "필름 현상실 구석을 살펴본다", "requires": "없음", "release_evidence_id": "E07", "result": "경도윤의 소지품이 담긴 가방이 그날 저녁 늦게까지 구석에 남아 있었다는 사실이 확인된다." }
+        {
+          "action": "섭윤재에게 그날 저녁 들은 소리를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "19시 35분경 암실 쪽에서 둔탁한 소리를 들었다는 진술이 확보된다."
+        },
+        {
+          "action": "경도윤의 작업 가방을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "벗겨진 전선 피복 조각 하나가 가방 안쪽에서 발견된다."
+        },
+        {
+          "action": "필름 현상실 구석을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "경도윤의 소지품이 담긴 가방이 그날 저녁 늦게까지 구석에 남아 있었다는 사실이 확인된다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "자료보관실", "access": "평소엔 동아리 기록물 보호를 위해 출입이 제한되지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "자료보관실",
+      "access": "평소엔 동아리 기록물 보호를 위해 출입이 제한되지만, 탐정은 사건 조사를 이유로 확인할 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "동아리 30년치 사진과 문집 자료가 정리된 방. 책상 위에 30주년 기념 문집 초안이 펼쳐져 있다.",
       "observation_rules": [
-        { "action": "자료보관실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "8년 전 지역 사진전 관련 스크랩북 한쪽에 경도윤의 이름이 빨간 줄로 지워져 있다." }
+        {
+          "action": "자료보관실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "8년 전 지역 사진전 관련 스크랩북 한쪽에 경도윤의 이름이 빨간 줄로 지워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "근우진에게 그날 저녁 형준서와 다툰 이유를 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "문집 인쇄 예산 문제로 언쟁했을 뿐이라는 진술이 확보된다." }
+        {
+          "action": "근우진에게 그날 저녁 형준서와 다툰 이유를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "문집 인쇄 예산 문제로 언쟁했을 뿐이라는 진술이 확보된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "수세조 테두리의 테이프 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "수세조 테두리를 살펴본다", "related_timeline": ["T08", "T15"],
+    {
+      "id": "E01",
+      "name": "수세조 테두리의 테이프 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "수세조 테두리를 살펴본다",
+      "related_timeline": [
+        "T08",
+        "T15"
+      ],
       "content": "수세조 테두리 쇠붙이 부분에 최근 붙였다 뗀 듯한 절연테이프 조각이 남아 있다.",
-      "proves": ["누군가 사전에 전선을 이 테두리에 고정해 뒀다는 사실을 증명한다."],
-      "does_not_prove": ["누가 고정했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "확대기 전선 훼손 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "확대기 전선을 살펴본다", "related_timeline": ["T05", "T15"],
+      "proves": [
+        "누군가 사전에 전선을 이 테두리에 고정해 뒀다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 고정했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "확대기 전선 훼손 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "확대기 전선을 살펴본다",
+      "related_timeline": [
+        "T05",
+        "T15"
+      ],
       "content": "확대기 전선 한쪽 피복이 최근 벗겨졌다가 다시 감긴 흔적이 있다.",
-      "proves": ["누군가 사전에 이 전선을 조작했다는 사실을 증명한다."],
-      "does_not_prove": ["언제, 누가 조작했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "참석자 명단", "source_type": "testimony", "found_at": "L01", "discovery_condition": "육하람에게 그날 저녁 참석자 명단을 묻는다", "related_timeline": ["T06"],
+      "proves": [
+        "누군가 사전에 이 전선을 조작했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "언제, 누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "참석자 명단",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "육하람에게 그날 저녁 참석자 명단을 묻는다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "18:30경, 형준서와 경도윤을 포함한 참석자들의 도착 시각이 적힌 명단이 확보된다.",
-      "proves": ["경도윤이 사건 당일 저녁 현장에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["암실에서 구체적으로 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E04", "name": "섭윤재의 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "섭윤재에게 그날 저녁 들은 소리를 묻는다", "related_timeline": ["T11"],
+      "proves": [
+        "경도윤이 사건 당일 저녁 현장에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "암실에서 구체적으로 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "섭윤재의 목격담",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "섭윤재에게 그날 저녁 들은 소리를 묻는다",
+      "related_timeline": [
+        "T11"
+      ],
       "content": "19시 35분경 암실 쪽에서 둔탁한 소리를 들었다는 진술이 확보된다.",
-      "proves": ["사건 발생 시각을 뒷받침한다."],
-      "does_not_prove": ["소리의 정체"],
-      "presentation_effect": [] },
-    { "id": "E05", "name": "수세조 옆 그을린 자국", "source_type": "location", "found_at": "L02", "discovery_condition": "수세조 옆 바닥을 살펴본다", "related_timeline": ["T10"],
+      "proves": [
+        "사건 발생 시각을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "소리의 정체"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "수세조 옆 그을린 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "수세조 옆 바닥을 살펴본다",
+      "related_timeline": [
+        "T10"
+      ],
       "content": "수세조 옆 시멘트 바닥에 옅게 그을린 자국이 남아 있다.",
-      "proves": ["그 자리에서 강한 전류가 흘렀다는 사실을 증명한다."],
-      "does_not_prove": ["누가 전류를 흐르게 했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "작업 가방 속 전선 피복 조각", "source_type": "location", "found_at": "L03", "discovery_condition": "경도윤의 작업 가방을 살펴본다", "related_timeline": ["T05"],
+      "proves": [
+        "그 자리에서 강한 전류가 흘렀다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 전류를 흐르게 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "작업 가방 속 전선 피복 조각",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "경도윤의 작업 가방을 살펴본다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "벗겨진 전선 피복 조각 하나가 가방 안쪽에서 발견된다.",
-      "proves": ["경도윤이 전선을 직접 벗겼다는 사실을 증명한다."],
-      "does_not_prove": ["언제 그 전선을 고정했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E07", "name": "필름 현상실에 남은 소지품", "source_type": "location", "found_at": "L03", "discovery_condition": "필름 현상실 구석을 살펴본다", "related_timeline": ["T12"],
+      "proves": [
+        "경도윤이 전선을 직접 벗겼다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "언제 그 전선을 고정했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "필름 현상실에 남은 소지품",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "필름 현상실 구석을 살펴본다",
+      "related_timeline": [
+        "T12"
+      ],
       "content": "경도윤의 소지품이 담긴 가방이 그날 저녁 늦게까지 구석에 남아 있었다는 사실이 확인된다.",
-      "proves": ["경도윤이 일찍 떠났다는 주장과 달리 늦게까지 현장에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["암실에서 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "근우진의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "근우진에게 그날 저녁 형준서와 다툰 이유를 묻는다", "related_timeline": ["T07"],
+      "proves": [
+        "경도윤이 일찍 떠났다는 주장과 달리 늦게까지 현장에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "암실에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "근우진의 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "근우진에게 그날 저녁 형준서와 다툰 이유를 묻는다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "문집 인쇄 예산 문제로 언쟁했을 뿐이라는 진술이 확보된다.",
-      "proves": ["근우진과 형준서 사이 다툼이 예산 문제였을 뿐임을 증명한다."],
-      "does_not_prove": ["암실에서 일어난 일"],
-      "presentation_effect": [] }
+      "proves": [
+        "근우진과 형준서 사이 다툼이 예산 문제였을 뿐임을 증명한다."
+      ],
+      "does_not_prove": [
+        "암실에서 일어난 일"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_staying_late",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E07"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_staying_late",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E03",
+          "E07"
+        ]
+      },
       "player_action": "참석자 명단과 필름 현상실에 남아있던 소지품을 경도윤에게 제시하여, 일찍 집으로 돌아갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "늦게까지 현장에 남아 있었던 건 인정한다." },
-      "must_not_release": ["전선을 미리 손봤다는 사실", "수세조에 전선을 고정해 뒀다는 사실", "형준서와의 8년 전 사연"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "늦게까지 현장에 남아 있었던 건 인정한다."
+      },
+      "must_not_release": [
+        "전선을 미리 손봤다는 사실",
+        "수세조에 전선을 고정해 뒀다는 사실",
+        "형준서와의 8년 전 사연"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_staying_late", "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E06"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_staying_late",
+      "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
       "player_action": "확대기 전선 훼손 흔적과 경도윤 가방 속 전선 피복 조각을 제시하여, 가방을 가지러 왔을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "사흘 전 전선을 벗겨본 것은 인정한다." },
-      "must_not_release": ["수세조에 전선을 의도적으로 고정해 뒀다는 사실", "형준서를 노렸다는 사실", "8년 전 표절 누명"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "사흘 전 전선을 벗겨본 것은 인정한다."
+      },
+      "must_not_release": [
+        "수세조에 전선을 의도적으로 고정해 뒀다는 사실",
+        "형준서를 노렸다는 사실",
+        "8년 전 표절 누명"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E05"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_tampering",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
+      },
       "player_action": "수세조 테두리의 절연테이프 조각과 그을린 자국을 제시하여, 단순 점검이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "형준서가 수세조에 손을 담글 걸 알고 일부러 전선을 테두리에 고정해 감전사고를 일으켰다는 사실과, 8년 전 표절 누명에 대한 오랜 원망 때문이었음을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "형준서가 수세조에 손을 담글 걸 알고 일부러 전선을 테두리에 고정해 감전사고를 일으켰다는 사실과, 8년 전 표절 누명에 대한 오랜 원망 때문이었음을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -448,7 +1020,8 @@
       "how_to_clear": "참석자 명단(E03)과 근우진의 증언(E08)을 함께 제시해 그날 저녁 행적을 짚으면, 근우진이 그제야 다툼은 단순 예산 문제였다고 인정한다.",
       "must_not_imply": "다퉜다는 사실만으로 근우진이 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "근우진은 결국 자비로 부족한 인쇄 비용을 보태 30주년 문집을 예정대로 완성한다.",
-      "suspicion_deepener": "근우진이 처음엔 그날 다툰 사실 자체를 숨기려 하며, 형준서 이야기가 나오면 말을 얼버무린다."
+      "suspicion_deepener": "근우진이 처음엔 그날 다툰 사실 자체를 숨기려 하며, 형준서 이야기가 나오면 말을 얼버무린다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -457,27 +1030,39 @@
       "how_to_clear": "E05(그을린 자국)로 사건성이 이미 드러난 뒤 섭윤재를 다시 추궁하면, 그제야 그날 저녁 둔탁한 소리를 들었다는 진술(E04)과 개인 작업 사실을 함께 인정한다.",
       "must_not_imply": "정착액을 몰래 썼다는 사실만으로 섭윤재가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "섭윤재는 이후 동아리에 정식으로 양해를 구하고 개인 작업용 재료를 따로 구입해 쓰기로 한다.",
-      "suspicion_deepener": "섭윤재가 처음엔 \"그날 저녁엔 그냥 계속 혼자 작업만 했다\"며 소리 자체를 못 들은 척한다."
+      "suspicion_deepener": "섭윤재가 처음엔 \"그날 저녁엔 그냥 계속 혼자 작업만 했다\"며 소리 자체를 못 들은 척한다.",
+      "character_id": "CH03"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "형준서가 수세조에 손을 담근 채 확대기 스위치를 올리는 순간 감전되도록, 경도윤이 미리 전선을 조작해 테두리에 고정해 두었다.",
       "motive_fact": "8년 전 형준서가 표절 누명을 씌워 사진전 접수를 취소시킨 것에 대한 오랜 원망과, 그 사연이 30주년 문집으로 다시 알려지는 것에 대한 두려움 때문이었다."
     }
   },
-
   "final_deduction": {
     "responsible": "경도윤",
     "method": "19:00경 확대기 전선을 수세조 테두리에 절연테이프로 고정해 둔 뒤, 19:35경 형준서가 손을 담근 채 스위치를 올리는 순간 감전되어 심정지에 이르게 했다.",
     "motive": "8년 전 형준서가 표절 누명을 씌워 사진전 접수를 취소시킨 것에 대한 오랜 원망이, 30주년 문집으로 그 사연이 다시 알려지려는 상황에서 되살아났기 때문이었다.",
     "key_connection": "참석자 명단(E03)과 필름 현상실에 남아있던 소지품(E07)이 경도윤의 초기 부인과 어긋나고, 확대기 전선 훼손 흔적(E02)과 가방 속 피복 조각(E06)이 사전 조작을 증명하며, 수세조 테두리의 테이프 흔적(E01)과 그을린 자국(E05)이 사고가 아니라 의도된 감전이었음을 보여준다. 섭윤재의 목격담(E04)은 사건 발생 시각을 뒷받침하고, 근우진의 증언(E08)은 그와 형준서의 다툼이 예산 문제였을 뿐 사건과 무관함을 확인해 준다."
   },
-
   "ending_explanation": [
     "확대기 배선 오작동 사고처럼 보이던 표면 사건",
     "경도윤이 사흘 전부터 전선을 미리 손봐 두었다는 사실",

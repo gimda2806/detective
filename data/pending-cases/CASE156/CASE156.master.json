@@ -698,7 +698,7 @@
       "content": "여백에 '8년'이라는 숫자가 급하게 휘갈겨졌다가 다시 지워진 자국이 있다.",
       "proves": ["편도준이 그 숫자에 마음이 쓰였다는 것"],
       "does_not_prove": [],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -846,7 +846,7 @@
       "from_stage": "admits_struggle",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": ["S-CH01-05"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
         "evidence_ids": ["E05"]
@@ -897,6 +897,129 @@
       "clearing_points_at": "CH01"
     }
   ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "8년간 원화를 전담했음에도 계약서에 이름 한 줄로만 남은 배신감",
+      "truth": true,
+      "evidence_for": ["E05", "E06"]
+    },
+    {
+      "id": "M02",
+      "text": "5년 전 동업 청산 정산금을 받지 못한 원한",
+      "truth": false,
+      "evidence_for": ["E09"],
+      "refutation": "뭐, 돈 문제로 사람 목숨까지 걸 생각은 없었습니다. 그날 밤엔 그냥 성질만 내고 옥상에서 담배만 피웠어요.",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "M03",
+      "text": "크레딧 문제를 덮어 계약을 지키려 한 것",
+      "truth": false,
+      "evidence_for": ["E07"],
+      "refutation": "절차상 저는 그 시각에 이 건물에 없었습니다. 8시 반에 퇴근했고, 강태은 씨 연락을 받고서야 10시 40분에 다시 왔습니다.",
+      "refutation_releases": "F-CH03-01",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "M04",
+      "text": "노시헌에게서 들은 말 때문에 앞날이 불안해진 것",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "저... 그러니까, 그런 말 들은 건 맞는데, 저는 그냥 무서워서 피하기만 했어요. 대표님한테 뭘 어떻게 하겠다는 생각은 한 번도 안 했어요.",
+      "refutation_releases": "F-CH04-02",
+      "refuted_by": "CH04"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "20시 10분~21시 40분, 마용진이 옥상에 남아 있던 무렵",
+      "truth": false,
+      "evidence_for": ["E08", "E10"],
+      "refutation": "뭐, 그 시간 내내 옥상에서 담배만 피웠습니다. 사무실 쪽엔 얼씬도 안 했어요.",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "T02",
+      "text": "20시 32분, 오재형이 퇴근하기 직전",
+      "truth": false,
+      "evidence_for": ["E12"],
+      "refutation": "절차상 8시 32분에 이미 퇴장했습니다. 그 뒤로는 스튜디오 안에 있었던 게 아닙니다.",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "T03",
+      "text": "21시 12분 전후, 사무실에서 몸싸움이 벌어졌을 무렵",
+      "truth": true,
+      "evidence_for": ["E02", "E11"]
+    },
+    {
+      "id": "T04",
+      "text": "22시 15분, 윤소림이 시안을 보여주러 들어갔을 때",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "저... 그러니까, 제가 들어갔을 때는 벌써 쓰러져 계셨어요. 그때 이미 숨을 안 쉬셨어요.",
+      "refutation_releases": "F-CH04-02",
+      "refuted_by": "CH04"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "몸싸움 중 목을 움켜쥐고 졸랐다",
+      "truth": true,
+      "evidence_for": ["E02", "E11"]
+    },
+    {
+      "id": "H02",
+      "text": "트로피로 내리쳐 살해했다",
+      "truth": false,
+      "evidence_for": ["E02"],
+      "refutation": "그 트로피요? 넘어지면서 떨어진 거예요. 그걸로 뭘 어떻게 한 적은 없어요.",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H03",
+      "text": "외부인이 창문으로 침입해 살해했다",
+      "truth": false,
+      "evidence_for": ["E03"],
+      "refutation": "그게... 그 시간에 낯선 사람 들어온 걸 본 사람이 없어요. 카드키 없이는 문도 못 열고요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "H04",
+      "text": "오재형이 노트북 기록을 지우려다 살해했다",
+      "truth": false,
+      "evidence_for": ["E11", "E14"],
+      "refutation": "절차상 그 시각엔 건물에 없었으니 노트북은 만질 수도 없었습니다.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "저요? 그 시간엔 계속 휴게실에서 저녁 먹고 있었어요. 소림이 들어오기 전까지 자리를 뜬 적이 없어요.",
+      "releases": "F-CH02-01"
+    },
+    "CH03": {
+      "text": "절차상 저는 그 시각에 이 건물에 없었습니다. 8시 반에 퇴근해서 강태은 씨 연락을 받을 때까지 밖에 있었습니다.",
+      "releases": "F-CH03-01"
+    },
+    "CH04": {
+      "text": "저... 그러니까, 저는 그냥 제 자리에서 마감만 하고 있었어요. 대표님 방엔 시안 보여드리러 딱 한 번 들어간 거예요.",
+      "releases": "F-CH04-01"
+    },
+    "CH05": {
+      "text": "뭐, 저는 그 시간 내내 옥상에 있었습니다. 사무실 근처엔 가지도 않았어요.",
+      "releases": "F-CH05-01"
+    }
+  },
+  "resolution": {
+    "who": "편도준이었다. 8년간 '야행성'의 원화를 사실상 전담했지만 정식 계약에서도 이름은 '외주 보조작가' 한 줄로만 남았고, 서버 접속 로그가 그가 사건 당일 저녁 그 사실을 직접 확인했음을 보여준다.",
+    "when": "사건 당일 21시 12분, 노시헌의 개인 사무실에서였다. 몸싸움 통에 트로피가 떨어졌고, 뒤이은 노트북 삭제 시도가 그 직후의 은폐를 증언한다.",
+    "why": "8년째 그림을 도맡아 왔음에도 정식 계약에서마저 이름 한 줄로 남은 것에 대한 배신감 때문이었다. '나중에 챙겨주겠다'는 말을 믿어온 시간이 그날 밤 무너졌다.",
+    "how": "몸싸움 끝에 노시헌의 목을 움켜쥐고 졸랐고, 노시헌은 책상 모서리에 부딪히며 숨이 끊어졌다. 편도준은 떨어진 트로피를 닦아 되돌려 놓고 창문 걸쇠를 조작해 외부 침입처럼 꾸민 뒤, 노트북에서 열람 기록을 지우려 했다."
+  },
   "case_complete": {
     "required_established_facts": ["F-CH01-01", "S-CH01-04", "S-CH01-05", "F-CH01-03"],
     "required_contradiction_stages": ["C01", "C02", "C03"],

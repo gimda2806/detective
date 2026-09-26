@@ -5,10 +5,18 @@
     "english_title": "Before the Lights Went Out",
     "genre": "20년 전 표절로 파산한 아버지에 대한 복수심에서 비롯된 계획적 살인 / 오르골 모터 시험대 배선 조작 감전사고 위장",
     "setting": "골목 안쪽, 부서진 오르골과 뮤직박스를 고쳐 파는 복원 전문점 '태엽소리'. 대표 허준일이 20년 전 은사의 곁을 떠나 독립한 뒤 홀로 키워온 곳으로, 3년 전부터 딸 허나린이 경영을 거들고 있다. 매주 화요일 저녁이면 지역 향토박물관에 대여할 소장품 상태를 미리 확인하러 학예사가 들르곤 한다. 여느 화요일 저녁과 다름없이 대여 목록 점검이 막 끝난 시각, 골목 전체에 갑작스러운 정전이 덮치고 뒤이어 태엽소리 뒷문 쪽에서 비명이 터져 나온다.",
-    "location_archetypes": ["craft_restoration"],
+    "location_archetypes": [
+      "craft_restoration"
+    ],
     "background": {
-      "background_archetypes": ["regular_day", "exhibition", "inspection_audit"],
-      "background_phrasing": ["immediately_after"],
+      "background_archetypes": [
+        "regular_day",
+        "exhibition",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
       "background_intensity": "contextual"
     },
     "detective_entry_type": "meal_or_rest",
@@ -35,10 +43,21 @@
   ],
   "full_truth": {
     "responsible_character_id": "CH01",
-    "motive_archetypes": ["revenge"],
-    "method_archetypes": ["electrocution", "electrical_tampering"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["false_accident", "evidence_removal"],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ],
     "motive": "20년 전, 오르골 명장이었던 조민강의 아버지 조태형이 완성한 독자적 캠 배열 설계를 제자였던 허준일이 몰래 베껴 자신의 이름으로 국제 공모전에 출품해 큰 상을 받았고, 뒤늦게 표절 시비가 불거지며 명예를 잃은 조태형은 공방을 접고 스스로 목숨을 끊었다. 조민강은 성을 숨기고 신분을 바꿔 태엽소리에 복원사로 들어와, 아버지의 이름을 되찾을 방법을 찾으며 몇 해를 기다려 왔다.",
     "method": "조민강은 매주 화요일 저녁 허준일이 혼자 남아 복각 오르골의 회전 속도를 맞추려 모터 시험대 손잡이를 쥐는 습관을 노려, 사건 며칠 전 창고에서 접지선을 몰래 반출해 시험대 뒤판 배선을 손잡이 안쪽 금속판에 닿도록 바꿔치기했다. 정전까지 겹치며 사고 정황이 한층 자연스러워졌다.",
     "key_time_location": "사건 당일 19시경, 태엽소리 공방 모터 시험실(L03)",
@@ -560,9 +579,7 @@
       "does_not_prove": [
         "누가 배선을 조작했는지"
       ],
-      "presentation_effect": [
-        "C04"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -580,9 +597,7 @@
       "does_not_prove": [
         "그 접지선이 실제로 시험대에 쓰였는지"
       ],
-      "presentation_effect": [
-        "C04"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -629,9 +644,7 @@
       "does_not_prove": [
         "조민강이 그 사건과 관련 있다는 것"
       ],
-      "presentation_effect": [
-        "C04"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -793,9 +806,6 @@
         "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
-        "E01",
-        "E02",
-        "E05",
         "E06"
       ],
       "requires_comparison": {
@@ -822,7 +832,8 @@
       "how_to_clear": "허나린 본인의 해명(E03)만으로는 부족하다 — 그녀의 책상에서 나온 정산 메모와 통장 사본(E07)을 최초 진술(S-CH02-01)과 대조해야 다툼의 진짜 이유가 확인된다.",
       "must_not_imply": "허나린이 재산을 노렸다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후에도 허나린은 결국 밀린 거래처 정산금을 자기 돈으로 다 갚는다.",
-      "suspicion_deepener": "언쟁 중 허나린이 '이럴 거면 공방 다 정리해버려요!'라고 소리친 걸 들었다는 진술이 먼저 나와 의심을 키운다."
+      "suspicion_deepener": "언쟁 중 허나린이 '이럴 거면 공방 다 정리해버려요!'라고 소리친 걸 들었다는 진술이 먼저 나와 의심을 키운다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -831,13 +842,17 @@
       "how_to_clear": "성지헌의 증언(E04)으로 감서온이 매주 그 시간 항상 그 자리에 있었다는 습관을 확인한다. 표구점 작업대의 미완성 작업 흔적(E09)도 그날 저녁 실제로 일하고 있었다는 사실을 독립적으로 뒷받침한다.",
       "must_not_imply": "감서온이 배선을 조작했다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후에도 감서온은 여전히 늦게까지 표구점에 남아 있지만, 이제는 종종 옆집 쪽을 챙겨보곤 한다.",
-      "suspicion_deepener": "감서온이 처음엔 '그냥 지나가다 봤다'고 애매하게만 진술해 의심이 먼저 커진다."
+      "suspicion_deepener": "감서온이 처음엔 '그냥 지나가다 봤다'고 애매하게만 진술해 의심이 먼저 커진다.",
+      "character_id": "CH04"
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "3년 전 채용된 수석 복원사와, 공방을 홀로 키워 온 대표.",
       "public_face": "가장 신뢰받는 복원사와 대표로 알려져 있다.",
       "says": {
@@ -848,7 +863,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "3년째 경영을 거들어 온 딸과 아버지.",
       "public_face": "공방을 함께 꾸려가는 부녀 사이로 알려져 있다.",
       "says": {
@@ -859,7 +877,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "매주 들르는 향토박물관 학예사 단골과 대표.",
       "public_face": "오래된 단골로 서로 신뢰하는 사이로 알려져 있다.",
       "says": {
@@ -870,7 +891,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "CH05"],
+      "between": [
+        "CH04",
+        "CH05"
+      ],
       "nature": "골목을 사이에 두고 마주한 표구점 주인과 분식집 사장, 오래된 이웃.",
       "public_face": "가끔 인사나 나누는 무난한 이웃 사이로 알려져 있다.",
       "says": {
