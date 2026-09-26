@@ -484,6 +484,10 @@
               "evidence_removal",
               "evidence_placement",
               "false_accident",
+              "accident_equipment_failure",
+              "accident_victim_error",
+              "accident_victim_health",
+              "accident_environment",
               "false_suicide",
               "false_intrusion",
               "false_timeline",
@@ -499,7 +503,7 @@
               "other"
             ]
           },
-          "description": "은폐를 **어떻게** 했는가. 여럿이면 여럿. 낱개뿐 아니라 짝(COVER_UP_PAIR_OVERUSE)도 센다 — 낱개로는 흔해도 짝이 굳으면 그것이 틀이다. 임계 8%."
+          "description": "은폐를 **어떻게** 했는가. 여럿이면 여럿. 낱개뿐 아니라 짝(COVER_UP_PAIR_OVERUSE)도 센다 — 낱개로는 흔해도 짝이 굳으면 그것이 틀이다. 임계 8%. **사고 위장은 「무엇을 탓하는가」로 다섯 칸이다**(2026-09-25) — 설비/피해자 과실/피해자 건강/환경 탓, 그리고 원인을 특정하지 않으면 false_accident. 탓하는 대상이 갈리면 플레이어가 뒤집어야 할 것도 갈린다(설비 탓이면 점검 기록, 건강 탓이면 부검 기록, 과실 탓이면 평소 습관 증언)."
         },
         "accomplice": {
           "type": "string"

@@ -1,0 +1,1002 @@
+{
+  "case_identity": {
+    "case_id": "CASE327",
+    "title": "재활실, 마지막 세트",
+    "english_title": "The Last Set",
+    "genre": "10개월 전 재활 훈련 사고를 환자 탓으로 조작해 온 것이 들통날 위기에 몰린 물리치료사가 원장을 저항밴드로 목 졸라 살해 / 도르래에 밴드를 얽어매 사고사로 위장하고 원본 기록을 사물함에 숨겨 은폐",
+    "setting": "지역 재활 전문 병원 온새미로 재활센터는 분기마다 보호자 동행 봉사 프로그램을 열어 자원봉사자들과 함께 환자들의 재활 훈련을 돕는다. 오늘은 그 프로그램이 열리는 날로, 원장 하연규를 비롯한 직원들과 자원봉사자들이 오후 내내 운동치료실과 로비를 오가며 분주하게 움직였다.",
+    "location_archetypes": ["rehabilitation_facility"],
+    "background": {
+      "background_archetypes": ["company_event"],
+      "background_phrasing": ["gathering_for"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 온새미로 재활센터가 분기마다 여는 보호자 동행 봉사 프로그램에 자원봉사자로 등록해 그날 오후 내내 환자들의 이동과 정리를 거들고 있었다. 한지우도 함께 신청해 옆에서 장비를 정리하는 중이었다.",
+    "tone": "저녁 운동치료실에 남은 미지근한 땀 냄새와 매트 냄새 아래로, 방금까지 사람들이 웃고 있었다는 사실이 오히려 서늘하게 느껴진다. 자원봉사자 명찰을 단 채로, 탐정과 한지우는 낯익어진 얼굴들 사이에서 하나씩 다른 표정을 찾아야 한다.",
+    "tags": ["재활센터", "봉사_프로그램", "선후배_관계", "오래된_기록"]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 18:12",
+    "narrative": "운동치료실 쪽에서 다급한 외침이 복도까지 울렸다.\n\n자원봉사자 명찰을 단 채 장비를 정리하던 한지우가 먼저 고개를 들었다.\n\n\"저기 좀... 이상한데요.\"\n\n\"가보자.\"\n\n탐정이 앞장서 복도를 가로질렀을 때, 치료실 A 문 앞에는 이미 몇 사람이 몰려 서 있었다. 방금까지 훈훈했던 봉사 행사 분위기가 순식간에 얼어붙어 있었다.\n\n\"원장님이... 안에서 쓰러지신 채로...\"\n\n누군가 말끝을 흐렸다.\n\n한지우가 수첩을 꺼내 들며 탐정을 돌아봤다.\n\n\"오늘 봉사 시간, 생각보다 길어지겠는데요.\"\n\n\"그러게. 장비 정리는 나중이다.\""
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "행사 천막을 걷어낼 무렵에는 이미 저녁이 완전히 저물어 있었다.\n\n우진성은 치료실 구석 벤치에 걸터앉은 채 한참을 말이 없었다.\n\n\"...제가 그랬습니다.\"\n\n그가 마침내 입을 열었다.\n\n\"경호 그 친구 일이... 알려지면 다시는 이 일 못 할 것 같아서요. 그것 때문에 정말로...\"\n\n한지우가 수첩을 접지 않은 채로 그를 가만히 바라봤다.\n\n\"경호 씨는 그 뒤로 다시 걷지도 못하는데요.\"\n\n한지우가 낮게 말했다.\n\n탐정은 잠자코 있다가 짧게 고개를 끄덕였다.\n\n\"그게 이유가 될 순 없지.\"\n\n로비 한쪽에서는 민겨레가 병원 관계자를 붙들고 있었다. 동생의 사고 기록을 처음부터 다시 들여다봐 달라고, 그는 몇 번이고 같은 말을 되풀이하고 있었다.\n\n경찰이 건물 안으로 들어서고 나서야 탐정과 한지우는 자원봉사자 명찰을 뗐다.\n\n\"오늘 봉사 시간은 인정되는 거겠죠?\"\n\n한지우가 물었다.\n\n\"사람이 죽었는데 그 걱정이 되냐.\"\n\n한지우가 그저 픽 웃어 보였다."
+  },
+  "surface_incident": [
+    "온새미로 재활센터는 오늘 오후 보호자 동행 봉사 프로그램을 열어 자원봉사자들과 함께 환자들의 재활 훈련을 도왔다.",
+    "18시 10분경 개인 치료실 A에서 원장 하연규가 도르래 운동기구의 저항밴드에 목이 감긴 채 쓰러져 있는 것이 발견됐다.",
+    "구급대가 도착했을 때는 이미 심정지 상태였고, 병원으로 옮겨졌으나 끝내 사망이 확인됐다.",
+    "그 시간대 치료실로 통하는 복도를 지난 사람은 이날 근무 중이던 직원 몇 명뿐이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "우진성은 10개월 전 자신이 맡은 재활 환자 민경호에게 지정된 저항 단계를 세 단계나 건너뛰어 무리하게 훈련시켰고, 그 직후 민경호의 무릎 인대가 완전히 파열돼 다시는 재활을 이어갈 수 없는 손상을 입었다. 우진성은 사고 경위서에 환자 본인이 순서를 어기고 기구를 조작했다고 적어 냈고, 그 기록은 그대로 공식 자료로 남았다. 사건 당일 오후, 원장 하연규는 봉사 행사에 내걸 재활 성공 사례 자료를 고르다가 기록보관실 원본과 우진성이 제출한 사본의 서명 필체가 다르다는 것을 알아챘다. 하연규는 퇴근 전까지 사실관계를 정리해 물리치료사협회에 정식으로 보고하겠다고 우진성에게 못박았고, 그러면 우진성은 자격을 잃을 처지였다.",
+    "motive_archetypes": ["professional_secrecy", "reputation"],
+    "method": "17시 40분, 하연규가 개인 치료실 A에서 사본과 원본의 차이를 다시 확인하자며 우진성을 불러 다그쳤다. 언쟁 끝에 우진성이 도르래 운동기구 옆 거치대에 걸려 있던 저항밴드를 집어 뒤에서 하연규의 목을 감아 당겼고, 평소 경추 협착으로 목을 뒤로 젖히기 힘들었던 하연규는 제대로 버티지 못한 채 숨이 끊어졌다.",
+    "method_archetypes": ["strangulation"],
+    "key_time_location": "사건 당일 17:40, 온새미로 재활센터 개인 치료실 A(L01)",
+    "cover_up": "우진성은 목에 감았던 밴드를 풀어 도르래 손잡이 쪽에 얽어매고, 하연규가 혼자 기구를 쓰다 밴드에 목이 감겨 사고로 질식한 것처럼 자세를 바꿔 놓았다. 그러고는 원장실 서랍에 따로 보관돼 있던 사고 기록 원본을 챙겨 직원 휴게실 자신의 사물함 안쪽 깊숙이 숨기고 아무 일도 없었던 것처럼 자리를 떴다.",
+    "cover_up_target": ["other"],
+    "cover_up_method": ["other"],
+    "decisive_evidence_ids": ["E02", "E05"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 10개월 전",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "우진성이 무릎 재활 훈련을 받던 환자 민경호에게 지정된 저항 단계를 세 단계 건너뛰어 무리한 훈련을 강행한다.",
+      "world_fact": "그 직후 민경호의 무릎 인대가 완전히 파열돼 재활을 더 이어갈 수 없는 손상을 입었다."
+    },
+    {
+      "id": "T02",
+      "time": "약 10개월 전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "우진성이 사고 경위서에 환자 본인이 순서를 어기고 기구를 조작했다고 적어 제출한다.",
+      "world_fact": "그 경위서는 그 뒤로 줄곧 공식 사고 기록으로 남았다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 09:30",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "편지수가 오후 보호자 동행 봉사 프로그램 참가자 명단을 데스크에 붙이며 자원봉사자들에게 하루 일정을 안내한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 14:20",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하연규가 봉사 행사에 내걸 재활 성공 사례 자료를 고르다 기록보관실 캐비닛에서 민경호의 사고 기록 원본을 꺼내 사본과 나란히 대조한다.",
+      "world_fact": "하연규는 원본과 사본의 서명 필체가 다르다는 것을 그 자리에서 알아챘다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:40",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "하연규가 원본 서류를 캐비닛에 다시 넣지 않고 원장실 책상 서랍에 따로 보관한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 16:10",
+      "location": "L03",
+      "actors": ["V01", "CH01"],
+      "actual_action": "하연규가 우진성을 원장실로 불러들여 사본과 원본이 다른 이유를 추궁한다.",
+      "world_fact": "하연규는 퇴근 전까지 정리해 협회에 보고하겠다고 우진성에게 못박았다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 17:20",
+      "location": "L01",
+      "actors": ["V01", "CH01"],
+      "actual_action": "하연규가 치료실에서 마저 확인할 것이 있다며 우진성을 개인 치료실 A로 따로 불러낸다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 17:40",
+      "location": "L01",
+      "actors": ["CH01", "V01"],
+      "actual_action": "언쟁 끝에 우진성이 도르래 운동기구 옆 거치대에 걸린 저항밴드로 하연규의 목을 뒤에서 감아 조른다.",
+      "world_fact": "하연규는 평소 경추 협착으로 목을 뒤로 젖히는 동작이 자유롭지 못한 몸이었다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 17:45",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "우진성이 풀어낸 밴드를 도르래 손잡이 쪽에 얽어매 사고처럼 보이도록 하연규의 자세를 바꿔 놓는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 17:50",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "우진성이 원장실 책상 서랍에서 사고 기록 원본을 꺼내 챙긴다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 18:00",
+      "location": "L06",
+      "actors": ["CH01"],
+      "actual_action": "우진성이 챙긴 서류를 접어 자신의 사물함 안쪽 깊숙이 밀어 넣는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 18:10",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "다음 예약 환자를 안내하러 온 천승모가 잠긴 치료실 문을 두드리다 안으로 들어가 쓰러진 하연규를 발견한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 18:12",
+      "location": "L01",
+      "actors": ["CH03", "CH02"],
+      "actual_action": "천승모의 외침을 듣고 달려온 편지수가 119에 신고하며 주변 사람들을 물린다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하연규",
+      "role": "온새미로 재활센터 원장 겸 수석 물리치료사",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "우진성",
+      "role": "선임 물리치료사",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "16시 10분경 원장실로 불려가 사본과 원본이 다르다는 추궁을 받았다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "17시 20분경 치료실로 불려나가 하연규와 다시 그 얘기를 했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "말다툼 끝에 하연규의 목을 저항밴드로 졸랐다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "그날 오후 민겨레가 원장실 앞을 서성이는 것을 봤다.",
+          "source": "본인이 오가며 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "이 일 하면서 사람들 회복되는 거 보는 낙으로 삽니다. 오늘 같은 행사 준비도 나쁘지 않았어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "오늘 오후엔 원장실 쪽에 갈 일이 없었어요. 계속 운동치료실에 있었습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그 뒤로는 원장님을 다시 본 적 없어요. 치료실 근처에 간 적도 없습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "제가 그랬을 리가 없잖아요. 밴드 같은 거 만진 적도 없습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": ["그 순간 왜 손이 먼저 나갔는지는 스스로도 설명하지 못한다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다정하고 침착하게 설명하는 투",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하다가, 몰리면 말이 뚝뚝 끊긴다",
+        "verbal_tic": "말끝에 '그렇잖아요'를 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "그렇잖아요, 저도 답답합니다. 몇 번을 말씀드려야 하는지.",
+        "자꾸 이러시면... 저도 드릴 말씀이 없어요.",
+        "...그건, 그럴 생각이 아니었어요."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-01",
+        "says": "저야 모르죠. 그날 오후 겨레 씨가 원장실 앞을 계속 서성이던데요.",
+        "reveals": "민겨레가 그날 원장실 앞을 서성인 것은 사실이지만, 그건 예전 사고 기록을 다시 확인하고 싶어서였다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "편지수",
+      "role": "진료실장 겸 수간호사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "16시 10분경 원장님이 진성 씨를 원장실로 부르는 것을 봤다.",
+          "source": "본인이 그 자리에서 직접 봄"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "부지완이 요즘 캐비닛 얘기만 나오면 말을 돌린다는 것을 눈치챘다.",
+          "source": "본인이 지켜봄"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "10개월 전 사고 직후 이상하다고 느꼈지만 그냥 넘어갔다는 것을 계속 마음에 걸려 해 왔다.",
+          "source": "본인의 오랜 속내"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이 병원 열 때부터 있었으니까 벌써 8년째네요. 오늘 같은 행사엔 늘 마음이 쓰여요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "실종 소동이 있기 전까지는 계속 로비 데스크에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["치료실 안에서 정확히 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(-습니다), 절차와 순서를 앞세운다",
+        "sentence_length_tendency": "평소엔 짧고 사무적이다가, 몰리면 대답이 더 단호해진다",
+        "verbal_tic": "말할 때 '규정대로라면'을 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "규정대로라면 저는 이미 드릴 말씀 다 드렸습니다.",
+        "몇 번을 여쭤보셔도 제가 아는 건 그게 답니다.",
+        "...더 캐물으셔도 나올 게 없어요."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-02",
+        "opens": "S-CH02-01",
+        "says": "글쎄요, 요즘 지완 씨가 창고 캐비닛 얘기만 나오면 말을 돌리던데요. 저라면 거기부터 들여다보겠어요.",
+        "reveals": "부지완이 캐비닛 얘기를 피한 것은 사실이지만, 그건 소모품 영수증 처리 문제를 들킬까 봐 걱정했기 때문이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "천승모",
+      "role": "재활 트레이너 / 시신 발견자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "18시 10분경 다음 예약 환자를 데리러 갔다가 잠긴 문을 열고 하연규를 발견했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그날 오후 민겨레가 원장실 앞을 서성이는 것을 봤다.",
+          "source": "본인이 오가며 봄"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "10개월 전 우진성의 지도 방식에 의문을 품었다가 싫은 소리를 들은 뒤로 그 얘기를 다시 꺼내지 못했다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 그냥 사람들 다시 걷는 거 보는 게 좋아서 이 일 시작했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "발견하기 전까지는 운동치료실에서 다음 환자분 자료를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["17시대에 치료실 안에서 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 수줍고 조심스럽다",
+        "sentence_length_tendency": "평소에도 문장이 짧은 편인데, 몰리면 말끝을 흐린다",
+        "verbal_tic": "말끝에 '...그런 것 같아요'를 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "...그런 것 같아요, 근데 저도 잘 모르겠어요.",
+        "저 진짜 아무것도 못 봤어요, 정말로요.",
+        "자꾸 이러시면 저 무서워요..."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-01",
+        "says": "저는 잘 모르지만, 그날 겨레 씨가 원장실 앞에 한참 서 있던 게 좀 이상하긴 했어요.",
+        "reveals": "민겨레가 원장실 앞에 있었던 것은 사실이지만, 그건 예전 사고 기록을 다시 확인하고 싶어서였다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "민겨레",
+      "role": "환자 보호자 / 민경호의 형",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "10개월 전 동생 민경호가 이 병원에서 재활 훈련 중 크게 다쳤다.",
+          "source": "가족으로서 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "그날 오후 편지수가 원장실 문 앞에서 서류를 든 채 서 있는 것을 봤다.",
+          "source": "본인이 오가며 봄"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "하연규가 그동안 동생의 사고 경위를 제대로 들여다보지 않았다는 것에 오래도록 원망을 품어 왔다.",
+          "source": "본인의 오랜 속내"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 병원에... 좋은 기억만 있는 건 아니지만, 오늘은 그냥 다른 환자분들 응원하러 왔어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "소동이 있었을 때는 로비에서 다른 자원봉사자분들이랑 얘기하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["치료실 안에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 방어적이고 날이 서 있다",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하다가, 몰리면 오히려 더 격해진다",
+        "verbal_tic": "이야기 중간에 '어쨌든'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "어쨌든 저는 그날 로비에만 있었다니까요.",
+        "제가 왜 이런 걸로 의심을 받아야 하는지 모르겠네요.",
+        "...됐어요. 더는 얘기하고 싶지 않습니다."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-03",
+        "opens": "S-CH04-01",
+        "says": "저는 잘 모르지만, 그 수간호사님이 그날따라 원장실 앞에서 서류를 들고 서 계시던 게 좀 이상했어요.",
+        "reveals": "편지수가 그 앞에 있었던 것은 사실이지만, 그건 원장이 봉사 행사 서류를 전달해 달라고 시켰기 때문이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "부지완",
+      "role": "시설관리 사무장",
+      "present_location": "L07",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "17시 25분경 우진성이 치료실 A 쪽 복도로 들어가는 것을 봤다.",
+          "source": "본인이 오가며 봄"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "천승모가 그날따라 유난히 안절부절못하는 모습을 봤다.",
+          "source": "본인이 지켜봄"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "17시 50분경 우진성이 종이 뭉치를 손에 들고 휴게실 쪽으로 급하게 들어가는 것을 봤다.",
+          "source": "본인이 오가며 봄"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "최근 몇 달간 소모품 구매 영수증을 개인 명의로 처리해 왔다는 것을 아무에게도 말하지 않았다.",
+          "source": "본인만 아는 사정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이 건물 배관이며 전기며, 웬만한 건 제 손을 거쳐요. 오늘도 행사 준비하느라 바빴죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "소동 있었을 때는 설비창고에서 자재 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH05-02"
+        }
+      ],
+      "knowledge_limits": ["치료실 안쪽에서 정확히 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 눈치를 보며 말을 아낀다",
+        "sentence_length_tendency": "평소에도 문장이 짧은데, 몰리면 아예 말수가 준다",
+        "verbal_tic": "말하기 전에 헛기침을 한 번 한다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는 시키는 대로 했을 뿐입니다.",
+        "몇 번을 말씀드려야 믿으시겠어요.",
+        "...그만 좀 물으세요."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "저야 모르죠. 근데 승모 씨가 그날따라 유난히 안절부절못하던데요.",
+        "reveals": "천승모가 안절부절못했던 것은 사실이지만, 그건 예약 시간에 늦을까 봐 걱정했기 때문이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "하연규가 3년 전 직접 채용해 함께 일해 온 선임 물리치료사와 원장 사이.",
+      "public_face": "환자들 사이에서 손발이 잘 맞는 팀으로 알려져 있다.",
+      "private_strain": "우진성은 그날 오후 원장실에서 자신의 사고 기록이 문제 삼아졌다는 것을 알고 나서부터 하연규를 마주치는 것 자체가 두려워졌다.",
+      "surfaces_when": "탐정이 사본 사고 기록철(E04)과 사물함 속 원본 서류(E05)를 함께 제시할 때.",
+      "says": {
+        "CH01": "원장님은... 그냥 일 잘하는 분이었죠. 그 이상은 저도 잘 모르겠습니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "편지수는 하연규 밑에서 8년째 진료실장 겸 수간호사로 일해 온 오른팔이다.",
+      "public_face": "두 사람은 말 안 해도 손발이 맞는 사이로 알려져 있다.",
+      "private_strain": "편지수는 10개월 전 사고 직후 뭔가 이상하다고 느꼈으면서도 못 본 척 넘어갔다는 것을 계속 마음에 걸려 해 왔다.",
+      "surfaces_when": "탐정이 훈련 일지의 단계 생략 기록(E06)을 제시할 때.",
+      "says": {
+        "CH02": "원장님은 이 병원을 제 손으로 키우신 분이나 다름없어요. 그게 답니다."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "천승모는 하연규가 직접 가르친 막내 트레이너로, 입사 2년 차다.",
+      "public_face": "다들 천승모를 원장이 아끼는 후배로 알고 있다.",
+      "private_strain": "천승모는 얼마 전 우진성의 지도 방식에 의문을 품었다가 선배에게 싫은 소리를 듣고 그 뒤로는 아무 말도 못 하고 지내 왔다.",
+      "surfaces_when": "탐정이 훈련 일지의 단계 생략 기록(E06)을 천승모 앞에 제시할 때.",
+      "says": {
+        "CH03": "원장님은... 제가 이 일을 계속하고 싶게 만들어 주신 분이에요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "민겨레는 10개월 전 이 병원에서 다친 환자 민경호의 형이다.",
+      "public_face": "다들 그를 동생을 대신해 가끔 병문안 오는 보호자 정도로만 안다.",
+      "private_strain": "민겨레는 하연규가 그동안 동생의 사고 경위를 제대로 들여다보지 않았다는 것에 오래도록 원망을 품어 왔다.",
+      "surfaces_when": "탐정이 사물함 속 원본 서류(E05)를 민겨레 앞에 제시할 때.",
+      "says": {
+        "CH04": "원장님이요? 늘 죄송하다고만 하셨죠. 그 이상 뭘 어떻게 하셨는지는 모르겠어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "부지완은 하연규가 개원할 때부터 함께해 온 시설관리 사무장이다.",
+      "public_face": "두 사람은 오래된 동료로만 알려져 있다.",
+      "private_strain": "부지완은 최근 몇 달간 소모품 구매 영수증을 개인 명의로 처리해 온 것을 원장이 눈치챌까 봐 마음을 놓지 못하고 있었다.",
+      "surfaces_when": "탐정이 설비창고 영수증(E11)을 제시할 때.",
+      "says": {
+        "CH05": "원장님은... 뭐, 그냥 성실한 분이셨죠. 저야 시키는 대로 했을 뿐이고요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH04"],
+      "nature": "우진성은 10개월 전 민겨레의 동생 민경호를 직접 담당했던 치료사다.",
+      "public_face": "둘은 그저 치료사와 환자 보호자 사이로만 알려져 있다.",
+      "private_strain": "민겨레는 그 사고 이후로 우진성을 마주칠 때마다 속으로 의심을 거두지 못해 왔다.",
+      "surfaces_when": "탐정이 훈련 일지의 단계 생략 기록(E06)을 민겨레 앞에 제시할 때.",
+      "says": {
+        "CH01": "그 환자분 얘기는... 저도 늘 마음이 무겁습니다.",
+        "CH04": "그 사람요? 그날 이후로 어떻게 지내는지도 몰라요. 알고 싶지도 않고요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "개인 치료실 A",
+      "access": "예약된 환자와 담당 치료사만 들어가는 개인 치료실이지만, 잠금장치는 없어 안에서만 문을 걸어 둘 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "도르래 운동기구 손잡이에 저항밴드 한 가닥이 어정쩡하게 얽힌 채 남아 있고, 그 아래 러버매트에는 급하게 움직인 자국이 어지럽게 나 있다. 맞은편 큰 거울 아래 선반 위로 물병 하나가 넘어져 있다.",
+      "observation_rules": [
+        {
+          "action": "치료실 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "치료실은 두 사람이 마주 서면 꽉 차는 좁은 방이라, 문 쪽 시야가 맞은편 거울에 그대로 비친다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "도르래 손잡이에 얽힌 밴드를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "밴드 매듭이 손잡이 바깥쪽에서 걸린 모양인데, 안에서 스스로 당겨 감기엔 방향이 맞지 않는다."
+        },
+        {
+          "action": "거울 아래 선반 주변을 살핀다",
+          "requires": "E01",
+          "release_evidence_id": "E02",
+          "result": "선반 먼지 위로 손자국 두 벌이 눌려 있는데, 하나는 나머지보다 눈에 띄게 작다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "로비 겸 대기실",
+      "access": "표를 사지 않아도 되는 병원 로비라 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L05", "L06"],
+      "base_description": "구석 소파에 붙은 봉사 프로그램 안내 배너 아래로 자원봉사자 서명판이 놓여 있고, 그 옆 데스크 위에 오늘 자 참가자 명단이 펼쳐져 있다. 소파 한쪽에 민겨레가 팔짱을 낀 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "다들 봉사 프로그램 얘기보다 방금 실려 나간 구급차 쪽에 더 술렁이고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "자원봉사자 서명판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "서명판에 시간대별 활동 스티커가 붙어 있고, 그중 한 칸에 민겨레의 이름표 스티커가 붙어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "원장실",
+      "access": "원장과 허락받은 직원만 드나드는 개인 사무실.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L04"],
+      "base_description": "책상 위에 봉사 행사 자료가 반쯤 정리된 채 흩어져 있고, 책상 서랍 하나가 살짝 열린 채로 있다. 벽 쪽 책장에는 오래된 기록철 몇 권이 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위 달력에 오늘 날짜만 동그라미가 쳐져 있고, 그 옆에 '보고 - 퇴근 전'이라고 짧게 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "서랍 안 서류철이 비어 있고, 최근 급히 종이를 빼낸 듯 클립 자국만 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "기록보관실",
+      "access": "오래된 환자 기록을 보관하는 방으로, 열쇠는 진료실장이 관리한다.",
+      "access_level": "sealed",
+      "connects_to": ["L03"],
+      "base_description": "캐비닛마다 연도별 라벨이 붙어 있고, 그중 하나가 살짝 열린 채로 있다. 방 안쪽에서 서늘한 종이 냄새가 난다.",
+      "observation_rules": [
+        {
+          "action": "기록보관실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "캐비닛 목록에 10개월 전 날짜의 사고 기록철 자리가 비어 있다는 표시가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사고 기록철 캐비닛을 확인한다",
+          "requires": "편지수",
+          "release_evidence_id": "E04",
+          "result": "사본 사고 기록철에는 '환자 본인 부주의로 인한 과부하'라고 적혀 있고, 담당자 서명은 우진성 것이다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "공용 운동치료실",
+      "access": "환자와 자원봉사자가 함께 이용하는 공용 운동치료실.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "여러 대의 재활 기구 사이로 오늘 쓴 매트와 밴드가 정리함에 반쯤 걸쳐 있다. 창가 쪽 캐비닛 위에 훈련 일지 바인더가 놓여 있고, 그 옆 의자에 천승모가 멍하니 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "운동치료실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "평소라면 이 시간엔 늘 두세 명이 남아 있었는데, 오늘은 다들 로비 쪽으로 몰려 있었다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "훈련 일지 바인더를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "10개월 전 그날짜 일지에 '단계 3 생략, 저항 강도 상향'이라는 짧은 메모가 남아 있고, 서명은 우진성이다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "직원 휴게실",
+      "access": "직원 전용 공간으로, 사물함 여러 개가 벽을 따라 늘어서 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L07"],
+      "base_description": "탁자 위 커피 잔 몇 개가 그대로 놓여 있고, 벽을 따라 늘어선 사물함 중 하나만 문이 살짝 어긋나 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "사물함 이름표 중 우진성의 것이 유독 반듯하게 다시 붙여져 있는 것처럼 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "우진성의 사물함 안쪽을 확인한다",
+          "requires": "E02",
+          "release_evidence_id": "E05",
+          "result": "사물함 안쪽 깊숙한 곳에서 접힌 서류 한 장이 나온다. 원본 사고 기록이고, 담당 치료사 소견란에 '지정 단계를 건너뛴 고강도 훈련'이라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L07",
+      "name": "설비창고",
+      "access": "청소 도구와 설비 자재를 보관하는 창고로, 시설관리 담당자가 주로 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L06"],
+      "base_description": "선반마다 자재와 소모품 상자가 가지런히 쌓여 있고, 한쪽 구석 캐비닛 위에 낡은 영수증 뭉치가 클립으로 묶여 있다. 부지완이 선반 사이에서 재고를 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "설비창고를 둘러본다",
+          "release_fact_id": "F-L07-OBS-01",
+          "result": "창고 한쪽에 오늘 행사에 쓸 접이의자와 배너가 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "캐비닛 위 영수증 뭉치를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "미승인 소모품 구매 영수증 한 뭉치가 개인 이름으로 발급돼 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "도르래 손잡이의 밴드 매듭",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "도르래 손잡이에 얽힌 밴드를 살펴본다",
+      "content": "도르래 손잡이에 저항밴드 한 가닥이 얽혀 있는데, 매듭이 손잡이 바깥쪽에서 걸린 모양이라 안에서 스스로 당겨 감기엔 방향이 맞지 않는다.",
+      "proves": ["누군가 바깥에서 밴드를 손잡이에 걸어 두었다는 것"],
+      "does_not_prove": ["누가 그렇게 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "거울 아래 손자국 두 벌",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "거울 아래 선반 주변을 살핀다",
+      "content": "거울 아래 선반 먼지 위로 손자국 두 벌이 눌려 있는데, 하나는 나머지보다 눈에 띄게 작아 하연규의 손 크기와는 다르다.",
+      "proves": ["그 자리에 하연규 말고 다른 사람이 함께 있었다는 것"],
+      "does_not_prove": ["그 다른 사람이 누구인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "원장실 빈 서류철",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍을 확인한다",
+      "content": "서랍 안 서류철이 비어 있고, 최근 급히 종이를 빼낸 듯 클립 자국만 남아 있다.",
+      "proves": ["원장실 서랍에 있던 서류가 누군가에 의해 사라졌다는 것"],
+      "does_not_prove": ["그 서류가 무엇이었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "사본 사고 기록철",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사고 기록철 캐비닛을 확인한다",
+      "content": "사본 사고 기록철에는 '환자 본인 부주의로 인한 과부하'라고 적혀 있고, 담당자 서명은 우진성 것이다.",
+      "proves": ["우진성이 10개월 전 사고를 환자 탓으로 적어 제출했다는 것"],
+      "does_not_prove": ["그 기록이 사실과 다른지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "사물함 속 원본 서류",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "우진성의 사물함 안쪽을 확인한다",
+      "content": "사물함 안쪽 깊숙한 곳에서 접힌 서류 한 장이 나온다. 원본 사고 기록이고, 담당 치료사 소견란에 '지정 단계를 건너뛴 고강도 훈련'이라고 적혀 있다.",
+      "proves": ["우진성이 원장실에서 사라진 원본 서류를 갖고 있었다는 것", "원본에는 사고 원인이 그의 훈련 방식으로 적혀 있었다는 것"],
+      "does_not_prove": ["그가 하연규를 직접 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "훈련 일지의 단계 생략 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "훈련 일지 바인더를 확인한다",
+      "content": "10개월 전 그날짜 훈련 일지에 '단계 3 생략, 저항 강도 상향'이라는 짧은 메모가 남아 있고, 서명은 우진성이다.",
+      "proves": ["그날 우진성이 지정된 훈련 단계를 건너뛰었다는 것"],
+      "does_not_prove": ["그것이 사고의 유일한 원인인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "편지수의 원장실 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "편지수에게 그날 오후 원장실 분위기를 묻는다",
+      "content": "\"16시 조금 넘어서 원장님이 진성 씨를 원장실로 부르셨어요. 평소보다 목소리가 커서 무슨 일인가 했죠.\"",
+      "proves": ["16시 10분경 하연규가 우진성을 원장실로 불러들였다는 것"],
+      "does_not_prove": ["그 자리에서 무슨 얘기가 오갔는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E08",
+      "name": "천승모의 발견 경위",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "천승모에게 치료실을 발견했을 때의 상황을 묻는다",
+      "content": "\"18시 10분에 다음 환자분 모시러 갔는데 문이 잠겨 있길래 이상해서 두드렸어요. 대답이 없어서 열어봤더니...\"",
+      "proves": ["18시 10분경 천승모가 치료실 A에서 하연규를 발견했다는 것"],
+      "does_not_prove": ["그전에 안에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "민겨레의 자백에 가까운 고백",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "민겨레에게 오늘 이곳에 온 이유를 묻는다",
+      "content": "\"경호가... 제 동생이 여기서 다치고 나서, 저는 그때 이후로 이 병원 자료를 볼 때마다 못 믿겠더라고요. 그래서 오늘도 괜히 원장실 쪽을 서성였어요.\"",
+      "proves": ["민겨레가 그날 원장실 근처를 서성이며 옛 기록을 캐고 다녔다는 것"],
+      "does_not_prove": ["그가 하연규에게 위해를 가했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "부지완의 첫 번째 목격담",
+      "source_type": "testimony",
+      "found_at": "L07",
+      "discovery_condition": "부지완에게 그 무렵 치료실 근처에서 본 것을 묻는다",
+      "content": "\"5시 25분쯤이었나, 진성 씨가 치료실 A 쪽 복도로 들어가는 걸 봤어요. 예약 시간도 아닐 텐데 싶었죠.\"",
+      "proves": ["17시 25분경 우진성이 치료실 A로 들어갔다는 것"],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "설비창고의 개인 명의 영수증",
+      "source_type": "location",
+      "found_at": "L07",
+      "discovery_condition": "캐비닛 위 영수증 뭉치를 확인한다",
+      "content": "미승인 소모품 구매 영수증 한 뭉치가 부지완 개인 이름으로 발급돼 있다.",
+      "proves": ["부지완이 최근 소모품 구매를 개인 명의로 처리해 왔다는 것"],
+      "does_not_prove": ["그것이 이 사건과 관련이 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "편지수의 로비 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "편지수에게 그 시각 로비에 있던 사람들을 묻는다",
+      "content": "\"5시 40분쯤이요? 겨레 씨는 그때 로비에서 자원봉사자분들이랑 계속 얘기하고 계셨어요. 자리를 뜬 기억이 없는데요.\"",
+      "proves": ["17시 40분 무렵 민겨레가 로비에 있었다는 것"],
+      "does_not_prove": ["그 전후 다른 시각의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "자원봉사자 서명판",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "자원봉사자 서명판을 확인한다",
+      "content": "서명판에 시간대별 활동을 표시하는 스티커들이 붙어 있고, 그중 한 칸에 민겨레의 이름표 스티커가 그 시간대에 붙어 있다.",
+      "proves": ["민겨레가 그 시간대에 로비 활동에 참여했다는 것"],
+      "does_not_prove": ["그가 다른 시각에 자리를 비웠는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "부지완의 두 번째 목격담",
+      "source_type": "testimony",
+      "found_at": "L07",
+      "discovery_condition": "부지완에게 그 무렵 휴게실 쪽에서 본 것을 묻는다",
+      "content": "\"5시 50분쯤엔 진성 씨가 종이 뭉치를 손에 들고 휴게실 쪽으로 급하게 들어가더라고요. 평소 걸음걸이가 아니어서 눈에 띄었어요.\"",
+      "proves": ["17시 50분경 우진성이 서류를 들고 휴게실로 향했다는 것"],
+      "does_not_prove": ["그 서류가 무엇이었는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_summons",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E07"]
+      },
+      "player_action": "편지수의 증언(E07)을 제시하며 원장실에 간 적 없다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "16시 10분경 원장실로 불려가 사본과 원본이 다르다는 추궁을 받았다는 사실을 인정한다."
+      },
+      "must_not_release": ["치료실에서 다시 마주쳤다는 사실", "목을 졸랐다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_summons",
+      "to_stage": "admits_scene_presence",
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E10"]
+      },
+      "player_action": "부지완의 목격담(E10)을 제시하며 치료실 근처에 간 적 없다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "17시 20분경 치료실로 불려가 하연규와 다시 그 얘기를 했다는 사실을 인정한다."
+      },
+      "must_not_release": ["목을 졸랐다는 사실", "서류를 빼돌렸다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_scene_presence",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E02", "E05"]
+      },
+      "player_action": "거울 아래 남은 손자국(E02)과 사물함에서 나온 원본 서류(E05)를 함께 제시하며 밴드를 만진 적 없다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "말다툼 끝에 하연규의 목을 저항밴드로 졸랐다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "동생이 이 병원에서 재활치료 중 크게 다친 뒤로 병원 기록에 유난히 집착해 온 민겨레가, 하필 사건 당일 원장실 근처를 서성이며 자료를 캐고 다녔다는 것이 알려지며 유력해 보인다.",
+      "actual_reason": "민겨레는 그저 동생의 옛 사고 기록 사본을 다시 확인하고 싶어 원장실 근처를 서성인 것뿐이고, 정작 살인이 벌어진 17시 40분 무렵에는 로비에서 다른 자원봉사자들과 함께 있었다.",
+      "how_to_clear": "편지수의 증언(E12)과 자원봉사자 서명판(E13)을 함께 제시한다.",
+      "must_not_imply": "민겨레가 결백하다고 해서 그가 병원 기록에 대해 품어 온 오랜 불신 자체가 사라지는 것은 아니다.",
+      "lingering_thread": "민겨레는 사건이 해결된 뒤에도 동생의 사고 기록을 정식으로 재조사해 달라고 병원 측에 요구하며, 그 문제는 이 사건과 별개로 계속 남는다.",
+      "suspicion_deepener": "민겨레 스스로 그날 원장실 근처를 서성이며 옛 기록을 캐고 다녔다는 것을 인정하면서 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "시설관리 사무장 부지완이 사건 이후 유난히 말수가 줄고 캐비닛 얘기만 나오면 화제를 돌리는 모습이 눈에 띄며 유력해 보인다.",
+      "actual_reason": "부지완이 감추는 것은 살인이 아니라 최근 몇 달간 소모품 구매 영수증을 개인 명의로 처리해 온 사실이며, 그것이 드러나 문책당할까 두려워한 것뿐이다.",
+      "how_to_clear": "설비창고 캐비닛에서 나온 영수증 뭉치(E11)를 제시한다.",
+      "must_not_imply": "부지완이 결백하다고 해서 그가 평소 저지른 영수증 처리 문제 자체가 사라지는 것은 아니다.",
+      "lingering_thread": "부지완의 영수증 처리 문제는 사건과 별개로 병원 행정 감사에서 다시 불거져, 그는 이후 시설관리 업무에서 손을 떼야 하는 처지에 놓인다.",
+      "suspicion_deepener": "그가 캐비닛 얘기만 나오면 말을 돌리고 자리를 피하는 모습이 거듭 목격되며 의심이 짙어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E05", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-03",
+      "motive_fact": "E06"
+    }
+  },
+  "final_deduction": {
+    "responsible": "우진성(CH01) — 온새미로 재활센터 선임 물리치료사",
+    "method": "언쟁 끝에 저항밴드로 하연규의 목을 뒤에서 감아 조른 뒤, 도르래 손잡이에 밴드를 얽어매 사고처럼 꾸몄다.",
+    "motive": "10개월 전 자신의 무리한 훈련으로 환자 민경호에게 영구 손상을 입히고 그 책임을 환자 탓으로 조작해 온 것이 드러날 위기에 몰리자, 발각을 막으려 했다.",
+    "key_connection": "거울 아래 남은 손자국(E02)과 사물함에서 나온 원본 서류(E05)가, 그가 원장실에 불려간 것부터 치료실에서의 대면, 그리고 증거 인멸까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "우진성은 10개월 전 환자 민경호에게 지정된 단계를 건너뛴 고강도 훈련을 강행해 인대를 완전히 파열시켰고, 그 책임을 환자 탓으로 돌린 사고 경위서를 제출했다. 그 사본 사고 기록철(E04)에는 '환자 본인 부주의'라는 우진성의 서명이, 훈련 일지(E06)에는 그날 그가 단계를 생략했다는 메모가 그대로 남아 있었다.",
+    "사건 당일 오후 하연규는 봉사 행사 자료를 고르다 사본과 원본의 서명이 다르다는 것을 알아챘고, 16시 10분경 우진성을 원장실로 불러 추궁했다(E07). 서랍 안 서류철이 비고 클립 자국만 남은 것(E03)이 그가 그 뒤로 무언가를 챙겨 나갔다는 것을 말해 주었다.",
+    "17시 40분경 치료실 A에서 다시 그 얘기가 나오자 언쟁 끝에 우진성이 도르래 옆 저항밴드로 하연규의 목을 졸랐다. 손잡이 바깥쪽으로 걸린 매듭(E01)과 거울 아래 남은 두 벌의 손자국(E02)이, 그 밴드가 사고로 얽힌 것이 아니라 사람 손으로 걸어 둔 것이며 그 순간 두 사람이 함께 있었음을 보여줬다.",
+    "우진성은 밴드를 도르래 손잡이에 얽어매 사고처럼 꾸미고, 원장실 서랍에 있던 사고 기록 원본을 챙겨 자신의 사물함 깊숙이 숨겼다(E05).",
+    "다음 예약 환자를 데리러 갔다가 잠긴 문을 열고서야 쓰러진 하연규를 발견했다는 천승모의 증언(E08)과, 17시 25분과 17시 50분 두 차례에 걸친 부지완의 목격담(E10, E14)이 그가 그 시간대에 치료실과 휴게실을 오간 사실을 하나씩 메웠다.",
+    "한편 그날 원장실 근처를 서성이며 옛 기록을 캐고 다녔다는 민겨레 자신의 고백(E09)은 그의 오랜 불신을 보여줄 뿐, 그 시각 그는 로비를 벗어난 적이 없었다."
+  ]
+}
