@@ -638,6 +638,35 @@ CASE008 시뮬로 전후를 비교했다. 규칙 본문은 CLAUDE.md ② 「놀�
 통과로 내렸다(20곳이 사흘간 아무도 안 읽는 경고였다). 둘의 기준은 같다 — 읽는 사람 없는 경고는 두지 않는다. 같은 근거로 `KNOWS_UNGATED_FLOOD`(진범 아닌 인물의 잠금 없는
 `knows` 홍수)도 전수 0건을 확인하고 등록 무관 error로 올렸다(`CLAIMS_ALIBI_ONLY`도 0건, `CLAIM_FACT_DUPLICATE`는 11건 남아 그대로).
 
+## 2026-09-26: 은폐 문장을 쓴 뒤 그 문장의 동사를 센다 (생성 스펙)
+
+소설 루틴 `czttqg` 회차가 CASE022에서 짚었다 — `full_truth.cover_up` 한 문장에 손놀림이 넷(로프를 풀어 놓고 · 시신을
+밀어 떨어뜨려 · 렌치를 도로 넣어 두고 · 봉투를 챙겨)인데 `cover_up_method` 선언은 `accident_victim_error` 하나였고,
+`cover_up_target`의 두 칸은 문장에 근거가 없었다. `check:case`는 경고 0. 선언이 있으면 검사기가 폴백을 건너뛰므로
+**모자란 선언은 그 축을 그만큼 통째로 안 세어지게 만든다** — 「틀린 선언은 값이 없는 것보다 나쁘다」의 둘째 모양이다
+(`rore90`이 CASE331 동기 축에서 「선언이 폴백보다 좁으면 축이 사라진다」로 같은 것을 봤다).
+
+검사기로 잡을 수 있는지 먼저 쟀다. 폴백 정규식을 선언과 **같이** 돌려 「폴백이 더 잡는 라벨」을 세면:
+
+```
+method 선언 298건 중 폴백이 더 잡는 것 179건 (60.1%)   빠진 라벨 1개 110 · 2개 53 · 3개 13 · 4개 3
+  더 잡는 라벨: false_accident 74 · accident_equipment_failure 52 · object_substitution 23 · accident_victim_health 18 …
+target 선언 298건 중 폴백이 더 잡는 것  74건 (24.8%)
+  더 잡는 라벨: victim_behavior 19 · access_route 17 · evidence 12 · communication_trace 12 …
+```
+
+60%는 검사가 아니라 잡음이다 — 사고 위장 다섯 칸의 정규식이 「노후」·「고장」·「실수로」 같은 낱말로 서로 울리고
+(`false_accident` 74건이 대부분 그것), `object_substitution`의 「바꿔 (놓|두)」는 은폐가 아닌 문장에도 걸린다. 반대
+방향도 안 된다 — 고친 뒤의 CASE022는 선언 넷에 정규식이 보는 것이 하나뿐이다(「도로 넣어 두고」는 `weapon_disposal`의
+「버리|치우|숨기|폐기|가져가」에 없고, 「밀어 떨어뜨려」는 `body_movement`의 「시신…옮|끌|눕」에 없다). 정규식은 어느
+쪽으로도 세는 사람을 대신하지 못한다.
+
+그래서 검사기가 아니라 **생성 스펙의 절차**로 넣었다(사용자: 「이거 우선 처리하자」): ① 은폐 문장을 다 쓴다 ② 동사를
+하나씩 세어 그 수만큼 `cover_up_method`에 적는다 ③ 동사마다 「그래서 무엇이 감춰지나」를 `cover_up_target`에 적는다.
+동기 축에도 같은 원리 한 문장을 붙였다(문장을 다 읽고 축이 둘 이상인지 본다). 정규식에 없던 낱말은 갭 문서의 「근거
+낱말」 규칙이 이미 받는다. 한 칸짜리 선언은 method 68건·target 59건인데, 그것이 다 모자란 선언은 아니므로 코퍼스를
+되짚지는 않는다 — 그 번호를 다시 쓸 때 같이 본다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

@@ -114,4 +114,4 @@
 CASE321 `L03` 자기모순(#1273) · 주석 속 옛 수치 31곳(#1279) · `LOCATION_NO_DETAIL_RULES`는 `LOCATION_HAS_NO_ACTION`으로 이미 있음(galileo-3) ·
 `requires_comparison.claim_id`가 없는 id를 가리키는 57곳은 09-23 교차참조 검사가 잡는다 · 진입 시각 날짜 축 검사는 만들지 않음(오탐) ·
 「미리 손봐 둔다」 틀은 스펙 금지(#1136) · `PAIR_TWIN` 은폐 축(#1271)·엔딩 축(#1270) · 은폐 과용 검사 기대치 대비 배수(#1277) ·
-`points_finger.says` 험담 모양·`C##` 조건 금지는 CLAUDE.md 규칙.
+`points_finger.says` 험담 모양·`C##` 조건 금지는 CLAUDE.md 규칙 · **은폐 문장의 동사를 세는 단계**(czttqg)와 **동기 축이 둘 이상인지 보는 한 줄**(rore90)은 생성 스펙에 넣었다(2026-09-26, 검사기로는 60% 오탐이라 사람의 절차).

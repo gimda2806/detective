@@ -44,7 +44,7 @@
 - **새로 넣는 검사는 warn으로 두지 않는다**(2026-09-21 사용자 결정). 기본은 등록 여부와 무관한 error이고 걸리는 마스터는 그 자리에서 고친다. warn으로 두려면 먼저 사용자 승인. 읽는 사람 없는 경고는 부채를 세는 일일 뿐이다.
 - 이미 있던 코퍼스 비율 검사·뼈대 검사는 **등록된 사건 warn·새 사건 error**. **은폐 두 축(`COVER_UP_TARGET_OVERUSE`·`COVER_UP_METHOD_OVERUSE`)만은 고정 8%가 아니라 칸당 기대치(사건당 평균 라벨 수 ÷ 칸 수) 대비 배수로 센다** — 1.5배 warn, 2배 새 사건 error(2026-09-26 사용자 결정. 칸이 14·20개라 8%가 평균 점유 미만이었고, 그래서 생성 루틴이 `other`로 도망갔다). 짝 검사(`COVER_UP_PAIR_OVERUSE`)는 8% 그대로. 예외로 등록 여부와 무관하게 error인 것: `UNKNOWN_ARCHETYPE_KEY`·`LEGACY_ARCHETYPE_KEY`·`CASE_COMPLETE_UNREACHABLE`·`SETTING_DEADLINE_DISCOVERY_TEMPLATE`·`STAGE_KEY_IS_OWN_TESTIMONY`·`PAIR_TWIN`·`STAGE_COMPARISON_NOT_LIE`·`STAGE_REQUIRES_BEYOND_COMPARISON`.
 - 마스터를 손으로 고칠 때 id를 타이핑하지 않는다 — `npm run ids <ID>`(대응표) · `npm run ids <ID> <이름>` · `npm run ids <ID> fix`(`red_herrings[].character_id`). 손으로 고쳤으면 `npm run build:source <ID>`도 다시 돌린다(소스 문서는 쓰기 위한 재료다).
-- 아키타입 칸에 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 — 가장 가까운 칸에 억지로 밀어 넣으면 남의 경고를 만들고 새 칸이 필요하다는 신호는 사라진다(두 번 잃는다). 경고를 없애려고 칸을 내리지 않는다. 표에 없는 키를 지어내지 말 것(옛 이름은 `LEGACY_*` 표가 옮겨 세고 `LEGACY_ARCHETYPE_KEY`가 막는다).
+- 아키타입 칸에 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 — 가장 가까운 칸에 억지로 밀어 넣으면 남의 경고를 만들고 새 칸이 필요하다는 신호는 사라진다(두 번 잃는다). 경고를 없애려고 칸을 내리지 않는다. 표에 없는 키를 지어내지 말 것(옛 이름은 `LEGACY_*` 표가 옮겨 세고 `LEGACY_ARCHETYPE_KEY`가 막는다). **선언은 폴백을 대체하므로 문장보다 좁게 적지 않는다** — 은폐 문장을 쓴 뒤 그 문장의 동사를 세어 칸을 적는다(2026-09-26 사용자 결정, 절차는 생성 스펙. 검사기가 대신 못 하는 단계다 — 폴백을 같이 돌리면 60%가 오탐).
 - 같은 문장을 돌려 쓴 자국은 `npm run audit:duplication`. 목록을 들고 일괄 치환하지 말 것 — 그 사건을 다시 쓸 때 같이 고친다.
 - 마스터 포맷 부채는 `npm run audit:format`이 센다. 막힌 사건은 `사전 오류로 막힌 사건: 열린 목록` 이슈 하나에 모은다.
 - `next:case-id`는 가장 작은 빈 번호(registry에 있던 번호는 건너뛴다). 번호가 곧 플레이 순서다.
