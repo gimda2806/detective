@@ -3562,6 +3562,50 @@ enum 안에서 맞는다.
 
 ---
 
+## CASE306 (소설화 줍기 회차, 2026-09-26) — 틀린 칸 하나를 옮겼다
+
+「단독 명의」 — 웹드라마 제작사 편집실의 폭행치사(조명 설비 전기사고로 위장).
+소설을 쓰려고 마스터를 끝까지 읽는 김에 여덟 칸을 검산했고, **일곱은 맞고
+하나가 틀렸다.**
+
+### 틀린 칸 — `photo_video_studio` → `production_studio`
+
+`case_identity.location_archetypes`가 `photo_video_studio`로 선언돼 있었다.
+그 칸의 폴백은 `/현상소|사진관|암실|인화실|필름 사진|사진 스튜디오/`이고,
+이 사건의 `setting` 첫 문장은 **「온라인 스트리밍 플랫폼용 웹드라마를 제작하는
+5인 규모의 독립 제작사」**이며 사건이 일어난 방은 **편집실**이다. 같은 표의
+`production_studio` 폴백이 **「편집실」·「콘텐츠 스튜디오」**를 직접 들고 있다.
+
+**선언은 폴백을 대체하므로**(CLAUDE.md) 이 사건은 그동안 **사진 계열의 비율을
+올리고 제작 스튜디오 계열에서는 0으로 세어지고 있었다.** 경고가 한 줄도 없던
+것이 그 표시다 — 고치자 `LOCATION_ARCHETYPE_OVERUSE`(production_studio 5%,
+18/330)가 새로 떴다. **경고 0이 칸이 맞다는 뜻이 아닌 자리가 다섯째로 늘었다**
+(CASE141·142·185·218에 이어).
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE306 | `location` | `production_studio` | `case_identity.setting` 「온라인 스트리밍 플랫폼용 **웹드라마를 제작하는** … 독립 제작사」, `L01.name` 「**편집실**」 | 폴백이 「편집실」로 이미 읽는다 — **목록에 없는 낱말은 「웹드라마」·「제작사」**다. 코퍼스에 영상 제작사가 더 있을 자리이고, 지금은 「촬영 스튜디오」·「콘텐츠 스튜디오」만 있어 **사업체를 부르는 말**이 통째로 빠져 있다 |
+| CASE306 | `background` | `broadcast` / `alongside` / `central` | `case_identity.setting` 「지상파 **방영권 계약**이 한별**방송**과 정식으로 체결됐고」 | `broadcast`는 「방송」으로 걸린다. **`central`인 이유**는 그 계약이 곧 동기이기 때문이다 — `full_truth.motive`가 「지상파 방영권 계약까지 그날 정식으로 체결되면서 자신의 몫이 완전히 사라졌다」로 배경을 직접 인용한다. 배경을 걷어내면 죽일 이유가 없어진다. 더할 낱말: **방영권** |
+| CASE306 | `motive` | `ip_dispute` | `full_truth.motive` 「**저작권**이 진작부터 노강혁 **단독 명의로 등록**돼 있었다」 | 폴백이 「저작권」으로 읽는다. 더할 낱말은 **「단독 명의」·「공동 저작권 지분」** — 이 사건의 분쟁은 권리의 유무가 아니라 **지분의 이름**이고, 그 말이 목록에 없다 |
+| CASE306 | `method` | `blunt_force`+`staging_cover_up` | `full_truth.method` 「붐 마이크 스탠드를 휘둘러 그의 머리를 **가격**했고」 | 폴백이 「가격」으로 읽는다. 목록에 없는 것은 **「휘둘러」**와 **「붐 마이크 스탠드」** — 도구가 현장 장비인 우발 범행은 코퍼스에 더 있을 자리다 |
+| CASE306 | `cover_up` | `crime_scene`·`responsibility`·`communication_trace`·`motive` / `body_movement`·`false_accident`·`digital_record_manipulation`·`concealment_without_staging` | `full_truth.cover_up` 「몸을 … **기댄 자세로 고쳐 놓고**, 리그 **차단기를 잠깐 내렸다 다시 올려** … **메신저 대화방을 지우고**, 등록증이 든 우편 **봉투를 자신의 가방 안쪽에 숨긴 채**」 | 네 동사가 넷 다 다른 칸이라 선언이 문장보다 좁지 않다(`COVER_UP_DECLARATION_NARROW` 미발생). 목록에 없는 낱말: `false_accident`에 **「차단기를 내렸다 (다시) 올려」** — 지금은 설비 조작으로 사고를 만드는 말이 「누전」·「합선」 쪽이라 **차단기 재투입**이 안 걸린다 |
+
+### 폴백이 못 읽는 자리 — 한 줄 요약
+
+- `location_archetypes.production_studio` — **`웹드라마` · `제작사`**.
+- `background.broadcast` — **`방영권`**(지금은 「방송」·「생방송」·「프로그램 촬영」뿐이라
+  계약·권리 쪽 말이 없다).
+- `motive_archetypes.ip_dispute` — **`단독 명의` · `지분`**.
+- `method_archetypes.blunt_force` — **`휘둘러`**.
+- `cover_up_method.false_accident` — **`차단기를 내렸다 올려`**.
+
+**어느 칸도 `other`로 내리지 않았다** — 여덟 칸이 다 맞는 칸을 갖고 있고,
+틀린 것은 고를 때의 판단 하나였다.
+
+---
+
 ## CASE333 (생성 루틴, 2026-09-26)
 
 `other`로 적은 칸은 없다.
