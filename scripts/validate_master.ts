@@ -652,22 +652,18 @@ export function checkEmptyLocations(master: Master): Issue[] {
     const observations = loc.observation_rules ?? [];
     const details = loc.detail_rules ?? [];
     if (observations.length || details.length) continue;
-    // 사람이 있으면 인물 카드로 만날 수는 있으니 방이 완전히 죽지는
-    // 않는다. 그래도 방을 보는 것과 사람을 만나는 것은 다른 행동이라
-    // 그냥 넘기지 않고 warn으로 남긴다. 이미 머지된 28곳이 여기 걸리는데,
-    // 실플레이 피드백으로 마스터 하나를 고친 뒤 check:case를 다시 돌리는
-    // 것이 실제 작업 흐름이라 거기서 막히면 안 된다 — checkRelationships가
-    // 같은 이유로 같은 비대칭을 쓴다.
-    const hasPeople = peopleThere.has(loc.id);
+    // 사람이 있으면 통과다(2026-09-26 사용자 결정). 들어가면 base_description 과
+    // 거기 있는 사람이 나오고 말을 걸 수 있으므로 복도 같은 방이지 막힌 방이
+    // 아니다. 한때 warn 으로 남겼는데(「방을 보는 것과 사람을 만나는 것은 다른
+    // 행동」) 20곳·16건이 사흘간 아무도 안 읽는 경고로 남았다 — 관찰 한 줄을
+    // 더하는 것은 판본을 만들 때의 재료이고 원본에 경고로 걸 일이 아니다.
+    if (peopleThere.has(loc.id)) continue;
     issues.push({
-      severity: hasPeople ? 'warn' : 'error',
+      severity: 'error',
       code: 'LOCATION_HAS_NO_ACTION',
-      message: hasPeople
-        ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
-        : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+      message: `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이다. 관찰 한 줄이나 수색 칸 하나를 넣거나, 누군가를 이 방에 세울 것.`,
     });
   }
-
   return issues;
 }
 

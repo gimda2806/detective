@@ -51,7 +51,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `EVIDENCE_CONDITION_MISMATCH` | `discovery_condition`이 그 방 `detail_rules`의 어느 `action`과도 글자 그대로 같지 않음 → 런타임 조회 실패 | 카드 「서랍을 연다」, 방 규칙 「서랍을 열어 본다」 | E |
 | `EVIDENCE_LOCATION_CROSSWIRED` | 같은 문구를 두 카드가 쓰는데 방 규칙은 다른 카드를 내줌 | `E04`·`E07`이 같은 「장부를 확인한다」 | E |
 | `DEAD_DETAIL_RULE` | 방 규칙이 없는 카드를 내줌 | `release_evidence_id: E21`인데 카드는 `E20`까지 | E |
-| `LOCATION_HAS_NO_ACTION` | 관찰도 수색도 없는 방. 사람이 있으면 warn, 없으면 error(들어가도 할 것이 없다) | `L05`에 `observation_rules`·`detail_rules` 둘 다 빈 배열 | E/W(사람 유무) |
+| `LOCATION_HAS_NO_ACTION` | 관찰도 수색도 없고 **사람도 없는** 방(들어가도 할 것이 없다). 사람이 있으면 통과 — 복도 같은 방이지 막힌 방이 아니다(2026-09-26) | `L05`에 규칙이 둘 다 빈 배열이고 아무도 없다 | E |
 | `ISOLATED_LOCATION_EVIDENCE` · `ISOLATED_TESTIMONY_EVIDENCE` | 카드가 어느 단계·헛다리·다른 카드·엔딩에도 안 쓰임 | 주웠는데 아무 데도 안 닿는 `E12` | W |
 | `STAGE_KEY_IS_OWN_TESTIMONY` | 단계가 **본인에게 물어 받은 카드를 본인에게 제시**하라고 요구 → 오프라인은 그 보기를 안 띄워 영영 안 열림 | `C02`가 `E06`(김철수의 증언)을 김철수에게 | E* |
 
