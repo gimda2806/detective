@@ -4309,6 +4309,48 @@ function ratioIssues(
 }
 
 /**
+ * 고정 문턱 대신 **기대치 대비 집중도**로 센다(2026-09-26 사용자 결정). 기대치는
+ * 「사건당 평균 라벨 수 ÷ 칸 수」 — 라벨이 칸에 고르게 흩어졌을 때 한 칸의 점유다.
+ * 다중 선택 축은 라벨 합이 100%를 넘으므로 고정 문턱은 칸 수에 따라 뜻이 달라진다
+ * (8%가 40칸 축에서는 평균의 1.6배, 14칸 축에서는 평균 미만). 배수로 보면 축마다
+ * 자기 구조에 맞는 문턱이 생기고, 새 칸을 늘리거나 라벨 습관이 바뀌어도 따라간다.
+ */
+function concentrationIssues(
+  code: string,
+  mine: Set<string>,
+  others: Array<Set<string>>,
+  slotCount: number,
+  alreadyRegistered: boolean,
+  render: (key: string, pct: string, expectedPct: string, multiplier: string, matching: number, total: number) => string,
+): Issue[] {
+  const issues: Issue[] = [];
+  if (others.length === 0 || slotCount === 0) return issues;
+  const labelsPerCase = others.reduce((sum, set) => sum + set.size, 0) / others.length;
+  const expected = labelsPerCase / slotCount;
+  if (expected <= 0) return issues;
+  for (const key of mine) {
+    const matching = others.filter((o) => o.has(key)).length;
+    const ratio = matching / others.length;
+    const multiplier = ratio / expected;
+    if (multiplier < CONCENTRATION_WARN_MULTIPLIER) continue;
+    issues.push({
+      severity:
+        multiplier >= CONCENTRATION_ERROR_MULTIPLIER ? overuseSeverity(alreadyRegistered) : 'warn',
+      code,
+      message: render(
+        key,
+        (ratio * 100).toFixed(0),
+        (expected * 100).toFixed(1),
+        multiplier.toFixed(1),
+        matching,
+        others.length,
+      ),
+    });
+  }
+  return issues;
+}
+
+/**
  * 배경 세 갈래를 각각 센다 — 칸(10%) · 계열(20%) · 서술 꼴(30%).
  * intensity 는 비율을 보지 않고, 선언이 full_truth 와 어긋나는지만 본다.
  */
@@ -4506,8 +4548,16 @@ const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
 // 이 칸은 수법 과용 판정에서 뺀다 — 옮겨서 풀 수 있는 단위가 아니다.
 const METHOD_OVERUSE_EXEMPT = new Set(['위장·은폐 조작']);
 
-const COVER_UP_OVERUSE_THRESHOLD = 0.08;
-// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다.
+// 은폐 두 축은 **고정 문턱을 쓰지 않는다**(2026-09-26 사용자 결정). 칸이 14·20개인데
+// 사건마다 라벨을 두 개쯤 적으므로 평균 점유가 12.9%·9.7%다 — 8%는 평균 **미만**이라
+// 어떤 배치로도 전부 통과가 불가능했고, 그래서 생성 루틴이 `other`로 도망가고
+// (CASE321~328) 한 사건은 수법까지 검사기를 피해 바뀌었다. 동기(37칸)·수법(35칸)·
+// 무대(52칸)는 「평균 점유 × 2」가 지금 문턱(8%·5%)과 거의 같아 그쪽은 그대로다.
+// 기대치 대비 1.5배부터 warn, 2배부터 새 사건 error(등록 사건 warn) — `concentrationIssues`.
+const CONCENTRATION_WARN_MULTIPLIER = 1.5;
+const CONCENTRATION_ERROR_MULTIPLIER = 2.0;
+// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다. 가능한 짝이
+// 190개라 8%는 평균의 열세 배 — 여기는 고정 문턱이 맞다.
 const COVER_UP_PAIR_OVERUSE_THRESHOLD = 0.08;
 
 function coverUpText(master: Master): string {
@@ -4572,23 +4622,23 @@ export function checkCoverUpOveruse(
   const otherM = comparableCases.map((o) => coverUpMethods(o.master));
   const mineM = coverUpMethods(master);
   return [
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_TARGET_OVERUSE',
       coverUpTargets(master),
       otherT,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_TARGETS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐가 감추려는 것이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐가 감추려는 것이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다 — 칸당 기대치 ${expected}%의 ${mult}배. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다. 「사인을 감춘다」는 장르의 뼈대라 흔한 것이 정상이고, 이 경고는 그 위에 얼마나 더 쏠렸는가를 말한다.`,
     ),
-    ...ratioIssues(
+    ...concentrationIssues(
       'COVER_UP_METHOD_OVERUSE',
       mineM,
       otherM,
-      COVER_UP_OVERUSE_THRESHOLD,
+      COVER_UP_METHODS.length,
       alreadyRegistered,
-      (key, pct, m, t) =>
-        `은폐 방식이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것.`,
+      (key, pct, expected, mult, m, t) =>
+        `은폐 방식이 "${key}"인데, 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다 — 칸당 기대치 ${expected}%의 ${mult}배. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것. 칸이 흔해서 \`other\`로 내리는 것은 답이 아니다(짝 검사가 통째로 꺼지고 그 칸의 분모가 깎인다).`,
     ),
     ...ratioIssues(
       'COVER_UP_PAIR_OVERUSE',

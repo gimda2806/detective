@@ -39,8 +39,8 @@
     "method_archetypes": ["machine_entrapment"],
     "key_time_location": "사건 당일 14:05, 지방법원 별관 이동식 서가실(L01)",
     "cover_up": "노형탁은 곧장 도움을 청하지 않고 주위에 아무도 없는 것을 확인한 뒤 조작판을 원래대로 되돌려 통로를 열어 두고 자리를 떴다. 사무실로 돌아가 관리자 계정으로 접속해 그 시각 조작 이력 일부를 지우고, 상자 속 판결문 사본을 문서 세단기에 넣어 없애려 했지만 짧은 시간 안에 완전히 갈리지 않고 조각으로 남았다.",
-    "cover_up_target": ["other"],
-    "cover_up_method": ["other"],
+    "cover_up_target": ["responsibility", "identity"],
+    "cover_up_method": ["digital_record_manipulation", "evidence_removal"],
     "decisive_evidence_ids": ["E03", "E05", "E07", "E14", "E15"]
   },
   "actual_timeline": [
