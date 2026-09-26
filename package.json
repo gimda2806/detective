@@ -31,7 +31,9 @@
     "check:spelling": "node scripts/check-spelling.mjs",
     "check:codes": "node scripts/check-codes.mjs",
     "check:novel": "node scripts/check-novel-time.mjs",
-    "audit:duplication": "node --experimental-strip-types scripts/audit-duplication.mjs"
+    "audit:duplication": "node --experimental-strip-types scripts/audit-duplication.mjs",
+    "measure:pairs": "node scripts/measure-pair-axes.mjs",
+    "measure:times": "node scripts/measure-time-checks.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

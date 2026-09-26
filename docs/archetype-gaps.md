@@ -3150,3 +3150,67 @@ CLAUDE.md는 **「가장 가까운 칸에 억지로 밀어 넣지 말 것 — �
 1.9배)라 그대로 둔다 — **경고가 늘어난 것은 이 사건이 흔해져서가 아니라, 안
 세어지던 칸이 세어지게 됐기 때문이다.** CASE142~146·CASE326이 같은 자리에서
 같은 판단을 했다.
+
+---
+
+## CASE137 (소설화 줍기 회차, 2026-09-26)
+
+[docs/novels/CASE137.md](novels/CASE137.md)를 쓰려고 마스터를 끝까지 읽으면서 여덟
+축을 검산했다. **여덟 칸이 이미 다 선언돼 있었고**(생성 루틴이 채운 첫 모양이다),
+**넷에 값을 더했고 셋은 그대로 맞았고 하나는 바꾸지 않기로 판단했다.** 진상·시각·
+인물·대사·산문은 한 글자도 안 건드렸다.
+
+| 축 | 고치기 전 | 고친 뒤 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| `location_archetypes` | `academy` | `academy` · **`production_studio`** | `case_identity.setting` 「2층은 **방음 부스와 조정실**, 대본 보관실로」 | **간판은 아카데미이고 사건이 벌어진 방은 스튜디오다.** CASE022가 「무대는 스튜디오이고 창고는 껍데기」라고 적어 둔 것과 방향이 같은데, 이쪽은 껍데기가 **학원**이다. `academy`는 남긴다 — 선후배 서열과 「간판 강사」라는 자리가 동기 그 자체다 |
+| `background_archetypes` | `company_event` | `company_event` · **`routine_operation`** | 같은 문장 「그날 오후에는 **평소처럼 순서대로 부스에 들어가 녹음이 이어지고 있었고**, 저녁에는 … 사내 행사가 예정되어 있었다」 | **한 문장에 배경이 둘인데 뒤엣것만 선언돼 있었다.** 앞엣것이 하다인을 부스에 세우는 배경이고 `surface_incident` 첫 줄도 「평범한 녹음 일정이 잡힌 하루」다 |
+| `background_phrasing` | `on_the_day_of` | `on_the_day_of` · **`scheduled`** | 같은 문장의 「사내 행사가 **예정되어 있었다**」 | 두 배경이 서로 다른 꼴로 들어온다 — 앞엣것이 「그날 오후에는」(`on_the_day_of`), 뒤엣것이 「예정되어 있었다」(`scheduled`) |
+| `motive_archetypes` | `jealousy` · `rival_removal` | + **`position_defense`** | `full_truth.motive` 「20년 가까이 자신의 정체성으로 여겨 온 **간판 성우 자리를 하루아침에 넘겨주게 됐다**」 | **폴백이 못 잡는다.** 그 정규식은 「(자리\|지위…) + (잃\|빼앗…)」인데 이 문장의 동사는 **「넘겨주게 됐다」**다 — 빼앗기는 것이 아니라 **내주는** 꼴이다. CASE331은 「빼앗기게 됐다」라 폴백이 이미 잡던 자리였고, **이쪽은 낱말 자체가 목록에 없는 첫 사례다** |
+| `cover_up_method` | `digital_record_manipulation` · `witness_misdirection` | + **`scene_rearrangement`** · **`accident_equipment_failure`** | `full_truth.cover_up` 「환기 밸브를 **다시 열어 두고**」 · `surface_incident` 「부스 환기팬 **노후로 인한 사고** 가능성」 | **은폐 문장 하나에 손놀림 넷이 적혀 있는데 선언은 둘이었다**(CASE022와 같은 모양). 뒤엣것은 이 사건의 **위장 그 자체**인데 어느 칸도 받지 않고 있었다 |
+
+**그대로 둔 셋**: `method_archetypes`(`oxygen_deprivation`·`staging_cover_up`) ·
+`cover_up_target`(`responsibility`·`crime_scene`) ·
+`background_intensity`(`incidental`).
+
+**`background_intensity`를 올리지 않은 이유를 적어 둔다.** 저녁 축하 행사도 그날의
+녹음 일정도 통째로 걷어내도 사건이 선다 — 강진욱은 부원장이라 부스에 언제든
+들어가고, 하다인을 그 방에 부른 것은 일정이 아니라 그 사람이다(`T12`). 다만 소설이
+「왜 하필 오늘 오후였나」를 **탐정의 읽기로** 메웠고(행사가 지나면 캐스팅이 사내에
+공식 사실이 된다), **그 한 줄이 `surface_incident`나 `E01`로 내려가는 순간 이 칸은
+`contributory`가 된다.** 한 줄과 한 칸을 같이 고쳐야 하는 자리다.
+
+### 정규식 목록에 없던 낱말 (CASE137)
+
+- **`motive_archetypes: position_defense`** — 위 표. **「넘겨주게 됐다」**를 목록에
+  더한다(「물려주게」·「내주게」도 같은 꼴이다). 지금은 **빼앗기는 쪽만** 센다.
+- **`cover_up_method: scene_rearrangement`** — `rore90` 쪽지의 「되돌리는 은폐가
+  정규식에서 샌다」와 **같은 뿌리의 네 번째 낱말**이다. 그 쪽지가 「원래 상태로
+  되돌」·「제자리로 되돌」을 더하자고 적었고 CASE142~146이 「도로 넣어 두」·
+  「제자리에 돌려」를 적어 뒀는데, 이 마스터는 **「다시 열어 두」**다. 잠근 것을
+  **다시 여는 것**이 은폐인 사건이라 「되돌」도 「제자리」도 안 나온다.
+- **`cover_up_method: accident_equipment_failure`** — 폴백이 잡는지 못 잡는지와
+  별개로, 이 사건의 낱말은 **「노후로 인한 사고」**이고 그 문장이 `full_truth`가
+  아니라 **`surface_incident`에 있다**. 은폐 축의 폴백이 `full_truth.cover_up`만
+  본다면 **위장의 이름이 적힌 자리를 아예 안 읽는 셈**이다 — 검사기를 보는 세션이
+  한 번 재어 볼 자리다.
+
+### 수법 축의 「감금」 — 네 번째 사례
+
+CASE244가 「152·156에 이어 셋째」로 적어 둔 그 빈칸이다. 이 사건의 수법은
+**환기를 끊은 것과 문을 잠근 것 둘이 겹쳐야** 성립하는데(`T15` 「부스 문을 잠그고
+환기 제어반의 밸브를 손으로 잠가」), 서른여덟 칸에 **가둔다**를 가리키는 칸이 없어
+`oxygen_deprivation` 하나가 앞엣것만 받고 있다. `E07`(19분 잠김)이 결정적 증거
+일곱 중 하나인데 **그 카드가 가리키는 손놀림에 이름이 없다.** 네 편이 같은 빈칸을
+서로 다른 칸으로 메웠다 — 152 `delayed_rescue` · 156 `automation_tampering` ·
+244 `hypothermia`+`delayed_rescue` · **137 `oxygen_deprivation`**.
+
+고친 뒤 `validate_master`는 **errors 0 · warnings 7**(고치기 전 0·0). 일곱 다 비율
+보고라 그대로 둔다 — `MOTIVE_ARCHETYPE_OVERUSE`(지위·자리 상실 방지 9%) ·
+`LOCATION_ARCHETYPE_OVERUSE`(production_studio 5%) ·
+`BACKGROUND_ARCHETYPE_OVERUSE`(routine_operation 11%) ·
+`BACKGROUND_FAMILY_OVERUSE`(일상 계열 23%) · `COVER_UP_TARGET_OVERUSE`(책임 1.6배) ·
+`COVER_UP_METHOD_OVERUSE` 둘(현장 재배치 1.9배 · 사고 위장(설비 탓) **2.8배**).
+**경고 0에서 7로 늘어난 것이 이 검산의 실측**이다 — 이 사건은 원래 그 자리에
+있었고, 선언이 좁아서 일곱 칸이 전부 안 세어지고 있었다. CASE142~146·CASE326·
+CASE022·CASE331이 같은 자리에서 같은 판단을 했고, **선언 하나로 경고 일곱이 뜬
+것은 이 회차가 가장 크다.**

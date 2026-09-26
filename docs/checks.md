@@ -56,6 +56,9 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `EVIDENCE_BAD_LOCATION` · `TIMELINE_BAD_LOCATION` · `OPENING_BAD_LOCATION` · `ENDING_BAD_LOCATION` | 카드·타임라인·오프닝·엔딩이 없는 장소를 가리킴 | `opening_scene.location_id: L06`인데 방은 다섯 | E |
 | `TIMELINE_UNDEFINED_ACTOR` | 타임라인 `actors`에 인물도 피해자도 아닌 id | `actors: ["CH07"]` | E |
 | `TIMELINE_OUT_OF_ORDER` | `actual_timeline`이 시간순이 아님(배열 순서가 곧 사건 순서로 읽힌다) | `T05`(21:00) 다음에 `T06`(20:30) | E |
+| `TIME_12H_UNPAIRABLE` | 본문의 맨 「N시」(1~11, 때 표시 없음)가 타임라인에는 오후로만 있는 시각 — **플레이어가 24시간제 타임라인과 눈으로 맞춰볼 수 없다** | 카드가 「9시 40분쯤」인데 타임라인은 「사건 당일 21:40」 | E* |
+| `TIME_DAY_LABEL_MISMATCH` | 사건 기준 날짜말(「사건 당일」·「사건 다음날」)이 **같은 사건**의 스탬프와 어긋남. 같은 고유명을 공유할 때만 같은 사건으로 본다 | 헛다리가 「사건 당일 … 00시 14분」인데 스탬프는 「사건 다음날 00:14」 | E* |
+| `TIME_TODAY_IS_YESTERDAY` | `detective_entry_time`이 사건 다음날인데 본문이 사건을 「오늘」이라 부름 | 진입이 「사건 다음날 07:40」인데 카드는 「오늘 날짜 칸에 13시 …」 | E* |
 | `TIMELINE_ATOMICITY_SUSPECT` | 한 항목에 두 행동이 접속어로 이어붙은 듯함 | 「밸브를 잠그고 사무실로 올라간다」 | W |
 | `SUSPECT_MISMATCH` | `full_truth.responsible_character_id`와 `case_complete…suspect`가 다름 | 진범 `CH01`, 종결 조건 `CH02` | E |
 | `CASE_COMPLETE_UNREACHABLE` | `required_established_facts`의 id를 이 사건 어디서도 얻을 수 없음(카드도 knows도 진술도 단계 release도 아님) → 진행도가 영영 모자람 | `F-CH04-05`를 요구하는데 아무도 그 사실을 모른다 | E* |
