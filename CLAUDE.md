@@ -38,7 +38,7 @@
 
 **데이터 모양이 범인을 흘리지 않게.** 진범과 같은 `voice_profile.stance`를 가진 인물이 하나는 있어야 한다(`STANCE_CULPRIT_TELL`). 진범이 CH01에 쏠린 것은 `npcs`를 이름순으로 세워 화면에서 가렸다 — **`CH##`를 다시 매기지 말 것**(사방의 id가 그것을 문다).
 
-**검사기 규칙**
+**검사기 규칙** — 검사 전부의 목록과 걸리는 예는 `docs/checks.md`. **판정 코드를 새로 만들면 그 줄을 같이 쓴다** — `npm run check:codes`가 PR 검사에서 대조한다(2026-09-26 사용자 결정).
 
 - `npm run check:case <ID>`는 셋을 돌린다 — `validate_master.ts`(교차참조·비율·단계 사슬), `audit-converter-coverage.ts`(마스터 값이 `raw_text`까지 도달하는가), `audit-evidence-leak.ts`. 가운데 것이 걸리면 마스터가 아니라 변환기(`structured-master-converter.ts`)를 고친다. **스키마에 필드를 더하면 변환기 방출과 `master-index.ts` 파싱을 같이 고친다.** **`check:case`는 JSON 스키마를 돌리지 않는다** — 스키마의 `required`·설명문은 아무것도 막지 않는다.
 - **새로 넣는 검사는 warn으로 두지 않는다**(2026-09-21 사용자 결정). 기본은 등록 여부와 무관한 error이고 걸리는 마스터는 그 자리에서 고친다. warn으로 두려면 먼저 사용자 승인. 읽는 사람 없는 경고는 부채를 세는 일일 뿐이다.
