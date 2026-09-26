@@ -34,13 +34,13 @@
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "유경환은 15년간 하명근을 도와 성일물류를 키워 온 운영이사로, 당연히 자신이 인수 이후에도 경영 실무를 총괄할 것이라 여겨 왔다. 그날 오전 대한로지스와의 지분 인수 본계약이 체결되면서, 인수 측이 지명한 반준영이 경영관리이사로 상주하고 유경환은 지방 거점 물류센터로 발령한다는 별도 합의서 조항이 있다는 것을 그는 서명식 직후 우연히 확인했다. 하명근이 이 결정을 자신에게 미리 알리지 않고 이미 합의해 버렸다는 배신감과, 15년 동안 지켜 온 자리를 하루아침에 빼앗기게 됐다는 절박함이 겹쳐 그를 몰아붙였다.",
-    "motive_archetypes": ["succession_change"],
+    "motive_archetypes": ["succession_change", "position_defense"],
     "method": "유경환은 하역장 한쪽에서 하명근을 붙잡고 발령 조항을 철회해 달라고 요구하며 언쟁을 벌였다. 하명근이 이미 협상단과 합의된 사안이라며 거절하자 격분한 유경환은 가동 중이던 자동 스트레치 랩핑기 롤러 쪽으로 그를 강하게 떠밀었다. 전날 밤부터 인터록이 임시로 우회 결선돼 있던 탓에 기계가 멈추지 않았고, 하명근은 롤러에 끼여 그 자리에서 숨졌다.",
     "method_archetypes": ["machine_entrapment", "staging_cover_up"],
     "key_time_location": "사건 당일 11시 05분~11시 06분, 성일물류 하역장 자동 랩핑 라인(L01)",
     "cover_up": "유경환은 주위에 인기척이 없는 것을 확인하고 비상정지 버튼을 눌러 기계를 세운 뒤, 인터록 배선을 원래 상태로 되돌려 사고 이전부터 정상 작동해 온 것처럼 꾸몄다. 이어 강필두와 주고받은 인터록 관련 메신저 대화를 자신의 휴대전화에서 지우고, 하명근이 평소 설비를 직접 손보길 좋아했다는 점을 이용해 그가 혼자 점검하다 변을 당한 것처럼 주변에 흘렸다.",
-    "cover_up_target": ["responsibility", "communication_trace"],
-    "cover_up_method": ["accident_victim_error", "digital_record_manipulation"],
+    "cover_up_target": ["responsibility", "communication_trace", "evidence"],
+    "cover_up_method": ["accident_victim_error", "digital_record_manipulation", "scene_rearrangement"],
     "decisive_evidence_ids": ["E01", "E05", "E07", "E12", "E13", "E14", "E15"]
   },
   "actual_timeline": [
