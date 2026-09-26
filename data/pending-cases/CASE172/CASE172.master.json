@@ -521,7 +521,18 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "최도협이 체력단련실에서 정확히 무엇을 했는지는 몰랐다.",
         "훈련법을 둘러싼 다툼에 대해서는 전혀 몰랐다."
