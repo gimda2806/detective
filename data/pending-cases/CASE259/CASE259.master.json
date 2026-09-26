@@ -439,7 +439,18 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_trigger": "S-CH05-02",
+          "release_prerequisite": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_trigger": "S-CH05-01",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": [
         "공방 내부 인간관계는 잘 모른다.",
         "노경률의 사업 계획은 전혀 몰랐다."
