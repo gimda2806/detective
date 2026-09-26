@@ -1760,7 +1760,8 @@ export function checkOpeningClaim(
 
 export function checkStatementGating(
   master: Master,
-  alreadyRegistered = false,
+  // 등록 여부를 더 안 본다(2026-09-26 — 늘 error). 호출부 시그니처를 지키기 위해 남긴다.
+  _alreadyRegistered = false,
 ): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
