@@ -5,11 +5,11 @@
     "english_title": "The Name in the Logbook",
     "genre": "소행성 발견자 표기를 빼앗기게 된 데이터 분석 담당이 격분해 저지른 접촉독살 / 여분 접안렌즈에 독성 추출액을 발라 사고처럼 위장",
     "setting": "별무리천문대는 20년 가까이 아마추어 천문 동호회가 자원으로 운영해 온 사설 관측소다. 그날 밤은 올해 유성우가 절정에 이르는 밤이었고, 마침 넉 달 전 관측소가 처음 검출한 소행성의 국제 등록 절차가 그날 마무리되는 자리이기도 했다. 회원들은 오랜만의 들뜬 공기 속에서 일반인을 위한 공개 관측회를 준비했고, 탐정은 그 행사에 참가자로 와 있었다.",
-    "location_archetypes": ["restricted_site", "temporary_site"],
+    "location_archetypes": ["association_club"],
     "background": {
-      "background_archetypes": ["festival_celebration"],
+      "background_archetypes": ["product_demo"],
       "background_phrasing": ["on_the_day_of"],
-      "background_intensity": "contextual"
+      "background_intensity": "contributory"
     },
     "detective_entry_type": "event_attendance",
     "detective_entry": "탐정은 그날 밤 별무리천문대가 연 유성우 공개 관측회에 일반 참가자로 참석해 있었다.",
@@ -34,13 +34,13 @@
   "full_truth": {
     "responsible_character_id": "CH05",
     "motive": "강윤제는 넉 달 전 신형 관측 소프트웨어로 근일점 통과 소행성 하나를 실제로 처음 검출해낸 사람이다. 하인철은 처음엔 관측 보고서 초안에 강윤제를 공동 발견자로 기재했으나, 후원 재단 문성곤이 재단 홍보를 위해 발견자를 단독으로 못박는 안을 제안하자 사건 5일 전 서류를 고쳐 강윤제의 이름을 각주로 내리고 자신을 단독 발견자로 바꿔 놓았다. 강윤제는 사건 당일 오후 그 수정된 초안을 우연히 열어 보고 이를 알게 됐고, 넉 달의 밤과 자신의 것이었던 발견이 문서 한 줄로 지워졌다는 배신감에 사로잡혔다.",
-    "motive_archetypes": ["reputation", "contract_breach"],
+    "motive_archetypes": ["credit_theft", "betrayal"],
     "method": "강윤제는 하인철이 시연 중 접안렌즈에 얼굴을 자주 붙이는 습관을 알고, 그날 오후 실험용으로 보관해 온 독성 식물 추출액(오두 뿌리에서 낸 것)을 여분 접안렌즈 고무 아이컵 안쪽에 발라 원래 렌즈와 바꿔 두었다. 하인철이 공개 시연 중 반복해서 그 렌즈에 얼굴을 대고 초점을 맞추는 사이 피부로 흡수된 독성 물질이 퍼지며 안면 마비와 호흡 곤란을 일으켰다.",
     "method_archetypes": ["dermal_contact", "staging_cover_up"],
     "key_time_location": "사건 당일 18시 20분경 접안렌즈 교체, 22시 10분~22시 40분 사이 주관측실(L01)에서 흡수·발현",
     "cover_up": "강윤제는 하인철이 쓰러진 직후 소란을 틈타 오염된 접안렌즈를 여분 렌즈로 재빨리 바꿔 끼우고, 원래 렌즈는 분석실로 가져가 세척했다. 남은 오두 추출액 병은 창고 선반 안쪽 상자 뒤에 몰래 숨겨 두었고, 관측 서버에 접속해 자신의 이름이 올라 있던 예전 로그 항목을 삭제해 애초에 자신이 공동 발견자로 기재됐던 흔적 자체를 지웠다.",
     "cover_up_target": ["weapon", "motive"],
-    "cover_up_method": ["object_substitution", "digital_record_manipulation", "concealment_without_staging"],
+    "cover_up_method": ["object_substitution", "evidence_removal", "weapon_disposal", "digital_record_manipulation"],
     "decisive_evidence_ids": ["E04", "E06", "E07", "E10", "E13", "E14", "E19"]
   },
   "actual_timeline": [
