@@ -622,6 +622,14 @@ CASE008 시뮬로 전후를 비교했다. 규칙 본문은 CLAUDE.md ② 「놀�
 `audit:*`와 보조 명령, 런타임 백스톱, 심각도 규칙을 같이 두었다. 문장 규칙만으로는 낡으므로 `npm run check:codes`가
 코드에서 판정 코드를 뽑아 문서와 대조하고 PR 검사 첫 단계에서 선다(빠진 것은 error, 문서에만 있는 것은 알림).
 
+## 2026-09-26: `LOCATION_HAS_NO_ACTION`은 사람이 있으면 통과
+
+관찰도 수색도 없는 방에 사람이 있으면 warn, 없으면 error였다. 사용자가 「사람이 있으면 pass로 둘까」를
+물었고 그렇게 했다. 오프라인에서 그 방에 들어가면 `base_description`과 거기 있는 사람이 나오고 말을
+걸 수 있으니 복도 같은 방이지 막힌 방이 아니다. 걸리던 20곳·16건(09-26 검사기 세션 실측)은 사흘간
+아무도 손대지 않은 경고였다 — 「읽는 사람 없는 경고는 부채를 세는 일일 뿐」. 관찰 한 줄을 더하는 것은
+판본을 만들 때의 재료로 남긴다(`docs/offline-master-format.md`). 사람도 없는 방은 error 그대로.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
