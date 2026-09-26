@@ -483,17 +483,27 @@
           "claim_id": "S-CH05-02",
           "content": "목도경 씨요? 그냥 성실한 손님이자 자원봉사자죠, 뭐 특별한 건 없었는데...",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "아이고, 저희 카페는 오가는 분들 다 단골이에요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
         "S-CH05-01",
-        "S-CH05-02"
+        "S-CH05-03"
       ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
           "release_prerequisite": "E03",
           "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
         }
       ],
       "knowledge_limits": [
