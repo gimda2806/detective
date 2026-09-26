@@ -33,7 +33,7 @@
 
 **시작할 때 셋을 본다** — `docs/novels/README.md`의 「다음 차례」 한 줄이 겹침을 못 막은
 전례가 있다(그 문서의 표 참고). ① `git fetch` ② `npm run check:novel`의 **실제 출력**
-③ `docs/handoff/`의 남은 쪽지.
+③ `docs/handoff-backlog.md`의 자기 절과 `docs/handoff/`에서 되먹임 루틴 앞으로 온 쪽지(남의 것은 제목만).
 
 ## 한 편에서 하는 일
 
