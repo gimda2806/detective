@@ -764,7 +764,11 @@ const TIMELINE_DAY_PATTERNS: Array<[RegExp, number | 'neg' | 'negweek']> = [
   [/^(?:사건|사고|범행)?\s*(?:다음\s*날|다음날|이튿날)/, 1],
 ];
 
-function parseTimelineStamp(raw: string): number | null {
+/**
+ * `actual_timeline[].time` 스탬프를 「0일 0시 0분」 기준 분으로. 날짜 말이 없으면 null.
+ * 실측 스크립트가 같은 해석을 쓰기 위해 내보낸다(`scripts/measure-time-checks.mjs`).
+ */
+export function parseTimelineStamp(raw: string): number | null {
   let rest = (raw || '').trim();
   if (!rest) return null;
   let day: number | null = null;
