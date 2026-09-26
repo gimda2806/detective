@@ -7,15 +7,24 @@
     "detective_entry_type": "professional_consultant",
     "detective_entry": "탐정은 예전부터 알고 지내던 손해사정사 지인의 소개로, 결쇠공방의 화재·설비 보험 갱신에 필요한 위험도 자문을 맡아 그날 오후 공방 설비를 둘러보고 있었다.",
     "tone": "차분하지만 씁쓸한 여운이 남는 정통 추리물",
-    "tags": ["대장간_공방", "동업_관계", "클로즈드_서클"],
-    "location_archetypes": ["craft_metal"],
+    "tags": [
+      "대장간_공방",
+      "동업_관계",
+      "클로즈드_서클"
+    ],
+    "location_archetypes": [
+      "craft_metal"
+    ],
     "background": {
-      "background_archetypes": ["workshop"],
-      "background_phrasing": ["recently_completed"],
+      "background_archetypes": [
+        "workshop"
+      ],
+      "background_phrasing": [
+        "recently_completed"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -24,42 +33,51 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:56",
     "location_id": "L01",
     "narrative": "공방 투어가 끝나고 마지막 손님들이 짐을 챙겨 나가던 참이었다. 탐정은 보험 자문차 둘러보던 설비 목록에 마지막 메모를 적어 넣고 있었다.\n\n그때 작업장 안쪽에서 육중한 쇳소리와 함께 둔탁한 충격음이 울렸다.\n\n\"저거... 트립해머 떨어지는 소리 맞죠? 근데 지금 저기 아무도 조작 안 하고 있었을 텐데요.\"\n\n한지우가 먼저 소리가 난 쪽으로 몸을 돌리며 말했다.\n\n\"가보자.\"\n\n작업장으로 들어서자, 트립해머 아래 한하람이 머리에서 피를 흘린 채 쓰러져 있었다. 노지완이 그를 흔들며 이름을 불렀고, 곧 유은채가 뛰어들어와 119에 신고했다.\n\n\"의식이 없어요. 숨은 쉬는데... 반응이 없어요.\"\n\n한지우가 낮게 말했다.\n\n\"저 위에 리미터 핀, 원래 저렇게 빠져 있는 거야?\"\n\n탐정이 해머 램가이드 쪽을 올려다보며 물었다.\n\n한지우가 고개를 저었다."
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "사무실 안, 태블릿 화면이 꺼진 채 놓여 있었다. 서효주는 더 이상 말을 돌리지 않았다.\n\n\"...맞습니다. 제가 핀을 뽑아놨습니다. 페달도 제가 밟았고요.\"\n\n그는 잠시 눈을 감았다가, 낮은 목소리로 말을 이었다.\n\n\"절반이라니... 8년을 그렇게 굴렀는데, 절반이라니. 그 순간엔 그것밖에 안 보였어요.\"\n\n한지우는 아무 말 없이 그를 바라보다가, 조용히 입을 열었다.\n\n\"정산이 억울했다는 이유로, 한 사람의 몫을 통째로 가져간 거네요.\"\n\n\"사흘 전에 핀을 뽑아두고, 부품 주문까지 다 준비해뒀지. 우발적인 게 아니라 계획한 거였어.\"\n\n탐정이 조용히 말을 이었다. 서효주는 고개를 떨궜다.\n\n공방을 나서며, 한지우가 문득 생각난 듯 입을 열었다.\n\n\"그러고 보니 권예준 씨, 그 사진 결국 SNS에 안 올리기로 했대요. 나중에 공방에 죄송하다고 인사도 전한다고 하고요.\"\n\n\"자랑하려고 찍은 한 장이 사람 하나를 잡았지.\"\n\n탐정은 그렇게만 말하고 앞서 걸었다. 한지우는 반걸음 뒤에서 수첩을 덮었다.\n\n\"탐정님. 저희 오늘 보험 자문 건은요.\"\n\n\"내일 다시 오자고 해.\"\n\n\"그 말 지난주에도 하셨어요.\"\n\n탐정은 대답하지 않았다. 대신 걸음이 조금 느려졌고, 한지우는 그 반걸음을 좁혀 나란히 섰다."
   },
-
   "surface_incident": [
     "투어가 끝난 늦은 오후, 결쇠공방 작업장에서 공동대표 한하람이 트립해머 아래 머리에서 피를 흘린 채 쓰러진 모습으로 발견됐다.",
     "한하람은 구급대에 의해 병원으로 옮겨졌으나 끝내 사망했다.",
     "공방 측은 노후 장비 오작동으로 인한 불행한 사고로 추정하고 있다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "결쇠공방을 8년째 함께 운영해온 두 공동대표 중 한 명인 서효주는, 동업자 한하람이 최근 개인 사정으로 동업을 그만두고 지분을 정확히 절반씩 나눠 정산하자는 뜻을 전하자 크게 반발한다. 실제 주문 유치와 판로 개척은 자신이 훨씬 많이 해왔다고 믿어온 서효주는, 몇 차례 언쟁 끝에도 한하람이 뜻을 굽히지 않자 정산금 전부를 혼자 차지하기 위해 계획적으로 범행을 저지르기로 한다.",
     "method": "서효주는 사흘 전 밤 혼자 남아 트립해머 램가이드의 리미터 핀을 몰래 뽑고 브레이크 패드를 헐겁게 풀어놓는다. 투어가 끝난 뒤 한하람에게 마지막 손님이 주문한 특수 도검의 담금질 경도를 혼자 확인해보라고 권해 트립해머 바로 아래에 세운 다음, 반대편 바닥의 페달 스위치를 발로 밟아 해머를 낙하시킨다. 헐거워진 램이 브레이크 없이 그대로 떨어지며 한하람의 머리를 강타한다.",
-    "method_archetypes": ["falling_object"],
-    "motive_archetypes": ["financial_gain", "ownership_dispute"],
-    "cover_up_target": ["responsibility", "evidence"],
-    "cover_up_method": ["false_accident", "digital_record_manipulation", "evidence_removal"],
+    "method_archetypes": [
+      "falling_object"
+    ],
+    "motive_archetypes": [
+      "financial_gain",
+      "ownership_dispute"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "digital_record_manipulation",
+      "evidence_removal"
+    ],
     "key_time_location": "투어 당일 16시 48분경, 대장간 본작업장(L01)",
     "cover_up": "구급대가 도착하기 전, 서효주는 사무실 태블릿의 트립해머 가동 이력 로그에서 자신의 페달 조작 기록을 지우고, 뽑아둔 리미터 핀은 아직 사그라들지 않은 화로 속에 던져 넣어 녹여 없앤다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사흘 전 23시경",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서효주가 다음 날 투어 준비를 핑계로 혼자 남아 트립해머 램가이드의 리미터 핀을 몰래 뽑아둔다.",
       "world_fact": "트립해머 램가이드에 고정돼 있던 리미터 핀이 빠지고, 브레이크 패드도 원래보다 헐거운 상태가 된다."
     },
@@ -67,42 +85,56 @@
       "id": "T02",
       "time": "이틀 전 15시",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "한하람과 서효주가 사무실에서 동업 정산 비율을 두고 언성을 높이며 다툰다."
     },
     {
       "id": "T03",
       "time": "이틀 전 15시 10분",
       "location": "L03",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "채재이가 사무실 문밖에서 서류를 정리하다가 두 대표가 다투는 소리를 우연히 듣는다."
     },
     {
       "id": "T04",
       "time": "투어 당일 11시",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노지완이 투어 참가자들 앞에서 담금질 시연을 진행한다."
     },
     {
       "id": "T05",
       "time": "투어 당일 14시",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "유은채가 자재창고에서 다음 주문 물량에 쓸 특수 도검용 재료 재고를 점검한다."
     },
     {
       "id": "T06",
       "time": "투어 당일 16시 20분",
       "location": "L01",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "서효주가 한하람에게 마지막 손님이 주문한 특수 도검의 담금질 경도를 혼자 확인해보라고 권하며 트립해머 바로 아래에 세운다."
     },
     {
       "id": "T07",
       "time": "투어 당일 16시 35분",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "권예준이 몰래 작업장 안쪽까지 들어가 사진을 찍다가 반대편에서 준비 중인 서효주의 모습을 배경에 담는다.",
       "world_fact": "권예준의 사진 배경에, 트립해머 반대편 페달 스위치 쪽으로 다가서는 서효주의 모습이 우연히 담긴다."
     },
@@ -110,14 +142,19 @@
       "id": "T08",
       "time": "투어 당일 16시 40분",
       "location": "L05",
-      "actors": ["CH02", "CH04"],
+      "actors": [
+        "CH02",
+        "CH04"
+      ],
       "actual_action": "노지완이 작업장 안쪽까지 들어간 권예준을 발견해 로비 쪽으로 안내해 내보낸다."
     },
     {
       "id": "T09",
       "time": "투어 당일 16시 48분",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서효주가 트립해머 반대편 바닥의 페달 스위치를 발로 밟는다.",
       "world_fact": "헐거워진 트립해머 램이 브레이크 없이 그대로 낙하하며 작업장 바닥이 크게 울린다."
     },
@@ -125,28 +162,36 @@
       "id": "T10",
       "time": "투어 당일 16시 48분",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "한하람이 낙하한 트립해머 램에 머리를 강타당해 그 자리에 쓰러진다."
     },
     {
       "id": "T11",
       "time": "투어 당일 16시 49분",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노지완이 굉음을 듣고 작업장으로 달려가 쓰러진 한하람을 발견한다."
     },
     {
       "id": "T12",
       "time": "투어 당일 16시 50분",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "유은채가 소란을 듣고 뛰어들어와 119에 신고한다."
     },
     {
       "id": "T13",
       "time": "투어 당일 16시 53분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서효주가 사람들이 몰려 있는 틈을 타 사무실 태블릿에서 트립해머 가동 이력 로그의 자신의 조작 기록을 지운다.",
       "world_fact": "사무실 태블릿의 트립해머 가동 이력에서, 사고 시각 직전 몇 분간의 서효주 계정 조작 기록이 삭제된다."
     },
@@ -154,12 +199,13 @@
       "id": "T14",
       "time": "투어 당일 16시 56분",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서효주가 뽑아둔 리미터 핀을 아직 사그라들지 않은 화로 속에 던져 넣는다.",
       "world_fact": "화로 속에 던져진 리미터 핀이 남은 불씨에 녹아 형체를 알아보기 힘든 쇳덩어리로 변한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -198,7 +244,10 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-05",
@@ -241,13 +290,17 @@
           "fact_id": "F-CH02-01",
           "content": "사고 직후, 굉음을 듣고 작업장으로 달려가 쓰러진 한하람을 처음 발견했다.",
           "source": "본인 경험",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "굉음이 나기 직전, 작업장 반대편 페달 스위치 쪽에 서효주가 서 있는 걸 얼핏 본 기억이 있다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -262,7 +315,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -294,7 +350,9 @@
           "fact_id": "F-CH03-01",
           "content": "사고로 소란스러운 와중에도 서효주가 잠깐 화로 쪽에 혼자 다녀오는 걸 봤다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         }
       ],
       "initial_claims": [
@@ -310,7 +368,10 @@
           "reason_for_limit_or_lie": "괜히 대표들 사이 일에 휘말리기 싫어서"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -342,7 +403,9 @@
           "fact_id": "F-CH04-01",
           "content": "사실은 투어 중 몰래 공방 안쪽까지 들어가 사진을 몇 장 찍었다.",
           "source": "본인 경험",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -359,7 +422,10 @@
           "reason_for_limit_or_lie": "본인이 찍은 사진에 뭐가 찍혔는지 몰라서 대수롭지 않게 여김"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -391,7 +457,10 @@
           "fact_id": "F-CH05-01",
           "content": "이틀 전 오후, 사무실 문밖에서 한하람과 서효주가 정산 비율을 두고 언성을 높이며 다투는 소리를 들었다.",
           "source": "본인이 직접 목격",
-          "related_timeline": ["T02", "T03"]
+          "related_timeline": [
+            "T02",
+            "T03"
+          ]
         }
       ],
       "initial_claims": [
@@ -407,7 +476,10 @@
           "reason_for_limit_or_lie": "괜히 대표들 사이 갈등을 들쑤시고 싶지 않아서"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -430,11 +502,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "8년째 함께 운영해온 공동대표 사이.",
       "public_face": "오래 손발을 맞춰온 동업자로 알려져 있다.",
       "says": {
@@ -445,7 +519,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "공동대표와 수석 도제. 오랫동안 함께 일해온 사이다.",
       "public_face": "믿고 일을 맡기는 사이로 알려져 있다.",
       "says": {
@@ -456,7 +533,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "공동대표와 자재 관리 담당. 오래 함께 일해온 사이다.",
       "public_face": "그냥 업무상 부딪힐 일 없는 동료로 보인다.",
       "says": {
@@ -467,7 +547,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "공동대표와 경리 담당. 정산 서류를 함께 챙겨온 사이다.",
       "public_face": "업무상 신뢰하는 사이로 보인다.",
       "says": {
@@ -479,7 +562,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "투어 참가자와 공동대표. 그날 처음 만난 사이였다.",
       "public_face": "그냥 투어 손님과 안내 대표 정도로 보인다.",
       "says": {
@@ -489,14 +575,18 @@
       "surfaces_when": "탐정이 노지완의 목격담(F-CH02-02)을 근거로 안쪽까지 들어간 사실을 캐물으면 드러난다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "대장간 본작업장",
       "access": "공방 직원과 투어 참가자가 가이드 동행 하에 드나드는 메인 작업 공간. 사고 이후 통제선이 쳐졌다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "천장 레일에 매달린 트립해머와 상시 가동 중인 화로가 있는 단조 작업장. 바닥엔 받침쇠와 집게, 각종 담금질 도구가 늘어서 있다.",
       "observation_rules": [
         {
@@ -523,9 +613,17 @@
       "name": "담금질실",
       "access": "직원만 드나드는 구역으로, 작업장과 문 하나로 연결돼 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "물과 기름 담금질 탱크가 나란히 놓인 좁은 방. 투어 때는 안쪽 유리창으로만 들여다볼 수 있다.",
-      "observation_rules": [{"action": "담금질실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "물과 기름 탱크가 아직 미지근하고, 수면 위로 오늘 쓴 흔적이 얇게 떠 있다. 투어 손님들은 안쪽 유리창 앞에서만 이 방을 들여다볼 수 있어, 문으로 드나든 사람은 공방 사람뿐이다."}],
+      "observation_rules": [
+        {
+          "action": "담금질실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "물과 기름 탱크가 아직 미지근하고, 수면 위로 오늘 쓴 흔적이 얇게 떠 있다. 투어 손님들은 안쪽 유리창 앞에서만 이 방을 들여다볼 수 있어, 문으로 드나든 사람은 공방 사람뿐이다."
+        }
+      ],
       "detail_rules": []
     },
     {
@@ -533,7 +631,10 @@
       "name": "사무실",
       "access": "직원과 대표만 드나드는 통제구역.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L05"],
+      "connects_to": [
+        "L01",
+        "L05"
+      ],
       "base_description": "정산 서류와 주문 장부가 쌓인 사무 공간. 트립해머 가동 이력을 조회할 수 있는 관리용 태블릿이 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -549,7 +650,9 @@
       "name": "자재창고",
       "access": "직원만 드나드는 창고.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "쇠막대와 숯, 완제품 포장재가 쌓인 창고. 안쪽엔 최근 들여온 특수 도검용 재료 상자들이 놓여 있다.",
       "observation_rules": [],
       "detail_rules": []
@@ -559,13 +662,15 @@
       "name": "로비/마당",
       "access": "출입구 겸 투어 집결 공간. 누구나 드나든다.",
       "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "공방 정문과 마당을 겸한 공간. 투어 참가자들의 신발장과 안내 데스크가 있다.",
       "observation_rules": [],
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -573,11 +678,20 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "트립해머 램가이드 주변을 살펴본다",
-      "related_timeline": ["T01", "T09"],
+      "related_timeline": [
+        "T01",
+        "T09"
+      ],
       "content": "리미터 핀 고정 구멍이 비어 있고, 브레이크 패드도 원래보다 헐거운 상태로 남아 있다.",
-      "proves": ["사고가 단순한 노후 결함이 아니라 인위적으로 훼손된 것일 가능성이 크다"],
-      "does_not_prove": ["누가 훼손했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "사고가 단순한 노후 결함이 아니라 인위적으로 훼손된 것일 가능성이 크다"
+      ],
+      "does_not_prove": [
+        "누가 훼손했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E02",
@@ -585,11 +699,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 태블릿의 트립해머 가동 이력을 조회한다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "사고 시각 직전 몇 분간의 가동 이력이 통째로 비어 있고, 그 앞뒤 기록은 모두 서효주 계정으로 남아 있다.",
-      "proves": ["누군가 사고 직후 로그를 의도적으로 지웠다는 것, 그리고 그 계정이 서효주라는 것"],
-      "does_not_prove": ["리미터 핀을 누가 뽑았는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "누군가 사고 직후 로그를 의도적으로 지웠다는 것, 그리고 그 계정이 서효주라는 것"
+      ],
+      "does_not_prove": [
+        "리미터 핀을 누가 뽑았는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E03",
@@ -597,11 +719,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "화로 재를 체로 걸러본다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "형체를 알아보기 힘들 만큼 녹아 뭉친 작은 쇳조각이 재 속에서 나온다. 트립해머 리미터 핀과 비슷한 굵기다.",
-      "proves": ["누군가 리미터 핀으로 추정되는 부품을 화로에 넣어 없애려 했다는 것"],
-      "does_not_prove": ["정확히 언제 넣었는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 리미터 핀으로 추정되는 부품을 화로에 넣어 없애려 했다는 것"
+      ],
+      "does_not_prove": [
+        "정확히 언제 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -609,11 +739,20 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "채재이에게 두 대표 사이에 있었던 일을 묻는다",
-      "related_timeline": ["T02", "T03"],
+      "related_timeline": [
+        "T02",
+        "T03"
+      ],
       "content": "이틀 전 오후, 사무실 문밖에서 두 대표가 정산 비율을 두고 다투는 소리를 들었다.",
-      "proves": ["서효주가 정산 갈등으로 크게 반발했다는 것"],
-      "does_not_prove": ["서효주가 실제로 범행을 계획했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "서효주가 정산 갈등으로 크게 반발했다는 것"
+      ],
+      "does_not_prove": [
+        "서효주가 실제로 범행을 계획했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E05",
@@ -621,11 +760,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "노지완에게 사고 직전 작업장 반대편에서 본 것이 있는지 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "굉음이 나기 직전, 작업장 반대편 페달 스위치 쪽에 서효주가 서 있는 걸 얼핏 봤다.",
-      "proves": ["서효주가 사고 직전 페달 스위치 근처에 있었다는 것"],
-      "does_not_prove": ["서효주가 실제로 페달을 밟았는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "서효주가 사고 직전 페달 스위치 근처에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "서효주가 실제로 페달을 밟았는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E06",
@@ -633,11 +780,19 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "권예준에게 몰래 찍은 사진을 보여달라고 요청한다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "사고 직전 찍힌 사진 속에, 트립해머 반대편 페달 스위치 쪽으로 다가서는 서효주의 모습이 배경에 담겨 있다.",
-      "proves": ["서효주가 페달을 밟을 수 있는 위치로 이동하고 있었다는 것을 사진으로 증명"],
-      "does_not_prove": ["정확히 몇 시에 찍힌 사진인지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "서효주가 페달을 밟을 수 있는 위치로 이동하고 있었다는 것을 사진으로 증명"
+      ],
+      "does_not_prove": [
+        "정확히 몇 시에 찍힌 사진인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E07",
@@ -645,10 +800,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "노지완에게 권예준을 로비로 안내한 시각을 묻는다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "작업장 안쪽까지 들어간 권예준을 발견해 16시 40분경 로비 쪽으로 안내해 내보냈다.",
-      "proves": ["권예준이 사고 발생 시각(16시 48분)보다 먼저 이미 작업장을 벗어나 있었다는 것"],
-      "does_not_prove": ["그 뒤 권예준이 다시 돌아오지 않았는지"],
+      "proves": [
+        "권예준이 사고 발생 시각(16시 48분)보다 먼저 이미 작업장을 벗어나 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 권예준이 다시 돌아오지 않았는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -659,66 +820,120 @@
       "discovery_condition": "채재이에게 사고 직후 자재창고 앞에서 유은채가 한 일을 묻는다",
       "related_timeline": [],
       "content": "유은채가 구급대 들것이 지나갈 통로를 확보하려고 창고 앞에 쌓여 있던 새 주문 자재 상자들을 서둘러 옆으로 옮기는 걸 봤다.",
-      "proves": ["유은채가 상자를 옮긴 이유가 구급대 진입로 확보였다는 것"],
-      "does_not_prove": ["그 상자들이 사건과 완전히 무관하다는 것 자체"],
+      "proves": [
+        "유은채가 상자를 옮긴 이유가 구급대 진입로 확보였다는 것"
+      ],
+      "does_not_prove": [
+        "그 상자들이 사건과 완전히 무관하다는 것 자체"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_presence_minimized",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E05"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "서효주에게 사고 당시 행적을 캐묻고, 노지완의 목격담(E05)을 제시한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "작업장 반대편에 있었던 건 맞지만, 그냥 바닥에 떨어진 공구를 정리하고 있었을 뿐이라고 진술을 바꾼다."
       },
-      "must_not_release": ["페달을 밟았다는 사실", "리미터 핀을 미리 뽑아둔 사실", "동기(정산 갈등)"]
+      "must_not_release": [
+        "페달을 밟았다는 사실",
+        "리미터 핀을 미리 뽑아둔 사실",
+        "동기(정산 갈등)"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_presence_minimized",
       "to_stage": "admits_pedal_contact_accident",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E06"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E06"
+        ]
+      },
       "player_action": "권예준이 몰래 찍은 사진(E06)을 제시하며 페달 스위치 근처에 있었던 이유를 캐묻는다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "페달을 밟은 건 맞지만, 실수로 밟은 것뿐이었다고 진술한다."
       },
-      "must_not_release": ["리미터 핀을 미리 뽑아둔 사실", "가동 이력 로그를 지운 사실", "동기"]
+      "must_not_release": [
+        "리미터 핀을 미리 뽑아둔 사실",
+        "가동 이력 로그를 지운 사실",
+        "동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_pedal_contact_accident",
       "to_stage": "admits_premeditated_sabotage",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
+      },
       "player_action": "트립해머 램가이드의 훼손 흔적(E01)과 화로에서 발견된 녹은 쇳조각(E03)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "사흘 전 미리 리미터 핀을 뽑아두고 브레이크 패드를 헐겁게 만들어뒀다는 사실, 그리고 사고 후 그 핀을 화로에 넣어 녹여 없앴다는 사실을 인정하며 이 일이 우발적 사고가 아니라 계획된 범행이었음을 시인한다."
       },
-      "must_not_release": ["동기(정산 갈등)"]
+      "must_not_release": [
+        "동기(정산 갈등)"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "admits_premeditated_sabotage",
       "to_stage": "confesses_motive",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E02", "E04"],
-      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E02", "E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": [
+          "E02",
+          "E04"
+        ]
+      },
       "player_action": "가동 이력 로그의 삭제 공백(E02)과 채재이의 언쟁 목격담(E04)을 함께 제시하며 동기를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
@@ -727,7 +942,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -736,7 +950,8 @@
       "how_to_clear": "노지완의 안내 목격담(E07)과 사고 발생 시각(16시 48분)을 대조하면 그가 사고 발생 전에 이미 작업장을 벗어나 있었다는 게 드러난다.",
       "must_not_imply": "권예준이 범행에 가담했거나 사고 현장에 있었다는 암시",
       "lingering_thread": "권예준은 결국 그 사진을 SNS에 올리지 않기로 하고, 나중에 공방에 사과 인사를 전하기로 한다.",
-      "suspicion_deepener": "권예준이 투어 중 몰래 작업장 안쪽까지 들어가 있었다는 사실이 드러나며 의심이 커진다."
+      "suspicion_deepener": "권예준이 투어 중 몰래 작업장 안쪽까지 들어가 있었다는 사실이 드러나며 의심이 커진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -745,27 +960,39 @@
       "how_to_clear": "채재이의 진입로 확보 목격담(E08)을 확인하면 그녀가 옮긴 상자들이 사건과 무관한 신규 주문 자재이고, 구급대 진입로 확보를 위해 옮긴 것뿐이라는 사실이 드러나 의심이 해소된다.",
       "must_not_imply": "유은채가 범행에 가담했다는 암시",
       "lingering_thread": "유은채는 이 일을 계기로 창고 앞 진입로를 평소에도 비워두자고 공방에 건의한다.",
-      "suspicion_deepener": "구급대가 도착하기 전, 유은채가 창고 앞 자재를 분주히 옮기는 모습이 목격되며 의심이 커진다."
+      "suspicion_deepener": "구급대가 도착하기 전, 유은채가 창고 앞 자재를 분주히 옮기는 모습이 목격되며 의심이 커진다.",
+      "character_id": "CH03"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-01", "F-CH01-02"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "F-CH01-01",
+      "F-CH01-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "리미터 핀을 사전에 뽑아두고 페달 스위치를 밟아 트립해머를 낙하시켜 한하람을 가격했다는 사실",
       "motive_fact": "동업 정산금을 혼자 차지하기 위해 계획적으로 범행했다는 사실"
     }
   },
-
   "final_deduction": {
     "responsible": "서효주(CH01)",
     "method": "트립해머 램가이드의 리미터 핀을 사흘 전 미리 뽑아 브레이크 패드를 헐겁게 만들어두고, 투어 종료 직후 한하람에게 마지막 주문품의 담금질 경도를 혼자 확인해보라며 해머 아래 세운 뒤, 반대편 바닥 페달 스위치를 밟아 해머를 낙하시켜 살해했다.",
     "motive": "8년간 함께 운영해온 동업자 한하람이 동업을 정리하며 지분을 절반씩 나누자고 하자, 실제 기여도에 비해 부당하다고 여긴 서효주가 정산금 전부를 혼자 차지하기 위해 범행을 계획했다.",
     "key_connection": "권예준이 우연히 찍은 사진(E06)이 사고 직전 서효주가 페달 스위치 쪽으로 다가서고 있었음을 보여주고, 노지완의 목격담(E05)이 그 위치를 다시 확인해주며, 태블릿 가동 이력의 삭제된 공백(E02)과 화로에서 발견된 녹은 쇳조각(E03)이 계획적 훼손과 은폐를 뒷받침한다."
   },
-
   "ending_explanation": [
     "서효주는 사흘 전 밤, 트립해머 램가이드의 리미터 핀을 몰래 뽑고 브레이크 패드를 헐겁게 만들어두었다.",
     "투어가 끝난 직후, 그는 한하람에게 마지막 주문품의 담금질 경도를 혼자 확인해보라고 권하며 해머 아래 세웠다.",

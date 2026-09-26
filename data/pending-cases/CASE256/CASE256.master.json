@@ -20,30 +20,34 @@
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 근처에서 늦은 점심을 먹은 뒤 소화를 시키려 남전공방 로비 겸 전시관에 들렀다가, 마침 시연회 준비로 어수선하던 그 자리에 우연히 눌러앉아 있었다.",
     "tone": "쪽빛 물이 밴 낡은 항아리와 갓 마른 천 냄새 속에, 오래 쌓인 사제 간의 애정과 두려움이 되돌릴 수 없는 파국으로 번진 사건의 씁쓸함.",
-    "tags": ["쪽물_염색공방", "가업_승계", "도제_관계"]
+    "tags": [
+      "쪽물_염색공방",
+      "가업_승계",
+      "도제_관계"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 14:07",
     "location_id": "L01",
     "narrative": "늦은 오후, 남전공방 로비 겸 전시관이었다.\n\n한지우가 진열장 속 낡은 쪽빛 천을 들여다보며 중얼거렸다.\n\n\"밥 먹고 여기까지 따라올 줄은 몰랐는데요.\"\n\n\"근처니까 구경 좀 하지.\"\n\n탐정이 방명록을 슬쩍 넘겨봤다.\n\n안쪽 작업장에서 물 젓는 소리가 규칙적으로 넘어오고 있었다. 첨벙, 하고 한 번. 잠깐 쉬었다가 또 한 번.\n\n그 박자가 중간에 끊겼다.\n\n한지우가 천에서 눈을 뗐다.\n\n\"...소리가 없어졌는데요.\"\n\n몇 초 뒤 안쪽에서 다급한 발소리가 났다. 편지완이 사색이 된 얼굴로 뛰쳐나오며 사람을 찾았다.\n\n\"대표님이 항아리에 빠지셨어요. 의식이 없—\"\n\n탐정은 이미 전시관을 가로지르고 있었다."
   },
-
   "ending_scene": {
     "location_id": "L01",
     "narrative": "로비 겸 전시관, 아직 시연회 안내판이 그대로 붙어 있는 자리였다.\n\n노강율은 오래도록 제 손을 내려다보고 있었다. 손톱 밑까지 쪽빛이 들어 빠지지 않는 손이었다.\n\n\"대표님이 살아 계시는 한... 저도, 소하도 아무것도 될 수 없었어요.\"\n\n그는 목이 멘 목소리로 말을 이었다.\n\n\"내보내기로 했다는 얘기를 들은 순간부터, 다른 방법은 생각도 안 났어요.\"\n\n한지우가 수첩을 쥔 손을 내리지 않은 채 말했다.\n\n\"발판이 기울어지는 것까지는 사고일 수 있어요.\"\n\n그리고 한 박자 뒤에 덧붙였다.\n\n\"근데 그 항아리 입구가 어깨에 걸린다는 건, 이 공방에서 선생님이 제일 잘 아셨잖아요.\"\n\n노강율은 대답 없이 제 손만 내려다봤다.\n\n얼마 뒤 두 사람이 공방 밖으로 나오자, 골목에 널어둔 천이 아직 쪽물을 떨구고 있었다.\n\n\"오늘 시연회는 아예 취소겠네요.\"\n\n한지우가 말했다.\n\n\"누가 그걸 챙기겠냐.\"\n\n탐정이 널린 천 밑을 지나며 대꾸했다.\n\n전시관 안쪽에서는 반소하가 취소된 정혼 얘기를 전해 들은 채, 아버지의 죽음 뒤에야 놓여난 것 같은 얼굴로 오래도록 서 있었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "반석주", "role": "남전공방 대표 / 3대째 계승자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "반석주",
+      "role": "남전공방 대표 / 3대째 계승자",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "정기 시연회 준비가 한창이던 오후, 염색 작업장 안 대형 쪽 항아리 곁에서 반석주가 물에 잠긴 채 쓰러진 모습으로 발견됐다.",
     "발견 당시 항아리 위에는 안쪽으로 꺾인 나무 발판이 걸쳐 있었다.",
     "그 시간대 공방 안팎에는 수석 염색장인 노강율, 딸 반소하, 직원 편지완, 방문객 성라온이 있었던 것으로 확인된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "노강율은 반석주의 수석 염색장인으로 3년째 반석주의 딸 반소하와 비밀리에 연애 중이었다. 반석주는 최근 두 사람의 관계를 알아채고 크게 반대했는데, 마침 공방 증축 자금을 지원하기로 한 방직회사 대표가 자신의 아들과 반소하의 정혼을 조건으로 내걸었다. 반석주는 이 조건을 받아들여 이번 시연회가 끝나면 노강율을 공방에서 내보내고 반소하의 정혼을 서둘러 추진하기로 결심했다. 노강율은 반석주가 살아 있는 한 반소하와의 관계도, 공방에서의 자리도 모두 끝난다고 판단해 시연회 전에 반석주를 없애기로 결심한다.",
@@ -67,47 +71,151 @@
     ],
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "4일 전 19:00", "location": "L04", "actors": ["V01", "CH04"],
+    {
+      "id": "T01",
+      "time": "4일 전 19:00",
+      "location": "L04",
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "반석주가 사무실에서 성라온과 만나 딸의 정혼을 조건으로 내건 증축 후원 조건서에 서명한다.",
-      "world_fact": "그 조건서에는 반소하와 방직회사 후계자의 정혼이 성사돼야 공방 증축 자금 지원이 확정된다는 조항이 명시돼 있었다." },
-    { "id": "T02", "time": "2일 전 22:00", "location": "L02", "actors": ["CH01"],
+      "world_fact": "그 조건서에는 반소하와 방직회사 후계자의 정혼이 성사돼야 공방 증축 자금 지원이 확정된다는 조항이 명시돼 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "2일 전 22:00",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "노강율이 마감 정리를 하다가, 사무실에서 나오는 반석주와 성라온의 대화 중 정혼 조건 얘기를 우연히 엿듣는다.",
-      "world_fact": "노강율은 반석주가 반소하의 정혼을 대가로 공방 증축 자금을 받기로 했다는 사실과, 시연회가 끝나면 자신을 공방에서 내보내기로 했다는 사실을 그 대화를 통해 알게 됐다." },
-    { "id": "T03", "time": "전날 23:10", "location": "L02", "actors": ["CH01"],
+      "world_fact": "노강율은 반석주가 반소하의 정혼을 대가로 공방 증축 자금을 받기로 했다는 사실과, 시연회가 끝나면 자신을 공방에서 내보내기로 했다는 사실을 그 대화를 통해 알게 됐다."
+    },
+    {
+      "id": "T03",
+      "time": "전날 23:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "노강율이 마감 후 홀로 남아 쪽 항아리 발판 고정 못을 몰래 풀어놓는다.",
-      "world_fact": "고정 못이 풀린 발판은 사람 체중이 실리면 안쪽으로 꺾여, 올라선 사람이 항아리 속으로 고개부터 빠지게 된다." },
-    { "id": "T04", "time": "전날 23:35", "location": "L05", "actors": ["CH01"],
+      "world_fact": "고정 못이 풀린 발판은 사람 체중이 실리면 안쪽으로 꺾여, 올라선 사람이 항아리 속으로 고개부터 빠지게 된다."
+    },
+    {
+      "id": "T04",
+      "time": "전날 23:35",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "노강율이 뒷마당 우물가에서 손을 씻고 렌치를 공구함에 도로 넣어둔다.",
-      "world_fact": "노강율이 사용한 렌치만 그 밤 이후 유독 물기와 흙 없이 마른 채로 남아 있었다." },
-    { "id": "T05", "time": "그날 09:40", "location": "L03", "actors": ["CH03"],
-      "actual_action": "편지완이 재료창고에서 그날 시연회에 쓸 염료 재고를 확인하고 서명란에 적는다." },
-    { "id": "T06", "time": "그날 10:30", "location": "L01", "actors": ["CH04"],
-      "actual_action": "성라온이 로비에 도착해 시연회 참관 명단에 서명한다." },
-    { "id": "T07", "time": "그날 13:50", "location": "L04", "actors": ["CH02"],
-      "actual_action": "반소하가 사무실에서 다음 시연회 안내문 편집 작업을 계속한다." },
-    { "id": "T08", "time": "그날 14:00", "location": "L02", "actors": ["V01"],
+      "world_fact": "노강율이 사용한 렌치만 그 밤 이후 유독 물기와 흙 없이 마른 채로 남아 있었다."
+    },
+    {
+      "id": "T05",
+      "time": "그날 09:40",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "편지완이 재료창고에서 그날 시연회에 쓸 염료 재고를 확인하고 서명란에 적는다."
+    },
+    {
+      "id": "T06",
+      "time": "그날 10:30",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "성라온이 로비에 도착해 시연회 참관 명단에 서명한다."
+    },
+    {
+      "id": "T07",
+      "time": "그날 13:50",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "반소하가 사무실에서 다음 시연회 안내문 편집 작업을 계속한다."
+    },
+    {
+      "id": "T08",
+      "time": "그날 14:00",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "반석주가 시연 준비를 위해 발판에 올라 항아리 속 침전물을 젓는다.",
-      "world_fact": "고정 못이 풀린 발판이 반석주의 체중에 안쪽으로 꺾이며, 반석주는 고개부터 항아리 속으로 빠져 좁은 입구에 어깨가 걸린 채 빠져나오지 못한다." },
-    { "id": "T09", "time": "그날 14:05", "location": "L02", "actors": ["CH03"],
-      "actual_action": "편지완이 작업장 옆을 지나다 항아리 쪽에서 들리던 물소리가 갑자기 끊긴 것이 이상해 들여다보다, 쓰러진 반석주를 발견한다." },
-    { "id": "T10", "time": "그날 14:07", "location": "L02", "actors": ["CH01"],
-      "actual_action": "노강율이 소란을 듣고 달려와 반석주를 항아리에서 끌어올리지만 이미 반응이 없다." }
+      "world_fact": "고정 못이 풀린 발판이 반석주의 체중에 안쪽으로 꺾이며, 반석주는 고개부터 항아리 속으로 빠져 좁은 입구에 어깨가 걸린 채 빠져나오지 못한다."
+    },
+    {
+      "id": "T09",
+      "time": "그날 14:05",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "편지완이 작업장 옆을 지나다 항아리 쪽에서 들리던 물소리가 갑자기 끊긴 것이 이상해 들여다보다, 쓰러진 반석주를 발견한다."
+    },
+    {
+      "id": "T10",
+      "time": "그날 14:07",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노강율이 소란을 듣고 달려와 반석주를 항아리에서 끌어올리지만 이미 반응이 없다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "노강율", "role": "수석 염색장인 / 반석주의 수제자", "present_location": "L02",
+      "id": "CH01",
+      "name": "노강율",
+      "role": "수석 염색장인 / 반석주의 수제자",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 23시 10분경 마감 후 홀로 남아 쪽 항아리 발판 고정 못을 몰래 풀어놓았다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "발판이 기울면 항아리 입구가 좁아 사람이 빠지면 어깨가 걸려 스스로 빠져나오기 어렵다는 걸 계산하고 손을 봤다.", "source": "개인기술(오랜 염색장 경력으로 항아리 구조를 잘 안다)" },
-        { "fact_id": "F-CH01-03", "content": "반석주가 딸의 정혼을 조건으로 증축 후원을 받기로 하고 시연회가 끝나면 자신을 내보내기로 했다는 사실을 대화를 엿들어 알게 됐다.", "source": "직접목격", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-04", "content": "반석주가 살아 있는 한 반소하와의 관계도 공방에서의 자리도 모두 끝난다. 그 생각에 범행을 결심했고, 그것이 진짜 동기다.", "source": "직접행동" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "전날 23시 10분경 마감 후 홀로 남아 쪽 항아리 발판 고정 못을 몰래 풀어놓았다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "발판이 기울면 항아리 입구가 좁아 사람이 빠지면 어깨가 걸려 스스로 빠져나오기 어렵다는 걸 계산하고 손을 봤다.",
+          "source": "개인기술(오랜 염색장 경력으로 항아리 구조를 잘 안다)"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "반석주가 딸의 정혼을 조건으로 증축 후원을 받기로 하고 시연회가 끝나면 자신을 내보내기로 했다는 사실을 대화를 엿들어 알게 됐다.",
+          "source": "직접목격",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "반석주가 살아 있는 한 반소하와의 관계도 공방에서의 자리도 모두 끝난다. 그 생각에 범행을 결심했고, 그것이 진짜 동기다.",
+          "source": "직접행동"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "전날 밤엔 마감 정리를 마치고 곧장 집으로 돌아갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전날 밤 몰래 남아 발판을 손본 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "반소하와는 그냥 오래 함께 일한 스승과 제자 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "비밀 연애와 그로 인한 진짜 동기를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "전날 밤엔 마감 정리를 마치고 곧장 집으로 돌아갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "전날 밤 몰래 남아 발판을 손본 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "반소하와는 그냥 오래 함께 일한 스승과 제자 사이였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "비밀 연애와 그로 인한 진짜 동기를 숨기려는 것이다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "오래된 발판이 흔들려 안전하게 고쳐준 것뿐이에요.",
@@ -115,19 +223,41 @@
           "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E09" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "E09"
+        },
         {
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "S-CH01-01"
         }
       ],
-      "knowledge_limits": ["반소하가 그날 사무실에서 정확히 무엇을 하고 있었는지는 모른다.", "성라온과 반석주 사이 정확한 후원 액수까지는 모른다."],
+      "knowledge_limits": [
+        "반소하가 그날 사무실에서 정확히 무엇을 하고 있었는지는 모른다.",
+        "성라온과 반석주 사이 정확한 후원 액수까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "능숙하지만 방어적인 표준 존댓말",
         "sentence_length_tendency": "평소엔 침착한 중간 길이 문장, 압박받으면 말이 뚝뚝 끊긴다",
@@ -140,18 +270,47 @@
       ]
     },
     {
-      "id": "CH02", "name": "반소하", "role": "반석주의 딸 / 염색공방 후계자", "present_location": "L04",
+      "id": "CH02",
+      "name": "반소하",
+      "role": "반석주의 딸 / 염색공방 후계자",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 오후 내내 사무실에서 시연회 안내문 편집 작업을 하고 있었다.", "source": "직접행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-02", "content": "아버지가 최근 자신의 정혼 얘기를 방직회사 측과 진행 중이었다는 사실을 눈치챘다.", "source": "개인사" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오후 내내 사무실에서 시연회 안내문 편집 작업을 하고 있었다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "아버지가 최근 자신의 정혼 얘기를 방직회사 측과 진행 중이었다는 사실을 눈치챘다.",
+          "source": "개인사"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 계속 사무실에서 안내문 작업만 하고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "노강율과는 그냥 오래 같이 일한 동료 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "3년째 이어온 비밀 연애를 숨기려는 것이다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날은 계속 사무실에서 안내문 작업만 하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "노강율과는 그냥 오래 같이 일한 동료 사이였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "3년째 이어온 비밀 연애를 숨기려는 것이다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["작업장 안에서 정확히 무슨 일이 있었는지는 모른다.", "노강율이 언제부터 발판에 손을 댔는지까지는 모른다."],
+      "knowledge_limits": [
+        "작업장 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "노강율이 언제부터 발판에 손을 댔는지까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "차분한 표준 존댓말",
         "sentence_length_tendency": "평소엔 담담한 중간 길이 문장, 당황하면 말끝이 흐려진다",
@@ -164,18 +323,49 @@
       ]
     },
     {
-      "id": "CH03", "name": "편지완", "role": "공방 직원 / 재료 관리", "present_location": "L03",
+      "id": "CH03",
+      "name": "편지완",
+      "role": "공방 직원 / 재료 관리",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 9시 40분경 재료창고에서 시연회용 염료 재고를 확인하고 서명했다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "14시 5분경 작업장 옆을 지나다 항아리 쪽 물소리가 갑자기 끊긴 것이 이상해 들여다보다 반석주를 발견했다.", "source": "직접행동", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 9시 40분경 재료창고에서 시연회용 염료 재고를 확인하고 서명했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "14시 5분경 작업장 옆을 지나다 항아리 쪽 물소리가 갑자기 끊긴 것이 이상해 들여다보다 반석주를 발견했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 오전엔 창고에서, 오후엔 작업장 근처를 오가며 시연회 준비만 했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "대표님은 시연회 준비라면 사소한 것 하나까지 다 챙기시는 분이었어요. 발판 하나 삐걱거리는 것도 그냥 못 지나치셨죠.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날은 오전엔 창고에서, 오후엔 작업장 근처를 오가며 시연회 준비만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "대표님은 시연회 준비라면 사소한 것 하나까지 다 챙기시는 분이었어요. 발판 하나 삐걱거리는 것도 그냥 못 지나치셨죠.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["발판이 언제부터 손상돼 있었는지는 모른다.", "노강율과 반소하 사이 관계까지는 모른다."],
+      "knowledge_limits": [
+        "발판이 언제부터 손상돼 있었는지는 모른다.",
+        "노강율과 반소하 사이 관계까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사근사근한 존댓말",
         "sentence_length_tendency": "평소엔 상냥한 중간 길이 문장, 당황하면 말이 빨라진다",
@@ -188,17 +378,43 @@
       ]
     },
     {
-      "id": "CH04", "name": "성라온", "role": "방직회사 대리인 / 증축 후원 담당", "present_location": "L01",
+      "id": "CH04",
+      "name": "성라온",
+      "role": "방직회사 대리인 / 증축 후원 담당",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 10시 30분경 로비에 도착해 시연회 참관 명단에 서명했다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "며칠 전 반석주와 만나 딸의 정혼을 조건으로 내건 증축 후원 조건서에 함께 서명했다.", "source": "직접행동", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 10시 30분경 로비에 도착해 시연회 참관 명단에 서명했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "며칠 전 반석주와 만나 딸의 정혼을 조건으로 내건 증축 후원 조건서에 함께 서명했다.",
+          "source": "직접행동",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날은 시연회 참관을 위해 왔을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날은 시연회 참관을 위해 왔을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["공방 내부 사제 관계까지는 모른다.", "작업장 안에서 정확히 무슨 일이 있었는지는 모른다."],
+      "knowledge_limits": [
+        "공방 내부 사제 관계까지는 모른다.",
+        "작업장 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사무적이고 예의 바른 존댓말",
         "sentence_length_tendency": "평소엔 정돈된 문장, 압박받으면 말수가 줄고 단답이 된다",
@@ -211,145 +427,395 @@
       ]
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 겸 전시관", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
-      "connects_to": ["L02"],
+      "id": "L01",
+      "name": "로비 겸 전시관",
+      "access": "시작부터 누구나 출입 가능하다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "남전공방 로비 겸 상설 전시관. 방문객 방명록과 3대에 걸친 쪽물 작품들이 진열돼 있다.",
       "observation_rules": [
-        { "action": "전시관을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "방명록 옆에 오늘 시연회 참관 예약자 명단이 놓여 있다." }
+        {
+          "action": "전시관을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "방명록 옆에 오늘 시연회 참관 예약자 명단이 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "방명록을 확인한다", "release_evidence_id": "E01", "result": "그날 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다." }
+        {
+          "action": "방명록을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "그날 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "염색 작업장", "access": "직원과 참관 신청자만 출입 가능하며, 사고 이후 통제 구역이다.", "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04", "L05"],
+      "id": "L02",
+      "name": "염색 작업장",
+      "access": "직원과 참관 신청자만 출입 가능하며, 사고 이후 통제 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "대형 쪽 항아리 여러 개와 작업대가 놓인 메인 염색장.",
       "observation_rules": [
-        { "action": "작업장 내부를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 반석주 곁 쪽 항아리 위, 나무 발판이 안쪽으로 꺾인 채 걸쳐 있다." }
+        {
+          "action": "작업장 내부를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "쓰러진 반석주 곁 쪽 항아리 위, 나무 발판이 안쪽으로 꺾인 채 걸쳐 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "발판 고정 못 자리를 살펴본다", "release_evidence_id": "E02", "result": "발판 한쪽 고정 못이 빠져 있고, 나무에는 최근 못을 억지로 뺀 듯한 새 흠집이 나 있다." },
-        { "action": "항아리 입구 폭을 살펴본다", "release_evidence_id": "E03", "result": "항아리 입구는 어른 어깨가 겨우 걸릴 만큼 좁아, 발판이 안쪽으로 꺾이면 빠진 사람이 스스로 몸을 빼내기 어려운 구조였다." }
+        {
+          "action": "발판 고정 못 자리를 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "발판 한쪽 고정 못이 빠져 있고, 나무에는 최근 못을 억지로 뺀 듯한 새 흠집이 나 있다."
+        },
+        {
+          "action": "항아리 입구 폭을 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "항아리 입구는 어른 어깨가 겨우 걸릴 만큼 좁아, 발판이 안쪽으로 꺾이면 빠진 사람이 스스로 몸을 빼내기 어려운 구조였다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "재료창고", "access": "직원만 출입 가능하다.", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L03",
+      "name": "재료창고",
+      "access": "직원만 출입 가능하다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "염료 원료와 도구를 보관하는 창고.",
       "observation_rules": [
-        { "action": "창고 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "선반 위에 그날 시연회용으로 미리 덜어놓은 염료 통들이 나란히 놓여 있다." }
+        {
+          "action": "창고 내부를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "선반 위에 그날 시연회용으로 미리 덜어놓은 염료 통들이 나란히 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "염료 재고 기록을 확인한다", "release_evidence_id": "E04", "result": "그날 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다." }
+        {
+          "action": "염료 재고 기록을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "그날 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "사무실", "access": "가족과 직원만 출입 가능하다.", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L04",
+      "name": "사무실",
+      "access": "가족과 직원만 출입 가능하다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "공방 사무실 겸 서류 보관 공간. 계약서와 회계 장부가 쌓여 있다.",
       "observation_rules": [
-        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 방직회사 명의의 서류철 하나가 열린 채 놓여 있다." }
+        {
+          "action": "사무실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위에 방직회사 명의의 서류철 하나가 열린 채 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "증축 후원 조건서를 확인한다", "release_evidence_id": "E05", "result": "방직회사 측 후원 조건서에는 반소하와 방직회사 후계자의 정혼이 성사돼야 공방 증축 자금 지원이 확정된다는 조항과 반석주의 서명이 남아 있다." },
-        { "action": "컴퓨터 사용 기록을 확인한다", "release_evidence_id": "E06", "result": "사무실 컴퓨터 사용 기록에는 사고 발생 전후로 안내문 편집 작업이 끊김없이 이어져, 자리를 비운 흔적이 없다." }
+        {
+          "action": "증축 후원 조건서를 확인한다",
+          "release_evidence_id": "E05",
+          "result": "방직회사 측 후원 조건서에는 반소하와 방직회사 후계자의 정혼이 성사돼야 공방 증축 자금 지원이 확정된다는 조항과 반석주의 서명이 남아 있다."
+        },
+        {
+          "action": "컴퓨터 사용 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "사무실 컴퓨터 사용 기록에는 사고 발생 전후로 안내문 편집 작업이 끊김없이 이어져, 자리를 비운 흔적이 없다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "뒷마당 우물가", "access": "직원 전용 공간으로 외부인 출입이 제한된다.", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L05",
+      "name": "뒷마당 우물가",
+      "access": "직원 전용 공간으로 외부인 출입이 제한된다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "우물과 공구함이 놓인 좁은 뒷마당. 작업 후 손을 씻거나 도구를 정리하는 공간이다.",
       "observation_rules": [
-        { "action": "뒷마당을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "우물가 바닥에 최근 물을 쓴 흔적이 남아 있다." }
+        {
+          "action": "뒷마당을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "우물가 바닥에 최근 물을 쓴 흔적이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "공구함과 우물가를 살펴본다", "release_evidence_id": "E07", "result": "공구함 안 렌치 하나가 유독 물기와 흙 없이 마른 채 놓여 있고, 정비일지엔 그 주 발판 정비 기록이 전혀 없다." }
+        {
+          "action": "공구함과 우물가를 살펴본다",
+          "release_evidence_id": "E07",
+          "result": "공구함 안 렌치 하나가 유독 물기와 흙 없이 마른 채 놓여 있고, 정비일지엔 그 주 발판 정비 기록이 전혀 없다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "로비 방문객 명부", "source_type": "location", "found_at": "L01", "discovery_condition": "방명록을 확인한다", "related_timeline": ["T05", "T06"],
+    {
+      "id": "E01",
+      "name": "로비 방문객 명부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방명록을 확인한다",
+      "related_timeline": [
+        "T05",
+        "T06"
+      ],
       "content": "그날 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다.",
-      "proves": ["편지완과 성라온의 그날 도착 시각을 뒷받침한다."],
-      "does_not_prove": ["작업장 안에서 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E02", "name": "발판 고정못 훼손 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "발판 고정 못 자리를 살펴본다", "related_timeline": ["T03"],
+      "proves": [
+        "편지완과 성라온의 그날 도착 시각을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "작업장 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "발판 고정못 훼손 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "발판 고정 못 자리를 살펴본다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "발판 한쪽 고정 못이 빠져 있고, 나무에는 최근 못을 억지로 뺀 듯한 새 흠집이 나 있다.",
-      "proves": ["반석주의 낙수가 발판 노후가 아니라 인위적 손상에 의한 것임을 증명한다."],
-      "does_not_prove": ["누가, 언제 손상시켰는지"],
-      "presentation_effect": ["C01", "C02"] },
-    { "id": "E03", "name": "항아리 입구 폭 대조", "source_type": "location", "found_at": "L02", "discovery_condition": "항아리 입구 폭을 살펴본다",
+      "proves": [
+        "반석주의 낙수가 발판 노후가 아니라 인위적 손상에 의한 것임을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 언제 손상시켰는지"
+      ],
+      "presentation_effect": [
+        "C01",
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "항아리 입구 폭 대조",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "항아리 입구 폭을 살펴본다",
       "content": "항아리 입구는 어른 어깨가 겨우 걸릴 만큼 좁아, 발판이 안쪽으로 꺾이면 빠진 사람이 스스로 몸을 빼내기 어려운 구조였다.",
-      "proves": ["발판 훼손이 단순 실수가 아니라 빠져나오기 어려운 구조를 노린 의도적 설계였음을 뒷받침한다."],
-      "does_not_prove": ["누가 그 구조를 노렸는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "염료 재고 확인 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "염료 재고 기록을 확인한다", "related_timeline": ["T05"],
+      "proves": [
+        "발판 훼손이 단순 실수가 아니라 빠져나오기 어려운 구조를 노린 의도적 설계였음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그 구조를 노렸는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "염료 재고 확인 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "염료 재고 기록을 확인한다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "그날 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다.",
-      "proves": ["편지완이 사건 당시 재료창고에 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["작업장 안에서 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E05", "name": "증축 후원 조건서", "source_type": "location", "found_at": "L04", "discovery_condition": "증축 후원 조건서를 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "편지완이 사건 당시 재료창고에 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "작업장 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "증축 후원 조건서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "증축 후원 조건서를 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "방직회사 측 후원 조건서에는 반소하와 방직회사 후계자의 정혼이 성사돼야 공방 증축 자금 지원이 확정된다는 조항과 반석주의 서명이 남아 있다.",
-      "proves": ["반석주가 딸의 정혼을 조건으로 자금 지원을 받기로 했다는 사실을 증명한다."],
-      "does_not_prove": ["노강율이 이 사실을 언제 알았는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "컴퓨터 사용 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "컴퓨터 사용 기록을 확인한다", "related_timeline": ["T07"],
+      "proves": [
+        "반석주가 딸의 정혼을 조건으로 자금 지원을 받기로 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "노강율이 이 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "컴퓨터 사용 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "컴퓨터 사용 기록을 확인한다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "사무실 컴퓨터 사용 기록에는 사고 발생 전후로 안내문 편집 작업이 끊김없이 이어져, 자리를 비운 흔적이 없다.",
-      "proves": ["반소하가 사건 시각 내내 사무실에 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["작업장 안에서 무슨 일이 있었는지"],
-      "presentation_effect": [] },
-    { "id": "E07", "name": "물기 없이 마른 렌치", "source_type": "location", "found_at": "L05", "discovery_condition": "공구함과 우물가를 살펴본다", "related_timeline": ["T04"],
+      "proves": [
+        "반소하가 사건 시각 내내 사무실에 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "작업장 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "물기 없이 마른 렌치",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "공구함과 우물가를 살펴본다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "공구함 안 렌치 하나가 유독 물기와 흙 없이 마른 채 놓여 있고, 정비일지엔 그 주 발판 정비 기록이 전혀 없다.",
-      "proves": ["누군가 기록을 남기지 않고 몰래 발판에 손을 댔다는 사실을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "성라온의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "성라온에게 증축 후원 조건에 대해 묻는다",
+      "proves": [
+        "누군가 기록을 남기지 않고 몰래 발판에 손을 댔다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "성라온의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "성라온에게 증축 후원 조건에 대해 묻는다",
       "content": "성라온은 며칠 전 반석주와 만나 딸의 정혼을 조건으로 증축 후원 계약을 확정했다고 증언한다.",
-      "proves": ["정혼과 자금 지원이 실제로 조건부로 확정됐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["노강율이 이 사실을 알았는지"],
-      "presentation_effect": [] },
-    { "id": "E09", "name": "반소하의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "반소하에게 노강율과의 관계에 대해 묻는다",
+      "proves": [
+        "정혼과 자금 지원이 실제로 조건부로 확정됐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "노강율이 이 사실을 알았는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "반소하의 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반소하에게 노강율과의 관계에 대해 묻는다",
       "content": "반소하는 노강율과 3년째 연애 중이었지만 아버지의 반대로 숨겨왔다고 증언한다.",
-      "proves": ["노강율과 반소하 사이 비밀 연애가 실재했다는 사실을 증명한다."],
-      "does_not_prove": ["노강율이 살해를 계획했는지"],
-      "presentation_effect": ["C03"] }
+      "proves": [
+        "노강율과 반소하 사이 비밀 연애가 실재했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "노강율이 살해를 계획했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_night_visit_admission",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E07"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E07"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "after_night_visit_admission",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02",
+          "E07"
+        ]
+      },
       "player_action": "발판 고정못 훼손 흔적과 물기 없이 마른 렌치를 함께 제시해, 마감 후 곧장 집에 갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 마감 후에도 남아 발판을 손본 것은 인정한다." },
-      "must_not_release": ["의도적으로 발판이 기울도록 조작했다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "전날 밤 마감 후에도 남아 발판을 손본 것은 인정한다."
+      },
+      "must_not_release": [
+        "의도적으로 발판이 기울도록 조작했다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "after_night_visit_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "after_night_visit_admission",
+      "to_stage": "after_intent_admission",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
+      },
       "player_action": "발판 고정못 훼손 흔적과 항아리 입구 폭 대조 결과를 함께 제시해, 단순히 손봐준 것뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "발판이 기울면 항아리 입구에 어깨가 걸려 빠져나오기 힘들다는 걸 계산하고 손을 본 것은 인정하지만, 반석주를 노린 게 아니라 다른 이유였다고 얼버무린다." },
-      "must_not_release": ["진짜 동기", "계획성 전체"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "발판이 기울면 항아리 입구에 어깨가 걸려 빠져나오기 힘들다는 걸 계산하고 손을 본 것은 인정하지만, 반석주를 노린 게 아니라 다른 이유였다고 얼버무린다."
+      },
+      "must_not_release": [
+        "진짜 동기",
+        "계획성 전체"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "after_intent_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E05", "E09"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E09"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "after_intent_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05",
+          "E09"
+        ]
+      },
       "player_action": "증축 후원 조건서와 반소하의 증언을 함께 제시해, 스승과 제자 사이일 뿐이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "반소하와 3년째 연애 중이었고, 정혼과 퇴출 결정을 알게 된 뒤 반석주가 살아 있는 한 관계도 자리도 끝이라는 생각에 범행을 저질렀다는 진짜 동기를 인정하며 무너진다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "반소하와 3년째 연애 중이었고, 정혼과 퇴출 결정을 알게 된 뒤 반석주가 살아 있는 한 관계도 자리도 끝이라는 생각에 범행을 저질렀다는 진짜 동기를 인정하며 무너진다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -358,7 +824,8 @@
       "how_to_clear": "컴퓨터 사용 기록(E06)을 확인해, 반소하가 사고 전후로 자리를 비운 흔적 없이 계속 작업 중이었음을 확인한다.",
       "must_not_imply": "정혼을 반대했다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "반소하는 결국 정혼을 받지 않기로 하지만, 그 결정이 아버지의 죽음 이후에야 가능해졌다는 사실에 마음이 편치 않다.",
-      "suspicion_deepener": "반소하가 사고 직후에도 정혼 얘기가 나올까 조건서 쪽 서류함을 유독 신경 쓰는 기색을 보인다."
+      "suspicion_deepener": "반소하가 사고 직후에도 정혼 얘기가 나올까 조건서 쪽 서류함을 유독 신경 쓰는 기색을 보인다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -367,14 +834,17 @@
       "how_to_clear": "로비 방문객 명부(E01)와 성라온의 증언(E08)을 대조해, 사고 시각 그가 로비에 있었다는 사실을 확인한다.",
       "must_not_imply": "재협상 갈등이 있었다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "성라온은 결국 후원 계약을 예정대로 진행하지만, 반석주의 죽음으로 계약의 의미가 달라졌다는 사실에 개운치 않은 얼굴을 감추지 못한다.",
-      "suspicion_deepener": "성라온이 사고 이후에도 계약 조건 변경 여부부터 챙기는 냉담한 태도를 보인다."
+      "suspicion_deepener": "성라온이 사고 이후에도 계약 조건 변경 여부부터 챙기는 냉담한 태도를 보인다.",
+      "character_id": "CH04"
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "3대째 이어온 공방에서 오래 손발을 맞춰 온 수석 염색장인과 대표.",
       "public_face": "가장 오래된 사제 관계로 알려져 있고, 시연회 준비도 늘 둘이 상의해 정해 왔다.",
       "private_strain": "노강율은 대표가 시연회가 끝나면 자신을 공방에서 내보내기로 했다는 사실을 엿들어 알고 있으면서도 먼저 꺼내지 않는다.",
@@ -385,7 +855,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "가업을 물려받을 외동딸과, 그 딸의 앞날을 정혼으로 정하려 한 아버지.",
       "public_face": "가업을 함께 꾸려가는 무던한 부녀 사이로 알려져 있다.",
       "private_strain": "반소하는 노강율과 3년째 이어온 관계를 아버지가 반대해 왔다는 사실을 먼저 꺼내지 않는다.",
@@ -396,7 +869,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "공방 증축 자금을 조건부로 지원하기로 한 방직회사 대리인과 그 조건을 받아들인 대표.",
       "public_face": "실무로 계약을 조율해 온 사업 파트너 사이로 알려져 있다.",
       "private_strain": "성라온은 후원 조건에 반소하의 정혼이 못 박혀 있었다는 사실을 먼저 꺼내지 않는다.",
@@ -407,7 +883,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "몇 해를 함께 일해 온 수석 염색장인과 재료 관리 담당 직원.",
       "public_face": "묵묵히 손발을 맞춰 온 동료 사이로 알려져 있다.",
       "private_strain": "편지완은 요 며칠 노강율이 유독 말수가 줄고 혼자 작업장에 남는 일이 잦아졌다는 것을 눈치채고도 캐묻지 않았다.",
@@ -418,24 +897,34 @@
       }
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E05", "E07", "E09", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E05",
+      "E07",
+      "E09",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "반석주가 시연 준비를 위해 오르내리던 항아리 발판의 고정 못을 몰래 풀어, 발판이 기울며 그가 항아리 속에 갇힌 채 익사하게 만들었다.",
       "motive_fact": "반석주가 딸의 정혼을 조건으로 증축 후원을 받기로 하고 시연회 후 자신을 내보내기로 했다는 사실을 알고, 관계와 자리를 모두 잃기 전에 반석주를 없애기로 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "노강율",
     "method": "노강율은 전날 밤 11시 10분경 마감 후 홀로 남아 쪽 항아리 발판의 고정 못을 몰래 풀어두었고, 다음날 오후 2시 반석주가 시연 준비를 위해 발판에 올라 항아리 속을 젓는 순간 발판이 안쪽으로 꺾이며 그가 고개부터 항아리에 빠지고 좁은 입구에 어깨가 걸려 빠져나오지 못한 채 익사하게 만들었다.",
     "motive": "반석주가 딸 반소하의 정혼을 조건으로 공방 증축 후원을 받기로 하고 시연회가 끝나면 자신을 내보내기로 했다는 사실을 엿들어 알게 된 노강율은, 반석주가 살아 있는 한 반소하와의 관계도 공방에서의 자리도 모두 끝난다고 판단해 범행을 저질렀다.",
     "key_connection": "발판 고정못 훼손 흔적과 물기 없이 마른 렌치가 노강율의 '곧장 집에 갔다'는 초기 진술과 어긋나고, 훼손 흔적과 항아리 입구 폭 대조가 단순 정비였다는 주장과 맞지 않으며, 증축 후원 조건서와 반소하의 증언이 뒷받침하는 정혼·퇴출 통보가 노강율에게 처음부터 반석주를 없앨 개인적 동기가 있었다는 사실을 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "반석주가 염색 작업장 안 쪽 항아리 속에서 물에 잠긴 채 발견된 표면 사건",
     "발판 고정못 훼손 흔적과 물기 없이 마른 렌치의 연결이 가리키는 인위적 손상",

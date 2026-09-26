@@ -12,10 +12,16 @@
       "사제_관계",
       "국가대표_선발전"
     ],
-    "location_archetypes": ["sports_facility"],
+    "location_archetypes": [
+      "sports_facility"
+    ],
     "background": {
-      "background_archetypes": ["sports_selection"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "sports_selection"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "contributory"
     }
   },
@@ -53,9 +59,17 @@
     "key_time_location": "05:20, L04 사무실에서 회계 자료 수정 / 05:30, L03 장비보관실에서 벨트 조작 / 06:15, L02 훈련 풀에서 조은결이 벨트를 풀지 못하고 익사.",
     "cover_up": "명준혁은 사고 직후 후원금 정산 장부를 감사 기준에 맞춰 다시 손봤다. 웨이트벨트 퀵릴리즈 버클에 대해서는 오래돼서 생긴 자국일 뿐 손댄 적 없다고 주장했고, 박서인에게 심부름을 시킨 것도 그저 우연히 시간이 겹쳤을 뿐이라며 발뺌했다.",
     "accomplice": "없음",
-    "motive_archetypes": ["crime_cover"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["accident_equipment_failure", "evidence_removal"]
+    "motive_archetypes": [
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -890,7 +904,8 @@
       "how_to_clear": "E07의 진술을 장비보관실 출입기록(E03)과 대조한다 — 박서인이 편의점에 가 있던 시각에 장비보관실을 드나든 것은 명준혁의 카드이고, 그 심부름은 명준혁의 지시였다. 로비 출입기록의 외출·복귀 태그(E09)에도 같은 시각 그녀가 실제로 센터 밖에 있었다는 기록이 독립적으로 남아 있다.",
       "must_not_imply": "자리를 비웠다는 사실만으로 그녀가 사고에 가담했다고 단정하지 않는다.",
       "lingering_thread": "박서인은 사건이 정리된 뒤에도, 명준혁의 심부름을 거절하지 못했던 자신의 처지를 동료들에게 어떻게 설명해야 할지 여전히 난처해했다.",
-      "suspicion_deepener": "박서인이 명준혁의 심부름을 나가기 직전, 평소와 달리 다른 직원에게 안전요원 교대를 알리지 않고 자리를 떠났다는 사실이 확인되어, 그녀가 고의로 절차를 어긴 것은 아닌지 의심이 깊어진다."
+      "suspicion_deepener": "박서인이 명준혁의 심부름을 나가기 직전, 평소와 달리 다른 직원에게 안전요원 교대를 알리지 않고 자리를 떠났다는 사실이 확인되어, 그녀가 고의로 절차를 어긴 것은 아닌지 의심이 깊어진다.",
+      "character_id": "CH01"
     },
     {
       "id": "R02",
@@ -899,7 +914,8 @@
       "how_to_clear": "오나래의 진술(S-CH05-01, F-CH05-02)을 장비보관실 출입기록(E03)과 대조한다 — 사고 시각 장비보관실을 드나든 것은 명준혁의 카드이고, 오나래는 로커룸에서 준비 중이었을 뿐이다. 로커룸 스트레칭 기록판(E10)에도 그 시간대 내내 그녀가 로커룸에 있었다는 기록이 독립적으로 남아 있다.",
       "must_not_imply": "마지막 한 자리를 다퉜다는 것만으로 벨트에 손댈 이유가 되지는 않는다.",
       "lingering_thread": "오나래는 대체 선수로 나서게 되지만, 마지막까지 경쟁하던 조은결의 빈자리를 어떻게 채워야 할지에 대한 부담은 사건과 별개로 그녀에게 남는다.",
-      "suspicion_deepener": "오나래가 최근 조은결과 훈련 방식을 두고 언쟁을 벌인 적이 있다는 증언이 나오면서, 경쟁 관계가 단순한 신경전을 넘어섰던 것은 아닌지 의심이 깊어진다."
+      "suspicion_deepener": "오나래가 최근 조은결과 훈련 방식을 두고 언쟁을 벌인 적이 있다는 증언이 나오면서, 경쟁 관계가 단순한 신경전을 넘어섰던 것은 아닌지 의심이 깊어진다.",
+      "character_id": "CH05"
     }
   ],
   "case_complete": {

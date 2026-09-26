@@ -14,10 +14,17 @@
       "구두_수선방",
       "심야_막차"
     ],
-    "location_archetypes": ["transport_hub", "retail_shop"],
+    "location_archetypes": [
+      "transport_hub",
+      "retail_shop"
+    ],
     "background": {
-      "background_archetypes": ["regular_day"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "regular_day"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contextual"
     }
   },
@@ -51,10 +58,21 @@
     "key_time_location": "09:00 L03에서 약을 보온병 차에 미리 넣어 둠, 19:00 위결하에게 보온병을 건넴, 20:20 위결하 쓰러짐, 20:25 L03에서 남은 약통을 치움.",
     "cover_up": "서지온은 평소처럼 매점 마감 준비만 했을 뿐이며, 위결하의 죽음은 평소 지병 때문에 갑자기 쓰러진 것일 뿐이라고 주장한다.",
     "accomplice": "없음",
-    "method_archetypes": ["drug_overdose"],
-    "motive_archetypes": ["protection", "debt"],
-    "cover_up_target": ["cause_of_death", "evidence"],
-    "cover_up_method": ["accident_victim_health", "evidence_removal"]
+    "method_archetypes": [
+      "drug_overdose"
+    ],
+    "motive_archetypes": [
+      "protection",
+      "debt"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_victim_health",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -503,7 +521,9 @@
       "public_face": "성실한 청년 상인으로 알려져 있다.",
       "private_strain": "서지온은 위결하가 스승 목서완에게 고리로 빚을 놓고 최근 상환을 강하게 재촉해 딸 학원비까지 위협받게 만들었다는 사실을 알고 있었다.",
       "surfaces_when": "목서완의 빚 문제나 위결하의 평소 이자 관행에 대해 서지온에게 구체적으로 캐물을 때(F-CH01-04).",
-      "says": { "CH01": "\"관리인 아저씨요? 그냥... 상가에서 오래 뵌 어른이셨죠. 그게 다예요.\"" }
+      "says": {
+        "CH01": "\"관리인 아저씨요? 그냥... 상가에서 오래 뵌 어른이셨죠. 그게 다예요.\""
+      }
     },
     {
       "id": "REL02",
@@ -530,7 +550,9 @@
       "public_face": "그저 임대인과 상인 사이로 알려져 있다.",
       "private_strain": "위결하는 목서완에게 고리로 빚을 놓고 최근 원금 상환을 강하게 재촉해 왔다.",
       "surfaces_when": "빚 문제나 최근 상환 재촉에 대해 목서완에게 구체적으로 캐물을 때(F-CH02-01).",
-      "says": { "CH02": "\"죄송한데... 임대인 어른일 뿐이죠. 별 말씀 못 드려요.\"" }
+      "says": {
+        "CH02": "\"죄송한데... 임대인 어른일 뿐이죠. 별 말씀 못 드려요.\""
+      }
     },
     {
       "id": "REL04",
@@ -542,7 +564,9 @@
       "public_face": "무난한 임대 관계로 알려져 있다.",
       "private_strain": "편해온도 예전에 위결하에게 급전을 빌려 비슷한 이자 부담을 겪은 적이 있다.",
       "surfaces_when": "위결하의 평소 이자 관행이나 다른 상인들과의 갈등에 대해 편해온에게 구체적으로 캐물을 때(F-CH04-01).",
-      "says": { "CH04": "\"다 지난 일이죠, 저도 예전에 신세 좀 졌었어요.\"" }
+      "says": {
+        "CH04": "\"다 지난 일이죠, 저도 예전에 신세 좀 졌었어요.\""
+      }
     },
     {
       "id": "REL05",
@@ -554,7 +578,9 @@
       "public_face": "무난한 동료 관계로 알려져 있다.",
       "private_strain": "반주안은 예전에 순찰 규정을 한 번 어겨 물의를 빚었을 때 위결하가 알고도 눈감아 준 적이 있어, 그 뒤로 위결하 앞에서는 별다른 말을 얹지 않으려 해 왔다.",
       "surfaces_when": "예전 규정 위반 건이나 그날 밤 매점 뒤편에서 본 것에 대해 반주안에게 구체적으로 캐물을 때(F-CH03-01) 그 사정이 새어 나온다.",
-      "says": { "CH03": "\"규정상 그렇습니다만... 그때 한 번 모른 척해 주신 적은 있었죠.\"" }
+      "says": {
+        "CH03": "\"규정상 그렇습니다만... 그때 한 번 모른 척해 주신 적은 있었죠.\""
+      }
     },
     {
       "id": "REL06",
@@ -566,7 +592,9 @@
       "public_face": "그저 얼굴을 아는 정도의 사이로 알려져 있다.",
       "private_strain": "노아현은 위결하가 최근 부쩍 피곤해 보였던 것을 눈치채고도 대수롭지 않게 넘겼던 일을 못내 마음에 걸려 해 왔다.",
       "surfaces_when": "위결하의 최근 상태나 평소 모습에 대해 노아현에게 구체적으로 캐물을 때(F-CH05-01) 그 사정이 새어 나온다.",
-      "says": { "CH05": "\"관리인 아저씨요? 요즘 좀 피곤해 보이셨어요, 진짜예요.\"" }
+      "says": {
+        "CH05": "\"관리인 아저씨요? 요즘 좀 피곤해 보이셨어요, 진짜예요.\""
+      }
     }
   ],
   "locations": [
@@ -1052,7 +1080,8 @@
       "how_to_clear": "목서완의 알리바이 진술(E08)과 대합실 채무 장부 정황(E12)을 사건이 벌어진 저녁 시간대와 대조한다.",
       "must_not_imply": "빚에 시달려 왔다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "목서완은 그 뒤로도 그날 자신이 먼저 뭔가 눈치챘어야 했다는 자책을 한동안 떨치지 못한다.",
-      "suspicion_deepener": "채무 장부에 그의 이름이 붉은 글씨로 표시돼 있었다는 정황(F-L01-OBS-01)이 드러나며, 한동안 그가 궁지에 몰려 무슨 일을 벌였던 게 아니냐는 의심이 짙어진다."
+      "suspicion_deepener": "채무 장부에 그의 이름이 붉은 글씨로 표시돼 있었다는 정황(F-L01-OBS-01)이 드러나며, 한동안 그가 궁지에 몰려 무슨 일을 벌였던 게 아니냐는 의심이 짙어진다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",
@@ -1061,7 +1090,8 @@
       "how_to_clear": "편해온의 채무 해명(E09)과 분식집 상환 완료 확인증 정황(E13)을 사건이 벌어진 저녁 시간대와 대조한다.",
       "must_not_imply": "예전에 빚이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "편해온은 그 뒤로도 다른 상인들의 채무 문제를 어떻게 도울 수 있을지 한동안 고민하게 된다.",
-      "suspicion_deepener": "그가 예전 채무 문제를 유독 자세히 기억하고 있었다는 사실이 드러나며, 한동안 그가 위결하에게 여전히 앙심을 품고 있었던 게 아니냐는 의심이 짙어진다."
+      "suspicion_deepener": "그가 예전 채무 문제를 유독 자세히 기억하고 있었다는 사실이 드러나며, 한동안 그가 위결하에게 여전히 앙심을 품고 있었던 게 아니냐는 의심이 짙어진다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

@@ -13,10 +13,16 @@
       "옛_인연",
       "소규모_공방"
     ],
-    "location_archetypes": ["craft_restoration"],
+    "location_archetypes": [
+      "craft_restoration"
+    ],
     "background": {
-      "background_archetypes": ["appraisal"],
-      "background_phrasing": ["other"],
+      "background_archetypes": [
+        "appraisal"
+      ],
+      "background_phrasing": [
+        "other"
+      ],
       "background_intensity": "contributory"
     }
   },
@@ -42,10 +48,23 @@
     "key_time_location": "15:36, L02 메인 작업실에서 가격 / 15:45, L02→L03 시신 이동 / 15:50, L03 환풍기 차단 및 용제 살포",
     "cover_up": "탁현조는 세척실 문을 닫아 용제 냄새가 빠지지 않게 하고, 태연히 프론트를 지나 건물을 빠져나가 알리바이를 남기지 않았다.",
     "accomplice": "없음",
-    "method_archetypes": ["blunt_force", "staging_cover_up"],
-    "motive_archetypes": ["revenge", "reputation"],
-    "cover_up_target": ["cause_of_death", "location"],
-    "cover_up_method": ["false_accident", "body_movement", "evidence_placement"]
+    "method_archetypes": [
+      "blunt_force",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "revenge",
+      "reputation"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "location"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "body_movement",
+      "evidence_placement"
+    ]
   },
   "actual_timeline": [
     {
@@ -439,7 +458,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "3년 전 절도 누명을 계기로 등 돌린 공방 대표와 옛 단골 사이다.",
       "public_face": "오랜 단골이 오늘 오랜만에 감정을 의뢰하러 온 것으로만 보인다.",
       "says": {
@@ -450,7 +472,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "아버지와 딸이자, 오빠의 잘못을 함께 덮어 온 사이다.",
       "public_face": "공방 경리로 아버지를 도와 온 딸로 알려져 있다.",
       "says": {
@@ -461,7 +486,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "후원자 겸 콜렉터와 공방 대표로, 투자 조건을 둘러싼 사업 파트너 사이다.",
       "public_face": "오랫동안 공방을 후원해 온 콜렉터로 알려져 있다.",
       "says": {
@@ -472,7 +500,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "공방 부매니저와 3년 만에 다시 방문한 옛 단골 사이다.",
       "public_face": "오늘 방문을 안내해 준 것 말고는 특별할 것 없는 사이로 보인다.",
       "says": {
@@ -484,7 +515,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "견습생과 오늘 방문한 손님 사이다.",
       "public_face": "서로 스치듯 마주친 것 말고는 접점이 없는 사이로 보인다.",
       "says": {
@@ -841,7 +875,8 @@
       "how_to_clear": "오단열의 그날 일정(S-CH04-01)과 결제 기록(E07)을 확인해 사건 시각 다른 장소에 있었음을 확인한다.",
       "must_not_imply": "오단열이 뭔가를 숨기고 있어 의심스럽다는 암시는 금지된다 — 그가 처음에 얼버무린 건 투자 갈등을 밝히고 싶지 않았을 뿐, 사건과는 무관하다.",
       "lingering_thread": "오단열과 방주협 사이의 투자 조건 이견은 이번 사건과 무관하게 해소되지 않은 채 남아, 공방의 앞날에 계속 그림자를 드리운다.",
-      "suspicion_deepener": "오단열이 처음엔 방주협과 아무 문제 없었다고 잡아떼다가, 실은 투자 이견으로 다툰 사실이 드러나며 한때 의심이 커진다."
+      "suspicion_deepener": "오단열이 처음엔 방주협과 아무 문제 없었다고 잡아떼다가, 실은 투자 이견으로 다툰 사실이 드러나며 한때 의심이 커진다.",
+      "character_id": "CH04"
     }
   ],
   "case_complete": {

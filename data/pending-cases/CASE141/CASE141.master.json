@@ -13,10 +13,16 @@
       "청각장애_인권단체",
       "오래된_테이프"
     ],
-    "location_archetypes": ["other"],
+    "location_archetypes": [
+      "other"
+    ],
     "background": {
-      "background_archetypes": ["allegation_complaint"],
-      "background_phrasing": ["immediately_after"],
+      "background_archetypes": [
+        "allegation_complaint"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
       "background_intensity": "central"
     }
   },
@@ -42,10 +48,26 @@
     "key_time_location": "22시 38분, L03 자료보관실에서 몸싸움 발생 / 22시 40분, 파일 정리함으로 가격 / 22시 50분, 발판사다리 아래로 시신 이동.",
     "cover_up": "하태준은 '이건우가 혼자 야근하다 사다리에서 발을 헛디딘 사고'라고 주장하며, 회수한 원본 테이프를 원장실 금고에 숨기고 몰래 폐기할 기회를 노린다.",
     "accomplice": "설령전자 인사팀 과장 봉필재 — 매 협상 건마다 리베이트를 전달해 온 공범이지만, 이건우를 해친 일에는 가담하지 않았다.",
-    "method_archetypes": ["blunt_force", "staging_cover_up"],
-    "motive_archetypes": ["crime_cover", "report_prevention", "financial_gain"],
-    "cover_up_target": ["cause_of_death", "crime_scene", "evidence"],
-    "cover_up_method": ["accident_victim_error", "scene_rearrangement", "body_movement", "evidence_removal"]
+    "method_archetypes": [
+      "blunt_force",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention",
+      "financial_gain"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "crime_scene",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "scene_rearrangement",
+      "body_movement",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -507,23 +529,39 @@
   ],
   "relationships": [
     {
-      "id": "REL01", "between": ["CH01", "V01"],
+      "id": "REL01",
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "센터장과 수어통역사, 오래 함께 일해 온 상사와 직원 관계.",
       "public_face": "서로 신뢰하는 상사와 직원 사이로 알려져 있다.",
-      "says": { "CH01": "\"이건우 씨요? 오래 같이 일한 직원인 걸로 알고 있습니다. 그 이상은... 지금 드릴 말씀이 없네요.\"" },
+      "says": {
+        "CH01": "\"이건우 씨요? 오래 같이 일한 직원인 걸로 알고 있습니다. 그 이상은... 지금 드릴 말씀이 없네요.\""
+      },
       "private_strain": "이건우가 원본 협상 테이프에서 리베이트로 인한 금액 조작을 발견하고 노동부에 제보하려 하자, 하태준이 이를 막으려 했다.",
       "surfaces_when": "디지털 백업 영상(E01)이나 테이프 대출 기록부(E04)를 짚으며 둘 사이 갈등을 캐물을 때."
     },
     {
-      "id": "REL02", "between": ["CH02", "V01"],
+      "id": "REL02",
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "동료 통역사이자 조사 파트너, 함께 협상 기록을 대조해 온 사이.",
       "public_face": "가까운 동료 사이로 알려져 있다.",
-      "says": { "CH02": "\"건우 씨가 요즘 뭔가에 몰두해 있었던 건 맞아요. 근데... 음, 정확히 뭔지는 저한테도 다 말 안 해줬어요.\"" },
+      "says": {
+        "CH02": "\"건우 씨가 요즘 뭔가에 몰두해 있었던 건 맞아요. 근데... 음, 정확히 뭔지는 저한테도 다 말 안 해줬어요.\""
+      },
       "private_strain": "이건우가 금액 불일치를 발견했을 때 서다혜에게만 그 사실을 털어놓았지만, 노동부 제보 계획까지는 자세히 말하지 않았다.",
       "surfaces_when": "서다혜에게 이건우가 최근 무엇에 몰두해 있었는지 캐물을 때(E01)."
     },
     {
-      "id": "REL03", "between": ["CH03", "CH01"],
+      "id": "REL03",
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "설령전자 인사팀 과장과 센터장, 리베이트로 얽힌 뒷거래 관계.",
       "public_face": "정기 미팅으로 오가는 협력업체 담당자 사이로 알려져 있다.",
       "says": {
@@ -534,15 +572,25 @@
       "surfaces_when": "원장실 인터폰 오작동 녹음(E05)이나 리베이트 계좌 내역(E06)을 제시하며 그날 통화 내용을 캐물을 때."
     },
     {
-      "id": "REL04", "between": ["CH04", "V01"],
+      "id": "REL04",
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "담당 노무사와 수어통역사, 산재보상 협상 절차를 함께 다뤄 온 사이.",
       "public_face": "절차적 조언을 주는 전문가와 당사자 관계로 알려져 있다.",
-      "says": { "CH04": "\"이건우 씨한테는 법적으로 보면 성급하게 굴지 말라고 조언했을 뿐이에요. 그게 다입니다.\"" },
+      "says": {
+        "CH04": "\"이건우 씨한테는 법적으로 보면 성급하게 굴지 말라고 조언했을 뿐이에요. 그게 다입니다.\""
+      },
       "private_strain": "안수현은 이건우에게 제보를 서두르지 말라고 설득했지만, 실은 자신이 맡은 다른 산재 소송들이 이 일로 타격을 입을까 봐 걱정하는 속내를 숨기고 있었다.",
       "surfaces_when": "로비 방명록 메모(E08)를 짚으며 그날 저녁 두 사람 사이에 무슨 대화가 있었는지 캐물을 때."
     },
     {
-      "id": "REL05", "between": ["CH05", "CH02"],
+      "id": "REL05",
+      "between": [
+        "CH05",
+        "CH02"
+      ],
       "nature": "인턴 통역사와 선배 통역사, 현장에서 서로 의지해 온 사이.",
       "public_face": "막내를 살뜰히 챙기는 선배와 후배 사이로 알려져 있다.",
       "says": {
@@ -553,7 +601,6 @@
       "surfaces_when": "민소림에게 그날 밤 자료보관실 근처에서 무엇을 들었는지 캐물을 때(E07)."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
@@ -946,7 +993,8 @@
       "how_to_clear": "E08(접수 방명록의 언쟁 메모)의 시각과 안수현의 초기 진술 속 대화 내용을 대조해, 그녀의 설득이 절차적 조언이었음을 확인한다.",
       "must_not_imply": "제보를 늦추라고 설득했다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
       "suspicion_deepener": "안수현이 이 사건으로 맡고 있던 다른 산재 소송들이 타격을 입을까 봐 걱정했다는 사실이 드러나면서, 한동안 그녀가 유력 용의자로 떠오른다.",
-      "lingering_thread": "안수현이 맡고 있던 다른 산재 소송들은 이번 일과 별개로 여전히 지지부진하게 남아, 그녀의 걱정 자체는 딱히 해소되지 않은 채 이어진다."
+      "lingering_thread": "안수현이 맡고 있던 다른 산재 소송들은 이번 일과 별개로 여전히 지지부진하게 남아, 그녀의 걱정 자체는 딱히 해소되지 않은 채 이어진다.",
+      "character_id": "CH04"
     },
     {
       "id": "R02",
@@ -955,7 +1003,8 @@
       "how_to_clear": "E09(탕비실 컵 흔적)과 E07(그녀의 목격 진술)을 시간순으로 맞춰, 그녀가 자료보관실 근처에 머문 시간이 매우 짧았음을 확인한다.",
       "must_not_imply": "시신을 가장 먼저 발견했다는 사실만으로 그녀를 범인으로 단정하지 않는다.",
       "suspicion_deepener": "민소림이 처음에는 자료보관실 근처에 갔던 사실 자체를 숨기려 해 오히려 더 수상해 보인다 — 사실은 상사인 하태준에게 괜한 오해를 살까 봐 겁먹었던 것뿐이다.",
-      "lingering_thread": "민소림은 이번 일로 크게 놀라 통역 일을 계속할 수 있을지 스스로도 확신하지 못한다. 서다혜가 괜찮다면 자신과 함께 상담 봉사부터 다시 시작해보자고 권했지만, 그녀가 정말 돌아올지는 아직 알 수 없다."
+      "lingering_thread": "민소림은 이번 일로 크게 놀라 통역 일을 계속할 수 있을지 스스로도 확신하지 못한다. 서다혜가 괜찮다면 자신과 함께 상담 봉사부터 다시 시작해보자고 권했지만, 그녀가 정말 돌아올지는 아직 알 수 없다.",
+      "character_id": "CH05"
     }
   ],
   "case_complete": {

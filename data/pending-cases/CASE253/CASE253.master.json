@@ -7,10 +7,16 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 압력용기 정기 안전점검을 대행하는 외주업체 소속 출장기사 자격으로, 이번 달 정기 점검차 이미 센터 압축기실 앞에 나와 있었다.",
     "tone": "묵은 인연이 조용히 되갚아지는 정서극.",
-    "location_archetypes": ["clinic"],
+    "location_archetypes": [
+      "clinic"
+    ],
     "background": {
-      "background_archetypes": ["routine_operation"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contributory"
     },
     "tags": [
@@ -902,13 +908,17 @@
       "how_to_clear": "접수처 출입 기록부(E08)를 제시해 조서인이 그 시간 다른 치료실에 있었음을 증명한다.",
       "must_not_imply": "조서인이 무관하다는 사실이 그가 신주협과 실제로 다퉜다는 사실 자체까지 없었던 일로 만들지는 않는다.",
       "lingering_thread": "조서인의 보험금 분쟁은 사건과 별개로 여전히 해결되지 않은 채 남는다.",
-      "suspicion_deepener": "조서인은 처음엔 언쟁 사실 자체를 숨기려 들어 오히려 의심을 키운다."
+      "suspicion_deepener": "조서인은 처음엔 언쟁 사실 자체를 숨기려 들어 오히려 의심을 키운다.",
+      "character_id": "CH04"
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "여준혁은 두 달 전 이 센터에 입사한 압축기 정비기사로, 신주협을 직속 상사로 두고 일해 왔다.",
       "public_face": "특별한 갈등 없이 지내온 사이로 알려져 있다.",
       "private_strain": "여준혁은 8년 전 신주협이 사고 책임을 자신의 아버지에게 떠넘겨 해고시켰다는 사실을 최근 회의록에서 확인하고 그 한을 품어 왔다.",
@@ -919,7 +929,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "명도경은 3년 전 신주협과 함께 이 건물을 인수해 센터를 공동 개원한 동업자다.",
       "public_face": "오랜 파트너로 손발이 잘 맞는 사이로 알려져 있다.",
       "private_strain": "명도경은 이 건물에 예전 잠수의학센터가 있었고 그때 사망 사고가 있었다는 얘기를 신주협에게 대략 들었으면서도, 굳이 그 얘기를 먼저 꺼내고 싶어 하지 않았다.",
@@ -930,7 +943,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "임서온은 치료보조 간호사로, 압축기 정비기사인 여준혁과 매 세션마다 마주치는 동료다.",
       "public_face": "업무로 자주 마주치는 동료 사이로 알려져 있다.",
       "private_strain": "임서온은 사고 당일 여준혁이 평소보다 45분 이른 시각에 압축기실로 들어가는 걸 챔버실 창문 너머로 봤지만, 대수롭지 않게 여겨 먼저 나서서 말하지 않았다.",
@@ -942,7 +958,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "조서인은 이 센터에 정기적으로 다니는 환자이자, 최근 보험금 문제로 신주협과 마찰을 빚었다.",
       "public_face": "그냥 치료 받으러 다니는 사이로 알려져 있다.",
       "private_strain": "조서인은 1주일 전 접수처에서 보험금 청구 문제로 신주협과 언쟁을 벌인 사실을 굳이 먼저 밝히고 싶어 하지 않았다.",
@@ -953,7 +972,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH05", "CH02"],
+      "between": [
+        "CH05",
+        "CH02"
+      ],
       "nature": "위재헌은 이 센터의 시설 관리인 겸 야간 경비로, 순찰 중 직원들의 동태를 살펴 온 사이다.",
       "public_face": "특별한 접점 없이 지나치는 사이로 알려져 있다.",
       "private_strain": "위재헌은 2주 전 야간 순찰 중 근무시간이 아닌 여준혁이 보관실 쪽 복도를 서성이는 걸 봤지만, 굳이 먼저 말하고 싶지 않아 얼버무렸다.",
@@ -964,7 +986,6 @@
       }
     }
   ],
-
   "case_complete": {
     "required_established_facts": [
       "F-CH02-01",
