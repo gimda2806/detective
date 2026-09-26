@@ -390,6 +390,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE331 | 서명 이후 | [CASE331.md](CASE331.md) |
 | CASE022 | 풀린 로프 | [CASE022.md](CASE022.md) |
 | CASE125 | 얼어붙은 서명 | [CASE125.md](CASE125.md) |
+| CASE137 | 겹친 목소리 | [CASE137.md](CASE137.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 

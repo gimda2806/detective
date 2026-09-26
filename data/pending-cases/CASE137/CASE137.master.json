@@ -6,14 +6,17 @@
     "genre": "간판 성우 자리를 신인에게 넘겨주게 된 것에 대한 두려움과 질투로 저지른 살인 / 방음 부스 환기 밸브를 잠가 질식시키고 설비 노후 사고로 위장",
     "setting": "새울보이스아카데미는 라디오 드라마·오디오북·애니메이션 더빙 실무를 가르치는 3층짜리 성우 전문 교육기관이다. 1층은 로비, 2층은 방음 부스와 조정실, 대본 보관실로, 3층은 원장실 및 사무공간과 라운지로 나뉘어 있다. 그날 오후에는 평소처럼 순서대로 부스에 들어가 녹음이 이어지고 있었고, 저녁에는 리메이크 시리즈의 새 주인공으로 정식 캐스팅된 하다인을 축하하는 조촐한 사내 행사가 예정되어 있었다.",
     "location_archetypes": [
-      "academy"
+      "academy",
+      "production_studio"
     ],
     "background": {
       "background_archetypes": [
-        "company_event"
+        "company_event",
+        "routine_operation"
       ],
       "background_phrasing": [
-        "on_the_day_of"
+        "on_the_day_of",
+        "scheduled"
       ],
       "background_intensity": "incidental"
     },
@@ -46,7 +49,8 @@
     "motive": "강진욱은 8개월 전 성대 결절 진단을 받았지만 이를 아무에게도 알리지 않은 채 무리하게 녹음을 이어 왔다. 그런데 리메이크 시리즈의 새 주인공으로 신인 성우 하다인이 정식 캐스팅됐다는 것을 사내 게시판 초안으로 먼저 확인하면서, 20년 가까이 자신의 정체성으로 여겨 온 간판 성우 자리를 하루아침에 넘겨주게 됐다는 사실을 받아들일 수 없었다. 운영실장에게 재고를 요청했지만 이미 계약이 끝난 사안이라며 거절당하자, 그는 하다인을 직접 설득하려 했다.",
     "motive_archetypes": [
       "jealousy",
-      "rival_removal"
+      "rival_removal",
+      "position_defense"
     ],
     "method": "강진욱은 마지막 테이크를 함께 들어보자며 하다인을 방음 부스로 불러 캐스팅 철회를 요구했다. 하다인이 이미 정식 계약이 끝난 사안이라며 거절하자 격분한 강진욱은 부스 문을 잠그고 환기 제어반의 밸브를 손으로 잠가 산소 공급을 차단했다. 부스는 방음이 뛰어나 바깥에 도움을 요청할 수 없었고, 하다인은 그 안에서 질식해 숨졌다.",
     "method_archetypes": [
@@ -61,7 +65,9 @@
     ],
     "cover_up_method": [
       "digital_record_manipulation",
-      "witness_misdirection"
+      "witness_misdirection",
+      "scene_rearrangement",
+      "accident_equipment_failure"
     ],
     "decisive_evidence_ids": [
       "E03",
