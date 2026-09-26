@@ -3279,3 +3279,69 @@ contract_signing 9% · `COVER_UP_TARGET_OVERUSE` 증거 2.0배 · `COVER_UP_METH
 증거 제거 2.4배 · 사고 위장 1.6배). **경고를 없애려고 칸을 내리지 않았다** —
 CASE137·CASE326·CASE022·CASE331과 같은 판단이다. `COVER_UP_DECLARATION_NARROW`는
 선언을 다섯으로 늘린 뒤에도 남는데, 남은 한 줄이 위 오탐(`weapon_disposal`)이다.
+
+---
+
+## CASE139 (소설화 줍기 회차, 2026-09-26)
+
+[docs/novels/CASE139.md](novels/CASE139.md)(「개발자 란의 이름」)를 쓰면서 여덟 칸을
+다시 봤다. 진상은 한 글자도 안 고쳤다. 고친 것은 넷이다 — `motive_archetypes` ·
+`location_archetypes` · `background_phrasing`+`background_intensity` · 은폐 두 축.
+
+### `other`로 적은 것
+
+없다. 다만 **국가기관 부속 온실을 받는 칸이 계열에서 어긋난다**(아래).
+
+### 계열이 어긋나는 칸 하나 — 기관 부속 재배시설
+
+이 사건의 무대는 국립 종자자원 통합계획 아래 있던 **지역 거점 종자자원센터**다.
+방 일곱은 로비 · 원장실 · 냉동보존고 앞 포장 작업실 · 냉동보존고 안쪽 통로 ·
+온실 재배동 · 개인연구실 · 행정사무실이다.
+
+처음 값은 `research_laboratory`+`agricultural_worksite`였는데, `agricultural_worksite`의
+계열이 **`small_trade`(소규모 사업·상점)**라서 이 무대가 상점 계열로 세어지고 있었다
+(`LOCATION_FAMILY_OVERUSE` small_trade 20%가 그래서 떠 있었다). 61칸에 **기관에
+딸린 재배시설**을 받는 칸이 없다 — `agricultural_worksite`는 낱말로는 맞는데 계열이
+가리키는 규모가 다르다.
+
+사건이 벌어진 방과 시신이 옮겨진 방은 **포장 작업실과 냉동보존고**(상자 · 하역로 ·
+트럭 · 선반 통로)이므로 `research_laboratory`+`warehouse`로 적었다. 온실은 흉기가
+나온 방이라 이야기에서는 크지만, 무대 계열로 세면 이 사건은 **연구기관과 저장·하역
+공간**이다. 같은 모양(기관 부속 온실·사육장·시험포)이 더 쌓이면
+`institutional_growing_facility` 같은 칸이 필요할 수 있다 — 본 것만 적어 둔다.
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE139 | `motive` | `credit_theft`+`report_prevention`+`position_defense` | `full_truth.motive` 「개발 경위를 **단독 성과로 꾸며 품종보호권을 출원**했다」 · 「다음 날 아침 함께 **국립종자원에 가서 바로잡겠다고 통보**하자」 · 「자신의 **자리**와 그동안 쌓아 온 **이름값**이 한꺼번에 무너지는 것을 막으려」 | 앞의 것이 `professional_secrecy`·`conviction`이었는데 **둘 다 이 사건이 아니다** — 감춘 것은 직업상 비밀이 아니라 **자기가 가로챈 성과**이고, 움직인 것은 신념이 아니라 **자리**다. 더할 낱말: `credit_theft`에 **단독 성과 · 개발 경위 · 개발자 란**, `report_prevention`에 **바로잡겠다 · 정정 신청**(지금 목록은 신고·고발 쪽 말만 본다. 이 편의 피해자는 「고발」이 아니라 「같이 가서 바로잡자」고 했다) |
+| CASE139 | `background` | `closure_demolition`+`relocation` / phrasing `immediately_after`+`in_progress` / intensity `central` | `case_identity.setting` 첫 문장 「**폐쇄가 확정된 지 열흘**, … 중앙 기관으로 **옮기는 작업이 사흘째 이어지고 있다**」 | phrasing이 `immediately_after` 하나였는데 첫 문장이 **둘을 같이 쓴다**(확정 뒤 · 진행 중). intensity는 `contributory`였는데 **`central`이 맞다** — 「통합될 중앙 기관에 살아남을 연구직은 **단 한 자리**」가 없으면 죽일 이유가 아예 없고, 발견도 이송 작업이 만들었다(`T04` 문서 상자 밑바닥). `BACKGROUND_INTENSITY_UNSUPPORTED`는 통과한다(`full_truth.motive`가 「폐쇄」·「통합」을 다시 쓴다) |
+| CASE139 | `cover_up_method` | `body_movement`+`digital_record_manipulation`+`false_intrusion`+`evidence_placement` | `full_truth.cover_up` 「시신을 … **끌어다 옮기고**」·「메시지를 **지워 버렸다**」·「창살을 **비틀어 열어 놓고**」·「목장갑 한 짝을 그 밑에 **떨어뜨려**」 | 선언이 `false_intrusion` 하나라 **나머지 셋이 통째로 안 세어지고 있었다.** `audit:cover-up`도 이 편을 못 집는데, 세 칸 다 폴백이 못 읽기 때문이다(아래) |
+| CASE139 | `cover_up_target` | `communication_trace`+`location`+`responsibility` | 같은 문장 | 손놀림 셋이 각각 다른 것을 감춘다 — 메시지(연락 흔적) · 시신이 놓인 자리(장소) · 외부인의 소행처럼(책임) |
+
+### 폴백 정규식이 놓치는 세 칸 (`scripts/cover-up-tables.ts`)
+
+세 칸 다 **선언이 없으면 조용히 틀리는 자리**다. 이 편은 선언을 넓혀 막았고, 아래는
+목록에 더할 것이다.
+
+- **`body_movement` — 낱말이 아니라 창 폭 문제.** 정규식이
+  `시신[^.]{0,10}(옮|끌|눕|이동)`인데 이 편의 문장은 「구하은의 **시신을** 냉동보존고
+  안쪽 선반 통로 더 깊숙한 곳까지 **끌어다 옮기고**」로 **사이가 26자**다. 시신을 어디로
+  옮겼는지 적으면 그 자리 설명이 길어지는 것이 정상이라, 이 창은 대부분의 문장에서
+  짧다. `{0,10}` → `{0,30}`이거나 「끌어다 (눕|놓)」에 **「옮기」**를 더한다.
+- **`digital_record_manipulation`에 「메시지」·「채팅방」이 없다.** 목록은
+  `로그를`·`파일[^.]{0,8}(지우|삭제)`·`전산`·`CCTV` 쪽이다. 그런데 같은 낱말이
+  `cover_up_target`의 `communication_trace`에는 **있다**(`메시지|채팅`) — **두 축이
+  같은 문장을 다르게 읽는다.** 채팅·메신저 삭제는 이 코퍼스에 더 있을 자리다.
+- **`evidence_placement`에 「떨어뜨려」가 없다.** `일부러[^.]{0,8}(남|흘|두)` ·
+  `흘려 (놓|두)`는 있다. CASE324가 적어 둔 **「일부러 넘어뜨려 두」**와 같은 뿌리이고,
+  이 편은 「일부러」 없이 **「떨어뜨려」**만 쓴다(위장의 일부라 「일부러」를 안 쓴다).
+
+### 고친 뒤
+
+`validate_master`는 **errors 0 · warnings 1 → 4**다. 사라진 하나가
+`LOCATION_FAMILY_OVERUSE`(small_trade)이고, 늘어난 넷은 전부 비율 보고다 —
+`MOTIVE_ARCHETYPE_OVERUSE` 셋(공로 가로채기 9% · 신고 차단 8% · 자리 상실 방지 9%)과
+`COVER_UP_TARGET_OVERUSE`(책임 1.6배). **경고를 없애려고 칸을 내리지도, 경고를
+없애려고 칸을 고르지도 않았다** — 무대를 옮긴 것은 계열이 실제로 어긋나서이고,
+그 판단 근거를 위에 적었다.
