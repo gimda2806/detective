@@ -196,6 +196,18 @@ function parseMasterTime(s) {
 const toMinutes = (t) => t.day * 1440 + t.hour * 60 + t.min;
 const hhmm = (h, m) => `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 
+/** 한 장의 본문이 그 시각에 닿는가 — 「오후 10시 35분」·「22:35」 둘 다 본다. */
+function sceneReachesTime(section, t) {
+  for (const m of section.matchAll(TIME_RE)) {
+    const h = m[1] !== undefined ? +m[1] : m[3] !== undefined ? +m[3] : +m[4];
+    const min = m[2] !== undefined ? +m[2] : m[5] !== undefined ? +m[5] : 0;
+    if (min !== t.min) continue;
+    // 소설은 12시간제로 적고(「오후 10시 35분」) 마스터는 24시간제다.
+    if (h === t.hour || h + 12 === t.hour) return true;
+  }
+  return false;
+}
+
 /** 마스터 전체에서 언급되는 모든 "HH:MM"을 모은다(본문 문자열 포함). */
 function collectMasterClock(master) {
   const set = new Set();
@@ -280,9 +292,8 @@ function checkNovel(novelFile) {
   // 장면 시각은 `## N. 제목` 바로 다음 문단에만 선다. 본문 중간에서 시각으로
   // 시작하는 문단은 기록을 옮겨 적거나("22:00 — 자동에서 수동.") 탐정이 시각을
   // 따지는 자리라("21:20에 퇴근한 사람도 아니다") 흐름과 무관하다.
-  const scenes = body
-    .split(/^##\s+/m)
-    .slice(1)
+  const sections = body.split(/^##\s+/m).slice(1);
+  const scenes = sections
     .map((section, chapter) => {
       const paragraphs = section.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
       // 제목 줄이 먼저다 — 93편 전부가 거기에 시간표를 적는다. 첫 문단의
@@ -343,15 +354,31 @@ function checkNovel(novelFile) {
 
   /* 3. 오프닝이 진입 시각과 맞는가
      1장이 시각 없이 산문으로 열리는 것은 정상이므로(마스터 오프닝이 그런 경우가
-     있다) 1장에 시각이 찍혀 있을 때만 본다. */
+     있다) 1장에 시각이 찍혀 있을 때만 본다.
+
+     **1장이 진입보다 일찍 열리는 것은 정상일 수 있다.** `detective_entry_type`이
+     「이미 그 자리에 있었다」류면(초대받아 앉아 있었다·마감을 기다리고 있었다)
+     소설은 탐정이 **기다리는 데서** 열고 사건이 터지는 순간에 닿는다 —
+     CASE302 의 1장은 「밤 8시 30분」에 회중시계를 찾으러 서 있다가
+     「두 시간 남짓 흐른 오후 10시 35분」에 비명을 듣는데, 그 10시 35분이
+     마스터의 진입 시각이다. CASE190 도 같다(1장 4시 32분, 진입 4시 40분이
+     같은 장 안에 있다). 그래서 **1장이 이르면 그 장 안에서 진입 시각에
+     닿는지**를 보고, 닿으면 넘긴다. 1장이 진입보다 **늦은** 것은 그대로
+     경고다 — 소설이 진입 자체를 건너뛴 것이다. */
   if (entry && scenes.length && scenes[0].chapter === 0) {
     const first = scenes[0];
     if (first.hour !== entry.hour || first.min !== entry.min) {
-      add(
-        "warn",
-        "ENTRY_TIME_MISMATCH",
-        `첫 장면 시각 "${first.raw}"이 진입 시각 ${hhmm(entry.hour, entry.min)}과 다르다.`,
-      );
+      const firstMin = first.hour * 60 + first.min;
+      const entryMin = entry.hour * 60 + entry.min;
+      const reachesEntry =
+        firstMin < entryMin && sceneReachesTime(sections[0] ?? "", entry);
+      if (!reachesEntry) {
+        add(
+          "warn",
+          "ENTRY_TIME_MISMATCH",
+          `첫 장면 시각 "${first.raw}"이 진입 시각 ${hhmm(entry.hour, entry.min)}과 다르다.`,
+        );
+      }
     }
   }
 
