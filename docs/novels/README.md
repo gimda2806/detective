@@ -112,6 +112,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE124 | 다시 켜지지 않는 마이크 | [CASE124.md](CASE124.md) |
 | CASE126 | 내려앉은 그림자 | [CASE126.md](CASE126.md) |
 | CASE127 | 패널 위의 오 분 | [CASE127.md](CASE127.md) |
+| CASE128 | 멎은 박자 | [CASE128.md](CASE128.md) |
 | CASE129 | 제어탑에 걸린 마지막 신호 | [CASE129.md](CASE129.md) |
 | CASE130 | 허물을 벗은 밤 | [CASE130.md](CASE130.md) |
 | CASE131 | 빈 진열대의 토크렌치 | [CASE131.md](CASE131.md) |
@@ -408,6 +409,11 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE337 | 온기가 식던 자리 | [CASE337.md](CASE337.md) |
 | CASE338 | 첫물이 아니어도 | [CASE338.md](CASE338.md) |
 | CASE339 | 여덟 달 치의 이름 | [CASE339.md](CASE339.md) |
+| CASE340 | 잠수 일지에 없는 시간 | [CASE340.md](CASE340.md) |
+| CASE119 | 묻히지 않은 소리 | [CASE119.md](CASE119.md) |
+| CASE341 | 가려진 조리법 | [CASE341.md](CASE341.md) |
+| CASE342 | 자정의 전극봉 | [CASE342.md](CASE342.md) |
+| CASE343 | 종달새가 울지 않은 밤 | [CASE343.md](CASE343.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
