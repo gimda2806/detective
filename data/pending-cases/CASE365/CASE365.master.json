@@ -1,0 +1,961 @@
+{
+  "case_identity": {
+    "case_id": "CASE365",
+    "title": "저작권 없는 목소리",
+    "genre": "저작권 도용 사실이 그날 밤 생방송에서 드러날 위기에 놓인 간판 진행자가 대표를 감전사시키고 사고로 위장한 사건.",
+    "setting": "회원들의 후원으로 운영되는 지역 라디오 방송국 라디오봄은 그날 저녁 생방송 모금 방송을 준비하고 있었다. 대표 성지원은 오전부터 신디케이션 계약 서류를 다시 훑고 있었고, 간판 진행자 여준하는 로비에서 오늘 밤 방송 대본을 손보고 있었다. 기술감독 강도헌은 조정실에서 장비를 점검하고, 후원사 담당 조은재는 창고에서 후원 물품 재고를 확인하고 있었다. 반년 전 인턴으로 들어온 이하람은 로비에서 손님들을 맞을 준비를 했고, 3년 전 방송국을 떠난 전직 작가 편시우도 오늘 저녁 방송에 깜짝 게스트로 초대돼 와 있었다.",
+    "location_archetypes": [
+      "broadcast_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "broadcast"
+      ],
+      "background_phrasing": [
+        "during_preparation"
+      ],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "service_call",
+    "detective_entry": "탐정은 그날 오후 라디오봄으로부터 낡은 음향 장비 배선을 점검해 달라는 의뢰를 받고 조정실에 앉아 배선함을 살피고 있었다.",
+    "tone": "오래된 방송국 특유의 분주함과, 그 사이로 스며드는 긴장. 탐정과 한지우가 주고받는 짧은 말들이 그 긴장을 조금씩 눌러 준다.",
+    "tags": [
+      "라디오_방송국",
+      "생방송",
+      "선후배_사이"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "성지원",
+      "role": "라디오봄 대표",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 17:30",
+    "narrative": "스튜디오 부스로 이어지는 통로에서 인터컴 스피커가 계속 잡음만 내고 있었다.\n\n한지우가 헤드폰을 벗으며 중얼거렸다.\n\n\"이거 신호가 왜 이래요……\"\n\n\"장비 탓이 아닐 수도 있고.\"\n\n탐정이 먼저 몸을 일으켰다.\n\n부스 문이 열려 있었고, 강도헌이 안쪽에서 쓰러진 성지원을 붙잡고 이름을 부르고 있었다. 마이크 받침대가 한쪽으로 기울어진 채 벽에 비스듬히 걸쳐 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "빈 대표실 문을 닫자 로비의 소란이 한 꺼풀 멀어졌다.\n\n여준하는 한참을 계약서 초안 표지만 매만지다 입을 열었다.\n\n\"받침대에…… 일부러 선을 감아 뒀습니다. 문자도 제가 보낸 거고요.\"\n\n한지우가 수첩을 덮는 손끝이 잠깐 멈췄다.\n\n\"그 코너 하나 때문에 그렇게까지…….\"\n\n탐정이 낮게 말을 끊었다.\n\n\"코너 얘기는 그만해. 지금 저 사람한테 중요한 건 그게 아니야.\"\n\n여준하는 고개를 떨궜다.\n\n밖으로 나오자 해가 완전히 저물어 있었다. 로비는 여전히 어수선했고, 편시우는 대본 파일을 무릎에 얹은 채 아직도 그 자리에 앉아 있었다.\n\n\"저분은 결국 오늘 밤엔 그 코너 얘기를 못 듣게 됐네요.\"\n\n한지우가 중얼거리자 탐정이 픽 웃음을 흘렸다.\n\n\"그건 우리가 대신 해 줄 얘기는 아니지.\"\n\n한지우도 픽 웃으며 헤드폰을 다시 목에 걸었다."
+  },
+  "surface_incident": [
+    "그날 저녁, 생방송 30분 전 스튜디오 부스 안에서 대표 성지원이 감전돼 숨졌다. 낡은 배선 탓에 일어난 사고로 알려졌다.",
+    "부스는 매년 큰 생방송 전 관례대로 대표가 직접 들어가 장비를 점검하던 곳이었다.",
+    "그날 방송국을 드나든 사람은 전부 낯익은 얼굴들이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "여준하는 3년 전 방송국을 떠난 작가 편시우가 쓴 코너 원안과 대사를 자신의 것으로 굳혀 왔고, 그 사실을 성지원이 얼마 전 알아채 오늘 밤 생방송에서 신디케이션 관계자와 후원사 앞에서 공식적으로 바로잡겠다고 못박았다. 그대로 밝혀지면 자신의 이름으로 따낸 전국 편성 계약이 깨지고 지금까지 쌓아 온 자리를 전부 잃을 처지였다.",
+    "motive_archetypes": [
+      "ip_dispute",
+      "reputation"
+    ],
+    "method": "여준하는 성지원이 큰 생방송 전마다 관례대로 부스에 홀로 들어가 장비를 손수 점검한다는 것을 알고, 미리 마이크 받침대 내부에 피복이 벗겨진 케이블을 감아 벽면 보조 콘센트 회로에 몰래 연결해 두었다. 성지원이 받침대의 금속 몸체를 움켜쥐는 순간 전류가 흘러 그대로 감전돼 숨졌다.",
+    "method_archetypes": [
+      "electrocution",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 18:52, 라디오봄 스튜디오 부스(L01)",
+    "cover_up": "소란이 인 틈에 부스로 돌아가 받침대에 감아 둔 케이블을 풀어 챙기고, 조정실 자동점검 로그에서 그 시간대 기록을 지우고, 종이 점검일지에는 사흘 전 날짜로 점검을 마쳤다는 기록을 새로 적어 넣는다.",
+    "cover_up_method": [
+      "weapon_disposal",
+      "digital_record_manipulation",
+      "document_falsification",
+      "false_accident"
+    ],
+    "cover_up_target": [
+      "evidence",
+      "crime_scene"
+    ],
+    "decisive_evidence_ids": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E06",
+      "E07",
+      "E08",
+      "E16"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "석 달 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "성지원이 신디케이션 방송사와의 전국 편성 계약 초안을 검토하며 여준하의 대표 코너를 계약의 핵심 조건으로 못박는다."
+    },
+    {
+      "id": "T02",
+      "time": "열흘 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "성지원이 서버 백업 파일을 정리하다 편시우가 3년 전에 남긴 코너 대본 초안 파일을 발견해, 여준하의 지금 멘트가 그 문장과 거의 그대로 겹친다는 것을 알아챈다."
+    },
+    {
+      "id": "T03",
+      "time": "닷새 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "성지원이 편시우에게 연락해 오늘 저녁 생방송 모금 방송에 깜짝 게스트로 나와 달라고 청한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 14:00",
+      "location": "L05",
+      "actors": ["V01", "CH01"],
+      "actual_action": "성지원이 여준하를 사무실로 불러 편시우의 원안을 공식적으로 밝히고 신디케이션 계약의 코너 저작 조건을 고치라고 요구한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:15",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "여준하가 책상 위 계약서 초안을 신경질적으로 덮어 두고 사무실을 나선다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 15:20",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "여준하가 장비 보관실에서 피복이 벗겨진 낡은 스피커 케이블 한 토막을 챙겨 나온다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 16:40",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "여준하가 부스 안 마이크 받침대의 나사를 풀어 벗겨진 케이블 심선을 금속 몸체에 감아 고정하고, 그 선을 벽면 보조 콘센트 회로에 연결해 숨긴다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 18:50",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "성지원이 생방송 30분 전 관례대로 부스에 홀로 들어가 마이크 받침대 높이를 조절하려 금속 몸체를 움켜쥔다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 18:52",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "받침대에 흐르던 전류가 몸을 타고 흐르며 성지원이 그대로 쓰러진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 19:05",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "강도헌이 부스 인터컴이 계속 응답하지 않는 것을 이상하게 여겨 문을 열었다가 쓰러진 성지원을 발견한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19:15",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "여준하가 소란이 인 틈에 부스로 들어가 마이크 받침대에 감아 둔 케이블을 풀어 주머니에 넣고 받침대를 원래 자리로 돌려놓는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:25",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "여준하가 조정실 자동점검 로그에서 그 시간대 기록을 지우고, 종이 점검일지에는 사흘 전 날짜로 점검을 마쳤다는 기록을 새로 적어 넣는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "여준하",
+      "role": "간판 진행자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 오후 부스에 들어갔던 것은 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "실제로 마이크 받침대 배선을 만졌던 것도 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "받침대에 배선을 일부러 연결해 두고 성지원을 부스로 들어가게 한 것도 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "사무실에서는 언성만 높아졌을 뿐, 몸싸움은 없었다고 말했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "그날 오후 조은재가 창고 쪽에서 서성이는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 오후엔 부스 쪽에 들어간 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "부스에 있었다는 사실 자체를 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "마이크 각도만 잠깐 봤을 뿐, 배선 같은 건 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "배선을 만진 사실을 숨기려는 변명."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "헐거워진 걸 보고 손으로 확인만 했을 뿐, 일부러 그런 건 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의로 연결해 뒀다는 사실을 숨기려는 변명."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "대표님은 큰 생방송 전엔 늘 손수 부스에 들어가 장비를 확인하시곤 했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "S-CH01-01"},
+        {"fact_or_claim_id": "S-CH01-02", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-01"},
+        {"fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "S-CH01-02"},
+        {"fact_or_claim_id": "S-CH01-03", "release_prerequisite": "F-CH01-02", "release_trigger": "S-CH01-02"},
+        {"fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "S-CH01-03"},
+        {"fact_or_claim_id": "F-CH01-04", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-01"}
+      ],
+      "knowledge_limits": [
+        "케이블을 어디에 숨겼는지는 본인 말고는 모른다.",
+        "성지원이 계약서를 정확히 어디까지 고쳤는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)이지만 방송 얘기가 나오면 격식체로 바뀐다.",
+        "sentence_length_tendency": "평소엔 짧고 리듬감 있다가, 몰리면 문장이 길어지고 설명이 많아진다.",
+        "verbal_tic": "'다 아시겠지만'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "다 아시겠지만, 그 얘기는 이미 다 말씀드렸는데요.",
+        "자꾸 같은 걸 물으시니 좀 피곤하네요.",
+        "……이제 그만하시죠."
+      ],
+      "comic_tell": "생방송 큐 사인을 손가락으로 미리 그려 보는 버릇이 있다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-04",
+        "says": "조은재 씨가 그날 오후에 창고 쪽에서 계속 서성이던데요, 저는 그냥 지나가다 봤을 뿐이지만요.",
+        "reveals": "조은재가 그날 오후 창고 근처에 있었다는 것."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "편시우",
+      "role": "전직 방송 작가 / 오늘의 게스트",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 낮에 강도헌과 성지원이 장비 예산 얘기로 날선 말을 주고받는 걸 들었다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "성지원이 오늘 방송에서 자신의 원안을 공식적으로 인정해 주겠다고 말했었다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저는 예전에 이 방송국에서 코너 대본을 쓰던 사람이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 계속 로비에서 이하람 씨랑 같이 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E08", "release_trigger": "S-CH02-01"}
+      ],
+      "knowledge_limits": [
+        "방송국 재정 문제에 대해서는 전혀 모른다.",
+        "여준하가 그날 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요).",
+        "sentence_length_tendency": "평소엔 담담하고 짧다가, 대본 얘기가 나오면 말이 길어진다.",
+        "verbal_tic": "'그때는 그랬지만'을 자주 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "그때는 그랬지만…… 지금 와서 뭘 더 말씀드려야 할지 모르겠어요.",
+        "그 얘기를 자꾸 왜 저한테 물으시는지.",
+        "……더 드릴 말은 없어요."
+      ],
+      "comic_tell": "손끝으로 탁자를 톡톡 두드리며 문장을 고르는 버릇이 있다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH02-01",
+        "opens": "S-CH02-01",
+        "says": "그러고 보니 강도헌 씨가 오늘 낮에 대표님이랑 장비 예산 얘기로 좀 날선 말을 주고받던데요.",
+        "reveals": "강도헌과 성지원 사이에 그날 예산 문제로 마찰이 있었다는 것."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "강도헌",
+      "role": "기술감독",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 오후 대표실 쪽에서 여준하와 성지원이 언성을 높이는 걸 들었다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "성지원을 발견했을 때 인터컴이 이미 한참 무응답 상태였다는 것을 그제야 깨달았다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 대표님한테 방송 장비를 전부 맡아 온 사람이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 조정실에서 다음 코너 큐를 준비하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "낡은 배선이 오래돼서 그랬을 거라고 저도 처음엔 그렇게 생각했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E08", "release_trigger": "S-CH03-01"},
+        {"fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E16", "release_trigger": "S-CH03-02"}
+      ],
+      "knowledge_limits": [
+        "방송국 재정이나 계약 조건에 대해서는 전혀 모른다.",
+        "여준하가 그날 부스에서 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 장비 얘기가 나오면 격식체로 바뀐다.",
+        "sentence_length_tendency": "평소엔 짧고 사무적이다가, 몰리면 말이 빨라진다.",
+        "verbal_tic": "'장비 쪽으로는'을 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "장비 쪽으로는 저도 아는 만큼은 다 말씀드렸어요.",
+        "그게 왜 저랑 자꾸 엮이는 건지 모르겠군요.",
+        "……더 물으실 게 남았습니까."
+      ],
+      "comic_tell": "손목에 찬 케이블타이를 습관처럼 만지작거린다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "여준하 선배가 그날 오후에 대표님 방에서 언성을 높이는 걸 들었어요. 저는 지나가다 들었을 뿐이지만요.",
+        "reveals": "여준하가 그날 오후 성지원과 다퉜다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "조은재",
+      "role": "후원사 담당",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "편시우가 방송국을 나갈 때 좋게 끝나지 않았다고 들은 적이 있다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오후 여준하가 창고에 들어와 서둘러 나가는 모습이 평소와 달라 보였다고 말했다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 이번 모금 방송 후원사 쪽 담당이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 창고에서 후원 물품 재고를 확인하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E04", "release_trigger": "S-CH04-02"}
+      ],
+      "knowledge_limits": [
+        "방송국 내부 회계나 계약 조건에 대해서는 전혀 모른다.",
+        "여준하와 성지원 사이에 있었던 일에 대해서는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사업체답게 예의 바르다.",
+        "sentence_length_tendency": "평소엔 매끄럽고 길지만, 몰리면 문장을 자꾸 끊는다.",
+        "verbal_tic": "'정식으로 말씀드리면'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "정식으로 말씀드리면, 저는 절차대로 움직였을 뿐입니다.",
+        "그 질문은 좀 불편하네요.",
+        "……더 드릴 말씀이 없습니다."
+      ],
+      "comic_tell": "명함을 늘 두 장씩 꺼내 각을 맞춰 보고 나서야 건넨다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-01",
+        "opens": "S-CH04-01",
+        "says": "편시우 씨요? 나갈 때 그렇게 좋게 끝난 게 아니라고 들었어요. 저는 얼핏 들은 것뿐이지만요.",
+        "reveals": "편시우가 방송국을 나갈 때 갈등이 있었다는 것."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "이하람",
+      "role": "인턴",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 오후 강도헌이 계속 초조해 보이는 걸 봤다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "편시우가 로비에 도착했을 때 표정이 유난히 굳어 있었다는 것을 눈치챘다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 반년 전에 이 방송국에 인턴으로 들어왔어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 로비에서 계속 손님들을 맞고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH05-02", "release_prerequisite": "S-CH02-01", "release_trigger": "S-CH05-02"}
+      ],
+      "knowledge_limits": [
+        "장부나 방송 장비에 대해서는 전혀 모른다.",
+        "부스 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 존대가 아직 어색하게 남아 있다.",
+        "sentence_length_tendency": "짧고 끊어지듯 말하며, 긴장하면 더 짧아진다.",
+        "verbal_tic": "'확실친 않지만'을 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "확실친 않지만, 저는 본 대로만 말한 건데요.",
+        "저…… 제가 뭘 잘못 말했나요?",
+        "그만 좀 물어보시면 안 돼요?"
+      ],
+      "comic_tell": "긴장하면 목에 걸린 사원증 줄을 만지작거린다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-01",
+        "opens": "S-CH05-01",
+        "says": "강도헌 선배가 그날 오후에 계속 초조해 보이셨어요. 장비 문제 때문인가 싶었어요.",
+        "reveals": "강도헌이 그날 오후 유난히 불안해 보였다는 것."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "방송국을 함께 키워 온 대표와 간판 진행자. 8년째 손발을 맞춰 왔다.",
+      "public_face": "서로를 방송국의 두 얼굴로 부를 만큼 가까운 사이로 알려져 있다.",
+      "says": {"CH01": "대표님은…… 저한테는 그냥 오래 같이 일한 분이죠. 그 이상 뭐라 말하기 어렵네요."},
+      "private_strain": "여준하는 자신의 대표 코너 원안이 편시우의 것이었다는 사실을 성지원이 알아챈 것을 숨기고 싶어 했다.",
+      "surfaces_when": "탐정이 계약서 메모(E08)를 제시하거나 사무실 다툼 목격담(E09)을 들은 뒤."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "3년 전 함께 코너를 만들다 갈라선 대표와 작가.",
+      "public_face": "조용히 관계가 끝난 사이로만 알려져 있다.",
+      "says": {"CH02": "대표님이 이제 와서 그걸 바로잡아 주려 하셨다는 것만으로도…… 저한테는 큰 거였어요."},
+      "private_strain": "편시우는 자신이 쓴 원고가 여준하의 것으로 굳어진 뒤에도 아무 말 못 하고 방송국을 떠났던 것을 부끄러워했다.",
+      "surfaces_when": "탐정이 편시우에게 대본 얘기를 캐물은 뒤(S-CH02-01)."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH05"],
+      "nature": "반년 전 방송국에 들어온 인턴과 그를 눈여겨봐 온 대표.",
+      "public_face": "대표님이 아끼는 막내로 알려져 있다.",
+      "says": {"CH05": "대표님은…… 그냥 잘해주셨어요. 그게 다예요."},
+      "private_strain": "이하람은 입사 초 방송 사고를 냈을 때 성지원이 조용히 덮어 준 일을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 이하람에게 방송국에 들어온 사정을 캐물은 뒤(S-CH05-01)."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "진행자와 기술감독으로 5년째 생방송을 같이 만들어 온 사이다.",
+      "public_face": "손발이 잘 맞는 걸로 알려져 있다.",
+      "says": {
+        "CH01": "강도헌 씨요? 실무적으로 부딪힐 일이야 있죠. 그뿐입니다.",
+        "CH03": "저는 그냥 장비 쪽 일만 봐서…… 특별히 드릴 말은 없어요."
+      },
+      "private_strain": "강도헌은 그날 오후 사무실에서 여준하와 성지원이 다투는 소리를 들었으면서도 대표에게 먼저 알리지 않았다.",
+      "surfaces_when": "탐정이 계약서 메모(E08)를 제시한 뒤."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH04"],
+      "nature": "오늘 처음 마주친 사이지만 서로의 사정을 어느 정도 들어 알고 있다.",
+      "public_face": "그저 오늘 처음 보는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "조은재 씨랑은 오늘 처음 인사한 사이예요. 서로 사정을 알 리가 없죠.",
+        "CH04": "편시우 씨요? 오늘 처음 뵀는데 예전 얘기는 저도 얼핏 들은 것뿐이에요."
+      },
+      "private_strain": "조은재는 편시우가 방송국을 나갈 때 있었던 갈등을 다른 직원에게 들어 알고 있으면서도 모르는 척했다.",
+      "surfaces_when": "탐정이 조은재에게 편시우에 대해 캐물은 뒤(F-CH04-01)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "스튜디오 부스",
+      "access": "생방송 중에는 출입이 제한되고 사고 이후엔 조사 목적으로만 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "무너지듯 기울어진 마이크 받침대가 한쪽 벽에 비스듬히 걸쳐 있고, 바닥에는 방음 패널 조각이 떨어져 있다. 강도헌은 아직도 문 앞에 서서 안쪽을 들여다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "부스 천장 스피커 상태를 확인한다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "스피커 자체는 이상 없이 정상 작동한다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "마이크 받침대를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "받침대 금속 몸체 나사 부분에 최근에 감았다 푼 듯한 눌린 자국과 가느다란 구리색 실선 자국이 남아 있다."
+        },
+        {
+          "action": "벽면 보조 콘센트를 살펴본다.",
+          "requires": "강도헌",
+          "release_evidence_id": "E02",
+          "result": "벽면 보조 콘센트 덮개가 최근에 열렸다 닫힌 흔적이 있고, 나사 하나가 짝이 맞지 않는다."
+        },
+        {
+          "action": "부스 문손잡이를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "문손잡이가 다른 표면의 먼지와 달리 유난히 깨끗하게 닦여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "조정실",
+      "access": "관계자가 상시 드나드는 방송 통제 공간이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "믹싱 콘솔 앞에 강도헌이 앉아 계속 인터컴 채널을 확인하고 있다. 그 옆 선반에는 배전함 점검용 공구가 놓여 있고, 오늘 큐시트가 띄워진 모니터만 조용히 빛난다.",
+      "observation_rules": [
+        {
+          "action": "조정실 방송 일정표를 살펴본다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "오늘 저녁 19시 30분에 생방송 모금 방송이 예정돼 있다는 게 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "자동점검 로그를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 저녁 19시 20분대 자동점검 로그 구간이 통째로 비어 있고, 그 앞뒤 기록은 정상적으로 남아 있다."
+        },
+        {
+          "action": "배전함 전력 사용 기록을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "18시 52분에 보조 회로 쪽 전력 사용량이 짧게 치솟았다가 곧바로 끊긴 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "로비",
+      "access": "누구나 드나들 수 있는 대기 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "대기 의자에 앉은 편시우는 낡은 대본 파일을 무릎에 얹고 가만히 있고, 그 옆에서 이하람은 손님 명부를 정리하는 척 자꾸 부스 쪽을 돌아본다. 여준하는 구석 자리에서 오늘 밤 대본을 소리 없이 읊고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비 게시판을 살펴본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "오늘 밤 생방송에 신디케이션 관계자와 주요 후원사가 참석한다는 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04",
+      "name": "장비 보관실",
+      "access": "회원이라면 드나들 수 있지만 평소엔 관리자만 손댄다.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "선반마다 후원사 물품 상자가 종류별로 쌓여 있고, 조은재는 그 사이를 오가며 재고 목록에 표시를 하고 있다. 구석 케이블 상자 하나가 살짝 흐트러진 채 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 선반 정리 상태를 살펴본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "선반 한 칸이 최근에 흐트러진 채 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "케이블 상자를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "케이블 상자 안 스피커 케이블 뭉치 중 피복이 벗겨진 토막 하나가 없어졌고, 남은 케이블에는 먼지가 앉아 있는데 그 자리만 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "대표실",
+      "access": "대표와 방문객만 드나드는 개인 공간이다.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "책상 위에 신디케이션 계약서 초안이 펼쳐진 채 그대로 있고, 그 옆 일정표에는 오늘 저녁 방송 순서가 손글씨로 고쳐 적혀 있다. 방 안에는 지금 아무도 없다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 일정표를 살펴본다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "오늘 저녁 방송 순서에 '특별 발표' 한 줄이 손글씨로 추가돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 계약서 초안을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "신디케이션 계약서 초안 코너 저작자 조항 옆에 '편시우 공동 크레딧'이라고 손으로 고쳐 쓴 메모가 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01", "name": "마이크 받침대의 흔적", "source_type": "location", "found_at": "L01",
+      "discovery_condition": "마이크 받침대를 살펴본다.",
+      "content": "받침대 금속 몸체 나사 부분에 최근에 감았다 푼 듯한 눌린 자국과 가느다란 구리색 실선 자국이 남아 있다.",
+      "proves": ["받침대에 최근 누군가 손을 댄 흔적이 있다"],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C02"], "points_at": null,
+      "mismatch": "정비일지에는 사흘 전 점검을 마쳤다고 되어 있는데 자국은 훨씬 최근의 것이다."
+    },
+    {
+      "id": "E02", "name": "보조 콘센트 덮개의 흔적", "source_type": "location", "found_at": "L01",
+      "discovery_condition": "벽면 보조 콘센트를 살펴본다.",
+      "content": "벽면 보조 콘센트 덮개가 최근에 열렸다 닫힌 흔적이 있고, 나사 하나가 짝이 맞지 않는다.",
+      "proves": ["보조 콘센트 회로에 최근 손을 댔다"],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C02"], "points_at": null,
+      "mismatch": "그 콘센트는 방송 장비에는 안 쓰는 예비용이라 평소 손댈 일이 없다."
+    },
+    {
+      "id": "E03", "name": "부스에서 나오는 목격담", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "이하람에게 그날 오후 부스 쪽에서 본 사람을 묻는다.",
+      "content": "\"그날 오후 4시 40분쯤 여준하 선배가 부스에서 나오는 걸 봤어요. 리허설도 없는 시간인데 좀 의외였죠.\"",
+      "proves": ["여준하가 그날 오후 부스에 들어갔다"],
+      "does_not_prove": ["부스에서 무엇을 했는지"],
+      "presentation_effect": ["C01"], "points_at": "CH01",
+      "mismatch": "여준하는 그날 부스 쪽에 들어간 적이 없다고 말한다."
+    },
+    {
+      "id": "E04", "name": "케이블 상자의 빈자리", "source_type": "location", "found_at": "L04",
+      "discovery_condition": "케이블 상자를 살펴본다.",
+      "content": "케이블 상자 안 스피커 케이블 뭉치 중 피복이 벗겨진 토막 하나가 없어졌고, 남은 케이블에는 먼지가 앉아 있는데 그 자리만 비어 있다.",
+      "proves": ["피복 벗겨진 케이블 토막이 최근에 반출됐다"],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": ["C03"], "points_at": null,
+      "mismatch": "그날은 정기 점검일이 아니라 그 케이블을 쓸 일이 없었다."
+    },
+    {
+      "id": "E05", "name": "창고에서 챙기는 것을 본 목격담", "source_type": "testimony", "found_at": "L04",
+      "discovery_condition": "조은재에게 그날 오후 창고에서 본 사람을 묻는다.",
+      "content": "\"그러고 보니 오후에 여준하 씨가 창고에 들어와서 뭘 좀 챙겨 나가긴 했어요. 후원 물품 정리하다 얼핏 봤죠.\"",
+      "proves": ["여준하가 그날 오후 창고에서 무언가를 챙겨 나갔다"],
+      "does_not_prove": ["무엇을 챙겼는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "여준하는 그날 창고에 들어간 적이 없다고 말한다."
+    },
+    {
+      "id": "E06", "name": "문손잡이의 흔적", "source_type": "location", "found_at": "L01",
+      "discovery_condition": "부스 문손잡이를 살펴본다.",
+      "content": "문손잡이가 다른 표면의 먼지와 달리 유난히 깨끗하게 닦여 있다.",
+      "proves": ["누군가 문손잡이를 일부러 닦았다"],
+      "does_not_prove": ["언제, 누가 닦았는지"],
+      "presentation_effect": ["C01"], "points_at": null,
+      "mismatch": "그날 정기 청소 일정은 없었다."
+    },
+    {
+      "id": "E07", "name": "자동점검 로그의 빈 구간", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "자동점검 로그를 확인한다.",
+      "content": "그날 저녁 19시 20분대 자동점검 로그 구간이 통째로 비어 있고, 그 앞뒤 기록은 정상적으로 남아 있다.",
+      "proves": ["그 시간대 로그 기록이 지워졌다"],
+      "does_not_prove": ["누가 지웠는지"],
+      "presentation_effect": ["C03"], "points_at": null,
+      "mismatch": "다른 날짜의 로그는 이렇게 통째로 끊긴 적이 없다."
+    },
+    {
+      "id": "E08", "name": "계약서 초안의 손글씨 메모", "source_type": "location", "found_at": "L05",
+      "discovery_condition": "책상 위 계약서 초안을 살펴본다.",
+      "content": "신디케이션 계약서 초안 코너 저작자 조항 옆에 '편시우 공동 크레딧'이라고 손으로 고쳐 쓴 메모가 남아 있다.",
+      "proves": ["성지원이 코너 저작자 조항을 바꾸려 했다"],
+      "does_not_prove": ["여준하가 그것을 알고 있었는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "여준하는 그 계약 얘기를 오늘 처음 들었다고 말한다."
+    },
+    {
+      "id": "E09", "name": "사무실 다툼 목격담", "source_type": "testimony", "found_at": "L02",
+      "discovery_condition": "강도헌에게 그날 오후 사무실 쪽에서 들은 소리를 묻는다.",
+      "content": "\"14시쯤 대표님 방에서 언성이 높아지는 걸 들었어요. 저작권 얘기였나…… 여준하 선배 목소리였는데요.\"",
+      "proves": ["그날 오후 성지원과 여준하가 다퉜다"],
+      "does_not_prove": ["무엇 때문에 정확히 다퉜는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "여준하는 그날 대표와 특별한 일이 없었다고 말한다."
+    },
+    {
+      "id": "E10", "name": "편시우에 대한 소문", "source_type": "testimony", "found_at": "L02",
+      "discovery_condition": "강도헌에게 편시우가 나갈 때 있었던 일을 묻는다.",
+      "content": "\"편시우 씨요? 나갈 때 그렇게 좋게 끝난 건 아니라고 들었어요. 대본 문제였다던가……. 저도 자세힌 몰라요.\"",
+      "proves": ["편시우가 방송국을 나갈 때 갈등이 있었다"],
+      "does_not_prove": ["그 갈등이 오늘 일과 관련 있는지"],
+      "presentation_effect": [], "points_at": "CH02",
+      "mismatch": "편시우 본인은 그 일을 아무렇지 않게 말한다."
+    },
+    {
+      "id": "E11", "name": "편시우의 굳은 표정", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "이하람에게 편시우가 도착했을 때 어떤 모습이었는지 묻는다.",
+      "content": "\"편시우 선생님이 오늘 도착했을 때부터 표정이 좀 굳어 계시긴 했어요. 오랜만에 오신 거니까 그런가 했죠.\"",
+      "proves": ["편시우가 오늘 유난히 긴장한 기색이었다"],
+      "does_not_prove": ["그 긴장이 무엇 때문인지"],
+      "presentation_effect": [], "points_at": "CH02",
+      "mismatch": "편시우 본인은 그냥 반가운 마음뿐이었다고 말한다."
+    },
+    {
+      "id": "E12", "name": "편시우가 로비에 있었다는 목격담", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "이하람에게 편시우가 그 시각에 어디 있었는지 묻는다.",
+      "content": "\"편시우 선생님은 그때 계속 저랑 같이 로비에 계셨어요. 잠깐도 안 비우셨는데요.\"",
+      "proves": ["편시우가 사고 시각까지 계속 로비에 있었다"],
+      "does_not_prove": ["그 전후의 행적까지"],
+      "presentation_effect": ["R01"], "points_at": null,
+      "mismatch": "편시우가 부스 근처에 있었을 거라는 의심과 어긋난다."
+    },
+    {
+      "id": "E13", "name": "조은재의 낯빛", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "이하람에게 조은재가 그날 오후 어떻게 보였는지 묻는다.",
+      "content": "\"조은재 팀장님이 오늘 오후엔 좀 낯빛이 안 좋아 보이시더라고요. 후원사 쪽 일 때문인가 싶었어요.\"",
+      "proves": ["조은재가 그날 오후 유난히 안색이 안 좋았다"],
+      "does_not_prove": ["그 이유가 무엇인지"],
+      "presentation_effect": [], "points_at": "CH04",
+      "mismatch": "조은재 본인은 평소와 다를 게 없었다고 말한다."
+    },
+    {
+      "id": "E14", "name": "후원 예산 갈등 목격담", "source_type": "testimony", "found_at": "L02",
+      "discovery_condition": "강도헌에게 조은재와 대표님 사이 예산 얘기를 묻는다.",
+      "content": "\"조은재 씨랑 대표님이 예산 문제로 몇 번 부딪히시긴 했어요. 정확히는 저도 잘 몰라요.\"",
+      "proves": ["조은재와 성지원 사이에 후원 예산 갈등이 있었다"],
+      "does_not_prove": ["그 갈등이 오늘 일과 관련 있는지"],
+      "presentation_effect": [], "points_at": "CH04",
+      "mismatch": "조은재는 대표와 사이가 나쁘지 않았다고 말한다."
+    },
+    {
+      "id": "E15", "name": "조은재가 통화 중이었다는 목격담", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "이하람에게 조은재가 그 시각에 어디 있었는지 묻는다.",
+      "content": "\"조은재 팀장님은 그 시각에 로비에서 계속 통화하고 계셨어요. 후원사 대표님이랑 뭔가 조율하시는 것 같았고요.\"",
+      "proves": ["조은재가 사고 시각에 로비에서 통화 중이었다"],
+      "does_not_prove": ["그 전후의 행적까지"],
+      "presentation_effect": ["R02"], "points_at": null,
+      "mismatch": "조은재가 창고에서 사고에 관여했을 거라는 의심과 어긋난다."
+    },
+    {
+      "id": "E16", "name": "배전함 전력 사용 기록", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "배전함 전력 사용 기록을 확인한다.",
+      "content": "18시 52분에 보조 회로 쪽 전력 사용량이 짧게 치솟았다가 곧바로 끊긴 기록이 남아 있다.",
+      "proves": ["정확한 사고 시각이 18시 52분이었다"],
+      "does_not_prove": ["그 회로에 무엇이 연결돼 있었는지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "그 시각엔 정식 방송 장비는 전부 대기 상태였다."
+    },
+    {
+      "id": "E17", "name": "발견 시각 진술", "source_type": "testimony", "found_at": "L02",
+      "discovery_condition": "강도헌에게 성지원을 발견했을 때 시각을 묻는다.",
+      "content": "\"인터컴이 계속 응답이 없어서 19시 5분에 문을 열었어요. 이미 쓰러져 계셨어요.\"",
+      "proves": ["성지원을 발견한 시각이 19시 5분이었다"],
+      "does_not_prove": ["그 전에 정확히 무슨 일이 있었는지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "공식 발표는 정확한 사고 시각을 못 박지 않았다."
+    },
+    {
+      "id": "E18", "name": "편시우의 해명", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "편시우에게 오늘 방송국에 다시 오게 된 사정을 묻는다.",
+      "content": "\"성지원 대표님이 오늘 밤 방송에서 예전 코너 원안 얘기를 제대로 정리하고 싶다고 하셔서 나온 거예요.\"",
+      "proves": ["편시우가 오늘 초대받아 온 이유"],
+      "does_not_prove": ["초대의 구체적인 내용까지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "여준하는 편시우가 오늘 왜 왔는지 모른다고 말한다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01",
+      "from_stage": "initial", "to_stage": "admits_booth_visit",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": {"claim_id": "S-CH01-01", "evidence_ids": ["E03", "E06"]},
+      "player_action": "이하람의 목격담(E03)과 문손잡이의 흔적(E06)을 여준하에게 제시하며, 부스에 들어간 적이 없다는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-01", "scope": "그날 오후 부스에 들어갔던 것은 인정한다."},
+      "must_not_release": ["배선", "문자", "저작권"]
+    },
+    {
+      "id": "C02", "target_character": "CH01",
+      "from_stage": "admits_booth_visit", "to_stage": "admits_wiring_touch",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {"claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02"]},
+      "player_action": "마이크 받침대의 흔적(E01)과 보조 콘센트 덮개의 흔적(E02)을 여준하에게 제시하며, 배선을 손대지 않았다는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-02", "scope": "마이크 받침대 배선을 만진 것은 인정한다."},
+      "must_not_release": ["문자", "저작권"]
+    },
+    {
+      "id": "C03", "target_character": "CH01",
+      "from_stage": "admits_wiring_touch", "to_stage": "confesses_intent",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_comparison": {"claim_id": "S-CH01-03", "evidence_ids": ["E04", "E07"]},
+      "player_action": "케이블 상자의 빈자리(E04)와 자동점검 로그의 빈 구간(E07)을 여준하에게 제시하며, 그저 확인만 했을 뿐이라는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-03", "scope": "받침대에 배선을 일부러 연결해 두고 성지원을 부스로 들어가게 한 것도 인정한다."},
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "편시우는 3년 전 자신이 쓴 코너 원안을 여준하에게 빼앗기듯 내주고 방송국을 떠났고, 오늘 갑자기 다시 나타났다.",
+      "actual_reason": "실제로는 성지원이 오늘 밤 방송에서 그의 원안을 공식적으로 인정해 주려고 부른 것이었고, 사고 시각에는 로비에서 이하람과 함께 있었다.",
+      "how_to_clear": "이하람의 목격담(E12)으로 그가 사고 시각까지 계속 로비에 있었다는 것을 확인한다.",
+      "must_not_imply": "그가 실제로 성지원에게 위해를 가했다는 것",
+      "lingering_thread": "편시우는 결국 오늘 밤 방송에서 자신의 이름으로 그 코너를 소개받지 못한 채 돌아가게 됐다.",
+      "suspicion_deepener": "그가 방송국에 도착했을 때부터 표정이 유난히 굳어 있었다는 이야기까지 나오며 의심이 짙어진다.",
+      "character_id": "CH02",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "오랜만에 방송국에 나타나 부스 근처를 서성였을 거라는 의심을 받지만, 실제로는 로비에서 이하람과 계속 함께 있었다.",
+        "means": ["E10", "E11"],
+        "means_first_reading": "과거의 소문과 굳은 표정이 겹쳐 유력해 보인다."
+      },
+      "cleared_by": ["E12"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "조은재는 후원 예산 문제로 성지원과 부딪힌 적이 있고, 사고 직전 부스와 가까운 창고 쪽에서 서성이는 모습이 목격됐다.",
+      "actual_reason": "실제로는 창고에서 후원 물품 재고를 확인하고 있었을 뿐이고, 사고 시각에는 로비에서 후원사 대표와 통화하고 있었다.",
+      "how_to_clear": "이하람의 목격담(E15)으로 그가 사고 시각에 로비에서 통화 중이었다는 것을 확인한다.",
+      "must_not_imply": "그가 실제로 성지원에게 위해를 가했다는 것",
+      "lingering_thread": "조은재와 방송국 사이의 후원 예산 조율은 이번 일과 별개로 여전히 남아 있다.",
+      "suspicion_deepener": "그가 사고 직후 서둘러 창고 밖으로 나왔다는 이야기까지 나오며 의심이 짙어진다.",
+      "character_id": "CH04",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "창고에서 서성이는 모습이 목격돼 의심을 받지만, 실제로는 재고를 확인하고 있었을 뿐이었다.",
+        "means": ["E13", "E14"],
+        "means_first_reading": "예산 갈등 소문과 목격담이 겹쳐 유력해 보인다."
+      },
+      "cleared_by": ["E15"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "E08", "E09"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "받침대에 배선을 연결해 두고 문자로 성지원을 불러들여 감전사시켰다는 사실",
+      "motive_fact": "저작권 도용 사실이 그날 밤 생방송에서 드러날 위기에 처했다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "여준하 (CH01)",
+    "method": "16시 40분 여준하가 부스 안 마이크 받침대에 벗겨진 케이블을 감아 벽면 보조 콘센트 회로에 연결해 두고, 성지원이 18시 50분 생방송 전 관례대로 부스에 홀로 들어가 받침대를 움켜쥔 순간 감전돼 18시 52분 숨졌다.",
+    "motive": "3년간 편시우의 코너 원안을 자신의 것으로 굳혀 온 사실이 그날 오후 성지원에게 발각됐고, 오늘 밤 생방송에서 신디케이션 관계자와 후원사 앞에서 공식적으로 드러나면 전국 편성 계약과 자리를 전부 잃을 처지에 몰려 있었다.",
+    "key_connection": "이하람의 목격담(E03)과 문손잡이의 흔적(E06)이 여준하를 부스로 세우고, 받침대와 콘센트의 흔적(E01·E02)이 배선을 만진 손을 증명한다. 케이블 상자의 빈자리(E04)와 자동점검 로그의 빈 구간(E07)이 고의성과 은폐를 드러내고, 계약서 메모(E08)와 다툼 목격담(E09)이 동기를 완성한다."
+  },
+  "ending_explanation": [
+    "여준하는 3년 전 방송국을 떠난 편시우가 쓴 코너 원안과 대사를 자신의 것으로 굳혀 왔다.",
+    "열흘 전, 성지원은 서버를 정리하다 편시우의 옛 초안 파일을 발견해 여준하의 지금 멘트와 거의 겹친다는 것을 알아챘다.",
+    "사건 당일 14시, 성지원은 여준하를 사무실로 불러 편시우의 원안을 공식적으로 밝히고 계약 조건을 고치라고 요구하며 다퉜다(E09).",
+    "15시 20분 여준하는 장비 보관실에서 피복 벗겨진 케이블 한 토막을 챙겼고(E04·E05), 16시 40분 부스에 들어가 마이크 받침대에 배선을 감아 콘센트 회로에 연결했다(E01·E02).",
+    "18시 50분, 성지원은 관례대로 부스에 홀로 들어가 받침대를 움켜쥐었고 18시 52분 감전돼 숨졌다(E16).",
+    "19시 5분 강도헌이 인터컴 무응답을 이상하게 여겨 문을 열었다가 쓰러진 성지원을 발견했다(E17).",
+    "소란이 이는 틈에 여준하는 부스로 돌아가 케이블을 회수했고(E06), 조정실 자동점검 로그에서 그 시간대 기록을 지웠다(E07).",
+    "편시우가 예전에 방송국을 나갈 때 갈등이 있었다는 것(E10·E11)과 조은재가 후원 예산으로 부딪혔다는 것(E13·E14)은 저마다의 사정을 보여 줄 뿐 결정타는 되지 못했다.",
+    "편시우는 오늘 성지원에게 초대받아 원안을 인정받으러 온 것뿐이었고(E18), 사고 시각에는 이하람과 계속 로비에 있었다(E12).",
+    "조은재는 창고에서 재고를 확인하고 있었을 뿐이고, 사고 시각에는 로비에서 후원사 대표와 통화하고 있었다(E15).",
+    "계약서 메모(E08)가 저작권 다툼의 흔적을 남겼고, 이하람의 목격담(E03)이 여준하를 그 시각 그 자리에 세웠다."
+  ],
+  "motives": [
+    {"id": "M01", "text": "저작권 도용 사실이 드러날 위기를 막기 위한 살해", "truth": true, "evidence_for": ["E08"], "suggested_by": ["E09"], "cue": "저작권"},
+    {"id": "M02", "text": "3년 전 자신의 대본을 빼앗긴 것에 대한 편시우의 앙심", "truth": false, "evidence_for": [], "suggested_by": ["E10"], "cue": "대본", "refutation": "그 얘기면 오늘 오히려 제 몫을 되찾으러 온 건데요, 죽일 이유가 없죠.", "refutation_releases": "F-CH02-02", "refuted_by": "CH02"},
+    {"id": "M03", "text": "후원 예산 집행 문제로 조은재가 앙심을 품은 것", "truth": false, "evidence_for": [], "suggested_by": ["E14"], "cue": "예산", "refutation": "그 정도 이견으로 사람을 어떻게 해요, 저는 그때 통화 중이었어요.", "refutation_releases": "F-CH04-02", "refuted_by": "CH04"}
+  ],
+  "times": [
+    {"id": "T01", "text": "사건 당일 18:52, 스튜디오 부스에서", "truth": true, "evidence_for": ["E16"], "suggested_by": ["E16"], "cue": "18시 52분"},
+    {"id": "T02", "text": "사건 당일 19:05, 강도헌이 발견했을 때", "truth": false, "evidence_for": [], "suggested_by": ["E17"], "cue": "19시 5분", "refutation": "그건 제가 발견한 시각이었죠, 그전에 이미 한참 쓰러져 계셨어요.", "refutation_releases": "F-CH03-02", "refuted_by": "CH03"},
+    {"id": "T03", "text": "사건 당일 14:00, 사무실에서 다툴 때", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "14시", "refutation": "그때는 언성만 높아졌을 뿐, 몸싸움 같은 건 없었어요.", "refutation_releases": "F-CH01-04", "refuted_by": "CH01"}
+  ],
+  "methods": [
+    {"id": "H01", "text": "받침대에 배선을 감춰 두고 감전시킴", "truth": true, "evidence_for": ["E01", "E02"], "suggested_by": ["E01"], "cue": "받침대"},
+    {"id": "H02", "text": "낡은 배선이 스스로 노후돼 일어난 사고", "truth": false, "evidence_for": [], "suggested_by": ["S-CH03-03"], "cue": "배선", "refutation": "그럴 수도 있죠. 그런데 받침대에 남은 자국을 보면 그냥 낡아서 그런 것 같지는 않던데요."},
+    {"id": "H03", "text": "부스 안에서 실랑이가 벌어져 감전됨", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "언성", "refutation": "실랑이 같은 건 없었습니다. 그냥 확인하러 들어갔을 뿐이에요.", "refuted_by": "CH01"}
+  ],
+  "suspect_refutations": {
+    "CH02": {"text": "저요? 그 얘기 때문에 사람을 어떻게 해요, 오히려 오늘 제 몫을 되찾으러 온 거예요."},
+    "CH03": {"text": "제가요? 저는 그냥 장비만 챙기는 사람인데요."},
+    "CH04": {"text": "저요? 예산 문제로 사람을 해칠 이유가 어디 있어요."},
+    "CH05": {"text": "저요? 저는 그냥 로비만 지키고 있었는데요……."}
+  }
+}
