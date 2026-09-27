@@ -20,7 +20,7 @@
 
 - **시작하면 `docs/handoff-backlog.md`의 자기 절과 `docs/handoff/`에서 자기 앞으로 온 쪽지만 읽는다**(2026-09-26 사용자 결정 — 전부 읽는 것이 같은 항목을 다른 세션이 다시 재고 다시 쪽지로 쓰는 순환을 만들었다). 규칙은 `docs/handoff.md`. 여러 세션과 루틴이 같은 저장소를 고친다. 끝낼 때는 상대 작업에 영향이 가는 변경을 쪽지로 남기고, 상대가 남긴 것을 처리했으면 그 블록을 지운다(지우는 것이 「받았다」는 신호). **쪽지 한 장에 수신자는 하나** — 여럿이면 `--<수신자>` 접미로 파일을 가른다(2026-09-27 사용자 결정. 섞어 쓴 21장을 아무도 못 지웠다). 집은 항목에는 `진행 중 (브랜치)`를 적는다. 사용자 판단이 필요한 것은 백로그 「사용자」 절에, 알림은 회차 기록에.
 - 회차 작업(소설·판본·이주)을 시작할 때는 ① `git fetch` ② README 한 줄이 아니라 **실제 파일 목록**(`ls docs/novels/`·`ls data/pending-cases/`) ③ `docs/handoff-backlog.md`의 자기 절과 `docs/handoff/`에서 자기 앞으로 온 쪽지 — 이 순서로 본다. 겹쳐 쓴 사고 다섯 건이 전부 이 셋 중 하나를 건너뛰어서 났다.
-- 세션 간 충돌은 사람이 옮기지 않는다. PR 검사(`.github/workflows/pr-checks.yml`: tsc · oxlint 기준선 · build · 바뀐 마스터의 `check:case`와 `check:offline`)와 충돌 감시 루틴(`docs/conflict-watch-routine.md`)이 맡는다. 오프라인 판본(`Case-No-*.offline.json`)도 폴더 이름으로 같은 id에 모여 검사받는다.
+- 세션 간 충돌은 사람이 옮기지 않는다. PR 검사(`.github/workflows/pr-checks.yml`: tsc · oxlint 기준선 · build · 바뀐 마스터의 `check:case`와 `check:offline`)와 충돌 감시 루틴(`docs/conflict-watch-routine.md`)이 맡는다. **PR은 `check`가 초록으로 끝난 것을 보고 머지한다** — 실행이 끝나기 전에 머지하면 검사가 빈 diff로 통과한 적이 있다(2026-09-27, CASE343·345). 저장소 설정으로 강제하는 것(브랜치 보호에 `check` 필수)은 사용자 몫이라 백로그 「사용자」 절에 있다. 오프라인 판본(`Case-No-*.offline.json`)도 폴더 이름으로 같은 id에 모여 검사받는다.
 - 코드를 고쳤으면 `graphify update .`(설치돼 있을 때). 코드베이스 질문은 `graphify query`부터.
 
 ## ① 마스터 규칙 — 두 경로가 같은 파일을 읽는다

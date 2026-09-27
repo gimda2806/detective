@@ -80,17 +80,31 @@ jobs:
           # 머지될 때마다 `check` 가 빨갛게 났다**(적어도 최근 네 머지 전부).
           # 앞 줄의 `--depth=0` 도 같은 자리에서 `fatal: depth 0 is not a
           # positive number` 를 찍는다 — 그쪽은 `|| true` 가 이미 받아 준다.
-          git fetch --no-tags --depth=0 origin "${{ github.base_ref }}" || true
-          base=$(git merge-base "origin/${{ github.base_ref }}" HEAD 2>/dev/null) || true
+          # **실행 시점의 `origin/main` 을 기준으로 잡으면 안 된다**(2026-09-27 고침).
+          # PR 이 CI 완료 전에 머지되면 그 사이 fetch 한 main 에 이 PR 이 이미 들어
+          # 있어서 merge-base 가 PR 헤드 자신이 되고 diff 가 비어 「바뀐 마스터 없음」
+          # 으로 통과한다 — CASE343·345 가 그렇게 들어왔다(둘 다 실행 생성 2초 뒤에
+          # 머지됐고, 로컬 `--new` 로는 각 19·27개 error). 기준은 **체크아웃된 머지
+          # 커밋의 두 부모**다: `HEAD^1` 이 이벤트 시점의 base 끝, `HEAD^2` 가 PR 헤드.
+          # 둘의 merge-base 에서 PR 헤드까지가 이 PR 이 바꾼 것이고, 그 사이 main 이
+          # 움직여도 남의 사건이 섞이지 않는다. main 으로의 push 도 머지 커밋이면
+          # 같은 식으로 방금 머지된 PR 을 다시 검사한다(빨개지면 머지가 샌 것이다).
+          # 부모가 하나인 커밋(squash·직접 push)은 건너뛴다.
+          if ! git rev-parse -q --verify 'HEAD^2' >/dev/null; then
+            echo "머지 커밋이 아니다(부모 하나) — 건너뛴다."
+            exit 0
+          fi
+          head=$(git rev-parse 'HEAD^2')
+          base=$(git merge-base 'HEAD^1' "$head" 2>/dev/null) || true
           if [ -z "$base" ]; then
-            echo "base를 못 찾았다(push 이벤트 등) — 건너뛴다."
+            echo "base를 못 찾았다 — 건너뛴다."
             exit 0
           fi
           # **`.offline.json` 도 잡는다**(2026-09-22). 패턴이 `*.master.json`
           # 뿐이라 오프라인 전용 판본은 CI 에서 check:case 를 한 번도 안 받았다 —
           # `/offline` 이 실제로 여는 파일이 그쪽인데도 그랬다. 폴더 이름에서
           # 사건 id 를 뽑으므로 두 파일 모두 같은 id 로 모인다.
-          ids=$(git diff --name-only --diff-filter=d "$base"...HEAD \
+          ids=$(git diff --name-only --diff-filter=d "$base" "$head" \
                   -- 'data/pending-cases/*/*.master.json' \
                      'data/pending-cases/*/*.offline.json' \
                 | sed -E 's#data/pending-cases/(CASE[0-9]+)/.*#\1#' | sort -u)
@@ -111,7 +125,7 @@ jobs:
           # CI 에서는 새 사건이 늘 「등록됨」으로 읽혀, 「새 사건 error」가 한 번도
           # 실제로 돌지 않았다. 추가된(A) 원본 파일이 곧 새 사건이다 — 그 id 는
           # `--new` 로 돌려 코퍼스 비율·오프라인 뼈대·대사 검사가 전부 error 다.
-          new_ids=$(git diff --name-only --diff-filter=A "$base"...HEAD \
+          new_ids=$(git diff --name-only --diff-filter=A "$base" "$head" \
                   -- 'data/pending-cases/*/*.master.json' \
                 | sed -E 's#data/pending-cases/(CASE[0-9]+)/.*#\1#' | sort -u)
           failed=0

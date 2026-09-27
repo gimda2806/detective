@@ -16,3 +16,9 @@
 - [ ] `points_at`은 어느 쪽으로도 안 기울면 **`null`로 적는다** — 키가 없으면 error, `null`이면 통과다. 가장 흔히 걸릴 자리.
 - [ ] 지금 열려 있는 새 사건 PR(#1349·#1351·#1359·#1364·#1371)은 main을 받으면 이 검사에 걸린다. 그 사건들도 필수 표를
       채워야 머지된다 — 판본으로 따로 메우는 길은 새 번호에는 없다.
+- [ ] **CASE343·CASE345 는 게이트를 지나쳐 들어왔다.** 두 PR 이 CI 실행이 끝나기 전에 머지돼 검사가 빈 diff 로 통과했다
+      (결정 로그 09-27 「빈 diff」 절). 로컬 `npm run check:case CASE343 -- --new` 는 27개, CASE345 는 19개 error 다 —
+      뼈대 8(`points_finger`·`comic_tell`·보드 셋·`points_at`·`mismatch`·헛다리 `weight`/`clearing_points_at`) + 대사 모양
+      (`pressure_responses`·`says` 가 따옴표에 싸임). 등록된 채라 검사가 소급되지 않으니 **다음 회차에 이 둘을 필수 표까지
+      채우는 것**이 먼저다. 그리고 **PR 은 `check` 가 초록으로 끝난 뒤에 머지한다**(CLAUDE.md 세션 절).
+
