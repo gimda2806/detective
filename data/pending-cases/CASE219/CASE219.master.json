@@ -203,6 +203,30 @@
           "content": "15년 가까이 이 연구실을 이끌어 왔다.",
           "source": "본인이 한 일",
           "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 시간에 잠깐 실험실을 오간 것은 인정하지만, 후드 상태만 확인하러 간 것뿐이라고 둘러댄다.",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "댐퍼를 손댄 것은 인정하지만, 헐거워 보여 다시 조이려 한 것뿐이라고 주장한다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "논문 데이터를 조작한 것과 서율이 그것을 알아챘다는 것은 인정한다. 다만 다치게 할 생각은 없었다고 부인한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "서율이 오늘 저녁 안에 조작을 알리려 한다는 걸 알고, 배기 댐퍼를 잠그고 경보 센서 배터리를 빼 두어 서율이 혼자 유독 증기에 노출되도록 만들었다는 것을 인정한다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -257,6 +281,26 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
