@@ -182,18 +182,39 @@
           "reason_for_limit_or_lie": "실제로는 새벽에 사무실로 다시 불려 나가 장인을 살해했다는 것을 숨기려는 거짓말."
         },
         {
+          "claim_id": "S-CH02-03",
+          "content": "정산상으로는요... 장인어른이랑 언쟁이 있었던 건 맞아요. 그런데 그게 답니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
           "claim_id": "S-CH02-04",
           "content": "제가 새벽에 손수레를 끌고 선착장 쪽에 다녀온 건 맞아요. 하지만 이미 쓰러져 있던 장인을 발견하고 옮기려 했을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "정산상으로는요... 이제 다 말씀드릴게요. 빚을 갚으려고 예약금을 빼돌렸는데, 소유권 이전 등기 전에 감사가 뜬다니 다급해졌어요. 장인어른 목을 조르고, 선착장 갯바위로 옮겨 사고처럼 꾸미고, 이중 장부도 고쳐 적었습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
           "fact_or_claim_id": "S-CH02-04",
           "release_prerequisite": "S-CH02-02",
           "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": ["다른 사람들이 그날 새벽 정확히 어디서 무엇을 했는지는 자세히 모른다."],
