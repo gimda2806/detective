@@ -46,7 +46,7 @@
     "method_archetypes": ["dermal_contact", "staging_cover_up"],
     "key_time_location": "사건 당일 17:12, 조제실(L01)",
     "cover_up": "우신오는 조제실 배합 로그 단말기에서 그 시각 자신의 작업 기록을 지우려 했지만 서버에 남은 원본까지는 지우지 못했고, 원액이 든 빈 병과 오염된 장갑을 원료 창고 폐기함 깊숙이 넣어 두었으며, 배합대를 대충 닦아 낸 뒤 환기 설비 오작동으로 인한 화학물질 누출 사고처럼 보이도록 경보 로그를 조작했다. 캐물으면 진소원이 최근 원료 라벨을 헷갈린 적이 있다는 것을 슬쩍 흘리며 화제를 돌리려 했다.",
-    "cover_up_target": ["evidence", "time"],
+    "cover_up_target": ["time", "weapon", "responsibility"],
     "cover_up_method": ["digital_record_manipulation", "weapon_disposal", "accident_environment", "witness_misdirection"],
     "decisive_evidence_ids": ["E04", "E16", "E12", "E05"]
   },
