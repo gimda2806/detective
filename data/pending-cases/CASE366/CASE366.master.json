@@ -1,0 +1,981 @@
+{
+  "case_identity": {
+    "case_id": "CASE366",
+    "title": "마지막 인화",
+    "genre": "대회 출품작을 몰래 바꿔치기해 후원 계약을 지켜 온 사실이 시상식 날 드러날 위기에 놓인 사진마루 원장이 초청 심사위원을 암실에 가두어 질식시키고 사고로 위장한 사건.",
+    "setting": "지역 아마추어 사진 공모전의 최종 심사와 특별전 개막이 함께 열리는 날, 회원제로 운영되는 사진문화공간 빛의숲사진마루는 아침부터 분주했다. 원장 정헌목은 개막 인사말을 다듬고 있었고, 전속 강사 노윤겸은 특별전 전시대 순서를 마지막으로 점검하고 있었다. 운영실장 문서율은 후원 정산 서류를 정리하고, 후원사 담당자 조민율은 시상 순서를 확인하고 있었다. 올해부터 강사로 합류한 표유담은 로비에서 손님들을 맞을 준비를 했고, 이번에 처음 외부 심사위원으로 초청된 하승효도 오전 일찍 도착해 원판 자료실을 들여다보고 있었다.",
+    "location_archetypes": ["photo_video_studio", "museum_exhibition"],
+    "background": {
+      "background_archetypes": ["competition_contest", "exhibition"],
+      "background_phrasing": ["alongside"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 사진 동호회에서 알고 지내는 지인의 초대로 빛의숲사진마루 특별전 개막 축하 자리에 참석해 있었다.",
+    "tone": "오래된 사진문화공간 특유의 차분함과, 그 사이로 스며드는 긴장. 탐정과 한지우가 주고받는 짧은 말들이 그 긴장을 조금씩 눌러 준다.",
+    "tags": ["사진_갤러리", "공모전_시상식", "스승과_제자"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하승효",
+      "role": "초청 심사위원",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 15:00",
+    "narrative": "로비 한쪽에서 이어지던 축하 인사가 순간 뚝 끊겼다.\n\n한지우가 축하주 잔을 내려놓으며 창밖을 살폈다.\n\n\"저기 암실 쪽에 사람들이 몰려 있는데요.\"\n\n\"가 보자.\"\n\n탐정이 먼저 걸음을 옮겼다.\n\n암실 문이 열려 있었고, 노윤겸이 안쪽에서 의식을 잃고 쓰러진 하승효를 붙잡고 이름을 부르고 있었다. 환풍구 그릴이 비스듬히 어긋난 채 걸려 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "원장실 문을 닫자 로비의 소란이 한 꺼풀 멀어졌다.\n\n정헌목은 한참을 계약서 초안 표지만 매만지다 입을 열었다.\n\n\"환풍구에…… 일부러 천을 끼워 뒀습니다. 그렇게 하면 들어가실 걸 알고 있었어요.\"\n\n한지우가 수첩을 덮는 손끝이 잠깐 멈췄다.\n\n\"그 계약 하나 때문에 그렇게까지…….\"\n\n탐정이 낮게 말을 끊었다.\n\n\"계약 얘기는 그만해. 지금 저 사람한테 중요한 건 그게 아니야.\"\n\n정헌목은 고개를 떨궜다.\n\n밖으로 나오자 해가 뉘엿뉘엿 저물고 있었다. 사무국 창가에는 문서율이 아직 정산 서류를 붙들고 앉아 있었다.\n\n\"저분은 결국 오늘 정산을 못 마치셨네요.\"\n\n한지우가 중얼거리자 탐정이 픽 웃음을 흘렸다.\n\n\"그건 우리가 대신 해 줄 얘기는 아니지.\"\n\n한지우도 픽 웃으며 카메라 가방을 다시 둘러멨다."
+  },
+  "surface_incident": [
+    "그날 오후, 특별전 개막 축하 자리가 한창이던 시각에 초청 심사위원 하승효가 암실 안에서 의식이 없는 상태로 발견돼 병원으로 옮겨졌지만 끝내 숨졌다. 낡은 환풍 설비 탓에 일어난 사고로 알려졌다.",
+    "암실은 시상식 전 관례대로 심사위원이 마지막으로 원판을 확인하러 홀로 들어가곤 하던 곳이었다.",
+    "그날 사진마루를 드나든 사람은 전부 낯익은 얼굴들이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "정헌목은 지난 3년간 대회 최종 출품작 중 일부를 후원사가 원하는 특정 참가자의 새로 인화한 사진으로 몰래 바꿔치기해 왔고, 그 대가로 후원사는 사진마루에 매년 큰 규모의 후원 계약을 유지해 왔다. 이번에 처음으로 초청된 외부 심사위원 하승효가 원판 자료실에서 이 사실을 알아채 오늘 저녁 특별전 개막 시상식에서 공식적으로 밝히고 대회 운영위에 보고하겠다고 못박자, 후원 계약이 끊기고 지금까지 쌓아 온 원장 자리를 전부 잃을 처지에 몰렸다.",
+    "motive_archetypes": ["result_rigging"],
+    "method": "정헌목은 하승효가 시상식 전 마지막으로 원판 자료를 재확인하러 홀로 암실에 들어가리라는 것을 알고, 미리 암실 환풍구 안쪽에 암막천을 끼워 넣어 막고 문 안전 인터록 스위치를 절연테이프로 고정해 무력화해 두었다. 하승효가 홀로 암실에 들어가 문을 닫은 뒤, 밀폐된 공간 안에서 산소가 서서히 줄어들며 정신을 잃고 쓰러졌다.",
+    "method_archetypes": ["oxygen_deprivation", "staging_cover_up"],
+    "key_time_location": "사건 당일 15:35, 빛의숲사진마루 암실(L02)",
+    "cover_up": "소란이 인 틈에 암실로 돌아가 환풍구에 끼워 뒀던 암막천을 빼내 가방에 숨겨 나오고, 대신 인화 작업용 앞치마를 환풍구 앞에 걸쳐 두어 하승효 본인이 부주의로 통풍구를 가린 것처럼 보이게 하고, 정비 일지에는 사흘 전 날짜로 정기 점검을 마쳤다는 기록을 새로 적어 넣는다.",
+    "cover_up_method": ["weapon_disposal", "accident_victim_error", "document_falsification"],
+    "cover_up_target": ["evidence", "responsibility"],
+    "decisive_evidence_ids": ["E01", "E02", "E03", "E04", "E06", "E07", "E08", "E09", "E16"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "두 달 전",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 후원사와의 내년도 계약 갱신을 앞두고 그동안 해 온 대로 특정 참가자의 출품작을 새로 인화한 사진으로 몰래 바꿔치기할 준비를 한다."
+    },
+    {
+      "id": "T02",
+      "time": "보름 전",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 대회 공정성 논란을 잠재우려 하승효를 이번 최종 심사의 외부 위원으로 처음 초청한다."
+    },
+    {
+      "id": "T03",
+      "time": "사흘 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하승효가 자료 준비차 미리 들러 원판 자료실을 살피다 몇몇 출품작의 촬영 일자가 제출 마감일보다 늦다는 것을 알아챈다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 10:00",
+      "location": "L05",
+      "actors": ["V01", "CH01"],
+      "actual_action": "하승효가 정헌목에게 이 사실을 알리며 오늘 저녁 시상식 인사말에서 공식적으로 밝히고 운영위에 보고하겠다고 말한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 10:20",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 만류하려다 실패하고 서두르는 기색으로 사무실을 나선다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 13:00",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 강의실 창고에서 낡은 암막천 한 장을 챙겨 나온다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 14:10",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 암실 환풍구 안쪽에 암막천을 끼워 넣어 막고, 도어 인터록 스위치를 절연테이프로 고정해 무력화한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 15:00",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하승효가 시상식 전 마지막으로 원판 자료를 재확인하러 홀로 암실에 들어간다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 15:35",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "밀폐된 암실 안에서 산소가 서서히 줄어들며 하승효가 정신을 잃고 쓰러진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 15:42",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "노윤겸이 시상식 리허설 시간이 지나도 하승효가 나오지 않아 암실 문을 두드리다 열고 쓰러진 그를 발견한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 15:55",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 소란이 인 틈에 암실로 돌아가 환풍구에 끼워 뒀던 암막천을 빼내 가방에 챙기고 도어 인터록의 절연테이프를 제거한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 16:05",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "정헌목이 환풍기 배선 커넥터를 일부러 헐겁게 풀어 놓고, 정비 일지에는 사흘 전 날짜로 정기 점검을 마쳤다는 기록을 새로 적어 넣는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "정헌목",
+      "role": "빛의숲사진마루 원장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 오후 암실에 들어갔던 것은 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "환풍구 안쪽을 만졌던 것도 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "환풍구에 천을 끼워 막아 두고 하승효를 암실로 들어가게 한 것도 인정했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "원장실에서는 언성만 높아졌을 뿐, 몸싸움은 없었다고 말했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "그날 오후 조민율이 로비 쪽에서 통화하며 서성이는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 오후엔 암실 쪽에 들어간 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "암실에 있었다는 사실 자체를 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "환풍구 쪽은 손댄 적 없어요, 그냥 지나가다 확인만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "환풍구를 만진 사실을 숨기려는 변명."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "헐거워진 걸 보고 손으로 확인만 했을 뿐, 일부러 그런 건 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의로 막아 뒀다는 사실을 숨기려는 변명."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "하승효 선생님은 이번이 처음으로 저희 쪽에 초청된 외부 심사위원이셨어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "S-CH01-01"},
+        {"fact_or_claim_id": "S-CH01-02", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-01"},
+        {"fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "S-CH01-02"},
+        {"fact_or_claim_id": "S-CH01-03", "release_prerequisite": "F-CH01-02", "release_trigger": "S-CH01-02"},
+        {"fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "S-CH01-03"},
+        {"fact_or_claim_id": "F-CH01-04", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-01"}
+      ],
+      "knowledge_limits": [
+        "천을 정확히 어디에 숨겼는지는 본인 말고는 모른다.",
+        "하승효가 정확히 어디까지 알아냈는지는 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)이지만 대회 얘기가 나오면 격식체로 바뀐다.",
+        "sentence_length_tendency": "평소엔 짧고 매끄럽다가, 몰리면 문장이 길어지고 설명이 많아진다.",
+        "verbal_tic": "'돌이켜 보면'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "돌이켜 보면, 저도 이미 다 말씀드린 것 같은데요.",
+        "자꾸 같은 걸 물으시니 좀 피곤하네요.",
+        "……이제 그만하시죠."
+      ],
+      "comic_tell": "시상식 인사말을 손가락으로 허공에 미리 그려 보는 버릇이 있다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-04",
+        "says": "조민율 씨가 그날 오후에 로비에서 계속 통화하며 서성이던데요, 저는 지나가다 봤을 뿐이지만요.",
+        "reveals": "조민율이 그날 오후 로비에서 서성였다는 것."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "노윤겸",
+      "role": "전속 강사 / 시신 발견자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "하승효가 사흘 전 원판 자료실에서 뭔가를 한참 들여다보고 있었다고 들었다.",
+          "source": "전해 들음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "몇 해 전부터 출품작 인화 결과가 이상하다는 낌새를 느꼈다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "하승효를 발견했을 때 몸이 이미 한참 식어 있는 것처럼 느껴졌다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "그날 오전 문서율이 예산 서류를 들고 다급하게 오가는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저는 하승효 선생님 밑에서 사진을 배운 사람이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 강의실에서 학생 작품을 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E08", "release_trigger": "S-CH02-01"},
+        {"fact_or_claim_id": "F-CH02-04", "release_prerequisite": "E20", "release_trigger": "S-CH02-02"}
+      ],
+      "knowledge_limits": [
+        "대회 후원 계약 조건에 대해서는 잘 모른다.",
+        "정헌목이 그날 오후 정확히 어디를 다녔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요).",
+        "sentence_length_tendency": "평소엔 담담하고 짧다가, 대회 얘기가 나오면 말이 길어진다.",
+        "verbal_tic": "'가르치는 입장에서는'을 앞세운다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "가르치는 입장에서는, 그 얘기는 이미 다 말씀드렸는데요.",
+        "자꾸 같은 걸 물으시니 좀 힘드네요.",
+        "……이제 그만 여쭤봐 주세요."
+      ],
+      "comic_tell": "설명할 때마다 손으로 사각 프레임을 만들어 보는 버릇이 있다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "문서율 실장님이 그날 오전에 예산 서류를 들고 다급하게 오가시던데요, 그냥 지나가다 본 거지만요.",
+        "reveals": "문서율이 그날 오전 예산 문제로 분주했다는 것."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "문서율",
+      "role": "운영실장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 오전 원장실 쪽에서 정헌목과 하승효가 언성을 높이는 걸 들었다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "정산 서류를 정리하다 후원 계약 갱신 조건이 최근 대회 결과와 맞물려 있다는 것을 알아챘다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 이 대회 운영 실무를 전부 맡아 온 사람이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 사무국에서 후원 정산 서류를 정리하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "낡은 환기 설비라 그럴 수도 있겠다고 저도 처음엔 그렇게 생각했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E08", "release_trigger": "S-CH03-01"},
+        {"fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E14", "release_trigger": "S-CH03-02"}
+      ],
+      "knowledge_limits": [
+        "암실에서 정확히 무슨 일이 있었는지는 모른다.",
+        "정헌목이 그날 오후 어디를 다녔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 장부 얘기가 나오면 격식체로 바뀐다.",
+        "sentence_length_tendency": "평소엔 짧고 사무적이다가, 몰리면 말이 빨라진다.",
+        "verbal_tic": "'장부상으로는'을 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "장부상으로는 저는 절차대로 움직였을 뿐입니다.",
+        "그 질문은 제 업무 범위를 벗어나는데요.",
+        "……더 드릴 말씀이 없습니다."
+      ],
+      "comic_tell": "숫자를 말할 때마다 손가락으로 허공에 자릿수를 짚어 본다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "그날 오전 원장실에서 원장님이랑 하승효 선생님이 언성을 높이시는 걸 들었어요. 저는 지나가다 들었을 뿐이지만요.",
+        "reveals": "정헌목과 하승효가 그날 오전 다퉜다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "조민율",
+      "role": "후원사 담당자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "몇 해 전부터 대회 결과가 유독 같은 참가자 쪽으로 쏠린다는 걸 눈치챘다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오후 노윤겸이 강의실 쪽에서 서두르는 기색으로 나오는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 이번 공모전 후원사 쪽 담당이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 로비에서 본사와 통화하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E18", "release_trigger": "S-CH04-01"},
+        {"fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E11", "release_trigger": "S-CH04-02"}
+      ],
+      "knowledge_limits": [
+        "대회 운영 세부 사항에 대해서는 잘 모른다.",
+        "정헌목이 그날 오후 어디를 다녔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사업체답게 예의 바르다.",
+        "sentence_length_tendency": "평소엔 매끄럽고 길지만, 몰리면 문장을 자꾸 끊는다.",
+        "verbal_tic": "'후원사 입장에서는'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "후원사 입장에서는 저도 절차대로 움직였을 뿐입니다.",
+        "그 질문은 좀 불편하네요.",
+        "……더 드릴 말씀이 없습니다."
+      ],
+      "comic_tell": "휴대폰 화면을 켰다 껐다 하며 시간을 확인하는 버릇이 있다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-02",
+        "opens": "S-CH04-01",
+        "says": "노윤겸 선생님이 그날 오후에 강의실 쪽에서 좀 서두르는 기색으로 나오시던데요, 저는 지나가다 봤을 뿐이지만요.",
+        "reveals": "노윤겸이 그날 오후 평소와 다르게 서둘렀다는 것."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "표유담",
+      "role": "신입 강사",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 오후 조민율이 계속 초조해 보였다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "문서율이 그날 오전 예산 서류를 다급하게 정리하는 걸 봤다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "노윤겸이 예전부터 대회 결과를 이상하게 여기면서도 아무에게도 말하지 않는 것 같다고 느꼈다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 올해부터 이곳에서 강사로 일하기 시작했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 로비에서 계속 손님들을 맞고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {"fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E11", "release_trigger": "S-CH05-01"},
+        {"fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E14", "release_trigger": "F-CH05-01"},
+        {"fact_or_claim_id": "F-CH05-03", "release_prerequisite": "S-CH02-01", "release_trigger": "F-CH05-02"}
+      ],
+      "knowledge_limits": [
+        "대회 심사 세부 규정에 대해서는 잘 모른다.",
+        "암실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 존대가 아직 어색하게 남아 있다.",
+        "sentence_length_tendency": "짧고 끊어지듯 말하며, 긴장하면 더 짧아진다.",
+        "verbal_tic": "'저야 뭐'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저야 뭐, 본 대로만 말씀드린 건데요.",
+        "저…… 제가 뭘 잘못 말했나요?",
+        "그만 좀 물어보시면 안 돼요?"
+      ],
+      "comic_tell": "긴장하면 목에 건 이름표 줄을 배배 꼰다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-02",
+        "opens": "S-CH05-01",
+        "says": "문서율 선생님이 그날 오전에 예산 서류를 다급하게 정리하시던데요, 예산 문제 때문인가 싶었어요.",
+        "reveals": "문서율이 그날 오전 유난히 분주했다는 것."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "사진마루 원장과 이번에 처음 초청된 외부 심사위원. 하승효는 젊을 때 이곳에서 사진을 배웠고 지금은 심사위원으로 돌아왔다.",
+      "public_face": "서로를 오래된 인연으로 부르는 사이로 알려져 있다.",
+      "says": {"CH01": "하승효 선생님은…… 저한테는 이곳 출신 제자셨죠. 이번에 심사위원으로 모신 것도 그래서고요."},
+      "private_strain": "정헌목은 하승효가 원판 자료에서 알아낸 조작 사실을 오늘 저녁 시상식에서 공개하려 한다는 것을 숨기고 싶어 했다.",
+      "surfaces_when": "탐정이 후원 계약 메모(E08)를 제시하거나 사무실 다툼 목격담(E09)을 들은 뒤."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "하승효 문하에서 사진을 배운 제자와 스승. 노윤겸은 5년 전 그의 수업을 들었다.",
+      "public_face": "오랜만에 재회한 스승과 제자로만 알려져 있다.",
+      "says": {"CH02": "하승효 선생님이 다시 이곳에 와 주신다고 했을 때 정말 반가웠어요. 그게 다예요."},
+      "private_strain": "노윤겸은 몇 해 전부터 출품작 인화 결과가 이상하다는 낌새를 느꼈으면서도 원장에 대한 의리로 모른 척해 왔다.",
+      "surfaces_when": "탐정이 노윤겸에게 대회 결과에 대해 캐물은 뒤(S-CH02-01)."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "후원사 담당자와 그 후원사가 지원하는 대회의 초청 심사위원. 오늘 처음 인사를 나눈 사이다.",
+      "public_face": "그저 오늘 처음 뵌 사이로 알려져 있다.",
+      "says": {"CH04": "하승효 선생님이요? 오늘 처음 뵀는데, 평판은 익히 들었죠."},
+      "private_strain": "조민율은 최근 몇 년간 대회 결과가 유독 특정 참가자에게 쏠린다는 것을 눈치채고도 후원 계약이 끊길까 봐 캐묻지 않았다.",
+      "surfaces_when": "탐정이 조민율에게 후원 계약과 대회 결과의 관계를 캐물은 뒤(E18)."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "원장과 운영실장으로 7년째 함께 일해 온 사이다.",
+      "public_face": "손발이 잘 맞는 걸로 알려져 있다.",
+      "says": {
+        "CH01": "문서율 씨요? 예산 쪽 실무를 맡아 온 사람이죠. 그뿐입니다.",
+        "CH03": "저는 그냥 서류 쪽 일만 봐서…… 특별히 드릴 말은 없어요."
+      },
+      "private_strain": "문서율은 그날 오전 원장실에서 정헌목과 하승효가 다투는 소리를 들었으면서도 먼저 알리지 않았다.",
+      "surfaces_when": "탐정이 후원 계약 메모(E08)를 제시한 뒤."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH05"],
+      "nature": "전속 강사와 신입 강사로 올해부터 함께 일하기 시작한 사이다.",
+      "public_face": "손발을 맞춰 가는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "표유담 씨요? 아직 배우는 중이지만 성실해요.",
+        "CH05": "노윤겸 선생님이요? 저한테는 그냥 잘 챙겨 주시는 분이에요."
+      },
+      "private_strain": "표유담은 노윤겸이 예전부터 대회 결과를 이상하게 여기면서도 아무에게도 말하지 않았다는 것을 우연히 눈치챘다.",
+      "surfaces_when": "탐정이 표유담에게 노윤겸에 대해 캐물은 뒤(F-CH05-03)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "누구나 드나들 수 있는 대기 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "안내 데스크 앞에서 표유담이 방명록을 정리하며 자꾸 암실 쪽을 돌아본다. 구석 자리에서 조민율은 휴대폰을 붙든 채 통화를 이어가고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비 게시판을 살펴본다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 저녁 시상식에 후원사 대표와 지역 언론이 참석한다는 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "암실",
+      "access": "작업 중에는 출입이 제한되고 사고 이후엔 조사 목적으로만 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "확대기 옆 작업대 위에 인화 작업이 하다 만 채로 남아 있고, 바닥에는 쓰러졌던 자리를 표시한 테이프 자국이 아직 붙어 있다. 환풍구 그릴이 비스듬히 어긋난 채 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "암실 천장 환풍기 상태를 확인한다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "환풍기 자체는 이상 없이 정상 작동한다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "환풍구 안쪽을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "환풍구 안쪽 그릴 부분에 최근에 끼웠다 뺀 듯한 눌린 자국과 가는 섬유 실 몇 가닥이 남아 있다."
+        },
+        {
+          "action": "도어 인터록 스위치를 살펴본다.",
+          "requires": "노윤겸",
+          "release_evidence_id": "E02",
+          "result": "도어 인터록 스위치 옆에 끈적한 테이프 자국이 남아 있고, 스위치가 눌린 상태로 고정됐던 흔적이 있다."
+        },
+        {
+          "action": "암실 문손잡이를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "문손잡이가 다른 표면의 먼지와 달리 유난히 깨끗하게 닦여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무국",
+      "access": "관계자가 상시 드나드는 운영 공간이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "문서율은 책상 앞에 앉아 정산 서류 뭉치를 넘기다 말고 손을 멈춘다. 그 옆 게시판에는 이번 대회 심사 일정표가 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "사무국 일정표를 살펴본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "오늘 저녁 7시에 시상식이 예정돼 있다는 게 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "환풍 자동점검 로그를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 오후 14시 20분대 자동점검 로그 구간이 통째로 비어 있고, 그 앞뒤 기록은 정상적으로 남아 있다."
+        },
+        {
+          "action": "환기 시스템 가동 기록을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "환기 시스템 가동 기록에 15시 35분 구간에서 공기 흐름 수치가 급격히 떨어졌다가 한참 뒤에야 회복된 기록이 남아 있다."
+        },
+        {
+          "action": "사무국 출입기록을 확인한다.",
+          "requires": "문서율",
+          "release_evidence_id": "E14",
+          "result": "출입기록상 문서율의 출입 카드는 그날 오후 내내 사무국 문에서만 찍혔다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "강의실",
+      "access": "회원이라면 드나들 수 있지만 평소엔 강사만 손댄다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "작업대 앞에 선 노윤겸은 아직 손이 떨리는 듯 두 손을 맞잡고 있다. 구석 창고 선반에는 암막천과 소품 상자가 흐트러진 채 쌓여 있다.",
+      "observation_rules": [
+        {
+          "action": "작업대 위 학생 습작을 살펴본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "이번 특별전에 출품될 습작들이 순서대로 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "창고 선반 상자를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "창고 선반 암막천 상자 중 한 장이 없어졌고, 남은 천에는 먼지가 앉아 있는데 그 자리만 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "원장실",
+      "access": "원장과 방문객만 드나드는 개인 공간이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상 앞에 앉은 정헌목은 서류를 정리하는 척하며 자꾸 시계를 확인한다. 책상 위에는 후원 계약서 초안이 펼쳐져 있고, 그 옆 일정표에는 오늘 저녁 시상식 순서가 손글씨로 고쳐 적혀 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 일정표를 살펴본다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "오늘 저녁 시상식 순서에 '특별 발표' 한 줄이 손글씨로 추가돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 계약서 초안을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "후원 계약서 초안 갱신 조건 옆에 '이번 특별전 심사 결과 유지 필수'라고 손으로 강조해 적은 메모가 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01", "name": "환풍구 안쪽의 흔적", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "환풍구 안쪽을 살펴본다.",
+      "content": "환풍구 안쪽 그릴 부분에 최근에 끼웠다 뺀 듯한 눌린 자국과 가는 섬유 실 몇 가닥이 남아 있다.",
+      "proves": ["환풍구에 최근 누군가 손을 댄 흔적이 있다"],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C02"], "points_at": null,
+      "mismatch": "정비일지에는 사흘 전 점검을 마쳤다고 되어 있는데 자국은 훨씬 최근의 것이다."
+    },
+    {
+      "id": "E02", "name": "도어 인터록 스위치의 흔적", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "도어 인터록 스위치를 살펴본다.",
+      "content": "도어 인터록 스위치 옆에 끈적한 테이프 자국이 남아 있고, 스위치가 눌린 상태로 고정됐던 흔적이 있다.",
+      "proves": ["안전 스위치를 누군가 고의로 무력화했다"],
+      "does_not_prove": ["누가 그렇게 했는지"],
+      "presentation_effect": ["C02"], "points_at": null,
+      "mismatch": "그 스위치는 평소 손댈 일이 없는 안전장치라 테이프를 붙일 이유가 없다."
+    },
+    {
+      "id": "E03", "name": "암실에서 나오는 목격담", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 그날 오후 암실 쪽에서 본 사람을 묻는다.",
+      "content": "\"그날 오후 2시 10분쯤 원장님이 암실에서 나오시는 걸 봤어요. 시상식 준비 시간인데 좀 의외였죠.\"",
+      "proves": ["정헌목이 그날 오후 암실에 들어갔다"],
+      "does_not_prove": ["암실에서 무엇을 했는지"],
+      "presentation_effect": ["C01"], "points_at": "CH01",
+      "mismatch": "정헌목은 그날 암실 쪽에 들어간 적이 없다고 말한다."
+    },
+    {
+      "id": "E04", "name": "창고 암막천 상자의 빈자리", "source_type": "location", "found_at": "L04",
+      "discovery_condition": "창고 선반 상자를 살펴본다.",
+      "content": "창고 선반 암막천 상자 중 한 장이 없어졌고, 남은 천에는 먼지가 앉아 있는데 그 자리만 비어 있다.",
+      "proves": ["암막천 한 장이 최근에 반출됐다"],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": ["C03"], "points_at": null,
+      "mismatch": "그날은 정기 소품 점검일이 아니라 그 천을 쓸 일이 없었다."
+    },
+    {
+      "id": "E05", "name": "창고에서 챙기는 것을 본 목격담", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 그날 오후 강의실 창고에서 본 사람을 묻는다.",
+      "content": "\"그러고 보니 오후에 원장님이 강의실 쪽 창고에 들어와서 뭘 좀 챙겨 나가시긴 했어요. 저는 안내하다 얼핏 봤죠.\"",
+      "proves": ["정헌목이 그날 오후 창고에서 무언가를 챙겨 나갔다"],
+      "does_not_prove": ["무엇을 챙겼는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "정헌목은 그날 창고에 들어간 적이 없다고 말한다."
+    },
+    {
+      "id": "E06", "name": "암실 문손잡이의 흔적", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "암실 문손잡이를 살펴본다.",
+      "content": "문손잡이가 다른 표면의 먼지와 달리 유난히 깨끗하게 닦여 있다.",
+      "proves": ["누군가 문손잡이를 일부러 닦았다"],
+      "does_not_prove": ["언제, 누가 닦았는지"],
+      "presentation_effect": ["C01"], "points_at": null,
+      "mismatch": "그날 정기 청소 일정은 없었다."
+    },
+    {
+      "id": "E07", "name": "환풍 자동점검 로그의 빈 구간", "source_type": "location", "found_at": "L03",
+      "discovery_condition": "환풍 자동점검 로그를 확인한다.",
+      "content": "그날 오후 14시 20분대 자동점검 로그 구간이 통째로 비어 있고, 그 앞뒤 기록은 정상적으로 남아 있다.",
+      "proves": ["그 시간대 로그 기록이 지워졌다"],
+      "does_not_prove": ["누가 지웠는지"],
+      "presentation_effect": ["C03"], "points_at": null,
+      "mismatch": "다른 날짜의 로그는 이렇게 통째로 끊긴 적이 없다."
+    },
+    {
+      "id": "E08", "name": "후원 계약서의 손글씨 메모", "source_type": "location", "found_at": "L05",
+      "discovery_condition": "책상 위 계약서 초안을 살펴본다.",
+      "content": "후원 계약서 초안 갱신 조건 옆에 '이번 특별전 심사 결과 유지 필수'라고 손으로 강조해 적은 메모가 남아 있다.",
+      "proves": ["후원 계약이 대회 심사 결과와 직접 연결돼 있다"],
+      "does_not_prove": ["정헌목이 그것을 어떻게 이용했는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "정헌목은 그 계약 조건은 형식적인 문구일 뿐이라고 말한다."
+    },
+    {
+      "id": "E09", "name": "원장실 다툼 목격담", "source_type": "testimony", "found_at": "L03",
+      "discovery_condition": "문서율에게 그날 오전 원장실 쪽에서 들은 소리를 묻는다.",
+      "content": "\"그날 오전 10시쯤 원장실에서 언성이 높아지는 걸 들었어요. 심사 결과 얘기였나…… 원장님 목소리였는데요.\"",
+      "proves": ["그날 오전 정헌목과 하승효가 다퉜다"],
+      "does_not_prove": ["무엇 때문에 정확히 다퉜는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "정헌목은 그날 하승효와 특별한 일이 없었다고 말한다."
+    },
+    {
+      "id": "E10", "name": "하승효 초청 사정", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 하승효가 이번에 초청된 사정을 묻는다.",
+      "content": "\"하승효 선생님은 이번에 처음 외부 심사위원으로 초청되신 거예요. 예전부터 대회가 좀 편파적이라는 말이 있어서 그랬대요.\"",
+      "proves": ["하승효가 이번에 외부 심사위원으로 처음 초청된 이유"],
+      "does_not_prove": ["편파 논란의 구체적인 내용까지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "정헌목은 그런 논란은 들어본 적 없다고 말한다."
+    },
+    {
+      "id": "E11", "name": "조민율의 낯빛", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 조민율이 그날 오후 어떻게 보였는지 묻는다.",
+      "content": "\"조민율 팀장님이 오늘 오후엔 좀 낯빛이 안 좋아 보이시더라고요. 후원 계약 쪽 일 때문인가 싶었어요.\"",
+      "proves": ["조민율이 그날 오후 유난히 안색이 안 좋았다"],
+      "does_not_prove": ["그 이유가 무엇인지"],
+      "presentation_effect": [], "points_at": "CH04",
+      "mismatch": "조민율 본인은 평소와 다를 게 없었다고 말한다."
+    },
+    {
+      "id": "E12", "name": "조민율이 통화 중이었다는 목격담", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 조민율이 그 시각에 어디 있었는지 묻는다.",
+      "content": "\"조민율 팀장님은 그 시각에 로비에서 계속 통화하고 계셨어요. 본사랑 뭔가 조율하시는 것 같았고요.\"",
+      "proves": ["조민율이 사고 시각에 로비에서 통화 중이었다"],
+      "does_not_prove": ["그 전후의 행적까지"],
+      "presentation_effect": ["R01"], "points_at": null,
+      "mismatch": "조민율이 암실 근처에서 사고에 관여했을 거라는 의심과 어긋난다."
+    },
+    {
+      "id": "E13", "name": "문서율의 다급한 낯빛", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 문서율이 그날 오전 어떻게 보였는지 묻는다.",
+      "content": "\"문서율 실장님이 오늘 오전엔 좀 다급해 보이시더라고요. 예산 서류 때문인가 싶었어요.\"",
+      "proves": ["문서율이 그날 오전 유난히 다급해 보였다"],
+      "does_not_prove": ["그 이유가 무엇인지"],
+      "presentation_effect": [], "points_at": "CH03",
+      "mismatch": "문서율 본인은 평소와 다를 게 없었다고 말한다."
+    },
+    {
+      "id": "E14", "name": "사무국 출입기록", "source_type": "location", "found_at": "L03",
+      "discovery_condition": "사무국 출입기록을 확인한다.",
+      "content": "출입기록상 문서율의 출입 카드는 그날 오후 내내 사무국 문에서만 찍혔다.",
+      "proves": ["문서율이 사고 시각에 사무국을 벗어나지 않았다"],
+      "does_not_prove": ["그 전후의 행적까지"],
+      "presentation_effect": ["R02"], "points_at": null,
+      "mismatch": "문서율이 암실 근처에서 사고에 관여했을 거라는 의심과 어긋난다."
+    },
+    {
+      "id": "E15", "name": "발견 시각 진술", "source_type": "testimony", "found_at": "L04",
+      "discovery_condition": "노윤겸에게 하승효를 발견했을 때 시각을 묻는다.",
+      "content": "\"암실 문을 두드려도 대답이 없어서 15시 42분에 열어 봤어요. 이미 정신을 잃은 상태였어요.\"",
+      "proves": ["하승효를 발견한 시각이 15시 42분이었다"],
+      "does_not_prove": ["그 전에 정확히 무슨 일이 있었는지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "공식 발표는 정확한 사고 시각을 못 박지 않았다."
+    },
+    {
+      "id": "E16", "name": "환기 시스템 가동 기록", "source_type": "location", "found_at": "L03",
+      "discovery_condition": "환기 시스템 가동 기록을 확인한다.",
+      "content": "환기 시스템 가동 기록에 15시 35분 구간에서 공기 흐름 수치가 급격히 떨어졌다가 한참 뒤에야 회복된 기록이 남아 있다.",
+      "proves": ["정확한 사고 시각이 15시 35분이었다"],
+      "does_not_prove": ["그 흐름을 무엇이 막고 있었는지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "그 시각엔 암실 안에 정식 환기 점검 일정이 없었다."
+    },
+    {
+      "id": "E17", "name": "노윤겸과 하승효의 인연", "source_type": "testimony", "found_at": "L04",
+      "discovery_condition": "노윤겸에게 하승효와 어떤 인연인지 묻는다.",
+      "content": "\"저는 5년 전에 하승효 선생님 수업을 들었어요. 이번에 다시 오신다고 해서 정말 반가웠죠.\"",
+      "proves": ["노윤겸이 하승효의 예전 제자였다"],
+      "does_not_prove": ["둘 사이에 다른 사정이 있었는지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "정헌목은 둘 사이가 그저 업무적인 사이라고만 말한다."
+    },
+    {
+      "id": "E18", "name": "후원 계약과 심사 결과의 관계", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "조민율에게 이번 심사 결과와 후원 계약의 관계를 묻는다.",
+      "content": "\"솔직히 말하면, 저희 쪽에서도 결과가 계속 좋아야 후원을 이어가기 편한 건 사실이에요. 그렇다고 제가 뭘 어떻게 한 건 아니지만요.\"",
+      "proves": ["후원 계약이 대회 심사 결과와 맞물려 있다는 것을 후원사도 알고 있었다"],
+      "does_not_prove": ["결과 조작에 후원사가 관여했는지"],
+      "presentation_effect": [], "points_at": "CH01",
+      "mismatch": "정헌목은 후원사는 결과에 관여한 적이 없다고 말한다."
+    },
+    {
+      "id": "E19", "name": "조민율의 사고 직후 행동", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 조민율이 사고 직후 어떻게 행동했는지 묻는다.",
+      "content": "\"조민율 팀장님이 사고 소식을 듣자마자 서둘러 어디론가 전화를 거시더라고요. 좀 이상하다 싶었어요.\"",
+      "proves": ["조민율이 사고 직후 서둘러 전화를 걸었다"],
+      "does_not_prove": ["무엇 때문에 전화를 걸었는지"],
+      "presentation_effect": [], "points_at": "CH04",
+      "mismatch": "조민율 본인은 그저 본사에 사고를 알리려던 것뿐이라고 말한다."
+    },
+    {
+      "id": "E20", "name": "문서율의 서류 다루는 태도", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "표유담에게 문서율이 그날 오전 예산 서류를 어떻게 다뤘는지 묻는다.",
+      "content": "\"문서율 실장님이 그날 오전에 예산 서류 봉투를 몇 번이나 다시 여몄다 폈다 하시더라고요. 마감 때문인가 싶었어요.\"",
+      "proves": ["문서율이 그날 오전 예산 서류를 유난히 신경 썼다"],
+      "does_not_prove": ["그 이유가 무엇인지"],
+      "presentation_effect": [], "points_at": "CH03",
+      "mismatch": "문서율 본인은 평소와 다를 게 없었다고 말한다."
+    },
+    {
+      "id": "E21", "name": "암실에 홀로 들어간 이유", "source_type": "testimony", "found_at": "L04",
+      "discovery_condition": "노윤겸에게 하승효가 그날 왜 혼자 암실에 들어갔는지 묻는다.",
+      "content": "\"발표 전엔 늘 원판을 마지막으로 한 번 더 확인하고 싶어 하셨어요. 예전부터 그러셨거든요.\"",
+      "proves": ["하승효가 발표 전 원판을 마지막으로 확인하려는 습관이 있었다"],
+      "does_not_prove": ["그 습관을 누가 알고 있었는지까지"],
+      "presentation_effect": [], "points_at": null,
+      "mismatch": "정헌목은 그런 습관은 몰랐다고 말한다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01",
+      "from_stage": "initial", "to_stage": "admits_darkroom_visit",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": {"claim_id": "S-CH01-01", "evidence_ids": ["E03", "E06"]},
+      "player_action": "표유담의 목격담(E03)과 암실 문손잡이의 흔적(E06)을 정헌목에게 제시하며, 암실에 들어간 적이 없다는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-01", "scope": "그날 오후 암실에 들어갔던 것은 인정한다."},
+      "must_not_release": ["환풍구", "천", "조작"]
+    },
+    {
+      "id": "C02", "target_character": "CH01",
+      "from_stage": "admits_darkroom_visit", "to_stage": "admits_duct_tamper",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {"claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02"]},
+      "player_action": "환풍구 안쪽의 흔적(E01)과 도어 인터록 스위치의 흔적(E02)을 정헌목에게 제시하며, 환풍구를 손대지 않았다는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-02", "scope": "환풍구 안쪽을 만진 것은 인정한다."},
+      "must_not_release": ["천", "조작"]
+    },
+    {
+      "id": "C03", "target_character": "CH01",
+      "from_stage": "admits_duct_tamper", "to_stage": "confesses_intent",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_comparison": {"claim_id": "S-CH01-03", "evidence_ids": ["E04", "E07"]},
+      "player_action": "창고 암막천 상자의 빈자리(E04)와 환풍 자동점검 로그의 빈 구간(E07)을 정헌목에게 제시하며, 그저 확인만 했을 뿐이라는 말을 반박한다.",
+      "release": {"claim_or_fact_id": "F-CH01-03", "scope": "환풍구에 천을 끼워 막아 두고 하승효를 암실로 들어가게 한 것도 인정한다."},
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "조민율은 최근 대회 결과가 유독 같은 참가자 쪽으로 쏠린다는 걸 눈치채고도 후원 계약을 이유로 캐묻지 않아 왔고, 사고가 나던 시각 즈음 로비에서 안절부절못하는 모습이 목격됐다.",
+      "actual_reason": "실제로는 사고 시각까지 계속 로비에서 본사와 통화를 이어가고 있었을 뿐이었다.",
+      "how_to_clear": "표유담의 목격담(E12)으로 그가 사고 시각까지 계속 로비에서 통화하고 있었다는 것을 확인한다.",
+      "must_not_imply": "그가 실제로 하승효에게 위해를 가했다는 것",
+      "lingering_thread": "조민율과 후원사 사이의 대회 결과 문제는 이번 일과 별개로 여전히 남아 있다.",
+      "suspicion_deepener": "그가 사고 직후 유난히 서둘러 어디론가 전화를 걸었다는 이야기까지 나오며 의심이 짙어진다.",
+      "character_id": "CH04",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사고 시각 즈음 로비에서 안절부절못하는 모습이 목격돼 의심을 받지만, 실제로는 본사와 통화를 이어가고 있었을 뿐이었다.",
+        "means": ["E11", "E19"],
+        "means_first_reading": "쏠린 대회 결과에 대한 소문과 초조한 낯빛이 겹쳐 유력해 보인다."
+      },
+      "cleared_by": ["E12"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "문서율은 대회 후원 계약과 예산 문제를 가장 가까이서 다뤄 왔고, 사고 당일 오전 예산 서류를 들고 다급하게 오가는 모습이 목격됐다.",
+      "actual_reason": "실제로는 후원 정산 서류 마감에 쫓기고 있었을 뿐이고, 사고 시각에는 사무국에 계속 남아 있었다.",
+      "how_to_clear": "사무국 출입기록(E14)으로 그가 사고 시각에 사무국을 벗어나지 않았다는 것을 확인한다.",
+      "must_not_imply": "그가 실제로 하승효에게 위해를 가했다는 것",
+      "lingering_thread": "문서율이 발견한 예산 문제는 이번 일과 별개로 여전히 남아 있다.",
+      "suspicion_deepener": "그가 사고 이후에도 서류를 계속 숨기듯 정리했다는 이야기까지 나오며 의심이 짙어진다.",
+      "character_id": "CH03",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "사고 당일 오전 예산 서류를 들고 다급하게 오가는 모습이 목격돼 의심을 받지만, 실제로는 사무국에서 정산 마감에 쫓기고 있었을 뿐이었다.",
+        "means": ["E13", "E20"],
+        "means_first_reading": "예산 문제 소문과 다급한 낯빛이 겹쳐 유력해 보인다."
+      },
+      "cleared_by": ["E14"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "E08", "E09"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "암실 환풍구에 암막천을 끼워 막고 문 인터록 스위치를 무력화해 하승효를 산소 부족으로 질식시켰다는 사실",
+      "motive_fact": "대회 출품작을 바꿔치기해 온 사실이 그날 저녁 시상식에서 드러날 위기에 처했다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "정헌목 (CH01)",
+    "method": "14시 10분 정헌목이 암실 환풍구 안쪽에 암막천을 끼워 막고 도어 인터록 스위치를 절연테이프로 무력화해 두고, 하승효가 15시 시상식 전 관례대로 홀로 암실에 들어가 문을 닫은 뒤 15시 35분 산소 부족으로 정신을 잃고 쓰러졌다.",
+    "motive": "지난 3년간 대회 출품작을 바꿔치기해 후원 계약을 지켜 온 사실이 그날 오전 하승효에게 발각됐고, 오늘 저녁 시상식에서 공식적으로 드러나면 후원 계약과 지금까지 쌓아 온 원장 자리를 전부 잃을 처지에 몰려 있었다.",
+    "key_connection": "표유담의 목격담(E03)과 암실 문손잡이의 흔적(E06)이 정헌목을 암실로 세우고, 환풍구와 인터록 스위치의 흔적(E01·E02)이 손을 댄 사실을 증명한다. 창고 암막천의 빈자리(E04)와 자동점검 로그의 빈 구간(E07)이 고의성과 은폐를 드러내고, 계약서 메모(E08)와 다툼 목격담(E09)이 동기를 완성한다."
+  },
+  "ending_explanation": [
+    "정헌목은 지난 3년간 대회 최종 출품작 일부를 후원사가 원하는 참가자의 새로 인화한 사진으로 몰래 바꿔치기해 왔다.",
+    "하승효가 이번에 처음 외부 심사위원으로 초청된 것은 오래전부터 있던 대회 편파 논란 때문이었다(E10).",
+    "사흘 전, 하승효는 원판 자료실에서 몇몇 출품작의 촬영 일자가 제출 마감일보다 늦다는 것을 알아챘다(E17).",
+    "사건 당일 오전 10시, 하승효는 정헌목에게 이 사실을 알리며 오늘 저녁 시상식에서 공식적으로 밝히고 운영위에 보고하겠다고 말하며 다퉜다(E09).",
+    "13시 정헌목은 강의실 창고에서 암막천을 챙겼고(E04·E05), 14시 10분 암실 환풍구에 천을 끼워 막고 도어 인터록 스위치를 무력화했다(E01·E02).",
+    "하승효는 발표 전엔 늘 원판을 마지막으로 확인하는 습관이 있었다(E21). 15시, 관례대로 홀로 암실에 들어갔고 15시 35분 산소 부족으로 정신을 잃고 쓰러졌다(E16).",
+    "15시 42분 노윤겸이 인기척이 없는 것을 이상하게 여겨 문을 열었다가 쓰러진 하승효를 발견했다(E15).",
+    "소란이 이는 틈에 정헌목은 암실로 돌아가 천을 회수했고(E06), 환풍기 배선을 헐겁게 풀어 놓고 자동점검 로그와 정비 일지를 조작했다(E07).",
+    "조민율이 대회 결과 쏠림을 눈치채고도 캐묻지 않았다는 것(E11·E19)과 문서율이 예산 문제로 분주했다는 것(E13·E20)은 저마다의 사정을 보여 줄 뿐 결정타는 되지 못했다.",
+    "조민율은 사고 시각까지 로비에서 본사와 통화하고 있었을 뿐이었고(E12), 문서율은 사무국을 벗어나지 않았다(E14).",
+    "조민율은 후원 계약이 대회 결과와 맞물려 있다는 것을 인정했고(E18), 계약서의 손글씨 메모(E08)가 그 조작의 동기를 드러냈다.",
+    "표유담의 목격담(E03)이 정헌목을 그 시각 그 자리에 세웠고, 노윤겸과 하승효의 오랜 인연(E17)이 이번 초청의 배경을 설명해 주었다."
+  ],
+  "motives": [
+    {"id": "M01", "text": "출품작을 바꿔치기해 온 사실이 드러날 위기를 막기 위한 살해", "truth": true, "evidence_for": ["E08"], "suggested_by": ["E09"], "cue": "심사 결과"},
+    {"id": "M02", "text": "후원 계약이 끊길까 두려워한 후원사 담당자의 범행", "truth": false, "evidence_for": [], "suggested_by": ["E11"], "cue": "후원 계약", "refutation": "저요? 후원 계약 문제로 사람을 어떻게 해요, 저는 그때 통화 중이었어요.", "refutation_releases": "F-CH04-02", "refuted_by": "CH04"},
+    {"id": "M03", "text": "예산 문제가 드러날까 두려워한 운영실장의 범행", "truth": false, "evidence_for": [], "suggested_by": ["E13"], "cue": "예산 서류", "refutation": "저요? 예산 문제로 사람을 해칠 이유가 어디 있어요.", "refutation_releases": "F-CH03-02", "refuted_by": "CH03"}
+  ],
+  "times": [
+    {"id": "T01", "text": "사건 당일 15:35, 암실에서", "truth": true, "evidence_for": ["E16"], "suggested_by": ["E16"], "cue": "15시 35분"},
+    {"id": "T02", "text": "사건 당일 15:42, 노윤겸이 발견했을 때", "truth": false, "evidence_for": [], "suggested_by": ["E15"], "cue": "15시 42분", "refutation": "그건 제가 발견한 시각이었죠, 그전에 이미 한참 정신을 잃으신 상태였어요.", "refutation_releases": "F-CH02-03", "refuted_by": "CH02"},
+    {"id": "T03", "text": "사건 당일 10:00, 원장실에서 다툴 때", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "10시", "refutation": "그때는 언성만 높아졌을 뿐, 몸싸움 같은 건 없었어요.", "refutation_releases": "F-CH01-04", "refuted_by": "CH01"}
+  ],
+  "methods": [
+    {"id": "H01", "text": "환풍구를 막아 산소 부족을 일으킴", "truth": true, "evidence_for": ["E01", "E02"], "suggested_by": ["E01"], "cue": "환풍구"},
+    {"id": "H02", "text": "환기 설비가 낡아 저절로 고장 난 사고", "truth": false, "evidence_for": [], "suggested_by": ["S-CH03-03"], "cue": "환기 설비", "refutation": "그럴 수도 있죠. 그런데 환풍구에 남은 자국을 보면 그냥 낡아서 그런 것 같지는 않던데요."},
+    {"id": "H03", "text": "암실에서 실랑이가 벌어져 정신을 잃음", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "언성", "refutation": "실랑이 같은 건 없었습니다. 그냥 확인하러 들어갔을 뿐이에요.", "refuted_by": "CH01"}
+  ],
+  "suspect_refutations": {
+    "CH02": {"text": "저요? 저는 그저 발견한 사람일 뿐이에요, 제가 왜 그런 짓을 하겠어요."},
+    "CH03": {"text": "저요? 저는 그냥 서류만 챙기는 사람인데요."},
+    "CH04": {"text": "저요? 후원 계약 문제로 사람을 어떻게 해요."},
+    "CH05": {"text": "저요? 저는 그냥 로비만 지키고 있었는데요……."}
+  }
+}
