@@ -52,6 +52,7 @@
 | `claude/keen-newton-*` | 마스터 **생성** 루틴 |
 | `claude/fervent-bohr-*` | **생성·이주** 루틴의 옛 세션들(2026-09-21 기준 생성 `c0nzc2`, 이주 `m2qel1`) |
 | `master-format-migration-*` | **이주** 루틴 — 무엇을 하는지가 이름에 있다 |
+| `claude/confident-galileo-*` | **되먹임** 루틴(2026-09-27 사용자가 만듦, 지침 `docs/feedback-routine.md`) — 백로그 「마스터가 어긋난 자리」 절을 번호순으로 집는다. 첫 회차 #1389 |
 | `claude/amazing-galileo-1itgnb` | 검사기·소설→마스터 로직을 보는 세션 |
 | `claude/offline-master-schema-dialogue-l19qag` | **오프라인 메인** — 엔진·판본·그 검사기·규칙 문서(2026-09-23~) |
 | `claude/game-without-api-sdde5a` | 옛 오프라인 메인(2026-09-22까지). 지금은 멈춤 |
