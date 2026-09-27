@@ -895,6 +895,29 @@ uji9h1은 절 번호로 손으로 매겼다. 원본의 빈 줄 아닌 모든 줄
 파일이 늘었지만 **지울 수 있는 파일**이 늘었다 — 검사기 몫 17장은 이 세션이 이미 백로그에 접었으므로 같은 PR에서 지웠다(63 → 46).
 규칙은 `docs/handoff.md` #6과 CLAUDE.md 세션 시작·끝 절에 적었다.
 
+## 2026-09-27: 입구 막기 — 새 원본은 오프라인 필수 표를 갖고 태어난다
+
+「사용자」 절 열 항목 중 9번. CLAUDE.md 에 「생성 스펙 + 새 원본 error 는 아직 결정 전」으로 적혀 있던 것을
+사용자가 「넣어줘」로 결정했다. 근거는 하루치 쪽지가 보여 줬다 — 소설 회차 쪽지 21장 거의 전부가 「판본 뜰 때 볼 것」을
+쌓았고, `audit:offline` 은 판본이 013까지만 갖춰졌다고 센다. 옛 번호를 판본으로 메우는 동안 새 번호가 같은 구멍을 갖고
+태어나면 판본 루틴이 영영 뒤를 쫓는다(#1373 이 단계 본문에서 본 것과 같은 산수).
+
+세 겹으로 넣었다.
+
+1. **스펙** — 루틴 스펙 1단계에 「오프라인 필수 표를 처음부터 채운다」 항목. 필드 목록은 `docs/offline-master-format.md`
+   「필수」 표를 그대로 옮겼고 대사 모양 셋도 적었다.
+2. **검사기** — `validateMaster` 가 `offlineVariant || !alreadyRegistered` 일 때 `checkOfflineSkeleton`·`checkOfflineSpeech` 를
+   돈다. 등록된 옛 원본에는 그대로 안 돈다(부채는 `audit:offline`).
+3. **CI** — 지금까지 「새 사건 error」는 **CI 에서 한 번도 실제로 돌지 않았다.** 생성 루틴이 registry 등록을 같은 PR 에
+   넣으므로 CI 의 `check:case` 는 새 사건을 늘 「등록됨」(warn)으로 읽었고, error 는 루틴이 등록 전에 손으로 돌리는
+   2단계에서만 났다. 그래서 `validate_master`·`check-case.mjs` 에 `--new` 깃발을 넣고 `pr-checks.yml` 이 PR 에서
+   **추가된(A) 원본 파일**을 새 사건으로 판단해 `--new` 로 돌린다. 이것으로 코퍼스 비율 E/W 도 처음으로 CI 에서 새 사건에
+   error 가 된다 — 규칙(CLAUDE.md 「등록된 사건 warn·새 사건 error」)은 그대로고 집행 자리가 생겼을 뿐이다.
+
+CASE331 로 확인했다: 등록 원본 그대로 돌리면 errors 0(전과 같음), `--new` 로 돌리면 OFFLINE_SKELETON_MISSING 8 +
+MOTIVE_ARCHETYPE_OVERUSE 1 로 9개 error. 지금 열린 새 사건 PR 들(#1349·#1351·#1359·#1364·#1371)은 main 을 받으면
+이 검사에 걸린다 — 그것이 이 결정의 뜻이다. 판본 루틴 문서에는 「새 원본에는 판본이 필요 없다」 절을 더했다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

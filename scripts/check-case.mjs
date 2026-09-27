@@ -23,9 +23,12 @@ import { mkdtempSync, readdirSync, readFileSync, writeFileSync, statSync } from 
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
-const caseId = process.argv[2];
+// `--new` 는 registry 에 있어도 새 사건으로 검사한다(validate_master 의 같은 깃발).
+// CI 가 PR 에서 새로 추가된 마스터에 붙이고, 생성 루틴은 등록 전이라 붙일 필요가 없다.
+const forceNew = process.argv.includes('--new');
+const caseId = process.argv.slice(2).find((arg) => !arg.startsWith('--'));
 if (!caseId || !/^CASE\d+$/.test(caseId)) {
-  console.error('usage: node scripts/check-case.mjs CASE283');
+  console.error('usage: node scripts/check-case.mjs CASE283 [--new]');
   process.exit(2);
 }
 
@@ -87,7 +90,7 @@ const run = (label, script, args) => {
   }
 };
 
-run('validate_master', 'scripts/validate_master.js', [master]);
+run('validate_master', 'scripts/validate_master.js', forceNew ? [master, '--new'] : [master]);
 run('converter coverage', 'scripts/audit-converter-coverage.js', [master]);
 run('evidence-leak audit', 'scripts/audit-evidence-leak.js', [caseId]);
 

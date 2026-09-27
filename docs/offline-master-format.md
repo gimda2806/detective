@@ -20,10 +20,12 @@
 
 ## 필수 — 없으면 `check:case` 가 선다
 
-`validate_master.ts` 의 `checkOfflineSkeleton` 이 **파일 이름이
-`.offline.json` 으로 끝날 때만** 붙어서 본다. 전부 `severity: 'error'` 이고
-등록 여부와 무관하다(원본에는 아예 안 돈다 — 원본이 이 표를 얼마나 갖췼는지는
-`npm run audit:offline` 이 번호순으로 센다).
+`validate_master.ts` 의 `checkOfflineSkeleton` 이 **파일 이름이 `.offline.json` 으로
+끝나거나, 원본이 `case_registry.json` 에 없을 때(= 새 사건)** 붙어서 본다(2026-09-27
+사용자 결정 「입구 막기」 — 그 전에는 판본에만 돌았다). 전부 `severity: 'error'` 다.
+**등록된 옛 원본에는 안 돈다** — 그 부채는 `npm run audit:offline` 이 번호순으로 세고
+판본 루틴이 메운다. CI 는 PR 에서 새로 추가된 마스터를 `check:case <ID> --new` 로 돌려
+registry 등록이 같은 PR 에 들어 있어도 새 사건으로 본다.
 
 | 필드 | 없으면 무엇이 안 되나 |
 | --- | --- |
