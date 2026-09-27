@@ -274,7 +274,7 @@
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 또렷하다.",
         "sentence_length_tendency": "평소 씩씩하게 말하다가, 발견 당시 얘기가 나오면 말이 자주 끊긴다.",
-        "verbal_tic": "문장 끝에 '그니까요'를 자주 붙인다.",
+        "verbal_tic": "문장 끝에 '안 그래요'를 자주 붙인다.",
         "stance": "forthcoming"
       },
       "pressure_responses": [
@@ -427,6 +427,30 @@
           "content": "15년 전 지분 양도 서류의 서명이 자신의 필체가 아니라는 것을 최근 확인했다.",
           "source": "본인이 확인한 것",
           "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "11시경 정비를 명목으로 부스에 들어간 것은 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "마이크 윈드스크린을 손댄 것은 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "15년 전 지분 서류가 자신도 모르게 넘어갔다는 것을 최근 알게 됐다는 것은 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": ["T03", "T05"]
+        },
+        {
+          "fact_id": "F-CH05-06",
+          "content": "오승준이 사과할 생각이었다는 것을 알고도 이미 늦었다고 생각해, 독성 용액에 적신 윈드스크린을 그대로 둔 채 부스에 들어가는 그를 막지 않고 지켜본 것을 인정한다. 사고 직후 몰래 증거를 없앤 것도 함께 시인한다.",
+          "source": "직접 행동/자백",
+          "related_timeline": ["T07", "T08", "T11"]
         }
       ],
       "initial_claims": [
@@ -481,6 +505,26 @@
           "fact_or_claim_id": "S-CH05-05",
           "release_prerequisite": "F-CH05-05",
           "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [

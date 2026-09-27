@@ -239,6 +239,40 @@
           "content": "해빙기 한랭 훈련은 원래 부대장이 마지막까지 남아 무전 점검을 맡는 것이 구조대의 오랜 관례다.",
           "source": "구조대 운영 관례",
           "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "1진을 먼저 내려보내고 자신이 마지막까지 남았다는 것은 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": [
+            "T07",
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "리조트 측에서 이미 선지급금을 받은 것과, 총회에서 매각이 부결되면 위약금까지 물어야 하는 처지였다는 것을 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "보온병에 수면유도제를 탄 것은 인정한다.",
+          "source": "추궁받은 뒤 인정",
+          "related_timeline": [
+            "T04",
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "발열팩을 일부러 끄고 여분 담요를 챙겨 내려온 것과, 애초에 계약금 문제가 드러나는 것을 막으려 방윤석이 혼자 얼어 죽도록 방치한 것을 모두 인정한다.",
+          "source": "직접 행동/자백",
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -291,6 +325,26 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "F-CH01-05",
           "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
