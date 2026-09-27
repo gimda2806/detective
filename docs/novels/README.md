@@ -411,6 +411,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE339 | 여덟 달 치의 이름 | [CASE339.md](CASE339.md) |
 | CASE340 | 잠수 일지에 없는 시간 | [CASE340.md](CASE340.md) |
 | CASE119 | 묻히지 않은 소리 | [CASE119.md](CASE119.md) |
+| CASE341 | 가려진 조리법 | [CASE341.md](CASE341.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
