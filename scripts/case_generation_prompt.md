@@ -296,6 +296,11 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    `STAGE_RELEASE_NO_BODY`(등록 무관 error) — 교차참조는 통과하고 완주도 되지만 **플레이어 수첩에
    id만 꽂히고 그 사람이 무슨 말을 했는지가 안 남는다.** `release.scope` 지문에 그 사실을 이미
    문장으로 적었을 테니 그것을 그 인물의 말로 옮기면 된다(지문은 지우지 않는다).
+   **단계의 질문이 되는 진술은 잠그지 않는다** — `requires_heard_claim_ids`·`requires_comparison.claim_id`
+   가 부르는 진술을 그 단계(또는 그 뒤 단계)로 `hidden_until` 잠그면
+   `STAGE_KEY_SEALED_BY_OWN_STAGE`(등록 무관 error). 말을 들으려면 단계를 깨야 하고 단계를 깨려면
+   그 말을 들어야 하는 고리라 사건이 안 끝난다. 그 진술은 `initial_interview_range` 에 두고
+   잠금은 비운다. 잠그는 것은 **release가 내주는 id**뿐이고 그것은 다음 단계의 질문이 된다.
    **requires_presented_evidence_ids는 requires_comparison.evidence_ids와 같다** — 그 거짓말과
    부딪치는 카드만 요구한다. 비교에 없는 카드(헛다리 카드, 다음 단계 카드)를 끼우면
    `STAGE_REQUIRES_BEYOND_COMPARISON`(error). 플레이어는 거짓말과 부딪치는 카드를 다 내밀고도
