@@ -453,6 +453,14 @@
           "related_timeline": [
             "T01"
           ]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "문을 열었을 때 압착판 작동 스위치가 켜진 채로 남아 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T12"
+          ]
         }
       ],
       "initial_claims": [
@@ -469,6 +477,11 @@
         {
           "fact_or_claim_id": "F-CH04-02",
           "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -860,6 +873,24 @@
         "오혜란이 그 뒤 다시 돌아오지 않았다는 사실"
       ],
       "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "오혜란의 증언 — 켜진 압착판 스위치",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오혜란에게 문을 열었을 때 기계 상태가 어땠는지 자세히 묻는다",
+      "related_timeline": [
+        "T12"
+      ],
+      "content": "문을 열었을 때 압착판 작동 스위치가 켜진 채로 남아 있었다는 진술이 확보된다.",
+      "proves": [
+        "발견 당시 압착판이 조작된 채 그대로 방치돼 있었다는 사실을 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "누가 스위치를 올렸는지"
+      ],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -964,7 +995,7 @@
       "how_to_clear": "진하울의 목격 진술(E05)과 오혜란의 귀가 시각을 비교해, 안전핀이 제거된 시각에 그녀가 현장에 없었음을 확인한다. 우경환에게 물으면(E07) 오혜란이 어젯밤 9시쯤 이미 집으로 돌아갔다는 사실도 확인된다.",
       "must_not_imply": "시신을 발견했거나 평소 안전장치를 관리했다는 사실만으로 조작에 관여했다고 단정하지 않는다.",
       "lingering_thread": "오혜란은 오랫동안 궂은일을 도맡아 왔음에도 경영 논의에서 늘 배제돼 온 서운함을 사건이 마무리된 뒤에도 쉽게 떨치지 못한다.",
-      "suspicion_deepener": "서류보관실 열쇠를 그녀가 방준혁에게 빌려준 사실(F-CH04-02)이 먼저 드러나며, 그녀가 사전에 뭔가 알고 있었던 것처럼 보이게 만든다.",
+      "suspicion_deepener": "서류보관실 열쇠를 그녀가 방준혁에게 빌려준 사실(F-CH04-02)이 먼저 드러나며, 그녀가 사전에 뭔가 알고 있었던 것처럼 보이게 만든다. 문을 열었을 때 압착판 스위치가 켜진 채였다는 그녀의 증언(E08)도 사고 직후 현장을 가장 먼저 접한 사람이라는 인상을 보탠다.",
       "character_id": "CH04"
     }
   ],

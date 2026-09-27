@@ -419,6 +419,8 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE346 | 기억나지 않는 손 | [CASE346.md](CASE346.md) |
 | CASE347 | 커피가 식기 전에 | [CASE347.md](CASE347.md) |
 | CASE348 | 마지막 주파수 | [CASE348.md](CASE348.md) |
+| CASE349 | 숨을 나눠 쉬던 사람 | [CASE349.md](CASE349.md) |
+| CASE350 | 밤의 조향실 | [CASE350.md](CASE350.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
