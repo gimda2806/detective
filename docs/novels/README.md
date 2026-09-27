@@ -407,6 +407,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE336 | 마지막 발효조 점검 | [CASE336.md](CASE336.md) |
 | CASE337 | 온기가 식던 자리 | [CASE337.md](CASE337.md) |
 | CASE338 | 첫물이 아니어도 | [CASE338.md](CASE338.md) |
+| CASE339 | 여덟 달 치의 이름 | [CASE339.md](CASE339.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 

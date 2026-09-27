@@ -3627,3 +3627,23 @@ CASE137·138·139·141·142·185·218·306·331 절의 「폴백이 못 읽는 �
 | CASE333 | `motive` | `custody` | `full_truth.motive` 「가정법원에 **미성년후견인 선임**을 청구」·「딸아이를 데려갈 사람은 아버지인 자기 하나」 | 폴백은 「아이를 데려」로 겨우 걸린다. 더할 낱말: **후견인 · 미성년후견** |
 | CASE333 | `background` | `evacuation_blackout` | `case_identity.setting` 「밤 8시 40분 발전기가 멎어 섬 전체가 … 어둠에 잠겼다」 | 목록의 「정전」으로 `full_truth.method`에서 걸린다. `setting`만 보면 **발전기가 멎어**가 목록 밖이다 |
 | CASE333 | `cover_up_method` | `false_timeline`+`weapon_disposal` | `full_truth.cover_up` 「괘종시계의 … 바늘을 8시 35분으로 **되감아** 놓고, 흔들리던 추를 손으로 붙잡아 **멈춰 세웠다**」·「쓴 **막자**를 … 바다에 **던져 버렸다**」 | 동사 둘 = 칸 둘. 폴백은 둘 다 못 읽는다 — `false_timeline`은 「시각」 뒤 서술어만 보고 **시곗바늘 · 되감아 · 추를 세워**가 없고, `weapon_disposal`은 흉기 이름 목록에 **막자**가 없다 |
+
+## CASE339 (소설화 루틴, 2026-09-27)
+
+`other`로 적은 칸은 없다. **선언이 산문보다 좁았던 자리 넷을 더했다** —
+`motive_archetypes`에 `credit_theft`, `cover_up_method`에 `evidence_removal`·
+`accident_victim_error`, `cover_up_target`에 `cause_of_death`. 네 축 다 이미
+값이 있었고(`succession_change` · `scene_rearrangement`+
+`digital_record_manipulation`+`concealment_without_staging` · `weapon`+`motive`+
+`crime_scene`) **선언이 폴백을 대체하므로** 좁게 적힌 만큼이 통째로 안 세어지고
+있었다. `check:case` warn 1 → 4(전부 코퍼스 비율 보고, 등록된 사건이라 CI는
+막지 않는다).
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE339 | `motive` | `credit_theft`(추가) | `full_truth.motive` 「**15년의 공로가 완전히 지워졌다**」·「자신의 이름만 **단독 개발자로 올렸다**」 | **목록에 이미 있다**(`공로` · `이름[이은]…올라`) — 폴백은 걸었을 텐데 선언이 그 칸을 빼고 있어서 안 세어졌다. 더할 낱말 없음 |
+| CASE339 | `cover_up_method` | `accident_victim_error`(추가) | `full_truth.cover_up` 「발판에 올랐다가 혼자 **미끄러져** 넘어진 것처럼 자리를 꾸몄다」 | 폴백에 **미끄러져 · 미끄러진**이 없다(`헛디`·`넘어져`만 있어 관형형 **넘어진**도 못 읽는다). 실족을 적는 흔한 꼴이라 더할 값이 크다 |
+| CASE339 | `cover_up_method` | `evidence_removal`(추가) | `full_truth.cover_up` 「보도자료 최종 샘플을 **빼내** 접어 주머니에 넣어 감췄다」 · `T22` 「유리 조각들을 **쓸어 담아 치워**」 | 폴백은 「(증거\|흔적\|자국…)+치우」 꼴만 본다 — **목적어가 물건 이름**이면(샘플·유리 조각) 아무 데도 안 걸린다. 더할 낱말: **빼내 · 쓸어 담아** |
+| CASE339 | `cover_up_target` | `cause_of_death`(추가) | `full_truth.cover_up` 같은 문장(「혼자 미끄러져 넘어진 것처럼」) | 폴백은 **사인 · 사고사 · 지병** 같은 **이름씨**만 본다. 「…처럼 꾸몄다」로 사인을 감추는 문장은 낱말이 하나도 안 겹친다 — 이 칸은 사람이 안 적으면 사실상 빈칸이라는 CLAUDE.md의 진단이 그대로 맞았다 |
