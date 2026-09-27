@@ -414,6 +414,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE341 | 가려진 조리법 | [CASE341.md](CASE341.md) |
 | CASE342 | 자정의 전극봉 | [CASE342.md](CASE342.md) |
 | CASE343 | 종달새가 울지 않은 밤 | [CASE343.md](CASE343.md) |
+| CASE344 | 열리지 않은 조정실 | [CASE344.md](CASE344.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
