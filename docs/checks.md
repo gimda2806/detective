@@ -164,6 +164,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
 | `OFFLINE_SKELETON_MISSING` | 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `character_id`/`weight`/`clearing_points_at`·관계 `id`·`access_level`·`connects_to`·보드)가 비어 있음. 무엇이 안 되는지는 `docs/offline-master-format.md` 「필수」 표 | 인물 둘에 `comic_tell` 없음 | E |
+| `OFFLINE_WEIGHT_EMPTY` | 헛다리 `weight`는 있는데 하위 칸(`motive`·`opportunity`·`means`·`means_first_reading`)이 빈 문자열/빈 배열 — 필수 표를 채운 척만 한 것. 런타임은 `weight`를 읽지 않지만 필수 표의 칸이라 채운다(2026-09-27 사용자 결정) | CASE002 판본 `R01.weight.motive: ""` | E |
 | `OFFLINE_SPEECH_SHAPE` | 말 필드가 따옴표에 싸여 있음(따옴표는 런타임이 세운다) | `says.CH02: "\"…\""` | E |
 | `OFFLINE_TESTIMONY_UNQUOTED` | 증언 카드 `content`가 보고문(「○○는 …라고 인정한다」)이고 그 사람의 말이 아님 | 「최덕구는 새벽에 왔다고 인정한다.」 | E |
 
