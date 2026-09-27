@@ -999,7 +999,7 @@
 
 ### 그 밖의 오프라인 필수 표
 
-`docs/offline-master-format.md`의 「필수」 표를 이 사건에 맞춰 센 것이다. **원본은 여덟 축 중 일곱을 이미 갖고 있다** — 이 번호는 판본을 만들 때 채울 것이 적은 편이다.
+`docs/offline-master-format.md`의 「필수」 표를 이 사건에 맞춰 센 것이다. **아홉 줄 중 차 있는 것은 넷**(`points_finger` 5 · `knowledge_limits` 5 · `access_level` 7 · `connects_to` 7)이고 **나머지 다섯은 0건**이다(`comic_tell` · `points_at` · `mismatch` · 헛다리 `weight` · 보드 세 칸). `suspect_refutations`도 0건이다. 세는 법은 한 줄이다 — `grep -o '"<필드>"' <마스터> | wc -l`.
 
 | 축 | 원본 상태 | 판본에서 할 일 |
 | --- | --- | --- |
