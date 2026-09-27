@@ -624,6 +624,7 @@ export function validateMaster(
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkStageOwnTestimonyKey(master));
   issues.push(...checkStageReleaseBody(master, alreadyRegistered));
+  issues.push(...checkStageKeySealedByOwnStage(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkTimeReferences(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
@@ -3257,6 +3258,100 @@ export function checkStageReleaseBody(master: Master, _alreadyRegistered = false
     message: `${row.stage}.release 가 ${row.id} 를 내주는데 그 본문이 어디에도 없다. 플레이어 수첩에는 id 만 꽂히고 ${row.target || '상대'}가 무슨 말을 했는지가 남지 않는다. 같은 단계의 release.scope 지문을 그 인물의 말로 옮겨 ${row.target || '그 인물'}의 ${row.id.startsWith('F-') ? 'knows' : 'initial_claims'} 에 ${row.id} 로 적고, hidden_until 로 그 단계(${row.stage})에 잠근다.`,
   }));
 }
+// 단계가 「이 말을 들었을 것」으로 거는 진술이 바로 그 단계(또는 그 뒤 단계)로
+// 잠겨 있으면 사슬이 자기를 문다 — 말을 들으려면 단계를 깨야 하고 단계를 깨려면
+// 그 말을 들어야 한다. 지금 이것이 안 갇히는 것은 엔진이 첫 면담에서 잠긴 진술을
+// 그냥 말해 주기 때문인데(offline-engine.ts 의 `servedLater`, CASE274·276 이 남긴
+// 자국), 첫 면담이 내주는 것은 앞 두 줄(FIRST_MEETING_CLAIMS)뿐이라 그 진술이
+// 세 번째로 밀리는 순간 단계가 영영 안 열린다. 등록 여부와 무관하게 error —
+// 걸리면 사건이 안 끝나고, 안 걸리는 동안에도 우연히 서 있는 것이다.
+export function checkStageKeySealedByOwnStage(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name?: string;
+      hidden_until?: Array<{
+        fact_or_claim_id?: string;
+        release_prerequisite?: string;
+        release_trigger?: string;
+      }>;
+    }>;
+    contradiction_stages?: Array<{
+      id: string;
+      target_character?: string;
+      from_stage?: string;
+      to_stage?: string;
+      requires_heard_claim_ids?: string[];
+      requires_comparison?: { claim_id?: string };
+    }>;
+  };
+  const stages = shape.contradiction_stages ?? [];
+  // 같은 인물의 사슬에서 몇 번째인가. 사슬이 끊겨 못 세는 것은 99 로 두고
+  // 자기 단계만 본다 — 사슬 자체는 CONTRADICTION_STAGE_CHAIN_BROKEN 이 운다.
+  const orderOf = new Map<string, number>();
+  const byCharacter = new Map<string, typeof stages>();
+  for (const stage of stages) {
+    const list = byCharacter.get(stage.target_character ?? '') ?? [];
+    list.push(stage);
+    byCharacter.set(stage.target_character ?? '', list);
+  }
+  for (const list of byCharacter.values()) {
+    const byFrom = new Map(list.map((stage) => [stage.from_stage ?? '', stage]));
+    let cursor = 'initial';
+    let rank = 0;
+    const seen = new Set<string>();
+    while (byFrom.has(cursor)) {
+      const stage = byFrom.get(cursor)!;
+      if (seen.has(stage.id)) break;
+      seen.add(stage.id);
+      orderOf.set(stage.id, rank++);
+      cursor = stage.to_stage ?? '';
+    }
+    for (const stage of list) if (!orderOf.has(stage.id)) orderOf.set(stage.id, 99);
+  }
+  const gatesFor = new Map<
+    string,
+    Array<{ owner: string; ownerName: string; locks: string[] }>
+  >();
+  for (const character of shape.characters ?? []) {
+    for (const gate of character.hidden_until ?? []) {
+      const id = (gate.fact_or_claim_id ?? '').trim();
+      if (!id) continue;
+      const locks = [gate.release_prerequisite, gate.release_trigger]
+        .map((value) => (value ?? '').trim())
+        .filter((value) => /^C\d+$/.test(value));
+      if (!locks.length) continue;
+      const list = gatesFor.get(id) ?? [];
+      list.push({
+        owner: character.id,
+        ownerName: character.name ?? character.id,
+        locks,
+      });
+      gatesFor.set(id, list);
+    }
+  }
+  for (const stage of stages) {
+    const needed = new Set(stage.requires_heard_claim_ids ?? []);
+    const compared = (stage.requires_comparison?.claim_id ?? '').trim();
+    if (compared) needed.add(compared);
+    for (const id of needed) {
+      for (const gate of gatesFor.get(id) ?? []) {
+        for (const lock of gate.locks) {
+          const isSelf = lock === stage.id;
+          if (!isSelf && (orderOf.get(lock) ?? 99) < (orderOf.get(stage.id) ?? 0)) continue;
+          issues.push({
+            severity: 'error',
+            code: 'STAGE_KEY_SEALED_BY_OWN_STAGE',
+            message: `${stage.id}이 ${id}을 들었을 것을 전제하는데 ${gate.ownerName}(${gate.owner})의 hidden_until 이 그 말을 ${isSelf ? `바로 그 단계(${lock})` : `그 뒤 단계(${lock})`}로 잠가 두었다 — 말을 들으려면 단계를 깨야 하고 단계를 깨려면 그 말을 들어야 하는 고리다. 지금 안 갇히는 것은 첫 면담이 잠긴 진술을 앞 두 줄까지 그냥 말해 주기 때문일 뿐이고, 그 진술이 세 번째로 밀리면 사건이 안 끝난다. 단계의 열쇠가 되는 진술은 1막에서 들을 수 있어야 하므로 그 hidden_until 항목을 지운다(${id}은 initial_interview_range 가 내준다).`,
+          });
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 export function checkStageQuestion(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
