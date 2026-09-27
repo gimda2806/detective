@@ -424,6 +424,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE351 | 마지막 발판 | [CASE351.md](CASE351.md) |
 | CASE352 | 당겨진 시위 | [CASE352.md](CASE352.md) |
 | CASE353 | 이틀 앞선 서명 | [CASE353.md](CASE353.md) |
+| CASE354 | 온에어 15분 전 | [CASE354.md](CASE354.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
