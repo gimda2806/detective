@@ -195,6 +195,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `NEIGHBOR_TWIN` · `NEIGHBOR_TWIN_UNJUDGED` | 같은 막·붙은 번호와 축 다섯(수법·동기·진입 시각·단계 이름·인물 배치) 중 셋 겹침 / 둘 겹치는데 나머지를 잴 값이 없음 | 019↔020: 진입 06:10·단계 사슬·인물 배치 | E/W |
 | `RANGE_TWIN` | ±10 번호 안에 같은 골격(단계 사슬·진입 시각·타임라인 시각 골격)이 넷 이상 몰림 | `initial→admits_dispute→…` 39건이 061~110에 | E/W |
 | `PAIR_TWIN` | 붙은 두 번호(Δ≤2)가 축 셋 이상 겹침 — 사슬 골격(필수)·수법·동기·배경·무대·인물 배치·은폐 두 칸 이상 겹침·**엔딩 산문**(이름·숫자 지운 문장 ≥3 같음) | 038↔039: 사슬 + 동기 + 엔딩 마무리 세 줄 | E* |
+| `VERBAL_TIC_TWIN` | **4편 이내**의 두 사건에서 인물 `voice_profile.verbal_tic` 이 **2개 이상 글자까지 같음** → 같은 사람이 분장만 바꾸고 다시 나온 것으로 들림. `PAIR_TWIN` 의 축으로는 못 잡는다(필수 축인 단계 사슬이 막는다) | CASE321·CASE322 가 `아무튼`·`어쨌든`·`그게` 셋을 공유 | E* |
 
 ## 3. `npm run check:offline [ID…]` — 무식한 플레이어가 끝까지 가나 (①·②에서 돈다)
 
@@ -250,7 +251,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 ## 7. 심각도 규칙 한 장
 
 - **새 검사는 error**(2026-09-21). warn으로 두려면 사용자 승인. 읽는 사람 없는 경고는 부채를 세는 일일 뿐이다.
-- **비율·뼈대 검사는 등록 warn·새 사건 error** — 채우면 끝나는 부채용. 예외로 등록 무관 error 여덟: `UNKNOWN_ARCHETYPE_KEY` · `LEGACY_ARCHETYPE_KEY` · `CASE_COMPLETE_UNREACHABLE` · `SETTING_DEADLINE_DISCOVERY_TEMPLATE` · `STAGE_KEY_IS_OWN_TESTIMONY` · `PAIR_TWIN` · `STAGE_COMPARISON_NOT_LIE` · `STAGE_REQUIRES_BEYOND_COMPARISON`.
+- **비율·뼈대 검사는 등록 warn·새 사건 error** — 채우면 끝나는 부채용. 예외로 등록 무관 error 아홉: `UNKNOWN_ARCHETYPE_KEY` · `LEGACY_ARCHETYPE_KEY` · `CASE_COMPLETE_UNREACHABLE` · `SETTING_DEADLINE_DISCOVERY_TEMPLATE` · `STAGE_KEY_IS_OWN_TESTIMONY` · `PAIR_TWIN` · `VERBAL_TIC_TWIN` · `STAGE_COMPARISON_NOT_LIE` · `STAGE_REQUIRES_BEYOND_COMPARISON`.
 - **은폐 두 축**은 고정 8%가 아니라 칸당 기대치 대비 배수(1.5배 warn · 2배 새 사건 error). 「칸이 흔해서」 `other`로 내리지 않는다.
 - **판박이는 고쳐 쓰지 않고 뒷번호를 지운다**(사용자 지정). 엔딩 산문 축으로만 걸린 쌍은 뒷번호의 겹친 문장만 다시 썼다(사건이 아니라 마무리 틀만 같아서).
 - `check:case`는 **JSON 스키마를 돌리지 않는다** — 스키마의 `required`·설명문은 아무것도 막지 않는다. 막고 싶으면 여기 검사를 넣는다.
