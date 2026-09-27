@@ -17,9 +17,9 @@
 - 문서 넷만 건드렸다: `docs/novels/CASE276.md`(새 파일) ·
   `docs/novels/README.md`(표 한 행 — CASE275와 CASE277 사이) ·
   `docs/novels/rounds.md`(회차 절) · `docs/handoff-backlog.md`(네 항목).
-- **소설 루틴 다음 회차의 큐는 CASE306 · CASE314 둘이다**(PR 직전 재측정).
-  회차 도중에 새로 찬 번호는 없었다. ①이 셋이나 차 있었던 것은 오랜만이라
-  회차 기록에 그 사실만 적어 뒀다.
+- ~~소설 루틴 다음 회차의 큐~~ — **처리했다**(`4e7a6e`, 2026-09-27).
+  CASE306·CASE314 둘 다 썼다(`#1345`·`#1357`). 큐의 현재값은 쪽지가 아니라
+  `docs/novels/README.md` 「지금 상태」의 세는 세 줄이 답이다.
 
 **해야 할 것 — 판본 루틴 (`Case-No-276.offline.json`을 뜰 때)**
 
