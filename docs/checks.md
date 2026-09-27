@@ -166,7 +166,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | --- | --- | --- | --- |
 | `OFFLINE_SKELETON_MISSING` | 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `character_id`/`weight`/`clearing_points_at`·관계 `id`·`access_level`·`connects_to`·보드)가 비어 있음. 무엇이 안 되는지는 `docs/offline-master-format.md` 「필수」 표 | 인물 둘에 `comic_tell` 없음 | E |
 | `OFFLINE_WEIGHT_EMPTY` | 헛다리 `weight`는 있는데 하위 칸(`motive`·`opportunity`·`means`·`means_first_reading`)이 빈 문자열/빈 배열 — 필수 표를 채운 척만 한 것. 런타임은 `weight`를 읽지 않지만 필수 표의 칸이라 채운다(2026-09-27 사용자 결정) | CASE002 판본 `R01.weight.motive: ""` | E |
-| `OFFLINE_SPEECH_SHAPE` | 말 필드가 따옴표에 싸여 있음(따옴표는 런타임이 세운다) | `says.CH02: "\"…\""` | E |
+| `OFFLINE_SPEECH_SHAPE` | 말 필드가 따옴표에 싸여 있음(따옴표는 런타임이 세운다) · **사실을 적는 `knows[].content`가 말하는 행위로 끝남**(「둘러댄다」·「인정한다」) → 엔진이 「…다고 한다」로 감싸 「둘러댄다고 한다」가 된다. 끝맺음만 보는 판정은 「다」로 끝나 통과시킨다. `release.scope`에는 안 건다(작성자가 읽는 재료라 행위를 적는 것이 맞다) | `says.CH02: "\"…\""` | E |
 | `OFFLINE_TESTIMONY_UNQUOTED` | 증언 카드 `content`가 보고문(「○○는 …라고 인정한다」)이고 그 사람의 말이 아님 | 「최덕구는 새벽에 왔다고 인정한다.」 | E |
 
 ### 2-11. 분류 코드와 코퍼스 비율 (과용 — 전 마스터를 `otherCases`로 읽어 견준다)

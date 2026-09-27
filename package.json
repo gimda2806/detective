@@ -34,7 +34,8 @@
     "audit:duplication": "node --experimental-strip-types scripts/audit-duplication.mjs",
     "measure:pairs": "node scripts/measure-pair-axes.mjs",
     "measure:times": "node scripts/measure-time-checks.mjs",
-    "audit:stage-release": "node scripts/audit-stage-release.mjs"
+    "audit:stage-release": "node scripts/audit-stage-release.mjs",
+    "audit:knows-act": "node scripts/audit-knows-speech-act.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
