@@ -1039,6 +1039,19 @@ registry 등록이 같은 PR 에 있어 base 에는 아직 없고, 복구 PR 의
    로프는 위장 장치로도 제목을 받친다. `check:case` errors 0 · `check:offline` 완주 · `check:novel` 이상 없음. 소설(`docs/novels/CASE022.md`)은
    건드리지 않았다 — 소설 끝 「같이 본 다섯」 1번이 이 어긋남을 짚은 자리이고 마스터가 따라갔다.
 
+## 2026-09-27: 판박이 두 쌍의 뒷번호 CASE119·CASE128을 지웠다
+
+「사용자」 절 ②(사용자 결정). 규칙은 「판박이는 고쳐 쓰지 않고 뒷번호를 지운다」(CLAUDE.md ①). 두 쌍은 검사기가 조용했다 —
+CASE118↔119는 글자까지 같은 문장 28줄인데 수법 계열이 달라 `PAIR_TWIN`이 안 울고, CASE124↔128은 인물 5·헛다리 3·단계 4·
+발견자·엔딩 마지막 대사가 같은데 말버릇 셋은 `VERBAL_TIC_TWIN`(09-27)이 갈랐고 남은 것이 뼈대다. 판박이를 검사 코드로 더
+좁게 잡는 안은 만들지 않았다 — 두 쌍은 소설 회차가 눈으로 잡은 것이고, 뼈대 유사도를 세는 검사는 실측으로 두 번 기각됐다.
+
+#1271의 절차를 따랐다: 폴더(`data/pending-cases/CASE119`·`CASE128`)·소설(`docs/novels/CASE119.md`·`CASE128.md`)·registry 항목·
+소설 README 표(119는 옛 제목 「발판은 젖지 않았다」 행까지 둘)·지운 소설을 가리키던 링크 둘(`rounds.md`·`archetype-gaps.md`)은
+글로 풀었다. `validate_master.ts:5560`의 CASE128 주석은 실플레이 근거 주석이라 둔다. 백로그 「마스터가 어긋난 자리」의 CASE128
+`T09` 줄은 지웠고, 「검사기」 절의 `requires` 사람 이름·`discovery_condition` 줄은 세는 수에 119·128 몫이 들어 있던 것을 한 줄로 적었다.
+두 번호는 `next:case-id`가 다시 채운다(#1271이 지운 022·125 등도 그렇게 다시 채워졌다). 판본은 둘 다 없었다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

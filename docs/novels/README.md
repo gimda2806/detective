@@ -105,7 +105,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE115 | 찾아가지 않은 이름 | [CASE115.md](CASE115.md) |
 | CASE116 | 밟았는데 없었다 | [CASE116.md](CASE116.md) |
 | CASE117 | 부스에 남은 마지막 콜 | [CASE117.md](CASE117.md) |
-| CASE119 | 발판은 젖지 않았다 | [CASE119.md](CASE119.md) |
 | CASE120 | 서냉로가 식던 자리 | [CASE120.md](CASE120.md) |
 | CASE121 | 그물이 걷힌 자리 | [CASE121.md](CASE121.md) |
 | CASE122 | 라커 위의 마지막 홈 | [CASE122.md](CASE122.md) |
@@ -113,7 +112,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE124 | 다시 켜지지 않는 마이크 | [CASE124.md](CASE124.md) |
 | CASE126 | 내려앉은 그림자 | [CASE126.md](CASE126.md) |
 | CASE127 | 패널 위의 오 분 | [CASE127.md](CASE127.md) |
-| CASE128 | 이어받지 못한 지휘봉 | [CASE128.md](CASE128.md) |
 | CASE129 | 제어탑에 걸린 마지막 신호 | [CASE129.md](CASE129.md) |
 | CASE130 | 허물을 벗은 밤 | [CASE130.md](CASE130.md) |
 | CASE131 | 빈 진열대의 토크렌치 | [CASE131.md](CASE131.md) |
@@ -367,11 +365,9 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE113 | 마지막 불땀 | [CASE113.md](CASE113.md) |
 | CASE116 | 안개가 걷히기 전 | [CASE116.md](CASE116.md) |
 | CASE118 | 가라앉는 자리 | [CASE118.md](CASE118.md) |
-| CASE119 | 인형의 관절이 식을 때 | [CASE119.md](CASE119.md) |
 | CASE121 | 화물열차는 두 번 지나갔다 | [CASE121.md](CASE121.md) |
 | CASE122 | 라커 위의 마지막 홈 | [CASE122.md](CASE122.md) |
 | CASE124 | 다시 켜지지 않는 마이크 | [CASE124.md](CASE124.md) |
-| CASE128 | 이어받지 못한 지휘봉 | [CASE128.md](CASE128.md) |
 | CASE131 | 빈 진열대의 토크렌치 | [CASE131.md](CASE131.md) |
 | CASE132 | 조명이 꺼진 자리 | [CASE132.md](CASE132.md) |
 | CASE176 (ver2) | 크레딧 한 줄 | [CASE176-ver2.md](CASE176-ver2.md) |
