@@ -412,6 +412,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE340 | 잠수 일지에 없는 시간 | [CASE340.md](CASE340.md) |
 | CASE119 | 묻히지 않은 소리 | [CASE119.md](CASE119.md) |
 | CASE341 | 가려진 조리법 | [CASE341.md](CASE341.md) |
+| CASE342 | 자정의 전극봉 | [CASE342.md](CASE342.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
