@@ -18,7 +18,8 @@
   결과인 `METHOD_ARCHETYPE_OVERUSE`. 경고를 줄이려고 코드를 내리지 않았다) ·
   `check:novel` CASE128 **errors 0 · warnings 0 · info 0** · `check:codes` 통과 ·
   `build:source CASE128` 돌렸고 소스 문서는 무변경. `check:offline`·`check:banter`는
-  조건이 아니라 안 돌렸다.
+  조건이 아니라 안 돌렸다(다만 PR 검사가 요구해서 `check:offline CASE128`은 손으로
+  돌렸다 — 완주 가능 1).
 - 백로그 「마스터가 어긋난 자리」에 **CASE128 한 줄**(여덟 갈래).
 - **처리한 쪽지 하나를 지웠다** — `n9whow`. 그 쪽지의 「다음 회차가 바로 쓸 것」을 전부
   따랐다(세는 것부터 · CASE128 · 제목 한 줄로 오탐 가르기 · `audit:duplication` 먼저 ·
@@ -76,3 +77,22 @@
 - **코퍼스 `check:novel`의 코드별 수는 앞 회차와 같다** — `TIME_NOT_IN_MASTER` **348** ·
   `TIME_UNRECORDED` **85** · `TIMELINE_AFTER_ENTRY_UNUSED` **27**. 이 편이 셋 다 0으로
   들어왔다. CLAUDE.md의 시각 되먹임 루틴 줄은 아직 「233개(2026-09-26, 소설 320편)」다.
+
+**PR을 올릴 때 걸린 것 — 이 저장소의 `check`는 푸시로 안 돈다**
+
+브랜치 보호가 `check`(=`.github/workflows/pr-checks.yml`의 `check` job)를 **헤드 커밋에서**
+요구하는데(`Required status check "check" is expected` 로 머지가 405로 막혔다),
+**이 세션에서 `git push`로 올린 커밋에는 워크플로 실행이 하나도 생기지 않았다.**
+실측: PR을 연 뒤 두 번 푸시했고 `Workers Builds`는 두 번 다 헤드에서 돌았는데
+`PR checks`는 **첫 커밋에 붙은 하나뿐**이었다(`workflow_runs` 총계 1). 초안 해제
+(`ready_for_review`)도 실행을 만들지 않는다 — 기본 `pull_request` 타입 목록에 없다.
+
+**그래서 마지막 커밋은 GitHub API로 올렸다**(`create_or_update_file`). API 커밋은
+`synchronize` 를 만들어 `check` 가 헤드에서 돈다. **빈 커밋을 밀거나 PR을 닫았다 열지
+않았다** — 둘 다 금지다.
+
+**다음 회차가 할 일: PR을 열기 전에 커밋을 하나로 모아 두는 것이 가장 싸다.** 첫 푸시에
+회차의 모든 변경이 들어 있으면 PR을 여는 그 실행이 곧 헤드의 실행이 된다. 열고 나서
+고칠 것이 생기면 그 커밋만 API로 올리면 된다. 이것은 「CI가 빈 diff로 통과한다」
+(2026-09-27, CASE343·345)의 **반대쪽 사고**다 — 그쪽은 실행이 끝나기 전에 머지한 것이고,
+이쪽은 **실행이 헤드에서 아예 안 생기는 것**이다. 둘 다 「초록을 봤다」로 넘어가면 샌다.
