@@ -251,6 +251,26 @@
           "content": "3년 전부터 후원회 기부금 계좌를 단독으로 관리해 왔다.",
           "source": "본인이 한 일",
           "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 저녁 잠깐 정수기 앞에서 관장님 보온병을 마주친 것은 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "보온병에 수면유도제를 섞어 넣은 것은 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "3년째 후원회 계좌에서 조금씩 돈을 빼내 개인 채무를 갚아 온 것과, 천용재가 그것을 발견해 추궁했다는 것을 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "통합 문화재단 시설관리팀장 자리를 눈앞에 두고 결손이 드러나면 모든 것이 무너진다고 판단해, 사건 당일 저녁 관장님 보온병에 수면유도제를 섞어 넣었다는 것을 인정한다. 소란을 틈타 다시 올라가 흔적을 지우려 한 것도 시인한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -292,9 +312,19 @@
           "release_trigger": "S-CH02-01"
         },
         {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
           "fact_or_claim_id": "S-CH02-03",
           "release_prerequisite": "F-CH02-02",
           "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
         },
         {
           "fact_or_claim_id": "S-CH02-04",
@@ -302,9 +332,19 @@
           "release_trigger": "S-CH02-03"
         },
         {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
           "fact_or_claim_id": "S-CH02-05",
           "release_prerequisite": "F-CH02-04",
           "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH02-05"
         }
       ],
       "knowledge_limits": [
