@@ -5695,6 +5695,73 @@ export function pairSharedAxes(a: Master, b: Master): string[] {
   return PAIR_AXES.filter(([, test]) => test(a, b)).map(([label]) => label);
 }
 
+// ---- 말버릇 겹침 ----
+//
+// **`PAIR_TWIN` 의 축으로는 안 된다.** 축 자체는 지금 있는 어느 축보다 센데
+// (2026-09-26 실측, 코퍼스 318건: 2개 이상 겹치면 붙은 쌍 2.94% · 먼 쌍 0.01%)
+// `PAIR_TWIN` 에 넣으면 **넷만 는다** — 그 검사의 필수 축인 「단계 사슬 골격」이
+// 268↔269·213↔214 를 막기 때문이다. 그래서 따로 선 검사다.
+//
+// **창은 ±4 다.** 2026-09-27 재측정(코퍼스 340건)에서 ±2·±3 은 18쌍으로 같고
+// ±4 에서 20쌍이 되며 **±5·±6·±10 까지 가도 하나도 안 는다** — 거기서 끊기는
+// 자연스러운 경계다. ±4 가 더하는 둘(016↔020 · 124↔128)은 백로그가 손으로
+// 「판박이」라고 지목해 둔 바로 그 쌍이고, 막 게이트가 5편씩 열리므로
+// 「같은 막 안」과도 맞는다. 창을 아예 없애면 6쌍이 더 붙지만 거리가 13~193 이라
+// 플레이어가 이어서 풀 일이 없다 — 그것은 생성 루틴의 어휘가 좁다는 신호이지
+// 이 검사가 막을 것이 아니다.
+//
+// **문턱은 2개다.** 1개 이상은 40배에 177쌍인데 「그게」처럼 흔한 습관어가
+// 하나 겹치는 것은 우연이다. 2개부터는 139~190배로 신호가 선다.
+const TIC_WINDOW = 4;
+const TIC_MIN_SHARED = 2;
+
+export function checkVerbalTicTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const ticsOf = (m: Master) =>
+    new Map(
+      ((m as unknown as { characters?: Array<{ id: string; name?: string; voice_profile?: { verbal_tic?: string } }> })
+        .characters ?? [])
+        .map((c) => [(c.voice_profile?.verbal_tic ?? '').trim(), c])
+        .filter(([t]) => t) as Array<[string, { id: string; name?: string }]>,
+    );
+  const mine = ticsOf(master);
+  if (!mine.size) return [];
+  const issues: Issue[] = [];
+
+  for (const other of otherCases) {
+    const n = caseNumber(other.caseId);
+    if (n === null || n === self) continue;
+    if (Math.abs(n - self) > TIC_WINDOW) continue;
+    // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
+    if (n < self) continue;
+
+    const theirs = ticsOf(other.master);
+    const shared = [...mine.keys()].filter((t) => theirs.has(t));
+    if (shared.length < TIC_MIN_SHARED) continue;
+
+    const where = shared
+      .map((t) => {
+        const a = mine.get(t)!;
+        const b = theirs.get(t)!;
+        return `${t} (${caseId} ${a.id} ${a.name ?? ''} = ${other.caseId} ${b.id} ${b.name ?? ''})`;
+      })
+      .join(' / ');
+    issues.push({
+      // 등록 여부와 무관하게 error 다(2026-09-21 사용자 결정 — 새로 넣는 검사는
+      // warn 으로 두지 않는다). 걸리던 20쌍은 이 커밋에서 같이 고쳤다.
+      severity: 'error',
+      code: 'VERBAL_TIC_TWIN',
+      message: `${other.caseId}와 인물 말버릇이 ${shared.length}개 겹친다 — ${where}. **${TIC_WINDOW}편 이내라 플레이어가 이어서 푼다** — 같은 사람이 분장만 바꾸고 다시 나온 것으로 들린다. **뒷번호 쪽 말버릇을 그 인물의 것으로 다시 고를 것**(선언만 바꾸면 대사와 어긋난다 — 그 어구가 박힌 대사도 같이 고친다). 겹침이 하나면 안 걸린다.`,
+    });
+  }
+  return issues;
+}
+
 // `alreadyRegistered` 를 받지 않는다 — 다른 과용 검사들과 달리 이 검사는
 // 등록 여부로 severity 가 갈리지 않으므로, 안 쓰는 인자를 남겨 두면 다음
 // 사람이 「여기도 비대칭이구나」로 잘못 읽는다.
@@ -5869,6 +5936,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       ...checkRangeTwin(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkPairTwin(caseId, master, otherCases));
+    issues.push(...checkVerbalTicTwin(caseId, master, otherCases));
   }
 
   const errors = issues.filter((i) => i.severity === 'error');
