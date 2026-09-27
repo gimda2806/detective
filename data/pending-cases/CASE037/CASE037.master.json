@@ -852,6 +852,42 @@
         "그녀가 무엇을 보거나 들었는지"
       ],
       "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "전지호가 밝힌 아침 동선",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "전지호에게 그날 아침 움직인 동선을 자세히 묻는다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "전지호는 조인식 발표 자료 준비 때문에 이른 아침부터 락커룸과 사무실을 오갔다고 말한다.",
+      "proves": [
+        "전지호가 그 시간대에 락커룸과 사무실을 오갔다는 것 — 출입기록·목격 증언과 대조할 동선을 준다"
+      ],
+      "does_not_prove": [
+        "그가 다른 구역에 들르지 않았는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "감태오가 밝힌 발견 당시 상황",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "감태오에게 최시은을 발견했을 때 상황을 자세히 묻는다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "감태오는 06시 25분경 출근길에 부스 안에 쓰러진 최시은을 발견하고 문을 강제로 열었다고 말한다.",
+      "proves": [
+        "최시은이 발견된 정확한 시각과 그때 부스 문이 잠겨 있었다는 것"
+      ],
+      "does_not_prove": [
+        "문이 언제부터 잠겨 있었는지, 누가 잠갔는지"
+      ],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [

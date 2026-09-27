@@ -1,0 +1,1831 @@
+{
+  "case_identity": {
+    "case_id": "CASE351",
+    "title": "마지막 발판",
+    "english_title": "The Last Platform",
+    "genre": "현장소장 교체로 밀려난 배신감에서 비롯된 우발적 살인 / 리모델링 공사 현장 3층 작업발판 붕괴 추락사와 자재 결함 사고 위장",
+    "setting": "리모델링 공사가 한창인 8층 복합상가 '동해타워' 현장. 시공사 대표 백강호가 이끄는 시온건설이 3년째 맡아 온 현장으로, 그날은 3층 골조 구간의 최종 안전 점검이 예정돼 있었고 발주처 대기실에는 시행사 담당자가 결과를 기다리고 있었다.",
+    "location_archetypes": [
+      "construction_site"
+    ],
+    "background": {
+      "background_archetypes": [
+        "construction_renovation"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정과 한지우는 이 현장의 외부 안전 컨설턴트로 고용돼, 그 주 내내 3층 골조 구간의 마감 점검을 도와 왔다. 그날도 오후 점검을 마무리하던 중 소란을 맞닥뜨린다.",
+    "tone": "골조 사이로 들이치는 저녁 볕과, 방금까지 팽팽했던 공기가 가라앉는 자리. 탐정과 한지우는 안전모를 고쳐 쓰며 이 정적을 지켜본다.",
+    "tags": [
+      "리모델링_현장",
+      "현장소장_교체",
+      "공사현장_사고"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "편시윤",
+      "role": "현장 엔지니어 / 신임 현장소장 내정자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 14:45",
+    "narrative": "골조 사이 가설 통로를 따라 점검하던 탐정과 한지우는, 3층 저편에서 자재 무너지는 소리와 함께 인부들이 우르르 몰려가는 기척을 느끼고 손을 멈춘다.\n\n\"방금 그거 들었어?\"\n\n\"어. 저쪽이야.\"\n\n무너진 작업발판 더미 옆에 편시윤이 쓰러진 채 미동이 없고, 그 옆에 이여준이 하얗게 질린 얼굴로 서 있는 것을 발견한다. 안전관리 담당자가 뛰어들어와 다른 인부들에게 다급히 손짓한다.\n\n\"숨은 쉬는 것 같은데요.\"\n\n\"구급차 불러 놓고 아무도 손대지 마.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "저녁 어스름이 골조 사이로 스며들 무렵, 3층 작업등 하나만 남아 무너진 발판 자리를 비춘다. 이여준은 안전난간에 기댄 채 한참을 있다가 입을 뗀다.\n\n\"발이... 그냥 나갔어요. 그러고 나서 저는 지지핀을 바꿨고, 일지도 고쳤어요. 그건 되돌릴 수가 없더라고요.\"\n\n탐정은 난간에 기대선 채 잠자코 듣는다.\n\n\"차라리 그날 밤 그 공문을 보자마자 따졌으면 이렇게까진 안 됐을 텐데.\"\n\n한지우가 손에 쥔 수첩 모서리를 손끝으로 톡톡 두드린다.\n\n대기실 쪽에서는 백강호가 아직 켜 둔 스탠드 아래서 인사 공지문을 다시 쓰고 있다. 이번엔 현장 전체에 먼저 알리겠다며.\n\n\"현장 문 잠그고 나가자.\"\n\n\"장갑 벗었는데도 손끝이 아직 시멘트 냄새네요.\"\n\n탐정이 헛웃음을 흘리며 먼저 계단을 내려간다."
+  },
+  "surface_incident": [
+    "사건 당일 14시 32분경, 3층 골조 작업발판이 무너지며 편시윤이 추락해 의식을 잃었다.",
+    "낡은 지지핀의 자재 결함으로 인한 붕괴 사고로 추정된다는 이야기가 그날 오후 현장에 돌았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "이여준은 12년째 이 리모델링 공사 현장을 지켜 온 베테랑 기술팀장이었으나, 본사가 편시윤을 조기 발탁해 정식 현장소장으로 앉히고 자신을 다른 현장으로 돌리기로 확정한 사실을 사건 전날 밤 우연히 알게 되었다. 아무 통보도 없이 자신의 자리가 지워졌다는 배신감에 휩싸여, 3층 작업발판에서 이를 따지다가 격분해 범행에 이르렀다.",
+    "motive_archetypes": [
+      "rival_removal"
+    ],
+    "method": "3층 작업발판에서 언쟁이 격해지자 이여준이 발판을 받치던 지지핀을 발로 걷어차 뽑았고, 편시윤이 무너진 발판과 함께 아래로 떨어져 치명상을 입었다.",
+    "method_archetypes": [
+      "structural_collapse",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 14시 32분경, 3층 골조 작업발판(L02)에서.",
+    "cover_up": "이여준은 편시윤이 떨어진 직후 뽑아낸 지지핀 자리에 자재 창고에 있던 다른 여분 지지핀을 몰래 끼워 넣었다. 원래 지지핀은 자재 창고 구석 자재 더미 밑에 숨겼다. 이어 현장 사무실 안전 점검일지에 그 지지핀에 대한 점검 기록을 미리 있었던 것처럼 소급해 적어 넣어, 이번 일이 자신과 무관한 것처럼 보이게 했다.",
+    "cover_up_target": [
+      "weapon",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "object_substitution",
+      "weapon_disposal",
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E05",
+      "E06"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 3주 전",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백강호가 본사 화상 회의에서 이번 리모델링 현장의 정식 현장소장 교체안을 검토한다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 5일 전 15:00",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "본사가 편시윤을 조기 발탁해 정식 현장소장으로 앉히고 이여준을 다른 현장으로 돌리기로 확정한다.",
+      "world_fact": "그 결정은 본사 내부 공문으로만 남았고, 현장소장 사무실 캐비닛에 보관됐다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 21:00",
+      "location": "L04",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 야간 순찰차 사무실에 들렀다가, 열려 있던 캐비닛에서 그 공문을 넘겨보다 자신이 다른 현장으로 밀려난다는 내용을 발견한다.",
+      "world_fact": "그 공문을 본 것은 이여준 혼자였고, 그는 캐비닛을 원래대로 닫아 두고 나갔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 09:00",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "봉현지가 현장 출입 관리소에서 오전 안전점검 서명대를 연다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 10:30",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "봉현지가 3층 최종 점검 조 배정표를 출입 관리소 게시판에 게시하며 이여준과 편시윤을 한 조로 묶는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 13:00",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "하지오가 시행사 담당자로 대기실에 도착해 대기한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 13:20",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "한서영이 먼저 3층 점검 구간을 돌아본다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14:10",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
+      "actual_action": "편시윤이 3층 작업발판 최종 점검에 나서며 이여준이 동행한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 14:28",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
+      "actual_action": "편시윤이 전날 밤 얼핏 들었던 현장소장 교체 이야기를 무심코 꺼내며 이여준에게 묻는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 14:30",
+      "location": "L02",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "이여준이 자신이 다른 현장으로 밀려난다는 사실을 확인하고 언쟁을 벌인다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:32",
+      "location": "L02",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "언쟁 중 이여준이 발판을 받치던 지지핀을 걷어차 뽑았고, 편시윤이 무너진 발판과 함께 추락한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 14:33",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 추락한 편시윤 앞에서 얼어붙은 채 멈춰 선다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 14:34",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 자재 창고에서 마모가 심한 여분 지지핀을 챙긴다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 14:35",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 무너진 발판 자리의 지지핀을 그 여분 지지핀으로 바꿔 끼운다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 14:36",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 원래 쓰던 지지핀을 자재 창고 구석 자재 더미 밑에 숨긴다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 14:38",
+      "location": "L04",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 안전 점검일지에 그 지지핀이 지난주부터 마모 보고가 있었다는 내용을 소급해 적어 넣는다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 14:40",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 떨리는 손으로 안전모를 벗어 내려놓는다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 14:41",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "이여준이 인부들을 향해 다급히 손을 흔들며 도움을 요청한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 14:42",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "봉현지가 자재 창고 쪽에서 달려와 상황을 확인한다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 14:44",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백강호가 사무실에서 소식을 듣고 뛰어온다."
+    },
+    {
+      "id": "T21",
+      "time": "사건 당일 14:46",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "한서영이 출입 관리소에서 소란을 듣고 달려온다."
+    },
+    {
+      "id": "T22",
+      "time": "사건 당일 14:48",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "하지오가 대기실에서 상황을 전해 듣는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "백강호",
+      "role": "시공사 대표 겸 현장 총괄",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "본사가 편시윤을 조기 발탁해 정식 현장소장으로 앉히고 이여준을 다른 현장으로 돌리기로 결정했다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 결정은 극비였고 이여준에게는 따로 알리지 않았다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "발주처로부터 편시윤을 조기 발탁해 달라는 압박 메일을 받은 적이 있다는 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "이여준에게 결정을 미리 알리지 않은 것을 뒤늦게 후회한다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "이여준이 최근 며칠 말수가 줄고 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "시윤이는 제가 직접 스카우트한 엔지니어라, 저한테는 각별한 친구였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 사무실에서 화상회의 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E19",
+          "release_trigger": "F-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "편시윤과 이여준이 그날 정확히 무슨 대화를 나눴는지는 모른다.",
+        "하지오가 그 시각 대기실에서 무엇을 하고 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 침착하고 사무적이다.",
+        "sentence_length_tendency": "평소엔 문장이 정리된 편인데, 몰리면 문장이 짧아지고 사이가 길어진다.",
+        "verbal_tic": "말끝에 '아무래도'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그건 이미 다 말씀드린 것 같은데요.",
+        "...아무래도 더 드릴 말씀은 없어요.",
+        "그만 여쭤보셔도 될 것 같은데요."
+      ],
+      "comic_tell": "곤란하면 안전모 턱끈을 자꾸 고쳐 맨다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-01",
+        "says": "여준씨가 요 며칠 뭔가 평소랑 달라 보이긴 했어요. 그 이상은 저도 잘...",
+        "reveals": "이여준이 최근 평소와 달리 예민한 상태였다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "봉현지",
+      "role": "안전관리팀장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "전날 밤 21시쯤 사무실 앞을 지나다 이여준이 캐비닛 앞에 서 있는 것을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사고 직후 이여준이 유독 자재 창고를 여러 번 오가는 것을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그 지지핀은 지난주 정기 점검에서 이상이 없다고 직접 확인했다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "백강호가 사고가 벌어진 시각 내내 사무실에서 화상회의를 하고 있는 것을 창문 너머로 확인했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "하지오가 전날 대기실에서 편시윤과 언성을 높였다는 이야기를 들었다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "안전 점검은 제가 매주 직접 다 확인해요. 허투루 넘긴 적 없어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 창고에서 다음 주 자재 발주 목록 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH02-04"
+        }
+      ],
+      "knowledge_limits": [
+        "편시윤과 이여준이 점검 도중 무슨 이야기를 나눴는지는 모른다.",
+        "본사 회의에서 정확히 무엇이 결정됐는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 꼼꼼하다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 딱딱한데, 몰리면 더 단호해진다.",
+        "verbal_tic": "말끝에 '기억나는 대로면'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "그건 제가 기억나는 대로면 그게 다예요.",
+        "...더 여쭤보셔도 제가 아는 건 없어요.",
+        "그 이상은 저도 확인 못 했어요."
+      ],
+      "comic_tell": "생각할 때 안전모 끈을 만지작거린다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH02-05",
+        "opens": "S-CH02-01",
+        "says": "하지오 대표님이 전날 시윤이랑 언성을 높였다는 얘기는 저도 들었어요. 그 이상은 모릅니다.",
+        "reveals": "하지오와 편시윤이 전날 언쟁했다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "이여준",
+      "role": "현장 기술팀장 / 베테랑 기능공",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "12년째 지켜온 이 현장에서, 본사가 편시윤을 조기 발탁해 정식 현장소장으로 앉히고 자신을 다른 현장으로 돌리기로 확정한 것을 사건 전날 밤 우연히 알게 되었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그 시간에 자신이 편시윤과 함께 3층 점검을 돌고 있었다는 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그 점검 도중 편시윤과 언쟁이 있었던 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "언쟁 중 지지핀을 걷어차 편시윤이 발판과 함께 떨어지게 한 뒤, 지지핀을 바꿔치기하고 점검일지를 고쳐 사고처럼 꾸몄다는 것을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "하지오가 전날 편시윤과 공사 기간 문제로 언쟁했다는 말을 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "시윤이는 제가 가르친 후배들 중에서 유독 손이 빨랐던 친구예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 저는 반대쪽 구간에서 다른 자재 정리하고 있었어요. 시윤이랑 같이 있지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "그냥 같이 점검 돈 것뿐이에요. 별다른 얘기는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "언쟁은 있었지만 발은 대지 않았어요. 지지핀이 말썽을 부린 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "E20",
+          "release_trigger": "F-CH03-04"
+        }
+      ],
+      "knowledge_limits": [
+        "봉현지가 자신을 정확히 언제부터 의심했는지는 모른다.",
+        "한서영이 무엇을 들었는지는 정확히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 담담하다.",
+        "sentence_length_tendency": "평소엔 절제된 문장인데, 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "곤란한 이야기는 '별일 아니었어요'로 넘긴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "여쭤보셔도 그때 얘기는 다 끝났어요.",
+        "...정말 그것 말고는 드릴 말씀이 없어요.",
+        "그만 좀... 물어보시면 안 될까요."
+      ],
+      "comic_tell": "곤란해지면 목장갑을 벗었다 다시 낀다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH03-05",
+        "opens": "S-CH03-01",
+        "says": "하지오 대표님이 전날 시윤이랑 공사 기간으로 언쟁했다는 얘기는 저도 들었어요. 그 이상은 모릅니다.",
+        "reveals": "하지오와 편시윤이 전날 공사 기간으로 언쟁했다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "하지오",
+      "role": "발주처 담당자 / 시행사 대표",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 대기실에서 편시윤과 공사 기간 문제로 언성을 높인 적이 있다는 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "준공 승인은 이미 편시윤 중심으로 사인 직전까지 갔었다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "편시윤이 다치면 준공 일정 자체가 전면 재검토돼 시행사 쪽이 오히려 손해라는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "그날 대기실을 오가며 3층 쪽에서 평소보다 다급한 인기척을 느꼈다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-05",
+          "content": "본사 결정을 대표가 현장에 미리 알리지 않았다는 소문을 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "시윤 기사님은 저희 쪽에서도 다음 공정 책임자로 점찍어 둔 친구였습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 계속 대기실에서 준공 서류 검토하고 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E20",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH04-04"
+        }
+      ],
+      "knowledge_limits": [
+        "현장 내부 인사 문제는 자세히 모른다.",
+        "그 시각 3층 구간에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이다.",
+        "sentence_length_tendency": "평소엔 간결한데, 몰리면 말이 길어지며 해명한다.",
+        "verbal_tic": "'듣기로는'을 자주 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드릴 건 이미 다 말씀드렸습니다.",
+        "듣기로는... 더 드릴 말씀이 없네요.",
+        "이건 저희 쪽 사정이라 곤란합니다."
+      ],
+      "comic_tell": "말이 막히면 서류 클립을 만지작거린다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-05",
+        "opens": "S-CH04-01",
+        "says": "대표님이 현장소장 교체를 현장에 미리 안 알리셨다는 말은 저도 들었습니다. 그 이상은 모릅니다.",
+        "reveals": "백강호가 현장소장 교체 결정을 현장에 미리 알리지 않았다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "한서영",
+      "role": "동료 엔지니어 / 편시윤의 입사 동기",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그 시각 3층 쪽에서 언쟁 소리가 들렸다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 시각 이여준이 편시윤과 함께 점검을 돌고 있는 것을 직접 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "이여준이 그날 유난히 말수가 적고 굳어 있었다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "하지오와 편시윤이 전날 공사 기간으로 언쟁했다는 것을 들었다.",
+          "source": "전해 들음"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "편시윤이 전날 밤 누군가 사무실 캐비닛을 열어 본 것 같다고 자신에게 흘렸던 것을 기억한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-06",
+          "content": "봉현지가 그날따라 자재 창고를 유독 자주 들락거리는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "시윤이는 저한테는 그냥... 입사 동기 이상이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 먼저 점검 구간 돌고 옆에서 쉬고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-06",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH05-05"
+        }
+      ],
+      "knowledge_limits": [
+        "본사 결정 내용은 정확히 모른다.",
+        "이여준이 왜 그렇게 굳어 있었는지는 그날은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 발랄하지만 긴장하면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 발랄한데, 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "말끝에 '짐작이지만'을 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저, 정말 그게 다예요...",
+        "짐작이지만... 그 이상은 저도 몰라요.",
+        "...더는 기억이 안 나요."
+      ],
+      "comic_tell": "당황하면 안전모 챙을 손끝으로 톡톡 건드린다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH05-06",
+        "opens": "S-CH05-01",
+        "says": "현지 언니가 그날따라 창고를 유독 자주 들락거리시긴 했어요. 그것 말고는...",
+        "reveals": "봉현지가 그날 창고를 평소보다 자주 드나들었다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "3년째 그를 직접 지도해 온 시공사 대표와 현장 엔지니어.",
+      "public_face": "가장 신뢰받는 사제 관계로 알려져 있다.",
+      "says": {
+        "CH01": "그 나이에 벌써 현장소장감이라는 얘기가 나왔죠. 제가 아니었어도 어차피 컸을 친구예요."
+      },
+      "private_strain": "백강호는 발주처로부터 편시윤을 조기 발탁하라는 압박 메일을 받은 적이 있다는 것을 현장에 알리지 않고 있다.",
+      "surfaces_when": "탐정이 발주처 압박 메일 출력본(E10)을 백강호 앞에 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "안전관리팀장으로서 3년째 그의 안전장구를 직접 점검해 온 사이.",
+      "public_face": "누구보다 꼼꼼히 챙겨 주는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "시윤씨는 점검 때마다 유독 꼼꼼히 따라다니던 친구였어요."
+      },
+      "private_strain": "봉현지는 그 지지핀이 지난주 정기 점검에서 아무 이상이 없었다고 확인한 사실을 아무에게도 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 소급 기재된 안전 점검일지(E06)를 봉현지 앞에 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "12년차 베테랑과 조기 발탁된 후배 엔지니어. 이여준이 직접 가르친 사이이기도 하다.",
+      "public_face": "가장 손발이 잘 맞는 점검 파트너로 알려져 있다.",
+      "says": {
+        "CH03": "재능은 원래 있었어요. 저는 그냥 몇 마디 거들었을 뿐이죠."
+      },
+      "private_strain": "이여준은 본사가 자신을 다른 현장으로 돌리고 편시윤을 정식 현장소장으로 앉히기로 확정한 사실을 사건 전날 밤 혼자 알게 된 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 현장소장 교체 공문(E01)을 이여준 앞에 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "다음 공정 준공 승인을 준비해 온 발주처 담당자와 엔지니어.",
+      "public_face": "가장 신뢰하는 발주처 파트너로 알려져 있다.",
+      "says": {
+        "CH04": "준공 도장 찍기도 전에 다들 그 친구 얘기부터 하더군요."
+      },
+      "private_strain": "하지오는 전날 편시윤과 공사 기간 문제로 언성을 높인 적이 있다는 것을 다른 사람들에게 알리고 싶어 하지 않는다.",
+      "surfaces_when": "탐정이 하지오에게 전날 있었던 일을 캐물을 때(F-CH04-01)."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "같은 해 입사해 함께 일해 온 동료이자 가장 가까운 친구.",
+      "public_face": "가장 친한 동료로 알려져 있다.",
+      "says": {
+        "CH05": "같이 도면 붙들고 밤새운 사이였어요. 그 이상 뭐라 설명을 못 하겠네요."
+      },
+      "private_strain": "한서영은 편시윤이 전날 밤 누군가 사무실 캐비닛을 열어 본 것 같다고 흘렸던 말을 아무에게도 전하지 않고 있다.",
+      "surfaces_when": "탐정이 한서영에게 편시윤이 전날 남긴 말이 있는지 캐물을 때(F-CH05-05)."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
+      "nature": "3년째 같은 현장을 지켜 온 대표와 기술팀장.",
+      "public_face": "가장 오래 손발을 맞춘 사이로 알려져 있다.",
+      "says": {
+        "CH01": "여준씨는... 오래 같이 해 온 기술자죠. 지금은 그 이상은 말씀드리기 어렵네요.",
+        "CH03": "대표님이요? 그냥 오래 모셔 온 분이죠."
+      },
+      "private_strain": "백강호는 이여준에게 현장 교체 결정을 먼저 알리지 않은 것을 뒤늦게 후회하고 있다.",
+      "surfaces_when": "탐정이 백강호에게 결정을 알리지 않은 이유를 캐물을 때(F-CH01-04)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "현장 출입 관리소",
+      "access": "누구나 서명하고 드나들 수 있는 출입 관리소. 안전모 착용대와 서명대가 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
+      "base_description": "정면 게시판에 그날 3층 최종 점검 조 배정표가 붙어 있고, 그 옆 서명대 위에는 반납된 안전장구들이 쌓여 있다. 한서영이 벤치에 앉아 아직 가쁜 숨을 고르고 있다.",
+      "observation_rules": [
+        {
+          "action": "출입 관리소를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판 한쪽에는 오늘 3층 점검 순서표가 그대로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "게시판의 3층 점검 조 배정표를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 오전 10시 30분에 게시된 3층 최종 점검 조 배정표에 '편시윤 – 이여준' 조가 적혀 있다."
+        },
+        {
+          "action": "서명대의 개인 출입 기록부를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "개인 출입 기록부에 이여준이 전날 21시경 사무실에 들러 서명하고 나갔다고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "3층 골조 작업발판 구간",
+      "access": "리모델링 3층 골조 점검이 진행되는 구간. 점검 시간에는 관계자만 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "무너진 작업발판 잔해가 한쪽으로 밀려 있고, 그 옆으로 골조 사이 가설 통로가 그대로 이어져 있다. 이여준이 안전모를 손에 든 채 발판 앞에 굳은 얼굴로 서 있다.",
+      "observation_rules": [
+        {
+          "action": "작업발판 구간을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "골조 위쪽에는 아직 시멘트 분진이 뽀얗게 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "무너진 발판 잔해를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "무너진 작업발판 한쪽 모서리 지지대가 깊게 꺾여 있고, 고정용 안전 로프 끝이 풀린 채 아무렇게나 널브러져 있다."
+        },
+        {
+          "action": "지지핀 고정 상태를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "남은 지지핀 고정 장치가 사고 직후치고는 지나치게 말끔한 원위치에 꽂혀 있고, 접합부에 새로 묻은 듯한 분진이 없다."
+        },
+        {
+          "action": "최근 자재 점검판을 살펴본다",
+          "requires": "한서영",
+          "release_evidence_id": "E21",
+          "result": "최근 자재 점검판에 3층 구간이 지난 두 달간 하중 재배치 없이 계속 가동돼 왔다는 메모가 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "자재 창고",
+      "access": "지지핀과 발판 자재를 보관하는 창고. 담당자 동행이 필요한 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
+      "base_description": "선반마다 지지핀과 발판 자재가 가지런히 쌓여 있고, 구석에는 아직 정리되지 않은 자재 더미가 쌓여 있다. 봉현지가 재고대장을 손에 든 채 선반을 하나씩 짚어 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "자재 더미 한쪽이 평소보다 어수선하게 흐트러져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "창고 재고대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "자재 창고 재고대장에는 여분 지지핀이 정확히 다섯 개로 기록돼 있는데, 실제로 선반에 놓인 것은 네 개뿐이다."
+        },
+        {
+          "action": "창고 구석 자재 더미 밑을 살펴본다",
+          "requires": "E04",
+          "release_evidence_id": "E05",
+          "result": "자재 더미 밑, 다른 자재에 눌려 있던 지지핀 하나가 고정 홈이 심하게 마모돼 있고 표면에 최근 충격으로 보이는 긁힘이 새로 나 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "현장소장 사무실 겸 기록실",
+      "access": "현장소장이 쓰는 개인 사무실 겸 서류 보관 공간. 평소엔 잠겨 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "책상 위 캐비닛 문이 살짝 열린 채 공문철이 반쯤 삐져나와 있고, 모니터에는 화상회의 창이 아직 떠 있다. 백강호가 수화기를 내려놓으며 창밖을 살피고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 캐비닛 문이 살짝 열린 채다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "캐비닛 속 현장소장 교체 공문을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "현장소장 사무실 캐비닛 안 공문 마지막 장에 '3층 리모델링 공정, 신임 현장소장 편시윤 조기 발령, 기존 기술팀장 타 현장 전보'라는 문구가 인쇄돼 있고, 하단에 본사 직인이 찍혀 있다."
+        },
+        {
+          "action": "안전 점검일지를 확인한다",
+          "requires": "봉현지",
+          "release_evidence_id": "E06",
+          "result": "안전 점검일지 가장 최근 기록에 '해당 지지핀, 지난주부터 마모 보고 있었음, 교체 예정'이라고 적혀 있다."
+        },
+        {
+          "action": "발주처 압박 메일 출력본을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "출력된 이메일에는 발주처 실무진의 서명과 함께, 편시윤을 하루빨리 현장 책임자로 앉혀 달라고 채근하는 문장이 굵게 강조돼 있다."
+        },
+        {
+          "action": "화상회의 접속 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E22",
+          "result": "사무실 컴퓨터의 화상회의 접속 로그에 사고가 벌어진 시각을 포함한 전후 한 시간이 끊김 없이 기록돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "발주처 대기실",
+      "access": "시행사 관계자를 위한 개방 공간.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "한쪽 테이블에 준공 서류가 펼쳐진 채 놓여 있고, 그 옆 의자에 하지오가 서류를 정리하다 만 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "대기실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "대기실 한쪽 테이블에 준공 서류가 아직 그대로 펼쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "준공 서류를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "준공 서류 마지막 장에 '3층 공정 책임: 편시윤' 조항과 함께, 인명사고 발생 시 준공 승인이 전면 재검토된다는 단서 조항이 명시돼 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "현장소장 교체 공문",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "캐비닛 속 현장소장 교체 공문을 살펴본다",
+      "content": "현장소장 사무실 캐비닛 안 공문 마지막 장에 '3층 리모델링 공정, 신임 현장소장 편시윤 조기 발령, 기존 기술팀장 타 현장 전보'라는 문구가 인쇄돼 있고, 하단에 본사 직인이 찍혀 있다.",
+      "proves": [
+        "본사가 이여준을 타 현장으로 전보하고 편시윤을 정식 현장소장으로 조기 발령하기로 확정했다는 것"
+      ],
+      "does_not_prove": [
+        "이여준이 그 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "다른 장은 전부 초안 표시가 있는데 이 장만 정식 직인이 찍힌 확정본이다.",
+      "reaction": {
+        "jiwoo": "이거...이여준 팀장님만 다른 현장으로 빠졌는데요.",
+        "detective": "그 한 장이 오늘 사고를 설명해 줄 수도 있겠네."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "무너진 발판 잔해",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "무너진 발판 잔해를 살펴본다",
+      "content": "무너진 작업발판 한쪽 모서리 지지대가 깊게 꺾여 있고, 고정용 안전 로프 끝이 풀린 채 아무렇게나 널브러져 있다.",
+      "proves": [
+        "그 자리에서 급박한 몸싸움이나 실랑이가 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH03",
+      "mismatch": "평소라면 작업 뒤 안전 로프를 정리해 걸어 두는데, 이번엔 풀린 채로 방치돼 있다.",
+      "reaction": {
+        "jiwoo": "로프를 걸어 두지도 않았네요.",
+        "detective": "정리할 정신이 없었다는 거지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "지지핀 고정 상태 이상",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "지지핀 고정 상태를 살펴본다",
+      "content": "남은 지지핀 고정 장치가 사고 직후치고는 지나치게 말끔한 원위치에 꽂혀 있고, 접합부에 새로 묻은 듯한 분진이 없다.",
+      "proves": [
+        "그 지지핀이 사고 이후 누군가에 의해 새로 끼워졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "골조가 무너진 직후라면 분진과 마찰 자국이 남아야 하는데 유난히 깨끗하다.",
+      "reaction": {
+        "jiwoo": "이거 방금 끼운 것처럼 너무 깨끗한데요.",
+        "detective": "사고 직후에 이렇게 말끔할 리가 없지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "창고 재고대장의 수량 불일치",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "창고 재고대장을 확인한다",
+      "content": "자재 창고 재고대장에는 여분 지지핀이 정확히 다섯 개로 기록돼 있는데, 실제로 선반에 놓인 것은 네 개뿐이다.",
+      "proves": [
+        "지지핀 하나가 어딘가로 옮겨졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그것을 옮겼는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "장부와 실물의 개수가 다르다.",
+      "reaction": {
+        "jiwoo": "장부엔 다섯 갠데 실제론 네 개인데요.",
+        "detective": "하나가 어디로 갔는지부터 찾아야겠네."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "숨겨진 마모 지지핀",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "창고 구석 자재 더미 밑을 살펴본다",
+      "content": "자재 더미 밑, 다른 자재에 눌려 있던 지지핀 하나가 고정 홈이 심하게 마모돼 있고 표면에 최근 충격으로 보이는 긁힘이 새로 나 있다.",
+      "proves": [
+        "이 마모된 지지핀이 사고 직후 현장에서 빼돌려져 숨겨졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그것을 숨겼는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "점검일지에는 사고 당일 쓰인 지지핀이 새 것에 가깝다고 적혀 있는데, 정작 숨겨져 있던 건 심하게 마모된 것이다.",
+      "reaction": {
+        "jiwoo": "이 긁힘, 방금 생긴 것 같은데요.",
+        "detective": "숨겨 놓은 게 아니면 여기 있을 이유가 없지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "소급 기재된 안전 점검일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "안전 점검일지를 확인한다",
+      "content": "안전 점검일지 가장 최근 기록에 '해당 지지핀, 지난주부터 마모 보고 있었음, 교체 예정'이라고 적혀 있다.",
+      "proves": [
+        "그 지지핀의 마모가 이미 알려져 있었던 것처럼 꾸며졌다는 것"
+      ],
+      "does_not_prove": [
+        "그 기록을 누가 언제 적어 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "정기 점검은 봉현지가 도맡아 기록하는데, 이 항목만 필체가 다르고 잉크 색도 다르다.",
+      "reaction": {
+        "jiwoo": "이 항목만 필체가 다른데요.",
+        "detective": "기록은 거짓말을 하지, 사람 대신."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "3층 점검 조 배정표",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "게시판의 3층 점검 조 배정표를 살펴본다",
+      "content": "그날 오전 10시 30분에 게시된 3층 최종 점검 조 배정표에 '편시윤 – 이여준' 조가 적혀 있다.",
+      "proves": [
+        "이여준이 그 시각 편시윤과 함께 점검조로 배정돼 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 실제로 그 자리에 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": null,
+      "mismatch": "배정표상으로는 정해진 조지만, 그것만으로 실제 현장에 있었다는 증명은 안 된다.",
+      "reaction": {
+        "jiwoo": "종이로는 여준씨가 맞는데요.",
+        "detective": "종이 말고 실제로 봤다는 사람이 있어야지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "개인 출입 기록부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "서명대의 개인 출입 기록부를 살펴본다",
+      "content": "개인 출입 기록부에 이여준이 전날 21시경 사무실에 들러 서명하고 나갔다고 적혀 있다.",
+      "proves": [
+        "이여준이 사건 전날 밤 사무실에 들렀다는 것"
+      ],
+      "does_not_prove": [
+        "그가 그 안에서 무엇을 봤는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "출입 시간치고는 늦은 시각인데, 특별한 사유는 적혀 있지 않다.",
+      "reaction": {
+        "jiwoo": "이 시간에 굳이 들렀었네요.",
+        "detective": "그날 밤 뭔가 보고 간 건 아닐까."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "준공 서류",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "준공 서류를 살펴본다",
+      "content": "준공 서류 마지막 장에 '3층 공정 책임: 편시윤' 조항과 함께, 인명사고 발생 시 준공 승인이 전면 재검토된다는 단서 조항이 명시돼 있다.",
+      "proves": [
+        "준공이 편시윤 중심으로 짜여 있어 그가 다치면 시행사 쪽도 손해라는 것"
+      ],
+      "does_not_prove": [
+        "하지오가 그 사실을 그 시각 알고 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "겉으로 도는 소문과 달리, 서류상 하지오가 편시윤을 해칠 이유가 오히려 없다.",
+      "reaction": {
+        "jiwoo": "단서 조항까지 있는데요.",
+        "detective": "그럼 이 사람은 다치면 곤란한 쪽이지."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "발주처 압박 메일 출력본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "발주처 압박 메일 출력본을 살펴본다",
+      "content": "출력된 이메일에는 발주처 실무진의 서명과 함께, 편시윤을 하루빨리 현장 책임자로 앉혀 달라고 채근하는 문장이 굵게 강조돼 있다.",
+      "proves": [
+        "백강호가 발주처로부터 편시윤 조기 발령 압박을 받았다는 것"
+      ],
+      "does_not_prove": [
+        "그가 그 압박 때문에 무언가를 저질렀는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "대표 혼자 결정한 것처럼 보였던 현장소장 교체 뒤에 외부 압박이 있었다.",
+      "reaction": {
+        "jiwoo": "대표님 혼자 결정한 게 아니었네요.",
+        "detective": "뒤에서 누른 손이 있었다는 거지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "언쟁 소리에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "한서영에게 그 시각 3층 쪽에서 들은 소리를 묻는다",
+      "content": "\"그 시간쯤 3층 쪽에서 언성이 높아지는 소리가 잠깐 들렸어요. 무슨 얘긴지는 몰라요.\"",
+      "proves": [
+        "그 시각 3층에서 언쟁이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 언쟁을 벌였는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "본인은 아무 소리도 못 들었다고 할 것 같았는데 실제로는 다르다."
+    },
+    {
+      "id": "E12",
+      "name": "점검 동행 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "한서영에게 그 시각 이여준이 무엇을 하고 있었는지 묻는다",
+      "content": "\"그 시각엔 여준 오빠가 시윤이랑 같이 점검 돌고 있는 거 봤어요. 저는 먼저 돌고 쉬고 있었거든요.\"",
+      "proves": [
+        "이여준이 그 시각 실제로 편시윤과 함께 점검을 돌고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 사이 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH03",
+      "mismatch": "이여준은 그 자리에 없었다고 했는데 목격담은 다르다."
+    },
+    {
+      "id": "E13",
+      "name": "전날 밤 캐비닛 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "봉현지에게 전날 밤 사무실 근처에서 본 것을 묻는다",
+      "content": "\"전날 밤 21시쯤 사무실 앞을 지나는데 여준씨가 캐비닛 앞에 서 있는 걸 봤어요. 그냥 지나쳤죠.\"",
+      "proves": [
+        "이여준이 사건 전날 밤 사무실 캐비닛 앞에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 캐비닛 안에서 무엇을 봤는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "본인은 그날 사무실 근처엔 간 적 없다고 할 법한데 목격담은 다르다."
+    },
+    {
+      "id": "E14",
+      "name": "사고 직후 창고 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "봉현지에게 사고 직후 이여준의 행동을 묻는다",
+      "content": "\"사고 나고 나서 여준씨가 유독 창고 쪽을 몇 번 왔다 갔다 하긴 했어요. 그땐 그냥 정신없어서 그런가 했죠.\"",
+      "proves": [
+        "이여준이 사고 직후 자재 창고를 여러 번 오갔다는 것"
+      ],
+      "does_not_prove": [
+        "그가 창고에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH03",
+      "mismatch": "정신이 없었다기엔 유독 창고 쪽으로만 움직임이 잦았다."
+    },
+    {
+      "id": "E15",
+      "name": "극비 결정 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "백강호에게 현장소장 교체 결정이 어떻게 다뤄졌는지 묻는다",
+      "content": "\"그 결정은 본사 내부에서만 오간 극비 사항이었습니다. 현장에는 따로 알리지 않았어요.\"",
+      "proves": [
+        "현장소장 교체 결정이 현장에는 알려지지 않은 극비였다는 것"
+      ],
+      "does_not_prove": [
+        "누군가 우연히 그 내용을 봤을 가능성"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "극비였다는 말과 달리, 그 내용이 새어 나갈 틈은 있었다."
+    },
+    {
+      "id": "E16",
+      "name": "압박 인정 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "백강호에게 발주처로부터 압박을 받은 적이 있는지 묻는다",
+      "content": "\"솔직히...발주처 쪽에서 조기 발령을 강하게 요청하긴 했어요. 하지만 그것대로 제가 뭘 어떻게 한 건 아닙니다.\"",
+      "proves": [
+        "백강호 본인이 발주처 압박을 인정한다는 것"
+      ],
+      "does_not_prove": [
+        "그 압박이 실제로 사고와 관련 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "혼자만의 판단이라던 말과 달리, 스스로 압박을 인정한다."
+    },
+    {
+      "id": "E17",
+      "name": "공정 발언 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "하지오에게 편시윤을 어떻게 생각하는지 묻는다",
+      "content": "\"시윤 기사요? 저희 쪽에서 다음 공정 책임자로 진작에 점찍어 뒀던 친구입니다.\"",
+      "proves": [
+        "하지오가 편시윤을 다음 공정 책임자로 원했다는 것"
+      ],
+      "does_not_prove": [
+        "그가 다른 사람을 밀어내려 했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "순수한 발주처로만 보였는데 실제로는 특정 인물에 대한 이해관계가 있다."
+    },
+    {
+      "id": "E18",
+      "name": "준공 확정 해명 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "하지오에게 준공이 어느 단계까지 진행됐는지 묻는다",
+      "content": "\"준공은 사실상 다 끝난 단계였습니다. 시윤 기사가 다치면 저희가 제일 손해입니다.\"",
+      "proves": [
+        "하지오 본인이 준공이 이미 확정 단계였다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "본인 말과 실제 준공 서류 조항이 맞는지는 대조가 필요하다."
+    },
+    {
+      "id": "E19",
+      "name": "화상회의 확인 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "봉현지에게 사고가 벌어진 시각 백강호가 어디 있었는지 묻는다",
+      "content": "\"그 시간엔 대표님 사무실 창문 너머로 화상회의 하시는 게 계속 보였어요. 자리를 뜨는 건 못 봤어요.\"",
+      "proves": [
+        "백강호가 그 시각 내내 사무실에서 화상회의 중이었다는 것"
+      ],
+      "does_not_prove": [
+        "회의 도중 잠깐이라도 자리를 비웠는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "의심받는 사람치고는 자리를 뜬 기색이 없었다."
+    },
+    {
+      "id": "E20",
+      "name": "하지오-편시윤 언쟁 전언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "한서영에게 하지오와 편시윤 사이에 대해 아는 것을 묻는다",
+      "content": "\"하지오 대표님이 전날 시윤이랑 공사 기간 때문에 언성 높이셨다는 얘기는 저도 들었어요.\"",
+      "proves": [
+        "하지오와 편시윤이 전날 공사 기간으로 언쟁했다는 것"
+      ],
+      "does_not_prove": [
+        "그 갈등이 사건 당일까지 이어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "다음 공정 책임자로 점찍었다는 말과 달리 실제로는 다툰 적이 있다."
+    },
+    {
+      "id": "E21",
+      "name": "자재 점검판 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "최근 자재 점검판을 살펴본다",
+      "content": "최근 자재 점검판에 3층 구간이 지난 두 달간 하중 재배치 없이 계속 가동돼 왔다는 메모가 적혀 있다.",
+      "proves": [
+        "3층 구간이 최근 지속적인 하중을 받아 왔다는 것"
+      ],
+      "does_not_prove": [
+        "그것이 붕괴의 직접적인 원인인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "지속적인 하중이라는 인상이 진짜 원인을 가리는 데 쓰였다.",
+      "reaction": {
+        "jiwoo": "요 두 달 하중 재배치가 한 번도 없었네요.",
+        "detective": "그거랑 오늘 사고는 별개일 수도 있어."
+      }
+    },
+    {
+      "id": "E22",
+      "name": "화상회의 로그 타임스탬프",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "화상회의 접속 로그를 확인한다",
+      "content": "사무실 컴퓨터의 화상회의 접속 로그에 사고가 벌어진 시각을 포함한 전후 한 시간이 끊김 없이 기록돼 있다.",
+      "proves": [
+        "백강호가 그 시각 내내 화상회의에 접속해 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 물리적으로 그 자리를 벗어나지 않았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "의심받는 사람치고는 접속 기록이 끊김 없이 이어진다.",
+      "reaction": {
+        "jiwoo": "접속 로그가 끊긴 데가 없는데요.",
+        "detective": "그럼 이쪽은 일단 아니라는 거지."
+      }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "concedes_pairing",
+      "requires_heard_claim_ids": [
+        "S-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E12"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-02",
+        "evidence_ids": [
+          "E07",
+          "E12"
+        ]
+      },
+      "player_action": "3층 점검 조 배정표(E07)와 한서영이 그 시각 이여준이 편시윤과 함께 점검을 돌고 있는 것을 봤다는 증언(E12)을 함께 제시하며, 같이 있지 않았다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "그 시간에 자신이 편시윤과 함께 3층 점검을 돌고 있었다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "언쟁이 있었다는 사실",
+        "추락의 정확한 경위"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "concedes_pairing",
+      "to_stage": "concedes_friction",
+      "requires_heard_claim_ids": [
+        "F-CH03-02",
+        "S-CH03-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E11"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": [
+          "E02",
+          "E11"
+        ]
+      },
+      "player_action": "무너진 발판 잔해(E02)와 한서영이 들은 언쟁 소리(E11)를 함께 제시하며, 별다른 얘기가 없었다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "그 점검 도중 편시윤과 언쟁이 있었던 것은 인정한다."
+      },
+      "must_not_release": [
+        "지지핀을 걷어차 추락하게 한 사실",
+        "은폐를 위해 한 일"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "concedes_friction",
+      "to_stage": "breaks_down",
+      "requires_heard_claim_ids": [
+        "F-CH03-03",
+        "S-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-04",
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
+      },
+      "player_action": "자재 창고에서 발견된 원래의 마모 지지핀(E05)과 소급 기재된 안전 점검일지(E06)를 함께 제시하며, 지지핀이 말썽을 부린 것뿐이라는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "언쟁 중 지지핀을 걷어차 편시윤이 발판과 함께 떨어지게 한 뒤, 지지핀을 바꿔치기하고 점검일지를 고쳐 사고처럼 꾸몄다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH01",
+      "surface_suspicion": "백강호가 발주처 압박으로 편시윤의 조기 발령을 밀어붙였다는 소문이 있었고, 사고 직후에도 사무실에서 늦게 나타나 자리를 비운 시간이 애매했다.",
+      "actual_reason": "실제로 그는 그 시각 내내 사무실에서 화상회의 중이었고, 발주처 압박은 있었지만 현장소장 교체는 이미 본사 결재로 확정된 사안이라 그가 뒤집을 수 없는 것이었다.",
+      "how_to_clear": "화상회의 로그 타임스탬프(E22)와 봉현지의 화상회의 확인 증언(E19)을 함께 대조하면, 그가 그 시각 내내 사무실에 있었다는 것이 드러난다.",
+      "must_not_imply": "백강호가 발주처 압박에 못 이겨 직접 손을 썼다는 인상을 주지 않는다.",
+      "lingering_thread": "백강호는 혐의를 벗지만, 앞으로는 현장소장 교체 같은 인사만큼은 현장에도 먼저 공유하겠다고 다짐한다.",
+      "suspicion_deepener": "백강호 본인이 압박 메일을 인정하는 증언(E16)과 발주처 압박 메일 출력본(E10)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E19",
+        "E22"
+      ],
+      "clearing_points_at": "CH03",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사고 현장에서 멀지 않은 사무실에 혼자 있었다.",
+        "means": [
+          "E10",
+          "E16"
+        ],
+        "means_first_reading": "발주처 압박 메일(E10)과 그 압박을 스스로 인정하는 증언(E16)이 겹쳐, 압박에 못 이겨 무리하게 인사를 밀어붙인 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "하지오가 편시윤을 다음 공정 책임자로 밀고 있었고, 전날 그와 공사 기간 문제로 언성을 높였다는 이야기가 돌았다.",
+      "actual_reason": "실제로 준공은 이미 편시윤 중심으로 사인 직전까지 갔었고, 그가 다치면 준공 승인이 전면 재검토돼 시행사 쪽이 오히려 손해를 보는 구조였다.",
+      "how_to_clear": "준공 서류(E09)와 하지오의 준공 확정 해명 증언(E18)을 함께 대조하면, 그가 편시윤을 해칠 이유가 없었다는 것이 드러난다.",
+      "must_not_imply": "하지오가 공사 기간 다툼 끝에 편시윤을 해쳤다는 인상을 주지 않는다.",
+      "lingering_thread": "하지오는 혐의를 벗지만, 공사 기간을 둘러싼 이견은 그 뒤로도 한동안 이어진다.",
+      "suspicion_deepener": "하지오 본인의 공정 발언 증언(E17)과 한서영이 전한 전날의 언쟁(E20)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E09",
+        "E18"
+      ],
+      "clearing_points_at": "CH03",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "준공 상담을 이유로 3층 구간과 가까운 대기실에 계속 머물러 있었다.",
+        "means": [
+          "E17",
+          "E20"
+        ],
+        "means_first_reading": "하지오 본인의 공정 발언(E17)과 한서영이 전한 전날의 언쟁(E20)이 겹쳐, 공사 기간 다툼 끝에 앙심을 품은 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH03-02",
+      "F-CH03-03",
+      "F-CH03-04",
+      "E05",
+      "E06"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "F-CH03-04",
+      "motive_fact": "F-CH03-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "이여준(CH03) — 현장 기술팀장",
+    "method": "3층 작업발판에서 편시윤과 점검을 돌던 중 언쟁이 격해져 지지핀을 걷어찼고, 편시윤이 무너진 발판과 함께 떨어져 치명상을 입었다.",
+    "motive": "현장소장 교체로 12년째 지켜온 이 현장에서 밀려난다는 사실을 사건 전날 밤 알게 되어 배신감을 느꼈다.",
+    "key_connection": "현장소장 교체 공문(E01)이 그가 자리를 잃게 된 이유를 드러내고, 한서영의 목격과 증언(E12, E11)이 그 시각 3층 구간에 있었던 사람과 그곳에서 벌어진 언쟁을 좁히며, 자재 창고에서 발견된 마모 지지핀과 소급 기재된 안전 점검일지(E05, E06)가 그 사고가 조작된 것임을 증명한다. 지지핀 고정 상태 이상(E03)과 봉현지의 두 차례 목격(E13, E14)이 그 뒤의 손길을 더 뒷받침하고, 봉현지가 짚어낸 재고 불일치(E04)가 그 조작을 다시 한번 뒷받침한다. 준공 서류와 화상회의 로그(E09, E22)는 각각 다른 갈래의 의심을 지우는 데 쓰이고, 3층 점검 조 배정표와 개인 출입 기록(E07, E08)은 그 옆에서 시각과 정황을 뒷받침하는 재료로 쓰이며, 백강호의 극비 발언(E15)과 자재 점검판(E21)은 남은 갈래를 지우는 데 쓰인다."
+  },
+  "ending_explanation": [
+    "현장 엔지니어 편시윤이 3층 작업발판 붕괴로 추락해 의식을 잃은 표면 사건",
+    "현장소장 교체 공문이 이여준이 다른 현장으로 밀려난 이유를 드러낸 과정",
+    "한서영의 목격과 증언이 그 시각 3층 구간에 있었던 사람을 좁혀 간 과정",
+    "무너진 발판 잔해와 지지핀 고정 상태 이상이 「그냥 사고」라는 말을 뒤집은 과정",
+    "자재 창고에서 발견된 마모 지지핀과 소급 기재된 안전 점검일지가 그 사고가 조작된 것임을 증명한 과정",
+    "12년을 지켜온 현장에서 밀려난 배신감에서 빚어진 우발적 살인이라는 결말",
+    "교체 공문, 목격담, 재고대장, 점검일지가 각각 동기와 시각, 수법의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "현장소장 교체로 밀려난 것에 대한 배신감과 격분",
+      "truth": true,
+      "evidence_for": [
+        "E01",
+        "E13"
+      ],
+      "suggested_by": [
+        "E01"
+      ],
+      "cue": "현장소장"
+    },
+    {
+      "id": "M02",
+      "text": "발주처 압박으로 조기 발령을 밀어붙인 백강호의 조작",
+      "truth": false,
+      "evidence_for": [
+        "E10",
+        "E16"
+      ],
+      "suggested_by": [
+        "E10"
+      ],
+      "cue": "압박",
+      "refutation": "압박이 있었던 건 맞지만, 최종 결정은 본사 결재로 정해진 겁니다. 제가 혼자 어떻게 할 수 있는 게 아니었어요.",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "M03",
+      "text": "공사 기간을 둘러싼 하지오의 견제",
+      "truth": false,
+      "evidence_for": [
+        "E17",
+        "E20"
+      ],
+      "suggested_by": [
+        "E17"
+      ],
+      "cue": "책임자",
+      "refutation": "저요? 시윤 기사가 다치면 저희가 제일 손해인데 그럴 이유가 없죠.",
+      "refuted_by": "CH04"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 14시 32분경, 3층 작업발판 구간에서",
+      "truth": true,
+      "evidence_for": [
+        "E02",
+        "E03"
+      ],
+      "suggested_by": [
+        "E11"
+      ],
+      "cue": "3층"
+    },
+    {
+      "id": "T02",
+      "text": "사건 전날 21시경, 현장소장 사무실에서",
+      "truth": false,
+      "evidence_for": [
+        "E01"
+      ],
+      "suggested_by": [
+        "E13"
+      ],
+      "cue": "21시",
+      "refutation": "그때는 그냥 지나가다 본 거지, 무슨 일이 있었던 건 아니에요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "사건 당일 오전 10시 30분, 출입 관리소에서",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E07"
+      ],
+      "cue": "10시 30분",
+      "refutation": "그때는 그냥 배정표만 붙은 거지, 그 시간에 무슨 일이 있었던 건 아니에요.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "언쟁 중 지지핀을 걷어차 일어난 붕괴 추락사",
+      "truth": true,
+      "evidence_for": [
+        "E05",
+        "E06"
+      ],
+      "suggested_by": [
+        "E02"
+      ],
+      "cue": "지지대"
+    },
+    {
+      "id": "H02",
+      "text": "낡은 자재 자체의 결함으로 인한 단순 붕괴사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E04"
+      ],
+      "cue": "재고대장",
+      "refutation": "그 지지핀은 제가 지난주에 직접 점검했어요. 결함이 있었으면 제가 먼저 알았을 거예요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "H03",
+      "text": "무리한 하중으로 인한 자재 피로 사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E21"
+      ],
+      "cue": "하중",
+      "refutation": "하중이 걸리긴 했지만 그거 때문에 갑자기 무너질 정도는 아니었어요. 그날 점검도 이상 없었고요.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 저는 그 시각 내내 사무실에서 화상회의를 하고 있었습니다. 그것 말고는 드릴 말씀이 없어요."
+    },
+    "CH02": {
+      "text": "저요? 저는 창고에서 다음 주 자재 발주 목록을 정리하고 있었어요."
+    },
+    "CH04": {
+      "text": "저요? 저는 대기실에서 준공 서류만 검토하고 있었습니다."
+    },
+    "CH05": {
+      "text": "저요? 저는 먼저 점검 구간 돌고 옆에서 쉬고 있었을 뿐이에요."
+    }
+  },
+  "resolution": {
+    "who": "이여준이었다. 현장소장 교체 공문과 그날의 목격담이 그를 좁혀 갔다.",
+    "when": "사건 당일 14시 32분경, 3층 작업발판 구간에서.",
+    "why": "12년째 지켜온 현장에서 현장소장 교체로 밀려난 것에 배신감을 느꼈기 때문이다.",
+    "how": "언쟁 중 지지핀을 걷어차 편시윤을 발판과 함께 떨어지게 하고, 지지핀을 바꿔치고 점검일지를 고쳐 사고처럼 꾸몄다."
+  }
+}

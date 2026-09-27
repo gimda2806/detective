@@ -216,7 +216,20 @@
       "name": "심은담",
       "role": "시설관리 스태프 / 전기설비 담당",
       "present_location": "L03",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사실은 전선을 미리 손봐 놓고 형도경을 창고로 불러들여 감전시켰고, 이후 전선을 다시 감아 흔적을 지웠다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "8년 전 표절 판정으로 모든 걸 잃었던 당사자가 자신이며, 그 판정의 근거가 조작됐다는 사실을 알고도 형도경이 눈감았다는 걸 뒤늦게 알게 돼 복수를 계획했다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -267,6 +280,16 @@
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [

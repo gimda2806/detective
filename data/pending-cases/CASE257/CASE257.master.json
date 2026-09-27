@@ -649,6 +649,12 @@
           "fact_id": "F-CH03-01",
           "content": "방송이 끝나면 확장판 프리오더가 크게 늘 것으로 기대하고 있었다.",
           "source": "본인의 판단"
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "곽태린이 오단해를 밀치고 이미 느슨했던 선반을 직접 넘어뜨렸으며, 계약서 봉투를 챙기고 출입 기록을 지워 사고처럼 꾸몄다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -674,7 +680,13 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
+        }
+      ],
       "knowledge_limits": [
         "다른 직원들이 그 시각 각자 무엇을 하고 있었는지는 모른다."
       ],

@@ -5,10 +5,10 @@
     "english_title": "The Night the Lark Didn't Sing",
     "genre": "복원 부정이 감정 보고서로 들통나기 직전, 수석 복원사가 관장을 자동인형 기어에 휘말리게 해 살해 / 부품 바꿔치기와 정비 기록 조작으로 은폐",
     "setting": "소성 기계관은 태엽 자동인형과 골동 시계를 전문으로 복원해 온 개인 박물관이다. 오늘 밤은 8년째 관장과 손발을 맞춰 온 수석 복원사가 반년을 매달려 되살린 종달새 인형을 처음 공개하는 특별전 '태엽의 시간'의 프리뷰 리셉션이 열리는 날이다. 탐정과 한지우는 후원회 초청장을 받아 참석해 있었다.",
-    "location_archetypes": ["museum_exhibition", "restricted_site"],
+    "location_archetypes": ["museum_exhibition", "restricted_site", "craft_restoration"],
     "background": {
-      "background_archetypes": ["exhibition"],
-      "background_phrasing": ["gathering_for"],
+      "background_archetypes": ["exhibition", "restoration_repair"],
+      "background_phrasing": ["gathering_for", "in_progress"],
       "background_intensity": "contributory"
     },
     "detective_entry_type": "event_attendance",
@@ -40,13 +40,13 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "하진결은 지난 8년간 복원을 맡은 소장품에서 조금씩 원래 부품을 빼내 해외 수집가에게 사사로이 팔고 그 자리를 정교한 복제품으로 채워 넣어 왔다. 노모의 요양 비용과 개인 투자 손실을 메우려던 것이었지만, 그 사실이 밝혀지면 복원가로서 쌓아 온 이름과 지금의 일자리를 통째로 잃는다는 것이 무엇보다 두려웠다.",
-    "motive_archetypes": ["financial_gain", "reputation"],
+    "motive_archetypes": ["financial_gain", "reputation", "position_defense", "crime_cover", "secret_exposure"],
     "method": "특별전 프리뷰 리셉션 시작 전, 하진결은 관장이 자신을 다그치자 시연대의 안전 걸쇠를 미리 풀어 둔 채로 종달새 인형의 기어박스를 손수 작동시켰다. 걸쇠가 물리지 않은 상태로 브라스 기어가 맞물려 돌아가자, 가까이서 기어박스를 들여다보던 한도경의 소매가 말려 들어가 팔이 통째로 기어 사이에 끼었고, 손을 쓸 새도 없이 과다출혈로 사망했다.",
-    "method_archetypes": ["machine_entrapment"],
+    "method_archetypes": ["machine_entrapment", "machine_malfunction", "exsanguination", "staging_cover_up"],
     "key_time_location": "사건 당일 17:52, 소성 기계관 복원 작업실(L03).",
     "cover_up": "하진결은 미리 풀어 놓았던 안전 걸쇠 부품을 여벌 부품으로 갈아 끼워 원래 자리에 되돌려 놓았고, 정비 태블릿의 점검 기록에는 강필우의 이름으로 그 시각 안전 점검을 마쳤다는 항목을 새로 써넣었다.",
-    "cover_up_target": ["identity", "access_route", "financial_trace"],
-    "cover_up_method": ["object_substitution", "document_falsification"],
+    "cover_up_target": ["identity", "access_route", "financial_trace", "crime_scene"],
+    "cover_up_method": ["object_substitution", "document_falsification", "scene_rearrangement"],
     "decisive_evidence_ids": ["E09", "E12", "E13", "E15"]
   },
   "actual_timeline": [

@@ -1,408 +1,451 @@
 {
   "case_identity": {
     "case_id": "CASE119",
-    "title": "인형의 관절이 식을 때",
-    "english_title": "When the Puppet's Joints Go Cold",
-    "genre": "조형감독 윤태겸이 4개월간 스튜디오의 특허 이중 잠금 관절 설계를 해외 합작사 쪽에 몰래 넘겨 온 것을 대표 소진웅이 변리사 검토까지 마치고 추궁하자, 해외 파트너 시사가 열리던 밤 인형 제작실에서 골격봉으로 내리쳐 살해하고 혼자 넘어진 사고로 꾸민 사건",
-    "setting": "도심 골목 안 오래된 인쇄소 건물 3층, 퍼펫 스톱모션 전문 스튜디오 '빛그림자'. 대표 소진웅이 12년째 이끌어 온 이곳은 촬영 세트장과 인형 제작실을 한 층에 몰아 쓴다. 그날 저녁은 해외 합작사 쪽 현지 프로듀서가 방문해 신작 예고편 시사를 함께 지켜보는 자리였고, 시사가 끝난 뒤에도 다섯 사람 모두 작업실 근처에 남아 있었다.",
-    "location_archetypes": ["photo_video_studio"],
+    "title": "무음 트랙",
+    "english_title": "The Silent Track",
+    "genre": "10년 전 함께 만든 히트곡의 편곡·프로듀싱 크레딧과 지분을 가로챈 사실이 드러나자, 담판을 짓자며 부른 공동창업자를 프레싱 라인에서 밀쳐 유압 프레스에 팔이 끼여 숨지게 하고 설비 사고로 위장한 사건",
+    "setting": "인디 레이블 '온음'이 직접 운영하는 소형 바이닐 프레싱 공장 겸 매장 '온음프레스'. 대표 겸 프로듀서 탁재호가 10년째 이끌어 온 이곳은 그날 오후 3시로 유통사 실사 일정이 잡혀 있었고, 공동창업자이자 수석 사운드 엔지니어 허도경은 그 자리에서 레이블 지분 구조 문제를 공식 안건으로 올리겠다고 미리 통보해 둔 참이었다. 실사 시작 직전, 마지막 물량 프레싱이 돌아가던 프레싱 라인에서 허도경이 유압 프레스에 팔이 끼여 오후 3시 15분경 숨진 채 발견됐다.",
+    "location_archetypes": ["factory"],
     "background": {
-      "background_archetypes": ["product_demo"],
-      "background_phrasing": ["on_the_day_of"],
+      "background_archetypes": ["business_negotiation", "product_launch"],
+      "background_phrasing": ["scheduled"],
       "background_intensity": "contextual"
     },
-    "detective_entry_type": "onsite_recognized_and_asked",
-    "detective_entry": "탐정과 한지우는 옆 건물 인화소에서 맡겨 둔 필름을 찾아 나오다, 계단을 뛰어내려온 곽민승과 마주쳤다. 지난달 지인 소개로 인사를 나눈 적 있던 그가 다급히 탐정을 알아보고 도움을 청했다.",
-    "tone": "촬영 세트의 미니어처 소품들 사이로 번지는 소란과, 인형처럼 멈춰 버린 한 사람. 탐정과 한지우는 평소처럼 짧게 주고받으며 그 틈을 걷는다.",
-    "tags": ["스톱모션_스튜디오", "인형_공방", "합작_시사회", "야간_촬영장"]
-  },
-  "opening_scene": {
-    "location_id": "L03",
-    "detective_entry_time": "사건 당일 21:52",
-    "narrative": "옆 건물 인화소에서 맡겨 둔 필름을 찾아 나오던 참이었다.\n\n계단 아래쪽에서 다급한 발소리가 울리더니, 곽민승이 뛰어내려와 탐정 앞에 멈춰 섰다.\n\n\"저기... 죄송한데, 잠깐 좀 올라와 주실 수 있으세요.\"\n\n숨이 차 말이 자꾸 끊겼다. 한지우가 먼저 계단으로 올라섰다.\n\n\"무슨 일이에요?\"\n\n\"대표님이... 제작실에... 안 움직이세요.\"\n\n3층으로 올라가는 복도는 시사회의 여운이 아직 남아 있었다. 제작실 문을 밀고 들어서자 조명 트랙 아래, 넘어진 발판 사다리 옆으로 소진웅이 쓰러진 채 발견됐다. 다가가 살펴봐도 숨은 이미 끊겨 있었다.\n\n작업대 위 미니어처 세트들은 아무 일 없었다는 듯 그대로 멈춰 있었다.\n\n한지우가 사다리 쪽을 가리켰다.\n\n\"저건 원래 저기 안 있었을 텐데요.\"\n\n\"그러게.\"\n\n탐정은 몸을 낮춰 소진웅의 손끝을 살폈다."
-  },
-  "ending_scene": {
-    "location_id": "L03",
-    "narrative": "창밖으로 새벽빛이 옅게 번지고 있었다. 제작실 조명은 이미 다 꺼졌고, 작업대 위 미니어처들만 어둠 속에서 작은 그림자를 늘어뜨렸다.\n\n윤태겸은 한참 만에 골격봉을 내려놓았다.\n\n\"넉 달 전부터... 설계를 넘겼습니다. 이중 잠금 관절 구조요.\"\n\n그는 바닥만 보며 말을 이었다.\n\n\"대표님이 그걸 아셨고, 오늘 밤 저를 따로 부르셨어요. 그 순간부터 저는 여기 없는 사람이 되는 거였습니다.\"\n\n\"그래서 내리쳤나.\"\n\n\"자리를 지키고 싶었을 뿐입니다. 그런데 대표님이 움직이지 않는 걸 보고... 그냥 사다리를 넘어뜨렸습니다.\"\n\n한지우는 수첩을 덮지 못한 채 그를 바라봤다.\n\n\"팔 년을 가르쳐 주신 분이잖아요.\"\n\n\"그러니까 더... 없었던 일로 하고 싶었습니다.\"\n\n창밖에서 새 소리가 들리기 시작했다. 제작실 문을 나서며 한지우가 낮게 말했다.\n\n\"임하영 씨는 그 시간에 오디션용 인형을 고치고 있었대요. 아무한테도 말 못 하고요.\"\n\n\"말할 걸 그랬군, 서로.\"\n\n로비 쪽에서 임하영이 아직 그 인형을 손에 든 채 창가에 앉아 있었다. 옆자리는 비어 있었다."
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정과 한지우는 예약해 둔 한정반 두 장을 찾으러 온음프레스 매장에 들렀다가, 안쪽 작업장에서 벌어진 소란과 마주친다.",
+    "tone": "낮게 웅웅거리는 프레스 소리와, 그 소리에 묻히지 않으려 애써 낮춘 언성들이 겹치는 공간. 탐정과 한지우는 턴테이블 진열대 사이를 오가며 그 낙차를 짚어 간다.",
+    "tags": ["바이닐_프레싱", "인디_레이블", "유통사_실사"]
   },
   "key_figures": [
     {
       "id": "V01",
-      "name": "소진웅",
-      "role": "빛그림자 대표·설립자",
+      "name": "허도경",
+      "role": "공동창업자 / 수석 사운드 엔지니어",
       "status": "deceased"
     }
   ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 15:40",
+    "narrative": "예약해 둔 한정반 두 장을 찾으러 들른 참이었다.\n\n매장 안쪽에서 다급한 발소리와 비명이 뒤섞여 들려온다.\n\n\"저거 뭔 소리야.\"\n\n\"작업장 쪽인데요.\"\n\n안쪽 프레싱 라인으로 들어서자, 유압 프레스 옆에 허도경이 쓰러진 채 미동이 없고 사람들이 그 주위에서 발을 동동 구르고 있다.\n\n\"구급차는요.\"\n\n\"불렀는데... 이미 늦은 것 같아요.\"\n\n한지우가 눈살을 찌푸리며 방금 닫힌 듯한 안전 가드 쪽으로 시선을 돌린다.\n\n\"저 가드, 누가 만졌는데요.\"\n\n\"눈부터 붙여 놔.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "사무실 창밖으로 어스름이 내려앉을 무렵, 탁재호는 책상 앞 의자에 앉은 채 한참을 말이 없다.\n\n\"어쨌든... 그때 그 자리에서 밀 생각까진 없었어요. 그러고 나서 가드를 닫고, 일지를 고쳐 적고, 컴퓨터에 있던 파일도 지웠어요. 그건 되돌릴 수가 없더라고요.\"\n\n탐정은 책상 모서리에 걸터앉은 채 잠자코 듣는다.\n\n\"그 세션 파일 하나만 순순히 인정했어도 이렇게까진 안 됐을 텐데.\"\n\n한지우가 손에 쥔 수첩 모서리를 손끝으로 톡톡 두드린다.\n\n로비 쪽에서는 고진혁이 아직 켜 둔 노트북 앞에서 실사 일정을 다시 조율하고 있다. 이번엔 계약을 원점에서 다시 검토하겠다며.\n\n\"매장 문 잠그고 나가자.\"\n\n\"한정반은... 다음에 찾으러 와야겠네요.\"\n\n탐정이 헛웃음을 흘리며 먼저 계단을 내려간다."
+  },
   "surface_incident": [
-    "사건 당일 밤 9시 45분, 스톱모션 스튜디오 '빛그림자' 인형 제작실에서 대표 소진웅(54)이 숨진 채 발견됐다.",
-    "그날 저녁은 해외 합작사 쪽 현지 프로듀서가 방문해 신작 예고편을 함께 보는 자리였고, 참석자 전원이 시사 뒤에도 근처에 남아 있었다.",
-    "넘어진 발판 사다리가 조명 트랙 밑에 걸쳐 있어, 혼자 조명을 손보다 실족한 사고로 보인다는 말이 먼저 돌았다.",
-    "인근 경찰서에 신고했지만 새벽에야 인력이 도착할 수 있다는 연락이 왔다."
+    "사건 당일 오후 3시 15분경, 온음프레스 프레싱 라인에서 허도경이 유압 프레스에 팔이 끼여 숨졌다.",
+    "안전 가드가 열려 있던 상태에서 벌어진 정비 불량 사고로 추정된다는 이야기가 그날 오후 직원들 사이에 돌았다."
   ],
   "full_truth": {
-    "responsible_character_id": "CH02",
-    "motive": "윤태겸은 4개월 전부터 스튜디오의 특허 이중 잠금 관절 설계를 몰래 해외 합작사 쪽에 넘겨 왔고, 그 대가로 이적을 약속받았다. 소진웅이 변리사 검토까지 마치고 증거와 함께 추궁하자, 이적 자리와 8년째 쌓아 온 조형감독 자리 둘 다 한꺼번에 잃을 상황에서 그를 막으려 했다.",
-    "motive_archetypes": ["ip_dispute"],
-    "method": "20시 22분 인형 제작실에서 소진웅이 변리사 회신과 시제품 영상 캡처를 꺼내 보이며 윤태겸을 추궁하자 말다툼이 벌어진다. 20시 25분 윤태겸이 작업대 위 여분 알루미늄 골격봉을 집어 들어 소진웅의 뒤통수를 내리치고, 소진웅은 쓰러지며 작업대 모서리에 관자놀이를 부딪혀 그대로 의식을 잃는다.",
-    "method_archetypes": ["blunt_force", "staging_cover_up"],
-    "key_time_location": "20:25, L03 인형 제작실에서 골격봉으로 내리침 / 20:27, L03에서 절명 확인 / 20:30, L03에서 사고 현장으로 위장.",
-    "cover_up": "윤태겸은 소진웅의 숨이 멎은 것을 확인한 뒤 조명 트랙 옆 발판 사다리를 넘어뜨리고 봉투를 작업대 밑으로 밀어 넣어 혼자 사다리에서 넘어진 사고처럼 꾸민다. 골격봉을 닦아 공구걸이에 되돌려 놓고, 상시 촬영 중인 동작 타임랩스 캡처 로그에서 20시 20분부터 33분까지 구간을 건너뛰도록 지운다. 보관실에서 손에 남은 얼룩을 씻어 내고 여벌 셔츠로 갈아입은 뒤 태연한 얼굴로 로비에 돌아온다.",
-    "cover_up_target": ["weapon", "time"],
-    "cover_up_method": ["contamination"],
-    "accomplice": "없음",
-    "decisive_evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E11", "E12", "E14"]
+    "responsible_character_id": "CH05",
+    "motive": "탁재호는 레이블 창립 앨범의 대표곡 '봄, 그 자리'의 실제 편곡과 프로듀싱 대부분을 허도경이 해냈다는 것을 알면서도 자신의 단독 크레딧으로 등록해 왔고, 그 크레딧을 발판으로 지분 60%를 지켜 왔다. 허도경은 최근 옛 외장하드에서 그때의 작업 세션 파일과 편곡 메모를 되찾았고, 그날 오후 예정된 유통사 실사 자리에서 이를 근거로 크레딧 정정과 지분 재조정을 공식 요구하겠다고 통보했다. 탁재호는 그 요구를 받아들이면 지분과 신용을 한꺼번에 잃는다는 것을 알고 있었고, 실사 직전 프레싱 라인에서 담판을 짓자는 허도경의 메시지에 나갔다가 언쟁 끝에 격분해 그를 밀쳤다.",
+    "motive_archetypes": ["professional_secrecy", "business_control", "credit_theft"],
+    "method": "탁재호는 프레싱 라인 안쪽, 안전 가드가 열려 있던 유압 프레스 옆에서 허도경과 언쟁을 벌이다 그를 밀쳤다. 허도경은 넘어지며 오른팔이 눌림판 사이에 끼였고, 마침 가동 중이던 압착 주기가 그대로 내려오며 팔이 으스러지는 치명상을 입었다.",
+    "method_archetypes": ["machine_entrapment", "staging_cover_up"],
+    "key_time_location": "사건 당일 15시 15분경, 프레싱 라인 작업장(L02)에서.",
+    "cover_up": "탁재호는 사고 직후 열려 있던 안전 가드를 원위치로 닫아걸고, 유압 프레스 정비일지에 그 안전 인터록이 그날 오전 정상 작동 점검을 마쳤다고 소급해 적어 넣었다. 이어 사무실 컴퓨터 백업 폴더에 남아 있던 세션 파일 사본을 지우고 휴지통까지 비웠다.",
+    "cover_up_target": ["evidence", "responsibility"],
+    "cover_up_method": ["scene_rearrangement", "document_falsification", "digital_record_manipulation"],
+    "decisive_evidence_ids": ["E01", "E03", "E23"]
   },
   "actual_timeline": [
     {
       "id": "T01",
-      "time": "약 4개월 전",
+      "time": "약 10년 전",
       "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 시연용 시제품 설계 파일을 정리하던 중 이중 잠금 관절 도면을 개인 외장 드라이브에 몰래 복사한다.",
-      "world_fact": "그 뒤로 같은 도면이 해외 합작사 쪽 3D 프린팅 업체 결제 기록에 남는다."
+      "actors": ["V01", "CH05"],
+      "actual_action": "허도경과 탁재호가 레이블 창립 앨범 수록곡 '봄, 그 자리'를 함께 작업한다.",
+      "world_fact": "그 곡의 편곡과 보컬 디렉팅 대부분은 실제로 허도경의 손에서 나왔지만, 크레딧에는 탁재호가 단독 프로듀서로만 올라갔다."
     },
     {
       "id": "T02",
-      "time": "약 2주 전",
-      "location": "L02",
+      "time": "약 3주 전",
+      "location": "L04",
       "actors": ["V01"],
-      "actual_action": "소진웅이 합작 계약서 부록을 검토하다 해외 합작사 시제품 영상 캡처에서 자사와 똑같은 이중 잠금 관절 구조를 발견한다.",
-      "world_fact": "소진웅은 그 캡처를 자기 컴퓨터 개인 폴더에 몰래 저장해 둔다."
+      "actual_action": "허도경이 자재 창고 선반 정리 중 잊혀 있던 외장하드 상자에서 '봄, 그 자리'의 초기 편곡 세션 파일과 육성 메모를 되찾는다.",
+      "world_fact": "그 외장하드는 창고 정리함에 오래 묻혀 있었고, 허도경 본인 말고는 그 존재를 몰랐다."
     },
     {
       "id": "T03",
-      "time": "약 열흘 전",
-      "location": "L02",
+      "time": "사건 5일 전 18:00",
+      "location": "L03",
       "actors": ["V01"],
-      "actual_action": "소진웅이 변리사에게 조용히 두 설계의 유사성 검토를 의뢰한다.",
-      "world_fact": "소진웅은 며칠 뒤 두 설계가 사실상 동일하다는 변리사 회신을 받는다."
+      "actual_action": "허도경이 탁재호에게 그 세션 파일을 보여주며 크레딧 정정과 지분 재조정을 요구한다."
     },
     {
       "id": "T04",
-      "time": "사건 당일 14:00",
-      "location": "L01",
-      "actors": ["CH04"],
-      "actual_action": "백도훈이 합작 시사회 참석차 스튜디오 로비에 도착한다."
+      "time": "사건 5일 전 18:05",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 그 요구를 대수롭지 않게 웃어넘기며 거절한다.",
+      "world_fact": "탁재호는 그 자리를 넘기면 그만이라고 여겼다."
     },
     {
       "id": "T05",
-      "time": "사건 당일 18:30",
-      "location": "L02",
+      "time": "사건 3일 전 11:00",
+      "location": "L03",
       "actors": ["V01"],
-      "actual_action": "소진웅이 변리사 회신 출력물과 시제품 영상 캡처를 봉투에 넣어 대표실 서랍에 넣어 둔다.",
-      "world_fact": "소진웅은 그날 저녁 안에 윤태겸을 따로 불러 이야기할 생각이다."
+      "actual_action": "허도경이 고진혁에게 그날 실사 자리에서 레이블 지분 구조 문제를 공식 안건으로 다뤄 달라는 메일을 보낸다.",
+      "world_fact": "그 메일에는 세션 파일 캡처 사진 한 장이 첨부돼 있었다."
     },
     {
       "id": "T06",
-      "time": "사건 당일 19:30",
-      "location": "L01",
-      "actors": ["V01"],
-      "actual_action": "소진웅이 시사실에서 예고편 상영을 시작하며 참석자들에게 인사말을 건넨다."
+      "time": "사건 당일 09:00",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "오채양이 오전 정기 청소를 위해 유압 프레스 안전 가드를 열고 압착판 주변 이물질을 제거한다."
     },
     {
       "id": "T07",
-      "time": "사건 당일 20:05",
-      "location": "L01",
-      "actors": ["CH03"],
-      "actual_action": "임하영이 상영이 끝나기 전 조용히 자리를 빠져나와 보관실로 향한다."
+      "time": "사건 당일 09:20",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "오채양이 다음 라인 점검에 불려 가며 안전 가드를 다시 잠그지 않은 채 자리를 뜬다.",
+      "world_fact": "그 가드는 그 뒤로 사고가 나기 전까지 계속 열려 있었다."
     },
     {
       "id": "T08",
-      "time": "사건 당일 20:05",
-      "location": "L04",
-      "actors": ["CH03"],
-      "actual_action": "임하영이 보관실에서 오디션용 개인 시험 인형의 부러진 관절을 스튜디오 여분 부품으로 몰래 손본다.",
-      "world_fact": "임하영이 쓴 접착제 냄새가 보관실에 한동안 남는다."
+      "time": "사건 당일 10:30",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "남규리가 실사에 대비해 지분 정산 장부와 최근 3년치 로열티 내역을 정리한다."
     },
     {
       "id": "T09",
-      "time": "사건 당일 20:12",
-      "location": "L05",
-      "actors": ["CH04"],
-      "actual_action": "백도훈이 본사에서 걸려온 급한 전화를 받으러 하역구 비상계단으로 나간다.",
-      "world_fact": "백도훈의 그 통화는 이후 20시 48분까지 이어진다."
+      "time": "사건 당일 13:00",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "고진혁이 유통사 실사를 위해 매장에 도착해 응접을 기다린다."
     },
     {
       "id": "T10",
-      "time": "사건 당일 20:15",
-      "location": "L01",
-      "actors": ["V01"],
-      "actual_action": "소진웅이 상영이 끝난 뒤 윤태겸에게 다가가 제작실에서 잠깐 보자고 조용히 말한다."
+      "time": "사건 당일 13:40",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "선우결이 이번 분기 정산액이 계약서와 다르다고 느껴 대표를 찾아왔다가, 자리를 비운 것을 보고 휴게실에서 기다린다."
     },
     {
       "id": "T11",
-      "time": "사건 당일 20:18",
-      "location": "L03",
+      "time": "사건 당일 14:50",
+      "location": "L02",
       "actors": ["V01"],
-      "actual_action": "소진웅이 서랍에서 꺼낸 봉투를 들고 먼저 제작실로 들어가 윤태겸을 기다린다."
+      "actual_action": "허도경이 외장하드와 마스터 릴 상자를 챙겨 프레싱 라인으로 향한다."
     },
     {
       "id": "T12",
-      "time": "사건 당일 20:20",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 제작실로 들어와 소진웅과 마주한다."
+      "time": "사건 당일 15:00",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "허도경이 탁재호에게 지금 라인에서 얘기 좀 하자는 메시지를 보낸다.",
+      "world_fact": "그 메시지는 탁재호의 휴대폰에만 남았다."
     },
     {
       "id": "T13",
-      "time": "사건 당일 20:22",
-      "location": "L03",
-      "actors": ["V01"],
-      "actual_action": "소진웅이 변리사 회신과 시제품 영상 캡처를 꺼내 보이며 윤태겸을 추궁한다."
+      "time": "사건 당일 15:02",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 실사 시작 전 짬을 내 프레싱 라인으로 나온다."
     },
     {
       "id": "T14",
-      "time": "사건 당일 20:25",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 작업대 위 여분 알루미늄 골격봉을 집어 들어 소진웅의 뒤통수를 내리친다.",
-      "world_fact": "소진웅은 쓰러지며 작업대 모서리에 관자놀이를 부딪힌다."
+      "time": "사건 당일 15:10",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "허도경이 외장하드 속 세션 파일을 근거로 오늘 실사 자리에서 크레딧 정정을 공식 요구하겠다고 못박는다."
     },
     {
       "id": "T15",
-      "time": "사건 당일 20:27",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 소진웅의 숨이 멎은 것을 확인한다."
+      "time": "사건 당일 15:14",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "언쟁이 격해지자 탁재호가 허도경을 밀친다."
     },
     {
       "id": "T16",
-      "time": "사건 당일 20:30",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 조명 트랙 옆 발판 사다리를 넘어뜨리고 봉투를 작업대 밑으로 밀어 넣어 혼자 사다리에서 넘어진 사고처럼 현장을 꾸민다."
+      "time": "사건 당일 15:15",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "허도경이 열려 있던 안전 가드 쪽으로 넘어지며 오른팔이 눌림판 사이에 끼인다.",
+      "world_fact": "마침 가동 중이던 압착 주기가 그대로 내려오며 허도경은 그 자리에서 치명상을 입었고, 그가 놓친 외장하드와 마스터 릴 상자는 바닥에 떨어져 옆 창고로 통하는 통로 쪽 자재 더미 밑으로 굴러 들어갔다."
     },
     {
       "id": "T17",
-      "time": "사건 당일 20:33",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 골격봉을 수건으로 닦아 공구걸이에 되돌려 놓는다."
+      "time": "사건 당일 15:16",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 비상정지 버튼을 누르지만 이미 손쓸 수 없는 상태임을 확인한다."
     },
     {
       "id": "T18",
-      "time": "사건 당일 20:35",
-      "location": "L03",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 제작실 구석 작업용 컴퓨터에서 상시 촬영 중인 동작 타임랩스 캡처 로그의 20시 20분부터 33분까지 구간을 건너뛰도록 지운다."
+      "time": "사건 당일 15:18",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 열려 있던 안전 가드를 원위치로 닫아건다."
     },
     {
       "id": "T19",
-      "time": "사건 당일 20:40",
-      "location": "L04",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 보관실에 들러 손에 남은 얼룩을 씻어 내고 여분 작업복 셔츠로 갈아입는다.",
-      "world_fact": "세면대 배수구에 옅은 금속 얼룩이 남는다."
+      "time": "사건 당일 15:20",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 사무실 컴퓨터 백업 폴더에 남아 있던 세션 파일 사본을 지우고 휴지통까지 비운다."
     },
     {
       "id": "T20",
-      "time": "사건 당일 20:47",
-      "location": "L01",
-      "actors": ["CH02"],
-      "actual_action": "윤태겸이 태연한 얼굴로 로비에 돌아와 자리에 앉는다."
+      "time": "사건 당일 15:24",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 유압 프레스 정비일지에 안전 인터록이 그날 오전 정상 점검을 마쳤다고 소급해 적어 넣는다."
     },
     {
       "id": "T21",
-      "time": "사건 당일 21:42",
-      "location": "L01",
-      "actors": ["CH01"],
-      "actual_action": "곽민승이 소진웅이 한참 자리를 비운 것을 이상히 여겨 찾아 나선다."
+      "time": "사건 당일 15:26",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "탁재호가 밖으로 나가 인부들에게 허도경이 쓰러졌다고 소리치며 신고를 요청한다."
     },
     {
       "id": "T22",
-      "time": "사건 당일 21:45",
-      "location": "L03",
-      "actors": ["CH01"],
-      "actual_action": "곽민승이 자리를 비운 대표님을 찾아 제작실 문을 열었다가, 조명 트랙 아래 미동 없이 누운 소진웅을 발견한다."
+      "time": "사건 당일 15:28",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "오채양이 소리를 듣고 달려와 상황을 확인한다."
     },
     {
       "id": "T23",
-      "time": "사건 당일 21:52",
+      "time": "사건 당일 15:30",
       "location": "L01",
       "actors": ["CH01"],
-      "actual_action": "곽민승이 계단으로 뛰어나가, 마침 건물 계단에 있던 탐정을 알아보고 도움을 청한다."
+      "actual_action": "고진혁이 소란을 듣고 매장에서 작업장 쪽으로 걸음을 옮긴다."
+    },
+    {
+      "id": "T24",
+      "time": "사건 당일 15:35",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "선우결이 휴게실에서 소식을 전해 듣는다."
     }
   ],
   "characters": [
     {
       "id": "CH01",
-      "name": "곽민승",
-      "role": "제작실장 / 스튜디오 운영 총괄",
+      "name": "고진혁",
+      "role": "유통사 실사 담당자",
       "present_location": "L01",
       "knows": [
         {
           "fact_id": "F-CH01-01",
-          "content": "21시 42분부터 소진웅을 찾아다니다 21시 45분 제작실에서 쓰러진 그를 발견했다.",
-          "source": "직접 행동",
-          "related_timeline": ["T21", "T22"]
+          "content": "허도경이 사건 3일 전 메일로 그날 실사 자리에서 레이블 지분 구조 문제를 공식 안건으로 다뤄 달라고 미리 요청했다는 것을 안다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH01-02",
-          "content": "요 며칠 윤태겸이 대표님 눈을 잘 마주치지 못하는 것을 이상하게 여겼다.",
-          "source": "오래 지켜봄"
+          "content": "그 요청을 받고 조금 부담스러웠다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "실사가 사고 등으로 지연되면 자신의 이번 분기 평가에도 불이익이 있다는 사내 규정이 있다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "오채양이 그날 유독 라인과 창고 사이를 자주 오갔다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
-          "content": "대표님은 이 작업실 인형 하나하나에 진심이셨어요. 오늘 시사도 그래서 직접 여신 겁니다.",
+          "content": "이 업계가 좁아서, 레이블 안 사정도 어느 정도는 들려요.",
           "truth_status": "truth"
         },
         {
           "claim_id": "S-CH01-02",
-          "content": "저는 시사 끝나고 계속 로비에서 정리만 했습니다. 백도훈 씨가 한참 안 보이길래 신경이 쓰였어요.",
+          "content": "그 시간엔 계속 로비에서 실사 서류만 보고 있었어요.",
           "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        },
+        {
           "fact_or_claim_id": "F-CH01-02",
-          "release_prerequisite": "E05",
+          "release_prerequisite": "E20",
           "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH01-03"
         }
       ],
       "knowledge_limits": [
-        "제작실에서 정확히 무슨 일이 있었는지는 발견 전까지 몰랐다.",
-        "윤태겸과 해외 합작사 사이에 무엇이 오갔는지는 몰랐다."
+        "탁재호와 허도경이 라인에서 정확히 무슨 얘기를 나눴는지는 모른다.",
+        "레이블 내부 지분 구조는 자세히 모른다."
       ],
       "voice_profile": {
-        "formality_register": "차분한 표준 존댓말, 필요한 말만 한다",
-        "sentence_length_tendency": "평소엔 짧게 대답하고, 압박받으면 대표님 얘기로 말을 돌린다",
-        "verbal_tic": "'정리하자면'으로 말을 여는 버릇",
+        "formality_register": "격식체(합니다), 사무적이고 예의 바르다.",
+        "sentence_length_tendency": "평소엔 사무적으로 간결한데, 몰리면 말이 길어지며 조건을 단다.",
+        "verbal_tic": "'서류상으로는'을 자주 앞세운다.",
         "stance": "procedural"
       },
       "pressure_responses": [
-        "정리하자면, 그날 밤은 다 평소와 같았습니다.",
-        "대표님 일로 다들 경황이 없어요. 조금만 시간을 주시죠.",
-        "제가 여기 제일 오래 있었다고 다 아는 건 아닙니다."
-      ]
+        "그건 이미 다 말씀드렸는데요.",
+        "서류상으로는... 더 드릴 말씀이 없어요.",
+        "그만 여쭤보셔도 될 것 같은데요."
+      ],
+      "comic_tell": "긴장하면 넥타이 매듭을 자꾸 고쳐 만진다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-01",
+        "says": "채양씨가 그날따라 라인이랑 창고를 좀 자주 오가긴 하더라고요. 그 이상은 저도...",
+        "reveals": "오채양이 그날 라인과 창고를 평소보다 자주 오갔다는 것"
+      }
     },
     {
       "id": "CH02",
-      "name": "윤태겸",
-      "role": "조형감독 / 관절 설계 총괄",
+      "name": "남규리",
+      "role": "경리 겸 총무",
       "present_location": "L03",
       "knows": [
         {
           "fact_id": "F-CH02-01",
-          "content": "20시 20분경 제작실에서 대표님과 마주쳐 대화했다.",
-          "source": "직접 행동",
-          "related_timeline": ["T12"]
+          "content": "허도경의 지분 배당이 최근 몇 년간 조금씩 줄어 온 것을 알고도 대표 눈치를 보느라 말하지 않았다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH02-02",
-          "content": "대표님이 변리사 회신과 시제품 캡처를 내보이며 추궁하자 실랑이 끝에 골격봉으로 내리쳤다.",
-          "source": "직접 행동",
-          "related_timeline": ["T13", "T14"]
+          "content": "그 시각쯤 탁재호가 사무실에서 나가 라인 쪽으로 향하는 것을 봤다는 것을 안다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH02-03",
-          "content": "4개월간 해외 합작사 쪽에 설계를 넘긴 대가로 이적을 약속받아 온 것이 드러나자, 자리를 지키려고 내리쳤다고 자백했다.",
-          "source": "직접 행동",
-          "related_timeline": ["T01", "T14", "T15"]
+          "content": "그 직후 탁재호가 얼굴이 하얗게 질려 급히 돌아와 정비일지부터 뒤적이는 것을 봤다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "오채양이 사고 시각 자재 창고에서 자재 정리를 하고 있는 것을 봤다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "고진혁이 그날따라 유독 라인 쪽 동선을 이것저것 캐물었다는 것을 안다.",
+          "source": "본인이 겪음"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH02-01",
-          "content": "그 시간엔 계속 여기서 혼자 다음 시연 인형을 손보고 있었습니다. 대표님과는 상영 끝나고 로비에서 인사만 나눴어요.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "제작실에서 대표님과 만난 사실을 숨기려 한다."
-        },
-        {
-          "claim_id": "S-CH02-02",
-          "content": "이번 이중 잠금 관절은 저희가 3년 걸려 다듬은 구조입니다. 해외에서도 눈독 들이는 기술이죠.",
+          "content": "저는 그냥... 도경 오빠가 숫자에 제일 밝은 사람이라고만 생각했어요.",
           "truth_status": "truth"
         },
         {
-          "claim_id": "S-CH02-03",
-          "content": "잠깐 들르셨다가 금방 돌아가셨어요. 별다른 얘기는 없었습니다.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "C01에서 제작실 만남을 인정한 뒤 붙이는 변명. C02가 깬다."
-        },
-        {
-          "claim_id": "S-CH02-04",
-          "content": "몸싸움이 있었던 건 맞지만, 저도 놀라서 밀쳐낸 것뿐이지 다치게 할 생각은 없었습니다.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "C02에서 실랑이 사실을 인정한 뒤 붙이는 변명. C03이 깬다."
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 계속 사무실에서 실사 자료 정리하고 있었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
-          "release_prerequisite": "E14",
-          "release_trigger": "S-CH02-01"
-        },
-        {
-          "fact_or_claim_id": "S-CH02-03",
-          "release_prerequisite": "F-CH02-01",
+          "release_prerequisite": "E07",
           "release_trigger": "S-CH02-01"
         },
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "C01",
-          "release_trigger": "S-CH02-03"
-        },
-        {
-          "fact_or_claim_id": "S-CH02-04",
-          "release_prerequisite": "F-CH02-02",
-          "release_trigger": "S-CH02-03"
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH02-01"
         },
         {
           "fact_or_claim_id": "F-CH02-03",
-          "release_prerequisite": "C02",
-          "release_trigger": "S-CH02-04"
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E21",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH02-04"
         }
       ],
       "knowledge_limits": [
-        "대표실 서랍에 회신 사본이 두 부 있었다는 것은 그날 밤까지 몰랐다.",
-        "백도훈이 그날 밤 무슨 통화를 했는지는 모른다."
+        "탁재호와 허도경이 라인에서 정확히 무슨 일이 있었는지는 모른다.",
+        "고진혁이 실사 자료를 어디까지 준비했는지는 모른다."
       ],
       "voice_profile": {
-        "formality_register": "짧고 사무적인 존댓말, '~습니다'로 끝맺는다",
-        "sentence_length_tendency": "평소엔 요점만 짧게 말하고, 압박받으면 작업 얘기로 말을 돌린다",
-        "verbal_tic": "'구조상'으로 말을 여는 버릇",
+        "formality_register": "표준 존댓말(해요체), 꼼꼼하고 신중하다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 딱딱한데, 몰리면 말끝을 흐린다.",
+        "verbal_tic": "숫자를 말할 때 꼭 소수점 둘째 자리까지 짚는다.",
         "stance": "guarded"
       },
       "pressure_responses": [
-        "구조상 이 설계는 제가 제일 잘 압니다. 그건 대표님도 인정하신 겁니다.",
-        "제가 몇 시에 어디 있었는지가 그렇게 중요합니까.",
-        "삼 년입니다. 그거면 되지 않습니까.",
-        "대표님 얘기는... 나중에 하면 안 되겠습니까."
-      ]
+        "그건 제가 아는 전부예요.",
+        "...더는 저도 몰라요.",
+        "그 얘기는 그만하시죠."
+      ],
+      "comic_tell": "생각할 때 계산기 버튼을 괜히 눌러 본다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH02-05",
+        "opens": "S-CH02-01",
+        "says": "고진혁 실장님이 그날따라 라인 쪽 동선을 이것저것 캐묻긴 하셨어요. 그 이상은 저도...",
+        "reveals": "고진혁이 그날 라인 쪽 동선을 유독 캐물었다는 것"
+      }
     },
     {
       "id": "CH03",
-      "name": "임하영",
-      "role": "촬영보조 애니메이터 / 2년차",
-      "present_location": "L04",
+      "name": "선우결",
+      "role": "소속 아티스트",
+      "present_location": "L05",
       "knows": [
         {
           "fact_id": "F-CH03-01",
-          "content": "20시 5분부터 20시 40분 넘게까지 보관실에서 개인 시험 인형을 몰래 손보고 있었다.",
-          "source": "직접 행동",
-          "related_timeline": ["T07", "T08"]
+          "content": "이번 분기 정산액이 계약서와 다르다고 느껴 대표에게 따지러 왔다가 자리를 비운 것을 보고 기다렸다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH03-02",
-          "content": "20시 40분경 윤태겸이 평소와 달리 소매를 걷어붙이고 보관실 세면대에서 손을 씻는 것을 봤다.",
-          "source": "직접 목격",
-          "related_timeline": ["T19"]
+          "content": "정산 문제로 대표와 예전에도 몇 번 언쟁한 적 있다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그날 사무실 근처에서 서성이다 탁재호가 급히 라인 쪽으로 나가는 것을 봤다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "남규리가 몇 년간 장부를 대표 뜻대로만 맞춰 왔다는 소문을 들은 적이 있다는 것을 안다.",
+          "source": "전해 들음"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH03-01",
-          "content": "대표님은 제가 처음 왔을 때 관절 깎는 법부터 손수 가르쳐 주셨어요.",
+          "content": "도경이 형은 제 노래를 제일 먼저 들어봐 주던 사람이었어요.",
           "truth_status": "truth"
         },
         {
           "claim_id": "S-CH03-02",
-          "content": "그 시간엔 그냥 시사실 뒤쪽에 계속 앉아 있었어요.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "보관실에서 몰래 개인 작업을 한 것을 감추려 한다."
+          "content": "그 시간엔 휴게실에서 그냥 기다리고 있었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
@@ -410,417 +453,508 @@
         {
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "E08",
-          "release_trigger": "S-CH03-02"
+          "release_trigger": "S-CH03-01"
         },
         {
           "fact_or_claim_id": "F-CH03-02",
-          "release_prerequisite": "C01",
+          "release_prerequisite": "E19",
           "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH03-03"
         }
       ],
       "knowledge_limits": [
-        "제작실에서 정확히 무슨 일이 있었는지는 몰랐다.",
-        "윤태겸이 무엇 때문에 그렇게 서둘렀는지는 몰랐다."
+        "대표와 허도경 사이에 무슨 일이 있었는지는 모른다.",
+        "지분 정산 장부의 세부 내용은 모른다."
       ],
       "voice_profile": {
-        "formality_register": "밝고 조심스러운 존댓말",
-        "sentence_length_tendency": "평소엔 말이 빠르다가, 압박받으면 목소리가 작아진다",
-        "verbal_tic": "'그게'로 말끝을 흐리는 버릇",
+        "formality_register": "표준 존댓말(해요체), 발랄하지만 긴장하면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 발랄한데, 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "말끝에 '진짜로'를 자주 붙인다.",
         "stance": "skittish"
       },
       "pressure_responses": [
-        "그게... 저는 진짜 이상한 짓 안 했어요.",
-        "제가 뭘 잘못 말한 거면 어떡하죠...",
-        "윤 감독님 얘기는... 제가 막 해도 되는 건지 모르겠어요."
-      ]
+        "저, 진짜로 그게 다예요...",
+        "더는... 기억이 안 나요.",
+        "왜 자꾸 저한테만 그러세요."
+      ],
+      "comic_tell": "당황하면 헤드폰 줄을 손가락에 감았다 풀었다 한다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-04",
+        "opens": "S-CH03-01",
+        "says": "규리 누나가 장부는 대표님 뜻대로만 맞춘다는 얘기, 저도 얼핏 들은 적 있어요. 그 이상은...",
+        "reveals": "남규리가 장부를 대표 뜻대로 맞춰 왔다는 소문이 있다는 것"
+      }
     },
     {
       "id": "CH04",
-      "name": "백도훈",
-      "role": "해외 합작사 현지 프로듀서 / 방문객",
-      "present_location": "L01",
+      "name": "오채양",
+      "role": "프레싱 라인 기사",
+      "present_location": "L02",
       "knows": [
         {
           "fact_id": "F-CH04-01",
-          "content": "20시 12분부터 48분까지 하역구 비상계단에서 본사 투자 담당자와 통화하느라 자리를 비웠다.",
-          "source": "직접 행동",
-          "related_timeline": ["T09"]
+          "content": "그날 오전 청소를 위해 안전 가드를 열어 둔 채 다시 잠그지 않고 자리를 떴다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH04-02",
-          "content": "최근 며칠 윤태겸이 회의 중에도 휴대전화를 자주 확인하는 것을 이상하게 여겼다.",
-          "source": "오래 지켜봄"
+          "content": "사고 직후 라인 근처에서 잠시 서성이다 창고로 자재 정리하러 갔다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "탁재호가 사고 직후 평소와 달리 다급하게 사무실 쪽으로 향하는 것을 봤다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "탁재호가 그날따라 실사 준비로 유독 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH04-01",
-          "content": "이 스튜디오 관절 기술은 저희 쪽에서도 다들 감탄했습니다. 오늘 시사도 그래서 기대하고 왔어요.",
+          "content": "도경 오빠는 라인 안전 하나는 진짜 깐깐하게 챙기던 사람이었어요.",
           "truth_status": "truth"
         },
         {
           "claim_id": "S-CH04-02",
-          "content": "그냥 회사 일로 전화 좀 받았습니다. 별일 아니었어요.",
-          "truth_status": "lie",
-          "reason_for_limit_or_lie": "본사 투자가 무산될 뻔한 위기를 숨기려 한다."
+          "content": "그 시간엔 창고에서 자재 정리하고 있었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
-          "release_prerequisite": "E19",
-          "release_trigger": "S-CH04-02"
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
         },
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "E17",
+          "release_prerequisite": "E21",
           "release_trigger": "F-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH04-03"
         }
       ],
       "knowledge_limits": [
-        "제작실에서 그날 밤 정확히 무슨 일이 있었는지는 모른다.",
-        "윤태겸과 대표님 사이에 있었던 일은 모른다."
+        "탁재호와 허도경이 무엇 때문에 다퉜는지는 모른다.",
+        "지분 정산 문제는 자세히 모른다."
       ],
       "voice_profile": {
-        "formality_register": "정중한 격식체, 비즈니스 용어를 섞어 쓴다",
-        "sentence_length_tendency": "평소엔 조리 있게 말하고, 압박받으면 말이 짧아진다",
-        "verbal_tic": "'저희 쪽에서는'으로 말을 여는 버릇",
-        "stance": "guarded"
+        "formality_register": "표준 존댓말(해요체), 소탈하고 붙임성이 있다.",
+        "sentence_length_tendency": "평소엔 말이 술술 나오는데, 몰리면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "곤란하면 '어떡하지'를 혼잣말처럼 흘린다.",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
-        "저희 쪽에서는 서류대로 왔을 뿐입니다.",
-        "제가 자리를 비운 게 왜 그렇게 중요합니까.",
-        "이 일로 저희 계약까지 걸고넘어지실 겁니까."
-      ]
+        "어떡하지... 저도 그것만 알아요.",
+        "그 이상은 저도 몰라요.",
+        "그만 물어보시면 안 될까요."
+      ],
+      "comic_tell": "곤란하면 목장갑 손끝을 잡아당긴다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH04-04",
+        "opens": "S-CH04-01",
+        "says": "대표님이 그날따라 실사 준비로 좀 예민해 보이시긴 했어요. 그 이상은...",
+        "reveals": "탁재호가 그날 유독 예민한 상태였다는 것"
+      }
     },
     {
       "id": "CH05",
-      "name": "강주은",
-      "role": "촬영감독 / 창립 멤버",
-      "present_location": "L02",
+      "name": "탁재호",
+      "role": "레이블 대표 겸 프로듀서",
+      "present_location": "L03",
       "knows": [
         {
           "fact_id": "F-CH05-01",
-          "content": "그날 저녁 소진웅이 시사 끝나고 윤태겸을 조용히 따로 불러 제작실로 향하는 것을 봤다.",
-          "source": "직접 목격",
-          "related_timeline": ["T10"]
+          "content": "'봄, 그 자리'의 실제 편곡과 프로듀싱 대부분을 허도경이 해냈다는 것을 알면서도 자신의 단독 크레딧으로 등록해 왔다.",
+          "source": "본인이 겪음"
         },
         {
           "fact_id": "F-CH05-02",
-          "content": "최근 몇 주 소진웅이 밤늦게 서류를 보다 표정이 굳어 있는 것을 여러 번 봤다.",
-          "source": "오래 지켜봄"
+          "content": "그 시간에 프레싱 라인으로 나가 허도경과 마주했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "그 자리에서 지분과 크레딧 문제로 언쟁이 있었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "언쟁 중 허도경을 밀쳤고, 그가 열려 있던 안전 가드 쪽으로 넘어져 팔이 눌림판에 끼인 뒤, 가드를 닫고 정비일지를 소급해 고쳐 사고처럼 꾸몄다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "선우결이 최근 정산 문제로 예민해져 있었다는 것을 안다.",
+          "source": "본인이 겪음"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH05-01",
-          "content": "대표님은 이 층 인형 하나하나를 자식처럼 여기셨어요. 12년째 그렇게 봐 왔습니다.",
+          "content": "도경이는 이 레이블을 처음 만들 때부터 저랑 함께한 사람이에요.",
           "truth_status": "truth"
         },
         {
           "claim_id": "S-CH05-02",
-          "content": "저는 시사 끝나고 계속 사무실에서 서류 정리만 했어요.",
-          "truth_status": "truth"
+          "content": "그 시간엔 실사 준비하느라 계속 사무실에 있었어요. 라인 쪽엔 안 갔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그냥 잠깐 얼굴 보고 몇 마디 나눈 것뿐이에요. 별일 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "말다툼은 있었지만 저는 손 하나 안 댔어요. 도경이가 발을 헛디딘 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
-          "release_prerequisite": "E13",
-          "release_trigger": "S-CH05-02"
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH05-01"
         },
         {
           "fact_or_claim_id": "F-CH05-02",
-          "release_prerequisite": "E12",
-          "release_trigger": "F-CH05-01"
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH05-01"
         }
       ],
       "knowledge_limits": [
-        "제작실에서 정확히 무슨 일이 있었는지는 몰랐다.",
-        "윤태겸과 해외 합작사 사이에 있었던 거래는 몰랐다."
+        "허도경이 언제 그 외장하드를 다시 찾아냈는지 정확한 날짜는 모른다.",
+        "고진혁이 실사 자리에서 정확히 무엇을 준비해 왔는지는 모른다."
       ],
       "voice_profile": {
-        "formality_register": "차분하고 다정한 존댓말",
-        "sentence_length_tendency": "평소엔 여유 있게 말하고, 압박받으면 오히려 목소리가 낮아진다",
-        "verbal_tic": "'그러게 말이에요'로 말을 받는 버릇",
-        "stance": "unruffled"
+        "formality_register": "표준 존댓말(해요체), 침착하고 사무적이다.",
+        "sentence_length_tendency": "평소엔 문장이 정리된 편인데, 몰리면 문장이 짧아지고 사이가 길어진다.",
+        "verbal_tic": "말끝에 '어쨌든'을 자주 붙인다.",
+        "stance": "guarded"
       },
       "pressure_responses": [
-        "그러게 말이에요, 저도 아직 믿기지가 않아서.",
-        "제가 12년을 봐 온 사람들이에요. 함부로 말 못 하겠어요.",
-        "대표님 얘기는... 조금만 있다 해도 될까요."
-      ]
+        "말씀드릴 건 이미 다 말씀드렸어요.",
+        "어쨌든... 더는 드릴 말씀 없습니다.",
+        "그만하시죠, 이제."
+      ],
+      "comic_tell": "말이 막히면 안경을 벗어 렌즈를 닦는다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-05",
+        "opens": "S-CH05-01",
+        "says": "선우결이 요즘 정산 문제로 예민해져 있다고 들었어요. 그 이상은 저도...",
+        "reveals": "선우결이 최근 정산 문제로 예민한 상태였다는 것"
+      }
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
-      "nature": "설립자와 조형감독. 윤태겸이 신입으로 들어온 뒤 8년째 소진웅에게 인형 설계를 배우며 함께 일해 왔다.",
-      "public_face": "가장 신뢰받는 손이라고 다들 안다. 소진웅이 은퇴하면 제작실을 통째로 맡길 거라는 말도 있었다.",
+      "between": ["V01", "CH05"],
+      "nature": "10년 전 레이블 창립 앨범을 함께 만든 공동창업자이자 대표와 수석 엔지니어.",
+      "public_face": "환상의 콤비로 알려져 있다.",
       "says": {
-        "CH02": "대표님 아니었으면 저는 지금 이 일을 안 하고 있었을 겁니다. 그건 어디서든 똑같이 말할 수 있어요."
+        "CH05": "그 앨범이요? 저랑 도경이가 밤새우면서 같이 만든 거죠. 그 이상도 이하도 아니에요."
       },
-      "private_strain": "윤태겸은 4개월째 스튜디오의 특허 관절 설계를 몰래 해외 합작사 쪽에 넘겨 온 것을 소진웅이 알아챘다는 것을 아직 모르는 척하고 있다.",
-      "surfaces_when": "탐정이 대표실 서랍에서 나온 변리사 회신 사본(E11)을 윤태겸에게 보일 때."
+      "private_strain": "탁재호는 그 앨범의 실제 편곡과 프로듀싱 대부분을 허도경이 해냈다는 것을 알면서도 자신의 단독 크레딧으로 등록해 지분을 지켜 왔다는 것을 숨기고 있다.",
+      "surfaces_when": "탐정이 지분 정산 장부(E07)를 탁재호 앞에 제시할 때."
     },
     {
       "id": "REL02",
       "between": ["V01", "CH01"],
-      "nature": "설립자와 제작실장. 곽민승은 스튜디오가 지금 건물로 옮긴 8년 전부터 운영 전반을 맡아 왔다.",
-      "public_face": "말수 적은 살림꾼으로 통한다. 소진웅이 가장 오래 믿고 맡긴 사람이다.",
+      "nature": "이번 유통 계약 실사를 맡아 최근 몇 차례 미팅해 온 실사 담당자와 레이블 공동창업자.",
+      "public_face": "가장 협조적인 실사 상대로 알려져 있다.",
       "says": {
-        "CH01": "제가 여기서 제일 오래 있었어요. 대표님 성격이야 저만큼 아는 사람 없을 겁니다."
+        "CH01": "허도경 엔지니어님이요? 자료 하나는 제일 꼼꼼하게 챙겨 주시는 분이었죠."
       },
-      "private_strain": "곽민승은 최근 며칠 윤태겸이 대표님 눈을 잘 마주치지 못하는 것을 이상하게 여겼지만, 8년 지기의 일이라 캐묻지 않고 넘겼다.",
-      "surfaces_when": "탐정이 지워진 타임랩스 로그 구간(E05)을 보이며 그날 밤 제작실에서 누가 무엇을 했는지 물을 때."
+      "private_strain": "고진혁은 허도경이 실사 자리에서 지분 문제를 공식 제기하겠다고 예고한 메일을 사흘 전에 미리 받아 뒀다는 것을 밝히지 않고 있다.",
+      "surfaces_when": "탐정이 허도경이 보낸 사전 메일(E06)을 고진혁 앞에 제시할 때."
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
-      "nature": "설립자와 촬영감독. 강주은은 스튜디오를 처음 열 때부터 12년을 함께한 창립 멤버다.",
-      "public_face": "가장 오래된 동료로 알려져 있다. 소진웅이 중요한 결정은 꼭 먼저 상의하는 사람이다.",
+      "between": ["V01", "CH02"],
+      "nature": "매년 지분 정산을 함께 맞춰 온 공동창업자와 10년차 경리.",
+      "public_face": "누구보다 숫자를 꼼꼼히 맞춰 주는 사이로 알려져 있다.",
       "says": {
-        "CH05": "저랑 대표님은 이 층을 같이 만든 사람들이에요. 12년이면 그럴 만하죠."
+        "CH02": "도경 오빠는 저한테 늘 숫자보다 사람이 먼저라고 하셨어요."
       },
-      "private_strain": "강주은은 최근 몇 주 소진웅이 밤늦게 서류를 보다 표정이 굳어 있는 것을 여러 번 봤지만, 먼저 묻지 않고 지켜만 봤다.",
-      "surfaces_when": "탐정이 대표실의 이메일 출력물(E12)을 보이며 요즘 대표님이 무엇을 걱정했는지 물을 때."
+      "private_strain": "남규리는 허도경의 지분 배당이 최근 몇 년간 조금씩 줄어 온 것을 알고도 대표 눈치를 보느라 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "탐정이 지분 정산 장부(E07)를 남규리 앞에 제시할 때."
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
-      "nature": "설립자와 해외 합작사 현지 프로듀서. 반년 전 합작 논의가 시작된 뒤로 몇 차례 왕래했다.",
-      "public_face": "합작을 이끄는 두 얼굴로 알려져 있다. 오늘 시사도 그 논의의 연장이었다.",
+      "between": ["V01", "CH03"],
+      "nature": "그의 데뷔곡 프로듀싱을 도맡아 온 사운드 엔지니어와 소속 아티스트.",
+      "public_face": "가장 의지하는 사수로 알려져 있다.",
       "says": {
-        "CH04": "소진웅 대표님 없이는 이 합작 자체가 성립 안 했을 겁니다. 그만큼 믿고 시작한 일이었죠."
+        "CH03": "형이 아니었으면 저는 진작에 이 바닥 그만뒀을 거예요."
       },
-      "private_strain": "백도훈은 본사 쪽 투자가 흔들리고 있다는 것을 소진웅에게 아직 알리지 못했고, 오늘 시사가 그 불안을 감출 마지막 자리였다.",
-      "surfaces_when": "탐정이 하역구 인터폰의 발신 기록(E19)을 보이며 그날 저녁 어디 있었는지 물을 때."
+      "private_strain": "선우결은 이번 분기 정산 문제로 허도경에게 따로 상담했던 사실을 숨기고 있다.",
+      "surfaces_when": "탐정이 선우결의 정산 메시지(E08)를 그 앞에 제시할 때."
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH04"],
-      "nature": "조형감독과 해외 합작사 현지 프로듀서. 합작 논의가 시작된 반년 전부터 기술 실무로 연락해 왔다.",
-      "public_face": "기술 쪽 실무를 맡은 사이로만 알려져 있다.",
+      "between": ["V01", "CH04"],
+      "nature": "라인 안전을 놓고 늘 함께 점검해 온 사운드 엔지니어와 프레싱 라인 기사.",
+      "public_face": "가장 꼼꼼히 짝을 맞춰 온 사이로 알려져 있다.",
       "says": {
-        "CH02": "관절 구조 질문은 전부 저한테 옵니다. 그게 답니다.",
-        "CH04": "윤 감독님 쪽 기술 설명은 늘 명쾌했습니다."
+        "CH04": "오빠랑 같이 점검 돌면 저는 그냥 마음이 놓였어요."
       },
-      "private_strain": "윤태겸은 4개월 전부터 해외 합작사의 다른 담당자에게 개인적으로 설계 파일을 넘겨 온 것을 백도훈에게는 숨겨 왔다 — 오늘 시사에서 그와 마주치는 것조차 불편해했다.",
-      "surfaces_when": "탐정이 대표실의 이메일 출력물(E12)을 두 사람에게 각각 보일 때."
+      "private_strain": "오채양은 그날 오전 청소를 위해 열어 둔 안전 가드를 다시 잠그지 않고 자리를 떴다는 것을 숨기고 있다.",
+      "surfaces_when": "탐정이 오전 청소 점검표(E05)를 오채양 앞에 제시할 때."
     },
     {
       "id": "REL06",
-      "between": ["CH01", "CH03"],
-      "nature": "제작실장과 촬영보조 애니메이터. 임하영이 2년 전 입사했을 때부터 곽민승이 업무를 가르쳐 왔다.",
-      "public_face": "선배와 후배로 자연스럽게 지낸다고 알려져 있다.",
+      "between": ["CH05", "CH02"],
+      "nature": "10년째 손발을 맞춰 온 대표와 경리.",
+      "public_face": "가장 오래 함께한 사이로 알려져 있다.",
       "says": {
-        "CH01": "하영 씨는 손이 빨라요. 시키는 것보다 늘 하나 더 챙기죠.",
-        "CH03": "실장님이 아니었으면 저 여기 적응도 못 했을 거예요."
+        "CH05": "규리씨는... 숫자 하나는 저보다 낫죠. 지금은 그 이상 드릴 말씀이 없네요.",
+        "CH02": "대표님이요? 그냥 오래 모셔 온 분이죠."
       },
-      "private_strain": "임하영은 최근 개인적으로 준비하는 오디션용 시험 인형이 있다는 것을 곽민승에게도 말하지 않고 혼자 감춰 왔다.",
-      "surfaces_when": "탐정이 보관실에서 나온 개인용 시험 인형(E08)을 곽민승에게 보일 때."
+      "private_strain": "탁재호는 지분 정산 장부를 몇 년째 자신에게 유리하게 조금씩 손봐 왔다는 것을 남규리에게 숨기고 있다.",
+      "surfaces_when": "탐정이 지분 정산 장부(E07)를 탁재호 앞에 제시할 때."
     }
   ],
   "locations": [
     {
       "id": "L01",
-      "name": "로비 겸 시사실",
-      "access": "누구나 드나드는 로비 겸 시사실. 손님 접대와 상영을 겸한다.",
+      "name": "매장 겸 로비",
+      "access": "매장 손님이라면 누구나 드나들 수 있는 개방 공간.",
       "access_level": "open",
       "connects_to": ["L02", "L03", "L05"],
-      "base_description": "접이식 스크린이 아직 걸려 있는 안쪽으로 빈 의자들이 흐트러져 있고, 창가 쪽에 선 곽민승은 팔짱을 낀 채 좀처럼 자리를 뜨지 못한다. 그 옆 소파에는 백도훈이 휴대전화를 손에 쥔 채 앉아 있다. 왼편 복도가 대표실로, 오른편 계단이 제작실과 하역구로 이어진다.",
+      "base_description": "진열대마다 최근 발매된 한정반들이 가지런히 놓여 있고, 그 옆 응접 테이블에서 고진혁이 실사 서류를 뒤적이고 있다.",
       "observation_rules": [
         {
-          "action": "로비를 둘러본다",
+          "action": "매장을 둘러본다",
           "release_fact_id": "F-L01-OBS-01",
-          "result": "접이식 스크린 앞으로 의자들이 흐트러져 있고, 오른편 계단 입구에 발자국이 여러 겹 겹쳐 있다."
+          "result": "진열대에 이번 신보 초회한정반이 줄지어 놓여 있다."
         }
       ],
       "detail_rules": [
         {
-          "action": "곽민승에게 그날 저녁 백도훈의 동선을 묻는다",
+          "action": "진열대 위 초회한정반 뒷면을 확인한다",
           "requires": "없음",
-          "release_evidence_id": "E16",
-          "result": "20시 12분부터 백도훈이 한참 안 보였고 늦게 돌아왔다는 진술이 확보된다."
-        },
-        {
-          "action": "곽민승에게 시사 도중 분위기를 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E17",
-          "result": "대표님이 예고편 상영 내내 평소보다 말수가 적었다는 진술이 확보된다."
-        },
-        {
-          "action": "백도훈에게 그날 밤 자리를 비운 이유를 묻는다",
-          "requires": "곽민승",
-          "release_evidence_id": "E18",
-          "result": "본사에서 급한 전화가 와 한동안 통화했다는 진술이 확보된다."
+          "release_evidence_id": "E26",
+          "result": "이번에 새로 찍은 초회한정반 뒷면 크레딧에 '프로듀서·편곡 탁재호'라고 이름 하나만 올라 있고, 이번 물량은 500장이다."
         }
       ]
     },
     {
       "id": "L02",
-      "name": "대표 사무실",
-      "access": "소진웅이 쓰던 대표 사무실. 지금은 강주은이 자료를 정리하며 지키고 있다.",
+      "name": "프레싱 라인 작업장",
+      "access": "프레싱 작업 시간에는 관계자만 들어갈 수 있는 생산 라인 구역.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
-      "base_description": "책상 위 서신철이 반쯤 펼쳐진 채 놓여 있고, 그 앞 의자에 앉은 강주은이 오래된 사진첩을 한 장씩 넘기고 있다. 책상 뒤 캐비닛 아래 칸은 손잡이가 헐거워 완전히 닫히지 않는다.",
+      "connects_to": ["L01", "L04"],
+      "base_description": "무너진 자재 없이 멈춰 선 유압 프레스 옆으로 사람들이 몰려 있고, 그 가장자리에서 오채양이 굳은 얼굴로 서 있다.",
       "observation_rules": [
         {
-          "action": "대표 사무실을 둘러본다",
+          "action": "작업장을 둘러본다",
           "release_fact_id": "F-L02-OBS-01",
-          "result": "책상 뒤 캐비닛 아래 칸에 오래된 서류 상자가 쌓여 있고, 창밖으로 제작실 지붕이 보인다."
+          "result": "압착판 주변 바닥에 아직 마르지 않은 물걸레 자국이 남아 있다."
         }
       ],
       "detail_rules": [
         {
-          "action": "대표 사무실 서랍을 살펴본다",
+          "action": "닫힌 안전 가드의 잠금 고리를 살펴본다",
           "requires": "없음",
-          "release_evidence_id": "E11",
-          "result": "변리사 회신 사본(부본)이 확인된다."
+          "release_evidence_id": "E01",
+          "result": "안전 가드 잠금 고리에 최근 생긴 듯한 긁힘과 눌린 자국이 나 있고, 걸쇠 안쪽에 마른 지 얼마 안 된 손자국이 남아 있다."
         },
         {
-          "action": "책상 위 이메일 출력물을 살펴본다",
-          "requires": "E11",
-          "release_evidence_id": "E12",
-          "result": "변리사와 주고받은 이메일에 두 설계가 사실상 동일하다는 문구가 확인된다."
-        },
-        {
-          "action": "강주은에게 요즘 대표님이 무엇을 걱정했는지 묻는다",
+          "action": "압착판 주변 바닥을 살펴본다",
           "requires": "없음",
-          "release_evidence_id": "E13",
-          "result": "대표님이 밤늦게 서류를 보다 표정이 굳어 있었다는 진술이 확보된다."
+          "release_evidence_id": "E02",
+          "result": "압착판 주변 바닥에 다급하게 밀리고 끌린 듯한 신발 자국 두 종류가 겹쳐 있고, 근처 공구 선반이 비스듬히 밀려나 있다."
         },
         {
-          "action": "강주은에게 그날 저녁 대표님이 누구를 따로 불렀는지 묻는다",
-          "requires": "강주은",
-          "release_evidence_id": "E14",
-          "result": "시사 끝나고 윤태겸을 조용히 불러 제작실로 갔다는 진술이 확보된다."
+          "action": "오전 청소 점검표를 확인한다",
+          "requires": "오채양",
+          "release_evidence_id": "E05",
+          "result": "오전 청소 점검표에 '09:00 압착판 주변 청소, 안전 가드 개방'이라고 적혀 있고 재잠금 확인란은 비어 있다."
         },
         {
-          "action": "강주은에게 부품 재고가 줄어든 것을 아는지 묻는다",
+          "action": "허도경의 휴대폰 메시지를 확인한다",
           "requires": "없음",
-          "release_evidence_id": "E15",
-          "result": "최근 보관실 여분 부품이 줄어든 걸 알고 있었지만 대수롭지 않게 넘겼다는 진술이 확보된다."
+          "release_evidence_id": "E09",
+          "result": "허도경이 사고 직전 탁재호에게 보낸 '지금 라인에서 얘기 좀 하죠' 메시지가 15시 정각에 전송된 채 남아 있고, 수신·열람 표시가 함께 남아 있다."
+        },
+        {
+          "action": "자재 팔레트 위 자국을 확인한다",
+          "requires": "오채양",
+          "release_evidence_id": "E25",
+          "result": "라인 옆 자재 팔레트 위에 먼지가 덜 앉은 사각형 자국 두 개가 나란히 남아 있고, 오채양은 오후 2시 50분쯤 허도경이 외장하드와 마스터 릴 상자를 여기 내려놓는 것을 봤다고 말한다."
         }
       ]
     },
     {
       "id": "L03",
-      "name": "인형 제작실",
-      "access": "인형 제작실. 담당 제작진만 드나드는 것이 원칙이다.",
+      "name": "사무실 겸 회의실",
+      "access": "레이블 관계자만 드나드는 사무실 겸 회의 공간.",
       "access_level": "restricted",
       "connects_to": ["L01", "L04"],
-      "base_description": "작업대마다 손바닥만 한 인형 세트가 늘어서 있고, 구석 컴퓨터 화면에는 동작 타임랩스 창이 낮게 켜져 있다. 넘어진 발판 사다리가 조명 트랙 밑에 비스듬히 걸쳐 있고, 그 옆으로 윤태겸이 굳은 얼굴로 서 있다.",
+      "base_description": "책상 위 실사 자료 옆으로 유압 프레스 정비일지가 펼쳐져 있고, 창가 자리에 앉은 남규리가 계산기를 붙든 채 자리를 지키고 있다. 안쪽 방에서는 탁재호가 굳은 얼굴로 앉아 있다.",
       "observation_rules": [
         {
-          "action": "제작실을 둘러본다",
+          "action": "사무실을 둘러본다",
           "release_fact_id": "F-L03-OBS-01",
-          "result": "작업대마다 미니어처 세트가 늘어서 있고, 구석 컴퓨터 화면에 타임랩스 창이 낮게 켜져 있다."
+          "result": "책상 위 실사 자료가 반쯤 정리된 채 쌓여 있다."
         }
       ],
       "detail_rules": [
         {
-          "action": "소진웅의 몸을 살펴본다",
+          "action": "유압 프레스 정비일지를 확인한다",
           "requires": "없음",
-          "release_evidence_id": "E01",
-          "result": "두부 손상 패턴이 작업대 모서리 각도와 맞지 않는 것이 확인된다."
-        },
-        {
-          "action": "넘어진 발판 사다리를 살펴본다",
-          "requires": "없음",
-          "release_evidence_id": "E02",
-          "result": "사다리 다리 밑에 눌린 자국이 없는 것이 확인된다."
-        },
-        {
-          "action": "공구걸이를 살펴본다",
-          "requires": "E01",
           "release_evidence_id": "E03",
-          "result": "골격봉 하나만 물기로 닦인 자국이 남아 있는 것이 확인된다."
+          "result": "정비일지 가장 최근 기록에 '안전 인터록, 금일 오전 정상 작동 확인'이라고 적혀 있다."
         },
         {
-          "action": "작업대 밑을 살펴본다",
-          "requires": "E02",
-          "release_evidence_id": "E04",
-          "result": "구겨진 봉투 속 변리사 회신 사본과 시제품 영상 캡처가 확인된다."
+          "action": "허도경이 보낸 사전 메일을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "허도경이 사흘 전 고진혁에게 보낸 메일에 '오늘 실사 자리에서 지분 구조 문제를 공식적으로 짚겠다'는 문장과 세션 파일 캡처 사진이 첨부돼 있다."
         },
         {
-          "action": "타임랩스 캡처 로그를 확인한다",
-          "requires": "곽민승",
-          "release_evidence_id": "E05",
-          "result": "20시 20분부터 33분까지 구간이 건너뛰어져 있는 것이 확인된다."
+          "action": "지분 정산 장부를 확인한다",
+          "requires": "남규리",
+          "release_evidence_id": "E07",
+          "result": "지분 정산 장부에 허도경의 배당 비율이 최근 3년간 해마다 조금씩 줄어들어 있고, 그 차액만큼이 탁재호 쪽 항목에 더해져 있다."
+        },
+        {
+          "action": "사무실 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "사무실 출입 기록에 탁재호가 15시 정각에 나가 15시 26분에야 다시 들어온 것으로 남아 있다. 이 기록은 로비 쪽 문만 남긴다."
+        },
+        {
+          "action": "고진혁의 실사 평가 규정 문서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E20",
+          "result": "사내 실사 관련 내규에 '실사 대상 안건이 사고 등으로 지연될 경우 담당자 평가에 감점'이라는 조항이 있다."
+        },
+        {
+          "action": "사무실 컴퓨터 백업 폴더를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E23",
+          "result": "백업 폴더에 세션 파일 사본이 삭제된 기록이 15시 20분에 남아 있고, 휴지통도 비워져 있다."
+        },
+        {
+          "action": "그날 일정표와 방문 기록을 확인한다",
+          "requires": "남규리",
+          "release_evidence_id": "E24",
+          "result": "그날 일정표에 '저녁 6시, 허도경 면담'이라 적혀 있고, 방문 기록엔 그가 세션 파일이 든 봉투를 들고 저녁 6시에 들어와 6시 5분에 나간 것으로 남아 있다."
         }
       ]
     },
     {
       "id": "L04",
-      "name": "소품·재료 보관실",
-      "access": "소품·재료 보관실. 제작진 누구나 드나들 수 있다.",
-      "access_level": "open",
-      "connects_to": ["L03"],
-      "base_description": "선반 가득 자재와 접착제 통이 늘어서 있고, 안쪽 세면대 옆 작업대에 앉은 임하영이 손바닥만 한 인형 하나를 조심스레 만지고 있다. 세면대 배수구 옆으로 옅은 얼룩이 남아 있다.",
+      "name": "자재·마스터 보관 창고",
+      "access": "지지대와 마스터 자재를 보관하는 창고. 담당자 동행이 필요한 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L03"],
+      "base_description": "선반마다 지지대와 마스터 릴 상자가 가지런히 쌓여 있고, 구석 자재 더미가 유독 흐트러져 있다.",
       "observation_rules": [
         {
-          "action": "보관실을 둘러본다",
+          "action": "창고를 둘러본다",
           "release_fact_id": "F-L04-OBS-01",
-          "result": "선반 가득 자재와 접착제 통이 늘어서 있고, 안쪽 세면대 옆에 작업대가 붙어 있다."
+          "result": "선반 한쪽 자재 더미가 평소보다 흐트러져 있다."
         }
       ],
       "detail_rules": [
         {
-          "action": "보관실 세면대 배수구를 살펴본다",
+          "action": "자재 더미 밑을 뒤져 본다",
+          "requires": "오채양",
+          "release_evidence_id": "E04",
+          "result": "통로 쪽 자재 더미 밑, 외장하드 한 개와 마스터 테이프 릴 상자가 나란히 놓여 있고 겉면에 최근 충격으로 보이는 흠집이 나 있다. 릴 상자엔 이 레이블 보관용 라벨과 10년 전 연도가 찍혀 있다."
+        },
+        {
+          "action": "창고 내 자재 정리 기록을 확인한다",
           "requires": "없음",
-          "release_evidence_id": "E06",
-          "result": "은색 금속 부스러기가 섞인 얼룩이 확인된다."
-        },
-        {
-          "action": "보관실 개인 사물함을 살펴본다",
-          "requires": "E06",
-          "release_evidence_id": "E07",
-          "result": "윤태겸 이름표가 달린 여벌 셔츠 소매에 옅은 얼룩이 남아 있는 것이 확인된다."
-        },
-        {
-          "action": "보관실 작업대를 살펴본다",
-          "requires": "없음",
-          "release_evidence_id": "E08",
-          "result": "임하영 이름이 붙은 개인용 시험 인형이 새로 접착된 채 놓여 있는 것이 확인된다."
-        },
-        {
-          "action": "임하영에게 그날 저녁 보관실에서 있었던 일을 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E09",
-          "result": "오디션용 개인 인형을 몰래 손보고 있었다는 진술이 확보된다."
-        },
-        {
-          "action": "임하영에게 그날 저녁 윤태겸을 본 적 있는지 묻는다",
-          "requires": "E08",
-          "release_evidence_id": "E10",
-          "result": "20시 40분경 윤태겸이 소매를 걷고 세면대에서 손을 씻는 것을 봤다는 진술이 확보된다."
+          "release_evidence_id": "E21",
+          "result": "자재 정리 기록에 '15:05~15:20 자재 재배치, 담당 오채양'이라고 적혀 있는데, 같은 칸에 그날의 두 번째 출입이 같이 들어가 있다."
         }
       ]
     },
     {
       "id": "L05",
-      "name": "하역구 비상계단",
-      "access": "인쇄소 시절부터 쓰인 하역구 비상계단. 옥외로 이어진다.",
-      "access_level": "open",
+      "name": "시청실 겸 휴게실",
+      "access": "소속 아티스트와 관계자가 쓰는 내부 휴게 공간.",
+      "access_level": "restricted",
       "connects_to": ["L01"],
-      "base_description": "인쇄소 시절부터 쓰인 철제 비상계단이 옥외로 이어지고, 난간 옆 인터폰 박스에 발신 기록 램프가 깜빡인다. 담장 너머로 옆 건물 인화소 간판이 보인다.",
+      "base_description": "테이블 위에 계약서 사본이 펼쳐진 채 놓여 있고, 그 옆 소파에 선우결이 헤드폰을 목에 건 채 앉아 있다.",
       "observation_rules": [
         {
-          "action": "하역구를 둘러본다",
+          "action": "휴게실을 둘러본다",
           "release_fact_id": "F-L05-OBS-01",
-          "result": "철제 비상계단이 옥외로 이어지고, 난간 옆 인터폰 박스에 발신 기록 램프가 있다."
+          "result": "테이블 위에 계약서 사본이 펼쳐진 채 놓여 있다."
         }
       ],
       "detail_rules": [
         {
-          "action": "하역구 인터폰 발신 기록을 확인한다",
+          "action": "선우결의 정산 메시지를 확인한다",
           "requires": "없음",
-          "release_evidence_id": "E19",
-          "result": "20시 12분부터 48분까지 해외 번호로 통화한 기록이 확인된다."
+          "release_evidence_id": "E08",
+          "result": "선우결의 휴대폰 메시지함에 '이번 정산 왜 이거밖에 안 되는지 설명해 주세요'라는 문자가 남아 있다."
+        },
+        {
+          "action": "선우결의 계약서 정산 조항을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "계약서 정산 조항과 최근 지급 내역을 대조하면 두 수치가 정확히 일치한다."
         }
       ]
     }
@@ -828,354 +962,463 @@
   "evidence": [
     {
       "id": "E01",
-      "name": "작업대 모서리와 안 맞는 두부 손상",
+      "name": "안전 가드 잠금 고리의 새 긁힘",
       "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "소진웅의 몸을 살펴본다",
-      "related_timeline": ["T14"],
-      "content": "소진웅의 뒤통수에 남은 손상 부위가 좁고 깊게 눌린 모양이라, 넓고 평평한 작업대 모서리에 부딪혀 생긴 자국과는 결이 다르다.",
-      "proves": ["둔기로 가격당했을 가능성을 뒷받침한다."],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C02"],
-      "points_at": null,
-      "mismatch": "혼자 부딪혔다기엔 상처 결이 작업대 모서리와 다르다",
+      "found_at": "L02",
+      "discovery_condition": "닫힌 안전 가드의 잠금 고리를 살펴본다",
+      "content": "안전 가드 잠금 고리에 최근 생긴 듯한 긁힘과 눌린 자국이 나 있고, 걸쇠 안쪽에 마른 지 얼마 안 된 손자국이 남아 있다.",
+      "proves": ["그 안전 가드가 사고 이후 누군가에 의해 다시 닫혔다는 것"],
+      "does_not_prove": ["누가 그렇게 했는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05",
+      "mismatch": "정기 청소 뒤라면 걸쇠에 먼지가 앉아 있어야 하는데 유난히 깨끗하다.",
       "reaction": {
-        "jiwoo": "이거, 모서리 모양이랑 상처가 안 맞는 것 같아요.",
-        "detective": "그러게. 좁고 깊어."
+        "jiwoo": "이 가드, 누가 방금 닫은 것처럼 걸쇠가 깨끗한데요.",
+        "detective": "사고 직후에 이렇게 말끔할 리가 없지."
       }
     },
     {
       "id": "E02",
-      "name": "눌린 자국 없는 발판 사다리",
+      "name": "압착판 주변 몸싸움 흔적",
       "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "넘어진 발판 사다리를 살펴본다",
-      "content": "넘어진 발판 사다리 다리 밑 바닥에는 눌린 자국이 전혀 없다. 사람이 딛고 있다가 함께 넘어졌다면 다리 하나쯤은 자국이 남아야 한다.",
-      "proves": ["사다리가 사람이 넘어지면서 함께 쓰러진 것이 아니라는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 나중에 세워 두었는지"],
+      "found_at": "L02",
+      "discovery_condition": "압착판 주변 바닥을 살펴본다",
+      "content": "압착판 주변 바닥에 다급하게 밀리고 끌린 듯한 신발 자국 두 종류가 겹쳐 있고, 근처 공구 선반이 비스듬히 밀려나 있다.",
+      "proves": ["그 자리에서 몸싸움 같은 급박한 실랑이가 있었다는 것"],
+      "does_not_prove": ["누가 누구를 밀었는지"],
       "presentation_effect": ["C02"],
       "points_at": null,
-      "mismatch": "사람이 딛고 있다가 넘어졌다는데 다리 밑에 눌린 자국이 하나도 없다",
+      "mismatch": "단순히 넘어진 것치고는 자국이 두 방향으로 겹쳐 있다.",
       "reaction": {
-        "jiwoo": "다리 자국이 하나도 없어요.",
-        "detective": "딛고 있었으면 저럴 리가 없지."
+        "jiwoo": "신발 자국이 두 종류인데요, 겹쳐 있어요.",
+        "detective": "혼자 넘어진 자국은 아니라는 거지."
       }
     },
     {
       "id": "E03",
-      "name": "공구걸이의 닦인 골격봉",
+      "name": "소급 기재된 정비일지",
       "source_type": "location",
       "found_at": "L03",
-      "discovery_condition": "공구걸이를 살펴본다",
-      "related_timeline": ["T17"],
-      "content": "공구걸이에 걸린 여분 알루미늄 골격봉 하나만 물기로 닦은 듯한 흔적이 남아 있다. 나머지 공구에는 먼지가 그대로 앉아 있다.",
-      "proves": ["그 골격봉만 최근에 누군가 닦았다는 사실을 증명한다."],
-      "does_not_prove": ["무엇을 닦아냈는지"],
-      "presentation_effect": ["C02"],
-      "points_at": "CH02",
-      "mismatch": "다른 공구는 다 먼지투성이인데 이것만 물기로 닦여 있다",
+      "discovery_condition": "유압 프레스 정비일지를 확인한다",
+      "content": "정비일지 가장 최근 기록에 '안전 인터록, 금일 오전 정상 작동 확인'이라고 적혀 있다.",
+      "proves": ["그 안전장치가 사고 당일 오전에 이미 점검된 것처럼 꾸며졌다는 것"],
+      "does_not_prove": ["그 기록을 누가 언제 적어 넣었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05",
+      "mismatch": "정비 기록은 평소 오채양이 도맡아 적는데 이 항목만 필체와 잉크 색이 다르다.",
       "reaction": {
-        "jiwoo": "이것만 반짝반짝해요.",
-        "detective": "닦은 지 얼마 안 됐군."
+        "jiwoo": "이 항목만 필체가 다른데요.",
+        "detective": "기록은 거짓말을 하지, 사람 대신."
       }
     },
     {
       "id": "E04",
-      "name": "작업대 밑 구겨진 봉투",
+      "name": "굴러 들어간 외장하드와 마스터 릴",
       "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "작업대 밑을 살펴본다",
-      "related_timeline": ["T05", "T16"],
-      "content": "작업대 밑 구석에 구겨진 봉투가 밀려 들어가 있다. 안에는 변리사 회신 출력물과 해외 합작사 시제품 영상 캡처가 들어 있고, 두 설계가 사실상 동일하다는 문구가 밑줄로 표시돼 있다.",
-      "proves": ["그날 밤 제작실에서 설계 유사성 문제로 추궁이 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누구를 추궁했는지"],
-      "presentation_effect": ["C03"],
-      "points_at": "CH02",
-      "mismatch": "잠깐 들렀을 뿐이라는데 증거 봉투가 그 자리에 구겨져 밀려들어 있다",
+      "found_at": "L04",
+      "discovery_condition": "자재 더미 밑을 뒤져 본다",
+      "content": "통로 쪽 자재 더미 밑, 외장하드 한 개와 마스터 테이프 릴 상자가 나란히 놓여 있고 겉면에 최근 충격으로 보이는 흠집이 나 있다. 릴 상자엔 이 레이블 보관용 라벨과 10년 전 연도가 찍혀 있다.",
+      "proves": ["허도경이 그 자료를 사고 당시 직접 들고 있었다는 것"],
+      "does_not_prove": ["누가 그것을 그 자리로 옮겼는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "허도경은 이 자료를 실사 자리에 직접 들고 가려 했다는데, 정작 발견된 곳은 그와 멀리 떨어진 창고 통로 구석이다.",
       "reaction": {
-        "jiwoo": "밑줄까지 그어져 있어요.",
-        "detective": "동일하다는 쪽으로."
+        "jiwoo": "이게 왜 여기까지 굴러왔을까요.",
+        "detective": "제 발로 여기 들어왔을 리가 없지."
       }
     },
     {
       "id": "E05",
-      "name": "타임랩스 로그의 지워진 구간",
+      "name": "오전 청소 점검표",
       "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "타임랩스 캡처 로그를 확인한다",
-      "related_timeline": ["T18"],
-      "content": "상시 촬영 중인 동작 타임랩스 캡처 로그에서 20시 20분부터 33분까지 구간만 건너뛰어져 있다. 그 앞뒤 구간은 끊김 없이 이어진다.",
-      "proves": ["그 13분 동안 누군가 촬영 기록을 손댔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 지웠는지"],
-      "presentation_effect": ["C01"],
-      "points_at": "CH02",
-      "mismatch": "하루 종일 끊김 없이 돌아가던 기록에 딱 그 13분만 비어 있다",
+      "found_at": "L02",
+      "discovery_condition": "오전 청소 점검표를 확인한다",
+      "content": "오전 청소 점검표에 '09:00 압착판 주변 청소, 안전 가드 개방'이라고 적혀 있고 재잠금 확인란은 비어 있다.",
+      "proves": ["그날 오전 안전 가드가 열린 채 남아 있었을 가능성"],
+      "does_not_prove": ["누가 그것을 다시 안 잠갔는지, 사고와 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "다른 날짜 칸은 재잠금 확인란이 다 채워져 있는데 이날만 비어 있다.",
       "reaction": {
-        "jiwoo": "딱 그 구간만 없어요.",
-        "detective": "우연은 아니겠지."
+        "jiwoo": "이날만 재잠금 확인란이 비어 있네요.",
+        "detective": "그럼 아침부터 계속 열려 있었다는 거네."
       }
     },
     {
       "id": "E06",
-      "name": "세면대 배수구의 금속 얼룩",
+      "name": "허도경의 사전 예고 메일",
       "source_type": "location",
-      "found_at": "L04",
-      "discovery_condition": "보관실 세면대 배수구를 살펴본다",
-      "related_timeline": ["T19"],
-      "content": "세면대 배수구 언저리에 은색 금속 부스러기가 섞인 옅은 얼룩이 남아 있다. 평소 이곳에서는 물감이나 접착제 얼룩만 나온다.",
-      "proves": ["누군가 최근 이 세면대에서 금속이 묻은 손을 씻었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누구였는지"],
+      "found_at": "L03",
+      "discovery_condition": "허도경이 보낸 사전 메일을 확인한다",
+      "content": "허도경이 사흘 전 고진혁에게 보낸 메일에 '오늘 실사 자리에서 지분 구조 문제를 공식적으로 짚겠다'는 문장과 세션 파일 캡처 사진이 첨부돼 있다.",
+      "proves": ["허도경이 실사 자리에서 지분 문제를 공식 제기할 예정이었다는 것"],
+      "does_not_prove": ["그 메일을 본 사람이 누구누구인지"],
       "presentation_effect": [],
-      "points_at": "CH02",
-      "mismatch": "물감·접착제만 나오던 배수구에 금속 부스러기가 섞여 있다",
+      "points_at": null,
+      "mismatch": "허도경은 이 일을 아무에게도 말하지 않았다고들 하는데, 메일은 이미 며칠 전에 나가 있었다.",
       "reaction": {
-        "jiwoo": "은색 가루 같은 게 섞여 있어요.",
-        "detective": "여긴 원래 이런 거 안 나오지."
+        "jiwoo": "이 메일, 사흘 전에 이미 보내 놨었네요.",
+        "detective": "그럼 예고는 이미 끝난 얘기였다는 거지."
       }
     },
     {
       "id": "E07",
-      "name": "사물함 속 얼룩진 여벌 셔츠",
+      "name": "지분 정산 장부의 배당 축소",
       "source_type": "location",
-      "found_at": "L04",
-      "discovery_condition": "보관실 개인 사물함을 살펴본다",
-      "content": "윤태겸 이름표가 붙은 사물함 안, 원래 입던 셔츠 대신 낯선 여벌 셔츠가 걸려 있다. 그가 원래 입고 있던 셔츠는 소매 끝에 옅은 얼룩이 남은 채 안쪽에 뭉쳐져 있다.",
-      "proves": ["윤태겸이 그날 밤 옷을 갈아입었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["언제 갈아입었는지"],
+      "found_at": "L03",
+      "discovery_condition": "지분 정산 장부를 확인한다",
+      "content": "지분 정산 장부에 허도경의 배당 비율이 최근 3년간 해마다 조금씩 줄어들어 있고, 그 차액만큼이 탁재호 쪽 항목에 더해져 있다.",
+      "proves": ["허도경의 지분 배당이 탁재호 쪽으로 조금씩 옮겨져 왔다는 것"],
+      "does_not_prove": ["그것이 의도적인 조작인지, 누가 정리했는지"],
       "presentation_effect": [],
-      "points_at": "CH02",
-      "mismatch": "하루 종일 같은 옷이었다는 사람의 셔츠가 안쪽에 뭉쳐진 채 따로 있다",
+      "points_at": "CH05",
+      "mismatch": "매년 조금씩이라 눈에 띄지 않게 쌓여 있지만 3년 치를 합치면 액수가 상당하다.",
       "reaction": {
-        "jiwoo": "이거 오늘 안 입은 셔츠 같은데요.",
-        "detective": "소매만 젖어 있군."
+        "jiwoo": "이거 매년 조금씩 옮겨진 건데요.",
+        "detective": "티 안 나게 오래 해 온 거지."
       }
     },
     {
       "id": "E08",
-      "name": "보관실 속 개인용 시험 인형",
+      "name": "선우결의 정산 불만 메시지",
       "source_type": "location",
-      "found_at": "L04",
-      "discovery_condition": "보관실 작업대를 살펴본다",
-      "related_timeline": ["T08"],
-      "content": "작업대 한쪽에 임하영 이름이 적힌 시험 인형이 놓여 있다. 부러졌던 무릎 관절이 스튜디오 여분 부품으로 새로 접착돼 있고, 접착제가 아직 마르지 않았다.",
-      "proves": ["임하영이 최근 이 작업대에서 개인 인형을 손봤다는 사실을 증명한다."],
-      "does_not_prove": ["정확히 언제였는지"],
+      "found_at": "L05",
+      "discovery_condition": "선우결의 정산 메시지를 확인한다",
+      "content": "선우결의 휴대폰 메시지함에 '이번 정산 왜 이거밖에 안 되는지 설명해 주세요'라는 문자가 남아 있다.",
+      "proves": ["선우결이 이번 분기 정산액에 불만을 갖고 있었다는 것"],
+      "does_not_prove": ["그 불만이 사고와 관련 있는지"],
       "presentation_effect": [],
       "points_at": "CH03",
-      "mismatch": "시사실에만 있었다는 사람의 개인 인형이 이 작업대에 새로 손봐진 채 놓여 있다",
+      "mismatch": "정작 계약서상 정산 조항과는 어긋나지 않는데도 그는 문제를 제기했다.",
       "reaction": {
-        "jiwoo": "접착제가 아직 덜 말랐어요.",
-        "detective": "최근이라는 뜻이지."
+        "jiwoo": "정산이 이상하다는 문자인데요.",
+        "detective": "그런데 계약서랑은 맞는다며."
       }
     },
     {
       "id": "E09",
-      "name": "임하영이 밝힌 그날 저녁",
-      "source_type": "testimony",
-      "found_at": "L04",
-      "discovery_condition": "임하영에게 그날 저녁 보관실에서 있었던 일을 묻는다",
-      "related_timeline": ["T07", "T08"],
-      "content": "\"실은... 오디션에 낼 제 인형이 부러져서요. 시사 도중에 몰래 나와서 여분 부품으로 고치고 있었어요. 말씀드리기 좀 창피해서요.\"",
-      "proves": ["임하영이 그 시간 보관실에서 개인 작업을 하고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그 뒤 계속 보관실에 있었는지"],
-      "presentation_effect": [],
-      "points_at": "CH03"
+      "name": "허도경의 마지막 메시지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "허도경의 휴대폰 메시지를 확인한다",
+      "content": "허도경이 사고 직전 탁재호에게 보낸 '지금 라인에서 얘기 좀 하죠' 메시지가 15시 정각에 전송된 채 남아 있고, 수신·열람 표시가 함께 남아 있다.",
+      "proves": ["허도경이 그 시각 탁재호를 라인으로 불러냈다는 것"],
+      "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05",
+      "mismatch": "탁재호는 그 시간엔 사무실에만 있었다고 했는데, 메시지 수신 기록은 그를 라인으로 불러낸다.",
+      "reaction": {
+        "jiwoo": "이 메시지, 15시 정각에 딱 맞춰 갔네요.",
+        "detective": "사무실에만 있었다는 말이랑 안 맞잖아."
+      }
     },
     {
       "id": "E10",
-      "name": "임하영이 본 윤태겸의 세면대",
-      "source_type": "testimony",
-      "found_at": "L04",
-      "discovery_condition": "임하영에게 그날 저녁 윤태겸을 본 적 있는지 묻는다",
-      "related_timeline": ["T19"],
-      "content": "\"20시 40분쯤이었을 거예요. 윤 감독님이 소매를 걷고 세면대에서 손을 씻고 계셨어요. 평소엔 그런 거 잘 신경 안 쓰시는데, 좀 이상하다 싶었어요.\"",
-      "proves": ["윤태겸이 20시 40분경 보관실 세면대에서 손을 씻었다는 사실을 증명한다."],
-      "does_not_prove": ["왜 그랬는지"],
+      "name": "사무실 출입 기록의 공백",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 출입 기록을 확인한다",
+      "content": "사무실 출입 기록에 탁재호가 15시 정각에 나가 15시 26분에야 다시 들어온 것으로 남아 있다. 이 기록은 로비 쪽 문만 남긴다.",
+      "proves": ["탁재호가 사고 전후 약 26분간 사무실을 비웠다는 것", "실제 공백은 18분이고 남은 8분은 이 방에서 쓴 시간이라는 것"],
+      "does_not_prove": ["그 사이 그가 정확히 어디서 무엇을 했는지"],
       "presentation_effect": [],
-      "points_at": "CH02"
+      "points_at": "CH05",
+      "mismatch": "실사 준비로 바빴다는 말과 달리, 하필 그 사이에만 자리를 비웠다.",
+      "reaction": {
+        "jiwoo": "26분이나 자리를 비우셨네요.",
+        "detective": "실사 준비 중이었다는 말이랑 안 맞지."
+      }
     },
     {
       "id": "E11",
-      "name": "서랍 속 변리사 회신 부본",
-      "source_type": "location",
-      "found_at": "L02",
-      "discovery_condition": "대표 사무실 서랍을 살펴본다",
-      "related_timeline": ["T03", "T05"],
-      "content": "서랍 안에 변리사 회신 부본이 따로 들어 있다. 자사 이중 잠금 관절 설계와 해외 합작사 시제품이 사실상 동일한 구조라는 소견이 적혀 있다.",
-      "proves": ["소진웅이 설계 유출 사실을 확인하고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["소진웅이 그것으로 무엇을 하려 했는지"],
-      "presentation_effect": ["C03"],
-      "points_at": "CH02",
-      "mismatch": "제작실에서 나온 것과 같은 회신이 사무실 서랍에도 한 부 더 있다",
-      "reaction": {
-        "jiwoo": "제작실에 있던 것과 같은 내용이에요.",
-        "detective": "두 부로 나눠 뒀군."
-      }
+      "name": "탁재호가 라인으로 향했다는 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "남규리에게 그 시각 탁재호가 어디로 향했는지 묻는다",
+      "content": "\"그 시간쯤 대표님이 사무실에서 나가서 라인 쪽으로 가시는 걸 봤어요. 실사 준비 때문인가 했죠.\"",
+      "proves": ["탁재호가 그 시각 라인 쪽으로 향하는 것을 목격했다는 것"],
+      "does_not_prove": ["그가 라인에서 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05",
+      "mismatch": "실사 준비라면 사무실에 있어야 할 시간에 반대로 움직였다."
     },
     {
       "id": "E12",
-      "name": "책상 위 이메일 출력물",
-      "source_type": "location",
+      "name": "라인 안쪽 언쟁 소리 증언",
+      "source_type": "testimony",
       "found_at": "L02",
-      "discovery_condition": "책상 위 이메일 출력물을 살펴본다",
-      "related_timeline": ["T02", "T03"],
-      "content": "변리사와 주고받은 이메일 출력물에 \"두 설계는 세부 치수까지 사실상 동일한 것으로 판단됨\"이라는 문구가 형광펜으로 표시돼 있다.",
-      "proves": ["설계 유사성 검토가 실제로 진행됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 유출했는지"],
-      "presentation_effect": ["C03"],
-      "points_at": "CH02",
-      "mismatch": "우연히 닮았다기엔 세부 치수까지 같다는 소견이 형광펜으로 표시돼 있다",
-      "reaction": {
-        "jiwoo": "치수까지 같다고 적혀 있어요.",
-        "detective": "우연이라기엔 너무 정확하군."
-      }
+      "discovery_condition": "오채양에게 그 시각 라인에서 들은 소리를 묻는다",
+      "content": "\"그 시간쯤 라인 안쪽에서 언성이 높아지는 소리랑 짧은 비명이 들렸어요. 무슨 말인지는 몰라요.\"",
+      "proves": ["그 시각 라인에서 다툼과 비명이 있었다는 것"],
+      "does_not_prove": ["누가 누구와 다퉜는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null,
+      "mismatch": "평소라면 라인 소음에 묻힐 소리인데 이번엔 유독 또렷하게 들렸다."
     },
     {
       "id": "E13",
-      "name": "강주은이 본 대표님의 근심",
+      "name": "사고 직후 탁재호의 모습 증언",
       "source_type": "testimony",
-      "found_at": "L02",
-      "discovery_condition": "강주은에게 요즘 대표님이 무엇을 걱정했는지 묻는다",
-      "content": "\"요즘 밤마다 사무실에서 혼자 서류를 보다가 전화를 끊고 나면 표정이 굳어 계셨어요. 무슨 일이냐고 여쭤도 합작 건 때문이라고만 하셨고요.\"",
-      "proves": ["소진웅이 사건 전부터 무언가를 걱정하고 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["무엇을 걱정했는지"],
+      "found_at": "L03",
+      "discovery_condition": "남규리에게 사고 직후 탁재호의 모습을 묻는다",
+      "content": "\"사고 나고 좀 있다가 대표님이 얼굴이 하얗게 질려서 들어오시더니, 정비일지부터 뒤적이셨어요.\"",
+      "proves": ["탁재호가 사고 직후 정비일지부터 확인했다는 것"],
+      "does_not_prove": ["그가 그 일지에 무엇을 적어 넣었는지"],
       "presentation_effect": [],
-      "points_at": null
+      "points_at": "CH05",
+      "mismatch": "사고를 처음 본 사람치고는 제일 먼저 찾은 게 사람이 아니라 서류였다."
     },
     {
       "id": "E14",
-      "name": "강주은이 본 그날 저녁의 호출",
+      "name": "실사 불이익 규정 인정 증언",
       "source_type": "testimony",
-      "found_at": "L02",
-      "discovery_condition": "강주은에게 그날 저녁 대표님이 누구를 따로 불렀는지 묻는다",
-      "related_timeline": ["T10"],
-      "content": "\"시사 끝나고 대표님이 윤 감독님한테 조용히 다가가서 제작실에서 잠깐 보자고 하시더라고요. 둘이 같이 나가셨어요.\"",
-      "proves": ["소진웅이 시사 직후 윤태겸을 따로 불러 제작실로 향했다는 사실을 증명한다."],
-      "does_not_prove": ["제작실에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"],
-      "points_at": "CH02"
+      "found_at": "L01",
+      "discovery_condition": "고진혁에게 그날 사내 실사 관련 불이익 규정이 있는지 묻는다",
+      "content": "\"실사가 미뤄지거나 시끄러워지면 저희 쪽 평가에도 감점이 있긴 해요. 그렇다고 제가 뭘 할 수 있는 건 아니지만요.\"",
+      "proves": ["고진혁 본인이 실사 관련 불이익 규정을 인정한다는 것"],
+      "does_not_prove": ["그가 그것 때문에 무언가를 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "단순 방문객처럼 보였는데 본인도 이해관계가 있었다."
     },
     {
       "id": "E15",
-      "name": "강주은이 본 부품 재고",
+      "name": "고진혁 본인의 알리바이 증언",
       "source_type": "testimony",
-      "found_at": "L02",
-      "discovery_condition": "강주은에게 부품 재고가 줄어든 것을 아는지 묻는다",
-      "content": "\"아, 그거요. 요 며칠 관절 여분 부품이 줄어든 것 같긴 했는데, 다들 쓰니까 별생각 없었어요.\"",
-      "proves": ["보관실 여분 부품이 최근 소소하게 쓰였다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 얼마나 썼는지"],
+      "found_at": "L01",
+      "discovery_condition": "고진혁에게 그 시각 무엇을 하고 있었는지 묻는다",
+      "content": "\"그 시간엔 계속 로비에서 실사 서류만 보고 있었습니다. 자리를 뜬 적은 없어요.\"",
+      "proves": ["고진혁 본인이 그 시각 로비에만 있었다고 주장한다는 것"],
+      "does_not_prove": ["그 주장이 사실인지"],
       "presentation_effect": [],
-      "points_at": null
+      "points_at": null,
+      "mismatch": "본인 말과 실제 방문 기록이 맞는지는 대조가 필요하다."
     },
     {
       "id": "E16",
-      "name": "곽민승이 본 백도훈의 동선",
+      "name": "고진혁 목격 확인 증언",
       "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "곽민승에게 그날 저녁 백도훈의 동선을 묻는다",
-      "related_timeline": ["T09"],
-      "content": "\"20시 12분쯤부터 백도훈 씨가 안 보이더라고요. 한참 뒤에야 하역구 쪽에서 돌아오셨어요.\"",
-      "proves": ["백도훈이 20시 12분경부터 한동안 자리를 비웠다는 사실을 뒷받침한다."],
-      "does_not_prove": ["어디서 무엇을 했는지"],
+      "found_at": "L05",
+      "discovery_condition": "선우결에게 그 시각 고진혁을 봤는지 묻는다",
+      "content": "\"그 시간 내내 로비 쪽에 고진혁 실장님이 앉아 계신 거 봤어요. 자리 뜨는 건 못 봤어요.\"",
+      "proves": ["고진혁이 그 시각 내내 로비에 있었다는 것을 다른 사람도 확인한다는 것"],
+      "does_not_prove": ["그 시간 전체를 빠짐없이 지켜봤는지"],
       "presentation_effect": [],
-      "points_at": "CH04"
+      "points_at": null,
+      "mismatch": "혼자만의 주장이 아니라 다른 사람의 눈에도 그렇게 보였다."
     },
     {
       "id": "E17",
-      "name": "곽민승이 느낀 시사회 분위기",
-      "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "곽민승에게 시사 도중 분위기를 묻는다",
-      "content": "\"대표님이 예고편 트는 내내 평소보다 말수가 적으셨어요. 뭔가 신경 쓰시는 게 있으신가 싶었죠.\"",
-      "proves": ["소진웅이 그날 저녁 평소와 다른 기색이었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["구체적으로 무엇 때문인지"],
+      "name": "선우결 계약서 정산 조항 대조",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "선우결의 계약서 정산 조항을 확인한다",
+      "content": "계약서 정산 조항과 최근 지급 내역을 대조하면 두 수치가 정확히 일치한다.",
+      "proves": ["선우결의 정산 자체는 계약대로 정확히 지급됐다는 것"],
+      "does_not_prove": ["그가 왜 오해했는지"],
       "presentation_effect": [],
-      "points_at": null
+      "points_at": null,
+      "mismatch": "불만을 제기했지만 정작 서류상으로는 어긋난 데가 없다.",
+      "reaction": {
+        "jiwoo": "계산은 맞게 나오는데요.",
+        "detective": "그럼 이 사람 불만은 다른 데서 왔다는 거네."
+      }
     },
     {
       "id": "E18",
-      "name": "백도훈이 밝힌 자리 비운 이유",
+      "name": "오채양 알리바이 확인 증언",
       "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "백도훈에게 그날 밤 자리를 비운 이유를 묻는다",
-      "related_timeline": ["T09"],
-      "content": "\"본사에서 급한 전화가 왔습니다. 투자 건이 틀어질 뻔해서요. 한동안 못 들어왔죠.\"",
-      "proves": ["백도훈이 본사 투자 문제로 자리를 비웠다고 스스로 밝힌 사실을 뒷받침한다."],
-      "does_not_prove": ["통화가 정확히 몇 시까지 이어졌는지"],
+      "found_at": "L03",
+      "discovery_condition": "남규리에게 사고 시각 오채양이 어디 있었는지 묻는다",
+      "content": "\"그 시간엔 채양씨가 창고에서 자재 정리하고 있는 거 봤어요. 저랑 잠깐 얘기도 나눴는걸요.\"",
+      "proves": ["오채양이 사고 시각 자재 창고에 있었다는 것"],
+      "does_not_prove": ["그 직후 그녀가 어디로 움직였는지"],
       "presentation_effect": [],
-      "points_at": "CH04"
+      "points_at": null,
+      "mismatch": "라인 근처에서 서성였다는 인상과 달리 실제로는 창고에 있었다."
     },
     {
       "id": "E19",
-      "name": "하역구 인터폰 발신 기록",
-      "source_type": "location",
+      "name": "선우결의 예전 언쟁 인정 증언",
+      "source_type": "testimony",
       "found_at": "L05",
-      "discovery_condition": "하역구 인터폰 발신 기록을 확인한다",
-      "related_timeline": ["T09"],
-      "content": "인터폰 발신 기록에 20시 12분부터 48분까지 해외 번호로 이어진 통화 하나가 남아 있다. 그 시간대 다른 발신 기록은 없다.",
-      "proves": ["20시 12분부터 48분까지 하역구에서 해외 번호로 통화가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["통화 내용이 무엇이었는지"],
+      "discovery_condition": "선우결에게 정산 문제로 대표와 다툰 적이 있는지 묻는다",
+      "content": "\"예전에도 정산 문제로 대표님이랑 몇 번 언쟁한 적은 있어요. 그날도 그것 때문에 온 거였고요.\"",
+      "proves": ["선우결이 예전에도 정산 문제로 대표와 언쟁했다는 것"],
+      "does_not_prove": ["그 언쟁이 이번 사고와 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "이번이 처음이 아니라 반복된 갈등이었다."
+    },
+    {
+      "id": "E20",
+      "name": "실사 평가 감점 규정 문서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "고진혁의 실사 평가 규정 문서를 확인한다",
+      "content": "사내 실사 관련 내규에 '실사 대상 안건이 사고 등으로 지연될 경우 담당자 평가에 감점'이라는 조항이 있다.",
+      "proves": ["고진혁에게도 실사가 매끄럽게 끝나야 할 이해관계가 있었다는 것"],
+      "does_not_prove": ["그가 그 때문에 무언가를 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "순수한 제3자처럼 보였는데 그에게도 걸린 것이 있었다.",
+      "reaction": {
+        "jiwoo": "실사 담당자한테도 감점이 걸려 있었네요.",
+        "detective": "그럼 이 사람도 무관한 건 아니었다는 거지."
+      }
+    },
+    {
+      "id": "E21",
+      "name": "창고 자재 정리 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 내 자재 정리 기록을 확인한다",
+      "content": "자재 정리 기록에 '15:05~15:20 자재 재배치, 담당 오채양'이라고 적혀 있는데, 같은 칸에 그날의 두 번째 출입이 같이 들어가 있다.",
+      "proves": ["오채양이 그 시간대 창고에서 자재를 정리하고 있었다는 것"],
+      "does_not_prove": ["그 기록이 실제 그녀 혼자 작성한 것인지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "라인 근처에서 서성였다는 인상과 달리 기록상으로는 창고에 있다.",
+      "reaction": {
+        "jiwoo": "이 시간대엔 창고에 있었다고 나오는데요.",
+        "detective": "그럼 라인 쪽 얘기랑은 안 맞네."
+      }
+    },
+    {
+      "id": "E22",
+      "name": "사고 직후 오채양 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "남규리에게 사고 직후 오채양의 행동에 대해 묻는다",
+      "content": "\"사고 나고 채양씨가 라인 쪽에서 잠깐 서성이는 걸 보긴 했어요. 그러다 창고로 가더라고요.\"",
+      "proves": ["오채양이 사고 직후 라인 근처를 서성이다 창고로 향했다는 것"],
+      "does_not_prove": ["그녀가 사고와 직접 관련 있는지"],
       "presentation_effect": [],
       "points_at": "CH04",
-      "mismatch": "잠깐 전화만 받았다는데 발신 기록은 36분 내내 이어진다",
+      "mismatch": "사고 직후 라인 안쪽까지 들어갈 업무는 없었는데도 그 근처에서 서성였다."
+    },
+    {
+      "id": "E23",
+      "name": "삭제된 세션 파일 백업 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 컴퓨터 백업 폴더를 확인한다",
+      "content": "백업 폴더에 세션 파일 사본이 삭제된 기록이 15시 20분에 남아 있고, 휴지통도 비워져 있다.",
+      "proves": ["누군가 사고 직후 그 파일을 의도적으로 지웠다는 것"],
+      "does_not_prove": ["누가 그것을 지웠는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "실사 준비로 바빴다는 말과 달리, 하필 그 시각에 그 파일만 지워졌다.",
       "reaction": {
-        "jiwoo": "36분이나 이어졌어요.",
-        "detective": "잠깐이라기엔 길군."
+        "jiwoo": "딱 그 시간에 이 파일만 지워졌는데요.",
+        "detective": "바빴다는 사람치고는 손이 빨랐네."
+      }
+    },
+    {
+      "id": "E24",
+      "name": "닷새 전 방문 기록과 일정표",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "그날 일정표와 방문 기록을 확인한다",
+      "content": "그날 일정표에 '저녁 6시, 허도경 면담'이라 적혀 있고, 방문 기록엔 그가 세션 파일이 든 봉투를 들고 저녁 6시에 들어와 6시 5분에 나간 것으로 남아 있다.",
+      "proves": ["허도경이 닷새 전 저녁 세션 파일을 들고 탁재호를 찾아갔다는 것", "그 자리가 5분 만에 끝났다는 것"],
+      "does_not_prove": ["그 자리에서 정확히 무슨 요구와 대답이 오갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "크레딧과 지분 문제를 매듭짓기엔 5분은 너무 짧다.",
+      "reaction": {
+        "jiwoo": "닷새 전에 이미 한 번 왔다 가셨네요.",
+        "detective": "그런데 5분 만에 끝났다는 거지."
+      }
+    },
+    {
+      "id": "E25",
+      "name": "자재 팔레트 위 두 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "자재 팔레트 위 자국을 확인한다",
+      "content": "라인 옆 자재 팔레트 위에 먼지가 덜 앉은 사각형 자국 두 개가 나란히 남아 있고, 오채양은 오후 2시 50분쯤 허도경이 외장하드와 마스터 릴 상자를 여기 내려놓는 것을 봤다고 말한다.",
+      "proves": ["허도경이 사고 전 오후 2시 50분경 외장하드와 마스터 릴 상자를 이 라인에 미리 가져다 놓았다는 것"],
+      "does_not_prove": ["그가 왜 그것을 실사 자리가 아니라 라인으로 먼저 가져왔는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "실사 자리에 들고 가려 했다는 것치고는, 정작 그 전에 이 라인에 먼저 들렀다.",
+      "reaction": {
+        "jiwoo": "이게 왜 실사 자리가 아니라 여기 먼저 놓여 있었을까요.",
+        "detective": "라인에서 먼저 담판을 볼 생각이었나 보지."
+      }
+    },
+    {
+      "id": "E26",
+      "name": "초회한정반 뒷면 크레딧",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "진열대 위 초회한정반 뒷면을 확인한다",
+      "content": "이번에 새로 찍은 초회한정반 뒷면 크레딧에 '프로듀서·편곡 탁재호'라고 이름 하나만 올라 있고, 이번 물량은 500장이다.",
+      "proves": ["'봄, 그 자리'의 크레딧이 지금도 탁재호 단독으로 등재돼 있다는 것"],
+      "does_not_prove": ["그것이 실제 작업자와 다르다는 것"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "10년 전 곡인데 이번에 다시 찍히는 이름도 여전히 하나뿐이다.",
+      "reaction": {
+        "jiwoo": "이번 한정반에도 이름이 하나뿐이네요.",
+        "detective": "10년째 그대로라는 거지."
       }
     }
   ],
   "contradiction_stages": [
     {
       "id": "C01",
-      "target_character": "CH02",
+      "target_character": "CH05",
       "from_stage": "initial",
-      "to_stage": "admits_meeting",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E14", "E05"],
+      "to_stage": "admits_presence",
+      "requires_heard_claim_ids": ["S-CH05-02"],
+      "requires_presented_evidence_ids": ["E09", "E11"],
       "requires_comparison": {
-        "claim_id": "S-CH02-01",
-        "evidence_ids": ["E14", "E05"]
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E09", "E11"]
       },
-      "player_action": "윤태겸에게 강주은이 전한 대표님의 호출 증언(E14)과 지워진 타임랩스 로그 구간(E05)을 제시해, 로비에서 인사만 나눴다는 말과 비교한다.",
+      "player_action": "허도경의 휴대폰에 남은 '지금 라인에서 얘기 좀 하죠' 메시지(E09)와 남규리가 그가 라인 쪽으로 향하는 것을 봤다는 증언(E11)을 함께 제시하며, 사무실에만 있었다는 말을 추궁한다.",
       "release": {
-        "claim_or_fact_id": "F-CH02-01",
-        "scope": "20시 20분경 대표님이 제작실로 찾아와 마주친 것은 인정하지만, 잠깐 들렀다 금방 돌아가셨을 뿐이고 별다른 일은 없었다고 주장한다."
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "그 시간에 프레싱 라인으로 나가 허도경과 마주한 것은 인정한다."
       },
-      "must_not_release": ["골격봉으로 내리친 사실", "설계를 해외에 넘긴 사실"]
+      "must_not_release": ["언쟁이 있었다는 사실", "허도경을 밀친 사실"]
     },
     {
       "id": "C02",
-      "target_character": "CH02",
-      "from_stage": "admits_meeting",
-      "to_stage": "admits_struggle",
-      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "target_character": "CH05",
+      "from_stage": "admits_presence",
+      "to_stage": "admits_altercation",
+      "requires_heard_claim_ids": ["F-CH05-02", "S-CH05-03"],
+      "requires_presented_evidence_ids": ["E02", "E12"],
       "requires_comparison": {
-        "claim_id": "S-CH02-03",
-        "evidence_ids": ["E01", "E02", "E03"]
+        "claim_id": "S-CH05-03",
+        "evidence_ids": ["E02", "E12"]
       },
-      "player_action": "윤태겸에게 작업대 모서리와 안 맞는 두부 손상(E01), 눌린 자국 없는 사다리(E02), 닦인 골격봉(E03)을 제시해, 별다른 일은 없었다는 말과 비교한다.",
+      "player_action": "압착판 주변에 남은 몸싸움 흔적(E02)과 오채양이 그 시각 라인에서 들었다는 다투는 소리 증언(E12)을 함께 제시하며, 별일 없었다는 말을 추궁한다.",
       "release": {
-        "claim_or_fact_id": "F-CH02-02",
-        "scope": "대표님이 추궁하자 실랑이 끝에 골격봉으로 내리친 것은 인정하지만, 몸싸움 중 놀라서 밀쳐낸 것뿐이지 다치게 할 생각은 없었다고 주장한다."
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "그 자리에서 지분과 크레딧 문제로 언쟁이 있었던 것은 인정한다."
       },
-      "must_not_release": ["설계를 해외에 넘긴 사실", "이적을 약속받은 사실"]
+      "must_not_release": ["직접 밀친 사실", "사고 이후 손댄 것들"]
     },
     {
       "id": "C03",
-      "target_character": "CH02",
-      "from_stage": "admits_struggle",
-      "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E04", "E11", "E12"],
+      "target_character": "CH05",
+      "from_stage": "admits_altercation",
+      "to_stage": "breaks_down",
+      "requires_heard_claim_ids": ["F-CH05-03", "S-CH05-04"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": {
-        "claim_id": "S-CH02-04",
-        "evidence_ids": ["E04", "E11", "E12"]
+        "claim_id": "S-CH05-04",
+        "evidence_ids": ["E01", "E03"]
       },
-      "player_action": "윤태겸에게 작업대 밑에서 나온 변리사 회신(E04)과 사무실의 부본(E11), 설계 동일성 이메일(E12)을 제시해, 다치게 할 생각은 없었다는 말과 비교한다.",
+      "player_action": "닫힌 안전 가드에 새로 생긴 긁힘(E01)과 소급 기재된 정비일지(E03)를 함께 제시하며, 발을 헛디딘 사고였다는 말을 추궁한다.",
       "release": {
-        "claim_or_fact_id": "F-CH02-03",
-        "scope": "4개월간 해외 합작사 쪽에 특허 관절 설계를 몰래 넘기고 이적을 약속받아 온 것이 드러나자, 대표님이 그 증거를 들이대며 추궁한 순간 자리를 지키려고 골격봉을 내리쳤다고 자백한다."
+        "claim_or_fact_id": "F-CH05-04",
+        "scope": "언쟁 중 허도경을 밀쳤고, 그가 열려 있던 안전 가드 쪽으로 넘어져 팔이 눌림판에 끼인 뒤, 가드를 닫고 정비일지를 소급해 고쳐 사고처럼 꾸몄다는 것을 인정한다."
       },
       "must_not_release": []
     }
@@ -1183,52 +1426,191 @@
   "red_herrings": [
     {
       "id": "R01",
-      "character_id": "CH04",
-      "surface_suspicion": "백도훈은 합작 계약이 성사되면 가장 큰 이득을 볼 사람이었고, 시사가 끝난 직후부터 한참 자리를 비웠다가 늦게 돌아왔다. 어디 있었는지 물으면 말을 흐린다.",
-      "actual_reason": "백도훈은 그 시간 내내 하역구 비상계단에서 본사 투자 담당자와 급한 통화를 하고 있었을 뿐, 제작실 쪽으로는 한 걸음도 가지 않았다.",
-      "how_to_clear": "곽민승의 증언(E16)이 20시 12분부터 백도훈이 한참 안 보였다가 늦게 돌아왔다고 말하고, 하역구 인터폰의 발신 기록(E19)과 백도훈 본인이 밝힌 통화 사유(E18)가 그 시간 내내 해외 번호로 통화 중이었다는 것을 뒷받침한다.",
-      "must_not_imply": "백도훈이 소진웅의 죽음에 조금이라도 가담했다는 인상을 주지 않는다.",
-      "lingering_thread": "백도훈은 끝내 투자가 무산될 뻔했다는 것을 스튜디오 쪽에 알리지 못했고, 합작 계약은 이제 다른 사람의 손에 남았다.",
-      "suspicion_deepener": "백도훈 본인에게 물으면 처음엔 '별일 아니었다'고만 말을 흐리고(S-CH04-02), 왜 하필 그 시간이었는지는 대답을 피한다.",
-      "cleared_by": ["E16", "E19", "E18"]
+      "character_id": "CH01",
+      "surface_suspicion": "고진혁은 마침 그날 실사차 방문한 외부인이었고, 허도경이 그에게 지분 문제를 미리 알렸다는 사실이 드러나며 그가 뭔가 얽혀 있었다는 인상을 준다.",
+      "actual_reason": "실제로 그는 그 시각 내내 로비에서 실사 서류만 들여다보고 있었을 뿐이고, 지분 문제는 그의 권한 밖의 사안이라 개입할 이유가 없었다.",
+      "how_to_clear": "매장 방문 기록인 고진혁 본인의 알리바이 증언(E15)과 선우결이 그 시각 내내 로비에 있는 그를 봤다는 증언(E16)을 함께 대조하면, 그가 그 시각 로비를 벗어난 적이 없다는 것이 드러난다.",
+      "must_not_imply": "고진혁이 실사 불이익을 피하려고 직접 손을 썼다는 인상을 주지 않는다.",
+      "lingering_thread": "고진혁은 혐의를 벗지만, 이후에도 이 레이블과의 계약을 원점에서 다시 검토할지 고민에 빠진다.",
+      "suspicion_deepener": "고진혁 본인의 불이익 규정 인정 증언(E14)과 실사 평가 규정 문서(E20)가 먼저 의심을 키운다.",
+      "cleared_by": ["E15", "E16"],
+      "clearing_points_at": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "그날 실사차 매장과 라인이 멀지 않은 로비에 머물러 있었다.",
+        "means": ["E14", "E20"],
+        "means_first_reading": "실사 불이익 규정을 스스로 인정하는 증언(E14)과 규정 문서(E20)가 겹쳐, 실사가 매끄럽게 끝나야 할 이해관계가 있는 사람처럼 보인다."
+      }
     },
     {
       "id": "R02",
       "character_id": "CH03",
-      "surface_suspicion": "임하영은 시사가 끝나기도 전에 조용히 자리를 빠져나와 한참 보이지 않았고, 나중에 그 이유를 먼저 밝히지 않았다.",
-      "actual_reason": "임하영은 그 시간 내내 보관실에서 자신의 개인 시험 인형을 몰래 손보고 있었을 뿐이고, 제작실 쪽으로는 가지 않았다.",
-      "how_to_clear": "보관실 작업대에서 나온 새로 접착된 개인용 시험 인형(E08)과 강주은의 부품 재고 증언(E15), 임하영 본인이 털어놓은 해명(E09)이 그가 그 시간 내내 보관실에서 자기 작업만 했다는 것을 뒷받침한다.",
-      "must_not_imply": "임하영이 소진웅의 죽음에 조금이라도 관련이 있다는 인상을 주지 않는다.",
-      "lingering_thread": "임하영은 끝내 그 인형으로 도전하려던 오디션 얘기를 아무에게도 못 꺼냈고, 그 인형은 아직 보관실 한구석에 놓여 있다.",
-      "suspicion_deepener": "어디 있었냐고 물으면 처음엔 시사실 뒤쪽에 계속 있었다고 둘러대(S-CH03-02), 숨기는 듯한 태도가 오히려 의심을 키운다.",
-      "cleared_by": ["E08", "E15", "E09"]
+      "surface_suspicion": "선우결은 정산 문제로 대표와 예전에도 다툰 적이 있고, 그날도 하필 사무실 근처에서 서성이고 있었다.",
+      "actual_reason": "실제로 그의 정산 조항은 계약서와 정확히 일치했고, 그의 불만은 착오에서 비롯된 오해였을 뿐 사건과 무관했다.",
+      "how_to_clear": "계약서 정산 조항 대조(E17)와 선우결 본인이 예전 다툼을 인정하는 증언(E19)을 함께 제시하면, 그의 불만이 이번 사고와는 무관한 해묵은 오해였다는 것이 드러난다.",
+      "must_not_imply": "선우결이 정산 불만으로 앙심을 품고 해쳤다는 인상을 주지 않는다.",
+      "lingering_thread": "선우결은 혐의를 벗지만, 정산 방식에 대한 그의 불신은 한동안 가시지 않는다.",
+      "suspicion_deepener": "선우결의 정산 메시지(E08)와 예전 다툼을 확인해 주는 증언(E19)이 먼저 의심을 키운다.",
+      "cleared_by": ["E17", "E19"],
+      "clearing_points_at": "CH05",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "대표를 기다리며 사무실 근처 휴게실에 머물러 있었다.",
+        "means": ["E08", "E19"],
+        "means_first_reading": "정산 불만 메시지(E08)와 예전 다툼 증언(E19)이 겹쳐, 앙심을 품은 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R03",
+      "character_id": "CH04",
+      "surface_suspicion": "오채양은 그날 아침 안전 가드를 열어 둔 사람이었고, 사고 직후에도 라인 근처를 서성이다 창고로 향했다.",
+      "actual_reason": "실제로 그녀는 다음 라인 점검에 불려 가느라 가드를 다시 잠그지 못했을 뿐이고, 사고가 벌어진 순간에는 창고에서 자재를 정리하고 있었다.",
+      "how_to_clear": "남규리가 사고 시각 오채양이 창고에 있었다고 확인해 주는 증언(E18)과 창고 자재 정리 기록(E21)을 함께 대조하면, 그녀가 사고 순간 라인에 없었다는 것이 드러난다.",
+      "must_not_imply": "오채양이 안전 가드를 일부러 열어 둬 사고를 유도했다는 인상을 주지 않는다.",
+      "lingering_thread": "오채양은 혐의를 벗지만, 그 뒤로 청소 뒤 재잠금을 스스로 두 번씩 확인하는 버릇이 생긴다.",
+      "suspicion_deepener": "오전 청소 점검표(E05)의 빈 재잠금 확인란이 먼저 의심을 키운다.",
+      "cleared_by": ["E18", "E21"],
+      "clearing_points_at": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사고 직전까지 라인에서 안전 가드를 다루고 있었다.",
+        "means": ["E05", "E22"],
+        "means_first_reading": "그날 아침 안전 가드를 열어 둔 기록(E05)과 사고 직후 라인 근처를 서성였다는 목격(E22)이 겹쳐, 뭔가 저지른 사람처럼 보인다."
+      }
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E03", "E04", "E05", "F-CH02-03"],
+    "required_established_facts": ["F-CH05-02", "F-CH05-03", "F-CH05-04", "E01", "E03"],
     "required_contradiction_stages": ["C01", "C02", "C03"],
     "accusation_requirements": {
-      "suspect": "CH02",
-      "method_fact": "20시 25분 제작실에서 골격봉으로 소진웅의 뒤통수를 내리쳤다.",
-      "motive_fact": "4개월간 몰래 넘겨 온 특허 관절 설계 유출이 드러나 자리와 이적 약속을 잃을 상황을 막으려 했다."
+      "suspect": "CH05",
+      "method_fact": "F-CH05-04",
+      "motive_fact": "F-CH05-01"
     }
   },
   "final_deduction": {
-    "responsible": "윤태겸 (CH02, 조형감독)",
-    "method": "20시 25분 제작실에서 소진웅을 작업대 위 알루미늄 골격봉으로 내리쳐 쓰러뜨렸고, 그가 움직이지 않는 것을 확인한 뒤 조명 트랙 옆 발판 사다리를 넘어뜨려 혼자 넘어진 사고처럼 꾸몄다. 골격봉을 닦아 되돌려 놓고 동작 타임랩스 캡처 로그에서 그 구간을 지웠다.",
-    "motive": "4개월간 몰래 해외 합작사 쪽에 넘겨 온 스튜디오의 특허 관절 설계가 드러나 자리와 이적 약속 둘 다 잃을 상황에서, 이를 막으려 했다.",
-    "key_connection": "공구걸이에서 유독 닦인 자국이 남은 골격봉(E03)과 두부 손상 패턴이 작업대 모서리와 맞지 않는다는 점(E01), 넘어진 사다리 밑에 눌린 자국이 없다는 점(E02)이 혼자 넘어진 사고가 아니라는 것을 말한다. 지워진 타임랩스 로그 구간(E05)과 작업대 밑에서 나온 변리사 회신 사본(E04)이 그 시각 제작실에 누가 있었고 왜 다퉜는지를 잇는다."
+    "responsible": "탁재호(CH05) — 레이블 대표 겸 프로듀서",
+    "method": "프레싱 라인에서 허도경과 크레딧·지분 문제로 언쟁을 벌이다 그를 밀쳤고, 열려 있던 안전 가드 쪽으로 넘어진 허도경의 팔이 유압 프레스 눌림판에 끼여 치명상을 입었다.",
+    "motive": "10년 전 함께 만든 히트곡의 편곡·프로듀싱 크레딧과 지분을 가로채 온 사실이 드러날 위기에 몰려 격분했다.",
+    "key_connection": "허도경이 되찾은 세션 파일(E06)이 그가 실사 자리에서 크레딧 문제를 공식 제기하려 했다는 것을 드러내고, 지분 정산 장부(E07)가 그 배당이 조금씩 탁재호 쪽으로 옮겨져 온 정황을 뒷받침한다. 허도경의 마지막 메시지(E09)와 남규리의 목격 증언(E11)이 그 시각 라인으로 불려 나간 사람을 좁히고, 압착판 주변 몸싸움 흔적(E02)과 오채양이 들은 다투는 소리(E12)가 그 자리의 실랑이를 증언한다. 안전 가드의 새 긁힘(E01)과 소급 기재된 정비일지(E03), 삭제된 세션 파일 백업 기록(E23)이 그 사고가 조작된 것임을 증명하고, 통로 자재 더미 밑에서 굴러 나온 외장하드와 마스터 릴(E04)이 사고 당시 그 자료가 실제로 그 자리에 있었음을 보탠다. 사무실 출입 기록의 공백(E10)과 남규리가 본 사고 직후의 모습(E13)이 그 뒤의 행적을 뒷받침한다. 오전 청소 점검표(E05)와 실사 불이익 증언(E14)·규정 문서(E20), 사고 직후 오채양 목격 증언(E22)은 각각 오채양과 고진혁 쪽 의심을 먼저 키우지만, 고진혁 본인과 선우결의 증언(E15, E16)이 그를, 계약서 대조(E17)와 선우결의 증언(E19)이 그를, 남규리의 증언(E18)과 창고 자재 정리 기록(E21)이 오채양을 각각 지운다. 닷새 전 방문 기록(E24)이 그가 이미 한 번 요구를 받고 웃어넘겼다는 것을, 자재 팔레트의 자국(E25)이 그 자료가 사고 전 오후 2시 50분 이미 이 라인에 옮겨져 있었다는 것을, 초회한정반 뒷면 크레딧(E26)이 그 크레딧이 지금도 그의 단독으로 남아 있다는 것을 각각 확인해 준다."
   },
   "ending_explanation": [
-    "소진웅은 혼자 넘어진 것이 아니었다 — 두부 손상 패턴(E01)이 작업대 모서리 각도와 맞지 않는다.",
-    "넘어진 발판 사다리(E02) 밑에는 눌린 자국이 없어, 누군가 나중에 그 자리에 세워 둔 것임을 보여준다.",
-    "공구걸이의 골격봉 하나만 물기로 닦인 자국이 남아 있다(E03).",
-    "작업대 밑에서 나온 변리사 회신 사본(E04)이 그날 밤 제작실에서 무엇을 두고 다퉜는지를 말한다.",
-    "동작 타임랩스 캡처 로그의 20시 20분부터 33분까지 구간이 지워져 있다(E05).",
-    "보관실 세면대 배수구의 금속 얼룩(E06)과 사물함 속 얼룩진 셔츠(E07)가 그 직후 누가 손을 씻었는지를 보여주고, 임하영도 그 시각 윤태겸을 봤다고 말한다(E10).",
-    "대표실 서랍 속 변리사 회신 부본(E11)과 이메일 출력물(E12), 강주은이 전하는 대표님의 근심과 그날 저녁의 호출(E13, E14)이 같은 방향을 가리키고, 곽민승도 그날 시사 내내 대표님 말수가 적었다고 말한다(E17).",
-    "하역구 인터폰의 발신 기록(E19)은 백도훈이 그 시간 내내 통화 중이었을 뿐이라는 것을 보여준다.",
-    "보관실에서 나온 임하영의 개인용 시험 인형(E08)과 강주은의 부품 재고 증언(E15)은 임하영이 그 시간 내내 보관실에만 있었다는 것을 뒷받침한다.",
-    "곽민승이 21시 45분 제작실에서 쓰러진 소진웅을 발견했다."
-  ]
+    "수석 사운드 엔지니어 허도경이 프레싱 라인 유압 프레스에 팔이 끼여 숨진 표면 사건",
+    "허도경이 되찾은 옛 세션 파일이 그가 그 히트곡의 실제 작업자였다는 것을 드러낸 과정",
+    "남규리와 오채양의 목격담이 그 시각 라인에 있었던 사람과 그곳에서 벌어진 다툼을 좁혀 간 과정",
+    "안전 가드의 새 긁힘과 소급 기재된 정비일지가 「단순 설비 사고」라는 말을 뒤집은 과정",
+    "자재 창고에서 발견된 외장하드와 마스터 릴 상자가 허도경의 손에서 떨어져 굴러 들어간 것으로, 그가 사고 당시 그 자료를 직접 들고 있었다는 것을 증명한 과정",
+    "10년간 가로채 온 크레딧과 지분이 드러날 위기에서 빚어진 우발적 살인이라는 결말",
+    "사전 메일, 정산 장부, 목격담, 정비일지가 각각 예고와 동기, 시각, 은폐의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "크레딧을 빼앗기고 지분을 줄여 온 것에 대한 배신감과 격분",
+      "truth": true,
+      "evidence_for": ["E07", "E09"],
+      "suggested_by": ["E06"],
+      "cue": "지분 구조"
+    },
+    {
+      "id": "M02",
+      "text": "실사 무산을 막으려 한 고진혁의 조작",
+      "truth": false,
+      "evidence_for": ["E14", "E20"],
+      "suggested_by": ["E20"],
+      "cue": "감점",
+      "refutation": "그렇다고 제가 뭘 어떻게 한 건 아닙니다. 서류만 들여다보고 있었어요.",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "M03",
+      "text": "정산 불만에 앙심을 품은 선우결의 보복",
+      "truth": false,
+      "evidence_for": ["E08", "E19"],
+      "suggested_by": ["E08"],
+      "cue": "정산",
+      "refutation": "정산은 이미 계약대로 맞더라고요, 제가 오해했던 거죠.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 15시 15분경, 프레싱 라인 작업장에서",
+      "truth": true,
+      "evidence_for": ["E02", "E12"],
+      "suggested_by": ["E12"],
+      "cue": "라인 안쪽"
+    },
+    {
+      "id": "T02",
+      "text": "사건 당일 09시경, 청소 중 사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E05"],
+      "cue": "09:00",
+      "refutation": "그건 그냥 아침 청소 시간이었어요, 사고랑은 시간이 달라요.",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "T03",
+      "text": "사건 당일 15시 26분, 알려진 직후",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E13"],
+      "cue": "사고 나고",
+      "refutation": "그건 제가 알게 된 시점이지, 일은 그 전에 이미 벌어진 뒤였어요.",
+      "refuted_by": "CH02"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "언쟁 중 밀려 넘어지며 유압 프레스에 팔이 끼여 사망",
+      "truth": true,
+      "evidence_for": ["E01", "E03"],
+      "suggested_by": ["E02"],
+      "cue": "몸싸움"
+    },
+    {
+      "id": "H02",
+      "text": "안전 가드가 열린 채 방치돼 벌어진 단순 기계 오작동",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E05"],
+      "cue": "안전 가드",
+      "refutation": "그 가드는 제가 그날 아침에 열어 둔 거지, 고장 난 게 아니었어요.",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "H03",
+      "text": "허도경이 스스로 발을 헛디뎌 넘어진 단순 낙상",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E13"],
+      "cue": "사고 나고",
+      "refutation": "그건 제가 나중에 본 모습일 뿐이지, 사고 경위까지 안 건 아니에요.",
+      "refuted_by": "CH02"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 그 시간엔 계속 로비에서 실사 서류만 보고 있었습니다."
+    },
+    "CH02": {
+      "text": "저요? 그 시간엔 계속 사무실에서 실사 자료 정리하고 있었어요."
+    },
+    "CH03": {
+      "text": "저요? 그 시간엔 휴게실에서 그냥 기다리고 있었을 뿐이에요."
+    },
+    "CH04": {
+      "text": "저요? 그 시간엔 창고에서 자재 정리하고 있었어요."
+    }
+  },
+  "resolution": {
+    "who": "탁재호였다. 되찾은 세션 파일과 그날의 목격담이 그를 좁혀 갔다.",
+    "when": "사건 당일 15시 15분경, 프레싱 라인 작업장에서.",
+    "why": "10년간 가로채 온 크레딧과 지분이 드러날 위기에 몰려 격분했기 때문이다.",
+    "how": "언쟁 중 허도경을 밀쳐 열린 안전 가드 쪽으로 넘어지게 하고, 유압 프레스에 팔이 끼여 숨지게 한 뒤 가드를 닫고 정비일지를 고쳐 사고처럼 꾸몄다."
+  }
 }

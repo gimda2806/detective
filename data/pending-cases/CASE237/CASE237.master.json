@@ -279,6 +279,23 @@
           "claim_id": "S-CH01-04",
           "content": "제가 대표님을 제일 먼저 발견해서 사람들을 불렀습니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "...사고 직전에 통풍구 제어반 근처에 있었던 건 맞습니다. 배선은 만지지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명 — 배선을 조작한 사실을 숨긴다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-07",
+          "content": "...배선을 손봐서 통풍구가 열리게 한 건 저예요. 그런데 하영덕 씨를 해칠 생각은 없었어요. 실수였습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명 — 동기(아버지의 죽음)를 숨긴다. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-08",
+          "content": "...아버지가 돌아가신 게 하영덕 씨가 방치한 탓이었다는 걸 최근에야 알았어요. 그 대가를 치르게 하려고 통풍구를 일부러 조작했습니다. 전부 제가 한 일이에요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -297,6 +314,21 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-07",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-08",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
