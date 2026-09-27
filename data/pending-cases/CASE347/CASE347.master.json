@@ -1,0 +1,1655 @@
+{
+  "case_identity": {
+    "case_id": "CASE347",
+    "title": "커피가 식기 전에",
+    "english_title": "Before the Coffee Cools",
+    "genre": "지분 매각 계약으로 밀려난 데 대한 배신감에서 비롯된 동료 살인 / 수의용 진정제를 커피에 타 심정지를 유발하고 지병 탓 급사로 위장한 독살",
+    "setting": "24시간 운영되는 동물응급센터 '라온동물응급센터'. 원장 진강호가 9년째 부원장 소하린과 함께 응급실을 지켜 온 곳이다. 그날 오전에는 전국 체인과의 지분 매각 계약이 정식으로 체결되었고, 저녁에는 그 자축 자리가 근처 식당에서 열렸다.",
+    "location_archetypes": [
+      "hospital"
+    ],
+    "background": {
+      "background_archetypes": [
+        "acquisition_transfer"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정과 한지우는 야근을 마치고 돌아가던 길, 24시간 동물병원 유리문 밖에서 누군가 다급히 뛰쳐나와 소리치는 것을 보고 걸음을 멈춘다. 대수롭지 않게 지나치려다, 안쪽에서 들리는 다급한 외침에 이끌려 함께 들어선다.",
+    "tone": "24시간 불이 꺼지지 않는 응급실 특유의 소독약 냄새와 팽팽한 긴장감, 그리고 그 안에서 애써 침착함을 유지하려는 사람들 사이의 미묘한 균열. 탐정과 한지우는 남의 병원 소란에 발이 묶인다.",
+    "tags": [
+      "동물응급센터",
+      "야간_병원",
+      "24시간_진료"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "진강호",
+      "role": "병원장",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 23:20",
+    "narrative": "야근을 마치고 돌아가던 탐정과 한지우는, 24시간 동물병원 유리문 밖에서 누군가 다급히 뛰쳐나와 소리치는 것을 보고 걸음을 멈춘다.\n\n\"저기...\"\n\n\"가 보자.\"\n\n문을 밀고 들어서자 로비 안쪽에서 다급한 발소리와 낮은 신음 같은 것이 뒤섞여 들려온다. 안쪽 진료실 쪽에서는 쓰러진 원장을 붙들고 심폐소생술을 반복하는 목서인의 모습이 보이고, 대기 의자에 앉아 있던 사람은 두 손으로 얼굴을 감싸고 있다.\n\n\"이거...심상치 않은데요.\"\n\n\"일단 들어가서 보고.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "창밖이 희끗하게 밝아 올 무렵, 원장실 안은 여전히 서류 더미와 넘어진 의자 그대로다. 소하린은 오래도록 말이 없다가, 마침내 고개를 떨군다.\n\n\"제가... 그 커피에 약을 탔어요. 원장님이 쓰러지시는 걸 보고도, 병을 숨기고 컵을 씻었어요. 그럴 수밖에 없었어요.\"\n\n탐정은 잠시 아무 말도 하지 않는다.\n\n\"9년이면... 그 자리 하나쯤은 상의해 줄 수도 있었을 텐데.\"\n\n한지우는 조용히 수첩을 덮는다.\n\n창밖으로 구급차의 사이렌 소리가 멀어지고, 로비 한쪽에서는 차윤슬이 아직 반려견 곁을 지키고 있다. 지운 항의서를 다시 정식으로 낼지, 그는 여전히 마음을 정하지 못한 눈치다.\n\n\"이제 좀 자자.\"\n\n\"오늘은... 진짜 아침이 오긴 오네요.\"\n\n탐정이 픽 웃으며 한지우의 어깨를 툭 친다."
+  },
+  "surface_incident": [
+    "사건 당일 23시 13분경, 병원장 진강호가 원장실에서 쓰러진 채 발견됐다.",
+    "평소 앓던 부정맥이 갑자기 악화된 것으로 추정된다는 이야기가 그날 밤 병원 안에 돌았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "소하린은 9년째 함께 병원을 키워 온 진강호가 전국 동물병원 체인에 병원 지분을 인수시키는 매각 계약을 체결하며, 자신을 공동대표가 아닌 고용 수의사로 재편하는 조항에 서명한 것을 사건 전날 밤 우연히 알게 되었다. 아무 상의도 없이 자신의 자리를 지운 것에 배신감을 느끼고, 그날 밤 원장실로 찾아가 따지다가 격해진 끝에 범행을 저질렀다.",
+    "motive_archetypes": [
+      "business_control"
+    ],
+    "method": "회식을 마치고 돌아온 진강호가 원장실에서 서류를 정리하는 동안, 소하린은 미리 약제실에서 챙겨 온 수의용 진정제(덱스메데토미딘)를 그가 마시던 커피에 몰래 타 넣었다. 지병인 부정맥이 있는 그는 그 약물에 특히 취약했고, 커피를 마신 지 얼마 지나지 않아 가슴을 움켜쥐며 쓰러져 심정지에 이르렀다.",
+    "method_archetypes": [
+      "oral_poisoning",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 23시 05분경, 원장실(L03)에서.",
+    "cover_up": "소하린은 진강호가 쓰러진 뒤, 그가 마시던 머그컵을 씻어 탕비대 건조대에 되돌려 놓고, 빈 약병은 응급진료실 의료폐기물 봉투 깊숙이 숨겼으며, 약제실 마약류 사용 기록에는 그 양만큼을 입원 중이던 다른 환축 처치에 쓴 것으로 조작해 적어 넣어, 지병인 부정맥에 의한 급성 심정지로 보이도록 정리했다.",
+    "cover_up_target": [
+      "weapon",
+      "evidence",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "weapon_disposal",
+      "scene_rearrangement",
+      "document_falsification",
+      "accident_victim_health"
+    ],
+    "decisive_evidence_ids": [
+      "E03",
+      "E04"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 2개월 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "진강호가 전국 동물병원 체인 '펫프렌즈그룹'과 지분 매각 협상을 시작한다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 5일 전 19:00",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "진강호가 변호사와 함께 최종 계약 조항을 조율하며, 소하린의 지위를 공동대표에서 고용 수의사로 낮추는 문구에 서명 확인 도장을 찍는다.",
+      "world_fact": "그 조항은 진강호 혼자만 확인했고, 계약서 원본은 원장실 책상 서랍에 넣어 두었다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 22:40",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 야간 당직 인수인계차 원장실에 들렀다가, 살짝 열린 서랍 속 계약서 초안을 넘겨보다 자신의 직함이 바뀐 조항을 발견한다.",
+      "world_fact": "그 조항을 본 것은 소하린 혼자였고, 그는 서랍을 원래대로 닫아 두고 아무 말 없이 나갔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 09:30",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "펫프렌즈그룹 관계자들이 찾아와 인수 계약서에 정식으로 서명한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 20:00",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
+      "actual_action": "계약 체결을 자축하는 회식 자리가 근처 식당에서 열리고, 야간 당직인 소하린과 목서인만 병원에 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 21:30",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "차윤슬이 입원 중인 자신의 반려견 상태를 확인하러 와 대기실에서 기다린다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 22:10",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "반지오가 다음 날 배송할 의료용품 박스를 하역구에 내려놓고 인계 서명을 남긴다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 22:30",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "회식을 마친 진강호가 병원으로 돌아와 원장실에서 남은 서류를 정리한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 22:50",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "표하윤이 야간 재고 확인을 위해 약제실에 들렀다가, 마약류 보관함 열쇠가 평소 자리가 아닌 서랍 위에 놓여 있는 것을 이상하게 여긴다.",
+      "world_fact": "그 열쇠는 그날 낮 동안 자리를 옮긴 사람이 없었다고 알려져 있었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 22:55",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "소하린이 원장실로 찾아가 계약 조항에 대해 따진다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 23:00",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "표하윤이 로비를 지나다 원장실 쪽에서 언성이 높아지는 소리를 짧게 듣는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 23:05",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 미리 챙겨 온 수의용 진정제를 진강호가 마시던 커피에 섞어 넣는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 23:08",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "진강호가 커피를 마신 지 얼마 지나지 않아 가슴을 움켜쥐며 바닥에 쓰러진다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 23:11",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 비명을 지르며 목서인을 부른다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 23:13",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "목서인이 뛰어 들어와 심폐소생술을 시도하지만 반응이 없다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 23:16",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "대기실에 있던 차윤슬이 소란을 듣고 로비로 뛰어나와 지나가던 사람들에게 도와달라고 소리친다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 23:42",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 정리하는 척 원장실 탕비대 위 머그컵을 씻어 건조대에 되돌려 놓는다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 23:55",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 빈 약병을 응급진료실 의료폐기물 봉투 깊숙이 넣어 둔다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 다음날 03:40",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "소하린이 마약류 사용 기록 대장에 그 양만큼 다른 입원 환축 처치에 쓴 것으로 적어 넣는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "소하린",
+      "role": "부원장 / 수석 응급수의사",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "9년째 함께 병원을 키워 온 진강호가 전국 체인과 지분 매각 계약을 진행하며, 자신을 공동대표가 아닌 고용 수의사로 재편하는 조항에 서명한 것을 사건 전날 밤 우연히 알게 되었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 밤 원장실로 찾아가 계약 조항에 대해 따진 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 밤 약제실에 들러 진정제를 챙긴 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "그의 커피에 진정제를 타서 마시게 하고, 심정지를 일으키는 것을 지켜본 뒤 빈 약병을 숨기고 머그컵을 씻었다는 것을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "반지오가 예전에 대금 문제로 원장님과 언성을 높인 적이 있다는 말을 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "원장님이랑 저는 손발 맞춰 온 세월이 있어서, 이번 계약 이야기도 진작에 저한테 먼저 상의하실 줄 알았어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤엔 원장실 근처에 얼씬도 안 했어요. 급히 불려 갔을 때는 이미 쓰러져 계셨다니까요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "따지긴 했지만 몇 마디 하고 바로 나왔어요. 약제실엔 그 뒤로 들어간 적도 없고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "진정제는 다른 환축 처치 때문에 챙긴 거예요. 원장님 커피에는 손도 안 댔어요. 원래 심장이 안 좋으셨잖아요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "그가 예전부터 심장이 안 좋았다는 것 외에, 정확한 진단명까지는 모른다.",
+        "표하윤이 그날 약제실에서 무엇을 이상하게 여겼는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 시종 담담하다.",
+        "sentence_length_tendency": "평소엔 짧고 사무적인데, 몰리면 문장이 점점 길어지며 변명이 붙는다.",
+        "verbal_tic": "설명 끝에 '그럴 수밖에 없었어요'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "몇 번을 여쭤보셔도 같은 대답이에요.",
+        "...그때는 정말 그럴 수밖에 없었어요.",
+        "이 이상은... 저도 드릴 말씀이 없네요."
+      ],
+      "comic_tell": "곤란해지면 안경다리를 슬쩍 밀어 올린다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-01",
+        "says": "반지오씨가 예전에 돈 문제로 원장님이랑 다툰 적 있다는 얘기는 저도 들었어요. 그 이상은 저도 몰라요.",
+        "reveals": "반지오와 진강호 사이에 예전에 금전 갈등이 있었다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "표하윤",
+      "role": "수간호사 / 야간 테크니션",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 밤 22시 50분경 약제실에 재고 확인차 들렀다가, 마약류 보관함 열쇠가 평소 넣어 두는 서랍이 아니라 서랍 위에 놓여 있는 것을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "복도를 지나다 22시 55분쯤 원장실에서 언성이 높아지는 소리를 짧게 들었는데, 그 목소리가 소하린의 것 같았다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "반지오와 원장 사이의 미수금 문제는 지난주에 이미 정산이 끝났다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "얼마 전 원장에게 야간 책임자 승급을 은근히 타진받았지만 부담스러워 완곡히 거절했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "사건 당일 낮부터 소하린이 유난히 말수가 줄고 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-06",
+          "content": "원장이 몇 년 전부터 부정맥 진단을 받고 약을 챙겨 먹어 왔다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-07",
+          "content": "차윤슬과 원장님이 지난달 병원비 문제로 크게 다퉜다는 얘기를 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "원장님은 재고 관리 하나는 저한테 다 맡기실 만큼 믿어 주셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 약제실에서 재고 확인하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E02",
+          "release_trigger": "F-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-06",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH02-05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-07",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-06"
+        }
+      ],
+      "knowledge_limits": [
+        "소하린이 그날 밤 약제실에서 정확히 무엇을 챙겼는지는 모른다.",
+        "차윤슬과 원장 사이에 정확히 무슨 일이 있었는지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 또박또박하다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 요점만 말하는데, 몰리면 더 짧아진다.",
+        "verbal_tic": "말끝에 '확인했어요'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "그건 제가 몇 번이나 확인했어요.",
+        "더 여쭤보셔도 제가 본 건 그게 다예요.",
+        "...그 이상은 저도 확실하지 않아요."
+      ],
+      "comic_tell": "생각할 때 볼펜을 딸깍거린다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-07",
+        "opens": "S-CH02-01",
+        "says": "윤슬씨랑 원장님이 지난달에 크게 다퉜다는 얘기는 저도 들었어요. 그 이상은 모릅니다.",
+        "reveals": "차윤슬과 진강호 사이에 병원비 문제로 다툼이 있었다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "목서인",
+      "role": "인턴 수의사 / 야간 당직",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "22시 55분쯤 원장실 쪽에서 언성이 높아지는 소리가 잠깐 들렸지만 누구 목소리인지는 몰랐다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "지난달 차윤슬이 자신의 반려견 수술 후유증 문제로 원장과 크게 다퉜다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "며칠 전 자신의 처치 기록 실수를 원장에게 지적받고, 그 기록을 몰래 다시 써 두었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "반지오가 그날 밤 마감 시간이 지나서도 하역구 근처에서 서성이는 것을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "차윤슬이 대기실을 벗어난 적 없이 그 시각 내내 그 자리에 있었다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-06",
+          "content": "쓰러진 진강호의 목이나 몸에 몸싸움으로 생긴 듯한 자국은 없었다는 것을 직접 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-07",
+          "content": "23시 13분에 뛰어 들어갔을 때 이미 맥박이 없었고, 그만큼 시간이 지나 있었다는 것을 느꼈다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-08",
+          "content": "표하윤이 그날따라 약제실 재고를 유난히 꼼꼼하게 확인하는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "원장님은 저한테 유독 엄격하셨지만, 그만큼 꼼꼼히 가르쳐 주셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 응급실에서 다음 날 처치 준비를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-06",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH03-05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-07",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH03-06"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-08",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH03-07"
+        }
+      ],
+      "knowledge_limits": [
+        "소하린과 원장 사이에 정확히 무슨 얘기가 오갔는지는 모른다.",
+        "반지오가 몇 시에 정확히 하역구를 떠났는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 긴장하면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명이 많은데, 몰리면 오히려 뚝뚝 끊어진다.",
+        "verbal_tic": "말끝에 '그랬던 것 같아요'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저, 정말 그게 다예요...",
+        "정말... 그랬던 것 같아요, 그것밖에 기억이 안 나요.",
+        "...더는 저도 모르겠어요."
+      ],
+      "comic_tell": "당황하면 청진기 줄을 손가락에 감았다 풀었다 한다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-08",
+        "opens": "S-CH03-01",
+        "says": "표하윤 선생님이 그날따라 약제실 재고를 유난히 꼼꼼하게 확인하시긴 했어요. 그것 말고는 딱히...",
+        "reveals": "표하윤이 그날 밤 약제실 재고를 평소보다 꼼꼼히 확인했다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "반지오",
+      "role": "동물 이송 기사 / 협력업체",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 밤 22시 10분경 다음 날 배송할 의료용품 박스를 하역구에 내려놓고 22시 15분에 서명을 남긴 뒤 떠났다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "원장과의 미수금 문제는 지난주에 이미 정산이 끝났다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "지난달 정산이 늦어지면서 원장과 언성을 높인 적이 있다는 것을 다른 직원들에게 알리고 싶어 하지 않는다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "그날 밤 하역구를 오가면서 원장실 쪽 불이 늦게까지 켜져 있는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "원장님은 일 하나는 확실하게 맡기시는 분이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그날은 물건만 내려놓고 22시 15분쯤 바로 나왔어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH04-03"
+        }
+      ],
+      "knowledge_limits": [
+        "병원 안에서 그날 밤 정확히 무슨 일이 있었는지는 모른다.",
+        "소하린이 원장실에서 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 무뚝뚝하지만 예의는 지킨다.",
+        "sentence_length_tendency": "평소엔 짧게 대답하는데, 몰려도 크게 달라지지 않는다.",
+        "verbal_tic": "말끝에 '그게 답니다'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그게 답니다. 더 여쭤보셔도 똑같아요.",
+        "저야 물건만 놓고 가는 사람인데요.",
+        "...진짜 그게 전부예요."
+      ],
+      "comic_tell": "말할 때마다 습관적으로 손목시계를 확인한다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-04",
+        "opens": "S-CH04-01",
+        "says": "그날 원장실 쪽 불이 꽤 늦게까지 켜져 있던 게 좀 걸리긴 했어요. 안에 누가 있었는진 모르지만요.",
+        "reveals": "그날 밤늦게까지 원장실 불이 켜져 있었다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "차윤슬",
+      "role": "반려견 보호자 / 단골 고객",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 밤 21시 40분에 대기실에 들어와 사건이 벌어진 시각까지 대기실을 벗어난 적이 없다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "지난달 반려견 수술 후유증으로 원장과 크게 다툰 뒤 손해배상을 요구하는 글을 썼다가 지운 적이 있다는 것을 병원 사람들에게 말하지 않았다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "22시 55분쯤 소하린이 원장실 쪽으로 급히 들어가는 모습을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "목서인이 그날따라 유난히 허둥대는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "우리 애가 여기서 오래 치료받아서, 저도 병원 사정을 어느 정도는 알아요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 대기실에 있었어요. 자리를 뜬 적이 없어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "병원 내부 사정은 잘 모른다.",
+        "그날 밤 원장실에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽다.",
+        "sentence_length_tendency": "평소엔 말을 아끼는데, 몰리면 방어적으로 짧아진다.",
+        "verbal_tic": "말끝을 흐리며 '그냥요'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그건 이미 말씀드렸잖아요.",
+        "제가 뭘 더 말씀드려야 하나요... 그냥요.",
+        "...그만 물어보시면 안 돼요?"
+      ],
+      "comic_tell": "긴장하면 이동장 손잡이를 꽉 쥔다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "그, 인턴 선생님이 그날따라 유난히 허둥대시긴 했어요. 저야 뭐 잘은 모르지만요.",
+        "reveals": "목서인이 그날 유난히 허둥댔다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "9년째 함께 응급실을 지켜 온 원장과 부원장.",
+      "public_face": "가장 손발이 잘 맞는 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "원장님은... 그냥 오래 함께 일한 분이에요. 지금은 그 이상 말씀드리기 어렵네요."
+      },
+      "private_strain": "소하린은 계약서 조항에서 자신이 공동대표가 아닌 고용 수의사로 바뀐다는 것을 사건 전날 밤 혼자 알게 된 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 계약서 조항(E01)을 소하린 앞에 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "5년째 함께 일해 온 원장과 수간호사.",
+      "public_face": "누구보다 병원 사정을 잘 아는 베테랑으로 알려져 있다.",
+      "says": {
+        "CH02": "원장님요? 저한테는 그냥... 깐깐하지만 믿을 만한 분이었어요."
+      },
+      "private_strain": "표하윤은 얼마 전 원장에게 야간 책임자 승급을 은근히 타진받았다가 부담스러워 완곡히 거절한 것을 동료들에게 말하지 않고 있다.",
+      "surfaces_when": "탐정이 표하윤에게 최근 원장과 나눈 이야기를 캐물을 때(F-CH02-04)."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "1년 전 인턴으로 들어와 원장에게 직접 지도받아 온 사이.",
+      "public_face": "성실한 신참으로 알려져 있다.",
+      "says": {
+        "CH03": "원장님은 제게 많이 가르쳐 주신 분이에요. 지금은... 잘 모르겠어요."
+      },
+      "private_strain": "목서인은 며칠 전 자신의 처치 실수를 원장에게 지적받고 그 기록을 몰래 다시 써 두었던 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 목서인에게 최근 처치 기록에 대해 캐물을 때(F-CH03-03)."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "2년째 야간 배송을 맡아 온 원장과 이송 기사.",
+      "public_face": "믿고 맡기는 협력업체로 알려져 있다.",
+      "says": {
+        "CH04": "원장님이요? 일할 땐 확실한 분이었죠. 그 이상 뭐라 할 건 없어요."
+      },
+      "private_strain": "반지오는 지난달 대금 정산이 늦어지며 원장과 언성을 높인 적이 있다는 것을 다른 직원들에게 알리고 싶어하지 않는다.",
+      "surfaces_when": "탐정이 반지오에게 돈 문제를 캐물을 때(F-CH04-03)."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "3년째 단골로 다녀 온 보호자와 원장.",
+      "public_face": "오래 믿고 맡겨 온 병원으로 알려져 있다.",
+      "says": {
+        "CH05": "원장님이요? 저희 애를 오래 봐주신 분이에요. 그 이상은..."
+      },
+      "private_strain": "차윤슬은 지난달 반려견 수술 후유증으로 원장과 크게 다툰 뒤 손해배상을 요구하는 글을 썼다가 지운 적이 있다는 것을 병원 사람들에게 말하지 않았다.",
+      "surfaces_when": "탐정이 구겨진 항의서 초안(E05)을 차윤슬 앞에 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH02"
+      ],
+      "nature": "같은 병원에서 5년 넘게 밤을 함께 지킨 동료.",
+      "public_face": "손발 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "하윤 쌤이요? 저한텐 편한 동료죠.",
+        "CH02": "하린 선생님은... 오래 같이 일한 동료죠. 지금은 그 이상은 말씀 못 드리겠어요."
+      },
+      "private_strain": "표하윤은 소하린이 계약서 문제로 그날 유난히 예민해 보였다는 것을 눈치채고도 먼저 캐묻지 않았다.",
+      "surfaces_when": "탐정이 표하윤에게 사건 당일 소하린의 모습이 어땠는지 캐물을 때(F-CH02-05)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 겸 대기실",
+      "access": "누구나 드나들 수 있는 야간 대기 공간. 접수 데스크가 상시 자리를 지킨다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03"
+      ],
+      "base_description": "정면 접수 데스크 위로 야간 진료 안내판이 걸려 있고, 그 옆 대기 의자에는 빈 이동장 하나가 놓여 있다. 소파 한켠에 차윤슬이 무릎에 얼굴을 묻은 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내판 옆 화이트보드에는 오늘 오전 서명식 사진이 아직 그대로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "접수대 아래 서랍을 살펴본다",
+          "requires": "차윤슬",
+          "release_evidence_id": "E05",
+          "result": "접수대 아래 서랍 속, 차윤슬 명의로 작성되었다가 구겨져 버려진 손해배상 요구서 초안이 나온다. 날짜는 사건 열흘 전이다."
+        },
+        {
+          "action": "대기실 손님 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "출입 기록에는 차윤슬이 21시 40분에 들어와 사건이 벌어진 시각까지 대기실을 벗어난 기록이 없다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "응급진료실",
+      "access": "응급 상황이 아니면 직원만 드나드는 진료 공간.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L04"
+      ],
+      "base_description": "처치대 위 심전도 모니터가 예비 알람을 반복하고 있고, 구석 카트 위 응급 키트는 열린 채 놓여 있다. 목서인이 장갑을 벗지 못한 채 처치대 옆에 주저앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "응급진료실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "처치대 주변은 방금까지 심폐소생술이 이뤄진 흔적으로 어지럽다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "의료폐기물 봉투 안쪽을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "의료폐기물 봉투 맨 아래, 다른 폐기물보다 유난히 깊숙이 눌러 넣어진 빈 약병 하나가 나온다. 라벨은 남아 있지만 뚜껑이 없다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "원장실",
+      "access": "원장만 사용하는 개인 사무실. 평소엔 잠겨 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
+      "base_description": "책상 위 서류 더미가 흐트러져 있고, 넘어진 의자 하나가 그대로 바닥에 놓여 있다. 소하린이 문가에 굳은 얼굴로 서 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위 계약서 서류철이 반쯤 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍 속 계약서 초안을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "계약서 초안 마지막 장, 오늘 오전 서명식에서 정식으로 체결된 지분 조항 옆에 '수의사 소하린 — 고용직 전환'이라는 문구가 손글씨로 덧붙여져 있다. 서명 확인 도장이 그 옆에 따로 찍혀 있다."
+        },
+        {
+          "action": "탕비대 위 머그컵을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "탕비대 위, 원장이 평소 두어 모금 남기고 그대로 두던 머그컵이 오늘은 말끔히 씻겨 뒤집힌 채 건조대에 올라가 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "약제실",
+      "access": "마약류 보관함이 있는 시설. 출입 기록을 남겨야 들어갈 수 있다.",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "선반마다 약병들이 줄지어 있고, 안쪽 마약류 보관함에는 별도의 자물쇠가 걸려 있다. 표하윤이 선반 앞에 서서 재고 대장과 약장 안을 번갈아 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "약제실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "보관함 자물쇠는 걸려 있지만, 열쇠는 서랍이 아니라 그 위에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "마약류 사용 기록 대장을 확인한다",
+          "requires": "표하윤",
+          "release_evidence_id": "E03",
+          "result": "가장 최근 사용 기록에 '덱스메데토미딘 10mL, 입원 3번 칸 환축 처치'라고 적혀 있다. 그런데 그날 3번 칸에는 처치가 필요한 환축이 없었다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "하역구 겸 주차장",
+      "access": "건물 뒤편, 배송 차량과 직원들만 드나드는 하역구.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "화물 대차 옆으로 다음 날 배송할 상자들이 쌓여 있고, 벽에 붙은 서명 확인서 클립보드가 바람에 살짝 흔들린다. 반지오가 화물칸 옆에서 인계 서류를 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "하역구를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "경비 초소 옆 출입 기록판에 야간 방문자 이름이 몇 줄 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "하역구 서명 확인서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "반지오의 서명과 함께 '22:15 인계 완료'라는 시각이 적혀 있고, 그 아래 경비 초소 통과 기록에도 같은 시각 퇴장이 찍혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "계약서 초안 속 손글씨 조항",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 속 계약서 초안을 살펴본다",
+      "content": "계약서 초안 마지막 장, 오늘 오전 서명식에서 정식으로 체결된 지분 조항 옆에 '수의사 소하린 — 고용직 전환'이라는 문구가 손글씨로 덧붙여져 있다. 서명 확인 도장이 그 옆에 따로 찍혀 있다.",
+      "proves": [
+        "소하린이 계약으로 공동대표 자리를 잃고 고용직으로 재편된다는 것"
+      ],
+      "does_not_prove": [
+        "소하린이 그 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "다른 조항은 인쇄체인데 이 조항만 자필로 덧붙여져 있고, 도장도 따로 찍혀 있다.",
+      "reaction": {
+        "jiwoo": "이거...고용직 전환이라고 적혀 있는데요.",
+        "detective": "그 한 줄이 오늘 밤을 설명해 줄 수도 있겠네."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "말끔히 씻긴 머그컵",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "탕비대 위 머그컵을 살펴본다",
+      "content": "탕비대 위, 원장이 평소 두어 모금 남기고 그대로 두던 머그컵이 오늘은 말끔히 씻겨 뒤집힌 채 건조대에 올라가 있다.",
+      "proves": [
+        "누군가 그 머그컵을 사건 직후 씻어 정리했다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에 무엇이 들어 있었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "다른 서류와 물건은 흐트러져 있는데 머그컵만 유독 깨끗하다.",
+      "reaction": {
+        "jiwoo": "다른 건 다 흐트러져 있는데 이것만 너무 깨끗한데요.",
+        "detective": "치운 사람이 있다는 뜻이지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "앞뒤가 맞지 않는 마약류 사용 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "마약류 사용 기록 대장을 확인한다",
+      "content": "가장 최근 사용 기록에 '덱스메데토미딘 10mL, 입원 3번 칸 환축 처치'라고 적혀 있다. 그런데 그날 3번 칸에는 처치가 필요한 환축이 없었다.",
+      "proves": [
+        "그 양의 진정제가 실제로는 다른 목적에 쓰였다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 기록을 적어 넣었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01",
+      "mismatch": "기록된 사용 대상과 그날의 입원 현황이 맞지 않는다.",
+      "reaction": {
+        "jiwoo": "환축 처치라고 적혀 있는데, 그날 그 칸엔 아무도 없었잖아요.",
+        "detective": "기록은 거짓말을 하지, 사람 대신."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "폐기물 속 빈 약병",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "의료폐기물 봉투 안쪽을 살펴본다",
+      "content": "의료폐기물 봉투 맨 아래, 다른 폐기물보다 유난히 깊숙이 눌러 넣어진 빈 약병 하나가 나온다. 라벨은 남아 있지만 뚜껑이 없다.",
+      "proves": [
+        "그 진정제 약병이 사용된 뒤 급히 처분되었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그것을 넣어 두었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "그날 폐기물은 아직 수거 전인데 이 병만 유독 깊이 들어가 있다.",
+      "reaction": {
+        "jiwoo": "이거 일부러 깊이 넣어둔 것 같은데요.",
+        "detective": "숨긴 티가 나면 숨긴 게 아니지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "구겨진 항의서 초안",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "접수대 아래 서랍을 살펴본다",
+      "content": "접수대 아래 서랍 속, 차윤슬 명의로 작성되었다가 구겨져 버려진 손해배상 요구서 초안이 나온다. 날짜는 사건 열흘 전이다.",
+      "proves": [
+        "차윤슬과 원장 사이에 병원비 관련 갈등이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 갈등이 사건 당일까지 이어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "정식으로 접수되지 않고 구겨진 채 버려져 있다."
+    },
+    {
+      "id": "E06",
+      "name": "대기실 손님 출입 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "대기실 손님 출입 기록을 확인한다",
+      "content": "출입 기록에는 차윤슬이 21시 40분에 들어와 사건이 벌어진 시각까지 대기실을 벗어난 기록이 없다.",
+      "proves": [
+        "차윤슬이 그 시각 내내 대기실에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "대기실 밖에서 벌어진 일"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "다른 손님들의 기록은 드나든 시각이 여럿인데 차윤슬만 한 번뿐이다."
+    },
+    {
+      "id": "E07",
+      "name": "하역구 서명 확인서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "하역구 서명 확인서를 확인한다",
+      "content": "반지오의 서명과 함께 '22:15 인계 완료'라는 시각이 적혀 있고, 그 아래 경비 초소 통과 기록에도 같은 시각 퇴장이 찍혀 있다.",
+      "proves": [
+        "반지오가 22시 15분에 병원을 떠났다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 병원 안에서 벌어진 일"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "서명 시각과 퇴장 기록이 정확히 일치한다 — 그 뒤로 다시 들어온 기록은 없다."
+    },
+    {
+      "id": "E08",
+      "name": "약제실 열쇠에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "표하윤에게 그날 밤 약제실 열쇠가 어땠는지 묻는다",
+      "content": "\"마약류 보관함 열쇠요? 원래 서랍 안에 넣어 두는데, 그날은 서랍 위에 그냥 올려져 있었어요. 누가 급하게 썼다는 뜻이겠죠.\"",
+      "proves": [
+        "그날 밤 누군가 약제실에서 열쇠를 급히 다뤘다는 것"
+      ],
+      "does_not_prove": [
+        "그게 누구였는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "평소 자리와 다른 곳에 놓여 있었다."
+    },
+    {
+      "id": "E09",
+      "name": "목소리에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "표하윤에게 그 목소리가 누구였는지 묻는다",
+      "content": "\"복도 지나다가 원장실에서 말소리가 커지는 걸 짧게 들었어요. 하린 선생님 목소리였던 것 같아요.\"",
+      "proves": [
+        "소하린이 그날 밤 원장실에서 언성을 높였다는 것"
+      ],
+      "does_not_prove": [
+        "무슨 이야기를 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01",
+      "mismatch": "본인은 원장실 근처에 안 갔다고 하는데 목격담은 다르다."
+    },
+    {
+      "id": "E10",
+      "name": "정산 완료 확인 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "표하윤에게 반지오의 정산 문제가 어떻게 됐는지 묻는다",
+      "content": "\"반지오씨 정산 문제요? 그건 지난주에 이미 다 끝났어요. 이제 와서 그럴 이유가 없을 텐데요.\"",
+      "proves": [
+        "반지오와 원장 사이의 미수금 문제가 이미 해결됐다는 것"
+      ],
+      "does_not_prove": [
+        "둘 사이에 다른 앙금이 없었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "소문은 아직 도는데 실제 정산은 지난주에 끝나 있었다."
+    },
+    {
+      "id": "E11",
+      "name": "들려온 소리에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목서인에게 그날 밤 원장실 쪽에서 들려온 소리를 묻는다",
+      "content": "\"22시 55분쯤 원장실 쪽에서 언성이 높아지는 소리가 잠깐 들렸어요. 누구 목소리인지까진 몰라요.\"",
+      "proves": [
+        "그 시각 원장실에서 언쟁이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 언쟁을 벌였는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "언쟁은 들었지만 목소리의 주인은 특정하지 못한다."
+    },
+    {
+      "id": "E12",
+      "name": "차윤슬과의 다툼에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목서인에게 차윤슬과 원장 사이에 있었던 일을 묻는다",
+      "content": "\"윤슬님이요? 지난달에 반려견 수술 후유증 때문에 원장님이랑 크게 다퉜어요. 병원비 문제로도 언성이 높아졌었고요.\"",
+      "proves": [
+        "차윤슬과 원장 사이에 지난달 다툼이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 다툼이 사건 당일에도 이어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "겉으로는 오래된 단골로만 알려져 있는데 실제로는 크게 다툰 적이 있다."
+    },
+    {
+      "id": "E13",
+      "name": "반지오의 서성임에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목서인에게 반지오가 그날 밤에도 서성였는지 묻는다",
+      "content": "\"반지오씨요? 물건 내려놓고도 한참 하역구 근처에서 서성이는 걸 봤어요.\"",
+      "proves": [
+        "반지오가 인계 이후에도 하역구 근처에 머물러 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 병원 안으로 다시 들어왔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "인계만 하고 바로 떠났다는 말과 달리 한참을 더 머물렀다."
+    },
+    {
+      "id": "E14",
+      "name": "차윤슬의 위치에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "목서인에게 차윤슬이 계속 대기실에 있었는지 묻는다",
+      "content": "\"윤슬님은 제가 몇 번을 봐도 계속 대기실에 계셨어요. 자리를 뜨는 걸 본 적이 없어요.\"",
+      "proves": [
+        "차윤슬이 그 시각 내내 대기실에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "대기실 밖에서 벌어진 일"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "의심받는 사람치고는 자리를 한 번도 뜨지 않았다."
+    },
+    {
+      "id": "E15",
+      "name": "소하린 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "차윤슬에게 그날 밤 대기실에서 본 것을 묻는다",
+      "content": "\"기다리다가 22시 55분쯤 소하린 선생님이 원장실 쪽으로 급히 들어가는 걸 봤어요. 그러고 얼마 안 돼서 소리가 났어요.\"",
+      "proves": [
+        "소하린이 22시 55분경 원장실로 들어갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01",
+      "mismatch": "본인은 근처에 안 갔다고 하는데 목격담은 다르다."
+    },
+    {
+      "id": "E16",
+      "name": "반지오의 퇴장 시각 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "반지오에게 그날 밤 몇 시에 하역구를 떠났는지 묻는다",
+      "content": "\"22시 15분쯤 서명 남기고 바로 나갔어요. 확인해 보세요.\"",
+      "proves": [
+        "반지오 본인이 22시 15분에 떠났다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "본인 말과 실제 서명 확인서의 시각이 맞는지는 대조가 필요하다."
+    },
+    {
+      "id": "E17",
+      "name": "돈 문제 다툼에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "표하윤에게 반지오와 원장 사이에 있었던 돈 문제를 묻는다",
+      "content": "\"지난달에 미수금 정산이 늦어지면서 반지오씨랑 원장님이랑 언성을 높인 적 있어요. 그 뒤로는 못 들었는데...\"",
+      "proves": [
+        "반지오와 원장 사이에 지난달 금전 갈등이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 갈등이 사건 당일까지 이어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "믿고 맡기는 협력업체로만 알려져 있는데 실제로는 다툰 적이 있다."
+    },
+    {
+      "id": "E18",
+      "name": "원장의 건강 상태에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "표하윤에게 원장의 평소 건강 상태를 묻는다",
+      "content": "\"원장님이 몇 년 전부터 부정맥 진단을 받고 약을 챙겨 드시고 계셨어요. 그것 때문에 다들 조마조마했었죠.\"",
+      "proves": [
+        "원장이 지병으로 부정맥을 앓고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 지병이 사망의 직접적인 원인인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "지병이 있다는 사실이 진짜 사인을 가리는 데 쓰였다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09",
+        "E15"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E09",
+          "E15"
+        ]
+      },
+      "player_action": "표하윤이 들은 목소리(E09)와 차윤슬이 본 모습(E15)을 함께 제시하며 원장실 근처에 가지 않았다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그날 밤 원장실로 찾아가 계약 조항에 대해 따진 것은 인정한다."
+      },
+      "must_not_release": [
+        "약물을 탔다는 사실",
+        "커피에 무엇을 넣었는지"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_confrontation",
+      "to_stage": "admits_drug_access",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E08",
+          "E03"
+        ]
+      },
+      "player_action": "열쇠가 흐트러져 있었다는 증언(E08)과 앞뒤가 맞지 않는 사용 기록(E03)을 함께 제시하며, 약제실에 들어간 적 없다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "그날 밤 약제실에 들러 진정제를 챙긴 것은 인정한다."
+      },
+      "must_not_release": [
+        "커피에 탔다는 사실",
+        "살해 의도"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_drug_access",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E04",
+          "E02"
+        ]
+      },
+      "player_action": "폐기물 속에서 나온 빈 약병(E04)과 말끔히 씻겨 있던 머그컵(E02)을 함께 제시하며, 커피에는 손대지 않았다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "그의 커피에 진정제를 타서 마시게 하고, 심정지를 일으키는 것을 지켜본 뒤 빈 약병을 숨기고 머그컵을 씻었다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH04",
+      "surface_suspicion": "반지오는 예전에 정산 문제로 원장과 다툰 적이 있었고, 사건이 벌어진 시각에도 하역구 쪽에 남아 서성이고 있었다.",
+      "actual_reason": "실제로 그 정산 문제는 지난주에 이미 끝났고, 그날 밤에는 다음 날 배송할 의료용품을 미리 내려놓고 22시 15분경 서명을 남긴 뒤 곧바로 떠났다.",
+      "how_to_clear": "표하윤의 정산 확인 증언(E10)과 하역구 서명 확인서(E07)를 함께 대조하면, 정산 문제가 이미 끝났고 그가 22시 15분에 이미 떠났다는 것이 드러난다.",
+      "must_not_imply": "반지오가 돈 문제로 앙심을 품고 병원에 남아 있었다는 인상을 주지 않는다.",
+      "lingering_thread": "반지오는 혐의를 벗지만, 앞으로는 정산이 끝나면 그 자리에서 확인서를 받아 두겠다고 다짐한다.",
+      "suspicion_deepener": "목서인의 증언(E13, 그가 마감 후에도 서성였다는 목격)과 표하윤의 증언(E17, 지난달 다툼)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E07",
+        "E10"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "물건을 내려놓은 뒤에도 한참 하역구 근처에 머물러 있었다.",
+        "means": [
+          "E13",
+          "E17"
+        ],
+        "means_first_reading": "정산 문제로 다퉜다는 증언(E17)과 마감 후에도 서성였다는 목격(E13)이 겹쳐, 돈 때문에 남아 있던 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH05",
+      "surface_suspicion": "차윤슬은 지난달 반려견 수술 후유증으로 원장과 크게 다퉜고, 사건 당일 밤에도 병원에 남아 있었다.",
+      "actual_reason": "실제로 그는 항의서를 쓰다 말고 지운 뒤로는 원장과 별다른 접촉이 없었고, 그날 밤에는 자신의 반려견 상태를 확인하러 왔을 뿐 사건이 벌어지는 내내 대기실을 벗어나지 않았다.",
+      "how_to_clear": "목서인의 증언(E14)과 대기실 출입 기록(E06)을 함께 대조하면, 그가 사건 시각 내내 대기실에 있었다는 것이 드러난다.",
+      "must_not_imply": "차윤슬이 다툼에 대한 앙심으로 원장을 해쳤다는 인상을 주지 않는다.",
+      "lingering_thread": "차윤슬은 혐의를 벗지만, 그때 지운 항의서를 다시 정식으로 접수할지 여전히 고민하는 눈치다.",
+      "suspicion_deepener": "목서인의 증언(E12, 지난달 다툼 언급)과 구겨진 항의서 초안(E05)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E06",
+        "E14"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "대기실에 그 시각까지 남아 있었다.",
+        "means": [
+          "E12",
+          "E05"
+        ],
+        "means_first_reading": "지난달 다툼 언급(E12)과 구겨진 항의서 초안(E05)이 겹쳐, 앙심을 품고 찾아온 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04",
+      "E03",
+      "E04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-04",
+      "motive_fact": "F-CH01-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "소하린(CH01) — 부원장 겸 수석 응급수의사",
+    "method": "회식에서 돌아와 원장실에서 서류를 정리하던 진강호의 커피에 수의용 진정제를 몰래 타 넣어 심정지를 일으키게 했다.",
+    "motive": "지분 매각 계약으로 공동대표 자리를 잃고 고용 수의사로 밀려나게 된 것을 사건 전날 밤 알게 되어 배신감을 느꼈다.",
+    "key_connection": "계약서 초안 속 손글씨 조항(E01)이 그가 자리를 잃게 된 이유를 드러내고, 표하윤이 들은 목소리와 차윤슬이 본 모습(E09, E15)이 그날 밤 원장실에 있었던 사람을 좁히며, 앞뒤가 맞지 않는 마약류 사용 기록과 폐기물 속 빈 약병(E03, E04)이 그 진정제가 어디로 갔는지를 증명한다. 목서인이 들은 언쟁 소리(E11), 반지오 본인의 퇴장 진술(E16), 표하윤이 전한 원장의 지병 정보(E18)는 각각 다른 갈래의 의심을 지우는 데 쓰인다."
+  },
+  "ending_explanation": [
+    "병원장 진강호가 원장실에서 심정지로 쓰러진 채 발견된 표면 사건",
+    "계약서 초안 속 손글씨 조항이 소하린이 자리를 잃게 된 이유를 드러낸 과정",
+    "표하윤이 들은 목소리와 차윤슬이 본 모습이 그날 밤 원장실에 있었던 사람을 좁혀 간 과정",
+    "흐트러진 약제실 열쇠와 앞뒤가 맞지 않는 마약류 사용 기록이 「그냥 지병 탓」이라는 말을 뒤집은 과정",
+    "말끔히 씻긴 머그컵과 폐기물 속 깊이 숨겨진 빈 약병이 그 진정제가 어디로 갔는지를 증명한 과정",
+    "9년을 함께 키운 병원에서 자리를 잃게 된 배신감에서 빚어진 살인이라는 결말",
+    "계약서 조항, 약제실 열쇠, 목격담, 폐기물 속 약병이 각각 동기와 시각, 수법의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "지분 매각 계약으로 공동대표 자리를 잃게 된 데 대한 배신감",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E01",
+        "E09"
+      ],
+      "cue": "고용직"
+    },
+    {
+      "id": "M02",
+      "text": "미수금 문제로 앙심을 품은 반지오",
+      "truth": false,
+      "evidence_for": [
+        "E13",
+        "E17"
+      ],
+      "suggested_by": [
+        "E17"
+      ],
+      "cue": "미수금",
+      "refutation": "저요? 그 정산 문제는 지난주에 이미 끝났어요. 이제 와서 그것 때문에 그럴 이유가 없죠.",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "M03",
+      "text": "병원비 다툼으로 앙심을 품은 차윤슬",
+      "truth": false,
+      "evidence_for": [
+        "E12",
+        "E05"
+      ],
+      "suggested_by": [
+        "E12"
+      ],
+      "cue": "다퉜",
+      "refutation": "저요? 그날은 그냥 애 상태 보러 온 거예요. 다툰 거 갖고 이럴 사람으로 보이세요?",
+      "refuted_by": "CH05"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 23시 05분경, 원장실에서",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E11"
+      ],
+      "cue": "22시 55분"
+    },
+    {
+      "id": "T02",
+      "text": "그날 오전 서명식 직후, 원장실에서",
+      "truth": false,
+      "evidence_for": [
+        "E01"
+      ],
+      "suggested_by": [
+        "E01"
+      ],
+      "cue": "서명식",
+      "refutation": "서명식 때는 다들 같이 있었어요. 그때 무슨 일이 있었으면 모를 리 없죠.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "22시 55분경, 원장실에 처음 들어갔을 때",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E15"
+      ],
+      "cue": "22시 55분",
+      "refutation": "그때는 그냥 들어가는 것만 봤죠. 그러고 한참 지나서야 소리가 났는걸요.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "커피에 탄 진정제로 인한 심정지",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E02"
+      ],
+      "cue": "머그컵"
+    },
+    {
+      "id": "H02",
+      "text": "지병인 부정맥으로 인한 자연사",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E18"
+      ],
+      "cue": "부정맥",
+      "refutation": "그렇게 갑자기 가실 줄은 몰랐어요. 평소엔 약만 잘 챙기시면 괜찮으셨는데...",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "H03",
+      "text": "몸싸움 끝에 목을 조른 교살",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E11"
+      ],
+      "cue": "언성",
+      "refutation": "몸싸움한 흔적이라뇨? 목에 그런 자국은 없었어요. 그냥 갑자기 쓰러지신 거예요.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "저요? 저는 그 시각에 약제실에서 재고 확인하고 있었어요. 그것 말고는 드릴 말씀이 없어요."
+    },
+    "CH03": {
+      "text": "저요? 저는 처치 준비하다가 소리 지르는 것 듣고 달려간 것뿐이에요."
+    },
+    "CH04": {
+      "text": "저요? 저는 물건만 내려놓고 그날 바로 나갔다니까요."
+    },
+    "CH05": {
+      "text": "저요? 저는 그날 대기실에만 있었어요. 나갈 일도 없었고요."
+    }
+  },
+  "resolution": {
+    "who": "소하린이었다. 계약서 조항과 그날 밤 목격담이 그를 좁혀 갔다.",
+    "when": "사건 당일 23시 05분경, 원장실에서.",
+    "why": "지분 매각 계약으로 공동대표 자리를 잃고 고용 수의사로 밀려나게 된 것에 배신감을 느꼈기 때문이다.",
+    "how": "커피에 수의용 진정제를 몰래 타 심정지를 일으키게 하고, 머그컵을 씻고 약병을 숨긴 뒤 사용 기록을 조작했다."
+  }
+}

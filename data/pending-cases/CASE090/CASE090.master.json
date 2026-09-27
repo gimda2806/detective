@@ -460,6 +460,26 @@
           "content": "5년 전부터 이 연구소에서 일하다 1년 전 기술직으로 다시 돌아왔다.",
           "source": "본인이 겪은 일",
           "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오늘 오전 관찰대를 혼자 점검한 것은 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "스피커함 고정 볼트를 일부러 풀어 둔 것은 인정하지만, 왜 그랬는지는 말하지 않으려 한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "5년 전 서식지 훼손 수치를 낮추고 그 책임을 자신에게 떠넘긴 것이 우도경이었다는 사실을 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "5년 전과 똑같이 이번에도 우도경이 수치를 낮추고 책임을 자신에게 넘기려 한다는 걸 알고, 다시는 당하지 않겠다는 생각에 스피커함을 손봐 사고로 위장했다는 것을 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -501,9 +521,19 @@
           "release_trigger": "S-CH05-01"
         },
         {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "F-CH05-02",
           "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
         },
         {
           "fact_or_claim_id": "S-CH05-04",
@@ -511,9 +541,19 @@
           "release_trigger": "S-CH05-03"
         },
         {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        },
+        {
           "fact_or_claim_id": "S-CH05-05",
           "release_prerequisite": "F-CH05-04",
           "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [
