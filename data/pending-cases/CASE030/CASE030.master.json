@@ -1119,6 +1119,40 @@
         "jiwoo": "서명은 오늘 아침 8시 50분 거예요. 어젯밤 칸엔 이름이 없고요.",
         "detective": "그럼 어젯밤엔 여기 없었단 거지."
       }
+    },
+    {
+      "id": "E14",
+      "name": "마준서가 받은 밤 문자의 시각",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "마준서에게 그날 밤 구윤하와 주고받은 연락에 대해 자세히 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "마준서는 사건 당일 21시 30분에 구윤하의 문자를 받았지만 초대장 봉투 작업 때문에 답장은 다음날 아침에야 했다고 말한다.",
+      "proves": [
+        "구윤하가 그 시각까지 문자를 보낼 수 있는 상태였다는 것, 마준서 본인은 그날 밤 내내 집에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 시각 이후 구윤하의 신변에 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "도하린이 밝힌 그날 밤 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "도하린에게 사건 당일 밤 행적을 묻는다",
+      "related_timeline": [],
+      "content": "도하린은 사건 당일 밤 21시부터 자정 넘어서까지 사진 동호회 뒤풀이 자리에 다른 회원들과 함께 있었다고 말한다.",
+      "proves": [
+        "도하린이 그 시간대에 다른 사람들과 함께 있었다는 것"
+      ],
+      "does_not_prove": [
+        "뒤풀이가 끝난 이후의 행적"
+      ],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
