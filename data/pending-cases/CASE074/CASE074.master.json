@@ -178,6 +178,12 @@
           "reason_for_limit_or_lie": "실제로는 완전히 부도가 난 상태임을 숨기는 거짓말."
         },
         {
+          "claim_id": "S-CH01-04",
+          "content": "요식업이 완전히 망해서 빚이 많은 건 맞아요. 근데 그거랑 어머니 돌아가신 거랑은 전혀 상관없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
           "claim_id": "S-CH01-05",
           "content": "제가 저장고 근처에 갔어요. 하지만 환기팬 소리가 이상해서 잠깐 살펴보고 바로 나왔을 뿐이에요.",
           "truth_status": "lie",
@@ -188,6 +194,11 @@
           "content": "제가 환기구 손잡이를 돌리고 문에 빗장을 걸어 둔 건 맞아요. 하지만 잠깐 놀라게 할 생각이었을 뿐 이런 일이 벌어질 줄은 몰랐어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-07",
+          "content": "제가 다 말씀드릴게요 — 이틀 전에 몰래 승계 초안을 봤는데, 저 말고 은채한테 회사가 넘어간다는 걸 알게 됐어요. 갚을 길 없는 빚에 평생 쌓인 배신감까지 겹쳐서, 오늘 어머니를 저장고에 가두기로 마음먹었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
@@ -198,6 +209,11 @@
           "release_trigger": "S-CH01-02"
         },
         {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "E16"
@@ -206,6 +222,11 @@
           "fact_or_claim_id": "S-CH01-06",
           "release_prerequisite": "S-CH01-05",
           "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-07",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-06"
         }
       ],
       "knowledge_limits": ["발효 기술이나 서류 관리 쪽 세세한 사정은 잘 모른다."],

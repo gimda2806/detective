@@ -33,7 +33,7 @@
 | `evidence[].points_at` | `SUSPICION_THIN`·`TESTIMONY_*` 세 검사가 **통째로 안 켜진다**. 어느 쪽으로도 안 기우는 카드는 **`null` 로 적는다** — 키가 없는 것과 다르다 |
 | `evidence[].mismatch` | 물증이 「무엇이 있었다」로 끝나고 「있어야 할 자리에 없다」가 사라진다 |
 | `red_herrings[].character_id` | 런타임이 `surface_suspicion` **문장에서 이름을 찾는** 폴백으로 떨어진다 → 가나다순으로 먼저인 사람이 주인이 된다 |
-| `red_herrings[].weight` | 헛다리가 「그럴 만한 사람」에서 그치고 「그날 그럴 수 있었던 사람」이 안 된다 |
+| `red_herrings[].weight` | 헛다리가 「그럴 만한 사람」에서 그치고 「그날 그럴 수 있었던 사람」이 안 된다. **하위 칸 넷(`motive` M## · `opportunity` · `means` · `means_first_reading`)을 다 채운다** — 빈 문자열은 `OFFLINE_WEIGHT_EMPTY`가 막는다(2026-09-27 사용자 결정 「채운다」. 판본 넷의 6곳이 비어 있었다) |
 | `red_herrings[].clearing_points_at` | 헛다리를 지우는 것이 진범 쪽으로 한 걸음이 되지 않는다 |
 | `relationships[].id` | 관계를 가리킬 이름이 없다 |
 | `locations[].access_level` | 지도가 통제 구역을 구분해 그릴 수 없다(`access` 는 서술문이라 UI 가 못 읽는다) |
@@ -50,7 +50,7 @@
 - **`REFERENCE_OWNERSHIP`** — id 가 **그 자리에 올 수 있는 것인가**. 원본에도
   돈다. `points_finger.at`(존재·자기 자신 아님)·`because`/`opens`(그 **인물
   자신의** knows/initial_claims)·`clearing_points_at`(존재·주인공 아님)·
-  `weight.motive`(M## 이거나 빈 문자열)·`weight.means`(존재하는 카드이고 그
+  `weight.motive`(M## — 빈 문자열은 `OFFLINE_WEIGHT_EMPTY`가 따로 막는다)·`weight.means`(존재하는 카드이고 그
   카드의 `points_at` 이 이 인물).
 
 ## 사건마다 달라서 강제하지 않는 것

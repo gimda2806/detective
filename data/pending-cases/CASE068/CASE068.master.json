@@ -169,6 +169,11 @@
           "content": "실랑이 중에 진태오가 넘어지면서 선반의 변압기 코어에 머리를 부딪힌 건 맞아요. 하지만 사고였을 뿐이고 그 뒤로는 저도 당황해서 아무것도 손대지 않았어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "...그게 답니다. 계약서에 제 이름이 빠진 걸 두고 다투다가, 진태오 선배가 변압기 코어에 부딪혀 쓰러졌어요. 숨이 끊긴 걸 확인하고도 그대로 두고 나왔고, 입실 시각도 실제보다 이른 시각으로 고쳐 적었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
@@ -182,6 +187,11 @@
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "S-CH01-03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디서 무엇을 했는지는 자세히 모른다."],

@@ -259,6 +259,11 @@
           "content": "제가 홧김에 환기구 걸쇠를 걸어 잠갔어요. 하지만 금방 다시 풀어 놓았을 뿐 도림스님이 위험해질 줄은 몰랐어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "...그뿐입니다. 승계에서 밀려난 게 분했고, 스님이 안 계시면 관례상 제가 그 자리를 잇게 된다는 계산도 있었습니다. 환기구를 걸어 잠갔다가 한 시간 뒤 다시 풀었고, 유지보수 수첩의 점검 날짜도 고쳐 적었습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
@@ -272,6 +277,11 @@
           "fact_or_claim_id": "S-CH03-04",
           "release_prerequisite": "S-CH03-03",
           "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
         }
       ],
       "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디서 무엇을 했는지는 자세히 모른다."],
