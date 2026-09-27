@@ -46,7 +46,7 @@
     "method_archetypes": ["strangulation", "staging_cover_up"],
     "key_time_location": "사건 당일 23:02~23:07, 정담라디오 스튜디오 부스(L02)",
     "cover_up": "유담헌은 차단기를 내려 조명과 콘솔 전원을 끊어 전기 사고처럼 보이게 했고, 들고 있던 낡은 헤드폰 케이블의 피복을 벗겨 시신 옆에 흘려 두어 감전의 흔적을 새로 만들어 두었으며, 목에 남은 압박 자국이 눈에 띄지 않도록 헤드폰 넥밴드를 목에 걸쳐 두고 부스를 빠져나왔다.",
-    "cover_up_target": ["evidence", "responsibility"],
+    "cover_up_target": ["responsibility", "crime_scene"],
     "cover_up_method": ["false_accident", "evidence_placement", "body_movement"],
     "decisive_evidence_ids": ["E01", "E02", "E12"]
   },
@@ -832,6 +832,18 @@
       "does_not_prove": ["그 불안이 사건과 관련 있다는 뜻은 아니다"],
       "points_at": "CH02",
       "mismatch": "겉으로는 태연했다는 강이슬의 말과, 서로겸이 본 그날의 초조함이 어긋난다."
+    },
+    {
+      "id": "E15",
+      "name": "굳어지던 표정",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서로겸에게 외주화 소문이 나올 때 노을해가 어떤 반응을 보였는지 묻는다",
+      "content": "\"그 얘기만 나오면 노을해 씨 표정이 확 굳었어요. 아무렇지 않은 척은 하는데, 손이 콘솔 다이얼을 계속 만지고 있더라고요.\"",
+      "proves": ["노을해도 외주화 소문에 상당히 예민하게 반응했다"],
+      "does_not_prove": ["그 예민함이 사건과 관련 있다는 뜻은 아니다"],
+      "points_at": "CH01",
+      "mismatch": "아무렇지 않다던 노을해의 태도와, 서로겸이 본 손짓이 서로 다른 말을 한다."
     }
   ],
   "contradiction_stages": [
@@ -911,7 +923,7 @@
   "red_herrings": [
     {
       "id": "R01",
-      "surface_suspicion": "노을해가 방준학의 시신을 처음 발견했고, 지상파 편성 이후 자신이 외주 인력으로 대체될 거라는 소문까지 있어 의심을 받는다.",
+      "surface_suspicion": "노을해가 방준학의 시신을 처음 발견했고, 지상파 편성 이후 자신이 외주 인력으로 대체될 거라는 소문까지 있어 의심을 받는다. 서로겸은 그 소문이 나올 때마다 노을해의 표정이 굳었다고 말한다(E15).",
       "actual_reason": "실제로 노을해는 편성 이후에도 자리를 지키기로 방준학과 구두로 약속돼 있었고, 발견 직전까지 부조종실 콘솔을 손에서 놓지 않고 있어 부스에 갈 시간이 없었다.",
       "how_to_clear": "부조종실 콘솔 조작 기록(E09)을 제시해 그가 발견 직전까지 자리를 뜨지 않았음을 확인한다.",
       "must_not_imply": "노을해가 방준학에게 직접 위해를 가했다는 인상은 주지 않는다 — 그는 시신을 가장 먼저 발견한 사람일 뿐이다.",
@@ -921,7 +933,7 @@
       "weight": {
         "motive": "M03",
         "opportunity": "시신을 처음 발견한 사람이라 그 순간 부스 안에 있었다고 오해받기 쉽다.",
-        "means": ["E01", "E03"],
+        "means": ["E01", "E03", "E15"],
         "means_first_reading": "전기 계통을 가장 잘 아는 사람이니 사고를 꾸미기도 쉬웠을 거라는 짐작."
       },
       "cleared_by": ["E09"],
