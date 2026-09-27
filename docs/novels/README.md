@@ -422,6 +422,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE349 | 숨을 나눠 쉬던 사람 | [CASE349.md](CASE349.md) |
 | CASE350 | 밤의 조향실 | [CASE350.md](CASE350.md) |
 | CASE351 | 마지막 발판 | [CASE351.md](CASE351.md) |
+| CASE352 | 당겨진 시위 | [CASE352.md](CASE352.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
