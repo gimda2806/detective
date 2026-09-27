@@ -618,6 +618,7 @@ export function validateMaster(
 
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkStageOwnTestimonyKey(master));
+  issues.push(...checkStageReleaseBody(master, alreadyRegistered));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkTimeReferences(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
@@ -3189,6 +3190,56 @@ const OFFLINE_SPEECH_WRAPPED = /^["“]/;
 // 그것으로 맞는다(CASE040 등 23건이 이 모양이다). 그 진술의 본문은 인정과
 // 변명을 한 호흡에 담는다(「제가 새벽에 건조실 근처까지 갔었어요. 하지만
 // 안에 들어가진 않았어요.」).
+// 단계가 내주는 id 에 본문이 있는가.
+//
+// `contradiction_stages[].release.claim_or_fact_id` 가 가리키는 진술(S-)·사실(F-)이
+// 그 인물의 `initial_claims`·`knows` 어디에도 없으면, 교차참조는 통과한다 —
+// `collectIds` 가 단계가 내주는 id 를 「이후 정의되는 사실」로 먼저 등록하기
+// 때문이다. 완주도 된다: 엔진이 돌파 턴에 그 id 를 사슬에 넣어 준다.
+// **끊기는 것은 본문이다** — 수첩에 id 만 꽂히고 그 사람이 무슨 말을 했는지가 없다.
+// 고치는 법은 CLAUDE.md ① 「단계가 진술(S-)을 직접 내주는 모양도 된다(그 id 로
+// 본문을 쓴다)」이고, 재료는 같은 단계의 `release.scope` 지문에 이미 있다.
+export function stageReleasesWithoutBody(
+  master: Master,
+): Array<{ stage: string; id: string; target: string; scope: string }> {
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      initial_claims?: Array<{ claim_id?: string }>;
+      knows?: Array<{ fact_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{
+      id: string;
+      target_character?: string;
+      release?: { claim_or_fact_id?: string; scope?: string };
+    }>;
+  };
+  const bodies = new Set<string>();
+  for (const ch of shape.characters ?? []) {
+    for (const claim of ch.initial_claims ?? []) if (claim.claim_id) bodies.add(claim.claim_id);
+    for (const fact of ch.knows ?? []) if (fact.fact_id) bodies.add(fact.fact_id);
+  }
+  const rows: Array<{ stage: string; id: string; target: string; scope: string }> = [];
+  for (const stage of shape.contradiction_stages ?? []) {
+    const id = (stage.release?.claim_or_fact_id ?? '').trim();
+    if (!id || bodies.has(id)) continue;
+    rows.push({
+      stage: stage.id,
+      id,
+      target: stage.target_character ?? '',
+      scope: stage.release?.scope ?? '',
+    });
+  }
+  return rows;
+}
+
+export function checkStageReleaseBody(master: Master, alreadyRegistered = false): Issue[] {
+  return stageReleasesWithoutBody(master).map((row) => ({
+    severity: overuseSeverity(alreadyRegistered),
+    code: 'STAGE_RELEASE_NO_BODY',
+    message: `${row.stage}.release 가 ${row.id} 를 내주는데 그 본문이 어디에도 없다. 플레이어 수첩에는 id 만 꽂히고 ${row.target || '상대'}가 무슨 말을 했는지가 남지 않는다. 같은 단계의 release.scope 지문을 그 인물의 말로 옮겨 ${row.target || '그 인물'}의 ${row.id.startsWith('F-') ? 'knows' : 'initial_claims'} 에 ${row.id} 로 적고, hidden_until 로 그 단계(${row.stage})에 잠근다.`,
+  }));
+}
 export function checkStageQuestion(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
