@@ -314,6 +314,18 @@
             "T17",
             "T18"
           ]
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "형시안이 사실은 21시 40분경 냉동창고 통로 쪽에 있었다는 것을 인정한다.",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "형시안이 필건모가 점검하지 않은 것을 알면서도 점검 기록부에 직접 이상 없음이라 적어 넣었다는 것을 인정한다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -334,6 +346,11 @@
           "content": "명장님과 저 사이에 나쁜 감정 같은 건 없습니다. 다 옛날 일이죠.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "회고록으로 다시 촉발된 원한을 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "회고록에서 제 이름이 지워진 걸 봤어요... 화가 나서 손잡이 핀을 미리 뽑아 두고 인터폰을 꺼서 탁현모 씨를 냉동창고에 가뒀습니다. 제가 한 일이에요...",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -346,6 +363,16 @@
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "E06",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-07",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [

@@ -5018,7 +5018,14 @@ export function runOfflineAction(
         caseSeed,
         recent,
       );
-      if (stage.releaseClaimOrFactId) {
+      // 본문이 있을 때만 수첩에 꽂는다 — 가설 반박 자리(judged.releases)와
+      // 같은 규칙(2026-09-27 사용자 결정). 본문 없는 id 를 넣으면 종결 조건은
+      // 통과하지만 수첩에는 빈 줄이 꽂힌다. 그래서 `STAGE_RELEASE_NO_BODY` 가
+      // 등록 여부와 무관하게 error 다 — 여기서 안 넣으면 그 사건은 종결 불가다.
+      if (
+        stage.releaseClaimOrFactId &&
+        statementContent(index, stage.releaseClaimOrFactId)
+      ) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
       turn.heardStatementIds.push(...excuses.map((item) => item.id));

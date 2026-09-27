@@ -288,6 +288,23 @@
           "claim_id": "S-CH01-04",
           "content": "제가 사람들 몰리기 전에 언니 장비부터 챙겼어요, 정신없어서 그랬죠.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "아유, 사고 전날 밤에 탈의실 근처에 간 건 맞아요. 그렇지만 개인 물품함에는 손도 안 댔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명 — 버클을 바꿔치기한 사실을 숨긴다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "아유… 버클을 바꿔 놓은 건 저예요. 그냥 호기심이었어요. 다른 뜻은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명 — 동기(남편과 고월선의 관계)를 숨긴다. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-07",
+          "content": "남편이랑 고월선 씨 사이를 알게 됐어요. 위급할 때 벨트를 못 풀게 하려고 버클을 일부러 바꿔 놨어요. 아유… 다 제가 한 짓이에요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -306,6 +323,21 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-07",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [

@@ -192,6 +192,24 @@
           "fact_id": "F-CH01-02",
           "content": "매각 안건이 이번 상속인 회의에서 부결되면 자신의 지분과 주도권을 모두 잃는다.",
           "source": "계약 협상 과정에서 파악"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "태은규가 사무실에만 있었다는 진술을 철회하고, 사건 당시 마당을 가로질러 석빙고 쪽으로 이동했었다는 사실만 인정한다.",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "태은규가 사건 전 빗장 경첩을 미리 손봤다는 사실은 인정하지만, 단순 정비였을 뿐이라고 둘러댄다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "매각 안건이 부결되면 지분과 주도권을 모두 잃을 것이 두려워, 목서한을 의도적으로 석빙고에 가두어 죽게 했다고 완전히 자백한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -229,6 +247,11 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [

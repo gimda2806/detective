@@ -202,7 +202,14 @@
       "name": "추채원",
       "role": "메커닉 디자이너 / 공동 개발자",
       "present_location": "L03",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-05",
+          "content": "추채원이 언쟁 중 포장끈으로 정원경의 목을 졸라 숨지게 했고, 그 직후 사다리를 넘어뜨려 사고처럼 꾸몄다는 사실을 모두 인정한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -229,7 +236,13 @@
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": ["권율오가 계약 체결을 어디까지 알고 있었는지는 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 평소엔 담담하다.",

@@ -222,7 +222,20 @@
       "name": "추다경",
       "role": "수석 조수 / 습식 성형 담당",
       "present_location": "L03",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사실은 여경한의 얼굴을 온수조 물속에 직접 눌러 넣었고, 그 직후 젖은 앞치마를 세탁실 수거함에 숨겼다는 것까지 인정한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "여경한이 남동생 추다온을 부당하게 계속 묶어두고 있었고, 몇 번을 부탁해도 놓아주지 않아 동생을 그 굴레에서 벗어나게 하려고 범행을 저질렀다는 것까지 전부 자백한다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -273,6 +286,16 @@
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [

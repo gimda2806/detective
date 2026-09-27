@@ -293,7 +293,7 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    그 인물의 `initial_claims`(S-)·`knows`(F-)에 **그 id 그대로** 적고, `hidden_until`
    (`{fact_or_claim_id: <그 id>, release_prerequisite: <그 단계 id>, release_trigger: <앞 진술 id>}`)로
    잠근다. 잠그지 않으면 첫 면담에 자백이 통째로 샌다. 본문을 안 쓰면
-   `STAGE_RELEASE_NO_BODY`(새 사건 error) — 교차참조는 통과하고 완주도 되지만 **플레이어 수첩에
+   `STAGE_RELEASE_NO_BODY`(등록 무관 error) — 교차참조는 통과하고 완주도 되지만 **플레이어 수첩에
    id만 꽂히고 그 사람이 무슨 말을 했는지가 안 남는다.** `release.scope` 지문에 그 사실을 이미
    문장으로 적었을 테니 그것을 그 인물의 말로 옮기면 된다(지문은 지우지 않는다).
    **requires_presented_evidence_ids는 requires_comparison.evidence_ids와 같다** — 그 거짓말과
