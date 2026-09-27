@@ -409,6 +409,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE337 | 온기가 식던 자리 | [CASE337.md](CASE337.md) |
 | CASE338 | 첫물이 아니어도 | [CASE338.md](CASE338.md) |
 | CASE339 | 여덟 달 치의 이름 | [CASE339.md](CASE339.md) |
+| CASE340 | 잠수 일지에 없는 시간 | [CASE340.md](CASE340.md) |
 | CASE119 | 묻히지 않은 소리 | [CASE119.md](CASE119.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
