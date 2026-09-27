@@ -1017,6 +1017,21 @@ registry 등록이 같은 PR 에 있어 base 에는 아직 없고, 복구 PR 의
 따라갔다). 새 카드는 안 넣었다 — 15장에 「탁하율도 심장약을 먹는다」는 카드는 없고, 그 사실은 `C03` 돌파 뒤 자백(`F-CH02-04`)으로만
 나온다. 그 앞에 힌트 카드를 둘지는 이 사건을 다시 쓸 때의 일이다.
 
+## 2026-09-27: 되먹임 루틴 두 번째 회차 — CASE022, 첫 회차가 로그에만 남기고 안 옮긴 줄을 마저 옮긴다
+
+`docs/feedback-routine.md` 대로 「마스터가 어긋난 자리」에서 번호가 가장 작은 사건을 집었다 — CASE022. 마스터를 다시 열어 대조하니
+줄이 적은 대로다: `full_truth.method`·`T13`(21:50)은 렌치로 뒤통수를 가격했다고 하고, `final_deduction.method`·
+`case_complete.accusation_requirements.method_fact`·자백(`C03.release`의 `S-CH03-05`)은 렌치 없이 로프를 풀어 올려보낸 뒤
+떠밀었다고만 한다 — 순서도 갈린다(`T14`는 로프를 푼 것이 가격 **뒤**인 21:58). `ending_scene.narrative`·`ending_explanation`은
+둘을 한 문장에 같이 적어 사실상 세 번째 값이다.
+
+이것은 방금 위 CASE110 항목과 달리 **데이터로 내릴 것이 아니라 진상 자체가 둘로 적힌 자리**다 — `feedback-routine.md`
+「하지 않는 것」이 이 사건을 예로 직접 든다(「진상 자체가 두 가지로 적힌 것(CASE022의 렌치)」). 첫 회차(#1389, 위 「되먹임 루틴」
+절)가 이미 같은 결론에 이르렀는데, 그 회차는 결론을 이 로그에만 적고 백로그 파일은 실제로 고치지 않았다(커밋 b6dba17을 확인하니
+`decisions-log.md`·`handoff.md`만 바뀌었다) — 그래서 「마스터가 어긋난 자리」에 줄이 그대로 남아 있었다. 이번 회차가 그 누락을
+마저 했다: 「마스터가 어긋난 자리」의 CASE022 줄을 지우고 「사용자」 절로 옮겼다(렌치를 살릴지 지울지, 살리면 어디 셋을 고쳐야
+하는지 적었다). **원본은 안 고쳤다.**
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
