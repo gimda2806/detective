@@ -15,8 +15,33 @@
 // 된다(**그 id 로 본문을 쓴다**)」. 재료는 이미 있다 — 같은 단계의
 // `release.scope` 지문이 그 사실을 문장으로 적어 두었다. 그것을 그 인물의
 // 말로 옮겨 적고, 그 진술을 `hidden_until` 로 그 단계에 잠근다.
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+//
+// **판정은 검사기 것을 그대로 쓴다** — `STAGE_RELEASE_NO_BODY` 를 내는
+// `stageReleasesWithoutBody()` 를 불러온다. 여기서 같은 규칙을 다시 짜면
+// 계수와 검사가 갈린다(그 사고를 네 번 냈다).
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+
+const out = mkdtempSync(join(tmpdir(), 'stage-release-'));
+execFileSync(
+  'npx',
+  ['tsc', 'scripts/validate_master.ts', '--outDir', out, '--module', 'esnext',
+   '--target', 'es2022', '--moduleResolution', 'bundler', '--esModuleInterop', '--skipLibCheck'],
+  { stdio: 'inherit' },
+);
+const addJsExtensions = (dir) => {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) addJsExtensions(path);
+    else if (entry.name.endsWith('.js'))
+      writeFileSync(path, readFileSync(path, 'utf8').replace(
+        /from '(\.\.?\/[^']+)'/g, (whole, t) => (t.endsWith('.js') ? whole : `from '${t}.js'`)));
+  }
+};
+addJsExtensions(out);
+const { stageReleasesWithoutBody } = await import(join(out, 'scripts/validate_master.js'));
 
 const DIR = 'data/pending-cases';
 const only = process.argv[2];
@@ -26,18 +51,7 @@ for (const dir of readdirSync(DIR).sort()) {
   const file = join(DIR, dir, `${dir}.master.json`);
   if (!existsSync(file)) continue;
   if (only && dir !== only) continue;
-  const master = JSON.parse(readFileSync(file, 'utf8'));
-  const owner = new Map();
-  for (const character of master.characters ?? []) {
-    for (const claim of character.initial_claims ?? []) owner.set(claim.claim_id, character);
-    for (const fact of character.knows ?? []) owner.set(fact.fact_id, character);
-  }
-  const missing = [];
-  for (const stage of master.contradiction_stages ?? []) {
-    const id = stage.release?.claim_or_fact_id;
-    if (!id || owner.has(id)) continue;
-    missing.push({ stage: stage.id, id, target: stage.target_character, scope: stage.release?.scope ?? '' });
-  }
+  const missing = stageReleasesWithoutBody(JSON.parse(readFileSync(file, 'utf8')));
   if (missing.length) rows.push({ id: dir, missing });
 }
 

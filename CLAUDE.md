@@ -34,7 +34,7 @@
 - 플레이어는 공간을 볼 수 없다. 장소 서술은 목록이 아니라 **상대적인 자리**를 문장에 담는다. `detail_rules` 목적어의 밑줄·돋보기 표식(`examinableTargetsHere`)은 놓친 것을 줍는 장치이지 서술을 대신하지 않는다.
 - **직제(조직도)를 따로 세우지 않는다.** `tier`/`reports_to` 제안은 실측으로 기각됐다. 다시 제안하지 말 것.
 
-**대립 단계의 질문은 거짓 진술, 답은 카드.** `requires_comparison.claim_id`는 그 사람의 S- lie이고 `requires_heard_claim_ids`에 있어야 한다(`STAGE_COMPARISON_NOT_LIE`, 원본·판본 모두 error). **단계의 요구 카드는 비교 카드와 같다** — 비교에 없는 카드를 요구에 끼우지 않는다(`STAGE_REQUIRES_BEYOND_COMPARISON`, 원본·판본 모두 error). 인정한 사실 뒤에 붙는 변명은 S- lie로 적고 그 사실에 `hidden_until`로 잠근다. 단계가 진술(S-)을 직접 내주는 모양도 된다(그 id로 본문을 쓴다). **단계가 내주는 진술은 그 단계의 질문이 아니라 다음 단계의 질문이다.** 규칙 본문은 `docs/offline-master-format.md` 「단계」 절.
+**대립 단계의 질문은 거짓 진술, 답은 카드.** `requires_comparison.claim_id`는 그 사람의 S- lie이고 `requires_heard_claim_ids`에 있어야 한다(`STAGE_COMPARISON_NOT_LIE`, 원본·판본 모두 error). **단계의 요구 카드는 비교 카드와 같다** — 비교에 없는 카드를 요구에 끼우지 않는다(`STAGE_REQUIRES_BEYOND_COMPARISON`, 원본·판본 모두 error). 인정한 사실 뒤에 붙는 변명은 S- lie로 적고 그 사실에 `hidden_until`로 잠근다. 단계가 진술(S-)을 직접 내주는 모양도 된다(그 id로 본문을 쓴다). **단계가 내주는 id는 본문이 있어야 한다** — `release.claim_or_fact_id`가 가리키는 진술·사실을 그 인물의 `initial_claims`·`knows`에 그 id로 적고 `hidden_until`로 그 단계에 잠근다(`STAGE_RELEASE_NO_BODY`, 등록 warn·새 사건 error). 교차참조는 이것을 통과시키고 완주도 되므로 검사가 없으면 아무도 안 운다 — 끊기는 것은 본문이라 수첩에 id만 꽂힌다. 재료는 같은 단계의 `release.scope` 지문에 이미 문장으로 있다(`npm run audit:stage-release`가 센다). **단계가 내주는 진술은 그 단계의 질문이 아니라 다음 단계의 질문이다.** 규칙 본문은 `docs/offline-master-format.md` 「단계」 절.
 
 **시각은 타임라인과 눈으로 맞춰볼 수 있게 적는다**(2026-09-26). 타임라인은 24시간제인데 본문이 맨 「9시」라고 적으면 플레이어는 그것이 09:00인지 21:00인지 알 수 없다 — 때 표시를 붙이거나(「밤 9시」) 24시간제로 적는다(`TIME_12H_UNPAIRABLE`). 날짜말도 같다: **「사건 당일」처럼 사건을 기준으로 적은 말만 스탬프와 견줄 수 있고**, 맨 「전날」·「다음 날」은 앞 문장이나 탐정이 보는 오늘을 기준으로 삼으므로 검사가 안 본다(`TIME_DAY_LABEL_MISMATCH`). 탐정이 사건 다음날에 들어오는 사건에서 사건을 「오늘」이라 부르지 않는다(`TIME_TODAY_IS_YESTERDAY`). 셋 다 error 이고 `npm run measure:times`가 코퍼스 전수를 같은 판정으로 찍는다. 여덟 가지 오탐을 어떻게 걸렀는지는 `docs/decisions-log.md` 2026-09-26 절.
 
@@ -67,7 +67,7 @@
 **판본 — 오프라인 전용 마스터**
 
 - `data/pending-cases/<ID>/Case-No-<NNN>.offline.json`이 있으면 오프라인만 그것을 보고 AI 경로·목록 화면은 원본을 본다. **판본이 몇 건인지는 문서에 적지 않는다** — `ls data/pending-cases/*/Case-No-*.offline.json`이 센다(2026-09-26 사용자 결정. 적어 둔 수가 두 번 낡았다).
-- **포맷 기준은 `docs/offline-master-format.md`.** 규칙은 그 문서를 고치고, 검사기를 맞추고, 벗어난 판본을 고친다(이 순서). 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `weight`·`access_level`·`connects_to`·보드 `motives`/`times`/`methods`)와 대사 모양(말 필드는 맨문장, 지문 필드는 3인칭, 증언 카드만 따옴표)이 거기 있고, `.offline.json`에만 붙는 검사(`checkOfflineSkeleton`·`checkOfflineSpeech`)가 강제한다.
+- **포맷 기준은 `docs/offline-master-format.md`.** 규칙은 그 문서를 고치고, 검사기를 맞추고, 벗어난 판본을 고친다(이 순서). 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `weight`(하위 칸까지 — `OFFLINE_WEIGHT_EMPTY`)·`access_level`·`connects_to`·보드 `motives`/`times`/`methods`)와 대사 모양(말 필드는 맨문장, 지문 필드는 3인칭, 증언 카드만 따옴표)이 거기 있고, `.offline.json`에만 붙는 검사(`checkOfflineSkeleton`·`checkOfflineSpeech`)가 강제한다.
 - 소설이 먼저 있는 번호는 `docs/novels/<ID>.md` 끝의 「오프라인으로 옮길 것」이 판본의 설계도다(CASE012가 첫 예). 원본은 건드리지 않는다. **판본을 만든 PR이 판본 노트 `Case-No-<NNN>.offline.md`(판본 파일 옆)를 같이 쓴다**(2026-09-26 사용자 결정 — 소설 루틴의 일이 아니고 소설에 덧붙이지 않는다. 소설 끝에는 가리키는 한 줄만).
 - 판본 뼈대 검사(`SUSPICION_THIN`·`TESTIMONY_ALL_AT_CULPRIT`/`TESTIMONY_AIM_NARROW`·`MOTIVE_SELF_DISCLOSURE`)는 `evidence[].points_at`을 쓰는 마스터에만 듣는다 — 헛다리 주인을 가리키는 카드가 둘, 증언의 진범 지목은 절반 이하, 자기 동기는 본인 입에서 먼저 나오지 않는다.
 
