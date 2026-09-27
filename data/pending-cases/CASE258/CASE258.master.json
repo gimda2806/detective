@@ -149,6 +149,12 @@
           "fact_id": "F-CH01-01",
           "content": "백스테이지 천막은 스태프만 드나들 수 있게 통제하고 있다.",
           "source": "운영 총괄로서 직접 관리"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "진하람이 오소이의 최후통첩을 막기 위해 케이블 피복을 미리 벗겨 두었고, 사운드 점검을 핑계로 그녀를 불러들여 감전사하게 만든 뒤 사고처럼 꾸몄다는 사실을 모두 인정한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -177,7 +183,13 @@
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": ["오소이가 이 일을 다른 사람에게도 이미 말했는지는 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 사람 좋아 보이는 어조.",

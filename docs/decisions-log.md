@@ -1052,6 +1052,27 @@ CASE118↔119는 글자까지 같은 문장 28줄인데 수법 계열이 달라 
 `T09` 줄은 지웠고, 「검사기」 절의 `requires` 사람 이름·`discovery_condition` 줄은 세는 수에 119·128 몫이 들어 있던 것을 한 줄로 적었다.
 두 번호는 `next:case-id`가 다시 채운다(#1271이 지운 022·125 등도 그렇게 다시 채워졌다). 판본은 둘 다 없었다.
 
+## 2026-09-27: 단계가 내주는 id — 엔진을 「본문 있을 때만」으로 맞추고 91곳을 채웠다
+
+「사용자」 절 ④(사용자 결정: 지금 엄격한 쪽으로). 엔진에는 단계가 내주는 id 를 수첩(`heardStatementIds`)에 넣는 자리가 둘 있었다 —
+가설을 들이댔을 때의 반박 자리는 `statementContent()` 가 본문을 찾을 때만 넣고, 대립 단계 돌파 자리는 id 만 있으면 넣었다.
+후자 덕에 본문 없는 release 도 `case_complete` 를 통과했지만 플레이어 수첩에는 빈 줄이 꽂혔다. 돌파 자리를 반박 자리에 맞췄다.
+
+**순서가 전부다.** 엔진만 바꾸면 본문 없는 사건이 종결 불가가 된다 — 바꾸기 전 실측: 348건 중 20건(169·170·171·183·187·205~208·
+237~240·244~248·251·338)이 ❌. 그래서 같은 PR 에서 `audit:stage-release` 의 91곳·40건(#1408 이 157~169 다섯 건을 먼저 채워 99→91)을
+전부 채웠다. F- 57곳은 그 단계의 `release.scope` 지문을 그대로 `knows` 에(`source: 대립 단계 C0N에서 본인이 인정`), S- 34곳은
+그 인물의 1인칭 말로 새로 썼다(말버릇을 한 번씩 얹고, 중간 단계의 것은 `lie` + `reason_for_limit_or_lie` 「C0N에서 인정한 것에
+붙인 변명 — …을 숨긴다. C0N+1 이 깬다」, 마지막 자백은 `truth`). `hidden_until` 은 `release_prerequisite = 그 단계`,
+`release_trigger = 그 단계의 비교 진술` 로 잠갔다(#1367 의 모양). 이미 `hidden_until` 이 있던 id 는 본문만 더했다.
+
+마스터 40건 중 30건은 `json.dumps(indent=2)` 재직렬화가 원문과 같아 그대로 썼고, 10건(170·183·219·257·258·316·319·321·322·339)은
+짧은 배열을 한 줄로 접는 모양이거나 끝 개행이 없어 **문자열 자리에 끼워 넣었다**(괄호 짝을 세어 배열 끝을 찾는다). 재직렬화로
+340줄 diff 를 낸 CASE022 사고(같은 날)가 이 갈래를 만들었다.
+
+결과: `audit:stage-release` 「없다 — 이 축은 비었다」 · `check:case` 40건 errors 0 · `check:offline` 349건 완주 가능(엄격한 엔진으로)
+· tsc · oxlint 기준선 49. 축이 비었으므로 `STAGE_RELEASE_NO_BODY` 를 **등록 무관 error** 로 올렸다(E/W → E*) — 엔진이 엄격해진
+뒤로는 이 검사가 「수첩의 빈 줄」이 아니라 「종결 불가」를 막는다. `check:offline` 도 잡지만 그것은 막이 잠긴 뒤의 신호다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

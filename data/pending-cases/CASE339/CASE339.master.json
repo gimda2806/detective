@@ -444,6 +444,30 @@
           "related_timeline": [
             "T01"
           ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그 시간에 잠깐 조합실에 다녀온 것은 인정하지만, 재료 하나 가지러 들어갔다 바로 나온 것뿐이라고 둘러댄다.",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "남연덕과 몇 마디 언쟁을 한 것은 인정하지만, 손끝 하나 대지 않았다고 주장한다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "몸싸움이 있었다는 것은 인정하지만, 밀쳤을 뿐 죽일 생각은 없었다고 주장한다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "남연덕이 표기를 그대로 두겠다고 하자 화를 참지 못해 세게 떠밀었고, 그 바람에 남연덕이 유리 진열장에 부딪혀 목을 다쳐 숨졌다는 것을 인정한다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -501,6 +525,26 @@
           "fact_or_claim_id": "S-CH02-05",
           "release_prerequisite": "F-CH02-04",
           "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH02-05"
         }
       ],
       "knowledge_limits": [

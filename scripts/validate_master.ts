@@ -3238,9 +3238,12 @@ export function stageReleasesWithoutBody(
   return rows;
 }
 
-export function checkStageReleaseBody(master: Master, alreadyRegistered = false): Issue[] {
+// 등록 여부와 무관하게 error (2026-09-27 사용자 결정). 오프라인 엔진이 본문 있는
+// id 만 수첩에 꽂으므로 본문 없는 release 는 그 사건을 종결 불가로 만든다 —
+// 경고로 두면 막이 잠긴 뒤에야 안다. 코퍼스는 같은 날 0 으로 비웠다.
+export function checkStageReleaseBody(master: Master, _alreadyRegistered = false): Issue[] {
   return stageReleasesWithoutBody(master).map((row) => ({
-    severity: overuseSeverity(alreadyRegistered),
+    severity: 'error' as const,
     code: 'STAGE_RELEASE_NO_BODY',
     message: `${row.stage}.release 가 ${row.id} 를 내주는데 그 본문이 어디에도 없다. 플레이어 수첩에는 id 만 꽂히고 ${row.target || '상대'}가 무슨 말을 했는지가 남지 않는다. 같은 단계의 release.scope 지문을 그 인물의 말로 옮겨 ${row.target || '그 인물'}의 ${row.id.startsWith('F-') ? 'knows' : 'initial_claims'} 에 ${row.id} 로 적고, hidden_until 로 그 단계(${row.stage})에 잠근다.`,
   }));

@@ -248,6 +248,23 @@
           "claim_id": "S-CH01-04",
           "content": "정헌 선배는 이 프로그램을 자식처럼 여기던 사람이었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "…그러니까요, 그날 밤 자료보관실에 잠깐 다녀온 건 맞아요. 그런데 제가 갔을 땐 오정헌 선생은 멀쩡했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명 — 그 뒤의 일을 숨긴다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "뒷문을 열어 둔 것도, 흉기를 화단에 묻은 것도 제가 했어요. 그러니까요, 몸싸움 중에 벌어진 일이었다는 건 변하지 않아요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명 — 동기(표절)를 숨긴다. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-07",
+          "content": "30년 전 원고… 그게 표절이었다는 게 드러날까 봐 오정헌 선생에게 매달렸어요. 거절당했고, 몸싸움 끝에 제가 찔렀습니다. 그러니까요, 전부 제가 한 일이에요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -256,7 +273,23 @@
         "S-CH01-03",
         "S-CH01-04"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-07",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "자료보관실 밖에서 벌어진 일은 스태프들에게 전해 들은 것뿐이다."
       ],

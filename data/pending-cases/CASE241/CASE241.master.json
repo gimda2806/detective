@@ -272,6 +272,11 @@
           "content": "제가 걸이대 볼트를 직접 풀었어요. 하지만 사고가 날 줄은 몰랐어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "그게... 할아버지 기부 계약이 성사되면 은재 투석 치료비를 감당할 수 없었어요. 걸이대 볼트를 몰래 풀어서 사고처럼 꾸몄습니다. 편여옥 씨를… 제가 그랬어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -304,6 +309,11 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "S-CH01-04",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
