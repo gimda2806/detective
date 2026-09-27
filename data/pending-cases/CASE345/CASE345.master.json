@@ -1,0 +1,1167 @@
+{
+  "case_identity": {
+    "case_id": "CASE345",
+    "title": "발판이 마르기 전에",
+    "english_title": "Before the Platform Dried",
+    "genre": "공동 연구 성과를 단독 특허로 빼앗겼다는 배신감에서 비롯된 우발적 폭행치사 / 배수 밸브 조작과 안전 로프 훼손을 통한 정비 사고사 위장",
+    "setting": "청해생물연구소는 희귀 산호 인공배양 연구와 소규모 공개 전시를 함께 운영하는 민간 해양생물 연구기관이다. 그날 오전에는 후원자와 언론을 초청해 3년간 준비해 온 신품종 산호 배양 성과를 공개 시연하는 자리가 마련돼 있었다. 대표 겸 수석연구원 하태윤과 부관장 추영빈이 오랫동안 손발을 맞춰 온 연구 파트너로 알려져 있었고, 사육사와 홍보팀, 후원회 사무국, 협력업체 잠수 기사까지 이른 아침부터 행사 준비로 분주했다.",
+    "location_archetypes": ["museum_exhibition"],
+    "background": {
+      "background_archetypes": ["product_demo"],
+      "background_phrasing": ["gathering_for"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 오랜 친분이 있는 사육사 고재이의 초대로, 공개 시연이 시작되기 전 신품종 산호 전시 수조를 미리 둘러보러 청해생물연구소를 찾았다.",
+    "tone": "이른 아침 물비린내와 시연 준비로 분주한 공기가 뒤섞인 가운데, 탐정과 한지우는 예정에 없던 사건 한복판으로 끌려 들어간다.",
+    "tags": ["해양생물연구소", "공개시연회", "연구_파트너"]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 08:40",
+    "narrative": "\"오늘 시연, 다들 긴장한 눈치던데요.\"\n\n한지우가 로비를 둘러보며 말했다.\n\n고재이가 손을 흔들며 다가왔다.\n\n\"와 주셔서 감사해요. 시연 전에 발판 쪽부터 보여드릴게요.\"\n\n탐정이 고개를 끄덕였다.\n\n\"구경 좀 하지.\"\n\n셋이 나란히 전시관 안쪽으로 들어섰다.\n\n발판에 다다르자 고재이의 걸음이 멈췄다.\n\n\"저기...! 관장님!\"\n\n수조 물속에 하태윤이 쓰러진 채 가라앉아 있었다.\n\n한지우가 먼저 발판으로 뛰어올랐다."
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "수조의 여과기 소음만 남은 오후, 발판 위 안전선은 아직 걷히지 않은 채였다.\n\n추영빈은 난간에 기댄 채 물속을 내려다보고 있었다.\n\n\"밀었습니다.\"\n\n한참 만에 그가 입을 열었다.\n\n\"그것뿐이었어요. 말릴 새도 없이요.\"\n\n한지우가 조용히 되물었다.\n\n\"이름 한 줄 때문에요?\"\n\n탐정이 그를 향해 말을 이었다.\n\n\"3년이었잖습니까. 이름 한 줄이 아니라 3년이 다 사라진 거였겠죠.\"\n\n추영빈은 대답 대신 고개를 떨궜다.\n\n밖에서는 설준일이 장비 보관실 노후 장비 전수 교체를 요청하는 서류를 안고 지나갔다.\n\n사이렌 소리가 가까워지자 한지우가 점검표를 접으며 중얼거렸다.\n\n\"오늘 시연은... 취소겠죠.\"\n\n\"다음 기회에 보지, 뭐.\"\n\n한지우가 어이없다는 얼굴로 탐정을 쳐다봤다."
+  },
+  "surface_incident": [
+    "청해생물연구소는 그날 오전 후원자와 언론을 초청해 3년간 준비한 신품종 산호 배양 성과를 공개 시연할 예정이었다.",
+    "사육사 고재이가 8시 50분경 수조 발판 근처에서 물에 떠 있는 하태윤을 발견해 소리쳐 사람들을 불렀다.",
+    "구급대가 도착했을 때 하태윤은 이미 숨진 뒤였고, 발판 주변의 배수 밸브와 안전 로프 상태로 미루어 정비 중 실족한 사고로 보는 시각이 우세했다.",
+    "평소 하태윤이 시연 전 설비를 직접 점검하는 습관이 있었다는 것이 알려지며, 혼자 수조 점검을 하다 변을 당한 것이라는 추측이 오갔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "추영빈은 지난 3년간 하태윤과 함께 희귀 산호 인공배양법을 개발해 온 공동 연구원으로, 두 사람의 이름이 나란히 오른 공동 특허 출원을 당연하게 여기고 있었다. 그런데 그날 아침 특허청 담당자의 확인 전화를 받고서야, 하태윤이 두 주 전 자신의 이름만으로 이미 출원을 마쳤다는 사실을 알게 됐다. 오늘 오전 후원자들 앞에서 있을 배양 성과 공개 시연에서도 하태윤 혼자 연구 성과를 발표할 예정이었다는 것까지 확인하자, 3년의 연구가 통째로 지워진다는 배신감과 자신의 몫을 되찾아야 한다는 절박함이 그를 몰아붙였다.",
+    "motive_archetypes": ["jealousy"],
+    "method": "추영빈은 공개 시연 준비로 사람이 뜸해진 틈을 타 하태윤을 메인 전시 수조 위 정비 발판으로 불러내 공동 출원자 등재를 요구했다. 하태윤이 아이디어의 핵심은 자신의 것이었다며 거절하고 자리를 뜨려 하자, 격분한 추영빈이 발판 난간 쪽으로 그를 세게 밀쳤다. 하태윤은 균형을 잃고 발판 모서리에 머리를 부딪힌 채 수조 안으로 떨어졌고, 정신을 잃은 상태로 물에 잠겨 익사했다.",
+    "method_archetypes": ["drowning", "staging_cover_up"],
+    "key_time_location": "사건 당일 08시 22분~08시 24분, 청해생물연구소 메인 전시 수조 정비 발판(L01)",
+    "cover_up": "추영빈은 인기척이 없는 것을 확인하고 수조 배수 밸브를 살짝 열어 발판과 수면 사이 간격이 원래보다 넓어 보이게 물 높이를 낮췄다. 정비 안전 로프의 고리 하나를 일부러 풀어 두어 하태윤이 안전장비 없이 혼자 작업하다 실족한 것처럼 꾸몄고, 특허 건으로 주고받았던 이메일을 자신의 계정에서 지웠다. 그날 아침 특허청 확인 전화를 받았다는 사실도 아무에게도 말하지 않고 감췄다.",
+    "cover_up_target": ["crime_scene", "responsibility", "evidence", "motive"],
+    "cover_up_method": ["evidence_placement", "false_accident", "accident_victim_error", "digital_record_manipulation", "concealment_without_staging"],
+    "decisive_evidence_ids": ["E02", "E03", "E05", "E08", "E09", "E10", "E11"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "2주 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하태윤이 추영빈에게 알리지 않고 특허청에 산호 인공배양법 특허를 단독 명의로 출원한다.",
+      "world_fact": "이 출원 사실은 하태윤 본인 외에는 아무도 모르고 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 전날 18:00",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "국하람이 오늘 공개 시연에 배포할 보도자료 최종본을 정리하며 하태윤의 이름만 대표 연구자로 올린다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 21:00",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "설준일이 정기 점검에서 로프와 하네스 상태를 전부 확인하고 이상이 없음을 점검 일지에 기록한다.",
+      "world_fact": "이 시점까지 안전 로프 고리는 모두 정상이었다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 07:15",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "고재이가 아침 먹이 급여를 위해 수조를 찾아 수위가 평소와 같은 것을 확인한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 07:30",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "설준일이 시연을 앞두고 안전 로프와 하네스를 한 번 더 점검해 일지에 이상 없음으로 기록한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 07:40",
+      "location": "L02",
+      "actors": ["CH04", "CH02"],
+      "actual_action": "남궁진혁이 특허청에서 걸려 온 전화를 추영빈에게 연결해 주고, 추영빈이 그 통화로 하태윤의 단독 특허 출원 사실을 처음 알게 된다.",
+      "world_fact": "추영빈은 그 전화를 받기 전까지 특허 출원 사실을 전혀 모르고 있었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 07:55",
+      "location": "L02",
+      "actors": ["CH04", "CH05"],
+      "actual_action": "국하람이 보도자료 최종 확인차 들른 사이, 추영빈이 공유 폴더의 보도자료 초안을 열어 하태윤 혼자만의 이름이 올라 있는 것을 확인하고 표정이 눈에 띄게 굳는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 08:00",
+      "location": "L03",
+      "actors": ["CH02", "CH05"],
+      "actual_action": "남궁진혁과 국하람이 로비에서 후원자 명단을 맞춰 보며 시연 준비를 계속한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 08:15",
+      "location": "L01",
+      "actors": ["CH04", "V01"],
+      "actual_action": "추영빈이 하태윤에게 발표 전에 잠깐 얘기하자며 그를 수조 정비 발판으로 데리고 올라간다.",
+      "world_fact": "고재이가 이 장면을 근처에서 지켜본다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 08:20",
+      "location": "L01",
+      "actors": ["CH04", "V01"],
+      "actual_action": "추영빈이 공동 출원자로 이름을 올려 달라고 요구하지만, 하태윤이 핵심 아이디어는 자신의 것이었다며 거절하고 발판을 내려가려 한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 08:22",
+      "location": "L01",
+      "actors": ["CH04", "V01"],
+      "actual_action": "격분한 추영빈이 돌아서는 하태윤을 발판 난간 쪽으로 세게 밀친다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 08:23",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "하태윤이 발판 모서리에 머리를 부딪힌 채 균형을 잃고 수조 안으로 떨어진다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 08:24",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "의식을 잃은 하태윤이 수면 아래로 가라앉아 익사한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 08:25",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "추영빈이 주위에 인기척이 없는 것을 확인하고 배수 밸브를 살짝 열어 발판과 수면 사이 간격이 넓어 보이게 물 높이를 낮춘다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 08:27",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "추영빈이 안전 로프 고리 하나를 일부러 풀어 두어 장비 결함으로 인한 실족처럼 보이게 만든다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 08:30",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "추영빈이 연구실로 돌아와 특허 관련 이메일 대화를 자신의 계정에서 지운다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 08:40",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "고재이가 로비로 나가 미리 초대해 둔 탐정 일행을 맞이한다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 08:49",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "고재이가 탐정 일행을 안내해 수조 정비 발판으로 향하다 물속에 떠 있는 하태윤을 발견한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 08:50",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "고재이가 소리쳐 사람들을 부르고 한지우가 먼저 발판으로 올라간다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 08:55",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "사고 소식을 들은 설준일이 점검 일지부터 다시 확인하려 장비 보관실로 서둘러 나선다."
+    },
+    {
+      "id": "T21",
+      "time": "사건 당일 09:00",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "남궁진혁이 소란 속에서도 후원금 서류부터 서둘러 정리해 서랍에 넣는다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하태윤",
+      "role": "청해생물연구소 대표 겸 수석연구원",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "고재이",
+      "role": "사육사 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 아침 7시 15분에 먹이를 주러 왔을 때 수조 수위가 평소와 같았다는 사실을 알고 있다.",
+          "source": "본인이 그날 아침 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "8시 15분쯤 추영빈이 하태윤을 데리고 발판 쪽으로 올라가는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "발견 직후 소란 속에서 설준일이 장비 보관실 쪽으로 유난히 서둘러 가는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "이 시간엔 늘 저 혼자 수조를 돌보는데, 오늘은 유독 조용했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "발판 쪽으로 안내하다가 관장님이 물에 떠 있는 걸 보고 바로 소리쳤어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "발판 위에서 추영빈과 하태윤이 정확히 무슨 대화를 나눴는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 친근하고 싹싹한 말투",
+        "sentence_length_tendency": "평소엔 밝고 빠르게 말하다가, 몰리면 말이 자꾸 끊긴다",
+        "verbal_tic": "말끝에 '그러니까'를 붙이며 설명을 덧붙인다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그러니까, 저도 이렇게 될 줄은 몰랐어요.",
+        "제가 뭘 숨기고 있는 것처럼 보이나요, 그러니까...",
+        "...더는 드릴 말씀이 딱히 없는데요."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH01-03",
+        "opens": "S-CH01-01",
+        "says": "그러고 보니 설준일 기사님이 사고 나고 나서 장비 보관실 쪽으로 유난히 서둘러 가시던데, 그것도 좀 이상했어요.",
+        "reveals": "설준일이 서둘러 간 것은 사실이지만, 그것은 예산 문제로 낡은 로프를 교체하지 못한 것이 들킬까 봐 점검 일지를 다시 확인하려던 것뿐이었다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "남궁진혁",
+      "role": "후원회 사무국장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "지난달 후원금 집행 내역 일부를 사적으로 유용한 것이 하태윤에게 적발돼 경고를 받았다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 아침 7시 40분경 특허청에서 걸려 온 전화를 추영빈에게 연결해 줬다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그날 아침 국하람과 계속 로비에서 손님맞이를 준비하고 있었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "그날 아침 국하람이 유난히 초조해 보였다는 사실을 안다.",
+          "source": "본인이 그날 아침 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "올해 후원자 참석률이 예년보다 훨씬 좋더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "후원금 쪽은 문제 될 거 하나도 없습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E15",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "발판 위에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 격식을 차리며 몰아붙이듯 따지는 말투",
+        "sentence_length_tendency": "평소엔 길게 설명하듯 말하다가, 몰리면 목소리가 커지고 짧아진다",
+        "verbal_tic": "'솔직히 말씀드리면'을 자주 쓴다",
+        "stance": "imperious"
+      },
+      "pressure_responses": [
+        "솔직히 말씀드리면, 저도 이런 취급은 처음이라 당황스럽습니다.",
+        "제가 이 자리를 몇 년째 맡아 왔는지 아십니까.",
+        "...이제 그만하시죠, 더 드릴 말씀 없습니다."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "홍보팀장님이 오늘따라 유난히 초조해 보이시던데, 무슨 일 있나 싶긴 해요.",
+        "reveals": "국하람이 초조해 보였던 것은 사실이지만, 그것은 시연 준비가 늦어질까 봐 걱정했기 때문일 뿐이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "설준일",
+      "role": "협력업체 잠수 정비기사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "전날 밤 로프와 하네스 상태를 전부 점검했고 그때는 이상이 없었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "예산 부족으로 낡은 로프 한 쌍을 아직 교체하지 못하고 있다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사고 소식을 듣고 점검 일지부터 다시 확인하러 서둘러 나갔다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "최근 며칠간 남궁진혁이 후원금 서류를 유난히 자주 들여다보며 예민해했다는 사실을 안다.",
+          "source": "최근 며칠간 직접 지켜봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "여기 수조들은 밤새도록 가동하느라 그런지 아침에 오면 늘 후끈해요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "제가 관리하는 장비는 다 멀쩡했습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH03-03"
+        }
+      ],
+      "knowledge_limits": [
+        "발판 위에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 위축된 말투",
+        "sentence_length_tendency": "평소엔 짧게 답하다가, 몰리면 변명이 길어진다",
+        "verbal_tic": "'그게 참'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그게 참, 저도 어쩔 수 없었던 부분이 있어서요.",
+        "제가 뭘 크게 잘못했다고 생각하진 않습니다만...",
+        "...이제 그만 좀 물어봐 주셨으면 합니다."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-04",
+        "opens": "S-CH03-01",
+        "says": "그러고 보니 사무국장님이 오늘따라 후원금 서류를 유난히 서둘러 정리하시던데, 그것도 좀...",
+        "reveals": "남궁진혁이 서류를 서둘러 정리한 것은 사실이지만, 그것은 지난달 유용 건이 드러날까 봐 뒷수습을 하려던 것뿐이었다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "추영빈",
+      "role": "부관장 겸 공동연구원",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 아침 특허청 담당자의 확인 전화를 받고 하태윤의 단독 출원 사실을 처음 알게 됐다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 아침 하태윤과 함께 수조 정비 발판으로 갔다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "언쟁 끝에 격분해 하태윤을 발판 난간 쪽으로 밀쳤다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "그날 아침 남궁진혁이 후원금 서류를 서둘러 정리하는 것을 봤다.",
+          "source": "본인이 그날 아침 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 배양법 연구만 3년째예요. 오늘 그 결과를 보여드리는 거죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그런 전화는 받은 적 없습니다.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "그 시간엔 계속 연구실에 있었습니다. 수조 쪽엔 가지도 않았어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "제가 민 게 아닙니다. 하태윤 씨가 혼자 발을 헛디딘 겁니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH04-04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 그날 아침 각자 어디 있었는지는 정확히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 자신감 있어 보이려는 말투",
+        "sentence_length_tendency": "평소엔 차분하고 논리적으로 말하다가, 몰리면 짧고 방어적으로 끊긴다",
+        "verbal_tic": "'그러니까'를 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그러니까, 저도 당혹스럽긴 마찬가지입니다.",
+        "자꾸 이런 식으로 물으시면 저도 드릴 말씀이 없습니다.",
+        "...그건, 그럴 생각까지는 없었어요."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-04",
+        "opens": "S-CH04-01",
+        "says": "후원회 사무국장님도 요즘 후원금 문제로 좀 예민하시던데, 그쪽도 한번 보시는 게 어떨까요.",
+        "reveals": "남궁진혁이 예민했던 것은 사실이지만, 그것은 지난달 유용 건 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "국하람",
+      "role": "홍보팀장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "보도자료 최종본에 하태윤의 이름만 대표 연구자로 올라간 것을 알고 있었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그날 아침 추영빈이 보도자료 초안을 보고 표정이 눈에 띄게 굳는 것을 봤다는 사실을 안다.",
+          "source": "본인이 그날 아침 직접 봄"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "그날 아침 남궁진혁과 계속 로비에서 손님맞이를 준비하고 있었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "안전 장비 예산이 최근 빠듯했다는 얘기를 사내에서 얼핏 들었다.",
+          "source": "사내에서 얼핏 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘 하루 종일 정신없이 뛰어다닐 것 같아요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "보도자료는 관장님이 알아서 최종 정리하신 거라, 저는 자세히 몰라요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH05-03"
+        }
+      ],
+      "knowledge_limits": [
+        "발판 쪽에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 꼼꼼하다",
+        "sentence_length_tendency": "평소엔 또박또박 정리해서 말하다가, 몰리면 말이 짧아진다",
+        "verbal_tic": "'정리하자면'을 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "정리하자면, 저는 본 대로만 말씀드리는 겁니다.",
+        "왜 자꾸 저한테 이러시는지 모르겠네요.",
+        "...더 드릴 말씀은 없습니다."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "안전 장비 예산이 요즘 빠듯하다는 얘기를 들었는데, 혹시 그쪽에 무슨 문제가 있었던 건 아닐까요.",
+        "reveals": "예산이 빠듯했던 것은 사실이지만, 설준일은 정해진 예산 안에서 최선을 다해 관리해 왔을 뿐이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH04"],
+      "nature": "3년간 산호 인공배양 연구를 함께해 온 대표 연구원과 부관장 사이.",
+      "public_face": "두 사람은 이 연구소에서 가장 손발이 잘 맞는 연구 파트너로 알려져 있다.",
+      "private_strain": "추영빈은 두 사람이 함께 개발한 배양법을 하태윤이 자신의 이름만으로 특허 출원했다는 사실에 배신감을 느끼고 있었다.",
+      "surfaces_when": "탐정이 특허청 발신 통화 기록(E08)과 보도자료 초안 접근 기록(E09)을 함께 제시할 때.",
+      "says": {
+        "CH04": "\"관장님과는... 그 이상 드릴 말씀이 지금은 없습니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "후원금 운용을 놓고 종종 부딪혀 온 대표와 후원회 사무국장 사이.",
+      "public_face": "다들 남궁진혁이 후원 행사를 매끄럽게 챙긴다고 알고 있다.",
+      "private_strain": "남궁진혁은 지난달 후원금 일부를 사적으로 유용한 것이 하태윤에게 적발돼 경고를 받은 사실을 숨기고 있다.",
+      "surfaces_when": "탐정이 후원금 집행 내역서(E15)를 제시하며 지난달 지출 문제를 캐물을 때.",
+      "says": {
+        "CH02": "\"대표님과는... 후원 관련해서는 서로 확인할 게 많은 사이였을 뿐입니다.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH01"],
+      "nature": "신입 사육사 시절부터 5년을 지켜봐 온 대표와 사육사 사이.",
+      "public_face": "고재이는 하태윤을 스승처럼 따르는 직원으로 알려져 있다.",
+      "private_strain": "고재이는 그날 아침 수위가 평소와 같았다는 것을 알고 있었지만, 괜히 의심을 살까 봐 먼저 말하지 않았다.",
+      "surfaces_when": "탐정이 수조 수위 자동기록 로그(E06)를 제시하며 그날 아침 수위 상태를 물을 때.",
+      "says": {
+        "CH01": "\"관장님은 제가 실수할 때마다 다시 해보라고만 하셨어요. 화내신 적은 한 번도 없어요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "안전 장비 유지보수를 3년째 맡아 온 대표와 협력업체 기사 사이.",
+      "public_face": "설준일은 꼼꼼하게 장비를 관리하는 사람으로 알려져 있다.",
+      "private_strain": "설준일은 예산 부족으로 낡은 로프 한 쌍을 교체하지 않고 눈감아 온 것을 하태윤에게 숨겨 왔다.",
+      "surfaces_when": "탐정이 당일 아침 안전 점검 일지(E05)를 제시하며 로프 상태를 캐물을 때.",
+      "says": {
+        "CH03": "\"대표님이랑은... 그게 참, 예산 얘기 나올 때마다 편치는 않았죠.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "이번 공개 시연 준비를 몇 달째 함께해 온 대표와 홍보팀장 사이.",
+      "public_face": "국하람은 이번 행사를 성공적으로 준비해 온 실무자로 알려져 있다.",
+      "private_strain": "국하람은 보도자료 초안에 추영빈의 이름이 빠진 것을 알고 있었지만, 대표의 결정이라 여겨 별다른 말을 하지 않았다.",
+      "surfaces_when": "탐정이 보도자료 초안 접근 기록(E09)을 제시하며 이름이 빠진 경위를 물을 때.",
+      "says": {
+        "CH05": "\"관장님이 최종본은 본인이 검토하겠다고 하셔서, 저는 그대로 따랐을 뿐이에요.\""
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH05"],
+      "nature": "이번 시연 자료를 함께 준비해 온 부관장과 홍보팀장 사이.",
+      "public_face": "실무자로서 협조적인 관계로 보인다.",
+      "private_strain": "국하람은 추영빈이 보도자료 초안을 보고 표정이 굳는 것을 봤지만, 그저 긴장한 것이라 여기고 넘어갔다.",
+      "surfaces_when": "탐정이 국하람에게 그날 아침 추영빈의 태도를 물을 때(F-CH05-02).",
+      "says": {
+        "CH04": "\"국하람 씨는... 그날 좀 정신없어 보이긴 했죠.\"",
+        "CH05": "\"부관장님 표정이 그날따라 좀 굳어 보이시긴 했는데, 그런가 보다 했어요.\""
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "메인 전시 수조 정비 발판",
+      "access": "안전화를 착용하고 출입증을 태그해야 들어갈 수 있는 제한구역.",
+      "access_level": "restricted",
+      "connects_to": ["L03", "L04"],
+      "base_description": "천장까지 이어진 대형 전시 수조 앞으로 정비용 발판이 튀어나와 있고, 발판 가장자리 난간은 아직 물기가 마르지 않았다. 관람로 쪽에는 오늘 시연을 알리는 현수막이 반쯤 펼쳐진 채 걸려 있다. 발판 아래쪽에는 고재이가 굳은 얼굴로 서서 수조 안쪽을 바라보고 있다.",
+      "observation_rules": [
+        {
+          "action": "수조 전시관 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "관람객 동선을 따라 안내판들이 늘어서 있고, 오늘 시연을 알리는 현수막이 아직 미완성인 채 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "발판 바닥과 난간 주변을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "발판 가장자리 페인트가 긁힌 자국과 함께, 미끄럼 방지 매트 한쪽 모서리가 들려 있다."
+        },
+        {
+          "action": "수조 배수 밸브 상태를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "배수 밸브가 최근 사람 손으로 조작된 듯 살짝 열려 있고, 주변 먼지가 손자국 모양으로 닦여 있다."
+        },
+        {
+          "action": "안전 로프와 고리 상태를 점검한다",
+          "requires": "E02",
+          "release_evidence_id": "E03",
+          "result": "안전 로프 고리 하나가 채 고정되지 않은 채 헐겁게 걸려 있다."
+        },
+        {
+          "action": "수조 자동 수위 기록 로그를 확인한다",
+          "requires": "고재이",
+          "release_evidence_id": "E06",
+          "result": "자동 기록 로그에는 오전 8시 25분에 수위가 5센티미터 급격히 낮아진 기록이 남아 있다."
+        },
+        {
+          "action": "발판 구역 출입 카드 기록을 확인한다",
+          "requires": "E03",
+          "release_evidence_id": "E10",
+          "result": "오전 8시 15분, 추영빈과 하태윤의 출입 카드가 5분 간격으로 나란히 발판 구역에 태그된 기록이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "연구실",
+      "access": "카드키가 있어야 들어갈 수 있는 연구 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L03", "L05"],
+      "base_description": "책상마다 오늘 발표 자료가 흩어져 있고, 벽면 화이트보드에는 배양 실험 일정표가 빼곡하다. 창가 자리에서는 추영빈이 팔짱을 낀 채 창밖을 보고 서 있다.",
+      "observation_rules": [
+        {
+          "action": "연구실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위에 오늘 발표에 쓸 슬라이드 출력물이 놓여 있고, 표지에는 하태윤 이름만 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "연구실 유선전화 통화 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "오전 7시 40분, 특허청 대표번호에서 추영빈의 내선으로 걸려 온 통화 기록이 남아 있다."
+        },
+        {
+          "action": "보도자료 초안 파일의 접근 기록을 확인한다",
+          "requires": "E08",
+          "release_evidence_id": "E09",
+          "result": "오전 7시 55분, 추영빈의 계정이 '하태윤 단독 연구 성과 발표' 문구가 담긴 보도자료 초안 파일을 열람한 기록이 남아 있다."
+        },
+        {
+          "action": "연구실 서버 메일 백업을 확인한다",
+          "requires": "E09",
+          "release_evidence_id": "E12",
+          "result": "추영빈의 계정에서 오전 8시 30분에 특허 관련 이메일 대화가 삭제된 이력이 서버 백업에 남아 있다."
+        },
+        {
+          "action": "추영빈의 셔츠 소매를 살핀다",
+          "requires": "추영빈",
+          "release_evidence_id": "E13",
+          "result": "소매 끝단이 젖었다가 마른 자국이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "후원자 라운지 겸 로비",
+      "access": "누구나 드나들 수 있는 개방된 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L05"],
+      "base_description": "안내 데스크 옆으로 방문객용 명찰 발급대가 놓여 있고, 벽면 스크린에는 오늘 시연 안내 영상이 반복 재생되고 있다. 데스크 안쪽에서는 국하람과 남궁진혁이 명단을 맞춰 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "안내 데스크 옆 화이트보드에 오늘 방문 예정인 후원자 명단과 시연 일정이 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "후원금 집행 내역서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "지난달 집행 내역 중 일부 항목에 하태윤의 빨간 펜 표시와 '재확인 요망' 메모가 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "잠수 장비 보관실",
+      "access": "출입증이 있어야 들어갈 수 있는 장비 보관 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05"],
+      "base_description": "벽면 선반에 잠수 장비들이 크기별로 걸려 있고, 한쪽 작업대에는 점검 도구가 펼쳐져 있다. 작업대 앞에는 설준일이 로프 뭉치를 손에 든 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "장비 보관실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "벽면 선반에 로프와 하네스가 종류별로 정리돼 있고, 구석에는 교체 대기 중인 낡은 장비들이 쌓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "당일 아침 안전 점검 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "오전 7시 30분 점검란에 로프와 고리 모두 '이상 없음'으로 기재돼 있다."
+        },
+        {
+          "action": "설준일의 출입 카드 기록을 확인한다",
+          "requires": "E05",
+          "release_evidence_id": "E17",
+          "result": "그의 출입 카드는 오전 7시부터 9시까지 장비 보관실 안에서만 태그 이력이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "사육사 사무실",
+      "access": "직원이면 자유롭게 드나들 수 있는 사무 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "책상 위에 사료 배합표와 수질 기록지가 쌓여 있고, 벽면에는 이번 주 급여 일정표가 붙어 있다. 자리는 비어 있고, 의자에는 방금 벗어 둔 듯한 앞치마가 걸쳐 있다.",
+      "observation_rules": [
+        {
+          "action": "사육사 사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위에 오늘 아침 사료 급여 기록표가 펼쳐져 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "발판 위 다툼 흔적",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "발판 바닥과 난간 주변을 살핀다",
+      "content": "발판 가장자리 페인트가 긁힌 자국과 함께, 미끄럼 방지 매트 한쪽 모서리가 들려 있다.",
+      "proves": ["그 자리에서 몸싸움이 있었을 가능성"],
+      "does_not_prove": ["누구와 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "밸브 조작 흔적",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "수조 배수 밸브 상태를 확인한다",
+      "content": "배수 밸브가 최근 사람 손으로 조작된 듯 살짝 열려 있고, 주변 먼지가 손자국 모양으로 닦여 있다.",
+      "proves": ["누군가 사고 직후 물 높이를 인위적으로 낮췄다는 것"],
+      "does_not_prove": ["정확히 누구인지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "\"밸브가... 왜 열려 있죠?\"",
+        "detective": "\"누가 나중에 손댔다는 뜻이지.\""
+      }
+    },
+    {
+      "id": "E03",
+      "name": "풀린 안전 로프 고리",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "안전 로프와 고리 상태를 점검한다",
+      "content": "안전 로프 고리 하나가 채 고정되지 않은 채 헐겁게 걸려 있다.",
+      "proves": ["안전장비가 온전하지 않았던 것처럼 꾸며졌을 가능성"],
+      "does_not_prove": ["사고 전부터 그랬는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "\"이게 원래 이랬을 리가 없는데요.\"",
+        "detective": "\"그래, 그럴 리가 없지.\""
+      }
+    },
+    {
+      "id": "E04",
+      "name": "설준일의 진술 — 전날 밤 점검",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "설준일에게 전날 밤 점검 내용을 묻는다",
+      "content": "\"어제 저녁에 로프며 하네스며 싹 다 확인했는데, 그때는 멀쩡했어요.\"",
+      "proves": ["전날 밤엔 고리가 정상이었다는 것"],
+      "does_not_prove": ["그 뒤 누가 손을 댔는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E05",
+      "name": "당일 아침 안전 점검 일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "당일 아침 안전 점검 일지를 확인한다",
+      "content": "오전 7시 30분 점검란에 로프와 고리 모두 '이상 없음'으로 기재돼 있다.",
+      "proves": ["사고 발생 전인 7시 30분까지는 고리가 멀쩡했다는 것"],
+      "does_not_prove": ["이후 누가 손을 댔는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "수조 수위 자동기록 로그",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "수조 자동 수위 기록 로그를 확인한다",
+      "content": "자동 기록 로그에는 오전 8시 25분에 수위가 5센티미터 급격히 낮아진 기록이 남아 있다.",
+      "proves": ["그 시각에 누군가 배수 밸브를 조작했다는 것"],
+      "does_not_prove": ["누구인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "고재이의 진술 — 아침 수위",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "고재이에게 그날 아침 수조 수위 상태를 묻는다",
+      "content": "\"7시 15분에 제가 먹이 주러 왔을 때는 수위가 평소랑 똑같았어요.\"",
+      "proves": ["7시 15분까지는 수위가 정상이었다는 것"],
+      "does_not_prove": ["그 뒤 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "특허청 발신 통화 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "연구실 유선전화 통화 기록을 확인한다",
+      "content": "오전 7시 40분, 특허청 대표번호에서 추영빈의 내선으로 걸려 온 통화 기록이 남아 있다.",
+      "proves": ["추영빈이 그 시간에 특허청 전화를 받았다는 것"],
+      "does_not_prove": ["통화 내용"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E09",
+      "name": "보도자료 초안 접근 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "보도자료 초안 파일의 접근 기록을 확인한다",
+      "content": "오전 7시 55분, 추영빈의 계정이 '하태윤 단독 연구 성과 발표' 문구가 담긴 보도자료 초안 파일을 열람한 기록이 남아 있다.",
+      "proves": ["추영빈이 그 시간에 단독 명의 발표 계획을 확인했다는 것"],
+      "does_not_prove": ["그가 그것을 어떻게 받아들였는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E10",
+      "name": "발판 구역 출입 카드 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "발판 구역 출입 카드 기록을 확인한다",
+      "content": "오전 8시 15분, 추영빈과 하태윤의 출입 카드가 5분 간격으로 나란히 발판 구역에 태그된 기록이 있다.",
+      "proves": ["둘이 그 시각 함께 그 구역에 있었다는 것"],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "고재이의 진술 — 목격",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "고재이에게 그날 아침 발판 쪽에서 본 사람이 있는지 묻는다",
+      "content": "\"8시 15분쯤 부관장님이 관장님 모시고 발판 쪽으로 올라가시는 걸 봤어요. 얘기 좀 하자고 하시더라고요.\"",
+      "proves": ["추영빈이 하태윤을 발판으로 데려갔다는 것"],
+      "does_not_prove": ["무슨 대화를 나눴는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E12",
+      "name": "삭제된 이메일 복구 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "연구실 서버 메일 백업을 확인한다",
+      "content": "추영빈의 계정에서 오전 8시 30분에 특허 관련 이메일 대화가 삭제된 이력이 서버 백업에 남아 있다.",
+      "proves": ["추영빈이 그 시각 특허 관련 기록을 지웠다는 것"],
+      "does_not_prove": ["살인과 직접 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "추영빈 셔츠에 남은 물자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "추영빈의 셔츠 소매를 살핀다",
+      "content": "소매 끝단이 젖었다가 마른 자국이 남아 있다.",
+      "proves": ["최근 물에 닿았다는 것"],
+      "does_not_prove": ["언제 어디서인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "국하람의 진술 — 남궁진혁의 위치",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "국하람에게 그날 아침 남궁진혁이 어디 있었는지 묻는다",
+      "content": "\"진혁 씨는 그 시간 내내 로비에서 저랑 같이 손님맞이 준비하고 있었어요.\"",
+      "proves": ["남궁진혁의 그 시간대 알리바이"],
+      "does_not_prove": ["그 이전 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "후원금 집행 내역서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "후원금 집행 내역서를 확인한다",
+      "content": "지난달 집행 내역 중 일부 항목에 하태윤의 빨간 펜 표시와 '재확인 요망' 메모가 남아 있다.",
+      "proves": ["후원금 집행에 문제 제기가 있었다는 것"],
+      "does_not_prove": ["구체적으로 누가 무엇을 유용했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "남궁진혁의 진술 — 전화 연결",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "남궁진혁에게 그날 아침 걸려온 전화에 대해 묻는다",
+      "content": "\"특허청이라면서 추영빈 연구원님 바꿔 달라고 하셔서 연결해 드렸어요. 7시 40분쯤이었을걸요.\"",
+      "proves": ["그 전화가 실제로 추영빈에게 연결됐다는 것"],
+      "does_not_prove": ["통화 내용"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "설준일 출입 카드 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "설준일의 출입 카드 기록을 확인한다",
+      "content": "그의 출입 카드는 오전 7시부터 9시까지 장비 보관실 안에서만 태그 이력이 남아 있다.",
+      "proves": ["그가 그 시간 내내 장비 보관실에 있었다는 것"],
+      "does_not_prove": ["다른 사람의 행적"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "admits_call",
+      "requires_heard_claim_ids": ["S-CH04-02"],
+      "requires_presented_evidence_ids": ["E08", "E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E08", "E09"]
+      },
+      "player_action": "특허청 발신 통화 기록(E08)과 보도자료 초안 접근 기록(E09)을 함께 제시하며 전화를 받은 적 없다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-01",
+        "scope": "추영빈이 그날 아침 특허청 담당자의 확인 전화를 받고 하태윤의 단독 출원 사실을 알게 됐다는 사실을 인정한다."
+      },
+      "must_not_release": ["발판으로 갔다는 사실", "밀쳤다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "admits_call",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
+      "requires_presented_evidence_ids": ["E10", "E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-03",
+        "evidence_ids": ["E10", "E11"]
+      },
+      "player_action": "발판 구역 출입 기록(E10)과 고재이의 목격담(E11)을 함께 제시하며 수조 쪽엔 가지 않았다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "추영빈이 그날 아침 하태윤과 함께 수조 정비 발판으로 갔다는 사실을 인정한다."
+      },
+      "must_not_release": ["밀쳤다는 사실", "밸브를 조작했다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-04"],
+      "requires_presented_evidence_ids": ["E02", "E03", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-04",
+        "evidence_ids": ["E02", "E03", "E05"]
+      },
+      "player_action": "밸브 조작 흔적(E02)과 풀린 안전 로프 고리(E03), 당일 아침 점검 일지(E05)를 함께 제시하며 스스로 발을 헛디딘 것이라는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "추영빈이 언쟁 끝에 격분해 하태윤을 발판 난간 쪽으로 밀쳤다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "설준일이 수상해 보인다 — 그는 안전 장비를 직접 관리해 왔고, 사고 현장에 남은 훼손된 고리도 그의 손을 거칠 수 있는 물건이다.",
+      "actual_reason": "설준일이 감추고 있던 것은 몇 주 전 예산 부족으로 낡은 로프 한 쌍을 교체하지 않고 눈감아 온 것일 뿐, 그날 아침 발판 근처에는 가지도 않았다.",
+      "how_to_clear": "설준일 출입 카드 기록(E17)과 발판 구역 출입 카드 기록(E10)을 함께 제시해 그가 사고 시각 내내 장비 보관실에 있었을 뿐 발판 쪽에는 없었다는 것을 확인한다.",
+      "must_not_imply": "그에게 살인 동기가 없다고 해서 노후 장비를 방치해 온 책임까지 없어지는 것은 아니다.",
+      "lingering_thread": "설준일은 이후 노후 장비 전수 교체를 정식으로 요청하겠다고 다짐한다.",
+      "suspicion_deepener": "안전장비를 직접 관리해 온 그가 사고 직후 유독 로프 상태를 캐묻고 다닌 것이 오히려 의심을 키운다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH02",
+      "surface_suspicion": "남궁진혁이 수상해 보인다 — 그는 최근 후원금 집행 내역을 두고 하태윤과 마찰이 있었고, 사건 당일 아침 특허청 전화를 직접 연결해 준 사람이기도 하다.",
+      "actual_reason": "그가 감추고 있던 것은 지난달 후원금 일부를 사적으로 유용했다는 사실이 적발돼 하태윤에게 경고를 받은 것일 뿐, 전화를 연결해 준 것 외에는 그날 아침 발판 쪽에 간 적이 없다.",
+      "how_to_clear": "발판 구역 출입 카드 기록(E10)과 국하람의 진술(E14)을 함께 제시해 그가 사고 시각 내내 로비에 있었다는 것을 확인시킨다.",
+      "must_not_imply": "그에게 살인 동기가 없다고 해서 후원금을 유용한 사실까지 사라지는 것은 아니다.",
+      "lingering_thread": "남궁진혁은 유용한 후원금을 전액 반환하고 후원회 사무국장직에서 물러나기로 한다.",
+      "suspicion_deepener": "후원금 유용 사실이 알려지며 그가 하태윤에게 앙심을 품었을 거라는 의심이 커진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "F-CH04-02", "F-CH04-03", "E12"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "F-CH04-03",
+      "motive_fact": "F-CH04-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "추영빈(CH04) — 청해생물연구소 부관장 겸 공동연구원",
+    "method": "수조 정비 발판 위에서 하태윤과 다투다 격분해 그를 난간 쪽으로 밀쳤다.",
+    "motive": "3년간 함께 개발한 산호 인공배양법을 하태윤이 자신의 이름만으로 특허 출원하고, 오늘 공개 시연에서도 단독으로 발표할 예정이었다는 사실을 그날 아침 알게 되면서 격분했다.",
+    "key_connection": "특허청 통화 기록(E08)과 보도자료 초안 접근 기록(E09)이 그가 그날 아침 무엇을 알게 됐는지부터, 발판 구역 출입 기록(E10)과 고재이의 목격담(E11)으로 그 시각 그 자리에 있었다는 것, 그리고 밸브 조작 흔적(E02)과 풀린 안전 로프 고리(E03), 삭제된 이메일 복구 로그(E12)로 사고를 꾸민 정황까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "하태윤은 추영빈과 3년간 함께 개발해 온 산호 인공배양법을 두 주 전 자신의 이름만으로 특허 출원했고, 오늘 공개 시연에서도 단독 연구 성과로 발표할 예정이었다 — 이 사실은 아무에게도 알려지지 않고 있었다.",
+    "그날 아침 7시 40분, 남궁진혁이 연결해 준 특허청 확인 전화(E08, E16)를 받으며 추영빈은 처음으로 그 사실을 알게 됐다.",
+    "이어 확인한 보도자료 초안에는 하태윤 혼자만의 이름이 올라 있었다(E09) — 국하람은 그 초안에 이름이 빠진 것을 알고 있었지만 대표의 결정이라 여겨 넘어갔었다.",
+    "8시 15분, 추영빈은 하태윤을 수조 정비 발판으로 데려갔다. 이 장면은 고재이에게 목격됐고(E11), 두 사람의 출입 카드도 5분 간격으로 발판 구역에 나란히 태그됐다(E10).",
+    "공동 출원자 등재를 요구하며 다투던 끝에 추영빈이 격분해 하태윤을 난간 쪽으로 밀쳤다 — 발판 위에는 그때의 다툼 흔적이 남아 있었다(E01). 하태윤은 모서리에 부딪힌 뒤 수조에 빠져 의식을 잃은 채 익사했다.",
+    "추영빈은 배수 밸브를 살짝 열어 물 높이를 낮추고(E02), 안전 로프 고리 하나를 풀어 두어(E03) 하태윤이 혼자 정비하다 실족한 것처럼 꾸몄다 — 그러나 전날 밤(E04)과 당일 아침 7시 30분(E05)까지도 로프에는 이상이 없었다는 기록이 남아 있어, 그 사이 누군가 손을 댔다는 것이 드러났다.",
+    "수조 자동 수위 기록에는 8시 25분에 수위가 급격히 낮아진 기록이 남았고(E06), 고재이는 7시 15분까지만 해도 수위가 정상이었다고 증언했다(E07).",
+    "추영빈은 특허 관련 이메일도 자신의 계정에서 지웠지만, 서버 백업에는 그 흔적이 고스란히 남아 있었다(E12). 그의 소매에도 물에 젖었다 마른 자국이 남아 있었다(E13).",
+    "설준일이 사고 직후 유독 서둘렀던 것은 예산 부족으로 낡은 장비를 방치해 온 것이 드러날까 봐서였을 뿐이었고(E04), 그의 출입 카드 기록은 그 시간 내내 그가 장비 보관실 안에만 있었다는 것을 보여 줬다(E17). 남궁진혁이 그날 아침 서류를 서둘러 정리한 것도 지난달 후원금을 유용한 사실이 들킬까 봐였을 뿐이며(E15), 그 시간 내내 로비에 있었다는 것을 국하람이 확인해 줬다(E14). 둘 다 사건과는 무관했다."
+  ]
+}
