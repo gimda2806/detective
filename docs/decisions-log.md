@@ -1077,6 +1077,25 @@ CASE118↔119는 글자까지 같은 문장 28줄인데 수법 계열이 달라 
 · tsc · oxlint 기준선 49. 축이 비었으므로 `STAGE_RELEASE_NO_BODY` 를 **등록 무관 error** 로 올렸다(E/W → E*) — 엔진이 엄격해진
 뒤로는 이 검사가 「수첩의 빈 줄」이 아니라 「종결 불가」를 막는다. `check:offline` 도 잡지만 그것은 막이 잠긴 뒤의 신호다.
 
+## 2026-09-27: 「카드가 거짓 진술 그 자체」 후보 검사 — 실측 5건, 검사기 없이 직접 고쳤다
+
+「검사기를 보는 세션」 절 후보(`evidence[].content`가 `initial_claims[].content`와 겹치는데 그 진술이 `lie`인 것)를 실측했다.
+문자열 완전일치로 전수를 세니 **348건 중 5건, CASE061·062·063·064·065뿐**이었다(번호가 연속이라 한 회차의 자국으로 보였으나,
+그 다섯 카드가 전부 **그 사건의 진범 본인** 카드였다 — `CHARACTER_WITH_NO_QUESTION`은 진범을 세지 않으므로 그 축의 흔적은 아니다).
+
+다섯 장 다 같은 모양이었다: 이름 `"OOO의 증언 — 알리바이"`, `discovery_condition: "OOO에게 그 시각 어디 있었는지 묻는다."`,
+`content`가 그 인물의 알리바이 거짓 진술(`initial_claims`, `truth_status: lie`)과 글자 하나 안 다르고, `proves`/`does_not_prove`는
+「본인은 ~라고 주장한다」/「그 주장이 사실인지」로 신중하게 헤징돼 있었다. 다섯 장 모두 `contradiction_stages`·`red_herrings`
+어디에도 안 불려 **완전히 고립**돼 있었다 — 실제 대립 단계(예: CASE061 `C01`)는 이미 다른 독립 증거(E13)로 그 거짓말을
+깨고 있었다. 즉 이 카드는 애초에 아무 역할도 못 하는 채 남아 있던 죽은 카드였다.
+
+**검사기를 새로 만들지 않았다** — 5건뿐이고 원인이 좁아(진범 알리바이 카드를 만들 때 재료로 거짓 진술을 그대로 복사한 자국),
+상시 검사보다 직접 고치는 쪽이 쌌다. CASE065만 그 카드가 `L02`의 `detail_rules`에도 같은 `action`으로 걸려 있어 카드와
+`detail_rule` 항목을 함께 지웠다(안 지우면 `DEAD_DETAIL_RULE`). 나머지 넷은 고립 카드라 항목만 삭제했다.
+
+결과: 문자열 재검사 0건. `npm run check:case` 다섯 건 모두 errors 0. `npm run check:offline` 다섯 건 완주 가능 5·텍스트 이상 0.
+새 진상·수법·동기는 건드리지 않았다 — 죽은 카드를 지운 것뿐이다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
