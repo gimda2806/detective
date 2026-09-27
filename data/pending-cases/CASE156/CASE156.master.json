@@ -171,6 +171,11 @@
           "fact_id": "F-CH01-01",
           "content": "사건 당일 19시 10분경 서버실에서 계약서 최종본을 열람하다 자신의 이름이 '외주 보조작가'로만 적힌 것을 확인했다.",
           "source": "본인 확인"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "몸싸움 끝에 노시헌의 목을 움켜쥐고 조른 것을 자백한다. 그 통에 떨어진 트로피를 닦아 제자리에 두고 창문 걸쇠를 풀어 외부 침입처럼 꾸민 것과, 노트북에서 계약서 열람 기록을 지우려 했던 것도 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -220,6 +225,11 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "C02",
           "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": ["몸싸움 이전 노시헌과 오재형, 마용진 사이에 오간 대화는 모른다."],

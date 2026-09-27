@@ -541,6 +541,26 @@
           "related_timeline": [
             "T02"
           ]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "오후에 배전반을 손본 것은 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "마이크 스탠드로 이어지는 회로에 손을 댄 것은 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "8년 전 표절 시비의 책임을 서인후가 자신에게 떠넘겼다는 사실과, 최근 그 증거를 찾아냈다는 것을 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-06",
+          "content": "8년 전과 똑같이 오늘 밤도 서인후가 타이틀곡을 단독 크레딧으로 가로채려 한다는 걸 알고, 다시는 당하지 않겠다는 생각에 배전반을 조작해 감전사로 위장했다는 것을 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -585,9 +605,19 @@
           "release_trigger": "S-CH05-01"
         },
         {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "F-CH05-03",
           "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
         },
         {
           "fact_or_claim_id": "S-CH05-04",
@@ -595,9 +625,19 @@
           "release_trigger": "S-CH05-03"
         },
         {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        },
+        {
           "fact_or_claim_id": "S-CH05-05",
           "release_prerequisite": "F-CH05-05",
           "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [
