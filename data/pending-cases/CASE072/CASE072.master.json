@@ -277,6 +277,17 @@
           "content": "제가 케이블을 건드린 건 맞아요. 하지만 낡아서 위험해 보여 손을 봤을 뿐 사고를 낼 생각은 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "그게… 점검일지에 손을 댄 것도 맞아요. 근데 그냥 제 잘못을 감추고 싶어서 그런 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-06",
+          "content": "제가 다 말씀드릴게요 — 15년 전 같이 쓴 대본 몫을 끝내 인정받지 못하고, 영화화 판권 계약으로 그 흔적마저 사라진 데다 다음 시즌 자리에서도 밀려날 처지가 되니까, 사다리 조명 케이블을 끊어서 하로빈 씨를 감전사하게 만들었어요. 그리고 소란한 틈에 점검일지를 조작해서 사고처럼 보이게 하려고 했어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -293,6 +304,16 @@
           "fact_or_claim_id": "S-CH02-04",
           "release_prerequisite": "S-CH02-03",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH02-05"
         }
       ],
       "knowledge_limits": [

@@ -280,6 +280,13 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    검사한다.
 6. contradiction_stages — 최소 3단계. 각 단계는 서로 다른 증거 조합을 요구해야 하고, 이전 단계에서
    release된 사실을 다음 단계의 requires_heard_claim_ids로 이어받아야 한다.
+   **release가 내주는 id에는 본문을 쓴다** — `release.claim_or_fact_id`가 가리키는 진술(S-)·사실(F-)을
+   그 인물의 `initial_claims`(S-)·`knows`(F-)에 **그 id 그대로** 적고, `hidden_until`
+   (`{fact_or_claim_id: <그 id>, release_prerequisite: <그 단계 id>, release_trigger: <앞 진술 id>}`)로
+   잠근다. 잠그지 않으면 첫 면담에 자백이 통째로 샌다. 본문을 안 쓰면
+   `STAGE_RELEASE_NO_BODY`(새 사건 error) — 교차참조는 통과하고 완주도 되지만 **플레이어 수첩에
+   id만 꽂히고 그 사람이 무슨 말을 했는지가 안 남는다.** `release.scope` 지문에 그 사실을 이미
+   문장으로 적었을 테니 그것을 그 인물의 말로 옮기면 된다(지문은 지우지 않는다).
    **requires_presented_evidence_ids는 requires_comparison.evidence_ids와 같다** — 그 거짓말과
    부딪치는 카드만 요구한다. 비교에 없는 카드(헛다리 카드, 다음 단계 카드)를 끼우면
    `STAGE_REQUIRES_BEYOND_COMPARISON`(error). 플레이어는 거짓말과 부딪치는 카드를 다 내밀고도
