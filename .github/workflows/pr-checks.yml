@@ -125,9 +125,17 @@ jobs:
           # CI 에서는 새 사건이 늘 「등록됨」으로 읽혀, 「새 사건 error」가 한 번도
           # 실제로 돌지 않았다. 추가된(A) 원본 파일이 곧 새 사건이다 — 그 id 는
           # `--new` 로 돌려 코퍼스 비율·오프라인 뼈대·대사 검사가 전부 error 다.
+          # 「추가된 파일」만으로는 안 된다(2026-09-27 두 번째 고침) — 지워진 사건을
+          # 되살리는 PR(CASE314 복구, #1390)도 파일은 추가(A)라 새 사건으로 잡혀
+          # 옛 원본에 오프라인 뼈대 error 가 났다. **새 사건 = 추가된 원본이면서
+          # base 쪽 registry 에 없는 id.** 생성 PR 은 registry 등록을 같은 PR 에
+          # 넣으므로 base 의 registry 에는 아직 없고, 복구 PR 의 id 는 이미 있다.
+          base_registry=$(git show "$base:data/case_registry.json" 2>/dev/null \
+                | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(Object.keys(JSON.parse(s).cases||{}).join("\n"))}catch{}})')
           new_ids=$(git diff --name-only --diff-filter=A "$base" "$head" \
                   -- 'data/pending-cases/*/*.master.json' \
-                | sed -E 's#data/pending-cases/(CASE[0-9]+)/.*#\1#' | sort -u)
+                | sed -E 's#data/pending-cases/(CASE[0-9]+)/.*#\1#' | sort -u \
+                | while read -r id; do echo "$base_registry" | grep -qx "$id" || echo "$id"; done)
           failed=0
           for id in $ids; do
             if echo "$new_ids" | grep -qx "$id"; then

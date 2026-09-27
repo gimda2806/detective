@@ -985,6 +985,10 @@ CI 는 못 잡았다 — `check:novel` 만 이것을 `errors: 1` 로 세고 PR �
 errors 0. 번호 경합 머지에서 **상대편(main) 파일을 지우지 않는 절차**는 생성 루틴이 #1388 에서 백로그에 적었다 — 양쪽을
 `git show :2:`/`:3:` 로 각각 빼낸 뒤 자기 것만 재번호한다. 이 사고를 그 줄의 둘째 사례로 붙였다.
 
+복구 PR(#1390) 자체가 새 규칙에 걸렸다 — 되살린 파일이 diff 에서 「추가(A)」라 CI 가 CASE314 를 새 사건으로 보고 `--new` 로
+돌려 오프라인 뼈대 error 9 개가 났다. 새 사건의 정의를 **「추가된 원본이면서 base 쪽 registry 에 없는 id」**로 좁혔다. 생성 PR 은
+registry 등록이 같은 PR 에 있어 base 에는 아직 없고, 복구 PR 의 id 는 이미 있다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
