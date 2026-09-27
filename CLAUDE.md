@@ -25,7 +25,7 @@
 
 ## ① 마스터 규칙 — 두 경로가 같은 파일을 읽는다
 
-새 사건은 외부에서 JSON으로 써서 `data/pending-cases/<ID>/<ID>.master.json`으로 커밋한다. 스키마 `scripts/case_master.schema.json`, 작성 스펙 `scripts/case_generation_prompt.md`(새 사건을 쓰는 세션은 먼저 읽는다), 검증 `npm run check:case <ID>`. 앱 안의 생성·업로드 파이프라인은 지웠다. **새 원본은 오프라인 필수 표를 갖고 태어난다**(2026-09-27 사용자 결정 「입구 막기」) — 등록되지 않은 원본에는 판본과 같은 뼈대·대사 검사가 error로 돌고, CI는 PR에서 새로 추가된 마스터를 `--new`로 돌려 registry 등록이 같은 PR에 있어도 새 사건으로 본다. 목록은 `docs/offline-master-format.md` 「필수」 표, 절차는 생성 스펙.
+새 사건은 외부에서 JSON으로 써서 `data/pending-cases/<ID>/<ID>.master.json`으로 커밋한다. 스키마 `scripts/case_master.schema.json`, 작성 스펙 `scripts/case_generation_prompt.md`(새 사건을 쓰는 세션은 먼저 읽는다), 검증 `npm run check:case <ID>`. 앱 안의 생성·업로드 파이프라인은 지웠다. **새 원본은 오프라인 필수 표를 갖고 태어난다**(2026-09-27 사용자 결정 「입구 막기」) — 등록되지 않은 원본에는 판본과 같은 뼈대·대사 검사가 error로 돌고, CI는 PR에서 새로 추가되고 **base의 registry에 없는** 마스터를 `--new`로 돌려 registry 등록이 같은 PR에 있어도 새 사건으로 본다(지워진 옛 사건의 복구는 registry에 이미 있어 새 사건이 아니다). 목록은 `docs/offline-master-format.md` 「필수」 표, 절차는 생성 스펙.
 
 **방향 — 장소 수색에서 인물 관계·서사로**(2026-09 결정)
 

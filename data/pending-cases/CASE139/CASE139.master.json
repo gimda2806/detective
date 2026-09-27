@@ -438,6 +438,21 @@
           "fact_id": "F-CH05-01",
           "content": "가뭄저항성 재래 벼 품종 개발에는 자신이 실무 대부분을 맡았다고 믿고 있다.",
           "source": "본인 인식"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "성이든이 그날 밤 포장 작업실에 있었고 코어러를 갖고 있었다는 사실은 인정하지만, 방문 이유는 재고 확인이었다고 둘러댄다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "성이든이 그날 밤 구하은과 실제로 마주쳐 몸싸움이 있었다는 사실은 인정하지만, 원장이 먼저 자신을 밀쳤다고 주장한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "성이든이 몸싸움 중 손에 쥔 코어러로 구하은을 고의로 찔러 살해했으며, 이후 시신을 안쪽으로 옮기고 팀 채팅방의 메시지를 지운 뒤 환기구를 억지로 열고 목장갑을 흘려 외부인의 소행처럼 꾸몄다고 전부 자백한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -471,14 +486,29 @@
       ],
       "hidden_until": [
         {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "C01",
           "release_trigger": "S-CH05-01"
         },
         {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
           "fact_or_claim_id": "S-CH05-04",
           "release_prerequisite": "C02",
           "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
         }
       ],
       "knowledge_limits": [
