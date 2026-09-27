@@ -407,6 +407,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE334 | 마지막 테이프를 감던 밤 | [CASE334.md](CASE334.md) |
 | CASE332 | 8개월치의 밤 | [CASE332.md](CASE332.md) |
 | CASE333 | 약장 셋째 칸 | [CASE333.md](CASE333.md) |
+| CASE335 | 국자를 내려놓은 자리 | [CASE335.md](CASE335.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
