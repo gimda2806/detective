@@ -1,0 +1,1047 @@
+{
+  "case_identity": {
+    "case_id": "CASE360",
+    "title": "마이크가 꺼지지 않은 밤",
+    "genre": "공로를 가로챈 계약에서 비롯된 우발적 교살과 감전사고 위장",
+    "setting": "번화가에서 한 블록 비켜난 4층 상가 건물의 2층, 사설 라디오 방송국 '정담라디오'가 전화 상담 프로그램 '자정 문답'을 13년째 내보내고 있다. 방음 스튜디오 부스 하나와 좁은 부조종실, 대본을 쓰는 작가실이 짧은 복도 하나를 사이에 두고 붙어 있다. 대표 방준학이 직접 마이크를 잡고, 오래 함께해 온 몇 사람이 나머지를 돌린다. 정담라디오는 방송사이면서 동시에 라디오 진행자를 키우는 소규모 양성 아카데미이기도 해서, 매 기수 수강생 몇을 뽑아 이 방송으로 실습을 시킨다. 지난주 초 지상파 라디오 채널과의 프로그램 공급 계약이 체결되어, 다음 달부터 이 작은 스튜디오의 방송이 전국으로 나가게 됐다.",
+    "location_archetypes": ["academy"],
+    "background": {
+      "background_archetypes": ["business_negotiation"],
+      "background_phrasing": ["recently_completed"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 '자정 문답'에 한 달에 한 번 나가는 법률·생활 상담 코너에 자문으로 초빙되어, 그날도 방송 시작 전 스튜디오에 미리 도착해 있었다.",
+    "tone": "방음 부스라는 밀폐된 공간과 그 안에서 오간 말들의 무게, 생방송이 코앞인데 아무도 서두르지 않는 척하는 긴장감.",
+    "tags": ["지역_라디오", "심야_생방송", "방송국_동료"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "방준학",
+      "role": "정담라디오 대표 겸 '자정 문답' 진행자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 22:40",
+    "narrative": "정담라디오 로비는 자정 방송 전인데도 붐비지 않았다.\n\n강이슬이 커피 두 잔을 내려놓으며 소파를 권했다.\n\n\"여기 앉아 계세요. 원고 점검 끝나면 바로 내려오실 거예요.\"\n\n한지우가 잔을 받아 들고 탐정 옆에 앉았다.\n\n\"한 달에 한 번, 가만히 앉아만 있어도 되는 코너가 있다니.\"\n\n탐정이 대꾸했다.\n\n\"방심하지 마. 여기 사람들 은근히 질문이 많아.\"\n\n그때 복도 안쪽에서 노을해가 뛰어나왔다.\n\n\"부스 문이 안 열려요, 아니, 열리긴 하는데 안에서—\"\n\n한지우가 먼저 일어섰다.\n\n\"제가 가 볼게요.\"\n\n탐정과 한지우가 복도를 따라 부스 앞까지 갔다. 조명이 꺼진 부스 안, 콘솔 의자 옆 바닥에 방준학이 쓰러져 있었다. 목에는 헤드폰 넥밴드가 삐뚜름하게 걸쳐져 있었고, 몸은 이미 미동조차 없었다.\n\n한지우가 숨을 삼켰다.\n\n\"이건…\"\n\n탐정이 짧게 말했다.\n\n\"구급차부터.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "작가실 형광등 아래, 유담헌은 한참 동안 말이 없었다.\n\n\"지분 얘기를 꺼냈더니 대표님이… '삯 받고 쓰는 처지에 무슨 지분이냐'고 하시더군요.\"\n\n유담헌은 잠시 숨을 고르고 말을 이었다.\n\n\"그 순간 손이 먼저 나갔습니다. 그러고 나서는… 사고처럼 보이게 하려고 차단기를 내리고, 케이블을 옆에 흘려 뒀어요.\"\n\n한지우가 낮게 말했다.\n\n\"13년이었대요.\"\n\n탐정이 대꾸했다.\n\n\"그런데 이름 한 줄 못 남겼지.\"\n\n정담라디오를 나설 때는 이미 창밖이 희붐하게 밝아 있었다. 로비에서는 노을해가 여전히 콘솔 앞을 서성이고 있었다 — 편성 이후 자신의 자리가 어떻게 될지, 그 답은 이 사건과 상관없이 아직 오지 않았다.\n\n탐정이 중얼거렸다.\n\n\"그나저나 그 상담 코너, 다음 달에도 부를까.\"\n\n한지우가 웃음기 없이 물었다.\n\n\"오늘 일 겪고도 또 오시게요?\""
+  },
+  "surface_incident": [
+    "정담라디오 대표 방준학이 스튜디오 부스 안에서 숨진 채 발견됐다.",
+    "부스 배전반의 스튜디오 회로 차단기가 내려가 있어 감전 사고 가능성이 거론되고 있다.",
+    "건물 현관과 비상구는 안에서 잠긴 채였고, 밖에서 강제로 들어온 자국은 없다.",
+    "그날 밤 '자정 문답' 방송은 결국 결방됐다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "유담헌은 '자정 문답'의 신청곡 코너를 비롯해 프로그램 구성 대부분을 자신이 설계했다고 여겨 왔지만, 방준학은 그 몫을 한 번도 공식적으로 인정하지 않았다. 지난주 초 체결된 지상파 공급 계약서에도 작가 지분 조항은 끝내 들어가지 않았고, 사건 당일 밤 그 사실을 확인한 유담헌이 따지러 갔다가 '삯 받고 쓰는 처지에 무슨 지분이냐'는 말을 듣는 순간 격분해 목을 조르는 데까지 이르렀다.",
+    "motive_archetypes": ["contract_breach"],
+    "method": "유담헌은 부스 안에서 방준학과 몸싸움을 벌이다 격분해 그의 목을 졸라 살해했다. 이후 스튜디오 배전반의 차단기를 내려 조명과 콘솔 전원을 끄고, 들고 있던 낡은 헤드폰 케이블의 피복을 벗겨 시신 옆에 흘려 두어 감전 사고처럼 보이게 하려 했다.",
+    "method_archetypes": ["strangulation", "staging_cover_up"],
+    "key_time_location": "사건 당일 23:02~23:07, 정담라디오 스튜디오 부스(L02)",
+    "cover_up": "유담헌은 차단기를 내려 조명과 콘솔 전원을 끊어 전기 사고처럼 보이게 했고, 들고 있던 낡은 헤드폰 케이블의 피복을 벗겨 시신 옆에 흘려 두어 감전의 흔적을 새로 만들어 두었으며, 목에 남은 압박 자국이 눈에 띄지 않도록 헤드폰 넥밴드를 목에 걸쳐 두고 부스를 빠져나왔다.",
+    "cover_up_target": ["responsibility", "crime_scene"],
+    "cover_up_method": ["false_accident", "evidence_placement", "body_movement"],
+    "decisive_evidence_ids": ["E01", "E02", "E12"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 두 달 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "유담헌이 지상파 공급 제안을 준비하던 방준학에게 신청곡 코너를 비롯한 프로그램 구성을 자신이 설계했다는 근거로 공동 크레딧을 요구한다.",
+      "world_fact": "방준학은 그 자리에서 확답을 주지 않고 이야기를 뒤로 미룬다."
+    },
+    {
+      "id": "T02",
+      "time": "6일 전 14:00",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "방준학이 지상파 채널 관계자와 프로그램 공급 계약서에 서명하고, 서로겸에게 작가 지분 조항 없이 계약을 확정 짓게 한다.",
+      "world_fact": "서로겸은 조항이 빠진 것을 알아채지만 방준학의 지시대로 서류를 그대로 접수한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 19:30",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "유담헌이 서랍 속 계약서 사본을 우연히 넘겨보다 작가 지분 조항이 끝내 빠진 것을 확인한다.",
+      "world_fact": "유담헌은 그날 밤 방준학에게 직접 따지기로 마음먹는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 21:55",
+      "location": "L04",
+      "actors": ["CH03", "V01"],
+      "actual_action": "유담헌이 방준학을 작가실로 불러 세워 계약서의 지분 문제를 따진다.",
+      "world_fact": "방준학은 '삯 받고 쓰는 처지에 무슨 지분이냐'는 말로 유담헌의 요구를 잘라 낸다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 22:00",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "견로진이 작가실 문 앞을 지나가다 방준학과 유담헌이 언성을 높이는 소리를 얼핏 듣는다.",
+      "world_fact": "견로진은 정확한 말은 못 알아듣지만 '지분'이라는 단어와 방준학의 화난 목소리는 또렷이 듣는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 22:50",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "방준학이 방송 시작 전 습관대로 혼자 스튜디오 부스에 들어가 마이크 상태를 점검한다.",
+      "world_fact": "방준학은 아직 화가 가라앉지 않은 채 부스 문을 반쯤 열어 둔다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 22:58",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "유담헌이 마지막 원고를 전해주겠다는 핑계로 부스 문을 열고 들어가 방준학과 다시 마주선다.",
+      "world_fact": "유담헌은 화가 채 가라앉지 않은 채로 들어선다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 23:02",
+      "location": "L02",
+      "actors": ["CH03", "V01"],
+      "actual_action": "유담헌과 방준학이 지분 문제로 다시 언성을 높이다 몸싸움이 벌어지고, 유담헌이 격분해 방준학의 목을 조른다.",
+      "world_fact": "부조종실 쪽 인터컴이 마침 열려 있어 짧고 둔탁한 소리가 새어 나가지만, 노을해는 방송 전 소음으로 여기고 넘긴다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 23:05",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "유담헌이 차단기를 내려 부스 조명과 콘솔 전원을 끈 뒤, 낡은 헤드폰 케이블의 피복을 벗겨 시신 옆에 흩어 둔다.",
+      "world_fact": "유담헌은 목에 남은 자국이 눈에 띄지 않도록 헤드폰 넥밴드를 시신의 목에 걸쳐 두고 부스를 빠져나온다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 23:08",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "유담헌이 작가실로 돌아와 태연하게 다음 코너 원고를 정리하는 척한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 23:20",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "노을해가 방송 시작을 위해 인터컴으로 방준학을 불러도 대답이 없자 직접 부스로 향한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 23:23",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "노을해가 불 꺼진 부스 문을 열고 쓰러져 있는 방준학을 발견해 소리친다.",
+      "world_fact": "노을해는 곧바로 강이슬에게 구급차를 불러 달라고 외친다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "노을해",
+      "role": "기술감독 / 시신 발견자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "23시 20분경 인터컴으로 불러도 방준학의 대답이 없었다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "23시 2분 무렵 인터컴 너머로 짧고 둔탁한 소리를 들었지만 방송 전 소음으로 여기고 넘겼다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "제가 문을 열었을 때 다리에 힘이 풀려서 한참 서 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "저는 그 시각 내내 부조종실에서 음향 점검만 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "부스 안에서 정확히 무슨 일이 있었는지는 문을 열기 전까지 전혀 모른다.",
+        "계약서의 세부 조항은 본 적이 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 사무적",
+        "sentence_length_tendency": "평소엔 짧고 건조하지만 몰리면 말이 길어지고 변명이 붙는다.",
+        "verbal_tic": "설명할 때 '아무튼'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "몇 번을 물어보셔도 저는 계속 콘솔 앞에 있었어요.",
+        "이상하다고 느꼈으면 진작 말씀드렸겠죠.",
+        "저도 그때 상황이 이렇게 될 줄 몰랐다니까요."
+      ],
+      "comic_tell": "말할 때 항상 손목시계를 한 번 만지고 시작한다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-01",
+        "opens": "S-CH01-02",
+        "says": "서로겸 씨가 그날 계약 때문에 유난히 안절부절못하긴 했어요.",
+        "reveals": "서로겸이 계약 관련 압박을 느끼고 있었다는 것은 사실이다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "강이슬",
+      "role": "공동 진행자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "22시 50분부터 발견 소동이 있기 전까지 계속 로비에 있었다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "지상파 쪽에서 진행자를 한 명으로 줄이는 방향을 이야기하고 있다는 것을 열흘쯤 전에 들었다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "대표님, 오늘따라 방송 전부터 계속 서류만 들여다보고 계셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "저는 그 시각 내내 로비에서 손님들 응대하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "부스 안에서 일어난 일은 문이 열리고 나서야 알았다.",
+        "계약서 조항은 직접 본 적이 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝고 사근사근한 존댓말",
+        "sentence_length_tendency": "평소 빠르고 발랄하지만 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "문장 끝에 '그쵸'를 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저 진짜 그 시간엔 로비에 있었다니까요, 그쵸?",
+        "제가 왜 대표님한테 그런 짓을 해요, 참.",
+        "자꾸 물으시니까 저도 좀 당황스럽네요."
+      ],
+      "comic_tell": "긴장하면 커피를 젓는 소리가 유난히 커진다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH02-01",
+        "opens": "S-CH02-02",
+        "says": "노을해 오빠가 그날 유난히 조용했어요.",
+        "reveals": "노을해가 그날 밤 평소와 다른 긴장 상태였다는 것은 사실이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "유담헌",
+      "role": "방송작가",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "자정 문답의 신청곡 코너 구성안을 처음 작성한 사람은 자신이다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 그 프로그램 초반 대본을 거의 다 썼어요. 신청곡 코너도 제가 만든 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그날 밤엔 계속 작가실에서 원고만 붙잡고 있었어요. 방준학 대표님, 방송 시작 전엔 얼굴도 거의 못 봤어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "발각되면 바로 용의선상에 오르기 때문에"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "실은 초저녁에 방준학 대표님이랑 계약서 문제로 말다툼은 좀 있었어요. 근데 그러고 각자 방으로 돌아갔어요. 부스 근처엔 간 적도 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸다툼을 숨기기 위해"
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "원고 마지막 장을 전해드리려고 딱 한 번 부스에 들어갔던 건 맞아요. 근데 그때 대표님은 이미 자리에 없었어요, 진짜예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움 자체를 숨기기 위해"
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "몸싸움이 있었던 건 맞아요… 근데 저는 밀치기만 했어요. 대표님이 스스로 넘어지면서 어떻게 된 건지, 저도 잘 모르겠어요. 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의성을 부인하기 위해"
+        },
+        {
+          "claim_id": "S-CH03-06",
+          "content": "제가 목을 조른 겁니다. 지분 얘기를 꺼냈더니 삯 받고 쓰는 처지에 무슨 지분이냐는 말을 듣는 순간 눈이 뒤집혔어요. 그리고… 사고처럼 보이게 손을 좀 썼습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH03-05"
+        }
+      ],
+      "knowledge_limits": [
+        "부스 조명이 꺼진 뒤 다른 사람이 들어왔는지는 확인하지 못했다고 주장한다.",
+        "차단기 패널의 정확한 작동 방식은 모른다고 주장한다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분한 존댓말, 격식체",
+        "sentence_length_tendency": "평소 문장이 짧고 정제돼 있지만 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 '음…' 하고 뜸을 들인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "저는… 방금 말씀드린 그대로예요.",
+        "왜 자꾸 저한테서 뭔가를 찾으려고 하시는지 모르겠네요.",
+        "제가 무슨 말을 더 해야 믿으시겠어요.",
+        "…그만 좀 물으시죠."
+      ],
+      "comic_tell": "생각할 때 손끝으로 책상을 두 번 두드린다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "서로겸 씨가 계약서를 직접 만졌잖아요, 그 안에 뭐가 들어가고 빠지는지는 그쪽이 제일 잘 알죠.",
+        "reveals": "서로겸이 계약서 조항을 직접 다뤘다는 것은 사실이다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "서로겸",
+      "role": "운영실장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "지상파 공급 계약서에는 작가 지분 조항이 없다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "계약금 입금은 다음 달 초로 예정돼 있었다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이번 계약 서류만 벌써 몇 번을 다시 뽑았는지 몰라요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저는 그 시각 계속 사무실에서 정산 자료를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "계약 조항이 왜 그렇게 정해졌는지 방준학의 속내는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 사무적",
+        "sentence_length_tendency": "평소 조곤조곤하지만 몰리면 서류 얘기로 화제를 돌린다.",
+        "verbal_tic": "말끝에 '확인해 보겠습니다'를 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제 선에서 말씀드릴 수 있는 건 여기까지입니다, 확인해 보겠습니다.",
+        "그건 대표님 결정이라 제가 뭐라 말씀드리긴 어렵네요.",
+        "자꾸 그렇게 보시면 제가 곤란합니다."
+      ],
+      "comic_tell": "서류를 정리할 때 페이지 귀퉁이를 꼭 맞춰 접는다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-02",
+        "opens": "S-CH04-02",
+        "says": "강이슬 씨가 요즘 개편 얘기에 예민하긴 했어요.",
+        "reveals": "강이슬이 개편 문제로 신경이 곤두서 있었다는 것은 사실이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "견로진",
+      "role": "심리상담 코너 게스트",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-02",
+          "content": "22시 50분부터 발견 소동이 있기 전까지 로비에서 강이슬과 함께 있었다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘은 유독 다들 분주해 보이더라고요, 방송 전인데도.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 그 시간 내내 로비 소파에 앉아 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "작가실 문 너머의 정확한 대화 내용까지는 알아듣지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분하고 다정한 존댓말",
+        "sentence_length_tendency": "평소 여유 있게 말하지만 몰리면 말을 신중하게 고른다.",
+        "verbal_tic": "상대 말을 요약해서 되짚는 습관이 있다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "제가 들은 건 그게 전부예요, 더 보태고 싶지 않네요.",
+        "확실하지 않은 걸 함부로 말씀드리긴 어렵죠.",
+        "왜 자꾸 같은 걸 물으시는지 모르겠네요."
+      ],
+      "comic_tell": "상담할 때 버릇처럼 찻잔을 양손으로 감싸 쥔다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-02",
+        "opens": "S-CH05-02",
+        "says": "유담헌 씨, 그날 좀 예민해 보이긴 했어요.",
+        "reveals": "유담헌이 그날 밤 유독 날이 서 있었다는 것은 사실이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH03"],
+      "nature": "13년째 '자정 문답'의 대본을 써 온 작가와, 그 프로그램을 이끌어 온 대표.",
+      "public_face": "오래된 동료로 알려져 있고, 방송에서도 종종 서로를 추어올린다.",
+      "says": {
+        "CH03": "13년을 같이 일했으니 그만한 믿음은 있었다고 생각해요."
+      },
+      "private_strain": "유담헌은 '자정 문답'의 신청곡 코너를 비롯한 프로그램 구성 대부분을 자신이 설계했다고 믿지만, 방준학은 그 몫을 공식적으로 인정한 적이 없다.",
+      "surfaces_when": "탐정이 계약서 사본(E04)을 보여주거나 견로진이 들은 다툼 소리(E05)를 언급할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "15년째 같은 시간에 마이크를 맞춰 온 기술감독과 대표.",
+      "public_face": "손발이 척척 맞는 콤비로 알려져 있다.",
+      "says": {
+        "CH01": "그냥 제가 할 일을 했을 뿐이에요, 15년째 똑같이."
+      },
+      "private_strain": "노을해는 지상파 편성 이후 자신의 자리가 외주 기술팀으로 넘어갈 수 있다는 이야기를 전해 들었지만, 방준학에게 직접 확인하지 못한 채 넘겨 왔다.",
+      "surfaces_when": "탐정이 편성 관련 이야기를 꺼내거나 서로겸의 증언(E07)을 언급할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "5년차 후배 진행자와 그를 데려다 키운 대표.",
+      "public_face": "친남매처럼 편한 사이로 보인다.",
+      "says": {
+        "CH02": "저한테는 데뷔시켜 준 은인 같은 분이었어요."
+      },
+      "private_strain": "강이슬은 지상파 쪽에서 '방준학 단독 진행' 포맷을 요구했다는 것과, 자신의 공동 진행 자리가 다음 개편에서 사라질 수 있다는 것을 혼자 알고 있었다.",
+      "surfaces_when": "탐정이 개편 이야기를 꺼내거나 강이슬 본인의 진술(E08)을 다시 짚을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "6년째 방송국 살림을 맡아 온 운영실장과 대표.",
+      "public_face": "대표가 가장 신뢰하는 실무자로 알려져 있다.",
+      "says": {
+        "CH04": "제 일은 서류가 어긋나지 않게 하는 것뿐이었습니다."
+      },
+      "private_strain": "서로겸은 계약서에 작가 지분 조항을 넣지 말라는 방준학의 지시를 그대로 따랐으면서도, 그것이 유담헌에게 어떻게 받아들여질지는 굳이 알리지 않았다.",
+      "surfaces_when": "탐정이 계약서 작성 경위를 물으며 서로겸의 증언(E07)을 다시 확인할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH02"],
+      "nature": "'자정 문답'에 5년째 매주 출연해 온 상담사와 공동 진행자.",
+      "public_face": "방송 밖에서도 종종 함께 밥을 먹는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "이슬 씨랑은 그냥… 오래 봐서 편한 사이예요.",
+        "CH02": "언니라고 부르고 싶은데 방송에선 참아요."
+      },
+      "private_strain": "견로진은 강이슬이 다음 개편에서 밀려날 수 있다는 소문을 먼저 듣고도 알리지 않았다 — 자신이 상담 코너를 단독으로 넘겨받을 수 있을지 모른다는 생각을 지우지 못했다.",
+      "surfaces_when": "탐정이 견로진에게 상담 코너의 앞날을 물으며 강이슬 본인의 진술(E08)을 함께 짚을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "출입문은 방송 시간 동안 잠그지 않는다. 방문객은 누구나 들어올 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L03", "L04", "L05"],
+      "base_description": "정담라디오 로비는 소파 두 개와 접수 데스크가 전부인 좁은 공간이다. 데스크 위에는 그날 밤 출연진 명단이 클립보드에 끼워져 있고, 벽에는 지난 방송 포스터들이 붙어 있다. 강이슬은 데스크 안쪽에 앉아 방문객을 맞고 있다.",
+      "observation_rules": [
+        {
+          "action": "출연진 명단 클립보드를 확인한다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "그날 밤 예정된 출연진과 시간이 적혀 있다. 방준학, 강이슬, 유담헌, 견로진의 이름이 나란히 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "로비 방문객 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "방문객 기록에 적힌 시각을 확인한다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "스튜디오 부스",
+      "access": "방송 중이 아니면 잠그지 않지만, 방송 준비 시간에는 진행자만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "방음벽으로 둘러싸인 좁은 부스 안에는 마이크와 믹서, 회전의자 하나가 전부다. 배전반은 문 옆 낮은 위치에 있다. 방준학이 쓰러져 있던 자리는 아직 정리되지 않았다.",
+      "observation_rules": [
+        {
+          "action": "부스 안 공기와 냄새를 확인한다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "탄내는 나지 않는다. 진짜 전기 화재였다면 났을 냄새가 없다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배전반 차단기 상태를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "스튜디오 회로 차단기만 내려가 있는 것을 확인한다."
+        },
+        {
+          "action": "바닥에 놓인 케이블 조각을 살핀다",
+          "requires": "E01",
+          "release_evidence_id": "E03",
+          "result": "시신 옆에 놓인 케이블 피복 조각을 집어 든다."
+        },
+        {
+          "action": "바닥에 남은 발자국을 살핀다",
+          "requires": "노을해",
+          "release_evidence_id": "E12",
+          "result": "겹쳐 남은 두 켤레의 발자국을 발견한다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "부조종실",
+      "access": "기술 담당자 외에는 방송 중 출입을 자제한다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "유리창 너머로 부스가 훤히 들여다보이는 좁은 방이다. 콘솔 앞에 노을해가 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "유리창 너머 부스를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "방음 유리라 소리는 전혀 들리지 않는다. 안에서 무슨 일이 있어도 여기서는 알 방법이 없다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "콘솔 조작 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "콘솔에 남은 조작 로그를 확인한다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "작가실",
+      "access": "작가와 대표 외에는 잘 드나들지 않는 방이다.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "대본 뭉치가 책상 위에 어지럽게 쌓여 있다. 유담헌이 그 앞에 앉아 다음 주 원고를 넘기고 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 대본 더미를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "신청곡 코너 초안 페이지마다 유담헌의 손글씨 메모가 빼곡하다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서랍 안 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "대본 뭉치 밑에서 계약서 사본을 찾아낸다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "운영사무실",
+      "access": "운영실장 외에는 용무가 있을 때만 드나든다.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "책상 위에 계약 서류철이 쌓여 있고, 한쪽 벽에 출입 기록 단말기가 붙어 있다. 서로겸이 서류를 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "서류철 라벨을 확인한다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "가장 위 서류철에 '지상파 공급 계약'이라는 라벨이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록 단말기를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "부스 출입 기록을 조회한다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "내려간 차단기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배전반 차단기 상태를 확인한다",
+      "content": "부스 배전반을 열어 보면 스튜디오 조명·콘솔 회로 차단기 하나만 내려가 있고, 나머지 회로는 모두 정상으로 올라와 있다. 관리 일지에는 오늘 밤 점검 기록이 없다.",
+      "proves": ["차단기가 사고가 아니라 누군가에 의해 내려갔다"],
+      "does_not_prove": ["누가 내렸는지는 알 수 없다"],
+      "reaction": {
+        "jiwoo": "차단기가 딱 하나만 내려가 있는데요.",
+        "detective": "혼자 나갔다는 거지, 스스로."
+      },
+      "points_at": "CH01",
+      "mismatch": "차단기 하나만 내려가 있는데 다른 회로는 전부 정상이다 — 진짜 오작동이라면 이렇게 골라서 내려가지 않는다."
+    },
+    {
+      "id": "E02",
+      "name": "목에 남은 자국",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "노을해에게 시신을 발견했을 때 목 상태가 어땠는지 묻는다",
+      "content": "\"조명 켜기도 전에 넥밴드가 삐뚤게 걸쳐져 있는 게 먼저 보였어요. 나중에 자세히 보니까 그 밑에 시퍼런 줄자국이 나 있더라고요. 감전이면 그렇게 안 남잖아요.\"",
+      "proves": ["목에 남은 자국이 감전이 아니라 압박에 의한 것이다"],
+      "does_not_prove": ["누가 그렇게 했는지는 알 수 없다"],
+      "points_at": null,
+      "mismatch": "감전이라면 남지 않을 자국이 목에 나 있다."
+    },
+    {
+      "id": "E03",
+      "name": "벗겨진 케이블 피복",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "바닥에 놓인 케이블 조각을 살핀다",
+      "content": "시신 옆 바닥에 최근에 벗겨진 것으로 보이는 낡은 헤드폰 케이블 피복 조각이 놓여 있다. 절단면이 고르고 날카로워 오래된 마모로 보기 어렵다.",
+      "proves": ["누군가 일부러 케이블 피복을 벗겨 놓았다"],
+      "does_not_prove": ["누가 놓아두었는지는 알 수 없다"],
+      "reaction": {
+        "jiwoo": "이 케이블, 닳아서 벗겨진 거치곤 너무 깔끔한데요.",
+        "detective": "누가 일부러 벗겼다는 소리군."
+      },
+      "points_at": "CH01",
+      "mismatch": "오래 써서 벗겨진 피복이라면 절단면이 이렇게 고를 리 없다."
+    },
+    {
+      "id": "E04",
+      "name": "지분 없는 계약서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서랍 안 서류를 확인한다",
+      "content": "작가실 책상 서랍 안, 대본 뭉치 밑에 지상파 공급계약서 사본이 접힌 채 끼워져 있다. 작가 지분 조항이 있어야 할 자리에는 형광펜 밑줄만 그어져 있을 뿐, 정작 조항 자체는 빠져 있다.",
+      "proves": ["유담헌이 계약서에서 자신의 지분이 빠진 것을 알고 있었다"],
+      "does_not_prove": ["언제 이 사실을 알았는지는 알 수 없다"],
+      "reaction": {
+        "jiwoo": "형광펜 자국이 딱 그 자리만 비어 있어요.",
+        "detective": "그 한 줄이 없어서 사람이 죽었다는 거지."
+      },
+      "points_at": "CH03",
+      "mismatch": "형광펜 밑줄은 있는데 정작 그 줄이 가리키는 조항은 빠져 있다."
+    },
+    {
+      "id": "E05",
+      "name": "문 앞에서 들은 언성",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "견로진에게 그날 밤 작가실 문 앞에서 들은 소리를 묻는다",
+      "content": "\"작가실 문 앞을 지나는데 '지분' 얘기가 언성 높게 오갔어요. 방준학 대표님 목소리가 유독 화가 나 있었어요.\"",
+      "proves": ["방준학과 유담헌 사이에 계약 지분을 둘러싼 다툼이 있었다"],
+      "does_not_prove": ["그 뒤에 무슨 일이 있었는지는 모른다"],
+      "points_at": "CH03",
+      "mismatch": "다툼은 분명히 있었는데, 그 뒤로 무슨 일이 있었는지는 아무도 모른다."
+    },
+    {
+      "id": "E06",
+      "name": "부스 출입 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "출입 기록 단말기를 확인한다",
+      "content": "출입 기록 단말기에는 23시 2분에 유담헌의 사원증이 부스 문에 태그된 뒤, 23시 7분에야 문이 다시 열렸다는 기록이 남아 있다.",
+      "proves": ["유담헌이 그 시간 동안 부스 안에 있었다"],
+      "does_not_prove": ["안에서 무슨 일이 있었는지는 알 수 없다"],
+      "reaction": {
+        "jiwoo": "5분요. 원고 한 장 주고 나오기엔 좀 긴데.",
+        "detective": "그 5분 동안 뭘 했는지가 문제지."
+      },
+      "points_at": "CH03",
+      "mismatch": "원고 한 장 전하는 데 5분은 너무 길다."
+    },
+    {
+      "id": "E07",
+      "name": "계약 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서로겸에게 계약서에 작가 지분이 빠진 경위를 묻는다",
+      "content": "\"대표님이 직접 '이번엔 내 이름으로만 간다'고 하셔서 그대로 넣었어요. 유담헌 작가님께는 따로 말씀 안 드렸을 거예요.\"",
+      "proves": ["방준학이 계약서에서 작가 지분을 스스로 뺐다"],
+      "does_not_prove": ["유담헌이 그 사실을 언제 알았는지는 모른다"],
+      "points_at": null,
+      "mismatch": "지분 조항이 빠진 것은 방준학의 선택이었는데, 그 선택을 유담헌에게는 아무도 전하지 않았다."
+    },
+    {
+      "id": "E08",
+      "name": "개편 소문",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강이슬에게 다음 개편 소문에 대해 묻는다",
+      "content": "\"저도 소문은 들었어요. 방송엔 저 아직 있는데… 계약서엔 제 얘기가 한 줄도 없대요.\"",
+      "proves": ["강이슬도 이번 계약에서 자신의 입지에 불안을 느끼고 있었다"],
+      "does_not_prove": ["강이슬이 사건과 관련이 있다는 뜻은 아니다"],
+      "points_at": "CH02",
+      "mismatch": "계약서에 이름이 없다는 것을 알면서도 강이슬은 먼저 그 얘기를 꺼내지 않았다."
+    },
+    {
+      "id": "E09",
+      "name": "콘솔 조작 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "콘솔 조작 기록을 확인한다",
+      "content": "콘솔 조작 기록에는 22시 40분부터 23시 19분까지 5분 간격으로 음량 조정 입력이 끊이지 않고 찍혀 있다.",
+      "proves": ["노을해가 그 시간 내내 부조종실을 떠나지 않았다"],
+      "does_not_prove": [],
+      "points_at": null,
+      "mismatch": "노을해가 자리를 비운 시간이 로그 어디에도 없다."
+    },
+    {
+      "id": "E10",
+      "name": "로비 방문 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 방문객 기록을 확인한다",
+      "content": "로비 방문객 기록에는 22시 40분 탐정, 22시 42분 견로진의 서명이 남아 있고, 그 옆에 강이슬이 두 사람에게 음료를 낸 시간이 적혀 있다.",
+      "proves": ["강이슬이 그 시간 로비에 있었다"],
+      "does_not_prove": [],
+      "points_at": null,
+      "mismatch": "강이슬이 로비를 떠난 시각이 방문객 기록 어디에도 없다."
+    },
+    {
+      "id": "E11",
+      "name": "평소 원고 습관",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "노을해에게 유담헌이 평소 원고를 언제 넘기는지 묻는다",
+      "content": "\"그 사람 원고는 늘 일찍 끝내서 넘겨요. 방송 코앞에 굳이 들고 오는 거, 본 적이 없는데.\"",
+      "proves": ["유담헌이 방송 직전에 원고를 전하러 부스에 들어갔다는 말이 평소와 다르다"],
+      "does_not_prove": [],
+      "points_at": "CH03",
+      "mismatch": "평소 습관과 그날 밤의 행동이 어긋난다."
+    },
+    {
+      "id": "E12",
+      "name": "겹친 발자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "바닥에 남은 발자국을 살핀다",
+      "content": "부스 바닥에 최근 것으로 보이는 발자국 두 켤레가 겹쳐 어지럽게 남아 있다. 하나는 슬리퍼 자국, 하나는 운동화 밑창 자국이다.",
+      "proves": ["부스 안에 방준학 말고 다른 한 사람이 함께 있었다"],
+      "does_not_prove": ["그 사람이 누구인지는 발자국만으로 알 수 없다"],
+      "reaction": {
+        "jiwoo": "발자국이 두 겹이에요, 겹쳐서.",
+        "detective": "둘이 같이 있었다는 거네."
+      },
+      "points_at": null,
+      "mismatch": "발자국은 둘인데, 부스에 있었다고 말한 사람은 하나뿐이다."
+    },
+    {
+      "id": "E13",
+      "name": "코너를 짜 온 사람",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "유담헌에게 자정 문답을 처음 어떻게 맡게 됐는지 묻는다",
+      "content": "\"처음엔 그냥 원고 정리만 도와드리다가, 어느새 코너 전체를 제가 짜고 있더라고요.\"",
+      "proves": ["유담헌이 프로그램 구성에 깊이 관여해 왔다"],
+      "does_not_prove": ["방준학이 그 사실을 인정했는지는 알 수 없다"],
+      "points_at": null,
+      "mismatch": "코너 전체를 짜 왔다는 말과, 그 이름이 어디에도 안 남아 있다는 사실이 어긋난다."
+    },
+    {
+      "id": "E14",
+      "name": "그날의 초조함",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서로겸에게 강이슬이 그날 유독 초조해 보였는지 묻는다",
+      "content": "\"그날 좀 안절부절못하시더라고요. 무슨 일 있나 싶었죠.\"",
+      "proves": ["강이슬이 사건 당일 밤 평소와 다르게 불안한 기색을 보였다"],
+      "does_not_prove": ["그 불안이 사건과 관련 있다는 뜻은 아니다"],
+      "points_at": "CH02",
+      "mismatch": "겉으로는 태연했다는 강이슬의 말과, 서로겸이 본 그날의 초조함이 어긋난다."
+    },
+    {
+      "id": "E15",
+      "name": "굳어지던 표정",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서로겸에게 외주화 소문이 나올 때 노을해가 어떤 반응을 보였는지 묻는다",
+      "content": "\"그 얘기만 나오면 노을해 씨 표정이 확 굳었어요. 아무렇지 않은 척은 하는데, 손이 콘솔 다이얼을 계속 만지고 있더라고요.\"",
+      "proves": ["노을해도 외주화 소문에 상당히 예민하게 반응했다"],
+      "does_not_prove": ["그 예민함이 사건과 관련 있다는 뜻은 아니다"],
+      "points_at": "CH01",
+      "mismatch": "아무렇지 않다던 노을해의 태도와, 서로겸이 본 손짓이 서로 다른 말을 한다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "argument_admitted",
+      "requires_heard_claim_ids": ["S-CH03-02"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-02",
+        "evidence_ids": ["E04", "E05"]
+      },
+      "player_action": "유담헌에게 계약서 사본(E04)과 견로진이 들은 다툼 소리(E05)를 함께 제시하며 그날 밤 방준학과 정말 마주친 적이 없는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-03",
+        "scope": "초저녁에 방준학과 계약서 문제로 말다툼이 있었다는 것은 인정하지만, 그 뒤로는 각자 방으로 돌아갔을 뿐 부스 근처에는 간 적이 없다고 주장한다."
+      },
+      "must_not_release": ["목을 조른 사실", "부스에 들어간 사실", "차단기를 조작한 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "argument_admitted",
+      "to_stage": "booth_entry_admitted",
+      "requires_heard_claim_ids": ["S-CH03-03"],
+      "requires_presented_evidence_ids": ["E06", "E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": ["E06", "E11"]
+      },
+      "player_action": "유담헌에게 부스 출입 기록(E06)과 원고를 미리 넘긴다는 평소 습관 증언(E11)을 들이대며 왜 방송 직전에 부스로 들어갔는지 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-04",
+        "scope": "마지막 원고를 전하러 부스에 한 번 들어갔던 것은 맞지만, 그때 방준학은 이미 자리에 없었다고 주장한다."
+      },
+      "must_not_release": ["몸싸움이 있었다는 사실", "목을 조른 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "booth_entry_admitted",
+      "to_stage": "struggle_admitted",
+      "requires_heard_claim_ids": ["S-CH03-04"],
+      "requires_presented_evidence_ids": ["E12"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-04",
+        "evidence_ids": ["E12"]
+      },
+      "player_action": "유담헌에게 부스 바닥에 겹쳐 남은 두 사람분의 발자국(E12)을 보여주며 그때 방준학이 정말 없었는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-05",
+        "scope": "몸싸움이 있었던 것은 인정하지만, 밀치기만 했을 뿐 그 뒤로는 어떻게 됐는지 잘 모른다고, 죽일 생각은 없었다고 주장한다."
+      },
+      "must_not_release": ["목을 조른 사실을 인정", "차단기를 조작했다는 사실"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH03",
+      "from_stage": "struggle_admitted",
+      "to_stage": "confessed",
+      "requires_heard_claim_ids": ["S-CH03-05"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-05",
+        "evidence_ids": ["E01", "E02", "E03"]
+      },
+      "player_action": "유담헌에게 목에 남은 압박 자국(E02)과 일부러 내려간 차단기(E01), 새로 벗겨진 케이블 피복(E03)을 함께 제시하며 정말 사고였는지 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-06",
+        "scope": "지분 얘기를 꺼냈다가 삯 받고 쓰는 처지에 무슨 지분이냐는 말을 듣는 순간 손이 나가 목을 졸랐고, 이후 사고처럼 보이려고 차단기를 내리고 케이블을 놓아두었다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "노을해가 방준학의 시신을 처음 발견했고, 지상파 편성 이후 자신이 외주 인력으로 대체될 거라는 소문까지 있어 의심을 받는다. 서로겸은 그 소문이 나올 때마다 노을해의 표정이 굳었다고 말한다(E15).",
+      "actual_reason": "실제로 노을해는 편성 이후에도 자리를 지키기로 방준학과 구두로 약속돼 있었고, 발견 직전까지 부조종실 콘솔을 손에서 놓지 않고 있어 부스에 갈 시간이 없었다.",
+      "how_to_clear": "부조종실 콘솔 조작 기록(E09)을 제시해 그가 발견 직전까지 자리를 뜨지 않았음을 확인한다.",
+      "must_not_imply": "노을해가 방준학에게 직접 위해를 가했다는 인상은 주지 않는다 — 그는 시신을 가장 먼저 발견한 사람일 뿐이다.",
+      "lingering_thread": "편성 이후 자신의 자리가 어떻게 될지에 대한 노을해의 불안은 사건과 별개로 해소되지 않은 채 남는다.",
+      "suspicion_deepener": "노을해는 23시 무렵 인터컴 너머로 짧고 이상한 소리를 들었다고 인정하면서도, 방송 준비 소음으로 여기고 별다른 확인을 하지 않았다고 말해 한동안 석연치 않게 들린다.",
+      "character_id": "CH01",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "시신을 처음 발견한 사람이라 그 순간 부스 안에 있었다고 오해받기 쉽다.",
+        "means": ["E01", "E03", "E15"],
+        "means_first_reading": "전기 계통을 가장 잘 아는 사람이니 사고를 꾸미기도 쉬웠을 거라는 짐작."
+      },
+      "cleared_by": ["E09"],
+      "clearing_points_at": "CH03"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "강이슬은 다음 개편에서 공동 진행 자리를 잃을 처지였다는 사실이 드러나며 의심을 받는다.",
+      "actual_reason": "실제로 강이슬은 그날 밤 22시 50분부터 발견 시각까지 줄곧 로비에서 탐정 일행을 응대하고 있어 부스에 갈 수 없었다.",
+      "how_to_clear": "로비 방문 기록(E10)과 견로진의 동석 진술(F-CH05-02)을 함께 제시해 그 시간 내내 로비에 있었음을 확인한다.",
+      "must_not_imply": "강이슬이 실제로 스튜디오 부스에 들어갔다는 인상은 주지 않는다.",
+      "lingering_thread": "공동 진행 자리를 잃을지 모른다는 강이슬의 불안은 사건과 별개로 그대로 남는다.",
+      "suspicion_deepener": "강이슬 본인의 말(E08)과 서로겸이 전한 그날의 초조함(E14)에서 개편 소문을 미리 알고 있었다는 사실이 드러나며 한동안 의심이 짙어진다.",
+      "character_id": "CH02",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "로비에 있었다고 알려져 있지만 잠깐이라면 자리를 비울 수 있었을 거라는 의심.",
+        "means": ["E08", "E14"],
+        "means_first_reading": "계약에서 밀려날 처지였다면 그 순간 감정이 격해질 만도 하다는 짐작."
+      },
+      "cleared_by": ["E10"],
+      "clearing_points_at": "CH03"
+    }
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "지분과 크레딧을 인정받지 못한 데서 비롯된 격분",
+      "truth": true,
+      "evidence_for": ["E04", "E07"]
+    },
+    {
+      "id": "M02",
+      "text": "다음 개편에서 밀려날 처지에 몰린 강이슬의 반발",
+      "truth": false,
+      "evidence_for": ["E08"],
+      "refutation": "저는 그 시간 내내 로비에 있었어요, 대표님 근처에도 못 갔어요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "M03",
+      "text": "지상파 편성 이후 외주 인력으로 대체될지 모른다는 노을해의 불안",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "제 자리는 그대로 유지된다고 미리 말씀해 주셨어요, 굳이 그럴 이유가 없었죠.",
+      "refuted_by": "CH01"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "23시 2분부터 23시 7분까지, 스튜디오 부스 안",
+      "truth": true,
+      "evidence_for": ["E06"]
+    },
+    {
+      "id": "T02",
+      "text": "23시 20분, 노을해가 부스로 향하기 직전",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "그 5분 전까지 저는 콘솔 앞을 떠난 적이 없어요, 로그에도 그대로 남아 있어요.",
+      "refuted_by": "CH01"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "몸싸움 중 목을 졸라 살해한 뒤 감전 사고처럼 꾸몄다",
+      "truth": true,
+      "evidence_for": ["E01", "E02", "E03"]
+    },
+    {
+      "id": "H02",
+      "text": "배전반 고장으로 인한 실제 감전 사고",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "탄내가 전혀 안 났어요, 진짜 전기 사고였으면 냈을 텐데요.",
+      "refuted_by": "CH01"
+    }
+  ],
+  "suspect_refutations": {
+    "CH04": {
+      "text": "저는 그냥 서류만 만졌을 뿐이에요, 그날 부스 근처엔 간 적도 없어요."
+    },
+    "CH05": {
+      "text": "저는 그날 로비에만 있었어요, 작가실 문 앞을 지나간 것 말고는 아무것도 안 했어요."
+    }
+  },
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "E02", "S-CH03-06"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "목을 졸라 살해한 뒤 차단기와 케이블로 감전 사고처럼 꾸몄다.",
+      "motive_fact": "지상파 공급 계약에서 자신의 작가 지분과 크레딧이 빠진 것에 격분했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "유담헌",
+    "method": "몸싸움 끝에 방준학의 목을 졸라 살해한 뒤, 차단기를 내리고 헤드폰 케이블을 흩어 감전 사고처럼 꾸몄다.",
+    "motive": "13년 동안 자신이 설계해 온 프로그램의 몫을 인정받지 못한 채, 지상파 계약서에서도 작가 지분이 끝내 지워진 것에 격분했다.",
+    "key_connection": "서로겸의 증언(E07)이 확인해 주듯, 방준학은 계약서에서 유담헌의 몫을 스스로 지운 채 서명했고, 유담헌은 그 사실을 사건 당일 밤에야 확인했다."
+  },
+  "ending_explanation": [
+    "방준학은 '자정 문답'을 13년째 이끌어 왔지만, 그 프로그램의 상당 부분을 설계한 유담헌의 몫은 계약서 어디에도 남기지 않았다.",
+    "서로겸의 증언(E07)이 확인해 주듯, 방준학은 계약서에서 유담헌의 작가 지분 조항을 스스로 지운 채 서명했다.",
+    "견로진이 문 앞에서 들은 언성(E05)과 부스 출입 기록(E06), 바닥에 겹쳐 남은 발자국(E12)이 그날 밤 부스 안에서 실제로 무슨 일이 있었는지를 하나씩 되짚어 주었다.",
+    "목에 남은 압박 자국(E02)과 일부러 내려간 차단기(E01), 새로 벗겨진 케이블 피복(E03)은 이 죽음이 사고가 아니라는 것을 처음부터 말하고 있었다.",
+    "코너 전체를 짜 왔다는 유담헌 본인의 말(E13)은, 그가 왜 그토록 그 한 줄에 매달렸는지를 뒤늦게 설명해 준다."
+  ]
+}
