@@ -1023,6 +1023,10 @@ registry 등록이 같은 PR 에 있어 base 에는 아직 없고, 복구 PR 의
 
 1. **main 보호에 `check` 필수** — 건다(사용자). API 는 이 세션의 토큰에 403 이고 `protected` 는 물을 때 아직 `false` 였다.
    설정은 저장소 Settings → Branches → main → Require status checks → `check`. 걸리면 「CI 끝나기 전 머지」가 기계로 막힌다.
+   **같은 날 걸렸다** — 룰셋 「main」(active). 세 번에 걸쳐 맞췄다: 처음엔 대상 브랜치와 검사 이름이 둘 다 비어 있어 아무 브랜치도
+   안 지켰고, 둘째는 대상에 「All branches」가 같이 들어가 작업 브랜치(`claude/…`)에도 삭제·강제 푸시 금지가 걸릴 판이었다. 최종:
+   대상 `~DEFAULT_BRANCH` 하나, `required_status_checks: check`(GitHub Actions), 삭제 금지, non-fast-forward 금지. 이 세션의 토큰은
+   `/branches/main/protection` 은 403 이지만 `/rulesets` 와 `/rules/branches/<name>` 은 읽을 수 있어 그것으로 확인했다.
 2. **판박이 두 쌍의 뒷번호(CASE119·CASE128) 삭제** — 규칙대로(「고쳐 쓰지 않고 뒷번호를 지운다」). 별도 PR. 절차는 #1271 과 같다 —
    폴더·소설·registry·README 표를 지우고, 지운 번호를 가리키던 링크는 글로 푼다.
 3. **관계 격자 좁히지 않음** — 관계가 안 적힌 짝의 헛턴 서너 번은 탐정이 헛짚는 재미의 일부이고, 격자를 좁히면 메뉴 자체가
