@@ -39,8 +39,8 @@
     "method_archetypes": ["drowning", "staging_cover_up"],
     "key_time_location": "사건 당일 08시 22분~08시 24분, 청해생물연구소 메인 전시 수조 정비 발판(L01)",
     "cover_up": "추영빈은 인기척이 없는 것을 확인하고 수조 배수 밸브를 살짝 열어 발판과 수면 사이 간격이 원래보다 넓어 보이게 물 높이를 낮췄다. 정비 안전 로프의 고리 하나를 일부러 풀어 두어 하태윤이 안전장비 없이 혼자 작업하다 실족한 것처럼 꾸몄고, 특허 건으로 주고받았던 이메일을 자신의 계정에서 지웠다. 그날 아침 특허청 확인 전화를 받았다는 사실도 아무에게도 말하지 않고 감췄다.",
-    "cover_up_target": ["crime_scene", "responsibility", "evidence", "motive"],
-    "cover_up_method": ["evidence_placement", "false_accident", "accident_victim_error", "digital_record_manipulation", "concealment_without_staging"],
+    "cover_up_target": ["crime_scene", "responsibility", "evidence", "communication_trace", "motive"],
+    "cover_up_method": ["evidence_placement", "false_accident", "accident_equipment_failure", "accident_victim_error", "digital_record_manipulation", "concealment_without_staging"],
     "decisive_evidence_ids": ["E02", "E03", "E05", "E08", "E09", "E10", "E11"]
   },
   "actual_timeline": [
@@ -230,7 +230,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
-          "content": "이 시간엔 늘 저 혼자 수조를 돌보는데, 오늘은 유독 조용했어요.",
+          "content": "이 시간엔 늘 저 혼자 애들을 돌보는데, 오늘은 유독 조용했어요.",
           "truth_status": "truth"
         },
         {
@@ -263,12 +263,12 @@
       "voice_profile": {
         "formality_register": "표준 존댓말, 친근하고 싹싹한 말투",
         "sentence_length_tendency": "평소엔 밝고 빠르게 말하다가, 몰리면 말이 자꾸 끊긴다",
-        "verbal_tic": "말끝에 '그러니까'를 붙이며 설명을 덧붙인다",
+        "verbal_tic": "수조 생물을 '애들'이라 부르며 말을 잇는다",
         "stance": "forthcoming"
       },
       "pressure_responses": [
-        "그러니까, 저도 이렇게 될 줄은 몰랐어요.",
-        "제가 뭘 숨기고 있는 것처럼 보이나요, 그러니까...",
+        "애들 밥 주고 나왔을 때까지는, 정말 아무 일도 없었어요.",
+        "제가 뭘 숨기고 있는 것처럼 보이나요? 오늘은 애들도 못 봤는데요.",
         "...더는 드릴 말씀이 딱히 없는데요."
       ],
       "points_finger": {
@@ -492,7 +492,7 @@
         },
         {
           "claim_id": "S-CH04-04",
-          "content": "제가 민 게 아닙니다. 하태윤 씨가 혼자 발을 헛디딘 겁니다.",
+          "content": "제가 민 게 아닙니다. 결과적으로는 하태윤 씨가 혼자 발을 헛디딘 겁니다.",
           "truth_status": "lie"
         }
       ],
@@ -535,11 +535,11 @@
       "voice_profile": {
         "formality_register": "표준 존댓말, 자신감 있어 보이려는 말투",
         "sentence_length_tendency": "평소엔 차분하고 논리적으로 말하다가, 몰리면 짧고 방어적으로 끊긴다",
-        "verbal_tic": "'그러니까'를 자주 붙인다",
+        "verbal_tic": "'결과적으로는'을 자주 앞세운다",
         "stance": "guarded"
       },
       "pressure_responses": [
-        "그러니까, 저도 당혹스럽긴 마찬가지입니다.",
+        "결과적으로는, 저도 당혹스럽긴 마찬가지입니다.",
         "자꾸 이런 식으로 물으시면 저도 드릴 말씀이 없습니다.",
         "...그건, 그럴 생각까지는 없었어요."
       ],

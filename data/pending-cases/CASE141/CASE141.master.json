@@ -297,6 +297,11 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "E10",
           "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-02"
         }
       ],
       "knowledge_limits": [
@@ -406,6 +411,11 @@
           "fact_or_claim_id": "F-CH04-01",
           "release_prerequisite": "E10",
           "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH04-01"
         }
       ],
       "knowledge_limits": [
@@ -1015,8 +1025,8 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "데크에 설치된 라이브캠 녹화분을 확인한다",
-      "content": "라이브캠 녹화분에는 참가자들이 19시부터 데크에 모여드는 모습이 담겨 있을 뿐, 특별한 장면은 보이지 않는다.",
-      "proves": ["행사가 예정대로 진행됐다는 것"],
+      "content": "라이브캠 녹화분에는 참가자들이 19시부터 데크에 모여드는 모습이 담겨 있고, 문성곤도 그 시각부터 사고가 알려질 때까지 로비와 데크를 오가며 참가자들을 맞이하는 모습이 계속 잡힌다. 그 밖에 특별한 장면은 보이지 않는다.",
+      "proves": ["행사가 예정대로 진행됐다는 것", "문성곤이 사고 직후에도 로비·데크에 계속 있었다는 것"],
       "does_not_prove": ["주관측실 안에서 무슨 일이 있었는지"],
       "presentation_effect": []
     },
@@ -1104,7 +1114,7 @@
       "character_id": "CH04",
       "surface_suspicion": "문성곤이 재단 예산을 이번 보고서 반응에 걸어 두고 발견자 단독 표기를 강하게 요청한 인물이고, 사고 직후에도 서둘러 자리를 정리하려 했다는 정황이 있다.",
       "actual_reason": "문성곤이 서두른 것은 사고 직후 다음 날 다른 후원 행사 준비 때문이었을 뿐, 살인과는 무관하다.",
-      "how_to_clear": "그의 진술(E12)과 조은솔의 진술(E17)을 함께 제시해 예산 문제와 이번 사건이 무관함을 확인한다.",
+      "how_to_clear": "그의 진술(E12)과 데크 라이브캠 녹화분(E18)을 함께 제시해 그가 사고 직후에도 로비·데크에 계속 있었음을 확인한다.",
       "must_not_imply": "문성곤이 결백하다고 해서 재단이 발견자 단독화를 요구했다는 사실 자체가 사라지는 것은 아니다.",
       "lingering_thread": "문성곤은 다음 보고서부터는 공동 발견자 표기를 재단 방침으로 명시하겠다고 한다.",
       "suspicion_deepener": "예산을 이번 반응에 걸어 뒀다는 사실과, 사고 직후 서둘러 자리를 정리하려 했다는 사실이 겹치며 그에 대한 의심이 짙어진다."
