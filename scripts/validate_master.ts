@@ -618,6 +618,7 @@ export function validateMaster(
 
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkStageOwnTestimonyKey(master));
+  issues.push(...checkStageReleaseBody(master, alreadyRegistered));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkTimeReferences(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
@@ -3078,6 +3079,24 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
         message: `${herring.id}에 ${missing.join(', ')}가 없다. 스키마가 이 셋을 오프라인 전용 마스터의 필수로 적어 두었다 — character_id 가 없으면 런타임이 문장 속 이름으로 주인을 찾고(가나다순으로 먼저인 쪽이 잡힌다), weight 가 없으면 「그럴 만한 사람」에서 그치며, clearing_points_at 이 없으면 헛다리를 지우는 것이 진범 쪽으로 한 걸음이 되지 않는다.`,
       });
     }
+    // `weight` 가 있어도 하위 칸이 비면 필수 표를 채운 척만 한 것이다(2026-09-27 실측:
+    // 판본 14건 중 넷의 헛다리 6개가 motive 또는 means_first_reading 이 빈 문자열이었다).
+    // 런타임은 weight 를 읽지 않지만 필수 표에 올려 둔 값이라 비어 있으면 error 다
+    // (사용자 결정 「채운다」). 원본에는 이 검사가 돌지 않는다(weight 자체가 선택이다).
+    if (herring.weight && typeof herring.weight === 'object') {
+      const weight = herring.weight as Record<string, unknown>;
+      const empty = ['motive', 'opportunity', 'means_first_reading'].filter(
+        (key) => typeof weight[key] !== 'string' || !(weight[key] as string).trim(),
+      );
+      if (!Array.isArray(weight.means) || weight.means.length === 0) empty.push('means');
+      if (empty.length) {
+        issues.push({
+          severity: 'error',
+          code: 'OFFLINE_WEIGHT_EMPTY',
+          message: `${herring.id}.weight 의 ${empty.join(', ')}가 비어 있다. weight 는 판본 필수 표의 칸이고 넷(motive 는 M## id · opportunity · means 카드 · means_first_reading)을 다 채운다 — 비워 두면 필수 표를 채운 척만 한 것이다.`,
+        });
+      }
+    }
     if (herring.character_id && herring.character_id === culprit) {
       issues.push({
         severity: 'error',
@@ -3171,6 +3190,56 @@ const OFFLINE_SPEECH_WRAPPED = /^["“]/;
 // 그것으로 맞는다(CASE040 등 23건이 이 모양이다). 그 진술의 본문은 인정과
 // 변명을 한 호흡에 담는다(「제가 새벽에 건조실 근처까지 갔었어요. 하지만
 // 안에 들어가진 않았어요.」).
+// 단계가 내주는 id 에 본문이 있는가.
+//
+// `contradiction_stages[].release.claim_or_fact_id` 가 가리키는 진술(S-)·사실(F-)이
+// 그 인물의 `initial_claims`·`knows` 어디에도 없으면, 교차참조는 통과한다 —
+// `collectIds` 가 단계가 내주는 id 를 「이후 정의되는 사실」로 먼저 등록하기
+// 때문이다. 완주도 된다: 엔진이 돌파 턴에 그 id 를 사슬에 넣어 준다.
+// **끊기는 것은 본문이다** — 수첩에 id 만 꽂히고 그 사람이 무슨 말을 했는지가 없다.
+// 고치는 법은 CLAUDE.md ① 「단계가 진술(S-)을 직접 내주는 모양도 된다(그 id 로
+// 본문을 쓴다)」이고, 재료는 같은 단계의 `release.scope` 지문에 이미 있다.
+export function stageReleasesWithoutBody(
+  master: Master,
+): Array<{ stage: string; id: string; target: string; scope: string }> {
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      initial_claims?: Array<{ claim_id?: string }>;
+      knows?: Array<{ fact_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{
+      id: string;
+      target_character?: string;
+      release?: { claim_or_fact_id?: string; scope?: string };
+    }>;
+  };
+  const bodies = new Set<string>();
+  for (const ch of shape.characters ?? []) {
+    for (const claim of ch.initial_claims ?? []) if (claim.claim_id) bodies.add(claim.claim_id);
+    for (const fact of ch.knows ?? []) if (fact.fact_id) bodies.add(fact.fact_id);
+  }
+  const rows: Array<{ stage: string; id: string; target: string; scope: string }> = [];
+  for (const stage of shape.contradiction_stages ?? []) {
+    const id = (stage.release?.claim_or_fact_id ?? '').trim();
+    if (!id || bodies.has(id)) continue;
+    rows.push({
+      stage: stage.id,
+      id,
+      target: stage.target_character ?? '',
+      scope: stage.release?.scope ?? '',
+    });
+  }
+  return rows;
+}
+
+export function checkStageReleaseBody(master: Master, alreadyRegistered = false): Issue[] {
+  return stageReleasesWithoutBody(master).map((row) => ({
+    severity: overuseSeverity(alreadyRegistered),
+    code: 'STAGE_RELEASE_NO_BODY',
+    message: `${row.stage}.release 가 ${row.id} 를 내주는데 그 본문이 어디에도 없다. 플레이어 수첩에는 id 만 꽂히고 ${row.target || '상대'}가 무슨 말을 했는지가 남지 않는다. 같은 단계의 release.scope 지문을 그 인물의 말로 옮겨 ${row.target || '그 인물'}의 ${row.id.startsWith('F-') ? 'knows' : 'initial_claims'} 에 ${row.id} 로 적고, hidden_until 로 그 단계(${row.stage})에 잠근다.`,
+  }));
+}
 export function checkStageQuestion(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
@@ -3636,7 +3705,7 @@ const MOTIVE_ARCHETYPES: Array<[string, RegExp]> = [
   ['사회적 평판 보호', /명예|평판|경력이|체면|이름에\s*흠|이름이[^.]{0,14}(굳|남기|적히)/],
   ['실패·책임 전가', /책임을\s*떠|뒤집어씌|전가/],
   ['평가·심사 결과 조작', /결과를\s*조작|심사를\s*조작|순위를\s*바꾸|점수를\s*고치|판정을\s*바꾸/],
-  ['공로·성과 가로채기', /성과를\s*가로채|공로|자기\s*이름으로\s*발표|단독\s*등재|이름을\s*올리/],
+  ['공로·성과 가로채기', /성과를\s*가로채|공로|자기\s*이름으로\s*발표|단독\s*등재|이름을\s*올리|발명자란|이름[이은]\s*[^.]{0,10}올라/],
   ['조직 내부 권력 장악', /실권|의사결정권|이사회|장악/],
   ['후계자 교체', /후계자|승계자|다음\s*대표|후계/],
   // **잃지 않으려는 쪽**. 마흔 칸이 거의 다 「얻으려고」 아니면 「들통날까 봐」라
@@ -3647,12 +3716,12 @@ const MOTIVE_ARCHETYPES: Array<[string, RegExp]> = [
   // 한정돼 있고**, `승진·직위 경쟁`과 `경쟁자 제거`는 올라가려는 쪽이다.
   [
     '지위·자리 상실 방지',
-    /(자리|지위|후계|대표 자리|입지|경영권|주도권|일터|작업실|일할 곳)[^.]{0,30}(잃|빼앗|내주|넘어가|물러나|박탈|사라)|밀려나|쫓겨나|자리[를을] 지키|지위[를을] 지키/,
+    /(자리|지위|후계|대표 자리|입지|경영권|주도권|일터|작업실|일할 곳)[^.]{0,30}(잃|빼앗|내주|넘어가|물러나|박탈|사라)|밀려나|쫓겨나|자리[를을] 지키|지위[를을] 지키|(넘겨|물려|내)주게 (됐|되었)/,
   ],
   // ── 권리
   ['계약·약속 파기', /계약을\s*깨|약속을\s*어기|파기/],
   ['소유권 분쟁', /소유권|내\s*것이라|권리를\s*다투/],
-  ['저작권·지식재산 분쟁', /저작권|특허|표절|지식재산|도용/],
+  ['저작권·지식재산 분쟁', /저작권|특허|표절|지식재산|도용|단독 명의/],
   // ── 은폐
   [
     '범죄·비리 은폐',
@@ -3850,7 +3919,7 @@ const METHOD_ARCHETYPES: Array<[string, string, RegExp, boolean]> = [
   ['induced_fall', '추락 유도', /추락|실족|낙상|밀쳐 (넘어|떨어)|떨어뜨[려리]|난간을|발판을 (치우|빼)|균형을 잃|뒤로 넘어지|넘어지며 (부딪|머리를)/, false],
   ['drowning_staged', '익사 위장', /익사(한 것|처럼|로 보이)|물에 빠진 (것처럼|사고로)|수영 중 사고처럼/, true],
   ['stabbing', '자상·관통상', /자상|찔[려린러]|칼[에로]|흉기로|날붙이|송곳|관통/, false],
-  ['blunt_force', '둔기 공격', /가격|둔기|내리쳐|강타|후려|머리를 (치|때)/, false],
+  ['blunt_force', '둔기 공격', /가격|둔기|내리쳐|강타|후려|휘둘러|머리를 (치|때)/, false],
   ['exsanguination', '절단·대량출혈', /절상|베[여인어]|출혈|대량 출혈|동맥을|지혈되지/, false],
   ['arson', '화재 이용', /발화|방화|불이 붙|불을 (지르|놓)|인화물질|점화/, false],
   ['smoke_staged', '연기·질식 위장', /연기[에로]|화재 사고(처럼|로 보)|연기를 마신 것처럼|소사(燒死)?로 보이/, true],
@@ -3864,7 +3933,7 @@ const METHOD_ARCHETYPES: Array<[string, string, RegExp, boolean]> = [
   ['vehicle_collision', '차량 충돌 유도', /차량\s*충돌|차에\s*치이|추돌|치여|들이받/, false],
   ['brake_tampering', '제동장치 조작', /브레이크|제동(장치|력)|유압 라인|패드를 (갈|빼)/, false],
   ['steering_tampering', '조향장치 조작', /조향|운전대|핸들[을이]|타이어를 (찢|손)/, false],
-  ['structural_collapse', '구조물 붕괴 유도', /천장이?\s*붕괴|벽체|구조물이?\s*붕괴|무너[져진]|선반이 (쓰러|넘어)|랙이 (무너|쓰러)|브래킷 나사를 (풀|빼)|지지(목|대)를 (자르|빼)/, false],
+  ['structural_collapse', '구조물 붕괴 유도', /천장이?\s*붕괴|벽체|구조물이?\s*붕괴|무너[져진]|선반이 (쓰러|넘어)|랙이 (무너|쓰러)|브래킷[^.]{0,10}(볼트|나사)[^.]{0,6}(풀|빼)|지지(목|대)를 (자르|빼)/, false],
   ['falling_object', '낙하물 이용', /낙하|깔[린려]|무게추|트러스가? 떨어|쏟아져|위에서 떨어지|넘어뜨려 덮치|짓눌[러린]/, false],
   ['water_system', '수중 설비 이용', /배수(구|로|밸브)|펌프를|수위를|수조를|급수(를|관)|물을 빼/, false],
   ['medical_procedure_tampering', '의료처치 조작', /처방[을를]?\s*바꾸|투약\s*오류|차트[를을]?\s*(고치|바꾸)|수액[을를]?\s*바꾸|약을\s*바꿔|용법을 바꾸/, false],

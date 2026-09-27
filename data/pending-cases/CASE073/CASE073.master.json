@@ -334,6 +334,17 @@
           "content": "제가 브래킷을 만진 건 맞아요. 하지만 헐거워 보여 손을 봤을 뿐 풀어 놓을 생각은 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "점검일지에 손을 댄 것도... 맞아요. 그냥 책임 소재를 좀 흐리려고 한 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-06",
+          "content": "제가 다 말씀드릴게요 — 10년 전 구두로 지분을 약속받았는데 그게 서면화되지 못한 채로, 이전 투자 계약이 체결되면서 자문역으로 밀려나게 되니까 배신감에 사로잡혀서 진열대 브래킷을 풀어 놨어요. 그리고 소란한 틈에 점검일지를 조작해서 사고처럼 보이게 하려고 했어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": ["S-CH04-00", "S-CH04-01", "S-CH04-02"],
@@ -347,6 +358,16 @@
           "fact_or_claim_id": "S-CH04-04",
           "release_prerequisite": "S-CH04-03",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH04-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH04-05"
         }
       ],
       "knowledge_limits": ["다른 사람들이 그 시각 정확히 어디서 무엇을 했는지는 자세히 모른다."],
