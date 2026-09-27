@@ -193,6 +193,11 @@
           "fact_id": "F-CH01-01",
           "content": "부조정실은 자신 말고는 아무도 손대지 않는 구역이라, 장비 문제가 생기면 항상 자신에게 먼저 연락이 온다.",
           "source": "본인 확인"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "결국 인정하겠습니다. 계약서에서 제 몫이 퇴직 위로금 한 줄로 지워진 걸 따지다 격분해서 마이크 케이블로 목을 졸랐습니다. 그 뒤로 테이프를 챙기고, 외부인 소행처럼 보이게 뒷문도 제가 부쉈습니다.",
+          "source": "본인 자백"
         }
       ],
       "initial_claims": [
@@ -231,6 +236,11 @@
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "C02",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [

@@ -233,7 +233,14 @@
       "name": "성재인",
       "role": "수석 보조작가 / 여섯 해째 콤비",
       "present_location": "L03",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-05",
+          "content": "성재인이 언쟁 끝에 옷걸이에 걸려 있던 새틴 리본으로 하진율의 목을 졸라 숨지게 했고, 하진율의 실팔찌를 챙기고 비상구를 안에서 젖혀 외부인의 소행처럼 꾸몄다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -263,7 +270,13 @@
         "S-CH01-01",
         "S-CH01-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": [
         "다른 스태프들이 자신과 하진율 사이를 얼마나 알고 있는지는 모른다."
       ],

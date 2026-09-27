@@ -3168,6 +3168,15 @@ const OFFLINE_SPEECH_QUOTE = /["“”]/;
 // 「…아니다.」는 「니다」로 끝나지만 지문이다(엔진의 FORMAL_SPEECH_END 도
 // 같은 구멍이 있다). 열한 판본의 knows·actual_reason 에 다섯 줄이 있다.
 const OFFLINE_SPEECH_ANIDA_END = /아니다[.。]?$/;
+// 지문 칸 중 **사실을 적는 자리**(`knows[].content`)에 말하는 행위 자체를 적은
+// 서술어가 오면 화면이 겹친다(2026-09-27 사용자 결정). 엔진의 `reportedFact` 가
+// 3인칭 사실을 「…다고 한다」로 옮기는데 그 서술어가 이미 말하는 행위라
+// 「…둘러댄다고 한다」가 된다 — 「그가 둘러댄다고 그가 말한다」 꼴이다.
+// 끝맺음만 보는 위 두 판정은 이것을 통과시킨다(「둘러댄다」는 「다」로 끝난다).
+// **`release.scope` 에는 안 건다** — 그쪽은 작성자가 읽는 재료라 행위를 적는 것이 맞고,
+// 이 값은 플레이어 수첩에 그대로 실린다는 점이 다르다.
+const OFFLINE_SPEECH_ACT_END =
+  /(?:둘러댄다|인정한다|부인한다|시인한다|주장한다|털어놓는다|자백한다|변명한다|발뺌한다|얼버무린다)[.。]?$/;
 const OFFLINE_SPEECH_WRAPPED = /^["“]/;
 
 // 대립 단계의 **질문**은 거짓 진술이어야 한다. `docs/offline-master-format.md`
@@ -3238,9 +3247,12 @@ export function stageReleasesWithoutBody(
   return rows;
 }
 
-export function checkStageReleaseBody(master: Master, alreadyRegistered = false): Issue[] {
+// 등록 여부와 무관하게 error (2026-09-27 사용자 결정). 오프라인 엔진이 본문 있는
+// id 만 수첩에 꽂으므로 본문 없는 release 는 그 사건을 종결 불가로 만든다 —
+// 경고로 두면 막이 잠긴 뒤에야 안다. 코퍼스는 같은 날 0 으로 비웠다.
+export function checkStageReleaseBody(master: Master, _alreadyRegistered = false): Issue[] {
   return stageReleasesWithoutBody(master).map((row) => ({
-    severity: overuseSeverity(alreadyRegistered),
+    severity: 'error' as const,
     code: 'STAGE_RELEASE_NO_BODY',
     message: `${row.stage}.release 가 ${row.id} 를 내주는데 그 본문이 어디에도 없다. 플레이어 수첩에는 id 만 꽂히고 ${row.target || '상대'}가 무슨 말을 했는지가 남지 않는다. 같은 단계의 release.scope 지문을 그 인물의 말로 옮겨 ${row.target || '그 인물'}의 ${row.id.startsWith('F-') ? 'knows' : 'initial_claims'} 에 ${row.id} 로 적고, hidden_until 로 그 단계(${row.stage})에 잠근다.`,
   }));
@@ -3428,6 +3440,19 @@ export function checkOfflineSpeech(master: Master): Issue[] {
     }
   };
 
+  // 사실을 적는 지문 칸. 지문 판정에 더해 「말하는 행위」 서술어를 막는다.
+  const factual = (where: string, raw: string | undefined) => {
+    narrated(where, raw);
+    const text = (raw ?? '').trim();
+    if (text && OFFLINE_SPEECH_ACT_END.test(text)) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 가 말하는 행위로 끝난다(「…${text.slice(-16)}」). 이 자리는 그 인물이 **아는 사실**을 적고 그대로 플레이어 수첩에 실린다 — 「둘러댄다」·「인정한다」는 사실이 아니라 행동 지시문이라, 수첩에 진술이 아니라 각본이 꽂힌다. 그 사람이 무엇을 했고 무엇이 사실인지로 적을 것(「…뿐이라고 둘러댄다」 → 「…뿐이라고 했다」). 말하는 행위를 적어 두는 자리는 같은 단계의 release.scope 다.`,
+      });
+    }
+  };
+
   const names: string[] = [];
   for (const ch of shape.characters ?? []) {
     if (ch.name) names.push(ch.name);
@@ -3443,7 +3468,7 @@ export function checkOfflineSpeech(master: Master): Issue[] {
     spoken(`${ch.id}.points_finger.says`, ch.points_finger?.says);
     narrated(`${ch.id}.points_finger.reveals`, ch.points_finger?.reveals);
     for (const fact of ch.knows ?? []) {
-      narrated(`${ch.id}.knows.${fact.fact_id ?? '?'}.content`, fact.content);
+      factual(`${ch.id}.knows.${fact.fact_id ?? '?'}.content`, fact.content);
     }
     narrated(`${ch.id}.comic_tell`, ch.comic_tell);
     (ch.knowledge_limits ?? []).forEach((line, i) =>

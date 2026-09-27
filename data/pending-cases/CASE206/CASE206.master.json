@@ -212,7 +212,20 @@
       "name": "서효주",
       "role": "결쇠공방 공동대표",
       "present_location": "L03",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사흘 전 미리 리미터 핀을 뽑아두고 브레이크 패드를 헐겁게 만들어뒀으며, 사고 후 그 핀을 화로에 넣어 녹여 없앴다. 이 일은 우발적 사고가 아니라 계획된 범행이었다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "한하람이 동업을 정리하며 지분을 절반씩 나누자고 한 것에 반발해 정산금 전부를 혼자 차지하기 위해 범행을 계획했고, 사고 직후 가동 이력 로그를 지워 은폐하려 했다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -263,6 +276,16 @@
           "fact_or_claim_id": "S-CH01-03",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [

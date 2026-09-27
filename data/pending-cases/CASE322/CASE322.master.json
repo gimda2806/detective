@@ -163,7 +163,14 @@
       "name": "신다율",
       "role": "수족관 부관장 / 관장 승진 최종 후보",
       "present_location": "L01",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH01-05",
+          "content": "신다율이 공모전 출품 이름 정정을 요구받자 승진 심사에 영향이 갈까 거절했고, 언쟁 끝에 격분해 표해온을 밀쳤다. 표해온은 그레이팅에 부딪혀 쓰러진 뒤 물에 빠져 숨졌고, 신다율은 점검 기록 페이지를 찢어 내고 CCTV 영상을 지워 사고처럼 꾸몄다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
@@ -190,7 +197,13 @@
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 공모전 출품 문제를 얼마나 알고 있는지는 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 평소엔 매끄럽고 예의 바르다.",

@@ -1,0 +1,1512 @@
+{
+  "case_identity": {
+    "case_id": "CASE356",
+    "title": "스며든 것",
+    "english_title": "What Seeped In",
+    "genre": "무허가 조제 발각을 막기 위한 살인 / 조제실에서 고농축 원액을 피해자 손목과 손등에 강제로 들이부어 경피 중독시킨 뒤 배합 기록을 조작해 시간대를 지움",
+    "setting": "번화가 골목 안쪽, 예약제로만 운영되는 더마 커스텀 클리닉 '온리프'. 피부과 전문의이자 조제 책임자인 방주아가 12년째 손님 한 사람 한 사람의 피부에 맞춰 처방 연고와 세럼을 직접 조제해 온 이곳은, 그날 저녁 처음으로 내놓는 리테일 라인 '온리프 클래식' 출시 행사를 앞두고 있었다. 오후 내내 쇼룸에는 진열 샘플이 채워지고 조제실 냉장고에는 당일 배합한 시제품이 쌓이는 중이었다.",
+    "location_archetypes": ["clinic"],
+    "background": {
+      "background_archetypes": ["product_launch", "investigation"],
+      "background_phrasing": ["during_preparation"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 석 달 전부터 잡아 둔 커스텀 조제 상담 예약 시간에 맞춰 온리프를 찾았고, 로비에서 인터폰을 붙들고 있던 고아린이 탐정을 알아보고는 목소리를 낮춰 조제실이 이상하다고 말을 걸었다.",
+    "tone": "예약제 클리닉 특유의 은은한 소독약 냄새와 정갈한 정적, 그 밑에 출시 행사를 앞둔 들뜬 분주함과 조용히 눌린 긴장이 겹친다. 탐정과 한지우는 손님으로 방문했다가 그대로 사건 한복판에 남는다.",
+    "tags": ["커스텀_조제", "출시_행사", "클리닉"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "방주아",
+      "role": "온리프 대표 / 피부과 전문의",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 17:40",
+    "narrative": "탐정은 석 달 전부터 잡아 둔 커스텀 조제 상담 예약 시간에 맞춰 번화가 골목 안쪽, 작은 간판만 걸린 온리프 앞에 섰다. 로비 안쪽에서 다음 손님 자료를 정리하던 고아린이 인터폰 버튼을 몇 번이고 눌러 보다가, 문득 고개를 들어 탐정과 눈이 마주쳤다.\n\n\"저... 죄송한데 잠깐만요.\"\n\n\"무슨 일이시죠.\"\n\n한지우가 먼저 한 걸음 다가섰다.\n\n\"조제실이 이상해서요.\"\n\n셋은 곧장 복도를 지나 조제실 문 앞에 섰다. 손잡이를 돌리자 잠기지 않은 문이 그대로 열렸고, 배합대 옆 바닥에 방주아가 쓰러진 채 미동이 없었다.\n\n\"확실히...\"\n\n\"숨은.\"\n\n한지우가 무릎을 굽혀 손목을 짚었다가 고개를 저었다.\n\n소독약 냄새가 은은하게 남은 복도 저편에서는, 저녁 출시 행사 준비 소리가 아직 아무 일도 모른 채 이어지고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "행사는 결국 무기한 연기됐고, 쇼룸 진열대 위 시향병들은 아직 뜯지 않은 채 나란히 놓여 있었다. 사무실 안쪽 의자에 앉은 우신오가 한참 고개를 숙이고 있다가, 마침내 입을 열었다.\n\n\"...조제실에 있었던 건 맞습니다.\"\n\n\"거기서.\"\n\n\"분석 결과지를 내미시면서 오늘 저녁 전에 다 밝히겠다고 하셨어요. 말리려다 언성이 높아졌고, 정신을 차려 보니 원액이 이미 쏟아진 뒤였어요.\"\n\n한지우가 수첩을 덮고 잠시 창밖을 바라봤다. 탐정도 더 묻지 않았다.\n\n\"배운 걸로 사람을 죽이는 경우는 또 처음 보네.\"\n\n\"...그러게요, 저도요.\"\n\n복도 저편에서는 두서인이 아직 뜯지 못한 시향병 상자를 손에 든 채 서 있었다.\n\n밖으로 나서자 거리에는 이미 저녁 불빛이 하나둘 켜지고 있었다. 한지우가 목을 좌우로 꺾었다.\n\n\"저 결국 오늘 상담도 못 받았는데요.\"\n\n\"다른 데 가.\"\n\n\"거긴 여기만큼 잘 안 맞아서 그렇죠.\""
+  },
+  "surface_incident": [
+    "커스텀 조제 클리닉 온리프의 대표 방주아가 조제실에서 숨진 채 발견됐다. 경찰은 정확한 사인을 조사 중이라고 밝혔다.",
+    "그날 저녁 예정됐던 '온리프 클래식' 출시 행사는 결국 취소됐다.",
+    "조제실은 출입카드가 있어야 드나들 수 있는 구역으로, 오후 다섯 시 이후에는 자동으로 잠기는 구조였다는 것이 확인됐다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "우신오는 반년 전부터 고객 몇 명에게 조제법에도 없는 미허가 경피흡수촉진제를 몰래 섞어 넣어 '즉각적인 효과'를 내는 세럼을 따로 만들어 팔아 왔다. 방주아는 원료 재고를 대조하다 낯선 사용 기록을 발견해 외부 성분 조사를 의뢰했고, 그 결과가 그날 오후 도착하자 저녁 '온리프 클래식' 출시 행사 전에 모든 사실을 밝히고 신고하겠다고 통보했다. 해당 성분은 국내에 화장품 원료로 등록돼 있지 않은 의약외품용 물질이라, 이 사실이 드러나면 무허가 조제로 형사 입건되고 조제사 자격도 잃을 처지였던 우신오는 지금까지 쌓아 온 경력과 눈앞의 형사처벌 모두를 한꺼번에 잃을 위기에 몰렸다.",
+    "motive_archetypes": ["professional_secrecy", "conviction"],
+    "method": "출시 준비로 분주하던 오후, 조제실에서 성분 분석 결과를 들이대며 신고를 통보하는 방주아와 말다툼하던 우신오가 배합대 위 미허가 촉진제 원액 병을 집어 그녀의 손목 안쪽과 손등에 그대로 들이부었다. 흡수가 빠른 고농축 원액이라 방주아는 곧 의식을 잃었고, 우신오는 그녀가 쓰러진 뒤로도 한동안 아무 조치도 하지 않았다.",
+    "method_archetypes": ["dermal_contact", "staging_cover_up"],
+    "key_time_location": "사건 당일 17:12, 조제실(L01)",
+    "cover_up": "우신오는 조제실 배합 로그 단말기에서 그 시각 자신의 작업 기록을 지우려 했지만 서버에 남은 원본까지는 지우지 못했고, 원액이 든 빈 병과 오염된 장갑을 원료 창고 폐기함 깊숙이 넣어 두었으며, 배합대를 대충 닦아 낸 뒤 환기 설비 오작동으로 인한 화학물질 누출 사고처럼 보이도록 경보 로그를 조작했다. 캐물으면 진소원이 최근 원료 라벨을 헷갈린 적이 있다는 것을 슬쩍 흘리며 화제를 돌리려 했다.",
+    "cover_up_target": ["time", "weapon", "responsibility"],
+    "cover_up_method": ["digital_record_manipulation", "weapon_disposal", "accident_environment", "witness_misdirection"],
+    "decisive_evidence_ids": ["E04", "E16", "E12", "E05"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 약 8개월 전",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 해외 총판업체로부터 미승인 경피흡수촉진제 원액을 개인 명의로 몰래 들여온다.",
+      "world_fact": "우신오는 그 사실을 방주아에게 알리지 않았다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 6개월 전",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 그 원액을 소량 섞은 '스페셜 세럼'을 몇몇 VIP 고객에게 웃돈을 받고 개인적으로 판매하기 시작한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 5주 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "방주아가 원료 재고를 대조하다 장부에 없는 원료 사용 기록을 발견한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 4주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "방주아가 그 원료 샘플을 외부 성분 분석 기관에 보내 정체를 확인해 달라고 의뢰한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 3일 전",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 방주아의 책상에서 분석 의뢰서 사본을 우연히 발견한다.",
+      "world_fact": "그 뒤로 우신오는 방주아의 눈치를 살피기 시작했다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 09:00",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "고아린이 그날 저녁 '온리프 클래식' 출시 행사를 위해 쇼룸에 진열 샘플을 배치한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 11:20",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "방주아가 외부 분석 기관으로부터 그 원료가 국내 미승인 의약외품 성분이라는 회신을 받는다.",
+      "world_fact": "방주아는 그날 저녁 출시 행사 전에 우신오에게 사실을 알리고 신고하기로 마음먹는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14:00",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "진소원이 출시 행사용 샘플 원료를 정리하다 라벨이 바뀐 병 두 개를 헷갈려 다시 정리한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 15:30",
+      "location": "L06",
+      "actors": ["CH05"],
+      "actual_action": "두서인이 출시 행사 공동 진열 협의를 위해 온리프에 도착한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 16:20",
+      "location": "L04",
+      "actors": ["V01", "CH01"],
+      "actual_action": "방주아가 우신오를 사무실로 불러 성분 분석 결과지를 보여주며 해명을 요구한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 16:55",
+      "location": "L01",
+      "actors": ["V01", "CH01"],
+      "actual_action": "방주아가 조제실로 자리를 옮겨 우신오에게 저녁 행사 전 모든 것을 밝히고 신고하겠다고 통보한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 17:05",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "진소원이 창고 벽 너머로 조제실 쪽에서 언성이 높아지는 소리를 얼핏 듣는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 17:12",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "언쟁이 격해지자 우신오가 배합대 위 원액 병을 집어 방주아의 손목 안쪽과 손등에 그대로 들이붓는다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 17:14",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "방주아가 정신을 잃고 쓰러지는데도 우신오가 그대로 지켜만 본다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 17:20",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 배합 로그 단말기에서 그 시각 자신의 작업 기록을 지우려 하지만 서버 원본까지는 지우지 못한다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 17:25",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 빈 원액 병과 오염된 장갑을 폐기함 깊숙이 밀어 넣는다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 17:30",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 배합대를 대충 닦아 내고 환기 설비 경보 로그를 조작해 화학물질 누출 사고처럼 꾸민다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 17:33",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 휴게실 사물함에 손목시계를 풀어 넣고 손을 씻는다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 17:35",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "우신오가 태연히 사무실로 돌아가 출시 행사 서류를 검토하는 척한다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 17:38",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "고아린이 인터폰으로 조제실을 불러도 응답이 없자 이상함을 느낀다."
+    },
+    {
+      "id": "T21",
+      "time": "사건 당일 17:40",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "고아린이 조제실 문을 열어보다 쓰러진 방주아를 발견한다."
+    },
+    {
+      "id": "T22",
+      "time": "사건 당일 17:40",
+      "location": "L06",
+      "actors": ["CH02"],
+      "actual_action": "고아린이 로비에 있던 탐정에게 다급히 도움을 청하고, 탐정과 한지우가 함께 조제실로 향한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "우신오",
+      "role": "수석 조제사",
+      "present_location": "L04",
+      "comic_tell": "말을 고를 때 안경다리를 슬쩍 밀어 올린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "16시 55분경 조제실에 들어갔다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 안에서 방주아와 성분 분석 결과를 두고 말다툼이 있었다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "다툼 끝에 원액을 방주아의 손목과 손등에 들이부었다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "진소원이 최근 원료 라벨을 헷갈려서 다시 정리한 적이 있는 것을 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 향료 배합 비율은 저도 매번 다시 맞추는 편이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 사무실에서 서류 보고 있었어요, 조제실엔 들어간 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "완전히 발뺌하려는 반사적 거짓말."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그건 인정하는데, 재고 확인차 잠깐 들렀을 뿐이고 대표님과 마주치지도 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "완전히 발뺌하기 어려워지자 최소한으로만 인정하려는 시도."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "말다툼만 했을 뿐 손 하나 안 댔고, 제가 나올 때 대표님은 멀쩡했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살인 사실이 드러나는 것을 막기 위한 마지막 저항."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 직원들의 개인사는 깊이 알지 못한다.",
+        "행사 진행 세부 사항은 고아린에게 맡겨 두고 있다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 차분하고 논리정연하게 말한다.",
+        "sentence_length_tendency": "평소엔 조리 있게 설명하듯 말하지만, 몰리면 문장이 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "말끝에 '그렇긴 한데'를 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그만 좀 물으세요, 저도 힘든 하루예요.",
+        "다들 왜 저한테만 이러시는지 모르겠네요.",
+        "그렇긴 한데, 제가 뭘 어떻게 설명해도 안 믿으실 거잖아요."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-01",
+        "says": "소원 씨가 얼마 전에 원료 라벨 헷갈려서 다시 정리한 적 있긴 했어요.",
+        "reveals": "진소원이 최근 원료 라벨을 헷갈린 적이 있다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "고아린",
+      "role": "마케팅 매니저 / 시신 발견자",
+      "present_location": "L03",
+      "comic_tell": "당황하면 태블릿 화면을 괜히 껐다 켰다 한다.",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "인터폰을 눌러도 조제실에서 응답이 없어 이상하다고 생각했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "조제실은 방음이 잘돼 안에서 무슨 일이 있었는지 밖에서 전혀 알 수 없다고 생각했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "발견된 시각이 곧 변을 당한 시각은 아니라고 생각했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "두서인이 그날 오후 로비 쪽에서 누군가와 통화하며 언성을 높이는 걸 들었다.",
+          "source": "직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘따라 대표님이 유난히 말수가 적으셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 계속 쇼룸에서 진열 샘플 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E25",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E18",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "조제실 안에서 실제로 무슨 일이 있었는지는 모른다.",
+        "우신오와 방주아 사이의 원료 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝고 상냥한 표준 존댓말.",
+        "sentence_length_tendency": "평소엔 빠르고 경쾌하게 말하지만, 몰리면 말이 자꾸 끊긴다.",
+        "verbal_tic": "'딱히'를 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그, 그건 저도 잘 모르겠어요.",
+        "제가 뭘 잘못 봤을 수도 있잖아요.",
+        "딱히, 저는 그냥 발견한 죄밖에 없는데요."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "서인 대표님이 로비에서 누구랑 통화하시면서 언성이 좀 높아지긴 하셨어요.",
+        "reveals": "두서인이 그날 오후 통화 중 언성을 높였다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "염하율",
+      "role": "VIP 고객 매니저",
+      "present_location": "L06",
+      "comic_tell": "생각할 때 손끝으로 귀걸이를 만지작거린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "VIP 고객 중 한 명에게서 우신오가 개인적으로 판매하는 '스페셜 세럼' 얘기를 들은 적이 있다.",
+          "source": "고객에게 들음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그 정도로 진하게 노출되려면 원액을 병째로 쏟아야 한다는 것을 조제 안전 교육 때 들어 알고 있다.",
+          "source": "업무상 교육"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "요즘 VIP 고객분들 예약이 몰려서 정신이 없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 로비에서 고객 응대하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "조제실 안에서 실제로 무슨 일이 있었는지는 모른다.",
+        "우신오와 방주아 사이의 원료 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분하고 사근사근한 존댓말.",
+        "sentence_length_tendency": "평소엔 여유 있게 설명하지만, 몰리면 대답이 짧아진다.",
+        "verbal_tic": "말끝에 '제 생각엔'을 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "글쎄요, 저는 잘 몰라서요.",
+        "자꾸 그러시면 저도 곤란한데요.",
+        "제 생각엔, 저는 그냥 손님 응대만 했을 뿐이에요."
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "저희 VIP 고객 한 분이 신오씨한테 따로 세럼을 받는다는 얘길 하신 적 있어요.",
+        "reveals": "우신오가 고객들에게 개인적으로 세럼을 판매해왔다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "진소원",
+      "role": "인턴 조제 보조",
+      "present_location": "L02",
+      "comic_tell": "긴장하면 앞치마 끈을 배배 꼰다.",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "고아린이 최근 예산안이 반려된 뒤로 예민해진 걸 봤다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "우신오가 최근 자신에게 유독 날카롭게 굴었다고 느꼈다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "환기 설비가 오작동해도 그 정도 중독을 일으킬 만큼 위험한 설비가 아니라는 것을 조제 보조로 일하며 알고 있다.",
+          "source": "업무상 알고 있음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 원료 정리하는 게 손에 익어서 나름 뿌듯했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 계속 창고에서 원료 정리하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "라벨은 그냥 헷갈려서 다시 붙인 거예요, 숨길 이유가 없어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "방주아와 우신오 사이에 어떤 문제가 있었는지는 정확히 모른다.",
+        "조제실 안에서 실제로 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 조심스럽고 예의 바르다.",
+        "sentence_length_tendency": "평소엔 또박또박 말하지만, 몰리면 말을 더듬는다.",
+        "verbal_tic": "말을 하다 자주 '아니 그게'를 반복한다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그, 그건 저도... 잘 모르겠어요.",
+        "제가 왜 자꾸 의심받아야 하는지 모르겠어요.",
+        "아니 그게, 저는 그냥 창고 정리만 했다니까요."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-01",
+        "opens": "S-CH04-01",
+        "says": "아린 언니가 요새 예산 얘기로 스트레스 받는 거 같더라고요.",
+        "reveals": "고아린이 최근 예산안이 반려돼 스트레스를 받고 있었다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "두서인",
+      "role": "향료 공급업체 대표 / 외부 파트너",
+      "present_location": "L03",
+      "comic_tell": "설명할 때 명함 케이스를 손끝으로 톡톡 두드린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "염하율이 최근 VIP 고객 응대 문제로 예민해 보였다는 것을 느꼈다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "얼마 전 염하율에게 넌지시 온리프의 VIP 고객 명단을 캐물은 적이 있다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이번 온리프 클래식 패키지 디자인은 저희 쪽에서도 공들인 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 계속 쇼룸에서 진열 협의하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그 진열 조건 얘기는 이미 두 달 전에 다 끝났어요, 저희끼리는 신경도 안 써요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "온리프 내부 인력 문제는 깊이 알지 못한다.",
+        "조제실 안에서 실제로 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "사업가답게 매끄럽고 자신만만한 존댓말.",
+        "sentence_length_tendency": "평소엔 여유 있게 말하지만, 몰리면 말이 빨라진다.",
+        "verbal_tic": "'사실'을 자주 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그만 좀 물으시죠, 저도 바쁜 사람입니다.",
+        "왜 자꾸 저한테 이러시는지 모르겠네요.",
+        "사실, 제가 여기서 뭘 어떻게 하겠어요."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-01",
+        "opens": "S-CH05-01",
+        "says": "하율씨가 요새 고객 응대 문제로 좀 날카로워 보이던데요.",
+        "reveals": "염하율이 최근 VIP 고객 응대 문제로 예민해져 있었다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "12년째 함께 일해온 대표와 수석 조제사.",
+      "public_face": "가장 손발이 잘 맞는 한 팀으로 알려져 있다.",
+      "says": {
+        "CH01": "대표님한테 처음 조제 기술을 배웠어요, 스승이나 다름없죠."
+      },
+      "private_strain": "우신오는 미허가 원료로 개인 판매를 해온 것을 감추고 있다.",
+      "surfaces_when": "탐정이 해외 구매 영수증(E12)을 우신오에게 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "3년째 함께 브랜드를 키워온 대표와 마케팅 매니저.",
+      "public_face": "합이 좋은 파트너로 알려져 있다.",
+      "says": {
+        "CH02": "대표님은 제 아이디어를 존중해 주시는 분이었어요, 대체로는요."
+      },
+      "private_strain": "고아린은 최근 자신이 제안한 마케팅 예산안이 반려된 것에 서운함을 감추고 있다.",
+      "surfaces_when": "탐정이 고아린에게 예산안 반려 메일(E14)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "5년째 VIP 고객 응대를 맡아온 매니저와 대표.",
+      "public_face": "가장 신뢰받는 직원으로 알려져 있다.",
+      "says": {
+        "CH03": "원장님 아니었으면 저도 VIP 응대 이렇게 못 배웠을 거예요."
+      },
+      "private_strain": "염하율은 VIP 고객에게서 들은 우신오의 '스페셜 세럼' 소문을 원장에게 알리지 않은 것을 감추고 있다.",
+      "surfaces_when": "탐정이 염하율에게 그 소문(F-CH03-01)을 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "반년 전 합류한 인턴 조제 보조와 대표.",
+      "public_face": "성실하게 잘 배우고 있다고 알려져 있다.",
+      "says": {
+        "CH04": "대표님이 신입인 저한테도 꼼꼼히 알려주세요."
+      },
+      "private_strain": "진소원은 원료 라벨을 헷갈린 실수를 아직 보고하지 못한 것을 감추고 있다.",
+      "surfaces_when": "탐정이 진소원에게 라벨이 바뀐 원료병(E07)을 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "이번 출시 행사 공동 진열을 협의해온 향료 공급업체 대표와 대표.",
+      "public_face": "합이 잘 맞는 파트너로 알려져 있다.",
+      "says": {
+        "CH05": "방 대표님은 꼼꼼하셔서 저도 오히려 편했어요."
+      },
+      "private_strain": "두서인은 진열 조건으로 방주아와 최근 언쟁했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 두서인에게 진열 협의 서류(E09)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH04"],
+      "nature": "반년째 같은 조제실에서 손발을 맞춰온 선배와 인턴.",
+      "public_face": "잘 챙겨주는 선배로 알려져 있다.",
+      "says": {
+        "CH01": "소원 씨는 아직 배우는 중이지만 손이 빨라요.",
+        "CH04": "신오 선배님이 이것저것 잘 알려주세요."
+      },
+      "private_strain": "진소원은 우신오가 최근 자신에게 유독 날카롭게 굴었다고 느낀 것을 감추고 있다.",
+      "surfaces_when": "탐정이 진소원에게 우신오의 최근 태도(F-CH04-02)를 캐물을 때."
+    },
+    {
+      "id": "REL07",
+      "between": ["CH03", "CH05"],
+      "nature": "이번 출시 행사 진열을 놓고 몇 차례 협의한 VIP 매니저와 공급업체 대표.",
+      "public_face": "협업이 매끄러운 사이로 알려져 있다.",
+      "says": {
+        "CH03": "두서인 대표님은 저희 쪽 요청을 잘 들어주시는 편이에요.",
+        "CH05": "하율씨는 저희 쪽 사정도 잘 헤아려 주시죠."
+      },
+      "private_strain": "두서인은 얼마 전 염하율에게 넌지시 온리프의 VIP 고객 명단을 캐물은 적이 있다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 두서인에게 VIP 고객 명단 문의(F-CH05-02)를 캐물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "조제실",
+      "access": "환자·손님은 들어올 수 없는 조제사 전용 구역. 출입카드가 있어야 열리고, 오후 다섯 시 이후엔 자동으로 잠긴다.",
+      "access_level": "sealed",
+      "connects_to": ["L02", "L04"],
+      "base_description": "좁은 조제대 위로 비커와 계량저울이 늘어서 있고, 그 앞 바닥에 방주아가 쓰러진 채 미동이 없다. 구석 벽에는 환기 설비 제어반이 조용히 깜빡이고 있다.",
+      "observation_rules": [
+        {
+          "action": "조제실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "실습대 위 안전수칙 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배합대 위 흔적을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "배합대 한쪽 모서리에 옅은 갈색 얼룩이 튄 자국이 있고, 그 아래 바닥에도 같은 얼룩이 이어져 있다."
+        },
+        {
+          "action": "배합 로그 단말기를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "화면 기록에 16시 55분부터 17시 20분까지 접속이 표시돼 있는데, 17시 20분부터 17시 23분 구간만 기록이 비어 있다."
+        },
+        {
+          "action": "환기 설비 경보 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "경보 기록에 17시 30분에 '환기 이상' 알림이 새로 추가돼 있는데, 그 시각 실제 환기 센서 점검 이력은 없다."
+        },
+        {
+          "action": "조제실 문 앞 태그 기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "그날 오후 출입 기록에 우신오의 카드가 16시 55분에 태그된 것으로 남아 있고, 그 뒤로 다시 나온 기록은 17시 40분 이후에야 있다."
+        },
+        {
+          "action": "초동 검안 메모를 확인한다",
+          "requires": "고아린",
+          "release_evidence_id": "E25",
+          "result": "감식반이 남기고 간 메모 한 장이 옆에 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "원료 창고",
+      "access": "원료를 다루는 직원 전용 창고. 아무나 드나들 수 없다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05"],
+      "base_description": "선반마다 원료병이 알파벳 순으로 정리돼 있고, 안쪽 폐기함 옆에서 진소원이 손에 든 정리 목록을 몇 번이고 다시 살펴보고 있다.",
+      "observation_rules": [
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "선반마다 원료병이 알파벳 순으로 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "폐기함 안쪽을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "폐기함 깊숙한 곳에 라벨이 뜯긴 빈 병 하나가 다른 폐기물 밑에 숨겨져 있다."
+        },
+        {
+          "action": "선반 밑 상자를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "장갑 한 짝 손등 부분에 원액이 튄 듯 갈색으로 변색된 자국이 남아 있고, 안쪽에서 자극적인 냄새가 난다."
+        },
+        {
+          "action": "정리된 원료병 라벨을 확인한다",
+          "requires": "진소원",
+          "release_evidence_id": "E07",
+          "result": "원료병 두 개에 서로 다른 성분명 라벨이 붙어 있는데, 뚜껑 색과 내용물 점도가 라벨과 맞지 않는다."
+        },
+        {
+          "action": "정리 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E23",
+          "result": "그날 오후 정리 일지에 진소원의 서명란만 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "쇼룸",
+      "access": "예약 손님이면 누구나 드나들 수 있는 대기 겸 진열 공간.",
+      "access_level": "open",
+      "connects_to": ["L06", "L04"],
+      "base_description": "낮은 진열대 위로 출시 예정 제품 샘플이 줄지어 놓여 있고, 카운터 안쪽에서 고아린이 태블릿으로 예약 명단을 확인하며 시계를 힐끔거린다. 구석 테이블에서는 두서인이 진열 샘플을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "쇼룸을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "진열대 위에 오늘 저녁 '온리프 클래식' 출시 행사 안내판이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "카운터 옆 인터폰 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "메모지에 '17:38 조제실 호출 - 무응답'이라고 적혀 있다."
+        },
+        {
+          "action": "구석 테이블 위 서류를 확인한다",
+          "requires": "두서인",
+          "release_evidence_id": "E09",
+          "result": "진열 조건 협의서 한 장이 테이블 위에 놓여 있다."
+        },
+        {
+          "action": "진열 샘플 박스 옆 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E24",
+          "result": "서류 봉투 하나가 진열 샘플 박스 아래 깔려 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "방주아와 우신오가 함께 쓰는 원장 사무실. 평소엔 잠겨 있고 열쇠는 둘만 소지한다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "마주 놓인 책상 두 개 사이로 서류함이 늘어서 있고, 벽에는 개업 당시 사진이 걸려 있다. 안쪽 자리에서 우신오가 태연한 얼굴로 서류를 넘기고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 탁상달력에 오늘 날짜 칸에만 작게 별 표시가 돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방주아의 책상 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "성분 분석 결과지 한 장이 서랍 안쪽에 끼워져 있다."
+        },
+        {
+          "action": "우신오 쪽 서랍을 살펴본다",
+          "requires": "우신오",
+          "release_evidence_id": "E12",
+          "result": "해외 업체발 영수증 한 장이 서랍 깊숙이 끼워져 있다."
+        },
+        {
+          "action": "책상 위 메모지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "메모지 한 장이 책상 위에 놓여 있다."
+        },
+        {
+          "action": "벽 쪽 서류함 위 출력물을 확인한다",
+          "requires": "고아린",
+          "release_evidence_id": "E14",
+          "result": "출력된 이메일 한 장이 서류함 위에 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "직원 휴게실",
+      "access": "직원 전용 휴게 공간. 개인 사물함마다 자물쇠가 걸려 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "낡은 소파 하나와 개인 사물함 다섯 개가 나란히 늘어서 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "세탁 바구니 안에 젖은 수건 한 장이 아무렇게나 던져져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "우신오의 사물함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "사물함 안쪽에 손목시계 하나가 놓여 있고, 시곗줄 안쪽에 갈색으로 얼룩진 자국이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "로비",
+      "access": "누구나 드나들 수 있는 접수 로비.",
+      "access_level": "open",
+      "connects_to": ["L03"],
+      "base_description": "예약 현황판 앞으로 대기 의자가 놓여 있고, 안쪽에서 염하율이 다음 손님 자료를 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "예약 현황판에 오늘 예약자 명단이 시간순으로 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "배합대 위 얼룩",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "배합대 위 흔적을 살펴본다",
+      "content": "배합대 한쪽 모서리에 옅은 갈색 얼룩이 튄 자국이 있고, 그 아래 바닥에도 같은 얼룩이 이어져 있다.",
+      "proves": ["그 자리에서 원액 같은 액체가 쏟아졌다는 것"],
+      "does_not_prove": ["누구의 소행인지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "조제대 다른 자리는 깨끗이 정리돼 있는데 그 한 자리만 미처 안 닦인 흔적이 남아 있다."
+    },
+    {
+      "id": "E02",
+      "name": "배합 로그 단말기 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "배합 로그 단말기를 확인한다",
+      "content": "화면 기록에 16시 55분부터 17시 20분까지 접속이 표시돼 있는데, 17시 20분부터 17시 23분 구간만 기록이 비어 있다.",
+      "proves": ["그 시간대 누군가 접속 기록을 지우려 했다는 것"],
+      "does_not_prove": ["누가 지웠는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "평소 이 단말기는 접속이 끊길 때마다 자동으로 로그가 남는데, 이 구간만 아예 비어 있다."
+    },
+    {
+      "id": "E03",
+      "name": "환기 설비 경보 로그",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "환기 설비 경보 기록을 확인한다",
+      "content": "경보 기록에 17시 30분에 '환기 이상' 알림이 새로 추가돼 있는데, 그 시각 실제 환기 센서 점검 이력은 없다.",
+      "proves": ["누군가 그 시각 환기 이상 경보를 인위적으로 남겼다는 것"],
+      "does_not_prove": ["누가 남겼는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "경보가 뜨면 자동으로 출동 기록이 남는데, 이번 경보에는 그 출동 기록이 없다."
+    },
+    {
+      "id": "E04",
+      "name": "조제실 출입 태그 기록판",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "조제실 문 앞 태그 기록판을 확인한다",
+      "content": "그날 오후 출입 기록에 우신오의 카드가 16시 55분에 태그된 것으로 남아 있고, 그 뒤로 다시 나온 기록은 17시 40분 이후에야 있다.",
+      "proves": ["우신오가 16시 55분부터 오랫동안 조제실 안에 있었다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01",
+      "mismatch": "그 사이 기록에는 다시 나온 태그가 한참 뒤에야 있어, 그가 계속 안에 있었어야 앞뒤가 맞는다.",
+      "reaction": {
+        "jiwoo": "한 시간 가까이 안 나온 걸로 되어 있는데요.",
+        "detective": "그 안에서 뭘 하고 있었는지부터 물어보지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "폐기함 속 빈 원액 병",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "폐기함 안쪽을 살펴본다",
+      "content": "폐기함 깊숙한 곳에 라벨이 뜯긴 빈 병 하나가 다른 폐기물 밑에 숨겨져 있다.",
+      "proves": ["원액 병 하나가 의도적으로 깊숙이 숨겨졌다는 것"],
+      "does_not_prove": ["그 병에 무엇이 들어있었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "mismatch": "보통 폐기물은 위쪽에 그대로 쌓이는데 이 병만 바닥까지 밀어 넣어져 있다."
+    },
+    {
+      "id": "E06",
+      "name": "오염된 장갑 한 짝",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "선반 밑 상자를 살펴본다",
+      "content": "장갑 한 짝 손등 부분에 원액이 튄 듯 갈색으로 변색된 자국이 남아 있고, 안쪽에서 자극적인 냄새가 난다.",
+      "proves": ["그 장갑이 고농축 원액에 닿았다는 것"],
+      "does_not_prove": ["누가 꼈던 장갑인지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "mismatch": "창고에 있는 다른 장갑들은 전부 세트로 짝이 맞는데 이 한 짝만 어디서도 짝을 찾을 수 없다.",
+      "reaction": {
+        "jiwoo": "한쪽만 이렇게 숨겨 놨네요.",
+        "detective": "급했겠지, 그것도."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "라벨이 바뀐 원료병 두 개",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정리된 원료병 라벨을 확인한다",
+      "content": "원료병 두 개에 서로 다른 성분명 라벨이 붙어 있는데, 뚜껑 색과 내용물 점도가 라벨과 맞지 않는다.",
+      "proves": ["최근 누군가 원료병 라벨을 헷갈려 다시 붙였다는 것"],
+      "does_not_prove": ["고의였는지 실수였는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "창고 정리 담당은 진소원 한 명뿐인데, 정작 그날 정리 일지에는 이 두 병에 대한 기록이 없다."
+    },
+    {
+      "id": "E08",
+      "name": "인터폰 통화 기록 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "카운터 옆 인터폰 기록을 확인한다",
+      "content": "메모지에 '17:38 조제실 호출 - 무응답'이라고 적혀 있다.",
+      "proves": ["17시 38분에 조제실로 건 인터폰에 응답이 없었다는 것"],
+      "does_not_prove": ["그 시각 안에 사람이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "평소엔 조제실에서도 인터폰을 바로 받는 편이라고 알려져 있다."
+    },
+    {
+      "id": "E09",
+      "name": "진열 협의 서류",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구석 테이블 위 서류를 확인한다",
+      "content": "진열 조건 협의서 여백에 '조건 재검토'라는 방주아의 메모가 적혀 있다.",
+      "proves": ["방주아가 진열 조건에 문제 제기를 했다는 것"],
+      "does_not_prove": ["그 문제가 아직 해결되지 않았는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "메모 옆에는 이미 다른 필체로 '합의 완료'라는 짧은 표시가 덧붙어 있다."
+    },
+    {
+      "id": "E10",
+      "name": "고아린의 발견 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "고아린에게 시신을 발견했을 때 상황을 묻는다",
+      "content": "\"인터폰을 눌러도 답이 없길래 이상해서 직접 가봤는데... 조제실 문이 빠끔 열려 있었고, 대표님이 바닥에 쓰러져 계셨어요. 그게 17시 40분쯤이었을 거예요.\"",
+      "proves": ["고아린이 17시 40분경 조제실에서 직접 시신을 발견했다는 것"],
+      "does_not_prove": ["사망 시각", "누구의 소행인지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "그녀가 본 것은 발견 시각일 뿐인데, 그 시각을 사망 시각으로 착각하기 쉽다."
+    },
+    {
+      "id": "E11",
+      "name": "성분 분석 결과지 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "방주아의 책상 서랍을 살펴본다",
+      "content": "성분 분석 결과지에 '국내 미승인 의약외품 원료로 추정됨'이라는 문구가 형광펜으로 표시돼 있다.",
+      "proves": ["방주아가 그 원료의 정체를 확인했다는 것"],
+      "does_not_prove": ["누가 그 원료를 썼는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "서랍 안 다른 서류는 파일철에 정리돼 있는데 이 한 장만 접힌 채 따로 끼워져 있다."
+    },
+    {
+      "id": "E12",
+      "name": "해외 구매 영수증",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "우신오 쪽 서랍을 살펴본다",
+      "content": "해외 업체발 영수증에 '경피흡수촉진제 원액 500ml'라는 품목명과 우신오 개인 명의가 적혀 있다.",
+      "proves": ["우신오가 그 원액을 개인 명의로 구매했다는 것"],
+      "does_not_prove": ["그가 살해했는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "다른 원료 구매는 전부 클리닉 명의로 되어 있는데 이 건만 개인 명의다.",
+      "reaction": {
+        "jiwoo": "이거 대표님은 모르셨겠는데요.",
+        "detective": "알았으면 오늘 이 소동도 없었겠지."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "책상 위 메모지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 메모지를 확인한다",
+      "content": "'17시 - 신오씨와 조제실에서, 성분 건'이라고 적힌 메모지가 책상 위에 놓여 있다.",
+      "proves": ["방주아가 그날 우신오와 조제실에서 만나기로 했었다는 것"],
+      "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "메모 아래쪽에 몇 자 더 있었던 흔적처럼 지워진 자국이 남아 있다."
+    },
+    {
+      "id": "E14",
+      "name": "예산안 반려 메일 출력본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "벽 쪽 서류함 위 출력물을 확인한다",
+      "content": "출력된 이메일에 '이번 예산안은 규모를 줄여 다시 제출해 주세요'라는 방주아의 답장이 적혀 있다.",
+      "proves": ["방주아가 최근 고아린의 마케팅 예산안을 반려했다는 것"],
+      "does_not_prove": ["고아린이 그 일로 원한을 품었는지"],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "출력일이 사건 당일 아침으로 찍혀 있어, 그날 처음 확인한 것처럼 보인다."
+    },
+    {
+      "id": "E15",
+      "name": "사물함 속 변색된 손목시계",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "우신오의 사물함을 살펴본다",
+      "content": "사물함 안쪽에 손목시계 하나가 놓여 있고, 시곗줄 안쪽에 갈색으로 얼룩진 자국이 남아 있다.",
+      "proves": ["우신오가 그날 시계를 풀어놓고 손을 씻었다는 것"],
+      "does_not_prove": ["왜 씻었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "그날 아침 그가 차고 온 시계와 지금 사물함에 있는 시계 상태가 다르다고 다른 직원들이 기억한다."
+    },
+    {
+      "id": "E16",
+      "name": "진소원의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "진소원에게 그날 오후 조제실 쪽에서 들려온 소리를 묻는다",
+      "content": "\"오후 5시쯤이었나... 창고 벽 너머로 대표님이랑 신오 선배가 언성 높이는 소리가 들렸어요. 뭐라고 하는지까지는 몰랐지만요.\"",
+      "proves": ["17시경 조제실에서 방주아와 우신오 사이에 언쟁이 있었다는 것을 진소원이 들었다는 것"],
+      "does_not_prove": ["무슨 내용의 다툼이었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01",
+      "mismatch": "우신오 본인은 그 시간 대표님과 마주치지도 않았다고 말한다."
+    },
+    {
+      "id": "E17",
+      "name": "염하율의 분위기 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "염하율에게 최근 원장님과 신오씨 사이 분위기를 묻는다",
+      "content": "\"요 며칠 대표님이 신오씨를 보는 눈빛이 좀 달라지셨더라고요. 뭔가 캐물으시는 느낌이었어요.\"",
+      "proves": ["최근 방주아가 우신오를 예의주시하고 있었다는 것"],
+      "does_not_prove": ["구체적으로 무엇 때문인지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "염하율 본인은 그 이유를 전혀 모른다고 말한다."
+    },
+    {
+      "id": "E18",
+      "name": "두서인의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "두서인에게 그날 오후 로비에서 본 것을 묻는다",
+      "content": "\"오후 5시 30분쯤이었나... 로비 지나는데 신오씨가 사무실 쪽에서 서두르며 나오더라고요. 넥타이도 좀 흐트러져 있었고요.\"",
+      "proves": ["17시 30분경 우신오가 다급한 모습으로 사무실 쪽에서 나오는 것이 목격됐다는 것"],
+      "does_not_prove": ["무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "우신오 본인은 그 시간 계속 차분히 서류를 보고 있었다고 말한다."
+    },
+    {
+      "id": "E19",
+      "name": "진소원의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "진소원에게 그날 오후 내내 어디 있었는지 묻는다",
+      "content": "\"그 시간엔 계속 창고에서 원료 정리하고 있었어요. 하율 언니도 오다가다 봤을 텐데.\"",
+      "proves": ["진소원이 오후 내내 창고에 있었다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "창고와 조제실은 벽 하나를 사이에 두고 있어서, 잠깐씩 오간 것까지는 이 진술만으로 걸러지지 않는다."
+    },
+    {
+      "id": "E20",
+      "name": "염하율의 진소원 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "염하율에게 그 시간 진소원이 어디 있었는지 봤는지 묻는다",
+      "content": "\"네, 그 시간엔 계속 창고 쪽 창문 너머로 정리하는 게 보였어요. 계속 그 자리에 있었던 것 같은데요.\"",
+      "proves": ["그 시간 진소원이 계속 창고에 있었다는 것을 염하율이 목격했다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "로비 창문 너머로는 창고 전체가 아니라 입구 쪽만 보인다는 것을 염하율 본인은 의식하지 못하고 있다."
+    },
+    {
+      "id": "E21",
+      "name": "두서인의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "두서인에게 그날 오후 내내 어디 있었는지 묻는다",
+      "content": "\"그 시간엔 계속 쇼룸에서 진열 협의하고 있었어요. 아린씨도 같이 있었잖아요.\"",
+      "proves": ["두서인이 오후 내내 쇼룸에 있었다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "협의 도중 잠깐씩 자리를 비웠을 가능성까지는 이 진술만으로 걸러지지 않는다."
+    },
+    {
+      "id": "E22",
+      "name": "고아린의 두서인 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "고아린에게 그 시간 두서인이 어디 있었는지 봤는지 묻는다",
+      "content": "\"네, 그 시간엔 계속 쇼룸에서 저랑 같이 진열 얘기하고 있었어요.\"",
+      "proves": ["그 시간 두서인이 계속 쇼룸에 있었다는 것을 고아린이 목격했다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "둘이 계속 얘기했다는 것과, 두서인이 잠깐씩 자리를 비웠을 가능성은 별개다."
+    },
+    {
+      "id": "E23",
+      "name": "창고 정리일지 공란",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정리 일지를 확인한다",
+      "content": "그날 오후 정리 일지에 진소원의 서명란만 비어 있다.",
+      "proves": ["그날 오후 진소원이 평소와 달리 정리 일지를 작성하지 않았다는 것"],
+      "does_not_prove": ["왜 작성하지 않았는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "다른 날짜의 일지는 전부 빠짐없이 서명이 채워져 있다."
+    },
+    {
+      "id": "E24",
+      "name": "두서인의 예전 항의 이메일 출력본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "진열 샘플 박스 옆 서류를 확인한다",
+      "content": "두서인이 두 달 전 진열 조건에 항의하며 보낸 이메일 출력본이 서류 봉투 안에 들어 있다.",
+      "proves": ["두서인이 과거 진열 조건에 항의한 적이 있다는 것"],
+      "does_not_prove": ["그 항의가 아직도 진행 중인지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "정작 그 이메일 답장에는 이미 두 달 전 합의됐다는 답신이 붙어 있다."
+    },
+    {
+      "id": "E25",
+      "name": "초동 검안 메모",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "초동 검안 메모를 확인한다",
+      "content": "검안의 소견에 고농축 화학물질의 경피 흡수로 인한 급성 중독으로 추정되며, 흡수 후 의식을 잃기까지는 시간차가 있었을 것으로 보인다는 메모가 남아 있다.",
+      "proves": ["사인이 경피 흡수 중독이라는 것", "증상이 나타나기까지 시간차가 있었다는 것"],
+      "does_not_prove": ["정확한 노출 시각"],
+      "presentation_effect": ["C03"],
+      "points_at": null,
+      "mismatch": "다른 외상이나 사고 흔적은 전혀 없다고 별도로 적혀 있다.",
+      "reaction": {
+        "jiwoo": "그럼 사고는 아니라는 거네요.",
+        "detective": "누군가 직접 묻힌 거지."
+      }
+    },
+    {
+      "id": "E26",
+      "name": "고아린의 진소원 목격담",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "고아린에게 진소원의 최근 태도를 묻는다",
+      "content": "\"소원씨가 요새 뭔가 안절부절못하는 것 같긴 했어요. 정확히 왜인지는 모르겠지만요.\"",
+      "proves": ["진소원이 최근 불안정해 보였다는 것을 고아린이 느꼈다는 것"],
+      "does_not_prove": ["구체적으로 무엇 때문인지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "고아린 본인도 정확한 이유는 모른다고 말한다."
+    },
+    {
+      "id": "E27",
+      "name": "진소원의 두서인 관련 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "진소원에게 두서인에 대해 아는 것을 묻는다",
+      "content": "\"서인 대표님이요? 예전에 진열 조건 때문에 대표님이랑 좀 언성 높이신 적 있다고 들었어요.\"",
+      "proves": ["두서인이 과거 진열 조건으로 방주아와 언쟁했다는 것을 진소원이 들었다는 것"],
+      "does_not_prove": ["그 언쟁이 아직도 진행 중인지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "진소원 본인은 직접 본 것은 아니고 전해 들은 것뿐이라고 말한다."
+    },
+    {
+      "id": "E28",
+      "name": "염하율의 진소원 관련 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "염하율에게 진소원의 최근 상태를 묻는다",
+      "content": "\"소원씨가 요 며칠 표정이 안 좋더라고요. 무슨 일 있나 싶었어요.\"",
+      "proves": ["진소원이 최근 표정이 좋지 않았다는 것을 염하율이 느꼈다는 것"],
+      "does_not_prove": ["구체적으로 무엇 때문인지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "염하율 본인도 정확한 사정은 모른다고 말한다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_entering_lab",
+      "requires_heard_claim_ids": ["S-CH01-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E04"]
+      },
+      "player_action": "조제실 출입 태그 기록판(E04)을 우신오에게 제시하며 조제실에 들어간 적 없다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "그 시각 조제실에 들어간 것은 인정한다."
+      },
+      "must_not_release": ["다툼의 구체적 내용", "원액", "몸싸움 여부"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_entering_lab",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["S-CH01-02", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E16"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E16"]
+      },
+      "player_action": "진소원이 벽 너머로 들은 언쟁(E16)을 우신오에게 제시하며 대표님과 마주치지 않았다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그 안에서 방주아와 말다툼이 있었던 것은 인정한다."
+      },
+      "must_not_release": ["원액을 들이부은 사실", "흉기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confesses",
+      "requires_heard_claim_ids": ["S-CH01-03", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E25"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E05", "E06", "E25"]
+      },
+      "player_action": "폐기함 속 빈 원액 병(E05)과 오염된 장갑(E06), 초동 검안 메모(E25)를 함께 제시하며 손 하나 안 댔다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "다툼 끝에 원액을 손목과 손등에 들이부은 것은 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH04",
+      "surface_suspicion": "진소원은 라벨이 바뀐 원료병을 최근 다뤘고, 그 사실을 아직 아무에게도 보고하지 못한 채 사건 당일 오후 창고를 들락거렸다.",
+      "actual_reason": "실제로 그 라벨 교체는 단순한 정리 실수였고, 그녀는 그 시간 내내 창고에서 원료 정리만 하고 있었다.",
+      "how_to_clear": "진소원 본인의 알리바이 증언(E19)과 염하율의 목격 증언(E20)을 함께 대조하면, 그녀가 그 시간 내내 창고에 있었다는 것이 드러난다.",
+      "must_not_imply": "진소원이 조제실 안까지 들어갔다는 인상을 주지 않는다.",
+      "lingering_thread": "진소원은 혐의를 벗지만, 아직 못다 한 라벨 실수 보고는 그녀 몫으로 남는다.",
+      "suspicion_deepener": "라벨이 바뀐 원료병(E07)과 정리 일지의 빈 서명란(E23), 고아린과 염하율이 전한 진소원의 불안정한 모습(E26·E28)이 먼저 의심을 키운다.",
+      "cleared_by": ["E19", "E20"],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "그 시간대 조제실과 벽 하나를 사이에 둔 창고에 있었다.",
+        "means": ["E07", "E23"],
+        "means_first_reading": "라벨이 바뀐 원료병(E07)과 빈 서명란(E23)이 겹쳐, 무언가를 숨기려는 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH05",
+      "surface_suspicion": "두서인은 최근 진열 조건으로 방주아와 다퉜고, 사건 당일 오후 로비 쪽에서 서성이는 모습이 목격됐다.",
+      "actual_reason": "실제로 그 진열 조건 문제는 두 달 전에 이미 합의로 마무리됐고, 그는 그 시간 내내 쇼룸에서 진열 협의를 하고 있었다.",
+      "how_to_clear": "두서인 본인의 알리바이 증언(E21)과 고아린의 목격 증언(E22)을 함께 대조하면, 그가 그 시간 내내 쇼룸에 있었다는 것이 드러난다.",
+      "must_not_imply": "두서인이 조제실 쪽으로 들어갔다는 인상을 주지 않는다.",
+      "lingering_thread": "두서인은 혐의를 벗지만, 온리프와의 공동 진열 자체는 행사 취소로 무산된다.",
+      "suspicion_deepener": "진열 협의 서류(E09)와 예전 항의 이메일(E24), 진소원이 전한 옛 언쟁 이야기(E27)가 먼저 의심을 키운다.",
+      "cleared_by": ["E21", "E22"],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "그 시간대 조제실과 가까운 쇼룸과 로비를 오갈 수 있는 위치에 있었다.",
+        "means": ["E09", "E24"],
+        "means_first_reading": "진열 협의 서류(E09)와 예전 항의 이메일(E24)이 겹쳐, 아직 앙금이 남은 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "E12"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "고농축 원액을 손목과 손등에 들이부어 살해했다는 사실",
+      "motive_fact": "우신오가 미허가 원료로 개인 판매를 해온 사실을 감추려 했다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "우신오 (CH01)",
+    "method": "조제실에서 방주아와 단둘이 있게 됐을 때, 배합대 위 고농축 원액을 그녀의 손목과 손등에 그대로 들이부었다.",
+    "motive": "미허가 경피흡수촉진제를 몰래 섞은 세럼을 개인적으로 판매해 온 사실이 그날 발각되어 형사처벌과 자격정지 위기에 몰리자, 출시 행사 전 신고를 막기 위해 방주아를 살해했다.",
+    "key_connection": "조제실 출입 태그 기록(E04)이 우신오를 그 시각 그 자리로 데려다 놓고, 진소원이 벽 너머로 들은 언쟁(E16)이 그 시간대의 다툼을 증명하며, 오염된 장갑과 사물함 속 손목시계(E06·E15)가 흉기 접촉의 흔적을, 해외 구매 영수증(E12)이 동기를 완성한다."
+  },
+  "ending_explanation": [
+    "우신오는 8개월 전부터 해외에서 미승인 경피흡수촉진제 원액을 개인 명의로 들여와 몇몇 VIP 고객에게 몰래 '스페셜 세럼'을 판매해 왔다.",
+    "방주아는 원료 재고를 대조하다 그 사실을 눈치채고 외부 성분 조사를 의뢰했고, 사건 당일 오후 그 결과를 받아 우신오에게 저녁 출시 행사 전 신고하겠다고 통보했다.",
+    "말다툼이 격해지자 우신오는 배합대 위 원액 병을 집어 방주아의 손목과 손등에 그대로 들이부었다.",
+    "우신오는 배합 로그를 지우려 했지만 서버 원본까지는 지우지 못했고, 빈 병과 오염된 장갑을 폐기함 깊숙이 숨긴 뒤 환기 설비 오작동인 것처럼 경보 기록을 조작했다.",
+    "진소원의 라벨 실수와 두서인의 진열 조건 갈등, 고아린의 예산안 반려(E14)는 모두 사건과 무관한 것으로 밝혀졌다.",
+    "배합대 위 얼룩과 단말기 기록(E01·E02), 환기 경보 로그(E03), 인터폰 무응답 기록(E08), 고아린의 발견 경위(E10), 성분 분석 결과지와 메모지(E11·E13), 염하율과 두서인의 증언(E17·E18)은 모두 그 과정에서 남은 자국들이었다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "무허가 조제 발각을 막기 위한 살해",
+      "truth": true,
+      "evidence_for": ["E12", "E11"],
+      "suggested_by": ["E11"],
+      "cue": "미승인"
+    },
+    {
+      "id": "M02",
+      "text": "원료 라벨 실수를 들킬까 봐 숨기려는 것",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E07"],
+      "cue": "라벨",
+      "refutation": "라벨은 그냥 헷갈려서 다시 붙인 거예요, 숨길 이유가 없어요.",
+      "refutation_releases": "S-CH04-03",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "M03",
+      "text": "진열 조건을 둘러싼 갈등",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E09"],
+      "cue": "진열 조건",
+      "refutation": "그 진열 조건 얘기는 이미 두 달 전에 다 끝났어요, 저희끼리는 신경도 안 써요.",
+      "refutation_releases": "S-CH05-03",
+      "refuted_by": "CH05"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 16시 55분부터 한동안, 조제실에서",
+      "truth": true,
+      "evidence_for": ["E04", "E16"],
+      "suggested_by": ["E04"],
+      "cue": "16시 55분"
+    },
+    {
+      "id": "T02",
+      "text": "사건 당일 17시 38분, 인터폰이 무응답이던 시점",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E08"],
+      "cue": "17:38",
+      "refutation": "그 시각엔 그냥 전화만 안 받으신 거죠. 조제실은 방음이 잘돼서 안에서 무슨 일이 있었는지 밖에서 알 길이 없어요.",
+      "refutation_releases": "F-CH02-02",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "사건 당일 17시 40분, 고아린이 발견했을 때",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E10"],
+      "cue": "17시 40분",
+      "refutation": "발견된 시각이 곧 변을 당하신 시각은 아니죠.",
+      "refutation_releases": "F-CH02-03",
+      "refuted_by": "CH02"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "말다툼 중 고농축 원액을 손목에 들이부음",
+      "truth": true,
+      "evidence_for": ["E05", "E06"],
+      "suggested_by": ["E06"],
+      "cue": "원액"
+    },
+    {
+      "id": "H02",
+      "text": "환기 설비 오작동으로 인한 화학물질 흡입 사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E03"],
+      "cue": "환기",
+      "refutation": "그 환기 설비는 오작동으로 그 정도 증상이 날 만큼 위험하지 않아요, 점검 이력에도 이상 없다고 나와요.",
+      "refutation_releases": "F-CH04-03",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "H03",
+      "text": "라벨이 바뀐 원료에 우발적으로 노출됨",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E07"],
+      "cue": "라벨",
+      "refutation": "그 정도로 진하게 노출되려면 원액 병째로 쏟아야 해요, 라벨만 헷갈린 걸로는 그렇게 안 됩니다.",
+      "refutation_releases": "F-CH03-02",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "저요? 그 시간엔 계속 쇼룸에서 진열 샘플 정리하고 있었어요."
+    },
+    "CH03": {
+      "text": "저요? 저는 그 시간 내내 로비에서 손님 응대하고 있었어요."
+    },
+    "CH04": {
+      "text": "저요? 저는 그 시간 내내 창고에서 원료 정리만 했어요."
+    },
+    "CH05": {
+      "text": "저요? 저는 그 시간 내내 쇼룸에서 진열 협의하고 있었어요."
+    }
+  }
+}

@@ -1,0 +1,1837 @@
+{
+  "case_identity": {
+    "case_id": "CASE353",
+    "title": "이틀 앞선 서명",
+    "english_title": "The Signature Two Days Early",
+    "genre": "고용노동청 심리 증언을 막기 위한 계획적 범행 / 물류센터 화물차 브레이크 조작 사고 위장",
+    "setting": "택배·소형 화물 배송을 맡는 '성실퀵 물류센터'. 정비팀장 조규완이 6년째 차량 정비를 맡아 온 이곳은, 두 달 전 있었던 접촉사고에 대한 고용노동청 심리가 그날 오전으로 잡혀 있었고 시니어 기사 정래훈이 참고인으로 그 자리에 서기로 되어 있었다.",
+    "location_archetypes": [
+      "logistics_center",
+      "repair_shop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "investigation",
+        "trial_legal_proceeding"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "legal_or_official_obligation",
+    "detective_entry": "탐정과 한지우는 두 달 전 있었던 접촉사고에 대한 고용노동청 조사의 참고인 진술서를 제출하러 물류센터 사무실에 들렀다.",
+    "tone": "정비유 냄새와 브레이크 마찰음이 아직 가시지 않은 적재장. 탐정과 한지우는 서류 봉투를 손에 든 채 그 앞에 서서, 참고인이 아니라 목격자가 된 상황을 마주한다.",
+    "tags": [
+      "물류센터",
+      "시험운행",
+      "노동청_심리"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "정래훈",
+      "role": "시니어 기사 / 안전관리 소위원 / 심리 참고인",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 09:57",
+    "narrative": "접수처에서 참고인 진술서에 마지막 서명을 마치고 나서던 참이었다. 적재장 쪽에서 브레이크가 밀리는 듣기 싫은 마찰음이 길게 이어지더니, 곧 무언가가 정면으로 부딪히는 둔중한 소리가 울린다.\n\n\"이거 뭐지?\"\n\n\"적재장 쪽이에요, 하강로.\"\n\n탐정과 한지우가 사무실을 나서자, 우그러진 3호 화물차 운전석에서 정래훈이 핸들에 눌린 채 가쁜 숨을 몰아쉬고 있고, 우승아가 그 옆에서 문을 억지로 열어젖히려 애쓰고 있다.\n\n\"숨은 붙어 있어요!\"\n\n\"구급차부터. 문 억지로 열지 말고 기다려.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "오후 햇살이 적재장 볼라드 위로 길게 늘어질 때까지, 정비고 문은 열린 채로 남아 있다. 조규완은 정비고 앞에 선 채 한참을 있다가 입을 뗀다.\n\n\"막으려던 게... 그렇게까지 될 줄은 몰랐어요. 브레이크만 살짝 밀리게 해 두면 될 거라고 생각했는데.\"\n\n탐정은 정비고 앞에 서서 잠자코 듣는다.\n\n\"두 달 전에도 그렇게 넘겼으니, 이번에도 넘어갈 거라고 생각했겠지.\"\n\n한지우가 손에 쥔 수첩 모서리를 손끝으로 톡톡 두드린다.\n\n배차실 쪽에서는 남지오가 아직 오늘 자 배차 일정표를 손에 든 채 서 있다. 앞으로는 배차를 이렇게 급하게 바꾸지 않겠다고 스스로에게 다짐하듯 일정표를 다시 들여다보는 얼굴로.\n\n\"사무실 문 잠그고 나가자.\"\n\n\"장갑 벗었는데도 손끝에 아직 기름 냄새가 배어 있네요.\"\n\n탐정이 헛웃음을 흘리며 먼저 로비를 나선다."
+  },
+  "surface_incident": [
+    "사건 당일 09시 56분경, 적재장 하강로에서 3호 화물차가 볼라드를 들이받아 정래훈이 크게 다쳤고, 병원으로 옮겨졌으나 끝내 숨을 거뒀다.",
+    "브레이크가 밀리며 벌어진 사고로 추정된다는 이야기가 그날 오전 물류센터 안에 돌았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "정래훈은 두 달 전 사고 정비 일지에서 조규완의 서명 날짜가 실제 점검일보다 이틀 앞서 있다는 것을 알아채고 고용노동청에 신고해 조사가 시작됐고, 오늘 열리는 심리에 참고인으로 나가 그 사실을 증언하기로 되어 있었다. 조규완은 사건 전날 밤 정비고 게시판에서 그 심리 일정과 참고인 이름이 적힌 메모를 보고서야 그 사실을 알게 됐고, 자신이 서명을 소급해 넘긴 것이 그대로 드러날 상황에 몰려 범행에 이르렀다.",
+    "motive_archetypes": [
+      "witness_removal",
+      "past_crime_cover"
+    ],
+    "method": "정래훈이 심리 전 마지막으로 3호 화물차를 하강로에서 시험 운행하기로 되어 있다는 것을 안 조규완이, 그날 밤 정비고에서 그 차량의 브레이크 라인을 미리 손봐 두었다. 다음 날 오전, 정래훈이 하강로를 내려가다 브레이크가 밀리는 것을 느끼고 핸들을 꺾었지만 속도를 줄이지 못한 채 적재장 끝 볼라드를 정면으로 들이받아 크게 다쳤다.",
+    "method_archetypes": [
+      "brake_tampering",
+      "vehicle_collision",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 09시 56분경, 적재장 하강로(L02)에서.",
+    "cover_up": "사고 직후 소란 중, 조규완은 정비고로 돌아가 자신이 사전에 손봐 둔 브레이크 라인 부품을 챙겨 나가 사무실 옆 자재 폐기함에 던져 버리고, 정비 전산 시스템에 그 차량이 그날 오전 점검에서 문제가 없었다는 기록을 새로 입력해 두었다.",
+    "cover_up_target": [
+      "weapon",
+      "time"
+    ],
+    "cover_up_method": [
+      "weapon_disposal",
+      "digital_record_manipulation"
+    ],
+    "decisive_evidence_ids": [
+      "E02",
+      "E08"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 47일 전",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 2호 화물차 브레이크 패드 마모 상태를 확인하고도 정비 일정에 밀려 정상 점검으로 서명해 넘긴다.",
+      "world_fact": "그 직후 2호 화물차가 하강로에서 브레이크가 밀려 경미하게 충돌하는 사고가 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 35일 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정래훈이 안전관리 소위원 자격으로 그 사고의 정비 일지를 재검토하다, 서명 날짜가 실제 점검일보다 이틀 앞서 있는 것을 알아챈다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 20일 전",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정래훈이 그 사실을 고용노동청에 정식으로 신고한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 3일 전",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "남지오가 오늘 심리 일정과 정래훈의 참고인 출석을 배차 일정표 옆 메모에 함께 적어 넣는다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 19:00",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 정비고 게시판에서 내일 심리 일정과 정래훈이 참고인으로 증언한다는 내용이 적힌 메모를 우연히 본다.",
+      "world_fact": "그 메모는 총무 담당이 심리 준비용으로 정비고 게시판에도 붙여 둔 것이었다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 22:20",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 내일 오전 시험 운행이 예정된 3호 화물차의 브레이크 라인을 몰래 손봐 놓는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 08:00",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정래훈이 휴게실에서 오늘 심리에서 할 증언 내용을 수첩에 짧게 정리한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 09:40",
+      "location": "L04",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "남지오가 정래훈에게 오전 중 3호 화물차 시험 운행을 마쳐 달라고 요청한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 09:50",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정래훈이 정비고에서 3호 화물차 키를 받아 하강로로 이동한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 09:55",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "정래훈이 하강로를 내려가다 브레이크가 밀리는 것을 느끼고 핸들을 꺾지만 속도를 줄이지 못한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 09:56",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "화물차가 적재장 끝 볼라드를 정면으로 들이받는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 09:57",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "우승아가 충돌 소리를 듣고 가장 먼저 달려나온다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 09:59",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 소란 중 정비고로 돌아가 전날 밤 손봐 둔 브레이크 라인 부품을 챙겨 나간다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 10:01",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 그 부품을 사무실 옆 자재 폐기함에 던져 버린다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 10:03",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "조규완이 정비 전산 시스템에 3호 화물차가 그날 오전 점검에서 문제가 없었다는 기록을 새로 입력해 둔다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 10:05",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오상현이 소식을 듣고 사무실에서 뛰어나온다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 10:06",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "남지오가 배차실에서 소란을 전해 듣는다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 10:07",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "김서로가 휴게실에서 소식을 전해 듣는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오상현",
+      "role": "물류센터장",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "두 달 전 사고를 운전 부주의로 내부 처리하기로 자신이 결정했다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 처리가 정비팀의 '이상 없음' 보고만 믿고 이뤄졌다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "오늘 심리에 정래훈이 참고인으로 출석하기로 되어 있었다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "이번 조사 결과에 따라 본사의 안전 등급 심사에 영향이 있다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "조규완이 최근 정비 업무로 유난히 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "래훈이는 안전 문제라면 저보다 더 꼼꼼히 보는 친구였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 사무실에서 통화하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E19",
+          "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E02",
+          "release_trigger": "F-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "조규완이 정확히 언제 브레이크를 손봤는지는 모른다.",
+        "정래훈이 수첩에 정확히 뭐라고 적어 뒀는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 관리자답게 차분하다.",
+        "sentence_length_tendency": "평소엔 문장이 정돈된 편인데, 몰리면 말이 짧아지고 사이가 길어진다.",
+        "verbal_tic": "말끝에 '아무튼'을 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그건 이미 다 말씀드린 것 같은데요.",
+        "...그 점은 더 드릴 말씀이 없어요.",
+        "그만 여쭤보셔도 될 것 같은데요."
+      ],
+      "comic_tell": "곤란하면 넥타이 매듭을 자꾸 고쳐 맨다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-01",
+        "says": "규완씨가 요 며칠 뭔가 평소랑 달라 보이긴 했어요. 그 이상은 저도 잘...",
+        "reveals": "조규완이 최근 유난히 예민한 상태였다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "남지오",
+      "role": "배차팀장",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 전날 저녁 다른 기사가 갑자기 못 나온다고 해서 3호차 시험 운행을 정래훈으로 급히 바꿨다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "정래훈이 얼마 전 자신의 배차 오류를 지적해 근무 평가에서 감점을 받은 적이 있다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그 감점 문제는 이미 서로 정리된 일이라는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "오상현과 조규완이 최근 정비 예산 문제로 여러 번 다퉜다는 것을 눈치챘다.",
+          "source": "전해 들음"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "정래훈이 오늘 심리에 참고인으로 나가기로 되어 있었다는 것을 안다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "래훈 형은 배차 일정 하나까지 꼼꼼히 챙기는 사람이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 계속 배차실에서 오늘 일정 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E18",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E19",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E21",
+          "release_trigger": "F-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-04"
+        }
+      ],
+      "knowledge_limits": [
+        "조규완이 그날 밤 정비고에서 정확히 뭘 했는지는 모른다.",
+        "오상현과 조규완이 정확히 어떤 이야기를 나눴는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 빠르다.",
+        "sentence_length_tendency": "평소엔 문장이 빠른데, 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "'그러다 보니'로 말을 잇는다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그거 말고는 저도 드릴 말씀이 없어요.",
+        "...정말 그게 답니다.",
+        "그만 물어보셔도 될까요."
+      ],
+      "comic_tell": "곤란하면 배차 무전기 버튼을 괜히 눌러 본다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "센터장님이랑 정비팀장님이 요즘 예산 문제로 좀 부딪히시는 것 같더라구요. 그 이상은 몰라요.",
+        "reveals": "오상현과 조규완이 최근 정비 예산 문제로 여러 번 다퉜다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "우승아",
+      "role": "배송 기사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "충돌음을 듣고 가장 먼저 달려나갔다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "정래훈이 핸들을 꺾으려 했던 것처럼 보였다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "경사로 안전 점검표에 오늘 아침 서명이 비어 있던 것을 이상하게 여겼다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "정래훈이 요 며칠 심리 준비로 유난히 예민했다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "남지오가 사건 전날 밤 배차를 급히 바꾸는 걸 옆에서 봤다는 것을 안다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "래훈이는 저한테 운전 요령까지 다 가르쳐 준 선배였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 저는 휴게실에서 쉬고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E21",
+          "release_trigger": "F-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH03-04"
+        }
+      ],
+      "knowledge_limits": [
+        "조규완이 그 시간에 정확히 정비고에서 뭘 했는지는 모른다.",
+        "정래훈이 수첩에 정확히 뭐라고 적었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 씩씩하고 직설적이다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 씩씩한데, 몰리면 말이 자꾸 반복된다.",
+        "verbal_tic": "'진짜로'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그건 진짜로 다 말씀드린 거예요.",
+        "...더 여쭤보셔도 저도 몰라요.",
+        "진짜로 그 이상은 기억이 안 나요."
+      ],
+      "comic_tell": "당황하면 작업 조끼 지퍼를 자꾸 올렸다 내렸다 한다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-05",
+        "opens": "S-CH03-01",
+        "says": "지오씨가 어젯밤 배차를 급하게 바꾸는 걸 옆에서 보긴 했어요. 그 이상은 모르겠어요.",
+        "reveals": "남지오가 사건 전날 밤 배차를 급히 바꿨다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "조규완",
+      "role": "정비팀장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 전날 밤 22시 20분경 정비고에 다시 들어갔다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "청문 메모를 보고 정래훈이 서명 소급 사실을 증언하려 한다는 것을 알게 됐다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "정래훈의 심리 증언을 막으려고 그날 밤 3호 화물차 브레이크 라인을 손봐 사고를 일으켰고, 이후 부품을 버리고 점검 기록을 조작했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "두 달 전에도 브레이크 패드 마모를 알고 정상 점검으로 서명해 넘긴 적이 있다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-05",
+          "content": "오상현이 정비 예산을 줄이라고 여러 번 압박했다는 것을 안다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "정비는 사람 목숨 걸린 일이라 늘 신경 써 왔어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그날 밤엔 일찍 퇴근해서 정비고 쪽엔 얼씬도 안 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "정비고에 다시 들어간 건 맞는데, 그냥 두고 온 지갑 챙기러 잠깐 들른 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "브레이크가 낡아서 그런 거지, 제가 손댄 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH04-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "E19",
+          "release_trigger": "F-CH04-04"
+        }
+      ],
+      "knowledge_limits": [
+        "정래훈이 수첩에 정확히 뭐라고 적어 뒀는지는 모른다.",
+        "남지오가 왜 배차를 그렇게 급히 바꿨는지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 차분하다.",
+        "sentence_length_tendency": "평소엔 절제된 문장인데, 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "'어쩐지'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "여쭤보셔도 그때 얘기는 다 끝났어요.",
+        "...정말 그것 말고는 드릴 말씀이 없어요.",
+        "그만 좀... 물어보시면 안 될까요."
+      ],
+      "comic_tell": "곤란해지면 작업 장갑 손끝을 자꾸 잡아당긴다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-05",
+        "opens": "S-CH04-01",
+        "says": "센터장님이 정비 예산을 줄이라고 여러 번 압박하시긴 했죠. 그 이상은 저도...",
+        "reveals": "오상현이 정비 예산을 줄이라고 여러 번 압박했다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "김서로",
+      "role": "안전관리 담당 / 신입",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "자신도 오늘 심리에 참고인으로 함께 서기로 되어 있었다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "사건 전날 저녁 심리 준비 서류 때문에 정비고에 잠깐 들렀다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "그날 밤 정비고에 늦게까지 불이 켜져 있던 것을 이상하게 여겼다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "정래훈이 오늘 아침 평소보다 말이 없었다는 것을 눈치챘다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "오상현이 두 달 전 사고를 서둘러 운전 부주의로 마무리 지으려 했다는 것을 눈치챘다는 것을 안다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "래훈 삼촌은 저한테 안전 서류 정리하는 법부터 다 가르쳐 준 분이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 휴게실에서 서류 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E22",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E21",
+          "release_trigger": "F-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-05",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH05-04"
+        }
+      ],
+      "knowledge_limits": [
+        "조규완이 정확히 언제 브레이크를 손봤는지는 모른다.",
+        "남지오가 왜 배차를 그렇게 급히 바꿨는지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 신입답게 조심스럽다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 조심스러운데, 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "말끝에 '그러니까요'를 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저, 정말 그게 다예요...",
+        "그러니까요... 그 이상은 저도 몰라요.",
+        "...더는 기억이 안 나요."
+      ],
+      "comic_tell": "당황하면 서류 클립보드를 가슴에 꽉 껴안는다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH05-05",
+        "opens": "S-CH05-01",
+        "says": "센터장님이 그 사고를 좀 서둘러 마무리 지으려 하시는 것 같긴 했어요. 그 이상은 모르겠어요.",
+        "reveals": "오상현이 두 달 전 사고를 서둘러 마무리 지으려 했다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "8년째 이 물류센터를 함께 지켜 온 센터장과 시니어 기사.",
+      "public_face": "가장 신뢰받는 안전 담당으로 알려져 있다.",
+      "says": {
+        "CH01": "래훈이는 제가 센터장이 되기 전부터 이 일을 해 온 친구예요."
+      },
+      "private_strain": "오상현은 두 달 전 사고를 서둘러 운전 부주의로 마무리 지으려 했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 두 달 전 정비 일지(E10)를 오상현 앞에 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "3년째 같은 조를 이뤄 온 기사와 배차팀장.",
+      "public_face": "가장 손발이 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "래훈 형이랑은 배차 문제로 부딪힌 적도 있지만, 그 이상 뭐라 설명을 못 하겠네요."
+      },
+      "private_strain": "남지오는 정래훈에게 배차 오류로 감점을 받은 일을 아직 서운하게 여기고 있다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 남지오의 근무 평가서(E19)를 그 앞에 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "정래훈이 운전 요령부터 안전 수칙까지 직접 가르친 선배와 후배.",
+      "public_face": "가장 각별한 사제 사이로 알려져 있다.",
+      "says": {
+        "CH03": "래훈이 없었으면 저는 지금 이 일도 못 하고 있었을 거예요."
+      },
+      "private_strain": "우승아는 정래훈이 요 며칠 심리 준비로 유난히 예민했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 우승아에게 정래훈이 요즘 어땠는지 캐물을 때(F-CH03-04)."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "10년 가까이 같은 정비 라인을 봐 온 기사와 정비팀장.",
+      "public_face": "누구보다 서로의 일을 믿고 맡기는 사이로 알려져 있다.",
+      "says": {
+        "CH04": "래훈 형이 제일 꼼꼼했죠. 그 이상은... 더 드릴 말씀이 없네요."
+      },
+      "private_strain": "조규완은 두 달 전 그 화물차의 브레이크 패드 마모를 알고도 정상으로 서명해 넘겼다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 지난 정비 일지(E10)를 조규완 앞에 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "안전관리 업무를 함께 준비해 온 소위원과 신입 담당.",
+      "public_face": "가장 꼼꼼히 서로를 챙기는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "래훈 삼촌은 저한테 서류 정리하는 법부터 다 가르쳐 준 분이었어요."
+      },
+      "private_strain": "김서로는 자신도 오늘 심리에 참고인으로 서기로 되어 있었다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 김서로에게 오늘 심리에 대해 캐물을 때(F-CH05-01)."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH04"
+      ],
+      "nature": "3년째 정비 예산을 함께 다뤄 온 센터장과 정비팀장.",
+      "public_face": "가장 신뢰하는 운영 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "규완씨는... 정비 쪽은 제가 제일 믿고 맡기는 사람이죠.",
+        "CH04": "센터장님이요? 그냥 오래 모셔 온 분이죠."
+      },
+      "private_strain": "오상현은 정비 예산을 줄이라고 조규완을 여러 번 압박했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 오상현에게 왜 정비 예산을 그렇게 압박했는지 캐물을 때(F-CH04-05)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "사무실 겸 접수 데스크",
+      "access": "누구나 드나들 수 있는 사무실 겸 접수 데스크.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "정면 접수 데스크 위에 오늘 방문객 서명대가 펼쳐져 있고, 그 옆 게시판엔 이번 달 안전 점검 공고문이 붙어 있다. 오상현이 전화를 끊으며 창밖 적재장 쪽을 살피고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판에 이번 달 안전 점검 공고문이 그대로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문객 서명대를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "그날 오전 방문록에 고용노동청 조사관과 정래훈이 나란히 서명한 기록이 남아 있다."
+        },
+        {
+          "action": "자재 폐기함을 살펴본다",
+          "requires": "조규완",
+          "release_evidence_id": "E02",
+          "result": "사무실 옆 자재 폐기함 안에 최근 잘린 듯한 금속 관 조각이 다른 폐자재들과 함께 섞여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "적재장 하강로",
+      "access": "적재 작업이 진행되는 하강로 구역. 작업 시간에는 관계자만 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "하강로 중간쯨 브레이크 오일 자국이 옅게 번져 있고, 그 끝 볼라드 앞에 우그러진 3호 화물차가 그대로 서 있다. 우승아가 안전선 밖에서 굳은 얼굴로 그쪽을 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "적재장을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "안전선 테이프가 아직 팽팽하게 둘러쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "하강로의 오일 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "하강로 중간, 브레이크 오일이 새어 나온 듯한 자국이 최근 생긴 것처럼 선명하다."
+        },
+        {
+          "action": "볼라드의 충돌 흔적을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "적재장 끝 볼라드에 범퍼 페인트가 짙게 긁혀 있고, 차체 앞부분이 크게 우그러져 있다."
+        },
+        {
+          "action": "경사로 안전 점검표를 확인한다",
+          "requires": "우승아",
+          "release_evidence_id": "E06",
+          "result": "경사로 안전 점검표에 오늘 아침 점검자 서명란이 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "정비고",
+      "access": "차량 정비를 담당하는 정비고. 담당자 동행이 필요한 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
+      "base_description": "선반마다 정비 도구와 부품 상자가 나란히 정리돼 있고, 구석 작업대 위엔 아직 손보다 만 부품 하나가 놓여 있다. 조규완이 정비 전산 단말기 앞에 앉아 화면을 들여다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "정비고를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "선반마다 부품 상자가 흐트러짐 없이 정돈돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 전산 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "정비 전산 시스템에 3호 화물차가 그날 오전 9시 45분경 점검에서 문제가 없었다고 기록돼 있다."
+        },
+        {
+          "action": "정비 부품 재고대를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "부품 재고대에 브레이크 라인 부품 하나가 최근 빈 자리로 표시돼 있다."
+        },
+        {
+          "action": "지난 정비 일지 서명란을 대조한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "두 달 전 사고 정비 일지에는 그 화물차의 브레이크 패드가 '정상'이라고 서명돼 있는데, 서명 날짜가 실제 점검일보다 이틀 앞서 있다."
+        },
+        {
+          "action": "정비고 출입 기록에서 조규완의 이름을 확인한다",
+          "requires": "김서로",
+          "release_evidence_id": "E11",
+          "result": "출입 기록에 조규완이 사건 전날 밤 22시 20분에 정비고에 다시 들어간 기록이 남아 있다."
+        },
+        {
+          "action": "정비고 게시판의 메모를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "정비고 게시판에 오늘 심리 일정과 참고인으로 정래훈의 이름이 적힌 메모가 붙어 있다."
+        },
+        {
+          "action": "정비고 출입 기록에서 김서로의 이름을 확인한다",
+          "requires": "E11",
+          "release_evidence_id": "E15",
+          "result": "출입 기록에 김서로가 사건 전날 저녁 정비고에 들어갔다 나온 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "배차실",
+      "access": "배차 업무를 보는 배차실. 배차 담당자 동행이 필요하다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "벽면 게시판에 오늘 배차 일정표가 붙어 있고, 책상 위 무전기에서 낮게 소음이 흘러나온다. 남지오가 배차 변경 기록을 손끝으로 짚으며 무언가를 다시 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "배차실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "벽 게시판에 오늘 배차 일정표가 그대로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "오늘 배차 일정표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "오늘 배차 일정표에 정래훈이 오전 9시 40분에 3호 화물차 시험 운행을 맡기로 적혀 있다."
+        },
+        {
+          "action": "최근 배차 변경 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "최근 배차 변경 기록에는, 원래 다른 기사 담당이던 자리가 사건 전날 밤 22시가 넘어 급하게 다른 이름으로 넘어가 있다."
+        },
+        {
+          "action": "남지오의 근무 평가서를 확인한다",
+          "requires": "남지오",
+          "release_evidence_id": "E19",
+          "result": "남지오의 최근 근무 평가서에, 정래훈이 배차 오류를 지적해 감점을 준 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "기사 휴게실",
+      "access": "기사들이 쉬는 공용 휴게실.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "테이블 위엔 마시다 만 커피 컵들이 놓여 있고, 벽 게시판엔 이번 달 안전관리 소위원 위촉 공고문이 붙어 있다. 김서로가 클립보드를 가슴에 안은 채 창가 자리에 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "테이블 위에 마시다 만 커피 컵들이 그대로 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정래훈의 수첩을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E21",
+          "result": "정래훈의 수첩에 오늘 심리에서 말할 내용이 '서명 날짜, 이틀 소급'이라고 짧게 적혀 있다."
+        },
+        {
+          "action": "휴게실 게시판을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E22",
+          "result": "게시판에 정래훈이 안전관리 소위원으로 위촉됐다는 공고문이 붙어 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "방문객 서명대",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 서명대를 확인한다",
+      "content": "그날 오전 방문록에 고용노동청 조사관과 정래훈이 나란히 서명한 기록이 남아 있다.",
+      "proves": [
+        "정래훈이 그날 심리 관련 인사와 접촉했다는 것"
+      ],
+      "does_not_prove": [
+        "무슨 이야기를 나눴는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "그는 평소 이 서명대에 이름을 남기는 일이 거의 없었다.",
+      "reaction": {
+        "jiwoo": "래훈씨가 조사관하고 같이 서명했네요.",
+        "detective": "오늘 그 자리에 나갈 준비를 하고 있었다는 거지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "자재 폐기함 속 부품 조각",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "자재 폐기함을 살펴본다",
+      "content": "사무실 옆 자재 폐기함 안에 최근 잘린 듯한 금속 관 조각이 다른 폐자재들과 함께 섞여 있다.",
+      "proves": [
+        "누군가 최근 그 부품을 잘라내 처분했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH04",
+      "mismatch": "폐기함은 보통 한 달에 한 번만 비워지는데 이 조각만 유난히 새것 같다.",
+      "reaction": {
+        "jiwoo": "이건 방금 잘라낸 것처럼 단면이 깨끗한데요.",
+        "detective": "누가 서둘러 치웠다는 뜻이지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "사고 처리 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오상현에게 두 달 전 사고를 왜 운전 부주의로 처리했는지 묻는다",
+      "content": "\"그때는 정비팀에서 이상 없다고 보고했으니 그대로 처리한 거죠. 제가 뭘 숨길 이유가 없습니다.\"",
+      "proves": [
+        "오상현 본인이 정비팀 보고만 믿고 사고를 처리했다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 보고가 사실이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "이상 없다는 보고와 달리, 그 보고를 한 사람의 서명 날짜는 이틀이나 앞서 있다."
+    },
+    {
+      "id": "E04",
+      "name": "하강로 오일 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하강로의 오일 자국을 살펴본다",
+      "content": "하강로 중간, 브레이크 오일이 새어 나온 듯한 자국이 최근 생긴 것처럼 선명하다.",
+      "proves": [
+        "그 화물차 브레이크 라인에 최근 손을 댄 흔적이 있다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "이 구간은 지난주 점검에서 누유가 없다고 기록돼 있었다.",
+      "reaction": {
+        "jiwoo": "이 자국은 최근에 생긴 것 같은데요.",
+        "detective": "누유가 없다던 기록이랑은 안 맞지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "볼라드 충돌 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "볼라드의 충돌 흔적을 살펴본다",
+      "content": "적재장 끝 볼라드에 범퍼 페인트가 짙게 긁혀 있고, 차체 앞부분이 크게 우그러져 있다.",
+      "proves": [
+        "그 화물차가 정면으로 세게 부딪혔다는 것"
+      ],
+      "does_not_prove": [
+        "왜 속도를 줄이지 못했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": null,
+      "mismatch": "이 구간은 저속 구간인데 흔적이 유난히 깊다.",
+      "reaction": {
+        "jiwoo": "이 정도로 우그러질 구간이 아닌데요.",
+        "detective": "속도를 못 줄인 이유가 따로 있었다는 거지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "경사로 안전 점검표",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "경사로 안전 점검표를 확인한다",
+      "content": "경사로 안전 점검표에 오늘 아침 점검자 서명란이 비어 있다.",
+      "proves": [
+        "오늘 아침 정식 점검이 이뤄지지 않았다는 것"
+      ],
+      "does_not_prove": [
+        "왜 점검이 빠졌는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "다른 날짜엔 매일 서명이 있는데 오늘만 비어 있다.",
+      "reaction": {
+        "jiwoo": "오늘만 서명이 빠져 있는데요.",
+        "detective": "그것도 우연은 아니겠지."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "사고 당시 상황 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "우승아에게 사고 당시 상황을 묻는다",
+      "content": "\"쿵 소리가 나자마자 뛰어나갔는데, 래훈 형이 핸들을 꺾으려던 것처럼 보이긴 했어요.\"",
+      "proves": [
+        "정래훈이 충돌 직전 핸들을 꺾어 피하려 했다는 것"
+      ],
+      "does_not_prove": [
+        "왜 브레이크가 안 먹혔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "핸들을 꺾었는데도 정면으로 부딪힌 것은 브레이크가 아예 안 먹혔다는 뜻이다."
+    },
+    {
+      "id": "E08",
+      "name": "정비 전산 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 전산 기록을 확인한다",
+      "content": "정비 전산 시스템에 3호 화물차가 그날 오전 9시 45분경 점검에서 문제가 없었다고 기록돼 있다.",
+      "proves": [
+        "그 점검 기록이 사고 이후 새로 입력된 것이라는 것"
+      ],
+      "does_not_prove": [
+        "누가 입력했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH04",
+      "mismatch": "그 시간엔 이미 정래훈이 차를 몰고 하강로로 나간 뒤였다.",
+      "reaction": {
+        "jiwoo": "이 시간엔 이미 차가 나가 있었는데요.",
+        "detective": "그럼 이 점검은 있을 수 없는 시간이지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "정비 부품 재고대",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 부품 재고대를 확인한다",
+      "content": "부품 재고대에 브레이크 라인 부품 하나가 최근 빈 자리로 표시돼 있다.",
+      "proves": [
+        "브레이크 라인 부품 하나가 최근 재고에서 빠졌다는 것"
+      ],
+      "does_not_prove": [
+        "그 부품이 어디로 갔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH04",
+      "mismatch": "재고 기록상 그 자리는 아직 채워진 것으로 남아 있다.",
+      "reaction": {
+        "jiwoo": "재고 기록이랑 실물이 안 맞는데요.",
+        "detective": "누가 빼놓고 기록은 안 고친 거지."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "지난 사고 정비 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "지난 정비 일지 서명란을 대조한다",
+      "content": "두 달 전 사고 정비 일지에는 그 화물차의 브레이크 패드가 '정상'이라고 서명돼 있는데, 서명 날짜가 실제 점검일보다 이틀 앞서 있다.",
+      "proves": [
+        "두 달 전 서명이 소급 기재됐다는 것"
+      ],
+      "does_not_prove": [
+        "왜 소급 기재했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "다른 정비 일지는 전부 점검 당일 날짜로 서명돼 있다.",
+      "reaction": {
+        "jiwoo": "이 서명만 날짜가 이틀 앞서 있는데요.",
+        "detective": "점검하기 전에 이미 정상이라고 써 둔 거지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "정비고 출입 기록(조규완)",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비고 출입 기록에서 조규완의 이름을 확인한다",
+      "content": "출입 기록에 조규완이 사건 전날 밤 22시 20분에 정비고에 다시 들어간 기록이 남아 있다.",
+      "proves": [
+        "조규완이 그날 밤 정비고에 다시 들어갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH04",
+      "mismatch": "그는 그날 일찍 퇴근했다고 했는데 기록은 다르다.",
+      "reaction": {
+        "jiwoo": "일찍 퇴근했다는 말이랑은 다른데요.",
+        "detective": "그 시간에 다시 들어간 이유가 있었다는 거지."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "정비고 게시판 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비고 게시판의 메모를 확인한다",
+      "content": "정비고 게시판에 오늘 심리 일정과 참고인으로 정래훈의 이름이 적힌 메모가 붙어 있다.",
+      "proves": [
+        "정비고에서도 오늘 심리와 참고인 이름을 알 수 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 메모를 실제로 봤는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "이 메모는 총무팀이 붙였는데 정비고엔 원래 그런 공지가 안 붙는다.",
+      "reaction": {
+        "jiwoo": "정비고에 이런 메모가 붙어 있는 게 좀 낯선데요.",
+        "detective": "그래도 여기서 볼 사람은 볼 수 있었다는 거지."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "두 달 전 정비 담당 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "조규완에게 두 달 전 사고 정비를 누가 맡았는지 묻는다",
+      "content": "\"그건 제가 맡았죠. 그때는 정말 이상 없었어요.\"",
+      "proves": [
+        "조규완 본인이 그때 이상이 없었다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "이상 없었다는 말과 달리, 서명 날짜는 실제 점검일보다 이틀 앞서 있다."
+    },
+    {
+      "id": "E14",
+      "name": "정비고 불빛 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "김서로에게 그날 밤 정비고 쪽 상황을 묻는다",
+      "content": "\"밤 늦게까지 정비고에 불이 켜져 있던 게 좀 이상했어요. 그 근처에서 조 팀장님 차 소리도 들렸구요.\"",
+      "proves": [
+        "그날 밤 정비고에 조규완이 다시 다녀갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH04",
+      "mismatch": "그는 일찍 퇴근했다고 했는데, 그 시간에 정비고 쪽에 있었다는 증언이 있다."
+    },
+    {
+      "id": "E15",
+      "name": "정비고 출입 기록(김서로)",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비고 출입 기록에서 김서로의 이름을 확인한다",
+      "content": "출입 기록에 김서로가 사건 전날 저녁 정비고에 들어갔다 나온 기록이 남아 있다.",
+      "proves": [
+        "김서로가 사건 전날 저녁 정비고에 다녀갔다는 것"
+      ],
+      "does_not_prove": [
+        "왜 갔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "그녀의 담당 업무는 정비고 쪽이 아니다.",
+      "reaction": {
+        "jiwoo": "서로씨가 정비고에 갈 일이 딱히 없는데요.",
+        "detective": "그건 본인한테 직접 물어봐야겠네."
+      }
+    },
+    {
+      "id": "E16",
+      "name": "김서로의 정비고 방문 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "김서로에게 왜 그 시간에 정비고에 갔는지 묻는다",
+      "content": "\"아, 그거요. 심리 준비 서류 때문에 조 팀장님한테 확인할 게 있어서 잠깐 들렀어요.\"",
+      "proves": [
+        "김서로가 심리 서류 확인 때문에 정비고에 들렀다는 것"
+      ],
+      "does_not_prove": [
+        "그때 정비고에서 다른 무엇을 봤는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "심리 서류는 원래 사무실에서 처리하는데 정비고까지 갈 이유는 아니었다."
+    },
+    {
+      "id": "E17",
+      "name": "오늘 배차 일정표",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "오늘 배차 일정표를 확인한다",
+      "content": "오늘 배차 일정표에 정래훈이 오전 9시 40분에 3호 화물차 시험 운행을 맡기로 적혀 있다.",
+      "proves": [
+        "정래훈이 그날 오전 시험 운행을 맡기로 되어 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 일정이 언제 정해졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "이 일정은 원래 다른 기사 이름으로 적혀 있던 자리다."
+    },
+    {
+      "id": "E18",
+      "name": "최근 배차 변경 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "최근 배차 변경 기록을 확인한다",
+      "content": "최근 배차 변경 기록에는, 원래 다른 기사 담당이던 자리가 사건 전날 밤 22시가 넘어 급하게 다른 이름으로 넘어가 있다.",
+      "proves": [
+        "그 배차가 사건 전날 밤 늦게 급히 바뀌었다는 것"
+      ],
+      "does_not_prove": [
+        "왜 그렇게 급히 바꿨는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "평소엔 배차 변경이 최소 이틀 전 처리되는데 이번엔 전날 밤 늦게 처리됐다.",
+      "reaction": {
+        "jiwoo": "이번 배차는 유난히 늦게 바뀐 건데요.",
+        "detective": "왜 그렇게 급했는지 물어봐야겠네."
+      }
+    },
+    {
+      "id": "E19",
+      "name": "남지오 근무 평가서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "남지오의 근무 평가서를 확인한다",
+      "content": "남지오의 최근 근무 평가서에, 정래훈이 배차 오류를 지적해 감점을 준 기록이 남아 있다.",
+      "proves": [
+        "정래훈이 남지오에게 감점을 준 적이 있다는 것"
+      ],
+      "does_not_prove": [
+        "그 일로 앙심을 품었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "그 감점 이후로도 둘의 배차 업무는 평소처럼 이어졌다.",
+      "reaction": {
+        "jiwoo": "이 감점, 지오씨 표정이 좀 안 좋았을 것 같은데요.",
+        "detective": "그게 앙심으로 남았는지는 물어봐야지."
+      }
+    },
+    {
+      "id": "E20",
+      "name": "배차 변경 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "남지오에게 왜 배차를 그렇게 늦게 바꿨는지 묻는다",
+      "content": "\"그날 저녁에 다른 기사가 갑자기 몸이 안 좋다고 해서 급하게 바꾼 거예요. 그게 다예요.\"",
+      "proves": [
+        "남지오 본인이 결근 때문에 배차를 바꿨다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "그 기사가 몸이 안 좋았다는 기록은 따로 남아 있지 않다."
+    },
+    {
+      "id": "E21",
+      "name": "정래훈의 수첩",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "정래훈의 수첩을 확인한다",
+      "content": "정래훈의 수첩에 오늘 심리에서 말할 내용이 '서명 날짜, 이틀 소급'이라고 짧게 적혀 있다.",
+      "proves": [
+        "정래훈이 오늘 심리에서 서명 소급 사실을 증언하려 했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 사실을 미리 알고 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "다른 페이지엔 늘 날짜를 적는데 이 메모에만 날짜가 없다.",
+      "reaction": {
+        "jiwoo": "딱 이 말만 적어 뒀네요, '이틀 소급'.",
+        "detective": "오늘 그 얘기를 할 준비를 하고 있었다는 거지."
+      }
+    },
+    {
+      "id": "E22",
+      "name": "안전관리 소위원 위촉 공고문",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 게시판을 살펴본다",
+      "content": "게시판에 정래훈이 안전관리 소위원으로 위촉됐다는 공고문이 붙어 있다.",
+      "proves": [
+        "정래훈이 안전관리 소위원 자격을 가지고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 자격으로 구체적으로 무엇을 했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "위촉된 지 얼마 안 됐는데 벌써 신고까지 이어졌다.",
+      "reaction": {
+        "jiwoo": "위촉된 지 얼마 안 됐는데 벌써 일이 커졌네요.",
+        "detective": "그만큼 꼼꼼히 봤다는 뜻이겠지."
+      }
+    },
+    {
+      "id": "E23",
+      "name": "오늘 아침 정래훈에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "김서로에게 정래훈이 오늘 아침 어땠는지 묻는다",
+      "content": "\"래훈 삼촌이 오늘 아침엔 평소보다 말이 없었어요. 뭔가 준비하는 것처럼 보이긴 했어요.\"",
+      "proves": [
+        "정래훈이 오늘 아침 평소와 다르게 무언가를 준비하는 듯 보였다는 것"
+      ],
+      "does_not_prove": [
+        "무엇을 준비하고 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "그녀는 그 모습을 보고도 별일 아니라고 넘겼었다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "recalls_late_return",
+      "requires_heard_claim_ids": [
+        "S-CH04-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E11",
+        "E14"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": [
+          "E11",
+          "E14"
+        ]
+      },
+      "player_action": "정비고 출입 기록(E11)과 김서로의 불빛 목격 증언(E14)을 함께 제시하며, 일찍 퇴근했다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-01",
+        "scope": "사건 전날 밤 22시 20분경 정비고에 다시 들어간 것은 인정한다."
+      },
+      "must_not_release": [
+        "브레이크를 손본 사실",
+        "심리 메모를 본 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "recalls_late_return",
+      "to_stage": "admits_line_tamper",
+      "requires_heard_claim_ids": [
+        "F-CH04-01",
+        "S-CH04-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E12",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH04-03",
+        "evidence_ids": [
+          "E12",
+          "E09"
+        ]
+      },
+      "player_action": "정비고 게시판의 심리 메모(E12)와 부품 재고대의 빈 자리(E09)를 함께 제시하며, 지갑 때문에 들렀을 뿐이라는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "심리 메모를 보고 정래훈이 서명 소급 사실을 증언하려 한다는 것을 알게 됐다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "브레이크 라인을 손본 사실",
+        "부품을 처분하고 기록을 조작한 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_line_tamper",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH04-02",
+        "S-CH04-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH04-04",
+        "evidence_ids": [
+          "E02",
+          "E08"
+        ]
+      },
+      "player_action": "자재 폐기함에서 나온 부품(E02)과 조작된 정비 전산 기록(E08)을 함께 제시하며, 브레이크가 낡아서 그런 거라는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "정래훈의 심리 증언을 막으려고 그날 밤 3호 화물차 브레이크 라인을 손봐 사고를 일으켰고, 이후 부품을 버리고 점검 기록을 조작했다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "남지오는 사건 전날 밤 늦게 3호 화물차 시험 운행을 정래훈에게 급히 배정했고, 최근 근무 평가에서 정래훈에게 감점을 받은 일로 사이가 서먹했다.",
+      "actual_reason": "실제로 그는 다른 기사의 갑작스런 결근 때문에 배차를 바꾼 것뿐이고, 감점 문제도 이미 서로 정리된 일이었다.",
+      "how_to_clear": "최근 배차 변경 기록(E18)과 남지오 본인의 배차 변경 경위 증언(E20)을 함께 대조하면, 그가 다른 기사의 결근 때문에 배차를 바꿨을 뿐이라는 것이 드러난다.",
+      "must_not_imply": "남지오가 개인적 원한으로 정래훈을 해치려 했다는 인상을 주지 않는다.",
+      "lingering_thread": "남지오는 혐의를 벗지만, 앞으로는 배차 변경을 더 여유 있게 처리하겠다고 다짐한다.",
+      "suspicion_deepener": "남지오 근무 평가서(E19)와 최근 배차 변경 기록(E18)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E18",
+        "E20"
+      ],
+      "clearing_points_at": "CH04",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사건 당일 배차실에서 근무하며 3호차 시험 운행 시간을 직접 조정했다.",
+        "means": [
+          "E18",
+          "E19"
+        ],
+        "means_first_reading": "배차 변경 기록(E18)과 근무 평가서(E19)가 겹쳐, 감정적으로 배차를 조작한 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH05",
+      "surface_suspicion": "김서로는 사건 전날 저녁 담당 업무도 아닌 정비고에 다녀갔고, 사고 당일 아침 유난히 말이 없었다.",
+      "actual_reason": "실제로 그녀는 심리 준비 서류 때문에 조규완에게 확인할 것이 있어 잠깐 들렀을 뿐이고, 아침에 말이 없었던 것은 자신도 심리에 참고인으로 함께 서기로 되어 있어 긴장했기 때문이다.",
+      "how_to_clear": "정비고 출입 기록의 김서로 이름(E15)과 그녀가 정비고에 간 이유를 밝힌 증언(E16)을 함께 대조하면, 서류 확인 때문에 잠깐 들렀을 뿐이라는 것이 드러난다.",
+      "must_not_imply": "김서로가 정래훈의 증언을 막으려 했다는 인상을 주지 않는다.",
+      "lingering_thread": "김서로는 혐의를 벗지만, 자신도 심리에 서야 한다는 부담을 한동안 안고 지낸다.",
+      "suspicion_deepener": "김서로의 정비고 출입 기록(E15)과 그녀가 유난히 말이 없었다는 증언(E23)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E15",
+        "E16"
+      ],
+      "clearing_points_at": "CH04",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "사건 전날 저녁 정비고에 다녀갔고 사고 당일에도 그 근처에 있었다.",
+        "means": [
+          "E15",
+          "E23"
+        ],
+        "means_first_reading": "정비고 출입 기록(E15)과 유난히 말이 없었다는 증언(E23)이 겹쳐, 뭔가를 감추는 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH04-01",
+      "F-CH04-02",
+      "F-CH04-03",
+      "F-CH04-04",
+      "E02",
+      "E08"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "F-CH04-03",
+      "motive_fact": "F-CH04-02"
+    }
+  },
+  "final_deduction": {
+    "responsible": "조규완(CH04) — 정비팀장",
+    "method": "정래훈이 심리 전 마지막으로 3호 화물차를 하강로에서 시험 운행하기로 되어 있다는 것을 안 조규완이 그 전날 밤 브레이크 라인을 손봐 두었고, 다음 날 오전 정래훈은 하강로에서 브레이크가 밀리는 것을 느끼고 핸들을 꺾었지만 속도를 줄이지 못한 채 볼라드를 정면으로 들이받았다.",
+    "motive": "두 달 전 사고 정비 일지의 소급 서명을 정래훈이 오늘 심리에서 증언하기로 되어 있다는 것을 알게 된 조규완이, 그 사실이 드러나는 것을 막으려 했다.",
+    "key_connection": "방문객 서명대(E01)가 정래훈이 그날 오전 심리 관련 인사와 접촉했음을 보여주고, 지난 정비 일지(E10)가 두 달 전 서명이 소급 기재됐음을 드러낸다. 정비고 게시판의 심리 메모(E12)와 부품 재고대의 빈 자리(E09)가 조규완이 그 사실을 알고 부품을 미리 빼 두었음을 뒷받침하고, 하강로의 오일 자국(E04)과 볼라드의 충돌 흔적(E05)이 그 자리에서 벌어진 사고의 실체를 보여준다. 정비고 출입 기록(E11)과 김서로의 불빛 목격 증언(E14)이 조규완이 그날 밤 다시 정비고에 들어갔음을 증명하고, 자재 폐기함에서 나온 부품(E02)과 조작된 정비 전산 기록(E08)이 그가 증거를 처분하고 기록을 조작했음을 확정한다. 배차 변경 기록과 근무 평가서, 남지오 본인의 증언(E18, E19, E20)은 그를 둘러싼 의심을 지우는 데 쓰이고, 정비고 출입 기록과 증언(E15, E16)은 김서로에 대한 의심을 지우는 데 쓰인다. 경사로 안전 점검표(E06)와 사고 당시 상황 증언(E07)은 그 자리에서 브레이크가 아예 작동하지 않았음을 뒷받침한다. 방문객 서명대에 남은 기록과 오상현의 사고 처리 경위 증언(E01, E03)은 그날 심리와 두 달 전 처리 방식을 함께 짚어 주고, 조규완 본인의 두 달 전 정비 담당 증언(E13)은 그 소급 서명이 자신이 한 일임을 스스로 확인해 준다. 오늘 배차 일정표(E17)는 애초에 정래훈이 그 시험 운행을 맡기로 되어 있었다는 출발점을 보여주고, 정래훈의 수첩(E21)과 안전관리 소위원 위촉 공고문(E22)은 그가 오늘 무엇을 증언하려 했고 어떤 자격으로 그 일을 살펴봤는지를 보여준다. 나머지 카드들은 그 옆에서 시각과 정황, 이해관계를 뒷받침하는 재료로 쓰인다."
+  },
+  "ending_explanation": [
+    "물류센터 3호 화물차가 적재장 하강로에서 볼라드를 들이받아 정래훈이 크게 다친 표면 사건",
+    "지난 정비 일지와 게시판 메모가 두 달 전 소급 서명과 오늘의 심리 일정을 드러낸 과정",
+    "하강로의 오일 자국과 볼라드의 충돌 흔적이 그 자리에서 벌어진 사고의 실체를 보여준 과정",
+    "정비고 출입 기록과 목격 증언이 조규완이 그날 밤 다시 정비고에 들어갔음을 좁혀 간 과정",
+    "자재 폐기함의 부품과 조작된 전산 기록이 「그냥 사고」라는 말을 뒤집은 과정",
+    "심리에서 있을 소급 서명 증언을 막기 위한 계획적 범행이라는 결말",
+    "일지, 메모, 목격담, 전산 기록이 각각 동기와 시각, 수법의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "심리에서 있을 서명 소급 증언을 막기 위한 범행",
+      "truth": true,
+      "evidence_for": [
+        "E10",
+        "E21"
+      ],
+      "suggested_by": [
+        "E21"
+      ],
+      "cue": "소급"
+    },
+    {
+      "id": "M02",
+      "text": "배차 오류 감점에 대한 남지오의 서운함",
+      "truth": false,
+      "evidence_for": [
+        "E18",
+        "E19"
+      ],
+      "suggested_by": [
+        "E19"
+      ],
+      "cue": "감점",
+      "refutation": "그날 저녁에 다른 기사가 갑자기 몸이 안 좋다고 해서 급하게 바꾼 거예요. 그게 다예요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "M03",
+      "text": "정비고에 드나든 김서로의 숨겨진 사정",
+      "truth": false,
+      "evidence_for": [
+        "E15",
+        "E23"
+      ],
+      "suggested_by": [
+        "E15"
+      ],
+      "cue": "들어갔다 나온",
+      "refutation": "심리 준비 서류 때문에 조 팀장님한테 확인할 게 있어서 잠깐 들렀을 뿐이에요.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 09시 56분경, 적재장 하강로에서",
+      "truth": true,
+      "evidence_for": [
+        "E04",
+        "E05"
+      ],
+      "suggested_by": [
+        "E06"
+      ],
+      "cue": "점검자 서명란"
+    },
+    {
+      "id": "T02",
+      "text": "사건 전날 밤, 배차실에서",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E18"
+      ],
+      "cue": "전날 밤",
+      "refutation": "그날 저녁에 다른 기사가 갑자기 몸이 안 좋다고 해서 급하게 바꾼 거예요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "사건 전날 저녁, 정비고에서",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E15"
+      ],
+      "cue": "전날 저녁",
+      "refutation": "심리 준비 서류 때문에 잠깐 들렀을 뿐이에요.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "브레이크 라인을 미리 손봐 둔 뒤 하강로에서 유도한 충돌",
+      "truth": true,
+      "evidence_for": [
+        "E09",
+        "E11"
+      ],
+      "suggested_by": [
+        "E04"
+      ],
+      "cue": "새어 나온"
+    },
+    {
+      "id": "H02",
+      "text": "경사로 안전 점검 소홀로 인한 단순 사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E06"
+      ],
+      "cue": "점검자 서명란",
+      "refutation": "점검표는 그날 아침 담당자가 바뀌면서 서명이 늦어진 것뿐이에요, 점검 자체는 했어요.",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H03",
+      "text": "적재 불균형으로 인한 급정거 실패",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E05"
+      ],
+      "cue": "우그러져",
+      "refutation": "그 정도로 우그러질 거리도 아닌데, 브레이크가 아예 안 먹혔다고 봐야죠.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 저는 그 시각 내내 사무실에서 통화하고 있었습니다. 그것 말고는 드릴 말씀이 없어요."
+    },
+    "CH02": {
+      "text": "저요? 저는 배차실에서 오늘 일정 정리하고 있었어요."
+    },
+    "CH03": {
+      "text": "저요? 저는 휴게실에서 쉬고 있었어요."
+    },
+    "CH05": {
+      "text": "저요? 저는 휴게실에서 서류 정리하고 있었어요."
+    }
+  },
+  "resolution": {
+    "who": "조규완이었다. 지난 정비 일지와 정비고 출입 기록이 그를 좁혀 갔다.",
+    "when": "사건 당일 09시 56분경, 적재장 하강로에서.",
+    "why": "두 달 전 소급 서명한 정비 일지를 정래훈이 오늘 심리에서 증언하기로 되어 있다는 것을 알고 그것을 막으려 했기 때문이다.",
+    "how": "시험 운행이 예정된 3호 화물차의 브레이크 라인을 전날 밤 미리 손봐 두었고, 사고 후 부품을 버리고 점검 기록을 조작했다."
+  }
+}

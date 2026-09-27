@@ -2476,6 +2476,18 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 // `docs/offline-master-format.md` 「대사 — 무엇이 말이고 무엇이 지문인가」.
 const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
 
+// **말하는 행위 자체를 적은 지문**은 간접화법으로 감싸지 않는다(2026-09-27).
+// `knows[].content` 는 3인칭 지문 자리라 `reportedFact` 가 「…다」를 「…다고 한다」로
+// 옮기는데, 그 서술어가 「둘러댄다」·「인정한다」처럼 **이미 말하는 행위**면
+// 「…둘러댄다고 한다」가 되어 「그가 둘러댄다고 그가 말한다」 꼴이 된다. 코퍼스
+// 271곳이 그 모양이고 그중 211곳은 대립 단계가 내주는 자리라 **단계를 깨는 턴에
+// 그대로 화면에 나간다**(CASE026 `F-CH02-01`·CASE033 `F-CH05-04`). 이런 값은
+// 원문이 이미 완성된 지문이므로 그대로 내보낸다 — 바로 위 `asQuote` 가 마스터
+// 936줄을 고치는 대신 내보내는 자리에서 따옴표를 세운 것과 같은 판단이다.
+// 데이터 쪽은 `OFFLINE_SPEECH_SHAPE` 가 새 사건의 입구에서 막는다.
+const SPEECH_ACT_END =
+  /(?:둘러댄다|인정한다|부인한다|시인한다|주장한다|털어놓는다|자백한다|변명한다|발뺌한다|얼버무린다)[.。]?$/;
+
 // 말이라고 적힌 자리를 따옴표로 세운다. `asSpeech` 는 끝맺음을 보고 대사인지
 // 지문인지 가리지만, 여기 오는 것은 **필드 정의가 이미 대사인 값**이다 —
 // `evidence[].reaction`(두 사람이 주고받는 말)과 `relationships[].says`(그 사람
@@ -2517,6 +2529,9 @@ function reportedFact(text: string | null | undefined): string | null {
   if (!sentences.length || !sentences.every((item) => item.endsWith('다'))) {
     return body;
   }
+  // 말하는 행위를 적은 지문이 섞여 있으면 손대지 않는다 — 감싸면 「…둘러댄다고
+  // 한다」가 된다. 위 SPEECH_ACT_END 주석 참고.
+  if (sentences.some((item) => SPEECH_ACT_END.test(item))) return body;
   const clauses = sentences.map((item) =>
     item.replace(/아니다$/, '아니라').replace(/이다$/, '이라'),
   );
@@ -5018,7 +5033,14 @@ export function runOfflineAction(
         caseSeed,
         recent,
       );
-      if (stage.releaseClaimOrFactId) {
+      // 본문이 있을 때만 수첩에 꽂는다 — 가설 반박 자리(judged.releases)와
+      // 같은 규칙(2026-09-27 사용자 결정). 본문 없는 id 를 넣으면 종결 조건은
+      // 통과하지만 수첩에는 빈 줄이 꽂힌다. 그래서 `STAGE_RELEASE_NO_BODY` 가
+      // 등록 여부와 무관하게 error 다 — 여기서 안 넣으면 그 사건은 종결 불가다.
+      if (
+        stage.releaseClaimOrFactId &&
+        statementContent(index, stage.releaseClaimOrFactId)
+      ) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
       turn.heardStatementIds.push(...excuses.map((item) => item.id));

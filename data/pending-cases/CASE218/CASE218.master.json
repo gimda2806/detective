@@ -377,6 +377,30 @@
           "content": "10년째 은호와 함께 이 스튜디오를 운영해 왔다.",
           "source": "본인이 한 일",
           "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그 시간에 잠깐 스튜디오와 창고를 오갔다. 다만 세팅 마무리를 점검하러 간 것뿐이라고 했다.",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "브래킷을 손댔다. 다만 헐거워 보여 다시 조이려 한 것뿐이라고 했다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "프랜차이즈 업체와 몰래 계약을 논의하고 회비 계좌에서 자금을 끌어다 썼다. 다만 은호를 다치게 할 생각은 없었다고 했다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "총회에서 계약과 유용이 드러나면 모든 걸 잃는다는 생각에 브래킷을 풀고 안전케이블까지 치워 은호가 크게 다치도록 만들었다.",
+          "source": "대립 단계 C04에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -434,6 +458,26 @@
           "fact_or_claim_id": "S-CH03-05",
           "release_prerequisite": "F-CH03-04",
           "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH03-05"
         }
       ],
       "knowledge_limits": [

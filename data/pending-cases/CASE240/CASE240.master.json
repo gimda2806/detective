@@ -337,6 +337,23 @@
           "claim_id": "S-CH02-03",
           "content": "저는 그저 행사가 문제없이 끝나길 바랐을 뿐이에요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "전날 밤 늦게까지 혼자 공방에 남아서 시조연을 손본 건 맞아요. 마무리 손질이에요. 그건 저희 회 전통이라서요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명 — 무엇을 했는지(구리철사)를 숨긴다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "삼실 매듭 속에 구리철사를 엮어 넣은 건 저예요. 정전기 방지용이에요. 그건 저희 회 전통이라서요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명 — 감전을 노린 것임을 숨긴다. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-06",
+          "content": "완구회사 라이선스 계약이 되면 전통 매듭 기법이 사라져요. 그걸 막으려고… 뇌우가 치는 날을 골라 견도영을 감전시켰어요. 계획한 일이에요. 전통이라서요… 그 말로 다 덮으려 했어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -359,6 +376,21 @@
           "fact_or_claim_id": "F-CH02-03",
           "release_prerequisite": "F-CH02-02",
           "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-06",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-02"
         }
       ],
       "knowledge_limits": [

@@ -320,7 +320,14 @@
       "name": "강도인",
       "role": "프리랜서 사운드 디자이너 / 폴리 아티스트",
       "present_location": "L01",
-      "knows": [],
+      "knows": [
+        {
+          "fact_id": "F-CH04-05",
+          "content": "강도인이 그날 낮 계약 해지 통보를 받은 데다 발표까지 들은 뒤 격분해, 부스 안에서 언쟁 끝에 방음 담요로 설재하의 코와 입을 눌러 막아 숨지게 했고, 장비 랙에 걸려 넘어진 사고처럼 꾸민 뒤 담요를 닦아 소품창고에 되돌려 놓았다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
+        }
+      ],
       "initial_claims": [
         {
           "claim_id": "S-CH04-01",
@@ -347,7 +354,13 @@
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH04-04"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 계약 해지 얘기를 얼마나 알고 있는지는 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 평소엔 담담하다.",

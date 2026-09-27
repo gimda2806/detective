@@ -212,6 +212,24 @@
           "fact_id": "F-CH01-02",
           "content": "화은결이 다음 시즌 대표 루트를 노건표의 디자인으로 전부 교체하기로 결정했다.",
           "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "안태겸이 계속 라운지에 있었다는 진술을 철회하고, 잠시 세팅작업실에 다녀왔다는 사실만 인정한다(단순히 도면을 가지러 갔다고 둘러댐).",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "안태겸이 사건 전 리프트 케이블을 직접 손봤다. 다만 단순 점검·보수였을 뿐이라고 했다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "자신이 평생 다듬어 온 루트세팅 철학이 노건표의 다이나믹 루트로 완전히 대체돼 지워지는 것을 받아들일 수 없어, 리프트 손잡이에 고의로 감전 트랩을 만들어 노건표를 죽게 했다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -249,6 +267,11 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [

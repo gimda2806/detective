@@ -311,6 +311,23 @@
           "claim_id": "S-CH01-04",
           "content": "소식 듣자마자 정신없이 뛰어나왔어요, 믿기지가 않아서.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "뒤뜰 쪽에 잠깐 나갔던 건 맞아요... 그냥 바람을 쐬러 나간 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명 — 발판을 손본 사실을 숨긴다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "발판을 미리 손보고 안전로프를 치운 것도 저예요... 그렇지만 겁만 주려고 했어요. 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명 — 계획적이었다는 것과 동기를 숨긴다. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-07",
+          "content": "아버지 유언이랑 평생 바친 염색 기술을 지키려고... 오빠의 매각을 막으려고 발판을 훼손하고 안전로프도 치웠어요. 계획한 일이었어요. 전부요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -329,6 +346,21 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-07",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [

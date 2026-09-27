@@ -188,6 +188,24 @@
           "fact_id": "F-CH01-02",
           "content": "어겸도가 국이현과의 혼인과 사업 제휴를 앞두고 자신과의 관계를 완전히 정리하려 했다.",
           "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "반가온이 개점 준비만 했다는 진술을 철회하고, 그 시각 다리 쪽을 계속 지켜보고 있었다는 사실만 인정한다(단순히 걱정돼서 봤다고 둘러댐).",
+          "source": "대립 단계 C01에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "반가온이 사건 전 지지목을 미리 손봤다. 다만 단순 보수를 하려던 것뿐이라고 했다.",
+          "source": "대립 단계 C02에서 본인이 인정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "오랫동안 비밀 연인 관계였던 어겸도가 국이현과의 혼인으로 자신을 완전히 정리하려 하자 배신감에 사로잡혀, 고의로 다리 지지목을 손봐 그를 함수 저장조에 빠뜨려 죽게 했다.",
+          "source": "대립 단계 C03에서 본인이 인정",
+          "related_timeline": []
         }
       ],
       "initial_claims": [
@@ -225,6 +243,11 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [
