@@ -1,0 +1,1763 @@
+{
+  "case_identity": {
+    "case_id": "CASE348",
+    "title": "마지막 주파수",
+    "english_title": "The Last Frequency",
+    "genre": "후임 교체에 대한 배신감에서 비롯된 우발적 살인 / 방송 조정실 파워앰프 단자를 통한 감전사와 설비 노후 탓 사고사 위장",
+    "setting": "지하상가에 자리한 8년차 공동체 라디오 방송국 '한밤전파상'. 대표 겸 진행자 오태경이 소출력 라디오와 인터넷 스트리밍을 겸해 이끌어 온 곳으로, 그날 낮에는 지역 미디어그룹과의 인수합병 계약이 정식으로 체결되었고 저녁에는 창립 8주년 특집 생방송이 예정되어 있었다.",
+    "location_archetypes": [
+      "broadcast_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "company_event"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "media_or_content_creation",
+    "detective_entry": "탐정과 한지우는 방송국의 창립 8주년 특집 다큐멘터리를 의뢰받아 그날 오후부터 스튜디오 안팎을 오가며 촬영하고 있었다. 계약 체결식과 저녁 생방송 준비까지 하루 종일 곁을 지키다, 소란을 맞닥뜨린다.",
+    "tone": "지하상가 특유의 눅눅한 공기와 낡은 장비들 사이로, 인수합병을 넘겼다는 안도와 무언가를 잃었다는 허탈함이 뒤섞인 자리. 탐정과 한지우는 카메라 렌즈 뒤에서 이 정적을 지켜본다.",
+    "tags": [
+      "공동체_라디오",
+      "심야_방송",
+      "인수합병"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "오태경",
+      "role": "대표 겸 진행자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 20:12",
+    "narrative": "다큐멘터리 촬영차 하루 종일 방송국 안팎을 오가던 탐정과 한지우는, 로비 쪽에서 다급한 발소리와 함께 누군가 소리치는 것을 듣고 카메라를 내려놓는다.\n\n\"저거...\"\n\n\"가 보자.\"\n\n복도를 따라가자 조정실 문 앞에 지민하가 창백한 얼굴로 서 있고, 안쪽에서는 하윤서가 휴대폰을 붙든 채 떨리는 목소리로 신고 전화를 하고 있다.\n\n\"이거...심상치 않은데요.\"\n\n\"일단 들어가서 보고.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "밤이 깊어 지하 통로 저편으로 첫차 소리가 희미하게 섞여 들 무렵, 조정실 안은 여전히 어질러진 채다. 백승규는 오래도록 말이 없다가, 마침내 고개를 떨군다.\n\n\"몸싸움 중에... 대표님 손이 그 단자에 닿았어요. 그걸 보고도 저는 녹음을 지우고 정비일지를 고쳤어요. 그건... 정말 어쩔 수 없었어요.\"\n\n탐정은 잠시 아무 말도 하지 않는다.\n\n\"12년이면... 그 자리 하나쯤은 미리 말이라도 해줄 수 있었을 텐데.\"\n\n한지우는 조용히 수첩을 덮는다.\n\n창밖으로 첫차가 지나가는 소리가 들리고, 라운지 쪽에서는 오경식이 아직 다 못 고친 축사 원고를 만지작거리며 앞으로는 후원금 내역을 분기마다 투명하게 공개받겠다고 혼잣말처럼 중얼거리고 있다.\n\n\"이제 좀 가자.\"\n\n\"오늘은... 진짜 아침이 오긴 오네요.\"\n\n탐정이 픽 웃으며 한지우의 어깨를 툭 친다."
+  },
+  "surface_incident": [
+    "사건 당일 20시 05분경, 기술감독 백승규가 조정실에서 정신을 잃고 늘어진 대표 오태경을 발견해 소리쳤다.",
+    "낡은 설비의 감전 사고로 추정된다는 이야기가 그날 밤 방송국 안에 돌았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "백승규는 12년째 함께 방송국을 일궈 온 오태경이 미디어그룹과 인수합병 계약을 진행하며, 부속 메모에 기술 인력 전원을 계약 만료 후 재고용 심사 대상으로 돌리고 신규 영입 엔지니어를 후임 기술감독으로 내정한 것을 사건 전날 밤 우연히 알게 되었다. 아무 상의도 없이 자신의 자리를 지운 것에 배신감을 느끼고, 창립기념 특집 생방송을 준비하던 그날 저녁 조정실에서 이를 따지다가 몸싸움 끝에 범행에 이르렀다.",
+    "motive_archetypes": [
+      "succession_change"
+    ],
+    "method": "생방송 준비를 점검하던 백승규에게 오태경이 들러 부속 메모 이야기가 나오자 언쟁이 격해졌고, 몸싸움 끝에 백승규가 오태경을 밀쳤다. 그 서슬에 오태경의 손이 낡은 파워앰프 뒤편의 절연이 벗겨진 단자에 닿아 감전되어 그 자리에서 쓰러졌다.",
+    "method_archetypes": [
+      "electrocution",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 19시 45분경, 조정실(L03)에서.",
+    "cover_up": "백승규는 오태경이 쓰러진 자리를 손대지 않은 채, 대표가 평소에도 종종 혼자 손을 대곤 하던 파워앰프 점검용 패널 옆에 드라이버를 놓아 두어 본인이 직접 만지다 변을 당한 것처럼 보이게 하고, 넘어진 마이크스탠드만 대충 밀어 두었다. 이어 조정실 상시녹음 아카이브에서 19시 40분부터 19시 52분까지의 구간을 삭제했고, 정비일지에는 대표가 그 패널을 자주 열어 보곤 했다는 취지의 기록을 소급해 적어 넣어, 부주의로 인한 사고사처럼 보이도록 꾸몄다.",
+    "cover_up_target": [
+      "responsibility",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "scene_rearrangement",
+      "digital_record_manipulation",
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E03",
+      "E04"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 2개월 전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "오태경이 지역 미디어그룹 '온에어파트너스'와 인수합병 협상을 시작한다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 5일 전 14:00",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "오태경이 변호사와 최종 계약 조항을 조율하며, 부속 메모에 기술 인력 전원을 계약 만료 후 재고용 심사 대상으로 돌리고 신규 영입 엔지니어를 후임 기술감독으로 내정하는 내용을 손글씨로 적어 둔다.",
+      "world_fact": "그 메모는 오태경 혼자만 확인했고, 메모지는 대표실 책상 서랍에 넣어 두었다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 21:00",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 야간 장비 점검차 대표실에 들렀다가, 살짝 열린 서랍 속 부속 메모를 넘겨보다 자신이 후임 기술감독 자리에서 배제된다는 내용을 발견한다.",
+      "world_fact": "그 메모를 본 것은 백승규 혼자였고, 그는 서랍을 원래대로 닫아 두고 아무 말 없이 나갔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 14:00",
+      "location": "L04",
+      "actors": [
+        "V01",
+        "CH05",
+        "CH04"
+      ],
+      "actual_action": "미디어그룹 실무진과 후원회 측이 참석한 가운데 인수합병 계약이 오늘 오전 서명식에서 정식으로 체결된다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 18:00",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "지민하가 창립 8주년 특집 생방송 리허설을 시작한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 19:10",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "남궁태율이 로비 근처에서 본사 재무팀과 잔금 처리 문제로 언성을 높이며 통화한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 19:20",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "오경식이 후원회 라운지에서 저녁 생방송 축사 원고를 고친다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 19:40",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "오태경이 생방송 전 장비를 점검하던 백승규에게 조정실로 들른다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 19:42",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "백승규가 부속 메모 이야기를 꺼내며 오태경에게 따진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 19:45",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "지민하가 리허설을 마치고 부스를 나서다 조정실 쪽에서 들려오는 언성과 뭔가 부딪히는 소리에 걸음을 멈춘다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19:45",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "언쟁이 격해지며 몸싸움으로 번진다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:46",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "몸싸움 중 오태경이 밀려나며 낡은 파워앰프의 절연이 벗겨진 단자에 손이 닿아 감전되어 쓰러진다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 19:48",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 반응 없는 오태경 앞에 얼어붙은 채 멈춰 선다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 19:52",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 넘어진 마이크스탠드를 대충 밀어 두고 파워앰프 커버를 다시 덮어 사고 현장처럼 꾸민다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 19:55",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 조정실 상시녹음 아카이브에서 19시 40분부터 19시 52분까지의 구간을 삭제한다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 20:00",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 정비일지에 대표가 그 패널을 평소에도 자주 열어 보곤 했다는 취지의 기록을 소급해 적어 넣는다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 20:05",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "백승규가 비명을 지르며 사람들을 부른다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 20:06",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "지민하가 소리를 듣고 조정실로 뛰어 들어온다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 20:08",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하윤서가 도착해 신고 전화를 건다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "백승규",
+      "role": "수석 엔지니어 / 기술감독",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "12년째 함께 방송국을 일궈 온 오태경이 미디어그룹과 인수합병 계약을 진행하며, 부속 메모에 재고용 심사와 함께 신규 영입 엔지니어를 후임 기술감독으로 내정한 것을 사건 전날 밤 우연히 알게 되었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 저녁 조정실에서 오태경과 마주쳐 계약 얘기를 한 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "언쟁이 격해졌던 것과, 몸싸움까지 있었다는 것도 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "몸싸움 중 오태경이 파워앰프 단자에 닿아 감전된 것을 지켜본 뒤, 녹음을 지우고 정비일지를 고쳐 사고처럼 꾸몄다는 것을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "오경식이 예전에 후원금 문제로 대표님과 언성을 높인 적이 있다는 말을 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오태경 대표님과는 방송국을 처음 세울 때부터 손발을 맞춰 온 사이예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 저녁엔 조정실 근처에 얼씬도 안 했어요. 소란 들었을 때는 이미 이렇게 돼 있었다니까요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "잠깐 들러서 계약 얘기 몇 마디 나눈 게 다예요. 언쟁 같은 건 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "몸싸움이라뇨. 그냥 언성만 좀 높아졌던 거고, 그 뒤로는 저도 조정실을 나가 있었어요. 사고는 저랑 상관없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "하윤서가 정확히 무엇을 확인했는지는 모른다.",
+        "지민하가 그날 무엇을 들었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 침착하다.",
+        "sentence_length_tendency": "평소엔 담담하고 절제된 문장인데, 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '그건 그렇고'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "여쭤보셔도 그때 얘기는 다 끝났어요.",
+        "...정말 그것 말고는 드릴 말씀이 없어요.",
+        "그만 좀... 물어보시면 안 될까요."
+      ],
+      "comic_tell": "곤란해지면 헤드폰 줄을 손가락에 감는다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-01",
+        "says": "오경식 사무국장님이 예전에 후원금 문제로 대표님이랑 다툰 적 있다는 얘기는 저도 들었어요. 그 이상은 모릅니다.",
+        "reveals": "오경식과 오태경 사이에 예전에 후원금 문제로 갈등이 있었다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "하윤서",
+      "role": "프로듀서 / 편성 담당",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "19시 45분쯤 대표실 쪽 복도를 지나다 조정실에서 언성이 높아지는 소리를 잠깐 들었는데, 그 목소리가 백승규 것 같았다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "남궁태율이 로비 근처에서 통화하며 언성을 높인 것을 들었는데, 본사 재무팀과의 잔금 문제였다는 것을 확인했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "오경식과 오태경 사이의 후원금 문제는 지난달에 이미 조정이 끝났다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "얼마 전 오태경에게 부편성국장 직함을 은근히 타진받았지만 부담스러워 완곡히 거절했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "사건 당일 낮부터 백승규가 유난히 말수가 줄고 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-06",
+          "content": "오태경이 최근 신규 영입 엔지니어와 이미 몇 차례 면담을 진행했다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-07",
+          "content": "오경식과 오태경이 지난달 후원금 사용 내역을 두고 크게 다퉜다는 얘기를 들은 적이 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "대표님은 편성표 하나는 저한테 다 맡기실 만큼 믿어 주셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 편성표 최종본 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E02",
+          "release_trigger": "F-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-06",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH02-05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-07",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-06"
+        }
+      ],
+      "knowledge_limits": [
+        "백승규가 그날 밤 정확히 무엇을 했는지는 모른다.",
+        "오경식과 남궁태율 사이에 정확히 무슨 얘기가 오갔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 또박또박하다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 요점만 말하는데, 몰리면 더 짧아진다.",
+        "verbal_tic": "말끝에 '체크했어요'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "그건 제가 몇 번이나 체크했어요.",
+        "더 여쭤보셔도 제가 본 건 그게 다예요.",
+        "...그 이상은 저도 확실하지 않아요."
+      ],
+      "comic_tell": "생각할 때 볼펜을 딸깍거린다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-02",
+        "opens": "S-CH02-01",
+        "says": "태율씨가 로비에서 누구랑 그렇게 언성 높이는 거 흔치 않던데, 그것도 좀 걸리긴 했어요.",
+        "reveals": "남궁태율이 그날 로비 근처에서 누군가와 언성을 높이며 통화했다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "지민하",
+      "role": "아나운서 / 막내 DJ",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "리허설을 마치고 부스를 나서다 19시 45분쯤 조정실 쪽에서 언성이 높아지는 소리와 뭔가 부딪히는 소리를 잠깐 들었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "19시 40분쯤 오태경 대표가 조정실로 들어가는 것을 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "며칠 전 자신의 방송 실수를 대표에게 지적받고, 그 녹음분을 몰래 다시 편집해 두었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "오경식이 그날 라운지를 벗어난 적 없이 계속 있었다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "그날따라 백승규가 말수가 적고 예민해 보였다는 것을 눈치챘다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-06",
+          "content": "쓰러진 오태경의 손과 팔에 화상 자국 같은 것이 있었다는 것을 직접 봤다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-07",
+          "content": "20시 06분에 뛰어 들어갔을 때 이미 반응이 없었고, 그만큼 시간이 지나 있었다는 것을 느꼈다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-08",
+          "content": "하윤서가 그날따라 서류를 유난히 꼼꼼하게 확인하는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "대표님이 저를 직접 뽑아주신 거라, 그만큼 기대에 부응하고 싶었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 부스에서 다음 코너 리허설하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-06",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH03-05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-07",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH03-06"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-08",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH03-07"
+        }
+      ],
+      "knowledge_limits": [
+        "백승규와 대표님 사이에 정확히 무슨 얘기가 오갔는지는 모른다.",
+        "남궁태율이 왜 통화하며 화를 냈는지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 긴장하면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명이 많은데, 몰리면 오히려 뚝뚝 끊어진다.",
+        "verbal_tic": "말끝에 '진짜예요'를 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저, 정말 그게 다예요...",
+        "진짜... 그것밖에 기억이 안 나요.",
+        "...더는 저도 모르겠어요."
+      ],
+      "comic_tell": "당황하면 헤드셋 케이블을 손가락에 돌돌 만다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-08",
+        "opens": "S-CH03-01",
+        "says": "하윤서 프로듀서님이 그날따라 서류를 유난히 꼼꼼하게 확인하시긴 했어요. 그것 말고는 딱히...",
+        "reveals": "하윤서가 그날 밤 서류를 평소보다 꼼꼼히 확인했다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "오경식",
+      "role": "후원회 사무국장 / 외부 후원자 대표",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 19시 20분에 라운지 방명록에 서명하고 들어와 사건이 벌어진 시각까지 라운지를 벗어난 적이 없다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "후원금 사용 내역 문제는 지난달에 이미 정산이 끝났다는 것을 안다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "지난달 후원금 사용 내역 문제로 대표와 언성을 높인 적이 있다는 것을 다른 사람들에게 알리고 싶어 하지 않는다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "그날 라운지를 오가며 조정실 쪽에 평소보다 늦게까지 인기척이 있었던 것을 느꼈다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "대표님은 후원 관련해서는 늘 투명하게 알려주시는 분이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그날은 축사 원고 고치느라 계속 라운지에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E13",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH04-03"
+        }
+      ],
+      "knowledge_limits": [
+        "방송국 안에서 그날 밤 정확히 무슨 일이 있었는지는 모른다.",
+        "백승규가 조정실에서 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 다소 격식을 차린다.",
+        "sentence_length_tendency": "평소엔 문장이 긴 편인데, 몰리면 방어적으로 짧아진다.",
+        "verbal_tic": "'다들 아시다시피'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그건 이미 말씀드렸잖습니까.",
+        "제가 뭘 더 말씀드려야 할지... 다들 아시다시피 그게 다예요.",
+        "...그만 물으셔도 되지 않겠습니까."
+      ],
+      "comic_tell": "말할 때마다 넥타이 매듭을 슬쩍 고쳐 맨다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-04",
+        "opens": "S-CH04-01",
+        "says": "그날 조정실 쪽에 늦게까지 인기척이 있었던 게 좀 걸리긴 했어요. 안에 누가 있었는진 모르지만요.",
+        "reveals": "그날 밤늦게까지 조정실에 인기척이 있었다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "남궁태율",
+      "role": "미디어그룹 인수 실무 담당 / 외부 협상 대표",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "계약 체결 직후 로비 근처에서 본사 재무팀과 잔금 처리 문제로 언성을 높이며 통화했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오태경과는 그날 오전 서명식 이후로 다시 마주친 적이 없다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "그 통화 내용을 방송국 사람들에게 알리고 싶어 하지 않는다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "로비에서 기다리며 지민하가 유난히 허둥대는 것을 봤다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "협상은 끝까지 순조로웠습니다. 오태경 대표님도 합리적인 분이셨고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 로비 근처에 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E19",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH05-03"
+        }
+      ],
+      "knowledge_limits": [
+        "방송국 내부 사정은 잘 모른다.",
+        "그날 밤 조정실에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이다.",
+        "sentence_length_tendency": "평소엔 간결하고 사무적인데, 몰리면 오히려 말이 길어지며 해명한다.",
+        "verbal_tic": "'절차상'을 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "말씀드릴 건 이미 다 말씀드렸습니다.",
+        "절차상... 더 드릴 말씀이 없네요.",
+        "...이건 저희 쪽 사정이라 곤란합니다."
+      ],
+      "comic_tell": "말이 막히면 커프스단추를 만지작거린다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "그, 막내 아나운서분이 그날따라 유난히 허둥대시긴 하던데요. 저야 뭐 자세힌 모르지만요.",
+        "reveals": "지민하가 그날 유난히 허둥댔다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "12년째 방송국을 함께 세우고 지켜 온 대표와 수석 엔지니어.",
+      "public_face": "가장 오래된 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "대표님이요... 그냥 오래 함께 일한 분이에요. 지금은 그 이상 말씀드리기 어렵네요."
+      },
+      "private_strain": "백승규는 계약 부속 메모에서 자신이 후임 기술감독 자리에서 배제된다는 것을 사건 전날 밤 혼자 알게 된 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 계약 부속 메모(E01)를 백승규 앞에 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "5년째 편성을 맡아 온 대표와 프로듀서.",
+      "public_face": "손발이 잘 맞는 실무 파트너로 알려져 있다.",
+      "says": {
+        "CH02": "대표님요? 편성 하나는 저한테 다 맡기실 만큼 믿어 주신 분이에요."
+      },
+      "private_strain": "하윤서는 얼마 전 오태경에게 부편성국장 직함을 은근히 타진받았다가 부담스러워 완곡히 거절한 것을 동료들에게 말하지 않고 있다.",
+      "surfaces_when": "탐정이 하윤서에게 최근 대표와 나눈 이야기를 캐물을 때(F-CH02-04)."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "8개월 전 입사해 대표에게 직접 발탁된 신입 아나운서.",
+      "public_face": "성실한 막내로 알려져 있다.",
+      "says": {
+        "CH03": "대표님은 저를 직접 뽑아주신 분이에요. 지금은... 잘 모르겠어요."
+      },
+      "private_strain": "지민하는 며칠 전 자신의 방송 실수를 대표에게 지적받고 그 녹음분을 몰래 다시 편집해 둔 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 지민하에게 최근 방송 실수에 대해 캐물을 때(F-CH03-03)."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "6년째 후원회를 이끌어 온 대표와 사무국장.",
+      "public_face": "든든한 후원자로 알려져 있다.",
+      "says": {
+        "CH04": "대표님이요? 방송국 사정 하나는 저보다 더 잘 아는 분이었죠."
+      },
+      "private_strain": "오경식은 지난달 후원금 사용 내역 문제로 대표와 언성을 높인 적이 있다는 것을 다른 사람들에게 알리고 싶어 하지 않는다.",
+      "surfaces_when": "탐정이 오경식에게 후원금 문제를 캐물을 때(F-CH04-03)."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "이번 인수합병 협상을 진행해 온 대표와 미디어그룹 실무 담당자.",
+      "public_face": "순조롭게 계약을 마친 사이로 알려져 있다.",
+      "says": {
+        "CH05": "대표님이요? 협상 내내 합리적인 분이었습니다."
+      },
+      "private_strain": "남궁태율은 계약 체결 직후 본사 재무팀과 잔금 문제로 다퉜다는 것을 방송국 사람들에게 말하지 않았다.",
+      "surfaces_when": "탐정이 남궁태율에게 통화 내용을 캐물을 때(F-CH05-03)."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH02"
+      ],
+      "nature": "같은 방송국에서 5년 넘게 밤 방송을 함께 지켜 온 동료.",
+      "public_face": "손발 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "윤서씨요? 저한텐 편한 동료죠.",
+        "CH02": "승규씨는... 오래 같이 일한 동료죠. 지금은 그 이상은 말씀 못 드리겠어요."
+      },
+      "private_strain": "하윤서는 백승규가 그날 유난히 예민해 보였다는 것을 눈치채고도 먼저 캐묻지 않았다.",
+      "surfaces_when": "탐정이 하윤서에게 사건 당일 백승규의 모습이 어땠는지 캐물을 때(F-CH02-05)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 겸 접수 데스크",
+      "access": "누구나 드나들 수 있는 로비. 접수 데스크가 상시 자리를 지킨다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
+      "base_description": "정면 안내 데스크 위로 창립 8주년 특집 생방송 안내판이 걸려 있고, 그 옆 벤치에는 카메라 장비가 놓여 있다. 남궁태율이 휴대폰을 손에 든 채 서성이고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내데스크 옆 게시판에는 오늘 오전 계약 체결식 사진이 아직 그대로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "로비 안내데스크 옆 메모지를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "안내데스크 옆, 급히 휘갈겨 쓴 통화 메모지에 '재무팀 – 잔금 일정 재확인'이라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "메인 스튜디오 부스",
+      "access": "생방송 중에는 온에어 표시등이 켜지는 방음 부스. 관계자만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "온에어 표시등은 꺼져 있고, 리허설용 대본이 널브러진 테이블 위에 이어폰 한 쪽이 남아 있다. 지민하가 마이크 앞 의자에 앉아 무릎을 감싸고 있다.",
+      "observation_rules": [
+        {
+          "action": "스튜디오 부스를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "부스와 조정실 사이 방음벽에는 작은 통풍구 하나가 나 있어, 큰 소리는 어렴풋이 넘어올 수 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "리허설 대본을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E22",
+          "result": "리허설 대본 마지막 장에 지민하가 19시 45분에 마쳤다고 적어 둔 메모가 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "조정실(콘솔실)",
+      "access": "장비와 배선이 밀집한 기술실. 담당자 동행이 필요한 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
+      "base_description": "낡은 콘솔 뒤편으로 배선이 어지럽게 늘어져 있고, 넘어졌다 세워진 듯한 마이크스탠드 하나가 자리를 벗어나 있다. 백승규가 헤드폰을 목에 건 채 굳은 얼굴로 서 있다.",
+      "observation_rules": [
+        {
+          "action": "조정실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "장비 랙 뒤편 케이블들이 평소보다 어지럽게 늘어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 파워앰프 주변을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "낡은 파워앰프 뒤편 커버가 나사 없이 젖혀져만 있고, 그 앞 마이크스탠드는 원래 자리보다 한 뼘 옆으로 밀려나 있다."
+        },
+        {
+          "action": "조정실 상시녹음 아카이브 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "상시녹음 아카이브에는 19시 40분부터 19시 52분까지 정확히 열두 분 구간이 통째로 빠져 있고, 앞뒤 구간은 멀쩡히 남아 있다."
+        },
+        {
+          "action": "정비일지를 확인한다",
+          "requires": "백승규",
+          "release_evidence_id": "E04",
+          "result": "가장 최근 기록에 '파워앰프 노후 배선, 지난주부터 확인, 다음 주 교체 예정'이라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "대표실 겸 자료 보관실",
+      "access": "대표만 사용하는 개인 사무실 겸 서류 보관 공간. 평소엔 잠겨 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "책상 위 계약 서류철이 반쯤 펼쳐진 채 있고, 그 옆 캐비닛 문이 살짝 열려 있다. 하윤서가 책상 앞에 서서 편성표와 서류를 번갈아 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "대표실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 계약 서류철이 반쯤 펼쳐진 채 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍 속 계약 부속 메모를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "부속 메모 마지막 장, 오늘 오전 서명식에서 정식으로 체결된 인수합병 계약 옆에 '기술 인력 전원 재고용 심사, 후임 기술감독 신규 영입 엔지니어 내정'이라는 문구가 손글씨로 덧붙여져 있다."
+        },
+        {
+          "action": "정산 서류함에서 후원금 사용 내역서를 살펴본다",
+          "requires": "오경식",
+          "release_evidence_id": "E05",
+          "result": "지난달 후원금 사용 내역서에는 오경식이 제기했던 항목 전부에 이미 정산 완료 도장이 찍혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "후원회 라운지",
+      "access": "후원회원과 손님을 위한 개방 공간.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "한쪽 테이블에 축사 원고가 펼쳐진 채 놓여 있고, 그 옆 의자에 오경식이 펜을 든 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "라운지를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "라운지 한쪽 테이블에 축사 원고가 아직 그대로 펼쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "라운지 방명록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "라운지 방명록에는 오경식이 19시 20분에 서명하고 들어온 뒤 사건이 벌어진 시각까지 다시 나간 기록이 없다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "계약 부속 메모 속 손글씨 조항",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 서랍 속 계약 부속 메모를 살펴본다",
+      "content": "부속 메모 마지막 장, 오늘 오전 서명식에서 정식으로 체결된 인수합병 계약 옆에 '기술 인력 전원 재고용 심사, 후임 기술감독 신규 영입 엔지니어 내정'이라는 문구가 손글씨로 덧붙여져 있다.",
+      "proves": [
+        "백승규가 계약으로 후임 기술감독 자리에서 배제된다는 것"
+      ],
+      "does_not_prove": [
+        "백승규가 그 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "다른 조항은 인쇄체인데 이 문구만 손글씨로 덧붙여져 있고, 어디에도 정식 서명이 없다.",
+      "reaction": {
+        "jiwoo": "이거...후임 기술감독을 따로 내정했다고 적혀 있는데요.",
+        "detective": "그 한 줄이 오늘 밤을 설명해 줄 수도 있겠네."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "흐트러진 조정실 현장",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "쓰러진 파워앰프 주변을 살펴본다",
+      "content": "낡은 파워앰프 뒤편 커버가 나사 없이 젖혀져만 있고, 그 앞 마이크스탠드는 원래 자리보다 한 뼘 옆으로 밀려나 있다.",
+      "proves": [
+        "그 자리에서 몸싸움이나 급한 손길이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01",
+      "mismatch": "커버는 나사로 고정하게 돼 있는데 나사 없이 젖혀져만 있다 — 급히 열었다가 대충 덮어 둔 모양이다.",
+      "reaction": {
+        "jiwoo": "이 마이크스탠드, 원래 이 자리가 아니었을 텐데요.",
+        "detective": "누가 급하게 치운 흔적이지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "아카이브 로그의 결번",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "조정실 상시녹음 아카이브 로그를 확인한다",
+      "content": "상시녹음 아카이브에는 19시 40분부터 19시 52분까지 정확히 열두 분 구간이 통째로 빠져 있고, 앞뒤 구간은 멀쩡히 남아 있다.",
+      "proves": [
+        "그 구간의 기록이 사건 이후 누군가에 의해 지워졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그것을 지웠는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "다른 구간은 자동 저장 표시가 남아 있는데 이 구간만 삭제 흔적조차 없이 깨끗하다.",
+      "reaction": {
+        "jiwoo": "딱 이 구간만 통째로 없는데요.",
+        "detective": "지워진 시간이 곧 알리바이지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "소급 기재된 정비일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비일지를 확인한다",
+      "content": "가장 최근 기록에 '대표님이 평소에도 파워앰프 점검용 패널을 자주 열어 보곤 하셨음'이라고 적혀 있다.",
+      "proves": [
+        "그 사고가 대표 본인의 습관적인 부주의 때문이었다는 것처럼 꾸며졌다는 것"
+      ],
+      "does_not_prove": [
+        "그 기록을 누가 언제 적어 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "그 패널은 늘 백승규가 도맡아 손보던 자리인데, 기록은 대표가 평소에도 자주 손댔던 것처럼 적혀 있다.",
+      "reaction": {
+        "jiwoo": "지난주 점검표엔 이런 항목이 없었는데요.",
+        "detective": "기록은 거짓말을 하지, 사람 대신."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "정산 완료된 후원금 내역서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정산 서류함에서 후원금 사용 내역서를 살펴본다",
+      "content": "지난달 후원금 사용 내역서에는 오경식이 제기했던 항목 전부에 이미 정산 완료 도장이 찍혀 있다.",
+      "proves": [
+        "오경식과 대표 사이의 후원금 문제가 이미 해결됐다는 것"
+      ],
+      "does_not_prove": [
+        "둘 사이에 다른 앙금이 없었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "소문은 아직 도는데 실제 정산은 지난달에 이미 끝나 있었다."
+    },
+    {
+      "id": "E06",
+      "name": "라운지 방명록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "라운지 방명록을 확인한다",
+      "content": "라운지 방명록에는 오경식이 19시 20분에 서명하고 들어온 뒤 사건이 벌어진 시각까지 다시 나간 기록이 없다.",
+      "proves": [
+        "오경식이 그 시각 내내 라운지에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "라운지 밖에서 벌어진 일"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "의심받는 사람치고는 자리를 한 번도 뜨지 않았다."
+    },
+    {
+      "id": "E07",
+      "name": "로비에 남은 통화 메모지",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 안내데스크 옆 메모지를 살펴본다",
+      "content": "안내데스크 옆, 급히 휘갈겨 쓴 통화 메모지에 '재무팀 – 잔금 일정 재확인'이라고 적혀 있다.",
+      "proves": [
+        "남궁태율의 통화가 잔금 문제 때문이었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 그 시각 내내 로비에 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "다급하게 휘갈겨 쓴 메모라 화가 난 통화였음을 보여주지만, 내용은 인수합병과 무관한 잔금 문제다.",
+      "reaction": {
+        "jiwoo": "잔금 일정 재확인이라고 적혀 있는데요.",
+        "detective": "화난 이유가 따로 있었다는 거지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "언쟁 소리에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 그날 밤 조정실 쪽에서 들려온 소리를 묻는다",
+      "content": "\"19시 45분쯤 대표실 쪽 복도를 지나다 조정실에서 언성이 높아지는 소리를 잠깐 들었어요. 승규씨 목소리였던 것 같아요.\"",
+      "proves": [
+        "백승규가 그날 밤 조정실에서 언성을 높였다는 것"
+      ],
+      "does_not_prove": [
+        "무슨 이야기를 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01",
+      "mismatch": "본인은 조정실 근처에 안 갔다고 하는데 목격담은 다르다."
+    },
+    {
+      "id": "E09",
+      "name": "부딪히는 소리에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 그날 밤 조정실 쪽에서 들은 소리를 묻는다",
+      "content": "\"리허설 마치고 부스를 나서는데 조정실 쪽에서 언성이랑 뭔가 부딪히는 소리가 잠깐 들렸어요. 무슨 얘긴지는 몰라요.\"",
+      "proves": [
+        "그 시각 조정실에서 몸싸움 같은 것이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 소리를 냈는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": null,
+      "mismatch": "본인은 그냥 있었다고 하는데 목격담은 그 시각 조정실에서 소란이 있었다고 말한다."
+    },
+    {
+      "id": "E10",
+      "name": "통화 이유 확인 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 남궁태율의 통화가 무엇 때문이었는지 묻는다",
+      "content": "\"태율씨가 로비에서 통화하면서 언성 높이는 거 저도 들었는데, 본사 재무팀이랑 잔금 문제로 그런 거라고 하시더라고요.\"",
+      "proves": [
+        "남궁태율의 통화가 잔금 문제 때문이었다는 것"
+      ],
+      "does_not_prove": [
+        "그가 그 뒤로 계속 로비에 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "격앙된 통화였다는 인상과 달리, 내용은 인수합병과 무관한 사내 정산 문제였다."
+    },
+    {
+      "id": "E11",
+      "name": "대표의 조정실 진입 목격",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 그날 조정실에 누가 드나들었는지 묻는다",
+      "content": "\"19시 40분쯤 대표님이 조정실로 들어가는 걸 봤어요. 승규 오빠는 이미 안에서 장비 점검하고 있었고요.\"",
+      "proves": [
+        "오태경이 19시 40분경 조정실로 들어갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01",
+      "mismatch": "백승규는 그 시각 조정실에 대표가 온 적 없다는 듯이 말했는데 목격담은 다르다."
+    },
+    {
+      "id": "E12",
+      "name": "오경식 다툼에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 오경식에 대해 아는 것을 묻는다",
+      "content": "\"오경식 사무국장님이요? 지난달에 후원금 사용 내역 문제로 대표님이랑 언성 높이신 적 있다고 들었어요.\"",
+      "proves": [
+        "오경식과 오태경 사이에 지난달 후원금 문제로 갈등이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 갈등이 사건 당일까지 이어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "든든한 후원자로만 알려져 있는데 실제로는 다툰 적이 있다."
+    },
+    {
+      "id": "E13",
+      "name": "오경식의 서성임에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 오경식이 그날 밤에도 서성였는지 묻는다",
+      "content": "\"경식씨요? 라운지에서 축사 원고 고친다고 계속 왔다 갔다 하시긴 했어요.\"",
+      "proves": [
+        "오경식이 그날 밤 라운지 근처를 서성였다는 것"
+      ],
+      "does_not_prove": [
+        "그가 라운지를 벗어난 적이 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "가만히 앉아 있었을 거라는 인상과 달리 계속 서성였다."
+    },
+    {
+      "id": "E14",
+      "name": "오경식의 위치 확인 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 오경식이 계속 라운지에 있었는지 묻는다",
+      "content": "\"경식 사무국장님은 제가 몇 번 지나가면서 봐도 계속 라운지에 계셨어요. 자리를 뜨는 걸 못 봤어요.\"",
+      "proves": [
+        "오경식이 그 시각 내내 라운지에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "라운지 밖에서 벌어진 일"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "의심받는 사람치고는 자리를 한 번도 뜨지 않았다."
+    },
+    {
+      "id": "E15",
+      "name": "승계 면담에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 오태경의 승계 계획에 대해 아는 것을 묻는다",
+      "content": "\"대표님이 최근에 신규 영입 엔지니어랑 따로 몇 번 면담하셨다는 얘기는 저도 들었어요. 무슨 얘기였는진 모르지만요.\"",
+      "proves": [
+        "오태경이 최근 신규 영입 엔지니어와 별도로 면담을 진행했다는 것"
+      ],
+      "does_not_prove": [
+        "그 면담이 정확히 무엇을 정한 자리였는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "겉으로는 아무 일 없는 인수합병처럼 보였는데, 물밑에서는 이미 인사 교체가 오가고 있었다."
+    },
+    {
+      "id": "E16",
+      "name": "남궁태율의 통화 해명",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "남궁태율에게 그날 통화가 무엇이었는지 묻는다",
+      "content": "\"본사 재무팀이랑 잔금 일정 문제로 언성이 좀 높아졌습니다. 대표님이랑은 오전 서명식 이후로 뵌 적도 없어요.\"",
+      "proves": [
+        "남궁태율 본인이 그 통화가 잔금 문제였다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "그 주장이 사실인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "본인 말과 실제 통화 메모지의 내용이 맞는지는 대조가 필요하다."
+    },
+    {
+      "id": "E17",
+      "name": "백승규의 예민함에 대한 목격",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 백승규가 그날 어땠는지 묻는다",
+      "content": "\"승규 오빠가 그날따라 유난히 말수가 적고 예민해 보이긴 했어요.\"",
+      "proves": [
+        "백승규가 사건 당일 평소와 달리 예민한 상태였다는 것"
+      ],
+      "does_not_prove": [
+        "그 이유가 무엇이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "평소엔 담담한 사람인데 그날따라 눈에 띄게 달랐다."
+    },
+    {
+      "id": "E18",
+      "name": "정비일지 갱신 시점 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 정비일지가 최근에 언제 갱신됐는지 묻는다",
+      "content": "\"정비일지요? 그 패널은 늘 승규씨가 도맡아 손보던 자리인데, 대표님이 직접 만졌다는 기록은 좀 이상하네요.\"",
+      "proves": [
+        "그 패널을 평소 다루던 것은 대표가 아니라 백승규였다는 것"
+      ],
+      "does_not_prove": [
+        "그 기록을 누가 언제 써넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "평소 그 패널을 다루던 사람과, 정비일지가 말하는 사람이 서로 다르다."
+    },
+    {
+      "id": "E19",
+      "name": "지민하가 본 남궁태율의 통화",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "지민하에게 남궁태율의 통화를 봤는지 묻는다",
+      "content": "\"로비 지나가다가 태율씨가 누구랑 되게 화내면서 통화하는 거 봤어요. 대표님 일 때문인가 했죠.\"",
+      "proves": [
+        "남궁태율이 격앙된 상태로 통화했다는 것"
+      ],
+      "does_not_prove": [
+        "그 통화가 무엇에 관한 것이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "순조로운 협상이었다는 말과 달리 그날 몹시 격앙된 모습이었다."
+    },
+    {
+      "id": "E20",
+      "name": "오경식이 본 남궁태율의 통화",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "오경식에게 남궁태율의 통화를 봤는지 묻는다",
+      "content": "\"저도 라운지에서 태율씨 통화 소리 들었는데 꽤 격앙돼 있더라고요. 계약 문제인가 싶었어요.\"",
+      "proves": [
+        "남궁태율의 통화가 라운지에서도 들릴 만큼 격앙돼 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 통화의 정확한 내용"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "계약 문제일 거라는 짐작과 실제 통화 내용이 다르다."
+    },
+    {
+      "id": "E21",
+      "name": "대표의 평소 컨디션에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하윤서에게 오태경의 평소 컨디션을 묻는다",
+      "content": "\"요 몇 주 인수 준비로 무리하셔서 그런지, 대표님이 부쩍 피곤해 보이시긴 했어요.\"",
+      "proves": [
+        "오태경이 최근 업무로 피로가 누적된 상태였다는 것"
+      ],
+      "does_not_prove": [
+        "그 피로가 사망의 직접적인 원인인지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "피곤해 보였다는 인상이 진짜 사인을 가리는 데 쓰였다."
+    },
+    {
+      "id": "E22",
+      "name": "리허설 대본의 시각 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "리허설 대본을 살펴본다",
+      "content": "리허설 대본 마지막 장에 지민하가 19시 45분에 마쳤다고 적어 둔 메모가 있다.",
+      "proves": [
+        "지민하가 19시 45분경 부스를 나섰다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 그가 정확히 어디로 갔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "리허설은 끝났는데도 대본은 부스에 그대로 남아 있다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_encounter",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09",
+        "E11"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E09",
+          "E11"
+        ]
+      },
+      "player_action": "지민하가 들은 소리(E09)와 대표가 조정실로 들어가는 것을 봤다는 목격(E11)을 함께 제시하며, 조정실 근처에 안 갔다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그날 저녁 조정실에서 오태경과 마주쳐 계약 얘기를 한 것은 인정한다."
+      },
+      "must_not_release": [
+        "몸싸움이 있었다는 사실",
+        "감전 사고의 경위"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_encounter",
+      "to_stage": "admits_struggle",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E02",
+          "E08"
+        ]
+      },
+      "player_action": "흐트러진 조정실 현장(E02)과 하윤서가 들은 언쟁 소리(E08)를 함께 제시하며, 언쟁 같은 건 없었다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "언쟁이 격해졌던 것과, 몸싸움까지 있었다는 것도 인정한다."
+      },
+      "must_not_release": [
+        "감전사가 일어난 사실",
+        "은폐를 위해 한 일"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_struggle",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "아카이브 로그의 결번(E03)과 소급 기재된 정비일지(E04)를 함께 제시하며, 사고는 자신과 상관없다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "몸싸움 중 오태경이 파워앰프 단자에 닿아 감전된 것을 지켜본 뒤, 녹음을 지우고 정비일지를 고쳐 사고처럼 꾸몄다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH04",
+      "surface_suspicion": "오경식은 예전에 후원금 사용 내역 문제로 대표와 다툰 적이 있었고, 사건이 벌어진 시각에도 라운지 근처를 서성이고 있었다.",
+      "actual_reason": "실제로 그 후원금 문제는 지난달에 이미 정산이 끝났고, 그날 밤에는 축사 원고를 고치며 19시 20분부터 사건이 벌어진 시각까지 라운지를 벗어난 적이 없다.",
+      "how_to_clear": "지민하의 라운지 확인 증언(E14)과 라운지 방명록(E06)을 함께 대조하면, 후원금 문제가 이미 끝났고 그가 그 시각 내내 라운지에 있었다는 것이 드러난다.",
+      "must_not_imply": "오경식이 돈 문제로 앙심을 품고 조정실 쪽에 다가갔다는 인상을 주지 않는다.",
+      "lingering_thread": "오경식은 혐의를 벗지만, 앞으로는 후원금 내역을 분기마다 투명하게 보고받고 싶다고 다짐한다.",
+      "suspicion_deepener": "지민하의 증언(E12, 지난달 다툼 언급)과 하윤서의 증언(E13, 그가 라운지를 서성였다는 목격)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E06",
+        "E14"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "라운지에 그 시각까지 남아 있었다.",
+        "means": [
+          "E12",
+          "E13"
+        ],
+        "means_first_reading": "지난달 다툼 언급(E12)과 라운지를 서성였다는 목격(E13)이 겹쳐, 앙심을 품고 근처를 맴돈 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH05",
+      "surface_suspicion": "남궁태율은 계약 체결 직후 로비 근처에서 누군가와 언성을 높이며 통화했고, 인수 조건을 두고 대표와 마찰이 있었다는 얘기가 돌았다.",
+      "actual_reason": "실제로 그 통화는 본사 재무팀과 잔금 처리 문제로 다툰 것이었고, 오태경과는 그날 오전 서명식 이후로 다시 마주친 적이 없다.",
+      "how_to_clear": "하윤서의 통화 이유 확인 증언(E10)과 로비에 남은 통화 메모지(E07)를 함께 대조하면, 그 통화가 잔금 문제였고 대표와는 그 이후 마주치지 않았다는 것이 드러난다.",
+      "must_not_imply": "남궁태율이 인수 조건 마찰로 대표를 해쳤다는 인상을 주지 않는다.",
+      "lingering_thread": "남궁태율은 혐의를 벗지만, 본사와의 잔금 정산 문제는 그 뒤로도 한동안 이어진다.",
+      "suspicion_deepener": "지민하의 목격(E19)과 오경식의 목격(E20)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E07",
+        "E10"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "계약 체결 이후에도 로비 근처에 계속 남아 있었다.",
+        "means": [
+          "E19",
+          "E20"
+        ],
+        "means_first_reading": "지민하(E19)와 오경식(E20)이 각각 격앙된 통화를 목격한 것이 겹쳐, 계약 문제로 다툰 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04",
+      "E03",
+      "E04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-04",
+      "motive_fact": "F-CH01-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "백승규(CH01) — 수석 엔지니어 겸 기술감독",
+    "method": "생방송 준비 중 조정실에서 계약 조항을 두고 다투다 오태경을 밀쳤고, 그 서슬에 오태경의 손이 낡은 파워앰프의 노출된 단자에 닿아 감전사했다.",
+    "motive": "인수합병 계약 부속 메모에서 자신이 후임 기술감독 자리에서 배제된다는 것을 사건 전날 밤 알게 되어 배신감을 느꼈다.",
+    "key_connection": "계약 부속 메모(E01)가 그가 자리를 잃게 된 이유를 드러내고, 지민하가 들은 소리와 목격(E09, E11)이 그날 밤 조정실에 있었던 사람을 좁히며, 아카이브 로그의 결번과 소급 기재된 정비일지(E03, E04)가 그 사고가 조작된 것임을 증명하고, 하윤서가 짚어낸 정비일지의 어긋남(E18)이 그 조작을 다시 한번 뒷받침한다. 하윤서가 들은 언쟁 소리(E08), 남궁태율의 통화 해명(E16), 하윤서가 전한 대표의 평소 컨디션(E21)은 각각 다른 갈래의 의심을 지우는 데 쓰인다. 정산 완료된 후원금 내역서(E05)와 승계 면담 정황(E15), 지민하가 본 백승규의 예민한 낌새(E17), 리허설 대본의 시각 메모(E22)는 그 옆에서 다른 갈래를 뒷받침하거나 지우는 재료로 쓰인다."
+  },
+  "ending_explanation": [
+    "대표 오태경이 조정실에서 정신을 잃고 늘어진 채 발견된 표면 사건",
+    "계약 부속 메모가 백승규가 후임 기술감독 자리에서 배제된 이유를 드러낸 과정",
+    "지민하가 들은 소리와 목격이 그날 밤 조정실에 있었던 사람을 좁혀 간 과정",
+    "흐트러진 조정실 현장과 하윤서가 들은 언쟁 소리가 「그냥 사고」라는 말을 뒤집은 과정",
+    "아카이브 로그의 결번과 소급 기재된 정비일지가 그 사고가 조작된 것임을 증명한 과정",
+    "12년을 함께 일군 방송국에서 자리를 잃게 된 배신감에서 빚어진 살인이라는 결말",
+    "계약 메모, 목격담, 아카이브 로그, 정비일지가 각각 동기와 시각, 수법의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "인수합병으로 후임 기술감독 자리에서 배제된 데 대한 배신감",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E01",
+        "E15"
+      ],
+      "cue": "후임 기술감독"
+    },
+    {
+      "id": "M02",
+      "text": "후원금 문제로 앙심을 품은 오경식",
+      "truth": false,
+      "evidence_for": [
+        "E12",
+        "E13"
+      ],
+      "suggested_by": [
+        "E12"
+      ],
+      "cue": "후원금",
+      "refutation": "저요? 그 후원금 문제는 지난달에 이미 다 끝났어요. 이제 와서 그것 때문에 그럴 이유가 없죠.",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "M03",
+      "text": "인수 조건 마찰로 앙심을 품은 남궁태율",
+      "truth": false,
+      "evidence_for": [
+        "E19",
+        "E20"
+      ],
+      "suggested_by": [
+        "E19"
+      ],
+      "cue": "통화",
+      "refutation": "저요? 그 통화는 그냥 저희 쪽 내부 문제였습니다. 대표님과는 상관없는 일입니다.",
+      "refuted_by": "CH05"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 19시 45분경, 조정실에서",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E08"
+      ],
+      "cue": "19시 45분"
+    },
+    {
+      "id": "T02",
+      "text": "그날 오전 서명식 직후, 대표실에서",
+      "truth": false,
+      "evidence_for": [
+        "E01"
+      ],
+      "suggested_by": [
+        "E01"
+      ],
+      "cue": "서명식",
+      "refutation": "서명식 때는 다들 같이 있었어요. 그때 무슨 일이 있었으면 모를 리 없죠.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "19시 40분경, 조정실에 처음 들어갔을 때",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E11"
+      ],
+      "cue": "19시 40분",
+      "refutation": "그때는 그냥 들어가는 것만 봤죠. 그러고 한참 지나서야 소리가 났는걸요.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "몸싸움 끝에 파워앰프 단자에 닿아 일어난 감전사",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04"
+      ],
+      "suggested_by": [
+        "E02"
+      ],
+      "cue": "파워앰프"
+    },
+    {
+      "id": "H02",
+      "text": "대표 본인의 부주의로 패널을 손대다 일어난 단순 감전 사고사",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E04"
+      ],
+      "cue": "열어 보곤",
+      "refutation": "대표님이 그 패널을 직접 손대실 분이 아니었어요, 그건 늘 승규씨한테 맡기셨는걸요.",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "H03",
+      "text": "무리한 방송 준비로 인한 심장마비",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E21"
+      ],
+      "cue": "무리",
+      "refutation": "무리해서 지치신 건 맞지만, 심장 문제로 그렇게 갑자기 가실 분은 아니었어요. 팔에 남은 자국부터가 이상했고요.",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "저요? 저는 그 시각에 편성표 최종본 정리하고 있었어요. 그것 말고는 드릴 말씀이 없어요."
+    },
+    "CH03": {
+      "text": "저요? 저는 리허설하다가 소란 듣고 달려간 것뿐이에요."
+    },
+    "CH04": {
+      "text": "저요? 저는 그날 라운지에서 축사 원고만 고치고 있었다니까요."
+    },
+    "CH05": {
+      "text": "저요? 저는 로비에서 본사랑 통화한 게 다예요."
+    }
+  },
+  "resolution": {
+    "who": "백승규였다. 계약 부속 메모와 그날 밤 목격담이 그를 좁혀 갔다.",
+    "when": "사건 당일 19시 45분경, 조정실에서.",
+    "why": "인수합병 계약으로 후임 기술감독 자리에서 배제된 것에 배신감을 느꼈기 때문이다.",
+    "how": "몸싸움 끝에 오태경을 밀쳐 낡은 파워앰프 단자에 감전되게 하고, 녹음을 지우고 정비일지를 고쳐 사고처럼 꾸몄다."
+  }
+}
