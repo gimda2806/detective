@@ -3628,12 +3628,12 @@ CASE137·138·139·141·142·185·218·306·331 절의 「폴백이 못 읽는 �
 | CASE333 | `background` | `evacuation_blackout` | `case_identity.setting` 「밤 8시 40분 발전기가 멎어 섬 전체가 … 어둠에 잠겼다」 | 목록의 「정전」으로 `full_truth.method`에서 걸린다. `setting`만 보면 **발전기가 멎어**가 목록 밖이다 |
 | CASE333 | `cover_up_method` | `false_timeline`+`weapon_disposal` | `full_truth.cover_up` 「괘종시계의 … 바늘을 8시 35분으로 **되감아** 놓고, 흔들리던 추를 손으로 붙잡아 **멈춰 세웠다**」·「쓴 **막자**를 … 바다에 **던져 버렸다**」 | 동사 둘 = 칸 둘. 폴백은 둘 다 못 읽는다 — `false_timeline`은 「시각」 뒤 서술어만 보고 **시곗바늘 · 되감아 · 추를 세워**가 없고, `weapon_disposal`은 흉기 이름 목록에 **막자**가 없다 |
 
-## CASE349 (생성 루틴, 2026-09-27)
+## CASE358 (생성 루틴, 2026-09-27)
 
 ### 무엇을 보고 골랐나 — 근거 낱말
 
 | 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
 | --- | --- | --- | --- | --- |
-| CASE349 | `location_archetypes` | `other` | `case_identity.setting` 「5인 규모로 운영되는 웹툰 제작 스튜디오 '잉크갈피'」 | **칸이 없어서가 아니다.** `media_production` 계열(`broadcast_studio`·`production_studio`)이 그나마 가장 가까운 칸인데, `check:case` 실측(코퍼스 346건)으로 `production_studio`는 이미 칸 단위 5.49%(19/346)로 문턱 위였고 `broadcast_studio`도 4.91%(17/346)로 여유가 거의 없었다. 둘 다 방송·영상 제작을 가리키는 칸이라 편집·글·그림 작업이 중심인 웹툰 스튜디오와는 결이 다르기도 하다 — CASE321과 같은 종류의 `other`다 |
+| CASE358 | `location_archetypes` | `other` | `case_identity.setting` 「5인 규모로 운영되는 웹툰 제작 스튜디오 '잉크갈피'」 | **칸이 없어서가 아니다.** `media_production` 계열(`broadcast_studio`·`production_studio`)이 그나마 가장 가까운 칸인데, `check:case` 실측(코퍼스 346건)으로 `production_studio`는 이미 칸 단위 5.49%(19/346)로 문턱 위였고 `broadcast_studio`도 4.91%(17/346)로 여유가 거의 없었다. 둘 다 방송·영상 제작을 가리키는 칸이라 편집·글·그림 작업이 중심인 웹툰 스튜디오와는 결이 다르기도 하다 — CASE321과 같은 종류의 `other`다 |
 
 `motive_archetypes`(`professional_secrecy`, 2.89%)·`method_archetypes`(`stabbing`, 4.91%)·`background_archetypes`(`company_event`, 2.89%)는 모두 문장이 가리키는 칸이 안전권이라 그대로 선언했다. `cover_up_target`은 감춘 것이 사실 `cause_of_death`(38.3%, 기대치의 2.8배)까지 셋인데, 그 칸만 새 사건 error 문턱 위라 `weapon`·`time`·`crime_scene` 세 칸만 선언했다(CASE321의 `cover_up_target: other`와 같은 「비율로 물린」 자리이지만, 이번엔 남는 세 칸이 있어 `other` 대신 그 셋을 그대로 적었다). 등록 뒤 warn으로 내려가면 `cause_of_death`를 더할 여지가 있다.
