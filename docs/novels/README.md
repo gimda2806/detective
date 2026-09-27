@@ -409,6 +409,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE333 | 약장 셋째 칸 | [CASE333.md](CASE333.md) |
 | CASE335 | 국자를 내려놓은 자리 | [CASE335.md](CASE335.md) |
 | CASE336 | 마지막 발효조 점검 | [CASE336.md](CASE336.md) |
+| CASE337 | 온기가 식던 자리 | [CASE337.md](CASE337.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
