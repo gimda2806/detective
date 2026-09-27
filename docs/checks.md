@@ -26,7 +26,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | 단계 | 언제 | 무엇이 돈다 | 걸리면 |
 | --- | --- | --- | --- |
 | **① 로컬 — 쓰는 사람의 작업대** | 생성 루틴 2단계 · 마스터를 손으로 고친 뒤 · 판본을 만든 뒤 | `npm run check:case <ID>` = `validate_master` → converter coverage → evidence leak **셋을 다 돌리고**(첫 실패에서 멈추지 않는다) 판본(`.offline.json`)이 있으면 그 파일에도 앞의 둘을 다시 돈다. 그다음 `npm run check:offline <ID>` | 하나라도 error면 exit 1. 생성 루틴은 실패한 필드만 고쳐 재검증(필드별 3회) |
-| **② PR 검사 — 출고 게이트** (`.github/workflows/pr-checks.yml`) | 모든 PR과 main push | 순서대로: `check:codes`(판정 코드↔문서 대조) → `tsc --noEmit` → `lint:baseline`(oxlint 기준선 49) → `npm run build`(③ 포함) → **바뀐 마스터만** `check:case`와 `check:offline`(`*.master.json`과 `*.offline.json`을 폴더 이름의 id로 모아서; 20건 초과면 건너뛰고 손으로) | 어느 단계든 실패면 PR이 빨갛다. main에서 머지된 것끼리의 의미 충돌은 여기서 안 잡힌다(충돌 감시 루틴) |
+| **② PR 검사 — 출고 게이트** (`.github/workflows/pr-checks.yml`) | 모든 PR과 main push | 순서대로: `check:codes`(판정 코드↔문서 대조) → `tsc --noEmit` → `lint:baseline`(oxlint 기준선 49) → `npm run build`(③ 포함) → **바뀐 마스터만** `check:case`와 `check:offline`(`*.master.json`과 `*.offline.json`을 폴더 이름의 id로 모아서; 20건 초과면 건너뛰고 손으로). **PR에서 새로 추가된(A) 원본은 `check:case <ID> --new`** — registry 등록이 같은 PR에 있어도 새 사건으로 보아 E/W 검사와 오프라인 뼈대·대사 검사가 전부 error다(2026-09-27) | 어느 단계든 실패면 PR이 빨갛다. main에서 머지된 것끼리의 의미 충돌은 여기서 안 잡힌다(충돌 감시 루틴) |
 | **③ 빌드 — 포장 라인** (`scripts/build-case-assets.ts`, `npm run build:cases`) | `dev`·`build` 앞, ②의 build 단계 | **전 마스터**를 변환(`convertStructuredMaster`) → `validateUploadedCase`(런타임 봉투 검증, `validate_master`가 아니다) → `masterFormatWarnings`·`pendingReworkWarnings`를 사건 색인에 싣는다 | 변환·봉투 검증에 실패한 마스터는 **번들에서 빠진다**(`skipped` 경고) — 게임에 그 사건이 안 보인다. `validate_master` 코드는 여기서 안 돈다 |
 | **④ 런타임 — 매장** | 사건을 열 때 · 매 턴 | 목록의 「수사 가능」 라벨(`pendingReworkWarnings`) · 사건을 열 때 포맷 경고 넷(`masterFormatWarnings`) · AI GM 응답마다 `response-signals`·`evidenceLeakDetected` · 오프라인은 규칙표라 판정기가 없다(마스터에 안 적힌 것은 없는 것) | 화면에 경고로 뜨거나 응답을 고쳐 쓴다. 막지는 않는다 |
 | **⑤ 루틴·감사 — 정기 점검** | 루틴 회차 시작·끝, 사람이 손으로 | `check:novel`(소설 루틴·되먹임 루틴) · `audit:offline`(판본 루틴 입력) · `audit:format`(이주 루틴 입력) · `audit:duplication` · `check:spelling` · `check:banter`(대사 풀을 고친 뒤) · `recent:avoid`·`next:case-id`(생성 1단계) | 센다. CI에 없다 — 읽는 사람이 그 루틴이다 |
@@ -160,7 +160,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `BOARD_SUGGESTER_MISSING` · `BOARD_SUGGESTER_UNKNOWN` · `BOARD_CUE_MISSING` | 재료(`suggested_by`)가 없음 / 없는 id / 핵심어(`cue`) 없음 — 파일에 하나라도 재료가 있으면 전원 필수 | `H02`에 `suggested_by` 없음 | E |
 | `BOARD_SUGGESTER_ACT2_ONLY` | 재료 전부가 2막에서만 열림(카드 제시 전제·단계 release) → 1막에서 그 후보를 떠올릴 길이 없음 | 재료 셋이 다 `hidden_until: C02` 뒤 | E |
 
-### 2-10. 오프라인 판본 전용 (파일 이름이 `.offline.json`일 때만 돈다 — 원본에는 안 돈다, 부채는 `audit:offline`이 센다)
+### 2-10. 오프라인 뼈대·대사 (판본 `.offline.json`과 **등록되지 않은 원본 = 새 사건**에 돈다 — 2026-09-27 「입구 막기」. 등록된 옛 원본에는 안 돌고 부채는 `audit:offline`이 센다)
 
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |

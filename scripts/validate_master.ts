@@ -146,7 +146,12 @@ export function validateMaster(
   offlineVariant = false,
 ): Issue[] {
   const issues: Issue[] = [];
-  if (offlineVariant) {
+  // 입구 막기(2026-09-27 사용자 결정). 판본(`.offline.json`)에만 돌던 뼈대·대사
+  // 검사가 **등록되지 않은 원본(새 사건)에도** 돈다 — 새 원본은 오프라인 필수 표를
+  // 갖고 태어나야 하고, 그러면 그 번호에는 판본이 필요 없다. 등록된 옛 원본에는
+  // 여전히 안 돈다(부채는 `audit:offline` 이 세고 판본 루틴이 번호순으로 메운다).
+  // CI 는 PR 에서 새로 추가된 마스터를 `--new` 로 돌려 같은 판정을 받는다.
+  if (offlineVariant || !alreadyRegistered) {
     issues.push(...checkOfflineSkeleton(master));
     issues.push(...checkOfflineSpeech(master));
   }
@@ -5835,9 +5840,14 @@ export function deriveEngineViews(master: Master) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const fs = await import('node:fs');
   const nodePath = await import('node:path');
-  const path = process.argv[2];
+  // `--new` 는 registry 에 있어도 새 사건으로 본다(등록 무관 error). CI 가 PR 에서
+  // 새로 추가된 마스터에 붙인다 — 생성 루틴이 registry 등록을 같은 PR 에 넣으므로
+  // 그것만 보면 CI 에서는 새 사건이 늘 「등록됨」으로 읽혀 새 사건 error 가 한 번도
+  // 안 돌았다(2026-09-27).
+  const forceNew = process.argv.includes('--new');
+  const path = process.argv.slice(2).find((arg) => !arg.startsWith('--'));
   if (!path) {
-    console.error('사용법: npx tsx validate_master.ts <master.json>');
+    console.error('사용법: npx tsx validate_master.ts <master.json> [--new]');
     process.exit(1);
   }
   const master = JSON.parse(fs.readFileSync(path, 'utf-8'));
@@ -5856,6 +5866,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   } catch {
     // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
   }
+  if (forceNew) alreadyRegistered = false;
   // 파일 이름이 이미 그 구분을 들고 있다 — check-case.mjs 가 오프라인 판본을
   // 따로 한 번 더 돌리므로, 여기서 이름만 보면 호출부를 고칠 것이 없다.
   const issues = validateMaster(
