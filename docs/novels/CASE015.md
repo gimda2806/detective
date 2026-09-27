@@ -547,3 +547,12 @@
 **`voice_profile`이 한 명도 없다.** 이 소설이 읽은 값은 서도협 `procedural` · 유단비 `guarded` · 고재원 `skittish` · 방주안 `skittish` · 도현우 `unruffled`다. 진범이 `procedural`이므로 같은 stance를 가진 인물이 하나는 있어야 하는데(`STANCE_CULPRIT_TELL`), 도현우를 `procedural`로 두면 자연히 맞는다 — 규정 뒤에 선 사람이라 말투도 그렇다.
 
 그리고 **11번(묻기 전에 먼저 대답하는 것)은 따로 옮길 자리가 없다.** `S-CH01-01`과 `S-CH01-02`가 이미 그의 첫 두 마디이고, `stance`가 들어가면 엔진이 첫마디를 그 태도로 고른다.
+
+---
+
+## 판본 노트
+
+이 번호의 오프라인 판본 `Case-No-015.offline.json`을 만든 손이 쓴 노트는 판본 파일 옆의
+[`data/pending-cases/CASE015/Case-No-015.offline.md`](../../data/pending-cases/CASE015/Case-No-015.offline.md)에
+있다(2026-09-26 사용자 결정 — 판본 노트는 소설이 아니라 판본 옆에 둔다). 위 「오프라인으로 옮길 것」의
+어느 줄이 어느 필드가 됐는지, 설계도에서 비켜난 자리가 어디인지가 거기 있다.
