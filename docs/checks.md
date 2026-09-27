@@ -108,6 +108,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `STAGE_COMPARISON_NOT_LIE` | `requires_comparison.claim_id`가 없거나 그 사람의 S- lie가 아니거나 `requires_heard_claim_ids`에 없음 | 비교 진술이 참 진술 `S-CH01-01`(truth) | E* |
 | `STAGE_REQUIRES_BEYOND_COMPARISON` | 요구 카드에 비교 카드가 아닌 것이 끼어 있음 → 진술을 깰 카드를 다 내밀어도 안 열림(CASE008 `C01` 실플레이) | 비교 `[E03,E04]`, 요구 `[E03,E04,E07]` | E* |
 | `STAGE_RELEASE_NO_BODY` | `release.claim_or_fact_id`가 가리키는 진술·사실의 **본문이 어디에도 없음** → 수첩에 id만 꽂히고 그 사람이 무슨 말을 했는지가 안 남음(교차참조는 통과시킨다 — `collectIds`가 「이후 정의되는 사실」로 먼저 등록한다) | `C01.release: F-CH02-02`인데 CH02의 `knows`에 그 id가 없음 | E* |
+| `STAGE_KEY_SEALED_BY_OWN_STAGE` | 단계가 「들었을 것」으로 거는 진술(`requires_heard_claim_ids`·`requires_comparison.claim_id`)이 **그 단계나 그 뒤 단계로 `hidden_until` 잠겨 있음** → 말을 들으려면 단계를 깨야 하고 단계를 깨려면 그 말을 들어야 하는 고리. 지금 안 갇히는 것은 첫 면담이 잠긴 진술을 앞 두 줄까지 그냥 말해 주기 때문일 뿐이다(`offline-engine.ts`의 `servedLater`) | `C01.requires_heard_claim_ids: [S-CH01-01]`인데 CH01의 `hidden_until`이 `S-CH01-01`을 `release_prerequisite: C01`로 잠금 | E* |
 
 ### 2-6. 진술·아는 것
 
