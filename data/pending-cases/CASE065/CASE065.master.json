@@ -701,12 +701,6 @@
           "requires": "없음",
           "release_evidence_id": "E07",
           "result": "며칠 전에 정기 점검했을 뿐 별문제 없었다고 한다."
-        },
-        {
-          "action": "봉기석에게 사고 이후 계속 어디 있었는지 묻는다.",
-          "requires": "없음",
-          "release_evidence_id": "E20",
-          "result": "사고 나고서도 계속 이 자리에 있었고 어디 간 데 없다고 한다."
         }
       ]
     },
@@ -1119,18 +1113,6 @@
         "detective": "지금은 그렇게 안 보이던데."
       },
       "points_at": "CH01"
-    },
-    {
-      "id": "E20",
-      "name": "봉기석의 증언 — 알리바이",
-      "source_type": "testimony",
-      "found_at": "L02",
-      "discovery_condition": "봉기석에게 사고 이후 계속 어디 있었는지 묻는다.",
-      "content": "사고 나고 나서도 저는 계속 이 자리에 있었어요, 어디 간 데 없이.",
-      "proves": ["봉기석 본인은 사고 후 자리를 뜨지 않았다고 주장한다"],
-      "does_not_prove": ["그 말이 사실인지"],
-      "presentation_effect": [],
-      "points_at": null
     }
   ],
   "contradiction_stages": [
