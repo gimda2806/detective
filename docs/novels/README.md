@@ -416,6 +416,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE343 | 종달새가 울지 않은 밤 | [CASE343.md](CASE343.md) |
 | CASE344 | 열리지 않은 조정실 | [CASE344.md](CASE344.md) |
 | CASE345 | 발판이 마르기 전에 | [CASE345.md](CASE345.md) |
+| CASE346 | 기억나지 않는 손 | [CASE346.md](CASE346.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
