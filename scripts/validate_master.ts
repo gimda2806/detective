@@ -3078,6 +3078,24 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
         message: `${herring.id}에 ${missing.join(', ')}가 없다. 스키마가 이 셋을 오프라인 전용 마스터의 필수로 적어 두었다 — character_id 가 없으면 런타임이 문장 속 이름으로 주인을 찾고(가나다순으로 먼저인 쪽이 잡힌다), weight 가 없으면 「그럴 만한 사람」에서 그치며, clearing_points_at 이 없으면 헛다리를 지우는 것이 진범 쪽으로 한 걸음이 되지 않는다.`,
       });
     }
+    // `weight` 가 있어도 하위 칸이 비면 필수 표를 채운 척만 한 것이다(2026-09-27 실측:
+    // 판본 14건 중 넷의 헛다리 6개가 motive 또는 means_first_reading 이 빈 문자열이었다).
+    // 런타임은 weight 를 읽지 않지만 필수 표에 올려 둔 값이라 비어 있으면 error 다
+    // (사용자 결정 「채운다」). 원본에는 이 검사가 돌지 않는다(weight 자체가 선택이다).
+    if (herring.weight && typeof herring.weight === 'object') {
+      const weight = herring.weight as Record<string, unknown>;
+      const empty = ['motive', 'opportunity', 'means_first_reading'].filter(
+        (key) => typeof weight[key] !== 'string' || !(weight[key] as string).trim(),
+      );
+      if (!Array.isArray(weight.means) || weight.means.length === 0) empty.push('means');
+      if (empty.length) {
+        issues.push({
+          severity: 'error',
+          code: 'OFFLINE_WEIGHT_EMPTY',
+          message: `${herring.id}.weight 의 ${empty.join(', ')}가 비어 있다. weight 는 판본 필수 표의 칸이고 넷(motive 는 M## id · opportunity · means 카드 · means_first_reading)을 다 채운다 — 비워 두면 필수 표를 채운 척만 한 것이다.`,
+        });
+      }
+    }
     if (herring.character_id && herring.character_id === culprit) {
       issues.push({
         severity: 'error',

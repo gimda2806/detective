@@ -433,6 +433,11 @@
           "content": "제가 건조실에 들어가 조민하와 계약서 문제로 말다툼했어요. 하지만 몸싸움이나 폭행은 없었고 조민하가 스스로 쓰러졌어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "...그게, 제가 그랬습니다. 민하를 건조판 사이로 밀어 넣은 것도, 온도조절기를 최고 단계로 돌린 것도 전부 저예요. 계약서 원본도 태워 없애려고 했고요. 한백제지에 배합 비율 넘긴 걸 들키고 싶지 않았습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
@@ -449,6 +454,11 @@
           "fact_or_claim_id": "S-CH02-04",
           "release_prerequisite": "S-CH02-03",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [],
