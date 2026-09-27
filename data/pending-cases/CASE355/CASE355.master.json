@@ -1,0 +1,1414 @@
+{
+  "case_identity": {
+    "case_id": "CASE355",
+    "title": "온실 뒤편",
+    "english_title": "Behind the Greenhouse",
+    "genre": "부지 매각 계약 발각을 막기 위한 살인 / 도구창고에서 벽돌 받침돌로 내리친 뒤 관수 시스템 접속 기록을 조작해 시간대를 지움",
+    "setting": "도심 외곽의 온실카페 '그린하우스'. 대표 하다온과 동업자 강마루가 7년째 함께 꾸려 온 이곳은 그날 저녁 '나이트가든'이라는 야간 조명 행사로 처음 문을 여는 날이었다. 며칠 전 끝난 온실 보수 공사 자재가 아직 마당 한쪽에 쌓여 있었고, 직원들은 저녁 개장에 맞춰 마지막 점검으로 분주했다.",
+    "location_archetypes": ["cafe_bar", "natural_outdoor"],
+    "background": {
+      "background_archetypes": ["opening_completion", "construction_renovation"],
+      "background_phrasing": ["recently_completed"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "onsite_recognized_and_asked",
+    "detective_entry": "탐정은 그린하우스 근처 산책로를 걷다가 종종 들르던 카페 안으로 들어섰고, 마침 홀에 있던 오세림이 탐정을 알아보고 낮은 목소리로 잠시 봐줄 수 있겠냐고 물었다.",
+    "tone": "보수를 막 마친 온실 특유의 흙과 물 냄새 나는 공기와, 개장을 앞둔 들뜸 밑에 조용히 눌려 있는 긴장의 대비. 탐정과 한지우는 산책 중 우연히 사건 한복판에 들어선다.",
+    "tags": ["온실카페", "나이트가든", "동업_관계"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하다온",
+      "role": "온실카페 그린하우스 대표",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 18:10",
+    "narrative": "산책로 끝, 그린하우스 유리 온실이 노을에 붉게 물들어 있었다. 마당 한쪽에 쌓인 보수 공사 자재 더미를 지나 카페 문을 밀고 들어서자, 오세림이 카운터에서 눈이 마주치자마자 다가왔다.\n\n\"저기... 잠깐 시간 괜찮으세요? 대표님이 좀 이상해서요.\"\n\n\"이상하다니.\"\n\n한지우가 먼저 몸을 돌렸다.\n\n\"일단 가 보죠.\"\n\n도구창고 앞, 오세림이 몇 번 문을 두드렸지만 안에서는 아무 기척이 없었다. 손잡이를 돌리자 잠기지 않은 문이 그대로 열렸고, 기울어진 선반 옆 바닥에 하다온이 쓰러진 채 미동이 없었다.\n\n\"확실히...\"\n\n\"숨은.\"\n\n한지우가 무릎을 굽혀 손목을 짚었다가 고개를 저었다.\n\n흙 묻은 도구들 냄새 사이로, 저녁 개장을 앞둔 정원 쪽에서는 아직 아무도 이 일을 모르는 듯 조명 점검하는 소리가 이어지고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "행사는 결국 취소됐고, 정원의 조명 케이블은 켜지지 않은 채 그대로 놓여 있었다. 도구창고 앞 계단에 앉은 강마루는 한참 말이 없다가, 낮은 목소리로 입을 열었다.\n\n\"...그 시각 창고에 들어간 건 맞아요.\"\n\n\"그리고.\"\n\n\"다온이가... 그 계약서 사본을 눈앞에 내밀면서 설명을 요구했어요. 그러다 언성이 높아졌고... 정신을 차려 보니 받침돌이 손에 들려 있었어요.\"\n\n한지우가 수첩을 천천히 덮었다. 탐정도 더 묻지 않았다.\n\n\"7년 함께 일군 게, 7분 만에 무너졌네.\"\n\n\"...까놓고 말하면, 그런 셈이네요.\"\n\n계단 아래에서는 진서우가 아직 정리하지 못한 조명 케이블을 물끄러미 내려다보고 있었다.\n\n건물을 나서자 어느새 밤이 깊어 있었다. 한지우가 크게 기지개를 켰다.\n\n\"저 오늘 야근 수당 청구할 거예요.\"\n\n\"청구서 낼 데도 없잖아.\"\n\n\"그러니까 더 억울하죠.\""
+  },
+  "surface_incident": [
+    "온실카페 그린하우스 대표 하다온이 도구창고에서 숨진 채 발견됐다. 경찰은 정확한 사인을 조사 중이라고 밝혔다.",
+    "그날 저녁 예정됐던 나이트가든 개장 행사는 결국 취소됐다.",
+    "도구창고는 직원 카드가 있어야 드나들 수 있는 구역으로, 오후 다섯 시 이후에는 자동으로 잠기는 구조였다는 것이 확인됐다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "강마루는 8개월 전 자금난을 이유로 개발업체와 온실 부지 절반을 넘기는 가계약을 하다온 몰래 체결했다. 잔금 지급 기한이 이달 말로 다가온 가운데, 하다온이 등기부등본에서 소유권 이전 예고 등기를 발견하고 변호사를 통해 그 사실을 확인한 뒤 당사자인 자신에게 직접 해명을 요구하려 한다는 것을 알게 되자, 강마루는 지금까지 쌓아 온 것과 잔금 모두를 한꺼번에 잃을 위기에 몰렸다.",
+    "motive_archetypes": ["development_profit", "contract_breach"],
+    "method": "나이트가든 행사 준비로 분주하던 저녁, 도구창고에서 계약서 사본을 들이대는 하다온과 언쟁하다 격해진 강마루가 선반 다리를 받치던 벽돌 받침돌을 들어 하다온의 머리를 내리쳤다.",
+    "method_archetypes": ["blunt_force", "staging_cover_up"],
+    "key_time_location": "사건 당일 17:22, 도구창고(L02)",
+    "cover_up": "강마루는 관수 시스템 제어반에 남은 자신의 접속 기록에서 그 구간을 지우려 했지만 완전히 지우지 못했고, 받침돌을 야외 정원 화단 흙 속에 던져 두었으며, 쓰러진 선반을 다시 세워 사고처럼 꾸민 뒤 태연히 행사 준비로 돌아갔다. 캐물으면 곽시완의 약품 재고 문제를 슬쩍 흘리며 화제를 돌리려 했다.",
+    "cover_up_target": ["time", "weapon", "evidence", "responsibility"],
+    "cover_up_method": ["digital_record_manipulation", "weapon_disposal", "false_accident", "witness_misdirection"],
+    "decisive_evidence_ids": ["E23", "E11", "E12", "E10"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 약 10개월 전",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 인근 재개발업체 실무자로부터 온실 부지 절반을 사겠다는 제안을 처음 받는다.",
+      "world_fact": "강마루는 그 제안을 하다온에게 알리지 않았다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 8개월 전",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 자금 압박을 이기지 못해 개발업체와 부지 절반을 넘기는 가계약서에 몰래 서명한다.",
+      "world_fact": "강마루는 그 가계약서 사본을 자신이 쓰는 캐비닛 안쪽 서류철 사이에 넣어 두었다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 6주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하다온이 등기소에서 발급받은 등기부등본을 훑어보다가 낯선 소유권 이전 예고 등기를 발견한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 3주 전",
+      "location": "L04",
+      "actors": ["V01", "CH05"],
+      "actual_action": "강마루가 하다온의 추궁에 예전 대출 담보 설정일 뿐이라며 둘러댄다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 2주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하다온이 아는 변호사에게 연락해 그 등기 서류 사본을 전달하고 사실관계를 확인해 달라고 부탁한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 4일 전",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 가계약 잔금 지급 기한이 이달 말이라는 통지서를 받고 초조해한다.",
+      "world_fact": "강마루는 잔금을 받지 못하면 그동안 끌어다 쓴 사채까지 한꺼번에 갚아야 하는 처지였다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 11:00",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하다온이 변호사에게서 그 등기가 강마루 명의의 가계약과 이어져 있다는 회신을 받는다.",
+      "world_fact": "하다온은 그날 저녁 강마루에게 직접 사본을 보여주고 해명을 듣기로 마음먹는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14:00",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "진서우가 나이트가든 조명 설치를 위해 정원 화단 곳곳에 케이블을 깔아 놓는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 16:30",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "채이서가 도착해 그날 저녁 개장 행사 큐시트를 최종 점검한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 17:05",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하다온이 강마루에게 도구창고에서 잠깐 보자는 메모를 남긴다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 17:08",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "진서우가 조명 케이블을 정리하다 도구창고 쪽으로 향하는 강마루를 얼핏 본다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 17:10",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 출입카드로 도구창고 문을 열고 들어간다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 17:12",
+      "location": "L02",
+      "actors": ["V01", "CH05"],
+      "actual_action": "하다온이 가계약서 사본을 강마루 앞에 내밀며 해명을 요구한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 17:22",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "언쟁이 격해지자 강마루가 선반 다리를 받치던 벽돌 받침돌을 들어 하다온의 머리를 내리친다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 17:26",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 관수 시스템 제어반 화면에 남은 자신의 접속 기록을 알아채고 그 구간을 지우려 하지만 완전히 지우지 못한다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 17:32",
+      "location": "L05",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 받침돌을 야외 화단 흙 속에 던져 넣고 수돗가에서 손을 씻는다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 17:40",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 쓰러진 선반을 다시 세우고 바닥을 세제로 대충 닦아낸 뒤 도구창고를 나선다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 17:45",
+      "location": "L06",
+      "actors": ["CH05"],
+      "actual_action": "강마루가 휴게실 사물함에서 여벌 셔츠로 갈아입는다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 18:00",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "오세림이 카운터에서 하다온이 안 보이자 내선 전화로 도구창고 쪽을 불러 보지만 응답이 없다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 18:05",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "오세림이 도구창고 문을 두드려도 답이 없자 손잡이를 돌려 직접 열어 보다가 바닥에 쓰러진 하다온을 발견한다."
+    },
+    {
+      "id": "T21",
+      "time": "사건 당일 18:10",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "오세림이 마침 산책로에서 카페로 들어선 탐정에게 다가가 조용히 도움을 청하고, 탐정과 한지우가 함께 도구창고로 향한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "진서우",
+      "role": "조경 디자이너",
+      "present_location": "L05",
+      "comic_tell": "생각할 때 손가락으로 허공에 화단 모양을 그린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "채이서와 하다온이 정산 문제로 언성을 높이는 소리를 얼핏 들은 적이 있다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "정원 리모델링 제안이 보류된 뒤에도 하다온은 자신의 다음 시안을 기다리고 있었다는 것을 나중에 전해 들었다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "요즘 화단 배치를 조금씩 바꿔 보고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 정원에서 조명 케이블 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "강마루와 하다온 사이에 어떤 서류 문제가 있었는지는 모른다.",
+        "도구창고 안에서 실제로 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다정하고 부드러운 말투.",
+        "sentence_length_tendency": "평소엔 여유 있게 말하지만, 몰리면 문장이 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "말끝에 '어쨌거나요'를 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그건... 저도 잘 모르는 일이에요.",
+        "제가 왜 자꾸 의심받아야 하는지 모르겠네요.",
+        "어쨌거나요, 저는 정원 일만 했을 뿐이에요."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-01",
+        "opens": "S-CH01-01",
+        "says": "정산 문제로 이서씨랑 대표님이 언성 높이는 걸 얼핏 들은 적은 있어요.",
+        "reveals": "채이서와 하다온 사이에 최근 정산 관련 갈등이 있었다는 것"
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "오세림",
+      "role": "바리스타 / 매니저 / 시신 발견자",
+      "present_location": "L03",
+      "comic_tell": "당황하면 앞치마 끈을 만지작거린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "진서우가 그날따라 창고 쪽을 자꾸 신경 쓰는 눈치였다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "전화 통화로는 창고 안 사정을 알 길이 없다고 생각했다.",
+          "source": "직접 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "도구창고는 인기척이 있어도 밖에서 잘 안 들리는 구조라, 발견 시각이 곧 사망 시각은 아니라고 생각했다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘따라 대표님이 유난히 말수가 적으셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 계속 카운터에서 마감 준비하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "도구창고 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "강마루와 하다온 사이의 서류 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝고 상냥한 표준 존댓말.",
+        "sentence_length_tendency": "평소엔 빠르고 경쾌하게 말하지만, 몰리면 말이 자꾸 끊긴다.",
+        "verbal_tic": "'막상 보면'을 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그, 그건 저도 잘 모르겠어요.",
+        "제가 뭘 잘못 봤을 수도 있잖아요.",
+        "막상 보면, 저는 그냥 발견한 죄밖에 없는데요."
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH02-01",
+        "opens": "S-CH02-01",
+        "says": "서우씨가 그날따라 창고 쪽을 자꾸 힐끔거리긴 하더라고요.",
+        "reveals": "진서우가 그날 도구창고 쪽에 유난히 신경 쓰고 있었다는 것"
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "곽시완",
+      "role": "원예팀장",
+      "present_location": "L01",
+      "comic_tell": "설명할 때 손끝으로 잎사귀를 살짝 건드린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "강마루가 최근 심리적으로 불안정한 상태였다는 것을 눈치챈 적이 있다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "소독 약품 재고가 장부와 맞지 않는다는 것을 얼마 전부터 알고 있었지만 아직 보고하지 못했다.",
+          "source": "직접 확인"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "선반이 넘어지는 정도로는 그렇게 깊은 함몰흔이 남지 않는다는 것을 경험상 알고 있다.",
+          "source": "업무상 경험"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "관수 제어반은 저전압 설비라 감전 위험이 없다는 것을 알고 있다.",
+          "source": "업무상 알고 있음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "대표님이 요즘 말수가 부쩍 줄어드신 것 같아 마음이 쓰였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 온실에서 화분 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH03-03"
+        }
+      ],
+      "knowledge_limits": [
+        "도구창고 안에서 실제로 무슨 일이 있었는지는 모른다.",
+        "강마루와 하다온 사이의 서류 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분하고 사무적인 존댓말.",
+        "sentence_length_tendency": "평소엔 느긋하게 설명하듯 말하지만, 몰리면 대답이 짧아진다.",
+        "verbal_tic": "말끝에 '확실한 건'을 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "글쎄요, 저는 식물 말고는 잘 몰라서요.",
+        "자꾸 그러시면 저도 곤란한데요.",
+        "확실한 건, 저는 온실 밖으로 거의 안 나갔다는 거예요."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "마루 대표님이 요 며칠 좀 날카로우셨어요, 뭔가 있으신 거 같긴 했는데.",
+        "reveals": "강마루가 최근 심리적으로 불안정한 상태였다는 것"
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "채이서",
+      "role": "행사 기획자 / 외부 파트너",
+      "present_location": "L03",
+      "comic_tell": "긴장하면 태블릿 화면을 괜히 톡톡 두드린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오세림이 그날 저녁 평소와 달리 불안해 보였다는 것을 눈치챈 적이 있다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "정산 문제는 사건 전날 이미 하다온과 합의를 봤다.",
+          "source": "직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "오늘 큐시트 마지막 점검만 남아서 한숨 돌리던 참이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 계속 카페 홀에서 큐시트 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "강마루와 하다온 사이의 서류 문제는 전혀 모른다.",
+        "도구창고 안에서 실제로 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 빠릿한 말투.",
+        "sentence_length_tendency": "평소엔 빠르게 요점만 말하지만, 몰리면 말이 길어지고 변명이 늘어난다.",
+        "verbal_tic": "'뭐랄까요'를 자주 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "그거요? 이미 다 끝난 얘기예요.",
+        "왜 자꾸 저한테 그 얘길 물으시는지 모르겠네요.",
+        "뭐랄까요, 저는 그냥 행사만 신경 쓰고 있었어요."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-01",
+        "opens": "S-CH04-01",
+        "says": "세림씨가 그날 저녁 되게 초조해 보이던데, 왜 그런지는 모르겠어요.",
+        "reveals": "오세림이 그날 저녁 평소와 달리 불안해 보였다는 것"
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "강마루",
+      "role": "공동대표",
+      "present_location": "L04",
+      "comic_tell": "말을 고를 때 안경테를 슬쩍 밀어 올린다.",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "17시 10분경 도구창고에 들어갔다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 안에서 하다온과 말다툼이 있었다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "다툼 끝에 벽돌 받침돌로 하다온을 내리쳤다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "곽시완이 최근 약품 재고 문제로 스트레스를 받고 있다는 것을 들은 적이 있다.",
+          "source": "지나가는 대화로 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "요즘 온실 유리 코팅 상태가 계속 마음에 걸렸어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 계속 사무실 쪽에 있었어요, 도구창고엔 간 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "처음엔 완전히 발뺌하려는 반사적 거짓말."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그건 인정하는데, 밸브 점검 때문에 잠깐 들렀을 뿐이고 하다온 대표님과는 마주치지도 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "완전히 발뺌하기 어려워지자 최소한으로만 인정하려는 시도."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "말다툼만 했을 뿐 손찌검은 없었고, 제가 나올 때 대표님은 멀쩡히 서 계셨어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살인 사실이 드러나는 것을 막기 위한 마지막 저항."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        }
+      ],
+      "knowledge_limits": [
+        "채이서와 하다온 사이의 정산 문제 자세한 내용은 모른다.",
+        "진서우의 정원 리모델링 제안이 정확히 어떤 내용이었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사업가답게 매끄럽게 다듬어 말한다.",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하지만, 몰리면 문장이 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "'까놓고 말하면'을 자주 쓴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그만 좀 물으세요. 저도 힘든 하루예요.",
+        "다들 왜 저한테만 이러시는지 모르겠네요.",
+        "까놓고 말하면, 제가 뭘 어떻게 설명해도 안 믿으실 거잖아요."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "시완씨가 요새 약품 재고 문제로 예민해 보이던데요.",
+        "reveals": "곽시완이 최근 약품 재고 문제로 스트레스를 받고 있었다는 것"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH05"],
+      "nature": "7년째 함께 온실카페를 일궈 온 공동대표 사이.",
+      "public_face": "죽마고우 같은 동업자로 알려져 있다.",
+      "says": {
+        "CH05": "다온이는 제 대학 동기이자 이 온실을 함께 일군 사람이에요."
+      },
+      "private_strain": "강마루는 하다온 몰래 개발업체와 부지 매각 가계약을 맺었다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 가계약서 사본(E08)을 강마루에게 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "3년째 함께 정원을 설계해 온 대표와 조경 디자이너.",
+      "public_face": "의견 차이는 있어도 서로를 신뢰하는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "대표님은 제 아이디어를 존중해 주시는 분이었어요, 대체로는요."
+      },
+      "private_strain": "진서우는 최근 정원 리모델링 제안이 거절된 것에 서운함을 감추고 있다.",
+      "surfaces_when": "탐정이 진서우에게 정원 리모델링 거절 메일(E18)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "5년째 카페 홀을 맡아 온 매니저와 대표.",
+      "public_face": "가장 가까운 직원으로 알려져 있다.",
+      "says": {
+        "CH02": "대표님은 제겐 언니 같은 분이었어요."
+      },
+      "private_strain": "오세림은 최근 급여 인상 요청을 아직 못 했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 오세림에게 대표님과의 최근 대화(S-CH02-01)를 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "10년 지기, 온실을 처음 함께 꾸린 원예팀장과 대표.",
+      "public_face": "가장 오래된 동료로 알려져 있다.",
+      "says": {
+        "CH03": "대표님이 안 계셨으면 이 온실은 진작 문 닫았을 거예요."
+      },
+      "private_strain": "곽시완은 소독 약품 재고가 장부와 맞지 않는다는 것을 대표에게 아직 알리지 못했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 곽시완에게 약품 재고 문제(F-CH03-02)를 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "이번 나이트가든 행사를 위해 두 달간 함께 준비해 온 외부 기획자와 대표.",
+      "public_face": "합이 잘 맞는 파트너로 알려져 있다.",
+      "says": {
+        "CH04": "대표님이 꼼꼼하셔서 저는 오히려 편했어요."
+      },
+      "private_strain": "채이서는 행사비 정산 문제로 하다온과 최근 언쟁했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 채이서에게 정산 서류 사본(E20)을 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH05"],
+      "nature": "같은 시기 합류해 정원과 경영을 나눠 맡아온 사이.",
+      "public_face": "업무적으로 무난한 사이로 알려져 있다.",
+      "says": {
+        "CH01": "마루 오빠랑은 그렇게 자주 부딪히진 않아요.",
+        "CH05": "서우씨는 정원 일에 관해선 꼼꼼한 편이죠."
+      },
+      "private_strain": "진서우는 강마루가 최근 정원 예산을 자꾸 미루는 것에 불만을 갖고 있다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 진서우에게 강마루와의 예산 문제(S-CH01-01)를 캐물을 때."
+    },
+    {
+      "id": "REL07",
+      "between": ["CH02", "CH03"],
+      "nature": "매일 아침 개점 준비를 함께 하는 매니저와 원예팀장.",
+      "public_face": "친남매처럼 편한 사이로 알려져 있다.",
+      "says": {
+        "CH02": "승효 오빠는 식물이라면 뭐든 다 아는 분이에요.",
+        "CH03": "세림이는 손이 빨라서 늘 믿음직해요."
+      },
+      "private_strain": "오세림은 곽시완이 요즘 뭔가 숨기는 눈치라는 것을 느꼈다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 오세림에게 곽시완의 최근 행동(F-CH03-02)을 캐물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "온실 재배동",
+      "access": "영업시간엔 손님도 드나들 수 있는 재배 공간이지만, 안쪽 다육식물 코너는 직원 전용으로 표시돼 있다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L05"],
+      "base_description": "천장까지 이어진 유리 지붕 아래 관엽식물 화분이 줄지어 서 있고, 통로 한쪽엔 흙 포대와 물뿌리개가 쌓여 있다. 안쪽 다육식물 코너에서 곽시완은 손에 든 재고 장부를 몇 번이고 다시 넘겨 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "온실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "나이트가든 행사 안내판에 오늘 저녁 첫 점등이 예정돼 있다고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "소독 약품 보관함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "보관함 옆에 재고 확인 메모지 한 장이 붙어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "도구창고",
+      "access": "출입카드가 있어야 열리는 직원 전용 공간. 오후 다섯 시 이후로는 자동으로 잠긴다.",
+      "access_level": "sealed",
+      "connects_to": ["L01", "L05", "L06"],
+      "base_description": "좁은 창고 안, 선반 하나가 옆으로 기울어 화분들이 바닥에 쏟아져 있고 그 아래 하다온이 미동 없이 엎드려 있다. 구석 벽에는 관수 시스템 제어반 화면이 조용히 켜져 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "창문이 없는 구조라 안쪽 소리가 밖으로 거의 새어 나가지 않는다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 선반 다리를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "선반 다리 한쪽을 받치고 있어야 할 벽돌 받침돌이 보이지 않는다."
+        },
+        {
+          "action": "관수 시스템 제어반 접속 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "화면에 그날 오후 접속 기록이 시각순으로 떠 있다."
+        },
+        {
+          "action": "바닥에 남은 얼룩을 살펴본다",
+          "requires": "오세림",
+          "release_evidence_id": "E04",
+          "result": "바닥 한쪽이 다른 자리보다 유난히 말끔하게 닦여 있다."
+        },
+        {
+          "action": "초동 검안 메모를 확인한다",
+          "requires": "오세림",
+          "release_evidence_id": "E15",
+          "result": "감식반이 남기고 간 메모 한 장이 옆에 놓여 있다."
+        },
+        {
+          "action": "도구창고 문 앞 태그 기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E23",
+          "result": "문 옆 단말기에 그날 오후 출입 기록이 시각순으로 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "카페 홀",
+      "access": "누구나 드나들 수 있는 공용 카페 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L04"],
+      "base_description": "낮은 원목 테이블 사이로 화분이 놓여 있고, 카운터 안쪽에서 오세림이 컵을 정리하며 시계를 힐끔거린다. 구석 테이블에서는 채이서가 태블릿으로 큐시트를 넘겨 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "카페 홀을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "게시판에 오늘 저녁 나이트가든 행사 포스터가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "카운터 옆 내선 전화 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "내선 전화 옆 메모지에 통화 시각이 적혀 있다."
+        },
+        {
+          "action": "채이서의 태블릿 화면을 살펴본다",
+          "requires": "채이서",
+          "release_evidence_id": "E06",
+          "result": "큐시트 옆에 열려 있는 메시지창이 눈에 띈다."
+        },
+        {
+          "action": "구석 테이블 위 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E20",
+          "result": "행사비 정산 서류 사본 한 장이 테이블 위에 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "공동대표실",
+      "access": "하다온과 강마루가 함께 쓰는 사무실. 평소엔 잠겨 있고 열쇠는 둘만 소지한다.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "마주 놓인 책상 두 개 사이로 서류함이 늘어서 있고, 벽에는 개업 당시 사진이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "하다온의 책상 위 달력에 오늘 날짜 칸에만 작게 별 표시가 돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "하다온의 책상 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "서랍 안쪽에 등기부등본 한 장이 끼워져 있다."
+        },
+        {
+          "action": "강마루 쪽 캐비닛을 살펴본다",
+          "requires": "강마루",
+          "release_evidence_id": "E08",
+          "result": "캐비닛 안쪽 서류철 사이에 낯선 계약서 한 부가 끼워져 있다."
+        },
+        {
+          "action": "책상 위 메모지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "메모지 한 장이 책상 위에 놓여 있다."
+        },
+        {
+          "action": "벽 쪽 서류함 위 출력물을 확인한다",
+          "requires": "진서우",
+          "release_evidence_id": "E18",
+          "result": "출력된 이메일 한 장이 서류함 위에 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "야외 정원",
+      "access": "누구나 드나들 수 있는 야외 공간. 수돗가가 한쪽에 있다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "화단 사이로 아직 켜지지 않은 조명 케이블이 어지럽게 놓여 있고, 진서우는 그 한쪽 끝을 붙들고 각도를 맞추고 있다.",
+      "observation_rules": [
+        {
+          "action": "정원을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "수돗가 근처 바닥이 다른 자리보다 젖어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "화단 흙 속을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "화단 한쪽 흙이 얕게 파헤쳐진 흔적이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "직원 휴게실",
+      "access": "직원 전용 휴게 공간. 개인 사물함마다 자물쇠가 걸려 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "낡은 소파 하나와 개인 사물함 다섯 개가 나란히 늘어서 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "세탁 바구니 안에 젖은 걸레 한 장이 아무렇게나 던져져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "강마루의 사물함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "사물함 안쪽에 여벌 셔츠가 구겨진 채 걸려 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "소독 약품 재고 확인 메모",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "소독 약품 보관함을 살펴본다",
+      "content": "약품 보관함 옆 메모지에 재고 수량이 장부보다 여섯 병 적게 적혀 있다.",
+      "proves": ["온실 소독 약품 재고가 장부와 맞지 않는다는 것"],
+      "does_not_prove": ["왜 재고가 안 맞는지"],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "재고를 확인한 날짜가 최근인데도 아직 아무 보고도 올라가지 않았다."
+    },
+    {
+      "id": "E02",
+      "name": "선반의 빈 받침돌 자리",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 선반 다리를 살펴본다",
+      "content": "선반 다리 한쪽을 받치고 있어야 할 벽돌 받침돌이 보이지 않고, 그 자리만 바닥 먼지가 도드라진다.",
+      "proves": ["그 받침돌이 원래 있던 자리에서 사라졌다는 것"],
+      "does_not_prove": ["받침돌이 지금 어디 있는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "다른 다리 세 곳은 전부 받침돌이 그대로 있다."
+    },
+    {
+      "id": "E03",
+      "name": "관수 시스템 제어반 접속 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "관수 시스템 제어반 접속 로그를 확인한다",
+      "content": "화면 기록에 17시 10분부터 17시 26분까지 접속이 표시돼 있는데, 17시 26분부터 17시 28분 구간만 기록이 비어 있다.",
+      "proves": ["그 시간대 누군가 접속 기록을 지우려 했다는 것"],
+      "does_not_prove": ["누가 지웠는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "평소 이 화면은 접속이 끊길 때마다 기록이 남는데, 이 구간만 아예 비어 있다."
+    },
+    {
+      "id": "E04",
+      "name": "닦인 바닥 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "바닥에 남은 얼룩을 살펴본다",
+      "content": "바닥 한쪽이 다른 자리보다 유난히 말끔하고, 세제 냄새가 옅게 남아 있다.",
+      "proves": ["누군가 그 자리를 최근에 닦아냈다는 것"],
+      "does_not_prove": ["무엇을 닦아냈는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "창고 안 다른 자리는 먼지가 그대로 쌓여 있는데 그 한 자리만 유독 깨끗하다."
+    },
+    {
+      "id": "E05",
+      "name": "내선 전화 통화 기록 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "카운터 옆 내선 전화 기록을 확인한다",
+      "content": "메모지에 '18:00 도구창고 호출 - 무응답'이라고 적혀 있다.",
+      "proves": ["18시에 도구창고로 건 내선 전화에 응답이 없었다는 것"],
+      "does_not_prove": ["그 시각 안에 사람이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "평소엔 도구창고에서도 내선 전화를 바로 받는 편이라고 알려져 있다."
+    },
+    {
+      "id": "E06",
+      "name": "채이서의 정산 메시지 창",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "채이서의 태블릿 화면을 살펴본다",
+      "content": "태블릿 메시지창에 '이번 행사비 정산 건은 좀 더 얘기해 봐요'라는 하다온의 메시지가 열려 있다.",
+      "proves": ["하다온과 채이서 사이에 최근 정산 관련 대화가 있었다는 것"],
+      "does_not_prove": ["그 대화가 사건과 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "메시지 아래로 채이서의 답장은 아직 달리지 않은 채로 남아 있다."
+    },
+    {
+      "id": "E07",
+      "name": "서랍 속 등기부등본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "하다온의 책상 서랍을 살펴본다",
+      "content": "등기부등본 한 장에 소유권 이전 예고 등기가 표시돼 있고, 여백에 하다온의 글씨로 물음표가 그려져 있다.",
+      "proves": ["하다온이 그 등기를 확인하고 의문을 품었다는 것"],
+      "does_not_prove": ["그 등기가 누구와 관련된 것인지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "서랍 안 다른 서류는 날짜순으로 가지런한데 이 한 장만 따로 접힌 채 끼워져 있다."
+    },
+    {
+      "id": "E08",
+      "name": "캐비닛 속 가계약서 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "강마루 쪽 캐비닛을 살펴본다",
+      "content": "타이핑된 계약서 표지에 강마루의 서명이 있고, '부지 절반 양도'라는 문구가 눈에 띈다.",
+      "proves": ["강마루가 개발업체와 부지 절반을 넘기는 가계약을 맺었다는 것"],
+      "does_not_prove": ["강마루가 살해했는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "서류철 사이 다른 계약서들은 전부 도장이 찍혀 있는데 이 한 부만 서명뿐이다.",
+      "reaction": {
+        "jiwoo": "이거 하다온 대표님은 모르셨겠는데요.",
+        "detective": "알았으면 오늘 이 소동도 없었겠지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "책상 위 메모지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 메모지를 확인한다",
+      "content": "'17시 - 마루씨와 창고에서, 등기 건'이라고 적힌 메모지가 책상 위에 놓여 있다.",
+      "proves": ["하다온이 그날 강마루와 도구창고에서 만나기로 했었다는 것"],
+      "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "메모 아래쪽에 원래 몇 자 더 있었던 흔적처럼 지워진 자국이 남아 있다."
+    },
+    {
+      "id": "E10",
+      "name": "화단 속 벽돌 받침돌",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "화단 흙 속을 살펴본다",
+      "content": "화단 흙 속에 반쯤 묻힌 벽돌 받침돌 하나가 있고, 한쪽 모서리에 씻겨 나가다 만 얼룩이 남아 있다.",
+      "proves": ["그 받침돌이 최근 물로 씻겼다는 것"],
+      "does_not_prove": ["누가 그것을 그곳에 두었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05",
+      "mismatch": "화단 다른 곳의 장식용 돌은 전부 표면에 흙때가 그대로인데 이것만 유독 깨끗한 자리가 있다.",
+      "reaction": {
+        "jiwoo": "이런 게 왜 흙 속에 묻혀 있죠?",
+        "detective": "누군가 급하게 감추고 간 거겠지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "진서우의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "진서우에게 그날 오후 도구창고 근처에서 본 것을 묻는다",
+      "content": "\"17시 8분쯤이었나... 케이블 정리하다 얼핏 봤는데, 마루 대표님이 창고 쪽으로 걸어가시더라고요.\"",
+      "proves": ["17시 8분경 강마루가 도구창고 쪽으로 향했다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH05",
+      "mismatch": "강마루 본인은 그 시간에 계속 사무실에 있었다고 말한다."
+    },
+    {
+      "id": "E12",
+      "name": "사물함 속 여벌 셔츠",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "강마루의 사물함을 살펴본다",
+      "content": "사물함 안쪽에 구겨진 셔츠 한 장이 걸려 있고, 소매 끝에 씻어 낸 자국이 얼룩덜룩 남아 있다.",
+      "proves": ["강마루가 그날 옷을 갈아입었다는 것"],
+      "does_not_prove": ["왜 옷을 갈아입었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05",
+      "mismatch": "그날 아침 그가 입고 온 옷과 지금 입고 있는 옷이 다르다고 다른 직원들이 기억한다.",
+      "reaction": {
+        "jiwoo": "굳이 옷까지 갈아입을 일이었을까요.",
+        "detective": "급했겠지, 그것도."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "오세림의 발견 경위 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오세림에게 시신을 발견했을 때 상황을 묻는다",
+      "content": "\"문 두드려도 답이 없길래 손잡이를 돌려봤는데... 열리더라고요. 대표님이 그대로 엎드려 계셨어요. 그게 18시 5분쯤이었을 거예요.\"",
+      "proves": ["오세림이 18시 5분경 도구창고 문을 직접 열어 시신을 발견했다는 것"],
+      "does_not_prove": ["사망 시각", "누구의 소행인지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "그녀가 본 것은 발견 시각일 뿐인데, 그 시각을 사망 시각으로 착각하기 쉽다."
+    },
+    {
+      "id": "E14",
+      "name": "곽시완의 관수 시스템 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "곽시완에게 관수 시스템을 누가 만질 수 있는지 묻는다",
+      "content": "\"그 제어반은 대표님 두 분만 비밀번호를 아세요. 저희는 손댈 일이 없어요.\"",
+      "proves": ["관수 시스템 제어반에 접근할 수 있는 사람이 두 대표뿐이라는 것"],
+      "does_not_prove": ["둘 중 누가 그날 접속했는지"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "정작 그날 오후 하다온은 계속 사무실과 창고를 오갔을 뿐 제어반을 만질 이유가 없었다."
+    },
+    {
+      "id": "E15",
+      "name": "초동 검안 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "초동 검안 메모를 확인한다",
+      "content": "두부에 둔기에 의한 좁고 깊은 함몰흔이 남아 있어, 모서리진 도구로 가격당한 것으로 추정된다는 소견이 적혀 있다.",
+      "proves": ["사인이 둔기에 의한 가격이라는 것"],
+      "does_not_prove": ["그 도구가 무엇인지", "누구의 소행인지"],
+      "presentation_effect": ["C03"],
+      "points_at": null,
+      "mismatch": "감전이나 추락 등 다른 사고 흔적은 전혀 없다고 별도로 적혀 있다.",
+      "reaction": {
+        "jiwoo": "그럼 사고는 아니라는 거네요.",
+        "detective": "누군가 모서리진 걸로 내리친 거지."
+      }
+    },
+    {
+      "id": "E16",
+      "name": "진서우의 정원 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "진서우에게 그날 오후 내내 어디 있었는지 묻는다",
+      "content": "\"그 시간엔 계속 정원에서 조명 케이블 정리하고 있었어요. 시완씨도 오다가다 봤을 텐데.\"",
+      "proves": ["진서우가 오후 내내 정원에 있었다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "정원과 도구창고는 붙어 있어서, 잠깐씩 오간 것까지는 이 진술만으로 걸러지지 않는다."
+    },
+    {
+      "id": "E17",
+      "name": "곽시완의 진서우 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "곽시완에게 사건 당일 오후 진서우를 봤는지 묻는다",
+      "content": "\"어, 그러고 보니 진서우씨가 17시쯤 창고 쪽으로 가는 걸 본 것 같아요. 왜 그쪽으로 가나 싶었죠.\"",
+      "proves": ["진서우가 17시경 도구창고 방향으로 걸어가는 모습이 목격됐다는 것"],
+      "does_not_prove": ["그녀가 실제로 창고 안까지 들어갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "정작 그 시간대 창고 출입 기록에는 그녀의 카드가 찍힌 흔적이 없다."
+    },
+    {
+      "id": "E18",
+      "name": "정원 리모델링 제안 거절 메일 출력본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "벽 쪽 서류함 위 출력물을 확인한다",
+      "content": "출력된 이메일에 '이번 리모델링 제안은 예산상 보류하기로 했습니다'라는 하다온의 답장이 적혀 있다.",
+      "proves": ["하다온이 최근 진서우의 정원 리모델링 제안을 보류시켰다는 것"],
+      "does_not_prove": ["진서우가 그 일로 원한을 품었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "출력일이 사건 당일 아침으로 찍혀 있어, 그날 처음 확인한 것처럼 보인다."
+    },
+    {
+      "id": "E19",
+      "name": "오세림의 진서우 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오세림에게 그 시간 진서우가 어디 있었는지 봤는지 묻는다",
+      "content": "\"네, 그 시간엔 계속 정원에서 케이블 정리하는 거 창문으로 보였어요. 계속 그 자리에 있었던 것 같은데요.\"",
+      "proves": ["그 시간 진서우가 계속 정원에 있었다는 것을 오세림이 목격했다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "카페 홀 창문에서는 정원 전체가 아니라 화단 앞쪽만 보인다는 것을 오세림 본인은 의식하지 못하고 있다."
+    },
+    {
+      "id": "E20",
+      "name": "정산 서류 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구석 테이블 위 서류를 확인한다",
+      "content": "행사비 정산 서류 사본 여백에 '재검토 요망'이라는 하다온의 메모가 적혀 있다.",
+      "proves": ["하다온이 그 정산 서류에 문제 제기를 했다는 것"],
+      "does_not_prove": ["그 문제가 아직 해결되지 않았는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "메모 옆에는 이미 다른 필체로 '확인 완료'라는 짧은 표시가 덧붙어 있다."
+    },
+    {
+      "id": "E21",
+      "name": "오세림의 채이서 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오세림에게 그 시간 채이서가 어디 있었는지 봤는지 묻는다",
+      "content": "\"네, 그 시간엔 계속 카운터 앞 테이블에서 큐시트 보고 있었어요. 저랑 계속 얘기도 했고요.\"",
+      "proves": ["그 시간 채이서가 카페 홀에 계속 있었다는 것을 오세림이 목격했다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "둘이 계속 얘기했다는 것과, 채이서가 잠깐씩 자리를 비웠을 가능성은 별개다."
+    },
+    {
+      "id": "E22",
+      "name": "채이서의 정산 해명 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "채이서에게 정산 문제를 묻는다",
+      "content": "\"그거요? 이미 그저께 다 정리됐어요. 대표님도 흔쾌히 넘어가 주셨고요.\"",
+      "proves": ["정산 문제가 사건 전에 이미 해결됐다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "그녀는 '흔쾌히'라고 말하지만, 정산 서류(E20)에는 재검토 요망이라는 메모가 먼저 적혀 있었다."
+    },
+    {
+      "id": "E23",
+      "name": "도구창고 출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "도구창고 문 앞 태그 기록판을 확인한다",
+      "content": "그날 오후 출입 기록에 강마루의 카드가 17시 10분에 태그된 것으로 남아 있고, 그 뒤로 다시 나온 기록은 18시 40분 이후에야 있다.",
+      "proves": ["강마루가 17시 10분부터 오랫동안 도구창고 안에 있었다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05",
+      "mismatch": "그 시각 기록에는 다시 나온 태그가 한참 뒤에야 있어, 그가 그 사이 계속 안에 있었어야 앞뒤가 맞는다.",
+      "reaction": {
+        "jiwoo": "한 시간 넘게 안 나온 걸로 되어 있는데요.",
+        "detective": "그 안에서 뭘 하고 있었는지부터 물어보지."
+      }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_entering_shed",
+      "requires_heard_claim_ids": ["S-CH05-01", "S-CH05-02"],
+      "requires_presented_evidence_ids": ["E23"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E23"]
+      },
+      "player_action": "도구창고 출입 태그 기록(E23)을 강마루에게 제시하며 도구창고에 간 적 없다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "그 시각 도구창고에 들어간 것은 인정한다."
+      },
+      "must_not_release": ["다툼의 구체적 내용", "흉기", "몸싸움 여부"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_entering_shed",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["S-CH05-02", "S-CH05-03"],
+      "requires_presented_evidence_ids": ["E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-03",
+        "evidence_ids": ["E11"]
+      },
+      "player_action": "진서우의 목격 증언(E11)을 강마루에게 제시하며 하다온과 마주치지 않았다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "그 안에서 하다온과 말다툼이 있었던 것은 인정한다."
+      },
+      "must_not_release": ["받침돌로 내리친 사실", "가계약서의 구체적 내용"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confesses",
+      "requires_heard_claim_ids": ["S-CH05-03", "S-CH05-04"],
+      "requires_presented_evidence_ids": ["E10", "E12", "E15"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-04",
+        "evidence_ids": ["E10", "E12", "E15"]
+      },
+      "player_action": "화단 속 받침돌(E10)과 사물함 속 얼룩진 셔츠(E12), 초동 검안 메모(E15)를 함께 제시하며 몸싸움이 없었다는 말을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "다툼 끝에 받침돌로 내리친 것은 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH01",
+      "surface_suspicion": "진서우는 최근 정원 리모델링 제안이 거절된 것에 서운해했고, 사건 당일 오후 도구창고 쪽으로 걸어가는 모습이 목격됐다.",
+      "actual_reason": "실제로 그녀는 조명 케이블 설치 때문에 잠시 그쪽을 오갔을 뿐이고, 리모델링 제안이 보류된 것도 앙심을 품을 만한 일은 아니었다.",
+      "how_to_clear": "진서우 본인의 알리바이 증언(E16)과 오세림의 목격 증언(E19)을 함께 대조하면, 그녀가 그 시간 내내 정원에 있었다는 것이 드러난다.",
+      "must_not_imply": "진서우가 도구창고 안까지 들어갔다는 인상을 주지 않는다.",
+      "lingering_thread": "진서우는 혐의를 벗지만, 보류된 리모델링 제안을 둘러싼 서운함은 여전히 남는다.",
+      "suspicion_deepener": "곽시완의 목격 증언(E17)과 리모델링 거절 메일(E18)이 먼저 의심을 키운다.",
+      "cleared_by": ["E16", "E19"],
+      "clearing_points_at": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "그 시간대 도구창고 근처를 오갈 수 있는 정원에 있었다.",
+        "means": ["E17", "E18"],
+        "means_first_reading": "곽시완의 목격담(E17)과 리모델링 거절 메일(E18)이 겹쳐, 서운함을 품고 대표를 찾아갔던 사람처럼 보인다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "채이서는 최근 행사비 정산 문제로 하다온과 다퉜고, 그날 오후 정산 서류에 재검토가 필요하다는 지적을 받은 상태였다.",
+      "actual_reason": "실제로 그 정산 문제는 사건 전날 이미 합의로 마무리됐고, 그녀는 그 시간 내내 카페 홀에서 큐시트를 점검하고 있었다.",
+      "how_to_clear": "채이서 본인의 정산 해명 증언(E22)과 오세림의 목격 증언(E21)을 함께 대조하면, 그녀가 그 시간 내내 카페 홀에 있었다는 것이 드러난다.",
+      "must_not_imply": "채이서가 정산 문제로 하다온을 원망하고 있었다는 인상을 주지 않는다.",
+      "lingering_thread": "채이서는 혐의를 벗지만, 나이트가든 행사 자체는 결국 다음 기회로 미뤄진다.",
+      "suspicion_deepener": "채이서의 정산 메시지 창(E06)과 정산 서류 사본(E20)이 먼저 의심을 키운다.",
+      "cleared_by": ["E22", "E21"],
+      "clearing_points_at": "CH05",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "그 시간대 카페 홀에서 크게 벗어나지 않아도 되는 위치에 있었다.",
+        "means": ["E06", "E20"],
+        "means_first_reading": "정산 메시지 창(E06)과 정산 서류 사본(E20)이 겹쳐, 정산 문제로 궁지에 몰린 사람처럼 보인다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH05-01", "F-CH05-02", "F-CH05-03", "E08"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "벽돌 받침돌로 내리쳐 살해했다는 사실",
+      "motive_fact": "강마루가 하다온 몰래 부지 매각 가계약을 맺었다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "강마루 (CH05)",
+    "method": "도구창고에서 하다온과 단둘이 있게 됐을 때, 선반 다리를 받치던 벽돌 받침돌로 머리를 내리쳤다.",
+    "motive": "부지 절반을 개발업체에 넘기는 가계약을 하다온 몰래 맺었다는 사실이 그날 발각될 위기에 처하자, 계약과 지금까지 쌓아 온 것을 모두 잃는 것을 막기 위해 하다온을 살해했다.",
+    "key_connection": "출입 태그 기록(E23)이 강마루를 그 시각 그 자리로 데려다 놓고, 진서우의 목격 증언(E11)이 그 시간대의 이동을 증명하며, 사물함 속 얼룩진 셔츠와 화단 속 받침돌(E12·E10)이 흉기를, 캐비닛 속 가계약서 사본(E08)이 동기를 완성한다."
+  },
+  "ending_explanation": [
+    "강마루는 8개월 전 자금난 끝에 개발업체와 온실 부지 절반을 넘기는 가계약을 하다온 몰래 체결했다.",
+    "하다온은 등기부등본에서 소유권 이전 예고 등기를 발견해 변호사를 통해 그 계약의 실체를 확인했고, 사건 당일 도구창고에서 강마루에게 직접 해명을 요구했다.",
+    "언쟁이 격해지자 강마루가 선반 다리를 받치던 벽돌 받침돌로 하다온의 머리를 내리쳤다.",
+    "강마루는 관수 시스템 접속 기록을 지우려 했지만 완전히 지우지 못했고, 받침돌을 화단 흙 속에 던져 감춘 뒤 옷을 갈아입고 태연히 행사 준비로 돌아갔다.",
+    "진서우의 정원 리모델링 서운함과 채이서의 행사비 정산 문제는 모두 사건과 무관한 것으로 밝혀졌다.",
+    "소독 약품 재고 문제(E01), 선반의 빈 받침돌 자리와 관수 시스템 로그·닦인 바닥 자국(E02·E03·E04), 내선 통화 기록(E05), 등기부등본과 책상 위 메모지(E07·E09)는 모두 그 과정에서 남은 자국들이었고, 곽시완의 증언(E14)과 오세림의 발견 경위(E13)는 사건 정황을 뒷받침하는 것으로 정리됐다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "부지 매각 계약 발각을 막기 위한 살해",
+      "truth": true,
+      "evidence_for": ["E07", "E08"],
+      "suggested_by": ["E07"],
+      "cue": "예고 등기"
+    },
+    {
+      "id": "M02",
+      "text": "정원 리모델링 제안이 거절된 것에 대한 앙심",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E18"],
+      "cue": "리모델링",
+      "refutation": "제안이 보류된 건 아쉬웠지만, 대표님 결정에 앙심을 품을 정도는 아니었어요.",
+      "refutation_releases": "F-CH01-02",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "M03",
+      "text": "행사비 정산 문제로 인한 갈등",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E06"],
+      "cue": "정산",
+      "refutation": "그 얘기는 이미 그저께 다 끝났어요. 대표님도 넘어가 주셨고요.",
+      "refutation_releases": "F-CH04-02",
+      "refuted_by": "CH04"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 17시 10분부터 한동안, 도구창고에서",
+      "truth": true,
+      "evidence_for": ["E23", "E11"],
+      "suggested_by": ["E23"],
+      "cue": "17시 10분"
+    },
+    {
+      "id": "T02",
+      "text": "사건 당일 18시 무렵, 내선 전화가 무응답이던 시점",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E05"],
+      "cue": "18:00",
+      "refutation": "그 시각엔 그냥 전화만 안 받으신 거죠. 전화로는 안에서 무슨 일이 있었는지 알 길이 없잖아요.",
+      "refutation_releases": "F-CH02-02",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "T03",
+      "text": "사건 당일 18시 5분, 오세림이 발견했을 때",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E13"],
+      "cue": "18시 5분",
+      "refutation": "발견된 시각이 곧 돌아가신 시각은 아니죠. 창고는 원래 안이 어떻게 됐는지 밖에서 전혀 알 수가 없으니까요.",
+      "refutation_releases": "F-CH02-03",
+      "refuted_by": "CH02"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "언쟁 중 벽돌 받침돌로 가격",
+      "truth": true,
+      "evidence_for": ["E10", "E15"],
+      "suggested_by": ["E10"],
+      "cue": "받침돌"
+    },
+    {
+      "id": "H02",
+      "text": "쓰러진 선반에 깔림",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E02"],
+      "cue": "선반",
+      "refutation": "선반이 넘어지는 정도로는 그렇게 깊은 자국이 안 남아요. 검안 소견에도 둔기로 맞은 흔적이라고 적혀 있었다고 들었어요.",
+      "refutation_releases": "F-CH03-03",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "H03",
+      "text": "관수 시스템 누전에 의한 감전사",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": ["E03"],
+      "cue": "접속",
+      "refutation": "그 제어반은 저전압 설비라 감전 사고가 날 구조가 아니에요.",
+      "refutation_releases": "F-CH03-04",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 그 시간엔 계속 정원에서 조명 케이블 정리하고 있었어요."
+    },
+    "CH02": {
+      "text": "저요? 저는 그 시간 내내 카운터에서 마감 준비하고 있었어요."
+    },
+    "CH03": {
+      "text": "저요? 저는 그 시간 내내 온실에서 화분 정리하고 있었어요."
+    },
+    "CH04": {
+      "text": "저요? 저는 그 시간 내내 카페 홀에서 큐시트 보고 있었어요."
+    }
+  }
+}
