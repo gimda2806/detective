@@ -228,6 +228,11 @@
           "fact_id": "F-CH01-01",
           "content": "제사 준비는 보통 강두칠과 장은표가 도맡아 하고, 자신은 재무 쪽만 신경 쓴다.",
           "source": "본인 확인"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "매각 무산과 위임장 발표를 막으려다 정용익과 몸싸움을 벌였고, 그 끝에 정용익이 서안 위 종이 재단용 칼에 목을 깊게 스쳐 숨졌다는 것을 인정한다. 이후 위임장 조각을 챙기고 문서고 자물쇠를 부순 것도 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -269,6 +274,11 @@
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "C02",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [

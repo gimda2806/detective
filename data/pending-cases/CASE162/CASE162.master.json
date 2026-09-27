@@ -275,6 +275,12 @@
           "reason_for_limit_or_lie": "조정실에서 다퉜다는 사실을 숨기려 한다."
         },
         {
+          "claim_id": "S-CH01-02",
+          "content": "조정실에 잠깐 들어가긴 했어요. 근데 제가 들어갔을 땐 이미 하이슬 씨가 쓰러져 있었고, 저는 그냥 놀라서 나온 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움 끝에 자신이 제어반 배선을 합선시켜 감전시켰다는 사실을 숨기려 한다."
+        },
+        {
           "claim_id": "S-CH01-03",
           "content": "그 음성 모델이요? 저는 처음 듣는 얘기예요, 제가 그런 걸 왜 만들겠어요.",
           "truth_status": "lie",
@@ -292,6 +298,11 @@
         "S-CH01-03"
       ],
       "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
         {
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "F-CH01-02",

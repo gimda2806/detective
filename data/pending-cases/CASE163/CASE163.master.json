@@ -290,6 +290,12 @@
           "reason_for_limit_or_lie": "복도에서 다퉜다는 사실을 숨기려 한다."
         },
         {
+          "claim_id": "S-CH01-02",
+          "content": "복도에 있긴 있었어요. 근데 상자더미가 원래 부실하게 쌓여 있어서, 그냥 우연히 무너진 사고였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁 끝에 자신이 직접 지지상자를 빼내 짐더미를 무너뜨렸다는 사실을 숨기려 한다."
+        },
+        {
           "claim_id": "S-CH01-03",
           "content": "카메라요? 할아버지 물건에 제가 손댈 이유가 없죠, 다 목록대로 있을 텐데요.",
           "truth_status": "lie",
@@ -307,6 +313,11 @@
         "S-CH01-03"
       ],
       "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
         {
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "F-CH01-02",

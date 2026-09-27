@@ -193,6 +193,11 @@
           "fact_id": "F-CH01-01",
           "content": "부조정실은 자신 말고는 아무도 손대지 않는 구역이라, 장비 문제가 생기면 항상 자신에게 먼저 연락이 온다.",
           "source": "본인 확인"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "계약서에서 자신의 몫이 퇴직 위로금 한 줄로 지워진 것을 따지다 격분해 마이크 케이블로 서영탁의 목을 졸랐다는 것을 인정한다. 이후 테이프를 챙기고 뒷문을 부숴 외부인의 소행처럼 꾸민 것도 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -231,6 +236,11 @@
           "fact_or_claim_id": "S-CH01-04",
           "release_prerequisite": "C02",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [

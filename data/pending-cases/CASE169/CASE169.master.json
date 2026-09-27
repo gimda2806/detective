@@ -179,6 +179,26 @@
           "fact_id": "F-CH01-02",
           "content": "오현담이 그날 오전 내내 사무실에서 전화를 붙들고 있었다.",
           "source": "사무실 앞을 지나며 봄"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 오후 조리실에서 오현담과 단둘이 있었던 것은 인정하지만, 그냥 짧은 대화였을 뿐이라고 주장한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "오현담이 몰래 새 계약을 체결해 오늘 시식회 직후 결별을 선언하려 했다는 것을 알고 있었다고 인정한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "그날 아침 직접 헤이즐넛 프랄린을 받아 트레이에 얹었고, 사용한 트레이를 몰래 세척했다는 것을 인정한다. 다만 실수였다고 주장한다.",
+          "source": "추궁받은 뒤 인정"
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "오현담의 알레르기를 알면서도 일부러 헤이즐넛이 든 조각을 건넸다는 것, 그리고 이후 트레이를 세척하고 문자 기록을 지워 사고처럼 보이게 하려 했다는 것을 전부 인정한다.",
+          "source": "자백"
         }
       ],
       "initial_claims": [
@@ -228,6 +248,26 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "C03",
           "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": ["오현담이 언제부터 새 계약을 준비했는지 세세한 사정까지는 모른다."],
