@@ -16,8 +16,9 @@ _원본 쪽지 `wizardly-hamilton-fding5`가 수신자 여럿 앞으로 한 파�
   (표 한 행 — 번호 자리 CASE274와 CASE277 사이에) · `docs/novels/rounds.md`(회차 절) ·
   `docs/handoff-backlog.md`(항목 하나).
 - 코드는 한 줄도 안 고쳤다. `app/`·`scripts/` 무변경.
-- **소설 루틴 다음 회차의 큐는 CASE276 하나다**(PR 직전 재측정). 회차 도중에 새로
-  찬 번호는 없었다.
+- ~~소설 루틴 다음 회차의 큐~~ — **처리했다**(`4e7a6e`, 2026-09-27). CASE276은
+  썼다. 큐의 현재값은 쪽지가 아니라 `docs/novels/README.md` 「지금 상태」의
+  세는 세 줄이 답이다.
 
 **해야 할 것 — 판본 루틴 (`Case-No-275.offline.json`을 뜰 때)**
 
