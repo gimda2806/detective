@@ -1,0 +1,1545 @@
+{
+  "case_identity": {
+    "case_id": "CASE349",
+    "title": "숨을 나눠 쉬던 사람",
+    "english_title": "The One I Used to Share Air With",
+    "genre": "5년 전 정비 태만 사고 은폐 발각을 막으려는 동업자 살인 / 물속에서 밸브를 잠그고 보조 호흡기를 막아 질식시킨 뒤, 개인 건강 문제로 몰아가는 사고 위장",
+    "setting": "청람도 앞바다에 자리한 사설 다이빙숍 '청람다이브'. 공동대표 마준경과 예도훈이 8년째 함께 운영해 온 곳으로, 그날은 오래된 단골들만 모이는 비정기 버디 다이빙 모임이 있었다.",
+    "location_archetypes": [
+      "natural_outdoor",
+      "specialty_shop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "private_gathering"
+      ],
+      "background_phrasing": [
+        "gathering_for"
+      ],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정은 개인 장비로 근처 포인트에서 혼자 다이빙을 마치고 나온 참이었다. 방수 가방을 정리하며 선착장을 걷다가, 옆 부두에 정박한 '청람다이브' 배 주위로 사람들이 몰려 있는 것을 본다.",
+    "tone": "조용한 바닷가 선착장의 공기와, 물속에서 벌어진 일이라 아무도 확실히 보지 못했다는 불안감. 탐정과 한지우가 방수 가방을 정리하다 말고 남의 일에 발이 묶인다.",
+    "tags": [
+      "다이빙_숍",
+      "동업자_사이",
+      "바닷가_모임"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 12:30",
+    "narrative": "청람도 선착장, 정오를 막 넘긴 시각이다.\n\n탐정은 근처 포인트에서 혼자 다이빙을 마치고 방수 가방을 정리하던 참이었다.\n\n옆 부두 쪽에서 사람들이 소리를 지르며 뛰어다니고 있었다.\n\n한지우가 먼저 고개를 들었다.\n\n\"저 배, 방금 들어온 것 같은데요.\"\n\n\"그러네.\"\n\n탐정이 짧게 답하며 가방을 내려놓았다.\n\n부두 위, 봉소이가 무전기를 손에 쥔 채 굳어 있었고 주현담이 다급히 휴대폰을 붙들고 있었다.\n\n배 위 갑판, 예도훈 곁에 마준경이 미동도 없이 쓰러져 있었다.\n\n한지우가 다가가 무릎을 굽히고 맥을 짚었다.\n\n\"...이미 늦었어요.\"\n\n낮은 목소리였다.\n\n탐정은 부두 끝에 선 채 배 위를 한 번 훑어볼 뿐, 아무 말도 하지 않았다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "사무실, 오후 늦은 햇살이 창문 블라인드 틈으로 비스듬히 들어오고 있었다. 아침의 소란은 가라앉았고, 책상 위 서류들만 어수선하게 남아 있었다.\n\n예도훈은 한참을 말이 없다가, 낮게 입을 열었다.\n\n\"...제가 그랬습니다.\"\n\n그가 말했다.\n\n\"그냥 시간을 벌고 싶었을 뿐인데, 다음 주에 정비 일지를 다 넘기겠다고 하니까... 눈앞이 하얘졌어요. 밸브를 잠근 것도 잘 기억이 안 납니다.\"\n\n한지우가 수첩을 접으며 나직이 말했다.\n\n\"그러고 나서 밸브를 다시 열어 둔 건, 기억이 잘 나시나 보네요.\"\n\n예도훈이 대답하지 못했다.\n\n탐정이 그를 내려다보며 낮게 덧붙였다.\n\n\"그건 확실히 기억나는 모양이네.\"\n\n부두 쪽에서는 손이랑이 굳은 얼굴로 압력 기록표를 다시 들여다보고 있었고, 도경우는 여전히 아침에 조가 바뀐 것을 뒤늦게 이상하게 여기는 눈치였다.\n\n경찰이 예도훈을 데리고 나가는 것을 보고 나서야, 한지우가 길게 숨을 내쉬었다.\n\n\"오늘 다이빙은... 결국 다 못 즐긴 셈이네요.\"\n\n\"내일 다시 오면 되지.\"\n\n탐정이 대꾸했고, 한지우가 피식 웃으며 사무실을 나섰다."
+  },
+  "surface_incident": [
+    "'청람다이브'는 청람도 앞바다에서 소규모 다이빙 강습과 포인트 안내를 해 온 다이빙숍이다.",
+    "그날은 오래된 단골들만 모이는 비정기 버디 다이빙 모임이 있었다.",
+    "참가자들은 2인 1조로 짝을 지어 인근 침몰선 포인트로 잠수했다.",
+    "공동대표 마준경이 하강 40분쯤 지나 부상하지 않자, 함께 있던 예도훈이 찾다가 기관실 통로에서 의식을 잃은 그를 발견해 끌어올렸다.",
+    "배 위로 옮겨졌을 때는 이미 손쓸 수 없는 상태였다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "5년 전, 강습생이 낡은 레귤레이터 결함으로 익사한 사고가 있었다. 당시 강습을 맡았던 예도훈은 이를 '학생의 급상승 과실'로 정리한 경위서를 제출해 무마했다. 최근 이혼 조정 중이던 마준경이 자산 정리를 위해 서류를 뒤지다 그때의 정비 일지 사본을 발견하고, 예도훈의 경위서와 날짜·수치가 어긋난다는 것을 알아챘다. 사건 전날, 마준경이 다음 주 안전점검 때 새로 올 안전관리사에게 정비 일지 전체를 넘기겠다고 통보하자, 예도훈은 자격 취소와 형사 책임을 피하려 범행을 저질렀다.",
+    "motive_archetypes": [
+      "past_crime_cover",
+      "professional_secrecy"
+    ],
+    "method": "예도훈은 그날 아침 조 편성표를 몰래 고쳐 자신이 마준경과 함께 침몰선 기관실 통로를 돌기로 했다. 통로가 좁아 한 번에 한 사람만 지날 수 있는 구간에서 단둘이 되자, 마준경의 등 뒤로 다가가 공기 밸브를 잠그고 보조 호흡기를 손으로 세게 눌러 막아, 수면으로 올라가지 못하게 붙든 채 질식시켰다.",
+    "method_archetypes": [
+      "oxygen_deprivation"
+    ],
+    "key_time_location": "사건 당일 11시 20분경, 침몰선 기관실 통로(L04).",
+    "cover_up": "예도훈은 배 위로 돌아온 뒤 마준경에게 평소 지병이 있었다는 말을 퍼뜨려 개인 건강 문제로 인한 사고처럼 몰아갔고, 사무실 개인 사물함 서랍 안쪽에 5년 전 정비 일지 사본을 몰래 숨겼다.",
+    "cover_up_target": [
+      "responsibility",
+      "motive"
+    ],
+    "cover_up_method": [
+      "accident_victim_health",
+      "concealment_without_staging"
+    ],
+    "decisive_evidence_ids": [
+      "E07",
+      "E12"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 5년 전",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 강습생 익사 사고를 '학생의 급상승 과실'로 정리한 경위서를 작성해 제출한다.",
+      "world_fact": "실제로는 정비 주기를 넘긴 레귤레이터 호스가 사고 원인이었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 3주 전",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "마준경이 이혼 조정 재산 목록을 정리하다 사무실 서류함에서 5년 전 정비 일지 사본을 발견한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 5일 전",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "마준경이 그 정비 일지 사본을 다시 읽고, 예도훈이 제출한 경위서와 날짜·수치가 어긋난다는 것을 알아챈다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 19:00",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "마준경이 예도훈에게 다음 주 안전점검 때 새로 올 안전관리사에게 정비 일지 전체를 넘기겠다고 통보한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 07:40",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 화이트보드에 적힌 조 편성표에서 '도경우·마준경' 칸을 지우고 자신과 마준경을 한 조로 고쳐 적는다.",
+      "world_fact": "원래 조 편성표에는 도경우와 마준경이 한 조로 적혀 있었다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 08:10",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "손이랑이 그날 아침 참가자들의 탱크를 다 채운다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 08:25",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 마준경 몫 탱크만 배를 타기 직전 다시 점검하겠다며 가져간다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 09:30",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "CH02",
+        "CH04",
+        "CH05",
+        "V01"
+      ],
+      "actual_action": "배가 침몰선 포인트에 도착해 참가자들이 2인 1조로 입수한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 11:05",
+      "location": "L04",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "예도훈과 마준경이 침몰선 기관실 통로에 단둘이 들어간다.",
+      "world_fact": "그 통로는 폭이 좁아 한 번에 한 사람만 지날 수 있었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 11:20",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 마준경의 등 뒤에서 공기 밸브를 잠그고 보조 호흡기를 손으로 눌러 막아, 수면으로 올라가지 못하게 붙든 채 질식시킨다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 11:35",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 밸브를 다시 열어 두고 통로를 빠져나와 자신이 원래 있던 구역으로 돌아가 잠수를 잇는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 12:05",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 마준경이 안 보인다며 소란을 일으킨다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 12:10",
+      "location": "L04",
+      "actors": [
+        "CH02",
+        "CH04"
+      ],
+      "actual_action": "도경우와 주현담이 함께 찾다가 기관실 통로 안에서 의식을 잃은 마준경을 발견해 수면 위로 끌어올린다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 13:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "예도훈이 사무실 서류함에서 정비 일지 사본을 몰래 꺼내 개인 사물함 서랍 안쪽에 숨기려던 중, 소란 때문에 서랍을 마저 닫지 못하고 자리를 뜬다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "마준경",
+      "role": "청람다이브 공동대표",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "예도훈",
+      "role": "공동대표 겸 수석 강사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "5년 전 강습생 익사 사고를 '학생의 급상승 과실'로 정리한 경위서를 작성해 제출했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오늘 아침 정비 일지 문제로 마준경과 언쟁이 있었던 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "오늘 아침 조 편성을 바꿔 자신이 마준경과 함께 기관실 구간을 돌기로 한 것은 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "통로에서 마준경의 밸브를 잠그고 보조 호흡기를 막아 질식시켰다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "도경우가 그날 아침 조가 바뀐 것에 서운해했다는 걸 얼핏 느꼈다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘따라 물이 유난히 맑았어요. 다들 시야 좋다고 좋아했죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "오늘 아침엔 다들 그냥 평소처럼 준비했어요. 별다른 얘기 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "언쟁이라고 해봤자 잠깐이었고, 조는 원래대로 저는 계속 다른 구역에 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "통로에 같이 들어가긴 했는데 저는 먼저 나왔어요. 그 뒤로 준경이가 어떻게 됐는지는 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03이 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "마준경이 그 정비 일지를 정확히 언제 발견했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체/합니다체를 섞어 쓴다), 시종 차분하다.",
+        "sentence_length_tendency": "평소에도 담담하게 말하는데, 몰리면 오히려 말이 느려진다.",
+        "verbal_tic": "'확실히'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그건 아까 말씀드렸는데요.",
+        "몇 번을 여쭤보셔도 같은 대답입니다.",
+        "...변호사를 불러야 할 것 같네요."
+      ],
+      "comic_tell": "곤란하면 손목 다이브 컴퓨터 버튼을 괜히 눌러 본다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-05",
+        "opens": "S-CH01-01",
+        "says": "경우가 오늘 아침 조 바뀐 거 갖고 좀 서운해하는 눈치였어요. 저야 뭐, 어쩔 수 없었죠.",
+        "reveals": "도경우가 조 편성 변경에 서운함을 느꼈다는 것이 나온다. 실제로 그가 범인이라는 뜻은 아니다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "주현담",
+      "role": "오래된 단골 다이버 / 이번 모임 총무",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "몇 년 전부터 마준경에게 급전을 빌렸다가 지난달에 다 갚았다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 자신은 계속 도경우와 같은 구역에서 잠수했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "손이랑이 요즘 안전관리사 재시험 때문에 예민해 보였다는 것을 느꼈다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "준경이가 물속에서는 늘 여유가 있었어요. 오늘도 그럴 줄 알았죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "저는 오늘 경우랑 계속 같은 구역에 있었어요. 로그판 보시면 나올 거예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "S-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E18",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "기관실 통로 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사람 좋게 웃으며 말한다.",
+        "sentence_length_tendency": "평소엔 느긋하다가, 돈 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "'까놓고 말하면'을 자주 쓴다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그건 아까 말씀드렸잖아요.",
+        "저도 그날 경황없었어요, 까놓고 말하면요.",
+        "자꾸 이러시면 저도 곤란해요."
+      ],
+      "comic_tell": "말할 때 손목 다이브 컴퓨터를 괜히 만지작거린다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH02-03",
+        "opens": "S-CH02-01",
+        "says": "소이 씨가 요즘 재시험 때문에 좀 날카로웠어요. 그것 때문이라고 말하긴 좀 그렇지만...",
+        "reveals": "손이랑이 최근 자격 재시험 스트레스를 받고 있었다는 것이 나온다. 사실이지만 사건과는 무관하다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "손이랑",
+      "role": "장비·컴프레서 담당 직원",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "얼마 전 안전관리사 재시험에서 떨어져 예도훈에게 싫은 소리를 들은 적 있다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 아침 손님들 탱크를 다 채웠는데 마준경 몫만 예도훈이 배를 타기 직전 다시 보겠다며 가져갔다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "주현담이 예전에 마준경에게 급전을 빌린 적이 있다는 말을 들은 적 있다.",
+          "source": "전해 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "장비는 하나하나 제가 다 손으로 확인해요. 그게 제 일이니까요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 그날 배 안 탔어요. 계속 가게에서 다음 팀 탱크 준비하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "S-CH03-02",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기관실 통로 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 무뚝뚝하지만 꼼꼼하다.",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하고, 장비 얘기만 나오면 길어진다.",
+        "verbal_tic": "'제가 확인했는데'로 운을 뗀다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드린 대로예요.",
+        "제가 확인했는데, 그것뿐이에요.",
+        "...더 하실 말씀 있으세요?"
+      ],
+      "comic_tell": "손끝으로 압력 게이지 숫자를 짚어가며 확인한다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-01",
+        "says": "현담 아저씨가 예전에 대표님한테 급전 빌린 적 있다는 얘기는 들은 적 있어요. 갚았는지는 모르겠지만요.",
+        "reveals": "주현담이 과거 마준경에게 돈을 빌린 적이 있다는 것이 나온다. 이미 갚았다는 사실은 아직 드러나지 않는다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "도경우",
+      "role": "마준경의 오랜 다이빙 버디",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 아침 갑자기 자신의 버디가 마준경에서 주현담으로 바뀌었다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 자신은 계속 주현담과 같은 구역에서 잠수했다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "봉소이가 요즘 다음 강사 자격 실습 때문에 예도훈에게 이것저것 확인받는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "형은 물속에서 제일 침착한 사람이었어요. 후배들도 다 그렇게 배웠고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "오늘 아침에 갑자기 조가 바뀌어서 좀 당황했어요. 근데 대표님이 바꾸자고 하니 그런가 보다 했죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "S-CH04-02",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "기관실 통로 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 담백하게 말한다.",
+        "sentence_length_tendency": "평소엔 여유 있게 말하다가, 준경 얘기가 나오면 말이 느려진다.",
+        "verbal_tic": "'뭐랄까'로 말을 고른다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "말씀드린 대로예요.",
+        "뭐랄까... 그 이상은 저도 몰라요.",
+        "...더 물으셔도 똑같아요."
+      ],
+      "comic_tell": "핀 스트랩을 만지작거린다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH04-03",
+        "opens": "S-CH04-01",
+        "says": "소이가 요즘 다음 강사 실습 때문에 예도훈 대표한테 이것저것 확인받는 걸 봤어요. 그것 때문인가 싶긴 했어요.",
+        "reveals": "봉소이가 최근 예도훈에게 자격 실습 관련해 자주 확인받고 있었다는 것이 나온다. 사실이지만 사건과는 무관하다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "봉소이",
+      "role": "막내 강사보조 / 이번 모임 로그 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "마준경 대표가 최근 이혼 때문에 회사 자산을 정리하고 있다는 걸 전해 들었다.",
+          "source": "전해 들음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그날 아침 조 편성표를 직접 작성했는데, 원래는 도경우와 마준경이 한 조였다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "손이랑은 그날 배를 타지 않고 계속 가게에 남아 다음 팀 탱크를 준비하고 있었다.",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "도경우가 그날 아침 버디가 바뀐 것에 대해 혼자 툴툴거리는 걸 들었다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘 물이 유난히 맑아서 다들 신나 했었는데...",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 그날 배 위에서 무전 담당이었어요. 다들 들어가고 나오는 시간만 확인했죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "S-CH05-02",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "기관실 통로 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "존댓말이지만 발랄하다.",
+        "sentence_length_tendency": "평소엔 재잘거리듯 말하다가, 대표님 얘기만 나오면 조용해진다.",
+        "verbal_tic": "'그니까 그게'로 운을 뗀다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그니까 그게... 정말 그것뿐이에요.",
+        "저도 무서웠다니까요, 그만 좀...",
+        "...더 물으셔도 똑같아요."
+      ],
+      "comic_tell": "긴장하면 핀 스트랩 끈을 배배 꼰다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "경우 오빠가 아침에 조 바뀐 거 갖고 혼자 투덜거리는 거 들었어요. 그냥 서운해서 그런 거겠죠.",
+        "reveals": "도경우가 조 편성 변경에 서운함을 표현했다는 것이 나온다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "8년째 함께 다이빙숍을 운영해 온 공동대표.",
+      "public_face": "손발이 잘 맞는 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "준경이는... 저한테는 오래 같이 일한 동업자 이상이었어요. 그 이상은 못 여쭤 드리겠어요."
+      },
+      "private_strain": "예도훈은 5년 전 강습생 사고를 허위로 보고해 은폐해 온 사실을 마준경에게 들킨 것을 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 정비 일지 사본(E01)을 예도훈 앞에 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "10년 넘게 이 숍을 드나든 단골이자 친구 같은 사이.",
+      "public_face": "허물없이 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "준경이요? 저한테는 그냥... 오래 알고 지낸 친한 형이었어요."
+      },
+      "private_strain": "주현담은 몇 년 전 마준경에게 급전을 빌린 것을 다른 회원들에게 말하지 않고 있다.",
+      "surfaces_when": "탐정이 주현담에게 마준경과의 금전 관계를 캐물을 때(F-CH02-01)."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "3년째 함께 일해 온 공동대표와 장비 담당 직원.",
+      "public_face": "믿고 맡기는 직원으로 알려져 있다.",
+      "says": {
+        "CH03": "준경 대표님은... 늘 꼼꼼히 챙겨 주시는 분이었어요."
+      },
+      "private_strain": "손이랑은 얼마 전 안전관리사 재시험에서 떨어진 것을 예도훈에게 싫은 소리를 들은 것도 다른 사람들에게 말하지 않고 있다.",
+      "surfaces_when": "탐정이 손이랑에게 예도훈과의 사이를 캐물을 때(F-CH03-01)."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "8년째 서로의 버디였던 오랜 다이빙 파트너.",
+      "public_face": "가장 죽이 잘 맞는 버디로 알려져 있다.",
+      "says": {
+        "CH04": "준경이 형은... 제가 제일 믿고 따르던 버디였어요."
+      },
+      "private_strain": "도경우는 그날 아침 갑자기 버디가 바뀐 것에 서운함을 느꼈지만, 그 마음을 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "탐정이 도경우에게 조가 바뀐 일을 캐물을 때(F-CH04-01)."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "2년 전 이 숍에 들어온 막내 강사보조와 공동대표.",
+      "public_face": "유독 아끼는 후배로 알려져 있다.",
+      "says": {
+        "CH05": "대표님이요? 저한테는 그냥... 잘 챙겨 주시는 분이었어요."
+      },
+      "private_strain": "봉소이는 며칠 전 마준경이 예도훈과 정색한 얼굴로 사무실에서 나오는 것을 보고도, 괜한 오해를 살까 봐 아무에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 정비 일지 사본(E01)을 봉소이 앞에 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
+      "nature": "3년 넘게 손발을 맞춰 온 대표와 직원.",
+      "public_face": "사이좋은 사이로 알려져 있다.",
+      "says": {
+        "CH01": "이랑 씨요? 성실한 직원이에요. 그 이상은 지금 드릴 말씀이 없네요.",
+        "CH03": "예도훈 대표님이요... 저한테는 그냥 어려운 상사죠. 그 이상은 잘 모르겠어요."
+      },
+      "private_strain": "손이랑은 예도훈이 그날 유독 마준경 탱크를 직접 가져간 것이 못내 마음에 걸렸지만 대표에게 대놓고 캐묻지는 못했다.",
+      "surfaces_when": "탐정이 탱크 인수 증언(E05)과 조 편성표(E06)를 함께 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "선착장 겸 대기 데크",
+      "access": "누구나 드나들 수 있는 부두. 참가자들이 출항 전후로 모여 있는 곳이다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L05"
+      ],
+      "base_description": "부두 한쪽에 다이빙 장비 렌탈 랙과 방수 가방 보관함이 늘어서 있고, 그 옆 게시판에는 그날 모임 안내문이 붙어 있다. 게시판 앞에서 봉소이가 무전기를 손에 쥔 채 굳어 있고, 주현담은 조금 떨어진 벤치에서 휴대폰을 붙들고 있다.",
+      "observation_rules": [
+        {
+          "action": "부두를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "다이빙 장비 렌탈 랙에 그날 참가자 수만큼의 방수 가방이 가지런히 놓여 있다. 평범한 모임 날이었다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "청람다이브 사무실",
+      "access": "공동대표나 동행이 있어야 들어갈 수 있는 사무실.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L06"
+      ],
+      "base_description": "책상 위에 정산 서류와 컴퓨터가 놓여 있고, 한쪽 벽에는 강습 일정표가 붙어 있다. 책상 옆 개인 사물함 서랍이 반쯤 열린 채로 있고, 그 앞에 예도훈이 굳은 얼굴로 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위 달력에 다음 주 안전점검 일정이 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 옆 개인 사물함 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "서랍 안쪽에 5년 전 날짜가 적힌 정비 일지 사본이 반쯤 구겨진 채 끼여 있다. 표지에 '레귤레이터 교체 주기 초과'라는 메모가 남아 있다."
+        },
+        {
+          "action": "마준경의 개인 서류가방을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "서류가방 안에 다음 주 새로 올 안전관리사에게 넘길 서류 목록 메모가 있고, 맨 위에 '정비 일지 전체'라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "다이빙 보트 갑판",
+      "access": "그날 모임 참가자와 선장만 탈 수 있는 보트.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L04"
+      ],
+      "base_description": "갑판 위로 다이빙 장비 렌탈 랙과 조 편성을 적어 두는 화이트보드가 놓여 있다. 화이트보드 앞에서 도경우가 멍하니 서 있다.",
+      "observation_rules": [
+        {
+          "action": "갑판을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "화이트보드 옆 로그북에 그날 참가자 전원의 입수 시각이 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "다이빙 조 편성표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "화이트보드에 적힌 조 편성표에서 '도경우·마준경' 칸이 지워지고 그 위에 '예도훈·마준경'이라고 다시 적힌 흔적이 뚜렷하다."
+        },
+        {
+          "action": "다이브 컴퓨터 다운로드 기록을 확인한다",
+          "requires": "도경우",
+          "release_evidence_id": "E12",
+          "result": "마준경의 손목형 다이브 컴퓨터 기록이 11시 20분 지점에서 급격한 산소 소모 스파이크 직후 멈춰 있고, 같은 시각 예도훈의 컴퓨터 위치 기록도 같은 구간에 머물러 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "침몰선 기관실 통로",
+      "access": "그날 그 구간으로 향한 두 사람만 지났던 좁은 수중 통로.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ],
+      "base_description": "침몰선 기관실로 이어지는 좁은 통로. 녹슨 배관 사이로 손전등 불빛만 겨우 비친다. 벽 한쪽에 마준경의 다이빙 장비 일부가 그대로 가라앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "통로 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "통로 벽 산호 부스러기 위에 손으로 긁은 듯한 자국이 나 있다. 몸싸움 흔적처럼 보이지만 이것만으로는 확실치 않다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "마준경의 보조 호흡기를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "보조 호흡기(옥토퍼스) 마우스피스 옆 고무 부분에 손가락으로 세게 눌린 자국 네 개가 나란히 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "컴프레서실",
+      "access": "직원 전용 탱크 충전실. 직원이라면 누구나 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "컴프레서와 탱크 거치대가 늘어선 좁은 실내. 벽에는 그날 채운 탱크들의 압력 기록표가 걸려 있다. 거치대 앞에서 손이랑이 압력 게이지를 다시 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "컴프레서실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "탱크 거치대에 그날 채운 순서대로 이름표가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "탱크 압력 기록표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "그날 채운 탱크들의 압력 기록표에 마준경 몫도 다른 사람들과 똑같이 정상 수치로 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "정비 기록 보관실",
+      "access": "공동대표만 열쇠를 가진 작은 창고.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "낡은 캐비닛 하나가 놓인 좁은 창고. 캐비닛 위에는 지난 강습 서류들이 쌓여 있다.",
+      "observation_rules": [
+        {
+          "action": "보관실을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "캐비닛 위에 지난 강습 서류들이 먼지 쌓인 채 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 기록 보관함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "잠긴 보관함의 자물쇠 부분에 최근에 열었다 다시 잠근 듯한 긁힘 자국이 나 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "사물함 서랍 속 정비 일지 사본",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 옆 개인 사물함 서랍을 살펴본다",
+      "content": "서랍 안쪽에 5년 전 날짜가 적힌 정비 일지 사본이 반쯤 구겨진 채 끼여 있다. 표지에 '레귤레이터 교체 주기 초과'라는 메모가 남아 있다.",
+      "proves": [
+        "5년 전 정비 일지에 레귤레이터 교체 주기 초과 기록이 남아 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 일지를 최근에 왜 꺼냈는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01",
+      "mismatch": "공식 사고 경위서에는 이 정비 일지 이야기가 한 줄도 없다.",
+      "reaction": {
+        "jiwoo": "이거...예전 정비 일지인데요.",
+        "detective": "숨겨 둔 서랍에 있었다는 게 이상하지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "아침 언쟁 목격",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "봉소이에게 오늘 아침 두 대표 사이에 무슨 일이 있었는지 묻는다",
+      "content": "\"오늘 아침 대표님 두 분이 사무실에서 언쟁하는 소리가 들렸어요. 정비 일지 얘기가 나온 것 같았고요.\"",
+      "proves": [
+        "오늘 아침 예도훈과 마준경 사이에 정비 일지를 둘러싼 언쟁이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "정확히 무슨 말을 주고받았는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01",
+      "mismatch": "평소 사이좋던 두 대표가 그날따라 사무적으로 언쟁했다."
+    },
+    {
+      "id": "E03",
+      "name": "조 편성 변경 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "도경우에게 오늘 아침 조 편성이 원래 어땠는지 묻는다",
+      "content": "\"원래 저랑 준경이 형이 한 조였어요. 근데 오늘 아침에 갑자기 예도훈 대표가 자기가 준경이 형이랑 돌겠다고 바꿨어요.\"",
+      "proves": [
+        "조 편성이 당일 아침 바뀌었고 원래는 도경우와 마준경이 한 조였다는 것"
+      ],
+      "does_not_prove": [
+        "왜 바꿨는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01",
+      "mismatch": "평소와 다르게 그날 아침에만 조가 갑자기 바뀌었다."
+    },
+    {
+      "id": "E04",
+      "name": "탱크 압력 기록표",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "탱크 압력 기록표를 확인한다",
+      "content": "그날 채운 탱크들의 압력 기록표에 마준경 몫도 다른 사람들과 똑같이 정상 수치로 적혀 있다.",
+      "proves": [
+        "마준경의 탱크 자체에는 결함이 없었다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤에 누가 손을 댔는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "결함이 있었다면 남았을 이상 수치가 하나도 없다."
+    },
+    {
+      "id": "E05",
+      "name": "탱크 인수 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "손이랑에게 그날 아침 탱크를 채운 순서를 묻는다",
+      "content": "\"제가 다 채웠는데, 준경 대표님 것만 예도훈 대표가 배 타기 직전에 다시 한번 보겠다면서 가져갔어요.\"",
+      "proves": [
+        "예도훈이 출항 직전 마준경의 탱크를 직접 가져갔다는 것"
+      ],
+      "does_not_prove": [
+        "가져간 뒤 무엇을 했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "평소엔 손이랑이 다 채운 그대로 배에 싣는데, 그날만 유독 대표가 직접 다시 챙겼다."
+    },
+    {
+      "id": "E06",
+      "name": "고쳐 쓴 조 편성표",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "다이빙 조 편성표를 확인한다",
+      "content": "화이트보드에 적힌 조 편성표에서 '도경우·마준경' 칸이 지워지고 그 위에 '예도훈·마준경'이라고 다시 적힌 흔적이 뚜렷하다.",
+      "proves": [
+        "조 편성표가 그날 아침 고쳐 쓰였다는 것"
+      ],
+      "does_not_prove": [
+        "누가 고쳐 썼는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01",
+      "mismatch": "지운 자국이 최근 것인데 다른 칸은 하나도 고쳐지지 않았다."
+    },
+    {
+      "id": "E07",
+      "name": "마우스피스의 손자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "마준경의 보조 호흡기를 살펴본다",
+      "content": "보조 호흡기(옥토퍼스) 마우스피스 옆 고무 부분에 손가락으로 세게 눌린 자국 네 개가 나란히 남아 있다.",
+      "proves": [
+        "누군가 손으로 강하게 마우스피스를 눌러 막았다는 것"
+      ],
+      "does_not_prove": [
+        "누구의 손자국인지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "장비 자체는 멀쩡한데 눌린 자국만 유독 선명하다.",
+      "reaction": {
+        "jiwoo": "이거...손자국 같은데요.",
+        "detective": "장비가 문제가 아니었다는 뜻이지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "보관함의 긁힌 자국",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "정비 기록 보관함을 확인한다",
+      "content": "잠긴 보관함의 자물쇠 부분에 최근에 열었다 다시 잠근 듯한 긁힘 자국이 나 있다.",
+      "proves": [
+        "누군가 최근 그 보관함을 열었다는 것"
+      ],
+      "does_not_prove": [
+        "언제, 누가 열었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "먼지 쌓인 캐비닛인데 자물쇠 부분만 유독 반들거린다."
+    },
+    {
+      "id": "E09",
+      "name": "5년 전 사고 소문",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "주현담에게 5년 전에도 사고가 있었다는 게 사실인지 묻는다",
+      "content": "\"그런 얘기를 듣긴 했어요. 그때 강습생이 급상승 실수로 사고를 당했었다고... 자세힌 몰라요.\"",
+      "proves": [
+        "5년 전에도 다이빙 관련 사고가 있었다는 소문이 있다는 것"
+      ],
+      "does_not_prove": [
+        "그 사고의 정확한 경위"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "오래전 일인데도 아직 회원들 사이에 소문으로 남아 있다."
+    },
+    {
+      "id": "E10",
+      "name": "자산 정리 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "봉소이에게 마준경 대표가 요즘 어땠는지 묻는다",
+      "content": "\"준경 대표님이 요즘 이혼 때문에 회사 자산을 하나하나 다시 정리하신다고 들었어요.\"",
+      "proves": [
+        "마준경이 최근 회사 자산을 정리하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 정리가 이번 사건과 관련 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "그냥 개인사인 줄 알았는데 하필 사무실 서류까지 다시 들여다봤다."
+    },
+    {
+      "id": "E11",
+      "name": "서류가방 속 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "마준경의 개인 서류가방을 살펴본다",
+      "content": "서류가방 안에 다음 주 새로 올 안전관리사에게 넘길 서류 목록 메모가 있고, 맨 위에 '정비 일지 전체'라고 적혀 있다.",
+      "proves": [
+        "마준경이 다음 주 정비 일지를 안전관리사에게 넘기려 했다는 것"
+      ],
+      "does_not_prove": [
+        "예도훈이 그 사실을 정확히 언제 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "그동안 아무에게도 안 보여주던 일지를 이번엔 외부인에게 넘기려 했다."
+    },
+    {
+      "id": "E12",
+      "name": "다이브 컴퓨터 다운로드 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "다이브 컴퓨터 다운로드 기록을 확인한다",
+      "content": "마준경의 손목형 다이브 컴퓨터 기록이 11시 20분 지점에서 급격한 산소 소모 스파이크 직후 멈춰 있고, 같은 시각 예도훈의 컴퓨터 위치 기록도 같은 구간에 머물러 있다.",
+      "proves": [
+        "11시 20분경 두 사람이 같은 자리에 있었고 그 직후 급격한 이상이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 자리에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "다른 참가자들의 기록은 평온한데 그 시각 그 구간만 수치가 튄다.",
+      "reaction": {
+        "jiwoo": "...이 시간에 두 분이 같이 있었던 거예요?",
+        "detective": "그리고 그 직후에 하나가 멈췄지."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "빚 이야기",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "주현담에게 마준경에게 빚진 게 있는지 묻는다",
+      "content": "\"몇 년 전에 급전을 빌린 적은 있어요. 근데 그것도 지난달에 다 갚았습니다.\"",
+      "proves": [
+        "주현담이 과거 마준경에게 급전을 빌렸다는 것"
+      ],
+      "does_not_prove": [
+        "정말 다 갚았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "본인은 다 갚았다고 하지만 확인해 줄 사람이 필요하다."
+    },
+    {
+      "id": "E14",
+      "name": "상환 확인",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "도경우에게 주현담이 빚을 갚았다는 게 사실인지 묻는다",
+      "content": "\"현담이 형 빚이요? 준경이 형이 지난달에 다 받았다고 좋아하는 거 제가 직접 들었어요.\"",
+      "proves": [
+        "주현담의 빚이 실제로 지난달에 상환되었다는 것"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "본인 말뿐이던 상환 사실을 제3자가 직접 확인해 준다."
+    },
+    {
+      "id": "E15",
+      "name": "위치 확인",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "봉소이에게 주현담과 도경우가 그날 어디 있었는지 묻는다",
+      "content": "\"현담 삼촌이랑 경우 오빠는 계속 같은 구역에서 저랑 무전 주고받으면서 잠수했어요. 로그에도 남아 있을 거예요.\"",
+      "proves": [
+        "주현담이 그 시각 도경우와 함께 다른 구역에 있었다는 것"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "혼자였다면 의심스러웠겠지만 계속 무전으로 위치가 확인됐다."
+    },
+    {
+      "id": "E16",
+      "name": "손이랑의 부재",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "봉소이에게 손이랑이 그날 배를 탔는지 묻는다",
+      "content": "\"소이는 그날 배 안 탔어요. 계속 가게에 남아서 다음 팀 탱크 준비하고 있었을 거예요.\"",
+      "proves": [
+        "손이랑이 그날 출항하지 않고 계속 가게에 있었다는 것"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "배에 타지 않았다면 애초에 통로 근처에 갈 수도 없었다."
+    },
+    {
+      "id": "E17",
+      "name": "서운함 토로",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "손이랑에게 요즘 예도훈 대표와 사이가 어땠는지 묻는다",
+      "content": "\"재시험에서 떨어졌다고 예도훈 대표한테 싫은 소리 좀 들었죠. 그것 때문에 좀 서운하긴 했어요.\"",
+      "proves": [
+        "손이랑이 최근 예도훈에게 싫은 소리를 듣고 서운해했다는 것"
+      ],
+      "does_not_prove": [
+        "그 감정이 사건과 관련 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "서운했다는 감정과 별개로, 그날 배에 타지도 않았다."
+    },
+    {
+      "id": "E18",
+      "name": "빚 이야기를 들은 적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "봉소이에게 주현담과 마준경 사이에 돈 문제가 있었는지 아는 대로 묻는다",
+      "content": "\"예전에 현담 삼촌이 대표님한테 빚 갚는 문제로 심각하게 얘기하는 걸 얼핏 들은 적 있어요.\"",
+      "proves": [
+        "주현담이 과거 마준경에게 빚 문제로 심각한 이야기를 나눈 적이 있다는 것"
+      ],
+      "does_not_prove": [
+        "그 빚이 아직 남아 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "본인은 별일 아니라는 듯 말하지만 남들 눈에는 심각한 이야기로 보였다."
+    },
+    {
+      "id": "E19",
+      "name": "그날따라 굳어 있던 손이랑",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "도경우에게 손이랑이 그날 아침 어땠는지 묻는다",
+      "content": "\"소이 씨요? 그러고 보니 그날 아침 탱크 챙기면서 평소보다 표정이 좀 굳어 있었던 것 같아요.\"",
+      "proves": [
+        "손이랑이 그날 아침 평소와 다르게 굳은 표정이었다는 것"
+      ],
+      "does_not_prove": [
+        "그 이유가 무엇인지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "장비를 다루는 손은 평소와 같았지만 표정만 유독 달랐다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
+      },
+      "player_action": "파쇄기 옆에서 발견된 정비 일지 사본(E01)과 아침에 언쟁이 있었다는 증언(E02)을 함께 제시하며 평소와 다름없었다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "오늘 아침 정비 일지 문제로 마준경과 언쟁이 있었던 것은 인정한다."
+      },
+      "must_not_release": [
+        "조 편성을 바꿨다는 사실",
+        "기관실에서 단둘이 있었다는 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_alone",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E03",
+          "E06"
+        ]
+      },
+      "player_action": "조 편성 변경 증언(E03)과 고쳐 쓴 조 편성표(E06)를 제시하며 조가 바뀌지 않았다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "오늘 아침 조 편성을 바꿔 자신이 마준경과 함께 기관실 구간을 돌기로 한 것은 인정한다."
+      },
+      "must_not_release": [
+        "단둘이 있었을 때 벌어진 일",
+        "마준경을 살해했다는 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_alone",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E12"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E07",
+          "E12"
+        ]
+      },
+      "player_action": "마우스피스에 남은 손자국(E07)과 다이브 컴퓨터 기록(E12)을 제시하며 먼저 나왔다는 말을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "통로에서 마준경의 밸브를 잠그고 보조 호흡기를 막아 질식시켰다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "주현담은 예전에 마준경에게 급전을 빌린 적이 있고, 그날도 참가자들과 떨어져 확인이 안 되는 시간이 있었다는 말이 돌았다.",
+      "actual_reason": "실제로 그 빚은 지난달에 이미 다 갚았고, 그날은 계속 도경우와 같은 구역에서 무전으로 위치가 확인되고 있었다.",
+      "how_to_clear": "도경우의 상환 확인 증언(E14)과 봉소이의 위치 확인 증언(E15)을 함께 대조하면, 빚은 이미 갚았고 그 시각 도경우와 함께 다른 구역에 있었다는 것이 드러난다.",
+      "must_not_imply": "주현담이 빚 때문에 앙심을 품고 범행을 계획했다는 인상을 주지 않는다.",
+      "lingering_thread": "주현담은 혐의를 벗지만, 진작 상환 확인증이라도 받아 둘 걸 그랬다며 겸연쩍어한다.",
+      "suspicion_deepener": "주현담 본인의 빚 이야기(E13)와 봉소이가 전해 들은 심각한 빚 이야기(E18)가 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E14",
+        "E15"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "그날 도경우와 같은 구역에서 잠수했다고 하지만, 처음엔 확인해 줄 사람이 마땅치 않았다.",
+        "means": [
+          "E13",
+          "E18"
+        ],
+        "means_first_reading": "마준경에게 빚을 지고 있었다는 사실(E13, E18)이 앙심을 가질 이유처럼 들린다."
+      }
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "손이랑은 최근 안전관리사 재시험에서 떨어져 예도훈에게 싫은 소리를 들은 적 있고, 그날 아침 마준경의 탱크를 유독 신경 써서 다뤘다.",
+      "actual_reason": "실제로 마준경의 탱크는 예도훈이 직접 가져가 다시 점검한 것이었고, 손이랑은 그날 배를 타지 않고 계속 가게 컴프레서실에 남아 있었다.",
+      "how_to_clear": "탱크 압력 기록표(E04)와 그날 배를 타지 않았다는 증언(E16)을 함께 대조하면, 탱크에는 결함이 없었고 그가 애초에 배에 타지도 않았다는 것이 드러난다.",
+      "must_not_imply": "손이랑이 재시험 탈락에 앙심을 품고 장비에 손을 댔다는 인상을 주지 않는다.",
+      "lingering_thread": "손이랑은 혐의를 벗지만, 다음 재시험은 꼭 붙고 말겠다고 다짐한다.",
+      "suspicion_deepener": "최근 예도훈에게 재시험 문제로 싫은 소리를 들었다는 것(E17)과 그날 아침 유독 굳어 있었다는 목격(E19)이 먼저 의심을 키운다.",
+      "cleared_by": [
+        "E04",
+        "E16"
+      ],
+      "clearing_points_at": "CH01",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "출항 전 컴프레서실에서 탱크를 채우며 마준경 것에 손댈 수 있었다.",
+        "means": [
+          "E17",
+          "E19"
+        ],
+        "means_first_reading": "재시험에 떨어져 예도훈에게 싫은 소리를 들었다는 것(E17, E19)이 앙심을 가질 이유처럼 들린다."
+      }
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04",
+      "E07",
+      "E12"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-04",
+      "motive_fact": "F-CH01-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "예도훈(CH01) — 청람다이브 공동대표",
+    "method": "침몰선 기관실 통로에서 마준경의 밸브를 잠그고 보조 호흡기를 손으로 막아 질식시켰다.",
+    "motive": "5년 전 정비 태만으로 인한 사고를 은폐해 온 것이 다음 주 안전점검으로 발각될 위기에 몰렸기 때문이다.",
+    "key_connection": "파쇄기 옆 정비 일지 사본(E01)과 아침 언쟁 증언(E02)이 그날 아침 다툰 이유를 좁히고, 도경우의 증언(E03)과 고쳐 쓴 조 편성표(E06)가 조가 그날 아침 바뀌었다는 것을 뒷받침하며, 마우스피스의 손자국과 다이브 컴퓨터 기록(E07, E12)이 통로 안에서 벌어진 일을 증명한다."
+  },
+  "ending_explanation": [
+    "청람다이브 공동대표 마준경이 침몰선 기관실 통로에서 의식을 잃은 채 발견돼 배 위에서 사망이 확인된 표면 사건",
+    "사물함 서랍 속 정비 일지 사본(E01)과 아침 언쟁 증언(E02)이 그날 아침 다툰 이유를 좁혀 간 과정",
+    "도경우의 증언(E03)과 고쳐 쓴 조 편성표(E06)가 조가 그날 아침 바뀌었다는 것을 뒷받침한 과정. 예도훈이 배 타기 직전 탱크를 직접 가져갔다는 증언(E05)도 그 조짐이었다",
+    "탱크 압력 기록표(E04)가 장비 결함이라는 가능성을 지운 과정",
+    "마우스피스의 손자국과 다이브 컴퓨터 기록(E07, E12)이 통로 안에서 벌어진 일을 증명한 과정",
+    "5년 전 사고 은폐가 다음 주 안전점검으로 드러날 위기에서 빚어진 살인이라는 결말. 급상승 실수로 알려졌던 5년 전 사고 소문(E09)과 마준경의 자산 정리 증언(E10)이 그 배경을 메웠다",
+    "보관함의 긁힌 자국(E08), 서류가방 속 메모(E11)가 각각 동기의 조각들을 메웠다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "5년 전 사고 은폐가 발각될 위기에 몰려서",
+      "truth": true,
+      "evidence_for": [
+        "E01",
+        "E11"
+      ],
+      "suggested_by": [
+        "E01",
+        "F-CH05-01"
+      ],
+      "cue": "정비 일지"
+    },
+    {
+      "id": "M02",
+      "text": "빚 문제로 앙심을 품은 주현담",
+      "truth": false,
+      "evidence_for": [
+        "E13",
+        "E18"
+      ],
+      "suggested_by": [
+        "E18"
+      ],
+      "cue": "빚",
+      "refutation": "빚이요? 그거 지난달에 이미 다 갚았어요. 이제 와서 그것 때문에 이럴 이유가 없죠.",
+      "refutation_releases": "F-CH02-01",
+      "refuted_by": "CH02"
+    },
+    {
+      "id": "M03",
+      "text": "재시험 문제로 앙심을 품은 손이랑",
+      "truth": false,
+      "evidence_for": [
+        "E17"
+      ],
+      "suggested_by": [
+        "E17"
+      ],
+      "cue": "재시험",
+      "refutation": "재시험 떨어진 거요? 속상했지만 그것 때문에 대표님을 어떻게 하겠어요.",
+      "refutation_releases": "F-CH03-01",
+      "refuted_by": "CH03"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "사건 당일 11시 20분경, 기관실 통로에서",
+      "truth": true,
+      "evidence_for": [
+        "E07",
+        "E12"
+      ],
+      "suggested_by": [
+        "E12"
+      ],
+      "cue": "11시"
+    },
+    {
+      "id": "T02",
+      "text": "그날 밤, 사무실 정리 중에",
+      "truth": false,
+      "evidence_for": [
+        "E08"
+      ],
+      "suggested_by": [
+        "E08"
+      ],
+      "cue": "보관함",
+      "refutation": "그날 밤은 다들 일찍 다 돌아갔어요. 사무실에 늦게까지 남은 사람 없었을걸요.",
+      "refutation_releases": "F-CH05-02",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "T03",
+      "text": "출항 전, 탱크 준비 중에",
+      "truth": false,
+      "evidence_for": [
+        "E05"
+      ],
+      "suggested_by": [
+        "E05"
+      ],
+      "cue": "탱크",
+      "refutation": "탱크 준비할 때는 제가 계속 옆에 있었어요. 그때 무슨 일이 있었으면 제가 몰랐을 리 없죠.",
+      "refutation_releases": "F-CH03-02",
+      "refuted_by": "CH03"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "밸브를 잠그고 보조 호흡기를 막아 질식시켰다",
+      "truth": true,
+      "evidence_for": [
+        "E07",
+        "E12"
+      ],
+      "suggested_by": [
+        "E07"
+      ],
+      "cue": "손자국"
+    },
+    {
+      "id": "H02",
+      "text": "탱크 결함으로 인한 사고",
+      "truth": false,
+      "evidence_for": [
+        "E04"
+      ],
+      "suggested_by": [
+        "E04"
+      ],
+      "cue": "압력",
+      "refutation": "그날 채운 탱크는 제가 다 확인했어요. 결함은 없었습니다.",
+      "refuted_by": "CH03",
+      "refutation_releases": "F-CH03-02"
+    },
+    {
+      "id": "H03",
+      "text": "수면 위로 급하게 올라오다 생긴 감압 사고",
+      "truth": false,
+      "evidence_for": [],
+      "suggested_by": [
+        "E09"
+      ],
+      "cue": "급상승",
+      "refutation": "형은 그런 실수할 사람이 아니에요. 물속에서 제일 침착한 사람이었다니까요.",
+      "refuted_by": "CH04",
+      "refutation_releases": "F-CH04-02"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "저요? 저는 그 시각에 계속 경우 형이랑 같은 구역에 있었어요. 확인해 보세요.",
+      "releases": "F-CH02-02"
+    },
+    "CH03": {
+      "text": "저요? 저는 그날 배도 안 탔는걸요. 계속 가게에 있었어요.",
+      "releases": "F-CH03-02"
+    },
+    "CH04": {
+      "text": "저요? 저는 그 시각 계속 현담 형이랑 같이 있었어요.",
+      "releases": "F-CH04-02"
+    },
+    "CH05": {
+      "text": "저요? 저는 배 위에서 무전만 잡고 있었어요. 통로 안에는 들어가지도 않았어요.",
+      "releases": "F-CH05-02"
+    }
+  },
+  "resolution": {
+    "who": "예도훈이었다. 정비 일지 사본과 아침 언쟁 증언이 그를 좁혀 갔다.",
+    "when": "사건 당일 11시 20분경, 침몰선 기관실 통로에서.",
+    "why": "5년 전 정비 태만으로 인한 사고 은폐가 다음 주 안전점검으로 발각될 위기에 몰렸기 때문이다.",
+    "how": "조 편성을 몰래 바꿔 단둘이 통로에 들어간 뒤, 밸브를 잠그고 보조 호흡기를 막아 질식시켰다."
+  }
+}
