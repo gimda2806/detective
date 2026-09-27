@@ -3647,3 +3647,29 @@ CASE137·138·139·141·142·185·218·306·331 절의 「폴백이 못 읽는 �
 | CASE339 | `cover_up_method` | `accident_victim_error`(추가) | `full_truth.cover_up` 「발판에 올랐다가 혼자 **미끄러져** 넘어진 것처럼 자리를 꾸몄다」 | 폴백에 **미끄러져 · 미끄러진**이 없다(`헛디`·`넘어져`만 있어 관형형 **넘어진**도 못 읽는다). 실족을 적는 흔한 꼴이라 더할 값이 크다 |
 | CASE339 | `cover_up_method` | `evidence_removal`(추가) | `full_truth.cover_up` 「보도자료 최종 샘플을 **빼내** 접어 주머니에 넣어 감췄다」 · `T22` 「유리 조각들을 **쓸어 담아 치워**」 | 폴백은 「(증거\|흔적\|자국…)+치우」 꼴만 본다 — **목적어가 물건 이름**이면(샘플·유리 조각) 아무 데도 안 걸린다. 더할 낱말: **빼내 · 쓸어 담아** |
 | CASE339 | `cover_up_target` | `cause_of_death`(추가) | `full_truth.cover_up` 같은 문장(「혼자 미끄러져 넘어진 것처럼」) | 폴백은 **사인 · 사고사 · 지병** 같은 **이름씨**만 본다. 「…처럼 꾸몄다」로 사인을 감추는 문장은 낱말이 하나도 안 겹친다 — 이 칸은 사람이 안 적으면 사실상 빈칸이라는 CLAUDE.md의 진단이 그대로 맞았다 |
+
+## CASE119 (소설화 루틴, 2026-09-27)
+
+`other`로 적은 칸은 없다. **선언이 산문보다 좁았던 자리 하나를 더했다** —
+`full_truth.motive_archetypes`에 `credit_theft`. 여덟 축은 이미 다 선언돼 있었고
+(`professional_secrecy`+`business_control` · `machine_entrapment`+
+`staging_cover_up` · `factory` · `business_negotiation`+`product_launch` ·
+`scheduled` · `contextual` · `evidence`+`responsibility` · `scene_rearrangement`+
+`document_falsification`+`digital_record_manipulation`), **나머지 일곱은 산문과
+맞았다.** 동기 칸만 「이 사건이 무엇을 다투는가」가 빠져 있었다 — 크레딧이다.
+`check:case` warn 3 → 4(늘어난 하나는 `MOTIVE_ARCHETYPE_OVERUSE`, 코퍼스 비율
+보고이고 등록된 사건이라 CI는 막지 않는다).
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE119 | `motive` | `credit_theft`(추가) | `full_truth.motive` 「편곡과 프로듀싱 대부분을 허도경이 해냈다는 것을 알면서도 **자신의 단독 크레딧으로 등록해** 왔고」 · `case_identity.genre` 「**크레딧**과 지분을 **가로챈** 사실이 드러나자」 · `T01.world_fact` 「크레딧에는 탁재호가 **단독 프로듀서로만** 올라갔다」 | **폴백도 이 편을 못 센다.** 목록에 `단독\s*등재`는 있는데 **단독 크레딧으로 등록 · 단독 프로듀서로 · 크레딧 정정**이 없다. 이 코퍼스에서 공적 다툼은 특허(CASE167 「발명자란」)·작품(CASE213 「서명패」)·창작자 항목(CASE223)으로 나왔는데, **음악 크레딧은 '크레딧'이라는 낱말 자체가 이름 칸을 가리키는 말**이다. 더할 낱말: **크레딧 · 단독 크레딧 · 단독 프로듀서** |
+
+**`cover_up`은 더하지 않았다.** CLAUDE.md의 절차(「은폐 문장을 쓴 뒤 그 문장의
+동사를 세어 칸을 적는다」)대로 `full_truth.cover_up`의 동사를 셋 세었는데 —
+「안전 가드를 원위치로 **닫아걸고**」(`scene_rearrangement`) · 「정비일지에 …
+소급해 **적어 넣었다**」(`document_falsification`) · 「사본을 **지우고** 휴지통까지
+**비웠다**」(`digital_record_manipulation`) — 셋 다 이미 선언돼 있다.
+`false_accident`는 `genre`의 「설비 사고로 위장한 사건」에만 있고 **은폐 문장에는
+없다.** 은폐 문장 밖의 요약을 보고 칸을 더하면 선언이 산문보다 넓어지므로 두었다.
