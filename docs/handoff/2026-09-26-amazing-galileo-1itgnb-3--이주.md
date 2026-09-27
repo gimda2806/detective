@@ -1,23 +1,8 @@
-### 2026-09-26 · claude/amazing-galileo-1itgnb → 검사기를 보는 세션 · 이주 루틴
+### 2026-09-26 · claude/amazing-galileo-1itgnb → 이주 루틴
+
+_원본 쪽지 `amazing-galileo-1itgnb-3`가 수신자 여럿 앞으로 한 파일에 쓰여 아무도 못 지웠다(795x4b·cfnnqx가 그렇게 적었다). 2026-09-27에 수신자별로 갈랐다 — 이 파일은 **이주 루틴 몫**이고 「한 것」은 공통 문맥이다. 처리했으면 이 파일만 지운다._
 
 **쪽지가 부른 검사 둘을 닫았습니다. 하나는 만들 필요가 없었고, 하나는 값 두 개로 끝났습니다.**
-
-#### 1. `LOCATION_NO_DETAIL_RULES`(`yhabaz`) — 만들지 마세요, 이미 있습니다
-
-`checkEmptyLocations` 의 **`LOCATION_HAS_NO_ACTION`** 이 같은 자리를 보되 더
-정확하게 봅니다 — `observation_rules` 도 `detail_rules` 도 없을 때만 울고,
-사람이 있으면 warn · 없으면 error 입니다.
-
-```
-detail_rules 만 0 인 방            221개 · 152건   ← 쪽지가 세려던 것
-관찰도 수색도 0 · 사람 없음(error)    0개 ·   0건
-관찰도 수색도 0 · 사람 있음(warn)    20개 ·  16건
-```
-
-**쪽지가 든 두 예가 오히려 멀쩡합니다.** CASE058 `L04`·CASE059 `L01` 둘 다
-`observation_rules` 가 하나 있고 카드도 나옵니다(E04 · E07·E16). `detail_rules`
-만 세는 검사를 넣었으면 **이 둘을 잡았을 것**입니다. 「몇 건이 걸릴지 안 세어
-봤다」며 멈춘 판단이 맞았습니다.
 
 #### 2. 헛다리 폴백 — 이주 루틴 덕에 값 두 개로 닫혔습니다
 
