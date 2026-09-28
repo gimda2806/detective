@@ -365,7 +365,34 @@ function checkNovel(novelFile) {
       const t = parseMasterTime(it?.time);
       return t && entry && t.day === entry.day && t.hour === entry.hour && t.min === entry.min;
     });
-    for (const it of idx === -1 ? items : items.slice(0, idx)) {
+    // **진입 항목을 못 찾으면 타임라인 전체를 회상으로 삼지 않는다.** 위 `findIndex`
+    // 는 시·분이 **정확히 같은** 항목을 찾는데, 진입 시각이 타임라인의 어느 항목과도
+    // 안 겹치는 편이 373편 중 238편이다(2026-09-28 실측). 그때 `idx === -1`이 되어
+    // 옛 코드가 `items` 전체를 `preEntry`에 넣었고, 그러면 `isFlashback`이 **제목
+    // 시각이 마스터에 있는 장을 전부** 회상으로 빼서 그 편은 역행 검사가 통째로
+    // 안 돌았다. 그렇게 진입 **뒤** 항목까지 새어 들어간 편이 94편, 그래서 실제로
+    // 장이 빠진 편이 27편·36장이다. CASE363 이 그 자리다(진입 13:50, 그 시각의
+    // 항목 없음 — 5장 제목을 마스터에 있는 값으로 바꿔도 TIME_BACKWARD 가 안 떴다).
+    //
+    // 그래서 못 찾았을 때는 **진입보다 뒤인 첫 항목**에서 자른다. 타임라인이 시간순
+    // 배열이라는 전제(CLAUDE.md)는 그대로 쓰고, 자를 자리만 「같은 시각」에서 「진입을
+    // 넘어서는 자리」로 넓힌 것이다. 뒤인 항목이 아예 없으면 `-1`이 그대로 남아
+    // 전체가 `preEntry`가 되는데, 그때는 타임라인이 통째로 진입 전이라 **그것이 맞다**
+    // (범행이 다 끝난 뒤 탐정이 들어오는 보통의 모양이다).
+    //
+    // **시계 숫자로 걸러 내는 쪽은 택하지 않았다.** 「진입보다 시각이 큰 항목은 담지
+    // 않는다」로 하면 CASE012(진입 「사건 당일 06:10」, T01~T08 이 날짜 말 없는 맨
+    // "20:00"~"22:35")처럼 **옛 형식으로 적힌 전날 저녁**이 숫자만 크다는 이유로
+    // 빠진다 — 그렇게 어긋나는 항목이 46개, 그중 43개가 날짜 말 없는 옛 형식이었다.
+    // 배열 순서가 날짜 말보다 믿을 만하다.
+    let cut = idx;
+    if (cut === -1 && entry) {
+      cut = items.findIndex((it) => {
+        const t = parseMasterTime(it?.time);
+        return t && toMinutes(t) > toMinutes(entry);
+      });
+    }
+    for (const it of cut === -1 ? items : items.slice(0, cut)) {
       const t = parseMasterTime(it?.time);
       if (t) preEntry.add(hhmm(t.hour, t.min));
     }
