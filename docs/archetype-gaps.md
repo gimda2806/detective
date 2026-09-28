@@ -4208,3 +4208,23 @@ CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE170·176·199·211, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 36건 중 앞서 기록한 오탐 일곱(046·056·064·090·103·123·161)을
+지나 CASE170·175·176·199·211을 짚었다. CASE170은 `scene_rearrangement`(「배선과 환기구 덮개를
+**원래 상태로 되돌려 놓았고**」), CASE176은 `cover_up_method`가 `other` 하나뿐이던 자리라 CASE100과
+같은 방식으로 지우고 `false_accident`·`accident_equipment_failure`·`evidence_placement`·`evidence_removal`
+(「감전된 것처럼 꾸며」·「낡은 장비」·「공구 한 벌을 … 가지런히 놓아」·「휴대폰과 계약서 초안을 회수」)로
+교체했다. CASE199는 `false_timeline`(「로그북 상승 시각을 다른 조 시각에 맞춰 고쳐 적었다」), CASE211은
+`false_accident`·`object_substitution`(「사고처럼 보이게」·「점검 카드를 … 바꿔 끼워」)를 더했다.
+진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE175의 `accident_environment`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `accident_environment`(「정전」) | **사고 위장이 아니라 침입 위장의 구실이다.** 문장은 「**정전을 틈탄 빈집털이가** 가스배관을 타고 들어온 것처럼 꾸몄다」다 — 정전은 침입자가 노렸다고 둘러대는 때일 뿐 죽음을 환경 탓 사고로 돌리는 게 아니고, 그 위장은 이미 선언된 `false_intrusion`이 담는다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 네 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는 36 → 32(넷 해소,
+CASE175가 오탐 하나로 남는다). 다섯 건 모두 판본이 없다.
