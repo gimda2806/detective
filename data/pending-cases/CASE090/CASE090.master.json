@@ -48,7 +48,13 @@
     "key_time_location": "사건 당일 10:00경, 관찰대(L04) 지붕 프레임의 스피커함 고정 브래킷",
     "cover_up": "석지호는 소란을 틈타 정비실에서 여분의 고정 볼트를 챙겨 관찰대로 돌아가, 떨어진 스피커함을 새 볼트로 다시 매달아 두고 풀었던 낡은 볼트는 주머니에 넣어 가져갔다. 나사산에는 새 그리스를 두껍게 발라 공구로 긁힌 자국을 덮었다. 탐정 앞에서는 그날 저녁 내내 정비실에서 장비 정리만 하고 있었다며 거짓 알리바이를 댔다. 5년 전 일이나 오늘 밤 보고서 초안에 자기 이름이 다시 적힌 것은 먼저 꺼내지 않았다.",
     "cover_up_target": ["motive", "crime_scene"],
-    "cover_up_method": ["weapon_disposal", "contamination"],
+    "cover_up_method": [
+      "weapon_disposal",
+      "scene_rearrangement",
+      "contamination",
+      "false_alibi",
+      "concealment_without_staging"
+    ],
     "decisive_evidence_ids": ["E14", "E19"]
   },
   "actual_timeline": [

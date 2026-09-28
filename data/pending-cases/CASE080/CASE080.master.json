@@ -49,7 +49,14 @@
     "key_time_location": "5일 전 늦은 밤, 워크인 냉동고 안에서 도윤결이 비상 개방 레버 고정 핀을 빼내고 비상벨 배선을 끊었다. 사건 당일 18시 55분, 같은 냉동고 안으로 방신유가 혼자 들어갔고 18시 57분 도윤결이 주방에서 문이 닫힌 것을 확인했다.",
     "cover_up": "도윤결은 방신유가 냉동고에 들어가기 나흘 전 유지보수 기록표에 실제로 오지 않은 설비 기사의 이름과 '이상 없음' 소견을 적어 넣어, 레버가 원래부터 정상이었던 것처럼 꾸며 두었다. 떼어낸 원래 부품은 주방 뒤편 폐기물통 깊숙이 숨겼고, 개인 카드로 주문한 교체용 부품은 뜯지 않은 채 자신의 사물함에 넣어 두었다가 소동이 가라앉으면 몰래 설치해 흔적을 지울 생각이었다. 시신이 발견된 뒤에는 자신이 마지막으로 냉동고 문을 확인했다는 사실을 언급하지 않았고, 오히려 목재헌 쪽으로 슬쩍 의심을 돌렸다.",
     "cover_up_target": ["financial_trace", "communication_trace"],
-    "cover_up_method": ["evidence_placement", "witness_misdirection"],
+    "cover_up_method": [
+      "evidence_placement",
+      "document_falsification",
+      "accident_equipment_failure",
+      "weapon_disposal",
+      "concealment_without_staging",
+      "witness_misdirection"
+    ],
     "decisive_evidence_ids": ["E06", "E10", "E20", "E15"]
   },
   "actual_timeline": [
