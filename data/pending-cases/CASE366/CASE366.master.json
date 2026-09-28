@@ -1029,7 +1029,7 @@
   "methods": [
     {"id": "H01", "text": "환풍구를 막아 산소 부족을 일으킴", "truth": true, "evidence_for": ["E01", "E02"], "suggested_by": ["E01"], "cue": "환풍구"},
     {"id": "H02", "text": "환기 설비가 낡아 저절로 고장 난 사고", "truth": false, "evidence_for": [], "suggested_by": ["S-CH03-03"], "cue": "환기 설비", "refutation": "그럴 수도 있죠. 그런데 환풍구에 남은 자국을 보면 그냥 낡아서 그런 것 같지는 않던데요.", "refuted_by": "CH03"},
-    {"id": "H03", "text": "암실에서 실랑이가 벌어져 정신을 잃음", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "언성", "refutation": "실랑이 같은 건 없었습니다. 그냥 확인하러 들어갔을 뿐이에요.", "refuted_by": "CH01"}
+    {"id": "H03", "text": "암실에서 실랑이가 벌어져 정신을 잃음", "truth": false, "evidence_for": [], "suggested_by": ["E09"], "cue": "언성", "refutation": "실랑이 같은 건 없었습니다.", "refuted_by": "CH01"}
   ],
   "suspect_refutations": {
     "CH02": {"text": "저요? 저는 그저 발견한 사람일 뿐이에요, 제가 왜 그런 짓을 하겠어요."},
