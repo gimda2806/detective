@@ -437,6 +437,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE366 | 마지막 인화 | [CASE366.md](CASE366.md) |
 | CASE367 | 교반 일지 | [CASE367.md](CASE367.md) |
 | CASE368 | 열두 번째 줄 | [CASE368.md](CASE368.md) |
+| CASE369 | 지워진 두 줄 | [CASE369.md](CASE369.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
