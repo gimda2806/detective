@@ -4130,3 +4130,32 @@ CASE078은 `evidence_removal`·`scene_rearrangement`·`false_alibi`(「물티슈
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 64 → 60(넷 해소, CASE046·CASE056·CASE064·CASE090 넷이 오탐 하나씩 남아 계속 뜬다 — 경고를
 없애려고 칸을 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE101·102·104·105·106, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 55건 중 CASE101 자리에서 CASE103을 오탐(아래 표)으로
+건너뛰고 다섯을 짚었다. CASE101은 `false_accident`(「괴어 둔 됫박이 미끄러지며 문이 저절로
+닫혀 잠긴 **사고로 보이게 하려는 것**이었고」 — 폴백이 같이 잡은 `accident_equipment_failure`
+「저절로」는 사고 위장 다섯 칸이 한 계열이라 하나만 선언하면 나머지는 검사기가 더 안 본다),
+CASE102는 `object_substitution`(「대추차 주전자를 찬물을 가득 채운 양은 주전자로 **바꿔
+놓았다**」)·`evidence_removal`(「떼어 낸 쪽지는 … 아궁이에 던져 넣어 **태웠다**」), CASE104는
+`evidence_removal`(「급히 **손자국을 지우려** 차단기와 댐퍼 주변을 손으로 대충 문질러」)·
+`false_accident`(「관리 소홀로 인한 우연한 **사고처럼 보이게** 했다」), CASE105는
+`evidence_removal`(「다이어리는 따로 **없앴다**」)·`accident_victim_health`(「과로로 인한
+급작스러운 병사처럼 보이게 했다」), CASE106은 `object_substitution`(「새 병으로 몰래 **바꿔
+넣었다**」)·`evidence_removal`(「자신의 카드 사용 흔적을 **지우고**」)·`accident_victim_health`
+(「'기존 지병에 의한 실신 추정'으로 적어 달라고 요청했다」)를 각각 선언에 더했다. 곁들여
+`cover_up_target`도 그 손놀림이 감추는 것으로 보충했다(CASE102 `communication_trace`,
+CASE104 `responsibility`, CASE106 `cause_of_death`·`access_route`) — `COVER_UP_DECLARATION_NARROW`는
+`cover_up_method`만 보므로 셈에는 안 들어가지만 CASE345가 남긴 대로 사람이 안 보면 영영
+안 보이는 축이라 같이 채웠다. 진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE103의 `accident_equipment_failure`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `accident_equipment_failure`(「낡아」) | **사고 위장 서사가 아니라 미리 준비한 변명이다.** 문장은 「손잡이가 원래 **낡아** 갈아 끼우려던 참이었다고 미리 둘러댈 말을 만들어 두었다」다 — 이 사건의 죽음은 냉동창고에 가둬 저체온으로 죽인 것이라 애초에 사고로 위장하지 않는다(사고 위장 계열 문구 「사고처럼 보이」·「사고로」가 은폐 문장 어디에도 없다). 「낡아」는 손잡이를 미리 빼 둔 흔적을 설명할 핑계일 뿐이고, 이미 선언된 `witness_misdirection`(그 핑계로 상대를 속이는 것)이 이 손놀림을 담는다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
+55 → 50(다섯 해소, CASE103이 오탐 하나로 계속 뜬다 — 경고를 없애려고 칸을 더하지 않았다,
+CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
