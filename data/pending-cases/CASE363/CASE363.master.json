@@ -334,8 +334,13 @@
         },
         {
           "fact_id": "F-CH01-06",
-          "content": "14시 무렵 복도를 지나다 윤도경이 기록보관실 문 앞을 서성이는 것을 봤다.",
+          "content": "14시 7분 소란을 듣고 뛰어나오다가 윤도경이 기록보관실 문 앞을 서성이는 것을 봤다.",
           "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "사업 자금 사정이 급해 하루빨리 상속 정리가 끝나기를 바랐을 뿐이었다.",
+          "source": "본인 경험"
         }
       ],
       "initial_claims": [
@@ -373,6 +378,11 @@
         {
           "fact_or_claim_id": "F-CH01-06",
           "release_prerequisite": "E22",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-07",
+          "release_prerequisite": "E10",
           "release_trigger": "S-CH01-02"
         }
       ],
@@ -423,7 +433,7 @@
         },
         {
           "fact_id": "F-CH02-04",
-          "content": "탁은서가 최근 며칠 사이 접수처에 여러 번 들러 보고서 제출 여부를 캐물었다.",
+          "content": "탁은서가 사건 전날 퇴근 전까지 접수처에 네 번 들러 보고서 제출 여부를 캐물었다.",
           "source": "직접 목격"
         },
         {
@@ -440,6 +450,11 @@
           "fact_id": "F-CH02-07",
           "content": "윤도경의 순찰 일지가 13시 10분부터 14시까지 한 줄로만 적혀 있는 것을 봤다.",
           "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH02-08",
+          "content": "구급대원 소견으로는 사망 시각이 13시 25분~35분 사이로 추정된다고 들었다.",
+          "source": "직접 들음"
         }
       ],
       "initial_claims": [
@@ -482,6 +497,11 @@
         {
           "fact_or_claim_id": "F-CH02-07",
           "release_prerequisite": "E22",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-08",
+          "release_prerequisite": "E01",
           "release_trigger": "S-CH02-02"
         }
       ],
@@ -544,6 +564,11 @@
           "fact_id": "F-CH03-06",
           "content": "백소연이 접수 도장 처리를 직접 담당한다는 것을 안다.",
           "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-07",
+          "content": "조정이 미뤄지면 자신도 별도 기일을 다시 잡아야 해서 손해라는 것을 알고 있었다.",
+          "source": "본인 경험"
         }
       ],
       "initial_claims": [
@@ -581,6 +606,11 @@
         {
           "fact_or_claim_id": "F-CH03-06",
           "release_prerequisite": "E15",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-07",
+          "release_prerequisite": "E18",
           "release_trigger": "S-CH03-01"
         }
       ],
@@ -643,6 +673,11 @@
           "fact_id": "F-CH04-06",
           "content": "13시 40분쯤 탁정민이 복도 자판기 앞에 잠깐 서 있는 것을 봤다.",
           "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH04-07",
+          "content": "소란 뒤 기록보관실 선반을 확인했는데 서류함이 넘어지거나 자리가 흐트러진 자국은 없었다.",
+          "source": "본인 경험"
         }
       ],
       "initial_claims": [
@@ -681,6 +716,11 @@
           "fact_or_claim_id": "F-CH04-06",
           "release_prerequisite": "E16",
           "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-07",
+          "release_prerequisite": "F-L02-OBS-02",
+          "release_trigger": "S-CH04-02"
         }
       ],
       "knowledge_limits": [
@@ -740,7 +780,7 @@
         },
         {
           "fact_id": "F-CH05-06",
-          "content": "그날 오전 오빠 탁정민이 접수처를 여러 번 들락거리는 것을 봤다.",
+          "content": "사건 3일 전 접수처에 갔을 때 오빠 탁정민이 접수처를 여러 번 들락거리는 것을 봤다.",
           "source": "직접 목격"
         }
       ],
@@ -834,8 +874,8 @@
         "at": "CH01",
         "because": "F-CH05-06",
         "opens": "S-CH05-01",
-        "says": "가족끼리 얘기지만, 오빠가 그날 오전에도 접수처를 몇 번이나 들락거렸어요.",
-        "reveals": "탁정민이 그날 오전 접수처를 여러 번 들락거렸다는 것"
+        "says": "가족끼리 얘기지만, 오빠가 사건 3일 전에도 접수처를 몇 번이나 들락거렸어요.",
+        "reveals": "탁정민이 사건 3일 전 접수처를 여러 번 들락거렸다는 것"
       }
     }
   ],
@@ -948,7 +988,8 @@
       "access": "증인과 방문객이 순서를 기다리는 공개 대기 공간.",
       "access_level": "open",
       "connects_to": [
-        "L06"
+        "L06",
+        "L05"
       ],
       "base_description": "긴 소파 여러 개가 창가를 따라 놓여 있고, 출입구 옆 방문객 서명대에는 서명펜이 뚜껑도 닫히지 않은 채 놓여 있다.",
       "observation_rules": [
@@ -1029,7 +1070,7 @@
         {
           "action": "사무실을 둘러본다",
           "release_fact_id": "F-L03-OBS-01",
-          "result": "오늘 일정표 두 시 반 항목에 붉은 밑줄이 그어져 있다."
+          "result": "오늘 일정표 14시 30분 항목에 붉은 밑줄이 그어져 있다."
         }
       ],
       "detail_rules": [
@@ -1202,7 +1243,7 @@
       "mismatch": "외상이 뚜렷하지 않다는 소견은 스스로 쓰러졌다는 설명과는 맞지만, 안면 압박흔은 그 설명과 어긋난다.",
       "reaction": {
         "jiwoo": "얼굴에 눌린 자국이 뚜렷하대요.",
-        "detective": "그 15분 사이에 벌어졌다는 거야."
+        "detective": "그 10분 사이에 벌어졌다는 거야."
       }
     },
     {
@@ -1446,7 +1487,7 @@
       "presentation_effect": [
         "C01"
       ],
-      "points_at": "CH05",
+      "points_at": null,
       "mismatch": "평소 잘 안 쓰는 계단치고는 먼지 하나 없는 자리에 핀만 떨어져 있다.",
       "reaction": {
         "jiwoo": "먼지 하나 없는 자리에 핀만 있어요.",
@@ -1896,6 +1937,7 @@
       ],
       "cue": "재촉",
       "refutation": "냉정하게 말하면, 저도 그 보고서가 나와야 마음이 편했던 사람입니다. 서두른다고 죽일 이유가 됩니까.",
+      "refutation_releases": "F-CH01-07",
       "refuted_by": "CH01"
     },
     {
@@ -1908,6 +1950,7 @@
       ],
       "cue": "채근",
       "refutation": "법리적으로 보면, 조정이 미뤄지면 저야말로 기일을 다시 잡느라 손해입니다.",
+      "refutation_releases": "F-CH03-07",
       "refuted_by": "CH03"
     }
   ],
@@ -1948,6 +1991,7 @@
       ],
       "cue": "접수",
       "refutation": "절차상 말씀드리면, 소견에는 사망 시각이 그보다 한참 전인 13시 반쯤으로 나와 있어요.",
+      "refutation_releases": "F-CH02-08",
       "refuted_by": "CH02"
     }
   ],
@@ -1988,13 +2032,22 @@
       ],
       "cue": "선반",
       "refutation": "경험상 말씀드리면, 그 선반 서류함은 넘어진 흔적도, 자리가 흐트러진 자국도 없었습니다.",
+      "refutation_releases": "F-CH04-07",
       "refuted_by": "CH04"
     }
   ],
   "suspect_refutations": {
+    "CH01": {
+      "text": "제가 왜 그런 짓을 하겠어요, 보고서가 나와야 저한테 이득인데.",
+      "releases": "F-CH01-01"
+    },
     "CH02": {
       "text": "절차상 말씀드리면, 저는 계속 사무실에 있었습니다.",
       "releases": "F-CH02-01"
+    },
+    "CH03": {
+      "text": "제가 왜 그런 일을... 오히려 보고서가 늦어지면 저만 손해입니다.",
+      "releases": "F-CH03-01"
     },
     "CH04": {
       "text": "경험상 말씀드리면, 저는 계속 복도를 돌고 있었습니다.",
