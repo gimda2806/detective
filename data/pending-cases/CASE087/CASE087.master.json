@@ -48,7 +48,12 @@
     "key_time_location": "사건 사흘 전 저녁, 헌사 낭독대 스탠드 마이크와 금속 난간(L02)",
     "cover_up": "남궁태을은 소동이 벌어진 틈을 타 다시 무대에 올라, 마이크 손잡이와 난간에 발라 둔 용액 자국을 헝겊으로 닦아 냈다. 사람들이 몰려드는 통에 헝겊을 완전히 챙겨 나가지 못하고 급한 대로 옆 소품 상자 틈에 쑤셔 넣었다. 탐정 앞에서는 '그날 저녁엔 작업실에만 있었고 무대 쪽엔 간 적 없다'며 거짓 알리바이를 댔고, 22년 전 크레딧 문제나 문화재단 내정 소식에 대해서는 먼저 입을 열지 않았다.",
     "cover_up_target": ["weapon", "motive"],
-    "cover_up_method": ["weapon_disposal"],
+    "cover_up_method": [
+      "evidence_removal",
+      "weapon_disposal",
+      "false_alibi",
+      "concealment_without_staging"
+    ],
     "decisive_evidence_ids": ["E05", "E17"]
   },
   "actual_timeline": [

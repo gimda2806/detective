@@ -4105,3 +4105,28 @@ CASE069는 `false_accident`+`accident_equipment_failure`(「낡은 걸쇠가 저
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 73 → 69(넷 해소, CASE046·CASE056·CASE064 셋이 오탐 하나씩 남아 계속 뜬다 — 경고를 없애려고
 칸을 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE077·078·080·087·090, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 64건 중 CASE046·CASE056·CASE064(위 오탐, 계속 뜸)를
+건너뛰고 번호가 낮은 다섯을 짚었다. CASE077은 `weapon_disposal`(「병은 그날 밤 폐기」),
+CASE078은 `evidence_removal`·`scene_rearrangement`·`false_alibi`(「물티슈로 닦아」·「선반
+제자리에 돌려놓았다」·「리터치실에 계속 있었다고 잡아떼며」), CASE080은
+`document_falsification`·`accident_equipment_failure`·`weapon_disposal`·
+`concealment_without_staging`(「실제로 오지 않은 설비 기사의 이름과 '이상 없음' 소견을
+적어 넣어」·「부품은 … 폐기물통 깊숙이 숨겼」·「마지막으로 냉동고 문을 확인했다는 사실을
+언급하지 않았」), CASE087은 `evidence_removal`·`false_alibi`·`concealment_without_staging`
+(「헝겊으로 닦아 냈다」·「거짓 알리바이를 댔고」·「먼저 입을 열지 않았다」), CASE090은
+`scene_rearrangement`·`false_alibi`·`concealment_without_staging`(「새 볼트로 다시 매달아
+두고」·「거짓 알리바이를 댔다」·「먼저 꺼내지 않았다」)를 각각 선언에 더했다. 진상은
+안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE090의 `accident_equipment_failure`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `accident_equipment_failure`(「낡은」) | **사고 위장 서사가 아니라 묘사다.** 문장이 「풀었던 **낡은** 볼트는 주머니에 넣어 가져갔다」다 — 이 사건의 은폐에는 「사고처럼 보이」류의 문장이 아예 없고, 스피커함은 새 볼트로 조용히 복구됐을 뿐 설비 탓을 하는 진술이 없다. 「낡은」은 그가 챙겨 간 물건(이미 선언된 `weapon_disposal`의 대상)을 가리키는 형용사일 뿐이다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
+64 → 60(넷 해소, CASE046·CASE056·CASE064·CASE090 넷이 오탐 하나씩 남아 계속 뜬다 — 경고를
+없애려고 칸을 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
