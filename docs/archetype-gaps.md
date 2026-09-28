@@ -4021,3 +4021,11 @@ CASE346도 같다(「정재원**과 함께** 인스타그램 홍보용 촬영을
 | CASE347 | `background_phrasing` | `on_the_day_of` | `case_identity.setting` 「**그날** 오전에는 … 계약이 정식으로 체결되었고」 | 목록의 「그날」로 걸린다. 더할 낱말 없음 |
 
 **`other`로 적은 축은 없다.** 여덟 축 모두 표 안의 칸으로 설명된다.
+
+### CASE377 — 무엇을 보고 골랐나
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE377 | `background_archetypes` | `funeral_memorial` | `case_identity.setting` 「편옥자의 **49재**를 마친 식구와 직원들이 한 상에 둘러앉았다」 | **「49재」·「사십구재」가 `funeral_memorial` 목록에 없다.** 처음 `full_truth`에 「49재」만 썼더니 `BACKGROUND_INTENSITY_UNSUPPORTED`가 되물었고, 목록에 있는 「세상을 떠난」을 동기 문장에 넣어서야 통과했다. 더할 낱말: **49재 · 사십구재 · 탈상 · 삼우제** |
+| CASE377 | `method_archetypes` | `suffocation` | `full_truth.method` 「앞치마 주머니에 늘 꽂고 다니던 **면포를 접어** 그의 **입과 코를 눌렀다**」 | `strangulation`이 아닌 것은 목이 아니라 입과 코를 막았기 때문이다. 폴백에 **면포 · 입과 코를 눌러**가 있는지는 확인 못 했다 |
+| CASE377 | `cover_up_method` | `false_timeline`+`weapon_disposal`+`false_alibi` | `full_truth.cover_up` 「새벽 5시 12분에 … 문자가 나가도록 **예약해 두었다**」 · 「자기 면포를 … 삶는 통에 **넣고 가스 불을 올렸다**」 · 「공판장에서 쑥을 사고 **영수증을 챙겨**」 | 동사 셋이 칸 셋이다. 「예약 전송」은 기록을 고친 것이 아니라 **없던 연락을 미래 시각에 만들어 둔 것**이라 `digital_record_manipulation`이 아니라 `false_timeline`으로 적었다. 더할 낱말: **예약 전송 · 예약 문자** |
