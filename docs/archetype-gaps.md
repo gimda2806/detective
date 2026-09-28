@@ -4086,3 +4086,22 @@ CASE046과 같은 모양(부정·결핍 표현 안의 동사를 정규식이 못
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 77 → 73(넷 해소, CASE046·CASE056 둘이 오탐 하나씩 남아 계속 뜬다 — 경고를 없애려고 칸을
 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE064·066·067·068·069, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 73건 중 CASE046·CASE056(위 오탐, 계속 뜸)을 건너뛰고
+번호가 낮은 다섯을 짚었다. CASE066은 `accident_equipment_failure`(「사고 원인이 설비
+노후로 보이게 했다」), CASE067은 `accident_equipment_failure`(「환기 고장처럼 보이게
+했고」), CASE068은 `false_accident`(「그 자리를 사고처럼 보이도록 그대로 두고 빠져나온」),
+CASE069는 `false_accident`+`accident_equipment_failure`(「낡은 걸쇠가 저절로 헐거워져
+벌어진 사고처럼 보이게 했다」)를 각각 선언에 더했다. 진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE064의 `false_accident`·`accident_equipment_failure`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `false_accident`(「오작동으로」) · `accident_equipment_failure`(「노후」) | **미완성 계획이다.** 문장 전체가 「12년 전 사고 때와 마찬가지로 노후 설비의 오작동으로 보이도록 정비 일지도 손볼 생각이었으나 **미처 손대지 못한 채 발각됐다**」다 — 정규식이 「오작동으로 보이」·「노후」만 보고 뒤의 「손볼 생각이었으나 미처 손대지 못한 채」를 못 본다. 실제로 이 위장은 **실행되지 않고 발각으로 끊겼다** — 이미 선언된 `weapon_disposal`(인터록 배선 재연결·접속 기록 삭제)만 완료됐다. CASE046·CASE056과 같은 모양(부정·결핍 표현 안의 동사를 정규식이 못 본다)이라 같은 판단을 따랐다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
+73 → 69(넷 해소, CASE046·CASE056·CASE064 셋이 오탐 하나씩 남아 계속 뜬다 — 경고를 없애려고
+칸을 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
