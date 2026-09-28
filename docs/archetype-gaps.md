@@ -4183,3 +4183,28 @@ CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 46 → 41(다섯 해소, CASE123이 오탐 하나로 계속 뜬다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE156·165·166·168·174, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 41건 중 CASE161을 오탐(아래 표)으로 건너뛰고 다섯을
+짚었다. CASE156은 `scene_rearrangement`·`digital_record_manipulation`(「**현장을 정돈**해
+외부인의 침입처럼 꾸미고, 노트북에서 계약서 관련 **파일 접근 기록을 지우려** 시도했다」),
+CASE165는 `accident_victim_health`(「신유하의 죽음이 **지병 발작**에 의한 것으로 보이도록」
+— 훈증 보관실 캔을 원래대로 되돌린 `scene_rearrangement`·지문을 닦은 `evidence_removal`은
+이미 있었고, 사인을 지병 탓으로 돌리는 쪽만 비어 있었다), CASE166은 `false_accident`(「몸이
+놓인 방향이 **스스로 미끄러진 것처럼 보이도록** 수조 바깥쪽으로 한 번 더 끌어당겨 두고」),
+CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크를 걸지 않아 차가
+**저절로 미끄러진 것처럼 보이게** 하고」 — 브레이크를 걸지 않은 것으로 몰아가는 쪽이 설비
+탓 계열까지 같이 문다), CASE174는 `digital_record_manipulation`(「접근 **로그**를 치우고
+클라우드 업로드 **기록을 지운** 사실은 언급하지 않는다」)를 각각 선언에 더했다. 진상은
+안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE161의 `accident_equipment_failure`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `accident_equipment_failure`(「노후」) | **범인이 한 일이 아니라 이미 있던 첫 소견이다.** 문장은 「노후 배전반의 접지 불량이라는 첫 소견이 그대로 굳어지도록, **그 밖에는 사고 정황을 새로 꾸미지 않았다**」다 — 뒤 문장이 명시적으로 「꾸미지 않았다」고 부정한다. 배전반이 낡았다는 것은 범인이 만든 정황이 아니라 사건 전부터 있던 사실이고, 범인은 그 기존 소견이 뒤집히지 않도록 시신 위치를 옮기고(`body_movement`, 이미 선언) 흔적을 지우는 데서 멈췄다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
+41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
+CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
