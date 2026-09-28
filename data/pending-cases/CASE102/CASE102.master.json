@@ -47,8 +47,8 @@
     "method_archetypes": ["sedation_then_act", "toxic_gas_buildup", "staging_cover_up"],
     "key_time_location": "사건 당일 22:35 L03 사랑채 아궁이에서 첫 불을 지폈고 23:55 같은 자리에서 콩대를 더 넣었으며, 사건 다음날 04:50 L02 사랑채 방에서 대추차 주전자를 물 주전자로 바꿔 놓았다.",
     "cover_up": "사건 다음날 04시 50분, 연봉례는 사랑채 방에 들어가 소반 위의 대추차 주전자를 찬물을 가득 채운 양은 주전자로 바꿔 놓았다. 04시 52분에는 염태준의 점퍼 주머니에서 꺼낸 오일 라이터를 아궁이 턱에 올려 두었다. 추위를 못 견딘 사위가 제 손으로 아궁이에 불을 넣었다가 변을 당한 것으로 읽히게 하려는 것이었고, 떼어 낸 쪽지는 전날 밤 22시 45분 안채 부뚜막 아궁이에 던져 넣어 태웠다.",
-    "cover_up_target": ["victim_behavior"],
-    "cover_up_method": ["evidence_placement"],
+    "cover_up_target": ["victim_behavior", "communication_trace"],
+    "cover_up_method": ["evidence_placement", "object_substitution", "evidence_removal"],
     "accomplice": "없음",
     "decisive_evidence_ids": ["E05", "E06", "E08", "E11"]
   },
