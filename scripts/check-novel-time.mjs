@@ -399,7 +399,8 @@ function checkNovel(novelFile) {
   }
   const isFlashback = (t) => !t.band && preEntry.has(hhmm(t.hour, t.min));
 
-  let day = entry ? entry.day : 0;
+  const baseDay = entry ? entry.day : 0;
+  let day = baseDay;
   let prev = null;
   let prevRawHour = entry ? entry.hour : 0;
   for (const t of scenes.filter((x) => !isFlashback(x))) {
@@ -410,7 +411,16 @@ function checkNovel(novelFile) {
     // 실측 — 217·228·233·234 넷에서 여섯 건). **모자랄 때만 올린다**:
     // 이튿날 장이 연달아 와도 두 번 올리지 않고, 이미 앞선 장이 자정을
     // 넘겨 뒀으면 그대로 둔다.
-    if (t.nextDay && prev !== null && cur <= prev) {
+    // **하루는 장마다 한 번만 올린다 — 「앞 장보다 이르면」이 조건이면 안 된다.**
+    // 옛 조건은 `t.nextDay && cur <= prev` 였는데 **역행이 곧 그 조건**이라, 이튿날
+    // 장이 연달아 오다가 하나가 앞 장보다 이르면 그때마다 하루를 더 올려 역행이
+    // 보정에 먹혔다. CASE347 이 그 자리다 — 6장이 「다음 날 새벽 1시 40분」인데
+    // 7장을 「다음 날 새벽 0시 10분」으로 당겨도 아무것도 안 떴다(제목에 「다음 날」이
+    // 둘 이상인 편이 코퍼스에 20편이고, 그 편들의 자정 이후 구간이 전부 그랬다).
+    // 「다음 날」은 **사건 다음 날**을 가리키는 말이지 「한 밤 더」가 아니므로,
+    // 아직 그날에 안 갔을 때(`day === baseDay`)만 올린다. 앞 장이 아래 자정 넘김
+    // 어림으로 이미 넘겨 뒀으면 그대로 두는 것도 같은 한 줄이 맡는다.
+    if (t.nextDay && day === baseDay) {
       day += 1;
       cur += 1440;
     } else if (prev !== null && cur < prev && t.hour < 6 && prevRawHour >= 18) {
@@ -421,6 +431,16 @@ function checkNovel(novelFile) {
       // 자정은 한 번만 넘는다.
       day += 1;
       cur += 1440;
+    }
+    // **자정을 넘긴 뒤에 오는 날짜 말 없는 저녁·밤 장은 그 전날 밤으로 읽는다.**
+    // `day` 는 장을 건너 살아남으므로, 위 어림이 한 번 돌아 `day` 가 오르면 그
+    // 뒤의 「밤 11시 40분」이 **이튿날 밤**으로 계산돼 늘 앞으로 간다 — 그래서
+    // 역행이 안 잡힌다. CASE358 이 그 자리다(진입 밤 11시 35분, 14장 중 12장이
+    // 자정 이후): 4장이 「새벽 0시 35분」인데 5장을 「밤 11시 40분」으로 당겨도
+    // 아무것도 안 떴다. 날짜 말을 적은 장(`nextDay`)은 그 말을 믿고 그대로 둔다 —
+    // 「다음 날 저녁 7시」로 진짜 하루 뒤를 적는 편이 이 줄에 안 걸려야 한다.
+    if (!t.nextDay && day > baseDay && t.hour >= 18 && !t.band) {
+      cur -= 1440;
     }
     // 구간(시간대 말뿐인 제목)은 **구간이 통째로** 앞설 때만 역행으로 본다.
     const endOfCur = t.band ? day * 1440 + t.band[1] * 60 : cur;
