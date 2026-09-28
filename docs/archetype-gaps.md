@@ -4208,3 +4208,11 @@ CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+### 2026-09-28 은폐 선언 좁음 — 오탐 셋 (칸을 더하지 않았다)
+
+| 사건 | 폴백이 잡은 칸 | 왜 오탐인가 |
+| --- | --- | --- |
+| CASE175 | `accident_environment`(「정전」) | 「정전을 틈탄 빈집털이가 … 들어온 것처럼 꾸몄다」 — 정전은 침입을 꾸민 때일 뿐 사고 위장이 아니다. 이미 선언된 `false_intrusion`이 담는다. |
+| CASE217 | `evidence_removal`(「흔적을 지우」) | 「진열대 빈자리를 다른 물건으로 채워 … 흔적을 지우려 했지만」 — 빈자리를 메운 것이라 이미 선언된 `scene_rearrangement`가 담는다. |
+| CASE228 | `object_substitution`(「바꿔 놓」) | 「시신을 … 넘어진 자세로 바꿔 놓고」 — 물건이 아니라 시신의 자세라 이미 선언된 `body_movement`가 담는다. |
