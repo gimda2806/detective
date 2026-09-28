@@ -393,6 +393,11 @@
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "E06",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH02-01"
         }
       ],
       "knowledge_limits": [
@@ -484,7 +489,28 @@
         "S-CH03-01",
         "S-CH03-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-06",
+          "release_prerequisite": "F-CH03-05",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
       "knowledge_limits": [
         "강태민과 원장의 연인 관계는 전혀 모른다."
       ],
@@ -655,6 +681,11 @@
         {
           "fact_or_claim_id": "F-CH05-02",
           "release_prerequisite": "E03",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "F-CH05-02",
           "release_trigger": "S-CH05-02"
         }
       ],
@@ -1302,7 +1333,10 @@
         "E06",
         "E05"
       ],
-      "suggested_by": ["F-CH02-01", "E06"],
+      "suggested_by": [
+        "F-CH02-01",
+        "E06"
+      ],
       "cue": "15년"
     },
     {
@@ -1312,7 +1346,10 @@
       "evidence_for": [
         "E07"
       ],
-      "suggested_by": ["F-CH04-01", "S-CH04-01"],
+      "suggested_by": [
+        "F-CH04-01",
+        "S-CH04-01"
+      ],
       "cue": "재산분할",
       "refutation": "법적으로는 반대입니다. 서명을 못 받았으면 살아 계셔야 받죠. 돌아가시면 상속 절차로 넘어가서 저는 더 복잡해집니다.",
       "refutation_releases": "F-CH04-03",
@@ -1325,7 +1362,10 @@
       "evidence_for": [
         "E05"
       ],
-      "suggested_by": ["S-CH02-01", "F-CH02-01"],
+      "suggested_by": [
+        "S-CH02-01",
+        "F-CH02-01"
+      ],
       "cue": "후계자",
       "refutation": "저는 아직 배우는 사람이에요. 그 발표는 내일 원장님이 직접 하실 일이었고요. 원장님이 안 계시면 그걸 누가 발표해요.",
       "refutation_releases": "F-CH02-02",
@@ -1338,7 +1378,9 @@
       "evidence_for": [
         "E05"
       ],
-      "suggested_by": ["F-CH03-05"],
+      "suggested_by": [
+        "F-CH03-05"
+      ],
       "cue": "재개장",
       "refutation": "준비상으로는 제가 다 했어요. 손님도 원장님 이름으로 부른 거고요. 문을 열어야 그게 제 일이 되는데, 못 열게 해서 제가 뭘 얻습니까.",
       "refutation_releases": "F-CH03-05",
@@ -1353,7 +1395,10 @@
       "evidence_for": [
         "E07"
       ],
-      "suggested_by": ["S-CH04-02", "F-CH04-02"],
+      "suggested_by": [
+        "S-CH04-02",
+        "F-CH04-02"
+      ],
       "cue": "언쟁",
       "refutation": "법적으로는 제 알리바이가 제일 깔끔할 겁니다. 20시 40분에 나왔고 호텔 프런트에 체크인 시각이 찍혀 있어요.",
       "refutation_releases": "F-CH04-02",
@@ -1367,7 +1412,10 @@
         "E03",
         "E04"
       ],
-      "suggested_by": ["F-CH05-02", "E03"],
+      "suggested_by": [
+        "F-CH05-02",
+        "E03"
+      ],
       "cue": "21시 25분",
       "refutation": "제가 본 건… 21시 30분쯤 강 선배가 제다실로 돌아왔어요. 그 뒤에도 원장님 다실 쪽에서 인기척이 났고요.",
       "refutation_releases": "F-CH05-03",
@@ -1381,7 +1429,11 @@
         "E02",
         "E08"
       ],
-      "suggested_by": ["F-CH03-01", "F-CH05-03", "E11"],
+      "suggested_by": [
+        "F-CH03-01",
+        "F-CH05-03",
+        "E11"
+      ],
       "cue": "혼자 차"
     },
     {
@@ -1391,7 +1443,10 @@
       "evidence_for": [
         "E02"
       ],
-      "suggested_by": ["F-CH03-02", "S-CH03-01"],
+      "suggested_by": [
+        "F-CH03-02",
+        "S-CH03-01"
+      ],
       "cue": "아침",
       "refutation": "준비상으로는 7시에 깨우러 가는 게 제 일이에요. 그때 다호 찻물이 이미 다 식어 있었어요. 아침에 그렇게 되신 게 아니에요.",
       "refutation_releases": "F-CH03-03",
@@ -1408,7 +1463,11 @@
         "E01",
         "E06"
       ],
-      "suggested_by": ["F-CH05-04", "F-CH03-01", "E01"],
+      "suggested_by": [
+        "F-CH05-04",
+        "F-CH03-01",
+        "E01"
+      ],
       "cue": "개인 다호"
     },
     {
@@ -1418,7 +1477,10 @@
       "evidence_for": [
         "E08"
       ],
-      "suggested_by": ["F-CH03-04", "E08"],
+      "suggested_by": [
+        "F-CH03-04",
+        "E08"
+      ],
       "cue": "부정맥",
       "refutation": "원장님은 약을 하루도 안 거르셨어요. 어제 아침에도 제가 챙겨 드렸고요. 그렇게 갑자기 될 몸이 아니셨습니다.",
       "refutation_releases": "F-CH03-04",
@@ -1431,7 +1493,10 @@
       "evidence_for": [
         "E01"
       ],
-      "suggested_by": ["S-CH01-01", "F-CH05-04"],
+      "suggested_by": [
+        "S-CH01-01",
+        "F-CH05-04"
+      ],
       "cue": "시음회",
       "refutation": "시음회 다구는 어젯밤 세팅 그대로예요. 아무도 안 앉았고 아무도 안 마셨어요. 거기 섞었으면 원장님만 그러실 리가 없잖아요.",
       "refutation_releases": "F-CH02-03",
@@ -1444,7 +1509,10 @@
       "evidence_for": [
         "E01"
       ],
-      "suggested_by": ["S-CH05-01", "E01"],
+      "suggested_by": [
+        "S-CH05-01",
+        "E01"
+      ],
       "cue": "제다실",
       "refutation": "제가 본 건… 제다실 찻잎은 내일 시음회 거예요. 원장님이 밤에 드시는 보이차는 개인 다호에 따로 두시고요. 솥이랑은 아예 다른 잎이에요.",
       "refutation_releases": "F-CH05-04",
