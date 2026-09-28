@@ -1,0 +1,677 @@
+{
+  "case_identity": {
+    "case_id": "CASE376",
+    "title": "향에서 빠진 이름",
+    "genre": "소로향 대표 육정하가 축하 자리가 한창이던 밤, 조합실에서 쓰러진 채 발견돼 숨진다. 표면은 넘어진 선반에 다친 사고처럼 보이지만, 실은 그날 오후 체결된 백화점 독점 계약서 저작자란에서 자신의 이름이 빠진 것을 알게 된 부수석 조향사 표승우가 육정하와 다투다 그를 밀쳐 넘어뜨렸고, 깨진 유리에 베여 쓰러진 그를 그대로 두고 나온 뒤 사고로 위장한 사건이다.",
+    "setting": "소로향은 육정하가 이십 년 가까이 키워 온 조향 아틀리에로, 매장과 조합실을 한 공간에 두고 손님 맞춤 향수를 짓는다. 사건 당일 오후, 백화점 본사에서는 소로향의 대표작을 독점 공급하는 계약이 이미 도장을 찍고 끝난 뒤였다. 저녁에는 그 계약을 축하하는 조촐한 자리가 매장에 마련됐고, 초대객 몇을 빼면 모두 소로향 식구들이었다. 진열장 위에는 막 인쇄소에서 찾아온 계약서 사본이 펼쳐져 있었다.",
+    "location_archetypes": ["specialty_shop", "workshop"],
+    "background": {
+      "background_archetypes": ["private_gathering", "company_event"],
+      "background_phrasing": ["recently_completed", "gathering_for"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "onsite_recognized_and_asked",
+    "detective_entry": "탐정은 옆 건물 인쇄소에서 명함을 찾다가 소란을 듣고 건너왔다. 몇 번 마주친 적 있는 매니저 윤태경이 그를 알아보고 도움을 청했다.",
+    "tone": "저녁 축하 자리의 온기가 채 가시기 전에 벌어진 일이라, 향긋한 공기와 긴장이 뒤섞인다. 탐정과 한지우의 티키타카는 여느 때처럼 덤덤하되, 이번엔 그 덤덤함이 슬픔을 누르는 쪽에 가깝다.",
+    "tags": ["조향_아틀리에", "축하_자리", "가업_공방"]
+  },
+  "key_figures": [
+    { "id": "V01", "name": "육정하", "role": "소로향 대표 겸 수석 조향사", "status": "deceased" }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 21:10",
+    "narrative": "인쇄소에서 명함을 찾던 탐정은 옆 건물 소로향 쪽에서 사람들이 웅성이는 소리를 듣고 발길을 돌렸다. 진열장 불은 켜져 있는데 문 앞으로 사람 몇이 나와 서성이고, 안쪽에서는 누군가 다급히 전화를 붙들고 있었다.\n\n한지우가 먼저 눈치를 챘다.\n\n\"이거… 분위기가 심상치 않은데요.\"\n\n\"들어가서 보면 알겠지.\"\n\n매장 안으로 들어서자 앞치마를 반쯤 벗은 윤태경이 탐정을 알아보고 다가왔다. 몇 번 마주친 적 있는 얼굴이었다.\n\n\"저, 예전에 사건 맡아 주셨던 분 맞으시죠? 원장님이 조합실에서 쓰러진 채 발견되셨어요. 구급차는 불렀는데 경찰은 오려면 시간이 좀 걸린다고 해서요.\"\n\n한지우가 수첩을 꺼내며 탐정을 돌아봤다.\n\n\"일단 들어가 볼까요.\"\n\n\"그래야지.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "조합실 안, 넘어졌던 선반은 이미 새로 세워져 있었지만 표승우는 그 자리에서 움직이지 않았다. 밤이 깊어지며 매장 불빛도 하나둘 꺼지고, 창밖은 이제 완전히 캄캄했다.\n\n\"이름 하나 빠진 걸로… 그렇게까지 할 일이었냐고 물으시겠죠.\"\n\n표승우의 목소리가 갈라졌다.\n\n\"말다툼 중에 밀쳤고, 육정하 씨가 선반에 부딪혀 넘어지며 유리 조각에 팔을 베인 걸 그대로 두고 나온 겁니다. 지혈을 도왔어야 했는데… 그러지 않았어요.\"\n\n한지우는 아무 말 없이 수첩을 덮었다.\n\n탐정이 낮게 말했다.\n\n\"8년이면, 이름 하나가 그 정도 무게였겠지.\"\n\n한지우가 짧게 고개를 끄덕였다.\n\n\"…그러게요.\"\n\n건물을 나설 무렵, 하늘이 뿌옇게 밝아 오고 있었다. 안소림은 여전히 정산 안 된 수당 얘기를 어디 가서 풀어야 할지 모르겠다는 얼굴로 문 앞에 서 있었다.\n\n한지우가 기지개를 켜며 물었다.\n\n\"저희도 이제 정산 좀 받아야 하는 거 아니에요?\"\n\n\"누가 주기나 한다든.\"\n\n\"그건 그래요.\""
+  },
+  "surface_incident": [
+    "소로향 대표 육정하가 그날 밤 조합실 바닥에서 쓰러진 채 발견돼, 도착한 구급대가 현장에서 사망을 확인했다.",
+    "넘어진 원액 선반과 깨진 유리병들이 바닥에 흩어져 있어 처음에는 사고로 보였다.",
+    "그날 저녁은 백화점과의 독점 공급 계약 체결을 축하하는 조촐한 자리였고, 초대객 몇을 빼면 모두 소로향 식구들이었다.",
+    "그 시각 매장에 있던 사람들은 다들 축하 자리에 있었다고 말했다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "표승우는 육정하와 8년간 조합실에서 함께 향을 개발해 온 공동개발자였고, 몇 해 전 지금의 대표작 조합비를 완성했을 때 육정하로부터 다음 계약에는 반드시 공동 개발자로 이름을 올려 주겠다는 약속을 받았다. 그러나 그날 오후 백화점과 최종 서명한 독점 공급 계약서의 저작자란에는 육정하 단독의 이름만 인쇄되어 있었다. 그 사실을 축하 자리 도중 우연히 확인한 표승우는 육정하에게 따졌지만, 육정하는 초안은 이미 무효가 됐고 자신이 전권을 가진 것으로 계약이 끝났다며 손을 뿌리쳤다.",
+    "motive_archetypes": ["ip_dispute", "ownership_dispute"],
+    "method": "표승우는 육정하를 조합실로 따라 들어가 합의서 초안을 들이대며 다시 언쟁을 벌였다. 육정하가 자리를 뜨려 하자 표승우가 밀쳤고, 육정하는 원액 선반에 부딪히며 넘어져 깨진 유리병 조각에 오른팔을 깊게 베였다. 표승우는 지혈을 돕는 대신 쓰러진 육정하를 그대로 두고 조합실 문을 닫은 뒤 아무 일 없었다는 듯 축하 자리로 돌아갔다.",
+    "method_archetypes": ["exsanguination", "staging_cover_up"],
+    "key_time_location": "사건 당일 20:47, 소로향 조합실(L02)",
+    "cover_up": "표승우는 손님들이 돌아간 뒤 넘어진 원액 선반을 다시 세우고 깨진 병 조각을 쓸어 담아 선반이 저절로 넘어진 사고처럼 보이게 했다. 그리고 육정하의 태블릿에서 그날 낮에 저장된 공동개발 합의서 초안 파일을 삭제했고, 조합 노트에서 두 사람의 이름이 나란히 적혔던 첫 장을 찢어 내 미리 써 둔 다른 장으로 바꿔치기해 기록부를 조작했다.",
+    "cover_up_target": ["crime_scene", "motive", "relationship"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation", "object_substitution", "document_falsification"],
+    "decisive_evidence_ids": ["E01", "E03", "E15", "E16", "E19"]
+  },
+  "actual_timeline": [
+    { "id": "T01", "time": "사건 당일 18:40", "location": "L01", "actors": ["CH02"], "actual_action": "안소림이 오늘 낮 도착한 유리병 상자를 뜯어 진열장 옆 축하 테이블에 잔을 세운다." },
+    { "id": "T02", "time": "사건 당일 19:05", "location": "L01", "actors": ["V01"], "actual_action": "육정하가 인쇄소에서 막 찾아온 최종 계약서 사본을 진열장 위에 펼쳐 놓는다." },
+    { "id": "T03", "time": "사건 당일 19:20", "location": "L01", "actors": ["CH04"], "actual_action": "명서인이 도착해 계약서 사본 옆에 백화점 로고가 박힌 축하 화분을 내려놓는다." },
+    { "id": "T04", "time": "사건 당일 19:40", "location": "L01", "actors": ["CH05"], "actual_action": "강태오가 손님들에게 시향지를 한 장씩 돌리며 신제품 이름을 소개한다." },
+    { "id": "T05", "time": "사건 당일 20:05", "location": "L01", "actors": ["CH01"], "actual_action": "표승우가 진열장 위 계약서 사본의 저작자란을 들여다보다가 자신의 이름이 빠진 것을 처음 확인한다.", "world_fact": "표승우는 그 순간까지 8년째 함께 조합을 맡아 온 육정하가 이번에도 이름을 올려줄 것이라 믿고 있었다." },
+    { "id": "T06", "time": "사건 당일 20:30", "location": "L05", "actors": ["CH04"], "actual_action": "명서인이 본사로부터 걸려온 전화를 받으러 안뜰로 나간다." },
+    { "id": "T07", "time": "사건 당일 20:35", "location": "L02", "actors": ["CH01"], "actual_action": "표승우가 정리를 핑계로 조합실로 들어가 서랍에서 공동개발 합의서 초안을 꺼내 다시 읽는다." },
+    { "id": "T08", "time": "사건 당일 20:42", "location": "L02", "actors": ["V01"], "actual_action": "육정하가 시향지 재고를 가지러 조합실로 들어왔다가 표승우와 마주친다." },
+    { "id": "T09", "time": "사건 당일 20:45", "location": "L02", "actors": ["CH01", "V01"], "actual_action": "표승우가 합의서 초안을 내밀며 이름이 빠진 이유를 따지자 육정하가 초안은 이미 무효라며 손을 뿌리친다." },
+    { "id": "T10", "time": "사건 당일 20:47", "location": "L02", "actors": ["CH01", "V01"], "actual_action": "말다툼 끝에 표승우가 육정하를 밀쳤고, 육정하가 원액 선반에 부딪히며 깨진 유리 조각에 오른팔을 깊게 베인다.", "world_fact": "육정하가 쓰러지며 부딪힌 원액 선반에는 시제품용 고농축 원액 병들이 놓여 있었다." },
+    { "id": "T11", "time": "사건 당일 20:49", "location": "L02", "actors": ["CH01"], "actual_action": "표승우가 지혈을 돕는 대신 쓰러진 육정하를 그대로 둔 채 조합실 문을 닫고 나온다." },
+    { "id": "T12", "time": "사건 당일 20:50", "location": "L01", "actors": ["CH01"], "actual_action": "표승우가 재빨리 매장으로 돌아와 아무 일 없었다는 듯 축하 자리에 다시 섞인다." },
+    { "id": "T13", "time": "사건 당일 21:03", "location": "L02", "actors": ["CH05"], "actual_action": "강태오가 시향지 재고를 더 가지러 조합실 문을 열었다가 바닥에 쓰러진 육정하를 발견한다." },
+    { "id": "T14", "time": "사건 당일 21:15", "location": "L02", "actors": ["CH05"], "actual_action": "강태오가 119에 신고하는 동시에 매장 손님들에게 조합실 근처로 오지 말라고 알린다." },
+    { "id": "T15", "time": "사건 당일 21:18", "location": "L02", "actors": ["CH01"], "actual_action": "표승우가 넘어진 선반을 다시 세우고 깨진 병 조각을 쓸어 담아 선반이 저절로 넘어진 사고처럼 보이게 한다.", "world_fact": "표승우는 넘어진 선반을 세우면서 자신의 손끝이 떨리는 것을 애써 무시했다." },
+    { "id": "T16", "time": "사건 당일 21:32", "location": "L02", "actors": ["CH05", "V01"], "actual_action": "도착한 구급대가 육정하의 상태를 확인하고 현장에서 사망을 선고한다." },
+    { "id": "T17", "time": "사건 당일 21:52", "location": "L03", "actors": ["CH01"], "actual_action": "표승우가 육정하의 업무용 태블릿에서 공동개발 합의서 초안 파일을 삭제한다." },
+    { "id": "T18", "time": "사건 당일 22:03", "location": "L03", "actors": ["CH01"], "actual_action": "표승우가 조합 노트에서 찢어 낸 첫 장 자리에 미리 준비해 둔 다른 장으로 바꿔치기한다." }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "표승우",
+      "role": "부수석 조향사",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "그날 저녁 조합실에 잠깐 들어갔다.", "source": "본인 진술" },
+        { "fact_id": "F-CH01-02", "content": "육정하와 말다툼을 벌였다.", "source": "본인 진술" },
+        { "fact_id": "F-CH01-03", "content": "말다툼 중 육정하를 밀쳤고, 넘어져 다친 것을 그대로 두고 나왔다.", "source": "본인 진술" },
+        { "fact_id": "F-CH01-04", "content": "명서인이 계약 조건을 두고 육정하와 마지막까지 이견을 보였다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 매장 쪽에 있었어요. 조합실엔 들어가지도 않았습니다.", "truth_status": "lie", "reason_for_limit_or_lie": "조합실에 들어간 사실이 드러나는 것을 막으려 한다." },
+        { "claim_id": "S-CH01-02", "content": "원장님 손끝은 늘 빨랐어요. 그날도 마지막까지 배합을 손보고 계셨죠.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-03", "content": "잠깐 들어가긴 했지만 원장님은 이미 선반 옆에 쓰러져 계셨어요. 놀라서 바로 나왔습니다.", "truth_status": "lie", "reason_for_limit_or_lie": "말다툼과 몸싸움이 있었다는 것을 감추려 한다." },
+        { "claim_id": "S-CH01-04", "content": "말다툼은 했지만 저는 손을 대지 않았어요. 넘어지신 건 제 탓이 아닙니다.", "truth_status": "lie", "reason_for_limit_or_lie": "직접 밀친 것을 마지막까지 감추려 한다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "S-CH01-03", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "S-CH01-03" },
+        { "fact_or_claim_id": "S-CH01-04", "release_prerequisite": "F-CH01-02", "release_trigger": "S-CH01-03" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "S-CH01-04" }
+      ],
+      "knowledge_limits": ["안소림의 초과근무 수당 문제에 대해서는 모른다.", "명서인의 통화 내용은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조향 전문 용어를 섞어 쓴다.",
+        "sentence_length_tendency": "평소엔 차분하고 문장이 길지만, 압박받으면 급격히 짧아진다.",
+        "verbal_tic": "'후향까지 맡아야죠'를 말끝에 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": ["그날 저녁 일은 이미 다 말씀드렸는데요.", "제가 왜 자꾸 의심을 받아야 하는지 모르겠네요.", "이제 그만 좀 하시죠."],
+      "comic_tell": "시향지를 실제로 필요할 때보다 항상 한 장 더 뽑아 손에 쥔다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-02",
+        "says": "그 담당자분이 계약 얘기로 원장님이랑 마지막까지 날을 세우던데요.",
+        "reveals": "표승우가 명서인을 지목하는 것은 사실 관계 왜곡이 아니라 진짜 있었던 언쟁을 가리키지만, 그 언쟁은 계약 조건에 관한 것이지 저작자 표기와는 무관하다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "안소림",
+      "role": "원료 구매·재고 담당",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "초과근무 수당 정산이 두 달째 미뤄지고 있다.", "source": "본인 경험" },
+        { "fact_id": "F-CH02-02", "content": "재고 창고 열쇠는 매일 저녁 그가 마지막으로 잠근다.", "source": "본인 업무" },
+        { "fact_id": "F-CH02-03", "content": "그날따라 강태오가 조합실 쪽을 몇 번 더 들락거렸다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 창고에서 배송표 확인하고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "원장님은 원료 고르는 눈이 정말 정확하셨어요. 마지막까지도 그러셨고요.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E12", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["표승우와 육정하 사이의 계약서 문제에 대해서는 전혀 모른다.", "명서인의 통화 내용은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적인 말투.",
+        "sentence_length_tendency": "숫자나 일정 얘기에서는 길어지고, 사적인 질문에는 짧게 끊는다.",
+        "verbal_tic": "'원료값은 제가 챙깁니다'를 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": ["그 얘기는 몇 번을 더 물으셔도 같아요.", "수당 문제랑 이 일이 무슨 상관인지...", "저 진짜 창고에만 있었다니까요."],
+      "comic_tell": "가격 얘기가 나오면 습관적으로 계산기 앱부터 켠다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH02-03",
+        "opens": "S-CH02-02",
+        "says": "강태오 씨가 그날따라 조합실 쪽을 자주 들락거리긴 하더라고요.",
+        "reveals": "안소림이 강태오를 지목하는 것은 그가 실제로 시향지 때문에 자주 오간 것은 맞지만 범행과는 무관하다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "윤태경",
+      "role": "매장 매니저",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "매장 마감 정리는 보통 강태오와 함께 한다.", "source": "본인 업무" },
+        { "fact_id": "F-CH03-02", "content": "축하 자리 음료는 안소림이 준비했다.", "source": "직접 목격" },
+        { "fact_id": "F-CH03-03", "content": "그날 안소림이 창고 쪽을 평소보다 자주 오갔다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그 시간엔 계속 손님들 응대하느라 매장에 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "원장님은 축하 자리에서도 손님들 인사를 하나하나 다 챙기셨어요. 그게 마지막 모습이었네요.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "S-CH03-02", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["조합실 안에서 정확히 무슨 일이 있었는지는 모른다.", "표승우와 육정하 사이 계약서 문제는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 손님 응대투가 몸에 배어 있다.",
+        "sentence_length_tendency": "평소엔 상냥하게 길게 말하다가, 곤란한 질문엔 문장을 딱 자른다.",
+        "verbal_tic": "'손님 응대가 먼저라서요'를 말끝에 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": ["매장 일이라면 제가 제일 잘 알아요.", "자꾸 그러시면 저도 답답하네요.", "몇 번을 말씀드려야 믿으시겠어요."],
+      "comic_tell": "손님 앞에서는 웃다가 돌아서면 표정이 바로 꺼진다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-02",
+        "says": "안소림 씨가 그날따라 창고 쪽을 자꾸 들락거리긴 했어요.",
+        "reveals": "윤태경이 안소림을 지목하는 것은 그가 실제로 창고를 오간 것은 맞지만 배송 확인 때문이지 조합실 사건과는 무관하다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "명서인",
+      "role": "백화점 상품기획팀 담당자",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "다음 주부터 다른 지점 상품기획팀으로 발령이 예정되어 있다.", "source": "본사 통보" },
+        { "fact_id": "F-CH04-02", "content": "본사가 검토 중인 매장 운영 방식 변경안에는 매니저 재계약 여부가 아직 정해지지 않았다는 내용이 있다.", "source": "업무상 인지" },
+        { "fact_id": "F-CH04-03", "content": "그날 매니저가 대표 근처를 유독 신경 쓰며 맴돌았다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그 시간엔 안뜰에서 전화를 받고 있었어요. 10분 넘게 통화했을 거예요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "육정하 대표님은 계약 조건 하나하나를 정말 꼼꼼하게 보시더라고요.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E08", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["표승우와 육정하 사이 공동개발 합의 문제는 모른다.", "조합실에서 실제로 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 회사 입장을 대변하는 말투.",
+        "sentence_length_tendency": "짧고 정리된 문장을 쓴다.",
+        "verbal_tic": "'본사 방침이라서요'를 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": ["저는 그 시간에 이미 여기 없었어요.", "발령 얘기까지 왜 나오는 건가요.", "회사 입장에서도 곤란한 질문이시네요."],
+      "comic_tell": "명함을 건넬 때마다 자기소개를 한 번 더 반복한다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH04-03",
+        "opens": "S-CH04-02",
+        "says": "매니저님이 그날따라 대표님 근처를 계속 신경 쓰시긴 하더라고요.",
+        "reveals": "명서인이 윤태경을 지목하는 것은 그가 육정하를 챙긴 것을 계약 관련 긴장으로 오해한 것일 뿐, 실제로는 평소 습관이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "강태오",
+      "role": "파트타임 조향 강사 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "최근 다른 향수 브랜드 면접을 보러 다니고 있다.", "source": "본인 경험" },
+        { "fact_id": "F-CH05-02", "content": "표승우가 그날따라 시향 설명을 평소보다 짧게 끝냈다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "21시쯤 시향지 더 가지러 조합실에 갔다가 원장님을 발견했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "요즘 매장 분위기가 좀 어수선했어요. 계약 끝나면 뭔가 바뀐다는 얘기가 돌아서요.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "S-CH05-02", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["조합실 안에서 실제로 무슨 일이 있었는지는 정확히 모른다.", "계약서 저작자 표기 문제는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 존댓말이 편하지 않은 듯 자주 더듬는다.",
+        "sentence_length_tendency": "짧게 말하다가 긴장하면 더 짧아진다.",
+        "verbal_tic": "'초보라 잘 몰라서요'를 말끝에 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": ["제가 본 대로만 말씀드린 건데요.", "자꾸 물으시니까 저도 헷갈려요.", "정말 그때 본 게 다예요."],
+      "comic_tell": "긴장하면 시향지를 코에 대고 몇 번이고 냄새를 확인한다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH05-02",
+        "opens": "S-CH05-02",
+        "says": "표승우 조향사님이 그날은 설명도 대충 하고 자리를 자주 비우시긴 했어요.",
+        "reveals": "강태오가 표승우를 지목하는 것은 실제로 맞는 관찰이다 — 그가 그날 저녁 평소와 다르게 행동한 것은 사실이다."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "8년간 조합실에서 함께 향을 개발해 온 대표와 부수석. 겉으론 사제지간에 가깝다.",
+      "public_face": "누구보다 손발이 잘 맞는 조합으로 알려져 있다.",
+      "says": { "CH01": "원장님 손끝을 따라가려고 8년을 버텼습니다. 그게 다예요." },
+      "private_strain": "표승우는 이번 계약의 저작자란에서 자신의 이름이 빠진 것을 알고 있었지만 아무에게도 먼저 말하지 않았다.",
+      "surfaces_when": "탐정이 서랍 속 공동개발 합의서 초안(E16)과 인쇄된 계약서 사본(E07)을 함께 제시할 때(E16, E07)."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "10년 가까이 원료를 대 온 구매 담당과 대표. 서로 말이 짧아도 믿고 맡기는 사이다.",
+      "public_face": "손발이 잘 맞는 사이로 알려져 있다.",
+      "says": { "CH02": "원장님이 좋은 원료만 보면 다 믿고 맡기셨어요. 그거면 됐죠." },
+      "private_strain": "안소림은 두 달째 정산되지 않는 초과근무 수당에 서운함을 쌓아 왔지만 내색하지 않았다.",
+      "surfaces_when": "탐정이 초과근무 기록지(E12)를 제시하며 그 얘기를 물을 때(E12)."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "매장을 맡긴 지 5년째인 매니저와 대표.",
+      "public_face": "믿고 맡기는 사이로 알려져 있다.",
+      "says": { "CH03": "5년 동안 매장은 제가 지켰다고 자부해요. 원장님도 그건 인정하셨고요." },
+      "private_strain": "윤태경은 이번 계약 이후 매장 운영권이 백화점 쪽으로 넘어갈 수 있다는 소문을 우연히 들었지만 아직 확인하지 못한 채 있다.",
+      "surfaces_when": "탐정이 매장 운영 방식 변경안 얘기를 물을 때(F-CH04-02)."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH04"],
+      "nature": "이번 계약 실무 협의를 몇 달간 같이 해 온 사이.",
+      "public_face": "업무로만 아는 사이로 알려져 있다.",
+      "says": { "CH01": "실무 얘기 말고는 사적으로 나눈 말이 별로 없어요.", "CH04": "표승우 조향사님이야 실무 파트너였죠. 그 이상도 이하도 아니었어요." },
+      "private_strain": "명서인은 계약서 초안 단계에서 저작자란에 두 이름이 있었다가 최종본에서 하나로 줄어든 것을 그날 오전 이미 봤지만 표승우에게 알리지 않았다.",
+      "surfaces_when": "탐정이 계약서 사본(E07)을 제시하며 초안과 무엇이 달라졌는지 물을 때(E07)."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH03", "CH05"],
+      "nature": "매장을 오래 같이 지켜 온 선후배.",
+      "public_face": "친한 동료로 알려져 있다.",
+      "says": { "CH03": "강태오는 손이 빨라서 제일 편한 후배예요.", "CH05": "윤태경 매니저님이 아니었으면 저 아직 시향지도 제대로 못 접었을걸요." },
+      "private_strain": "강태오는 최근 다른 향수 브랜드 면접을 보러 다니는 것을 윤태경에게도 숨기고 있다.",
+      "surfaces_when": "탐정이 강태오에게 앞으로의 계획을 물을 때(F-CH05-01)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "매장",
+      "access": "영업 중에는 출입이 자유롭다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L05"],
+      "base_description": "진열장을 사이에 두고 시향 손님 몇이 아직 남아 서성이고, 계산대 뒤 서류함 위에는 오늘 나눠 줄 시향지 뭉치가 그대로 쌓여 있다. 앞치마를 반쯤 벗은 윤태경이 손님들을 진정시키며 안쪽을 살핀다.",
+      "observation_rules": [],
+      "detail_rules": [
+        { "action": "진열장 위 계약서 사본을 살펴본다.", "requires": "없음", "release_evidence_id": "E07", "result": "진열장 위에 펼쳐진 계약서 사본 저작자란에는 육정하 한 사람의 이름만 인쇄돼 있다." }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "조합실",
+      "access": "관계자 외 출입을 통제하는 곳으로, 표승우나 윤태경의 안내가 있어야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L04"],
+      "base_description": "넘어졌던 원액 선반은 다시 세워져 있지만 깨진 유리병 조각 몇은 구석으로 밀려난 채다. 조합대 위에는 손도 못 댄 시향 트레이가 그대로 놓여 있고, 문 안쪽 바닥에는 다급히 오간 발자국이 여럿 겹쳐 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        { "action": "넘어진 선반 근처 유리 조각들을 살펴본다.", "requires": "없음", "release_evidence_id": "E01", "result": "선반 아래 깨진 유리병들 틈에서 셔츠 소매에서 떨어져 나온 것으로 보이는 단추 한 알이 끼어 있다." },
+        { "action": "쓰러져 있던 자리 주변 핏자국을 살펴본다.", "requires": "없음", "release_evidence_id": "E02", "result": "쓰러졌던 자리 옆 바닥, 찢어진 앞치마 소매 한 쪽이 떨어져 있고 안쪽으로 길게 베인 자국이 스친 흔적이 남아 있다." },
+        { "action": "넘어진 선반의 모서리를 살펴본다.", "requires": "강태오", "release_evidence_id": "E03", "result": "쓰러진 선반 모서리 페인트가 한 뼘 폭으로 벗겨져 있고, 그 높이가 딱 성인 허리 언저리다." },
+        { "action": "조합실 문틀 안쪽을 살펴본다.", "requires": "없음", "release_evidence_id": "E15", "result": "조합실 문틀 안쪽, 발등 높이에 작업화 밑창 무늬와 같은 얕은 눌림 자국이 찍혀 있다." }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "access": "직원 외에는 드나들지 않는 곳이라 안소림이나 윤태경에게 사정을 말해야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L04"],
+      "base_description": "책상 위 태블릿은 전원이 꺼진 채 놓여 있고, 서랍장 손잡이 하나가 살짝 열려 있다. 벽 선반에는 인쇄소 봉투 몇 개가 아직 뜯기지 않은 채 쌓여 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        { "action": "방문자 출입 기록판을 살펴본다.", "requires": "없음", "release_evidence_id": "E09", "result": "방문자 출입 기록판에 명서인의 서명이 19시 20분, 물품 반입란에 적혀 있다." },
+        { "action": "서랍 안 서류를 살펴본다.", "requires": "안소림", "release_evidence_id": "E16", "result": "사무실 서랍 안, 두 사람의 이름이 나란히 적힌 공동개발 합의서 초안 사본이 접힌 채 들어 있다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "재고창고",
+      "access": "물류 담당자가 아니면 잘 드나들지 않는 곳이다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L03"],
+      "base_description": "선반마다 원료 상자가 층층이 쌓여 있고, 안쪽 벽 쪽 통조림 캔 몇 개가 바닥에 굴러떨어져 있다. 배송표를 손에 든 안소림이 물건 수를 세며 서 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        { "action": "초과근무 기록지를 살펴본다.", "requires": "없음", "release_evidence_id": "E12", "result": "재고창고 선반 위, 이번 달 초과근무 기록지에 반려 도장이 세 번 찍혀 있다." },
+        { "action": "조합실과 맞닿은 벽 쪽을 살펴본다.", "requires": "안소림", "release_evidence_id": "E17", "result": "재고창고와 조합실 사이 벽, 선반에 부딪힌 듯한 진동 자국이 통조림 캔 몇 개를 넘어뜨려 놓았다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "안뜰",
+      "access": "매장 뒤편으로 누구나 드나들 수 있는 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "담벼락을 따라 놓인 벤치 옆 재떨이에 구겨진 종이 몇 장이 버려져 있고, 저녁 공기 사이로 아직 손님들의 말소리가 희미하게 들려온다.",
+      "observation_rules": [],
+      "detail_rules": [
+        { "action": "안뜰 재떨이 주변을 살펴본다.", "requires": "없음", "release_evidence_id": "E19", "result": "재떨이 옆에 구겨진 시향지 한 장, 뒷면에 '저작자 표기 재확인'이라고 휘갈겨 쓰여 있다." }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01", "name": "깨진 유리병 틈의 단추", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "넘어진 선반 근처 유리 조각들을 살펴본다.",
+      "content": "선반 아래 깨진 유리병들 틈에서 셔츠 소매에서 떨어져 나온 것으로 보이는 단추 한 알이 끼어 있다.",
+      "proves": ["표승우가 조합실 안에서 육정하와 몸이 닿을 만큼 가까이 있었다는 것"],
+      "does_not_prove": ["언제 정확히 떨어졌는지", "표승우가 일부러 밀었는지 여부"],
+      "presentation_effect": ["C01", "C03"],
+      "points_at": "CH01",
+      "mismatch": "그 단추는 매장 유니폼 단추와 크기가 다르다 — 조합실 안에서 작업복을 입는 사람은 표승우뿐이다.",
+      "reaction": { "jiwoo": "이 단추, 조합실 작업복 것치고는 너무 커요.", "detective": "매장 유니폼 거겠지, 누구 건지 한번 맞혀볼까." }
+    },
+    {
+      "id": "E02", "name": "찢어진 앞치마 소매", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "쓰러져 있던 자리 주변 핏자국을 살펴본다.",
+      "content": "쓰러졌던 자리 옆 바닥, 찢어진 앞치마 소매 한 쪽이 떨어져 있고 안쪽으로 길게 베인 자국이 스친 흔적이 남아 있다.",
+      "proves": ["육정하가 유리 조각에 팔을 베였다는 것"],
+      "does_not_prove": ["누가 그 상황을 만들었는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "베인 방향이 선반 쪽에서 몸 쪽으로 나 있어, 스스로 짚다가 생긴 상처치고는 각도가 어색하다."
+    },
+    {
+      "id": "E03", "name": "선반 모서리의 벗겨진 자국", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "넘어진 선반의 모서리를 살펴본다.",
+      "content": "쓰러진 선반 모서리 페인트가 한 뼘 폭으로 벗겨져 있고, 그 높이가 딱 성인 허리 언저리다.",
+      "proves": ["선반 모서리에 성인 허리 높이로 강한 힘이 가해졌다는 것"],
+      "does_not_prove": ["그 힘을 가한 사람이 누구인지"],
+      "presentation_effect": ["C03"],
+      "points_at": null,
+      "mismatch": "낡아서 벗겨진 자국이라기엔 너무 좁고 또렷하다 — 부딪힌 순간에 생긴 자국에 가깝다.",
+      "reaction": { "jiwoo": "여기만 유독 페인트가 벗겨졌어요, 높이도 딱 허리춤이고요.", "detective": "선반이 저 혼자 넘어지면서 이렇게 닳지는 않아." }
+    },
+    {
+      "id": "E04", "name": "강태오의 발견 진술", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "강태오에게 그날 몇 시에 조합실 문을 열었는지 묻는다.",
+      "content": "\"21시 3분이었어요. 문을 열었더니 원장님이 선반 옆에 쓰러져 계셨고, 그 근처엔 아무도 없었어요.\"",
+      "proves": ["21시 3분에 육정하가 쓰러진 채 발견됐다는 것"],
+      "does_not_prove": ["그 전에 조합실에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "발견 당시 근처에 아무도 없었다는 말과, 십수 분 전까지 조합실 쪽에서 들리던 언성은 서로 다른 시점의 얘기다."
+    },
+    {
+      "id": "E05", "name": "안소림이 들은 언성", "source_type": "testimony", "found_at": "L04",
+      "discovery_condition": "안소림에게 그 시각 조합실 쪽에서 무슨 소리가 들렸는지 묻는다.",
+      "content": "\"저녁 8시 45분쯤이었나, 재고 정리하다가 조합실 쪽에서 언성이 높아지는 소리가 잠깐 들렸어요.\"",
+      "proves": ["20시 45분쯤 조합실 쪽에서 언쟁이 있었다는 것"],
+      "does_not_prove": ["누구와 누구의 언쟁이었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null,
+      "mismatch": "그 시각 조합실에 있었다고 말한 사람이 아무도 없는데, 언성은 분명히 들렸다."
+    },
+    {
+      "id": "E06", "name": "계약서 도착 시각 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "윤태경에게 계약서 사본이 언제 매장에 도착했는지 묻는다.",
+      "content": "\"오후 7시 좀 넘어서 원장님이 인쇄소에서 직접 찾아오셨어요. 진열장 위에 펼쳐 두셨죠.\"",
+      "proves": ["계약서 사본이 19시 5분경 매장에 도착했다는 것"],
+      "does_not_prove": ["그 뒤 누가 그것을 확인했는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "도착 시각과 표승우가 그것을 확인한 시각 사이에는 한 시간 가까운 틈이 있다."
+    },
+    {
+      "id": "E07", "name": "진열장 위 계약서 사본", "source_type": "location", "found_at": "L01",
+      "discovery_condition": "진열장 위 계약서 사본을 살펴본다.",
+      "content": "진열장 위에 펼쳐진 계약서 사본 저작자란에는 육정하 한 사람의 이름만 인쇄돼 있다.",
+      "proves": ["최종 계약서 저작자란에 육정하 한 사람의 이름만 있다는 것"],
+      "does_not_prove": ["처음부터 그렇게 정해졌는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "초안 단계에서는 이름이 둘이었다는 얘기가 있는데, 지금 사본에는 하나뿐이다."
+    },
+    {
+      "id": "E08", "name": "저작자 표기 과정 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "명서인에게 계약 체결 과정에서 저작자 표기가 어떻게 정해졌는지 묻는다.",
+      "content": "\"저작자는 처음부터 육정하 대표님 단독으로 진행됐어요. 저희 쪽에서 정한 게 아니라 대표님이 그렇게 요청하셨습니다.\"",
+      "proves": ["저작자 표기가 육정하 단독으로 진행됐다는 것"],
+      "does_not_prove": ["그 사실을 표승우가 언제 알았는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "본사가 정한 것이 아니라면, 애초에 초안에 두 이름이 있었다는 사실과 앞뒤가 안 맞는다."
+    },
+    {
+      "id": "E09", "name": "방문자 출입 기록판", "source_type": "location", "found_at": "L03",
+      "discovery_condition": "방문자 출입 기록판을 살펴본다.",
+      "content": "방문자 출입 기록판에 명서인의 서명이 19시 20분, 물품 반입란에 적혀 있다.",
+      "proves": ["명서인이 19시 20분에 물품을 들고 들어왔다는 것"],
+      "does_not_prove": ["그 뒤 그가 어디에 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "서명 칸은 조합실이 아니라 로비 물품 반입란이다 — 화분을 들고 들어오며 남긴 것과 맞는다."
+    },
+    {
+      "id": "E10", "name": "명서인의 굳은 표정 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "강태오에게 그날 저녁 명서인이 어때 보였는지 묻는다.",
+      "content": "\"자리 내내 표정이 굳어 있었어요. 인사 나누는 것도 건성이었고요.\"",
+      "proves": ["명서인이 그날 저녁 내내 긴장해 있었다는 것"],
+      "does_not_prove": ["그 긴장의 이유가 무엇인지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "표정이 굳어 있던 이유가 계약 때문인지 다른 일 때문인지는 이 증언만으로는 알 수 없다."
+    },
+    {
+      "id": "E11", "name": "명서인의 행선지 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "윤태경에게 명서인이 그 시각 어디 있었는지 묻는다.",
+      "content": "\"명서인 그분, 저녁 8시 반쯤 전화 받으러 안뜰로 나가시더니 한참 안 들어오시더라고요.\"",
+      "proves": ["명서인이 20시 반쯤 통화하러 안뜰로 나갔다는 것"],
+      "does_not_prove": ["통화가 정확히 몇 분간 이어졌는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "안뜰은 조합실과 다른 방향이라, 그 시각 조합실 쪽에 있었을 가능성과는 어긋난다."
+    },
+    {
+      "id": "E12", "name": "초과근무 기록지", "source_type": "location", "found_at": "L04",
+      "discovery_condition": "초과근무 기록지를 살펴본다.",
+      "content": "재고창고 선반 위, 이번 달 초과근무 기록지에 반려 도장이 세 번 찍혀 있다.",
+      "proves": ["안소림의 초과근무 수당 정산이 반려됐다는 것"],
+      "does_not_prove": ["누가, 왜 반려했는지"],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "반려 사유란은 비어 있다 — 누가, 왜 반려했는지가 적혀 있지 않다."
+    },
+    {
+      "id": "E13", "name": "안소림의 예민해진 태도 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "윤태경에게 안소림이 요즘 어때 보였는지 묻는다.",
+      "content": "\"요새 좀 날이 서 있었어요. 수당 얘기만 나오면 말을 끊더라고요.\"",
+      "proves": ["안소림이 요즘 예민해져 있었다는 것"],
+      "does_not_prove": ["그 예민함이 사건과 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "mismatch": "수당 문제로 예민한 것과 그날 저녁 조합실 사건은 별개일 수 있다."
+    },
+    {
+      "id": "E14", "name": "안소림의 행적 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "강태오에게 안소림이 그 시각 정말 어디 있었는지 묻는다.",
+      "content": "\"제가 20시 40분쯤 창고에 물건 가지러 갔는데 안소림 씨가 배송 표를 확인하고 있었어요. 계속 거기 있었을 거예요.\"",
+      "proves": ["안소림이 20시 40분쯤 재고창고에서 배송표를 보고 있었다는 것"],
+      "does_not_prove": ["그가 그 뒤로도 계속 창고에 있었는지"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "20시 40분에 창고에 있었다는 것과 20시 45분에 언성이 들렸다는 것 사이에는 겨우 5분뿐이라 자리를 옮기기 어렵다."
+    },
+    {
+      "id": "E15", "name": "문틀 안쪽 신발 자국", "source_type": "location", "found_at": "L02",
+      "discovery_condition": "조합실 문틀 안쪽을 살펴본다.",
+      "content": "조합실 문틀 안쪽, 발등 높이에 작업화 밑창 무늬와 같은 얕은 눌림 자국이 찍혀 있다.",
+      "proves": ["작업화를 신은 누군가가 조합실 문 안쪽까지 들어왔다는 것"],
+      "does_not_prove": ["그 신발의 주인이 정확히 누구인지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01",
+      "mismatch": "매장 유니폼 신발은 그런 밑창 무늬가 아니다 — 조합 작업화를 신는 사람은 이 안에서 표승우뿐이다.",
+      "reaction": { "jiwoo": "이 밑창 무늬, 매장 신발이랑은 다른데요.", "detective": "조합실 작업화 신는 사람이 몇이나 되겠어." }
+    },
+    {
+      "id": "E16", "name": "서랍 속 공동개발 합의서 초안", "source_type": "location", "found_at": "L03",
+      "discovery_condition": "서랍 안 서류를 살펴본다.",
+      "content": "사무실 서랍 안, 두 사람의 이름이 나란히 적힌 공동개발 합의서 초안 사본이 접힌 채 들어 있다.",
+      "proves": ["원래 합의서 초안에는 두 사람의 이름이 나란히 적혀 있었다는 것"],
+      "does_not_prove": ["그 초안이 왜 최종본에 반영되지 않았는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "초안 사본은 여기 있는데, 육정하의 업무용 태블릿에는 같은 파일이 남아 있지 않다.",
+      "reaction": { "jiwoo": "이거… 이름이 둘 다 적혀 있었네요.", "detective": "그런데 계약서엔 하나만 남았지." }
+    },
+    {
+      "id": "E17", "name": "벽 너머로 전해진 진동 자국", "source_type": "location", "found_at": "L04",
+      "discovery_condition": "조합실과 맞닿은 벽 쪽을 살펴본다.",
+      "content": "재고창고와 조합실 사이 벽, 선반에 부딪힌 듯한 진동 자국이 통조림 캔 몇 개를 넘어뜨려 놓았다.",
+      "proves": ["조합실 쪽에서 강한 충격이 재고창고 벽까지 전해졌다는 것"],
+      "does_not_prove": ["그 충격이 정확히 몇 시에 있었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01",
+      "mismatch": "그 시각 재고창고엔 안소림 혼자였고, 그가 넘어뜨린 물건이 아니다."
+    },
+    {
+      "id": "E18", "name": "표승우의 반응 증언", "source_type": "testimony", "found_at": "L01",
+      "discovery_condition": "윤태경에게 표승우가 계약서를 보고 어떤 반응이었는지 묻는다.",
+      "content": "\"계약서 앞에서 한참 서 계시더라고요. 평소답지 않게 말이 없으셨어요.\"",
+      "proves": ["표승우가 계약서 앞에서 평소와 다르게 굳어 있었다는 것"],
+      "does_not_prove": ["그가 정확히 무엇 때문에 그랬는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "평소 성격과 다른 반응이었다는 것은, 계약서에서 뭔가를 본 순간과 맞물린다."
+    },
+    {
+      "id": "E19", "name": "구겨진 시향지 메모", "source_type": "location", "found_at": "L05",
+      "discovery_condition": "안뜰 재떨이 주변을 살펴본다.",
+      "content": "재떨이 옆에 구겨진 시향지 한 장, 뒷면에 '저작자 표기 재확인'이라고 휘갈겨 쓰여 있다.",
+      "proves": ["누군가 저작자 표기를 다시 확인하려 했다는 것"],
+      "does_not_prove": ["그 메모를 쓴 사람이 누구인지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "그 시향지는 오늘 나눠준 신제품 것이 아니라 조합실 안에서만 쓰는 종이다 — 손님용이 아니다.",
+      "reaction": { "jiwoo": "저작자 표기 재확인, 이라고 적혀 있어요.", "detective": "누가 급하게 썼는지 글씨가 꽤 거칠군." }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_entering_lab",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E15"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E15"] },
+      "player_action": "탐정이 조합실 문틀에 남은 신발 자국(E15)과 깨진 유리 사이의 단추(E01)를 나란히 내놓으며 그날 조합실에 들어간 적이 없다는 말이 사실인지 묻는다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "표승우는 그날 저녁 잠깐 조합실에 들어갔던 것은 인정한다." },
+      "must_not_release": ["말다툼이 있었다는 것", "밀쳤다는 것"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_entering_lab",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E05", "E17"],
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05", "E17"] },
+      "player_action": "탐정이 안소림이 들은 언성(E05)과 재고창고 쪽으로 넘어온 진동 흔적(E17)을 함께 짚으며, 이미 쓰러져 있었다는 말과 다투는 소리가 함께 설명될 수 있는지 묻는다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "표승우는 육정하와 말다툼이 있었던 것은 인정한다." },
+      "must_not_release": ["밀쳤다는 것", "그대로 두고 나왔다는 것"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_confrontation",
+      "to_stage": "confesses_the_push",
+      "requires_heard_claim_ids": ["S-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E03"] },
+      "player_action": "탐정이 셔츠에서 떨어진 단추(E01)와 허리 높이로 벗겨진 선반 모서리(E03)를 함께 내밀며, 손을 대지 않았다는 말이 사실인지 다시 묻는다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "표승우는 말다툼 중 육정하를 밀쳤고, 육정하가 선반에 부딪혀 넘어지며 유리 조각에 베인 것을 그대로 두고 나온 것을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "명서인은 계약이 틀어지면 자신의 실적이 날아가는 처지였고, 축하 자리 내내 표정이 굳어 있었다.",
+      "actual_reason": "명서인은 실제로는 계약 조건과 무관하게 이미 본사로부터 인사 발령을 통보받았고, 그 사실을 전화로 확인하느라 20시 반부터 안뜰에서 통화하고 있었을 뿐 조합실 근처에는 가지 않았다.",
+      "how_to_clear": "윤태경의 증언(E11)과 명서인 본인의 통화 진술(S-CH04-01)을 함께 제시한다.",
+      "must_not_imply": "명서인이 조합실에 들어갔던 것처럼 적지 않는다 — 서명은 로비 물품 반입란이고, 그 시각엔 안뜰에 있었다.",
+      "lingering_thread": "명서인은 다음 주 다른 지점으로 발령이 나 있었고, 그 사실은 이번 계약과 무관하게 이미 정해져 있었다는 것만 남는다.",
+      "suspicion_deepener": "명서인의 서명이 사건 무렵 시간대에 로비 기록판에 남아 있다는 사실이 먼저 드러나며 의심이 짙어진다.",
+      "character_id": "CH04",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "축하 자리 초반부터 안에 있었고, 그 뒤로도 건물 안팎을 오갔다는 인상을 준다.",
+        "means": ["E09", "E10"],
+        "means_first_reading": "물품을 들고 들어온 서명 시각과 내내 굳어 있던 표정이 겹쳐, 계약 압박 때문에 무리했다는 인상을 준다."
+      },
+      "cleared_by": ["E11"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "안소림은 최근 몇 달 초과근무 수당을 제때 못 받아 육정하에게 서운함을 갖고 있었고, 재고 창고를 오가며 조합실에 가장 가까이 있었다.",
+      "actual_reason": "안소림이 그 시각 조합실 근처에 있었던 것은 사실이지만, 실제로는 재고 창고에서 다음 날 배송 물량을 확인하느라 조합실 문 앞을 지나쳤을 뿐 안으로 들어가지 않았다.",
+      "how_to_clear": "강태오의 증언(E14)과 재고창고 배송 기록(E12)을 함께 대조한다.",
+      "must_not_imply": "안소림이 조합실 안으로 들어간 것처럼 적지 않는다 — 그는 문 앞 재고창고에만 있었다.",
+      "lingering_thread": "안소림의 초과근무 수당 문제는 사건과 별개로 여전히 풀리지 않은 채 남는다.",
+      "suspicion_deepener": "초과근무 기록지의 반려 도장이 먼저 드러나며 안소림에 대한 의심이 짙어진다.",
+      "character_id": "CH02",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "조합실과 벽 하나를 사이에 둔 재고창고에 그 시각 혼자 있었다.",
+        "means": ["E12", "E13"],
+        "means_first_reading": "정산이 반려된 기록과 요즘 예민해졌다는 증언이 겹쳐, 서운함이 쌓였다는 인상을 준다."
+      },
+      "cleared_by": ["E14"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": { "suspect": "CH01", "method_fact": "F-CH01-03", "motive_fact": "E16" }
+  },
+  "final_deduction": {
+    "responsible": "표승우",
+    "method": "표승우가 조합실에서 육정하와 다투다 그를 밀쳤고, 육정하는 원액 선반에 부딪혀 넘어지며 깨진 유리 조각에 팔을 깊게 베였다. 표승우는 지혈을 돕지 않고 그대로 두고 나왔다.",
+    "motive": "8년간 함께 조합을 개발해 온 표승우는 이번 백화점 독점 계약의 저작자란에서 자신의 이름이 빠진 것을 알고 격분했다.",
+    "key_connection": "서랍 속 공동개발 합의서 초안과 인쇄된 계약서 사본 사이의 이름 하나 차이가, 그날 저녁 조합실에서 벌어진 다툼의 이유를 가리킨다."
+  },
+  "ending_explanation": [
+    "표승우는 8년 전 완성한 대표작의 공동개발자로 이름을 올려 주겠다는 약속을 육정하에게 받았지만, 최종 계약서 저작자란에는 육정하 혼자만의 이름이 인쇄돼 있었다.",
+    "그 사실을 축하 자리 도중 확인한 표승우는 육정하를 조합실로 따라 들어가 다퉜고, 몸싸움 끝에 그를 밀쳐 선반에 부딪히게 했다.",
+    "유리 조각에 팔을 깊게 베인 육정하를 그대로 두고 나온 표승우는, 손님들이 돌아간 뒤 선반을 다시 세우고 태블릿의 합의서 파일을 지우고 조합 노트의 페이지를 바꿔치기해 사고처럼 꾸몄다.",
+    "계약서 도착 시각과 저작자 표기 경위(E06, E07, E08), 그날 저녁 각자의 위치와 태도를 짚은 증언들(E02, E04, E09, E10, E13, E18), 그리고 안뜰에 버려진 메모(E19)까지, 모아 놓고 보면 전부 같은 저녁의 같은 이야기를 가리키고 있었다."
+  ],
+  "motives": [
+    { "id": "M01", "text": "저작자 표기에서 자기 이름이 빠진 것에 대한 분노", "truth": true, "evidence_for": ["E16", "E07"], "suggested_by": ["E07", "E08"], "cue": "저작자" },
+    { "id": "M02", "text": "구매 대금 정산을 둘러싼 안소림의 불만", "truth": false, "evidence_for": ["E12"], "refutation": "그 정도 일로 사람을 어떻게 하나요, 수당은 다음 달에 나온다고 들었어요.", "refuted_by": "CH02", "suggested_by": ["E12"], "cue": "반려 도장" },
+    { "id": "M03", "text": "계약이 틀어지면 실적을 잃는 명서인의 압박감", "truth": false, "evidence_for": ["E09"], "refutation": "그 계약 성패랑 제 인사는 상관없어요, 다음 주면 다른 지점으로 갑니다.", "refuted_by": "CH04", "suggested_by": ["E09"], "cue": "출입 기록판" },
+    { "id": "M04", "text": "매장 운영권이 넘어가는 것에 대한 윤태경의 불안", "truth": false, "evidence_for": [], "refutation": "매장이야 제가 계속 맡기로 했어요, 그런 얘기는 처음 듣는데요.", "refuted_by": "CH03", "suggested_by": ["S-CH05-02"], "cue": "어수선" }
+  ],
+  "times": [
+    { "id": "T01", "text": "20시 45분경, 말다툼 도중", "truth": true, "evidence_for": ["E05", "E17"], "suggested_by": ["E05", "E17"], "cue": "저녁 8시 45분" },
+    { "id": "T02", "text": "21시 3분, 강태오가 문을 열었을 때", "truth": false, "evidence_for": ["E04"], "refutation": "그건 제가 발견한 시각이지 정확히 그때 돌아가신 건 아니에요.", "refuted_by": "CH05", "suggested_by": ["E04"], "cue": "21시 3분" },
+    { "id": "T03", "text": "19시 5분경, 계약서가 도착했을 때", "truth": false, "evidence_for": ["E06"], "refutation": "그때는 다들 매장에 모여 있었어요, 조합실엔 아무도 없었죠.", "refuted_by": "CH03", "suggested_by": ["E06"], "cue": "오후 7시" },
+    { "id": "T04", "text": "20시 5분경, 계약서를 처음 확인했을 때", "truth": false, "evidence_for": ["E18"], "refutation": "그냥 글자가 하도 빽빽해서 자세히 보고 있었을 뿐이에요.", "refuted_by": "CH01", "suggested_by": ["E18"], "cue": "계약서 앞에서" }
+  ],
+  "methods": [
+    { "id": "H01", "text": "말다툼 중 밀려 넘어지며 유리 조각에 베였다", "truth": true, "evidence_for": ["E01", "E03"], "suggested_by": ["E02"], "cue": "길게 베인" },
+    { "id": "H02", "text": "선반이 낡아 저절로 넘어지며 사고로 다쳤다", "truth": false, "evidence_for": [], "refutation": "그 선반은 두 달 전에 새로 짠 거예요, 그렇게 쉽게 넘어질 리가 없어요.", "refuted_by": "CH02", "suggested_by": ["E03"], "cue": "허리 언저리" },
+    { "id": "H03", "text": "원료 냄새에 어지럼증을 느껴 스스로 넘어졌다", "truth": false, "evidence_for": [], "refutation": "원장님은 그런 냄새엔 도가 튼 분이에요, 몇십 년을 다루셨는데요.", "refuted_by": "CH03", "suggested_by": ["E02"], "cue": "찢어진 앞치마" },
+    { "id": "H04", "text": "외부인이 침입해 다투다 다치게 했다", "truth": false, "evidence_for": [], "refutation": "그 시각엔 초대객 말고 아무도 못 들어와요, 문은 안에서 잠겨 있었어요.", "refuted_by": "CH03", "suggested_by": ["E04"], "cue": "아무도 없었어요" }
+  ],
+  "suspect_refutations": {
+    "CH03": { "text": "제가 그럴 이유가 어디 있나요, 저는 그 시간 내내 매장에 있었는데요.", "releases": "F-CH03-01" },
+    "CH05": { "text": "제가요? 그럴 리가요, 저는 발견한 사람일 뿐이에요.", "releases": "F-CH05-02" }
+  }
+}
