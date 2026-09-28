@@ -326,6 +326,31 @@ export function validateMaster(
           message: `${loc.id}의 detail_rule("${rule.action}")이 존재하지 않는 증거 ${rule.release_evidence_id}를 가리킴.`,
         });
       }
+      // **`requires` 가 아무것에도 안 풀리면 그 칸은 조용히 열린다.**
+      // 엔진(`requirementBlock`)은 id(`E##`·`F-`·`S-`·`C##`)를 먼저 찾고, 없으면
+      // `npcs` 에서 **이름**을 찾아 「그 사람을 먼저 만나야 한다」로 잠근다. 둘 다
+      // 못 찾으면 `return null` 이라 **조건이 통째로 사라진다** — 잠근 줄 알고 쓴
+      // 칸이 처음부터 열려 있고, 아무 경고도 없다.
+      // 2026-09-28 전수: 조건이 걸린 칸 919 중 id 458 · 이름 458 · 안 풀림 3.
+      // 인물 조건은 **id 가 아니라 이름**으로 적는다(`CH03` 이 아니라 「서다인」) —
+      // 엔진이 이름만 보기 때문이고, 같은 것을 두 가지로 적게 두지 않기 위해서다.
+      const req = String(rule.requires ?? '').trim();
+      if (req && req !== '없음') {
+        const isId =
+          /\bE\d{2}\b/.test(req) ||
+          /\b(?:F-CH\d{2}-\d{2}|F-L\d{2}-OBS-\d{2}|S-CH\d{2}-\d{2})\b/.test(req) ||
+          /\bC\d{2}\b/.test(req);
+        const named = (master.characters ?? []).some(
+          (c: { name?: string }) => c.name && req.includes(c.name),
+        );
+        if (!isId && !named) {
+          issues.push({
+            severity: 'error',
+            code: 'DETAIL_REQUIRES_UNRESOLVED',
+            message: `${loc.id}의 detail_rule("${rule.action}")의 requires("${req}")가 id 도 인물 이름도 아니다 — 엔진이 조건을 버려서 이 칸은 처음부터 열린다. 카드는 E##, 들은 말은 F-/S-, 단계는 C##, 사람은 **이름**(id 가 아니다)으로 적거나, 잠글 것이 없으면 "없음"으로 적을 것.`,
+          });
+        }
+      }
     }
   }
 
