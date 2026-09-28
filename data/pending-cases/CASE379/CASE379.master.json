@@ -1,0 +1,1457 @@
+{
+  "case_identity": {
+    "case_id": "CASE379",
+    "title": "마지막 플레이테스트",
+    "genre": "보드게임 스튜디오 '톨게이트 스튜디오'가 퍼블리셔에게 보낼 라이선스 계약서 최종본을 그날 오후 확정한 저녁, 대표 겸 수석 디자이너 노건희가 다락 자료보관실에서 떨어져 스튜디오 바닥에서 숨진 채 발견된다. 표면은 사다리에서 실족한 사고처럼 보이지만, 실은 핵심 시스템 대부분을 실질적으로 설계했음에도 계약서 크레딧과 로열티 배분 어디에도 이름이 오르지 않은 시스템 디자이너 문시강이 그 사실을 그날 오후 우연히 알게 되자 마지막 플레이테스트 직후 다락으로 노건희를 뒤따라가 따지다 몸싸움 끝에 밀쳐 떨어뜨리고, 사다리 상단 발판 나사를 미리 풀어 둔 것처럼 자국을 만들어 실족사로 위장한 사건.",
+    "setting": "도심의 작은 보드게임 스튜디오 '톨게이트 스튜디오'는 그날 오후 퍼블리셔에게 보낼 라이선스 계약서 최종본을 확정했다. 저녁에는 마지막 그룹 플레이테스트가 예정돼 있었고, 그 결과를 취재하러 온 기자가 도착했을 때 스튜디오는 이미 소란스러웠다.",
+    "location_archetypes": ["private_office"],
+    "background": {
+      "background_archetypes": ["product_demo"],
+      "background_phrasing": ["amid"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "media_or_content_creation",
+    "detective_entry": "탐정은 퍼블리셔 계약을 앞둔 인디 게임 스튜디오를 다루는 취재 기획으로, 마지막 그룹 플레이테스트 현장을 지켜보고 대표를 인터뷰하기로 하고 그날 저녁 스튜디오를 찾았다.",
+    "tone": "새 게임의 들뜬 공기와, 취재차 온 탐정과 한지우가 상자와 프로토타입 더미 사이에서 나누는 심드렁한 티키타카.",
+    "tags": ["보드게임_스튜디오", "크레딧_분쟁", "밤샘_작업실"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "노건희",
+      "role": "톨게이트 스튜디오 대표 / 수석 디자이너",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 21:00",
+    "narrative": "로비 안쪽에서 낮은 언성과 발소리가 뒤섞여 들린다.\n\n한지우가 상자 더미 옆에 멈춰 서며 말했다.\n\n\"인터뷰 시간 됐는데, 분위기가 좀 이상한데요.\"\n\n탐정이 대답 대신 안쪽 복도로 시선을 돌렸다.\n\n마침 로비로 들어서던 나하윤이 두 사람을 보고 멈칫하더니, 안쪽에서 들려오는 소란에 같이 귀를 기울였다.\n\n곧이어 백하율이 창백한 얼굴로 뛰쳐나와 구급대를 불러야 한다고 소리쳤다. 노건희가 스튜디오 바닥에 쓰러져 있다고.\n\n한지우가 수첩을 꺼내며 중얼거렸다.\n\n\"인터뷰 대신 이걸 취재하게 생겼네요.\"\n\n탐정은 이미 안쪽으로 걸음을 옮기고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "다락 자료보관실 아래, 문시강은 사다리 난간을 짚은 채 오래 서 있었다.\n\n탐정이 실 자국 사진과 계약서 최종본을 나란히 내려놓자, 그는 한참 만에 고개를 떨궜다.\n\n\"...나사, 제가 미리 풀어 뒀습니다. 이름 빠진 것도, 그날 오후에 이미 알고 있었습니다.\"\n\n한지우가 수첩을 덮지 않은 채 낮게 말했다.\n\n\"8년 동안 규칙을 다 짜고도 이름 한 줄이 없었다니, 그럴 만도 하다고 해야 하나요.\"\n\n탐정이 짧게 답했다.\n\n\"그럴 만한 것과, 해도 되는 것은 다르지.\"\n\n스튜디오를 나설 때는 밤이 완전히 깊어 있었다. 포장 상자 옆으로 경찰차 불빛이 어른거렸다.\n\n한지우가 옆에서 걸으며 말했다.\n\n\"결국 나하윤 씨 카드게임 얘기는 아무도 안 풀어줬네요.\"\n\n탐정이 피식 웃으며 대꾸했다.\n\n\"그건 우리 담당이 아니잖아.\"\n\n한지우가 먼저 택시 쪽으로 걸음을 옮겼다."
+  },
+  "surface_incident": [
+    "대표 노건희가 그날 저녁 스튜디오 바닥에서 숨진 채 발견됐다.",
+    "경찰과 구급대는 다락 사다리에서 실족한 사고사 가능성을 보고 있다.",
+    "스튜디오는 퍼블리셔와의 라이선스 계약 논의가 한창이던 참이었다.",
+    "다락 출입문에는 별다른 강제 침입의 흔적이 없었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "문시강은 8년째 톨게이트 스튜디오의 핵심 게임 시스템 규칙 대부분을 실질적으로 설계해 왔지만, 계약서에는 늘 노건희 혼자만 이름을 올렸다. 그날 오후 전은채의 컴퓨터 화면에 열려 있던 퍼블리셔용 라이선스 계약서 최종본을 우연히 보게 되면서, 크레딧 항목은 물론 로열티 배분과 후속작 크레딧까지 전부 노건희 개인 앞으로만 돼 있다는 것을 알게 된다. 그동안 노건희에게서 '이번 건이 끝나면 정식으로 공동 크레딧을 올려주겠다'는 말을 몇 년째 들어왔던 터라, 계약서가 이미 확정돼 발송을 앞두고 있다는 사실에 그 약속이 완전히 무산됐다는 배신감이 방아쇠가 된다.",
+    "motive_archetypes": ["reputation", "contract_breach"],
+    "method": "그날 저녁 마지막 그룹 플레이테스트, 사실상 퍼블리셔에게 보일 최종 시연이 끝난 뒤, 노건희가 기자에게 보여줄 초기 목업 상자를 가지러 혼자 다락 자료보관실로 올라간 틈을 타 문시강이 계약서 얘기를 마저 하겠다며 뒤따라 올라간다. 크레딧 문제로 따지던 언쟁이 몸싸움으로 번지자 문시강이 노건희를 밀쳤고, 노건희는 난간이 없는 다락 개방된 가장자리 쪽으로 넘어지며 아래 스튜디오 바닥으로 떨어져 머리를 부딪혀 숨진다.",
+    "method_archetypes": ["blunt_force", "staging_cover_up"],
+    "key_time_location": "사건 당일 19:58경, 다락 자료보관실(L03) 개방된 가장자리.",
+    "cover_up": "문시강은 노건희가 떨어진 직후, 다락 조명 전구를 반쯤 빼놓아 원래 어두워서 발밑을 헛디딘 것처럼 보이게 하고, 미리 챙겨 온 드라이버로 사다리 상단 발판 나사도 풀어 발판이 흔들리는 자국을 남긴다. 그리고 노건희가 들고 있던 목업 상자를 사다리 발치로 옮겨 놓아 상자를 든 채 어두운 발밑을 헛디뎌 넘어진 것처럼 꾸민다. 몸싸움 중 다락 서가 사이에 걸려 뜯긴 자신의 소매 실 자국은 알아채지 못한 채, 아래층으로 내려와 팀원들에게 노건희가 먼저 나갔다고 둘러댄다.",
+    "cover_up_target": ["responsibility", "crime_scene"],
+    "cover_up_method": ["accident_environment", "scene_rearrangement"],
+    "decisive_evidence_ids": ["E10", "E12", "E14", "E17"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 09:30",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "전은채가 대표실 프린터로 퍼블리셔용 라이선스 계약서 최종본을 출력하다 용지가 걸려 여러 장을 다시 뽑는다.",
+      "world_fact": "전은채가 대표실에서 계약서 최종본을 인쇄했다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 13:20",
+      "location": "L04",
+      "actors": ["CH02", "CH04"],
+      "actual_action": "전은채가 무선 인쇄가 자꾸 끊긴다며 문시강을 대표실로 불러 프린터를 봐 달라 하고, 화면에 띄워 둔 계약서 최종본 파일을 그대로 열어 둔 채 잠깐 자리를 비운다.",
+      "world_fact": "문시강이 대표실 컴퓨터 화면에서 계약서 최종본을 보게 됐다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 14:10",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "신도경이 대표실에서 노건희에게 이번 계약이 끝나면 자신에게도 아트 디렉션 최종 승인권을 달라고 요청한다.",
+      "world_fact": "신도경과 노건희가 대표실에서 재량권 문제로 이야기했다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 17:00",
+      "location": "L02",
+      "actors": ["CH01", "CH02", "CH03", "CH04", "V01"],
+      "actual_action": "다섯 명이 모여 퍼블리셔에게 보여줄 마지막 그룹 플레이테스트를 시작한다.",
+      "world_fact": "오후 5시 마지막 그룹 플레이테스트가 시작됐다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 19:40",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "플레이테스트가 끝나자 노건희가 기자에게 보여줄 초기 목업 상자를 가지러 혼자 다락 사다리를 오른다.",
+      "world_fact": "노건희가 19시 40분 혼자 다락으로 올라갔다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 19:45",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "문시강이 계약서 얘기를 마저 하겠다며 뒤따라 다락으로 올라간다.",
+      "world_fact": "문시강이 노건희를 뒤따라 다락으로 올라갔다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 19:50",
+      "location": "L03",
+      "actors": ["CH04", "V01"],
+      "actual_action": "문시강이 다락에서 계약서 크레딧 항목에 자신의 이름이 없다는 것을 따지며 노건희에게 언성을 높인다.",
+      "world_fact": "문시강과 노건희가 다락에서 계약서 문제로 언쟁했다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 19:58",
+      "location": "L03",
+      "actors": ["CH04", "V01"],
+      "actual_action": "언쟁이 몸싸움으로 번지자 문시강이 노건희를 밀쳤고, 노건희는 난간 없는 다락 가장자리 너머로 떨어져 아래 스튜디오 바닥에 머리를 부딪힌다.",
+      "world_fact": "노건희가 19시 58분경 다락에서 떨어져 숨졌다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 20:02",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "문시강이 내려가기 전 미리 챙겨 온 드라이버로 사다리 상단 발판 나사를 풀어 두고, 노건희가 들고 있던 목업 상자를 사다리 발치로 옮겨 놓는다.",
+      "world_fact": "문시강이 사다리 발판 나사를 풀고 목업 상자를 사다리 발치로 옮겨 놓았다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 20:05",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "문시강이 아무 일 없었다는 듯 내려와, 마침 정리 중이던 신도경에게 노건희가 먼저 퇴근한 것 같다고 둘러댄다.",
+      "world_fact": "문시강이 노건희가 먼저 퇴근했다고 둘러댔다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 20:10",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "백하율이 남은 정산 파일을 정리하러 정리실에 들른다.",
+      "world_fact": "백하율이 정리실에서 파일 정리를 시작했다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 20:56",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "전은채가 로비로 나가려다 다락 쪽 조명이 꺼져 있는 것을 올려다보며 이상하다고 여긴다.",
+      "world_fact": "전은채가 20시 56분 다락 조명이 꺼진 것을 봤다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 21:03",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "나하윤이 마지막 일러스트 파일을 전달하러 로비에 도착해 백하율의 안내를 받는다.",
+      "world_fact": "나하윤이 21시 3분 로비에 도착했다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 21:05",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "백하율이 노건희를 인터뷰 자리로 데려오려 스튜디오로 돌아왔다가, 바닥에 쓰러져 있는 노건희를 발견한다.",
+      "world_fact": "백하율이 21시 5분 노건희의 시신을 발견했다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "신도경",
+      "role": "아트 디렉터",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "예전부터 문시강이 시스템 크레딧을 정식으로 받지 못하고 있다는 얘기가 사내에 돌았다.",
+          "source": "사내에 떠도는 얘기"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 저녁 플레이테스트가 끝난 뒤 노건희가 혼자 다락으로 올라가는 것을 봤다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "최근 라이벌 스튜디오에서 아트 디렉터 자리를 제안받고 마음이 흔들리고 있다.",
+          "source": "본인 사정"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "요즘 나하윤이 자기 이름으로 낸 카드게임 소개 글에서 비슷한 규칙을 자랑하듯 올린 것을 봤다.",
+          "source": "본인 목격(SNS)"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "예전부터 태호 씨 크레딧 얘기가 좀 애매하긴 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "저는 그날 마지막까지 스튜디오에서 플레이테스트 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "계약서 최종본의 구체적 조항까지는 모른다.",
+        "다락에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체). 그림 얘기가 나오면 말이 편해진다.",
+        "sentence_length_tendency": "평소엔 설명이 길고, 몰리면 문장이 급격히 짧아진다.",
+        "verbal_tic": "'그림쟁이 입장에서는요'를 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그 얘기는 이 일이랑 상관없어요.",
+        "제가 왜 그런 일로 이런 짓을 하겠어요.",
+        "더 드릴 말씀 없어요, 진짜로요."
+      ],
+      "comic_tell": "설명할 때마다 손끝으로 허공에 스케치하듯 선을 긋는다.",
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-01",
+        "says": "요즘 하윤 씨가 자기 이름으로 낸 게임 소개하는 글 보면, 우리 시스템이랑 너무 닮았더라고요.",
+        "reveals": "나하윤이 최근 자신의 이름으로 유사한 규칙의 카드게임을 홍보하고 있었다는 것."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "전은채",
+      "role": "마케팅·운영 팀장",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오후 문시강을 대표실로 불러 프린터를 봐 달라 했다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그때 화면에 계약서 최종본을 띄워 둔 채 자리를 비웠다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "20시 56분경 로비로 나가려다 다락 쪽 조명이 꺼진 것을 봤다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "요즘 백하율이 밤늦게 회사 노트북으로 낯선 파일을 정리하는 것을 몇 번 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이번 계약, 숫자 하나까지 제가 다 챙겼어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "저는 그날 마지막까지 로비 쪽에서 서류 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "다락 안쪽 상황은 직접 보지 못했다.",
+        "문시강이 계약서를 보고 무슨 생각을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 업무 얘기할 땐 격식체로 바뀐다.",
+        "sentence_length_tendency": "평소엔 간결하고 실무적이다가, 몰리면 오히려 문장이 길어지며 숫자를 나열한다.",
+        "verbal_tic": "'숫자 하나까지 제가 다 챙겼어요'를 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "숫자는 제가 다 챙겼다고 말씀드렸잖아요.",
+        "제가 뭘 숨긴다는 건지 모르겠네요.",
+        "이 이상은 저도 몰라요."
+      ],
+      "comic_tell": "말할 때마다 태블릿 화면을 손끝으로 톡톡 두드린다.",
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH02-04",
+        "opens": "S-CH02-01",
+        "says": "요즘 하율 씨가 밤늦게까지 낯선 파일 정리하는 거 몇 번 봤어요. 저야 모르지만요.",
+        "reveals": "백하율이 최근 밤늦게 낯선 파일을 정리하고 있었다는 것."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "백하율",
+      "role": "계약직 테스트플레이 코디네이터 / 시신 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "다락 사다리 발판을 손으로 짚어봤을 때 유난히 헐거웠다.",
+          "source": "본인 관찰"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "이번 계약이 끝나면 자신의 계약이 연장되지 않는다는 얘기를 그 주에 들었고, 혹시 몰라 프로토타입 파일을 다른 퍼블리셔 두 곳에도 몰래 보여준 적이 있다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "플레이테스트가 끝난 직후 문시강이 계약서 얘기를 하겠다며 사다리 쪽으로 가는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "다락 사다리, 제가 봐도 발판이 좀 헐거워 보이긴 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 정리하고 대표님 인터뷰 자리로 모시러 다시 스튜디오로 돌아갔다가 그렇게 됐어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E19",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "계약서 세부 조항 내용은 모른다.",
+        "다락 안쪽에서 정확히 무슨 일이 있었는지는 못 봤다."
+      ],
+      "voice_profile": {
+        "formality_register": "존댓말이지만 말끝을 흐리는 편.",
+        "sentence_length_tendency": "평소에도 짧고, 몰리면 더 짧아진다.",
+        "verbal_tic": "'그냥 모시러 갔을 뿐인데'를 되뇐다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는 정말 아무것도 몰라요.",
+        "왜 자꾸 저한테 물으세요.",
+        "그냥 모시러 갔던 것뿐인데."
+      ],
+      "comic_tell": "긴장하면 목에 걸린 사원증 줄을 자꾸 만지작거린다.",
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-01",
+        "says": "플레이테스트 끝나고 태호 씨가 계약서 얘기하겠다면서 사다리 쪽으로 가던데요. 그러고 보니 좀 이상했어요.",
+        "reveals": "문시강이 노건희를 뒤따라 다락으로 올라갔다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "문시강",
+      "role": "시스템 디자이너",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 저녁 다락 자료보관실에 올라갔다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "다락에서 계약서 크레딧 문제로 노건희에게 따졌다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "몸싸움 중 노건희를 밀쳤다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "사다리 상단 발판 나사를 미리 풀어 두었고, 계약서에서 자신의 이름이 빠진 것을 그날 오후 이미 알고 있었다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH04-05",
+          "content": "신도경이 최근 다른 스튜디오와 접촉하고 있다는 얘기를 들었다.",
+          "source": "사내 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그 시간엔 아래층에서 다음 세션 자료 정리하고 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다락에 올라갔다는 것 자체를 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그냥 목업 상자 옮기는 것 도와드리고 바로 내려왔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "계약서 문제로 다퉜다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "언성은 높였지만 손은 대지 않았습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움이 있었다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "사고였습니다. 밀친 건 맞지만 죽일 생각은 없었고, 나사는 원래 헐거웠던 겁니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "미리 알고 있었다는 것과 나사를 일부러 풀었다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "이 게임 시스템, 밑바닥 규칙부터 제가 다 짠 겁니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-05"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH04-04"
+        }
+      ],
+      "knowledge_limits": [
+        "대표실 계약서의 세부 조항 전부를 다 읽지는 않았다.",
+        "노건희가 사다리 상태를 스스로 확인한 적 있는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "짧고 단정적인 격식체(습니다체).",
+        "sentence_length_tendency": "평소에도 짧고 단정적이며, 몰려도 길이는 거의 안 바뀐다.",
+        "verbal_tic": "'규칙은 제가 다 짰습니다'를 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제가 왜 그런 거짓말을 하겠습니까.",
+        "증거가 있으면 보여주세요.",
+        "더 드릴 말씀 없습니다.",
+        "이제 와서 그게 무슨 소용입니까."
+      ],
+      "comic_tell": "설명하다가 손끝으로 탁자를 두 번 두드린다.",
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH04-05",
+        "opens": "S-CH04-05",
+        "says": "저야 모르지만, 도경 씨가 요즘 다른 데랑 얘기하고 있다는 소문은 들었습니다.",
+        "reveals": "신도경이 최근 다른 스튜디오와 접촉하고 있었다는 것."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "나하윤",
+      "role": "외주 일러스트레이터 / 전 직원",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "21시 3분에 로비에 도착해 백하율의 안내를 받았다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "예전에 함께 정산 업무를 보던 시절, 얼마 전 들렀을 때 전은채가 요즘 유난히 예민해 보인다는 얘기를 들었다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저도 제 나름대로 만든 건데 비슷한 시스템이라고 오해받는 게 억울해요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 그날 밤 9시 좀 넘어서 파일 전달하러 도착했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "계약서 내용은 전혀 모른다.",
+        "요즘 스튜디오 안쪽 사정은 잘 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 가끔 방어적으로 딱딱해진다.",
+        "sentence_length_tendency": "평소엔 여유 있게 말하다가, 몰리면 짧게 끊고 화제를 돌린다.",
+        "verbal_tic": "'저 나름대로는요'를 덧붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "저는 그냥 파일 전달하러 온 거예요.",
+        "이미 나간 사람한테 왜 이러세요.",
+        "백하율 씨한테 물어보세요."
+      ],
+      "comic_tell": "말할 때 태블릿 펜을 손가락 사이로 빙글 돌린다.",
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH05-02",
+        "opens": "S-CH05-01",
+        "says": "예전에 같이 정산 보던 때 생각하면, 요즘 은채 씨가 유난히 날카로워 보이던데요. 저야 잘 모르지만요.",
+        "reveals": "전은채가 최근 정산 업무로 눈에 띄게 예민해져 있었다는 것."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH04"],
+      "nature": "8년째 함께 게임을 만들어 온 대표와 시스템 디자이너.",
+      "public_face": "이 스튜디오의 두 기둥으로 알려져 있다.",
+      "says": {
+        "CH04": "규칙은 제가 다 짰습니다. 대표님과는... 일 얘기 말고는 잘 안 했습니다."
+      },
+      "private_strain": "문시강은 이번 라이선스 계약 크레딧에서도 자신의 이름이 통째로 빠져 있다는 것을 그날 오후 알게 됐다는 것을 감추고 있다.",
+      "surfaces_when": "계약서 최종본(E15)을 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "5년째 손발을 맞춰 온 대표와 아트 디렉터.",
+      "public_face": "가장 손발이 잘 맞는 콤비로 알려져 있다.",
+      "says": {
+        "CH01": "대표님이랑은 그림 얘기 말곤 각별할 것도 없었어요. 그냥 오래 같이 일한 사이죠."
+      },
+      "private_strain": "신도경은 최근 다른 스튜디오로부터 아트 디렉터 자리를 제안받고 마음이 흔들리고 있다는 것을 감추고 있다.",
+      "surfaces_when": "라이벌 스튜디오 메일 출력물(E17)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "6년째 사업 전반을 함께 챙겨 온 대표와 운영 팀장.",
+      "public_face": "대표가 가장 믿고 맡기는 사람으로 알려져 있다.",
+      "says": {
+        "CH02": "숫자 하나까지 제가 다 챙겼어요. 대표님 일이라면 제가 제일 잘 알아요."
+      },
+      "private_strain": "전은채는 문시강에게 계약서 화면을 그대로 열어 둔 채 자리를 비운 것이 이 일에 영향을 줬을까 봐 두려워하고 있다는 것을 감추고 있다.",
+      "surfaces_when": "컴퓨터 사용 기록(E16)을 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "1년째 계약직으로 들어와 대표에게 실무를 배워 온 코디네이터와 대표.",
+      "public_face": "성실한 막내로 알려져 있다.",
+      "says": {
+        "CH03": "저는 그냥 시키는 대로... 대표님이 잘해주셨다고 생각했는데요."
+      },
+      "private_strain": "백하율은 이번 계약이 끝나면 자신의 계약이 연장되지 않는다는 것을 그 주에 이미 알고 있었다는 것을 감추고 있다.",
+      "surfaces_when": "백하율에게 요즘 계약 연장 문제(E19)를 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "3년 전 스튜디오를 나간 일러스트레이터와, 여전히 외주로 이어지는 대표.",
+      "public_face": "그냥 예전에 여기서 일했던 프리랜서로만 알려져 있다.",
+      "says": {
+        "CH05": "저 나름대로는요, 대표님이랑은 이제 일로만 만나는 사이예요."
+      },
+      "private_strain": "나하윤은 최근 자신의 이름으로 낸 카드게임이 스튜디오의 시스템과 겹친다는 지적을 받을까 봐 조마조마해하고 있다는 것을 감추고 있다.",
+      "surfaces_when": "나하윤의 포트폴리오 파일(E20)을 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH02"],
+      "nature": "계약서 인쇄부터 배포까지 실무를 주고받는 동료.",
+      "public_face": "사이가 나쁘지 않은 동료로 알려져 있다.",
+      "says": {
+        "CH04": "규칙은 제가 다 짰습니다. 은채 씨랑은 그냥 사무적으로 마주칠 뿐입니다.",
+        "CH02": "숫자 하나까지 제가 다 챙겼어요 — 시강 씨랑은 그냥 동료죠, 뭐."
+      },
+      "private_strain": "문시강은 계약서를 본 그 순간부터 이미 화가 나 있었다는 것을 감추고 있다.",
+      "surfaces_when": "문시강이 다락에서 따진 사실(F-CH04-02)이 드러난 뒤."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "출입증 없이도 드나들 수 있는 개방된 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "안내 데스크 옆으로 다음 주 컨벤션 부스 박스들이 쌓여 있고, 전은채가 태블릿을 든 채 안쪽 복도를 초조하게 살피고 있다.",
+      "observation_rules": [
+        {
+          "action": "쌓여 있는 컨벤션 부스 박스들을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "박스마다 다음 주 컨벤션 일정표가 붙어 있다. 정말 코앞까지 와 있었다는 것이 실감 난다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 태그 기록을 조회한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "노건희의 태그는 17시 0분 스튜디오 층 진입 이후 다시 찍히지 않았다."
+        },
+        {
+          "action": "로비 방문자 명부에서 나하윤의 방문 기록을 확인한다",
+          "requires": "나하윤",
+          "release_evidence_id": "E02",
+          "result": "나하윤은 21시 3분에 방문 서명을 남겼다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "메인 스튜디오",
+      "access": "직원이면 출입증 없이 드나들 수 있는 작업 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "긴 테이블 위로 프로토타입 보드게임 부품들이 아직 정리되지 않은 채 흩어져 있고, 한쪽 벽 사다리 발치에 목업 상자 하나가 쓰러져 있다. 백하율이 그 앞에 주저앉아 있고, 문시강은 조금 떨어진 자리에서 팔짱을 낀 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "벽에 걸린 완성작 포스터들을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "포스터마다 디자이너로 노건희 이름만 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사다리 발치에 놓인 목업 상자를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "상자 모서리가 눌려 찌그러져 있고, 사다리에서 곧장 떨어진 자리에 놓여 있다."
+        },
+        {
+          "action": "플레이테스트 참가자 서명지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "서명지에는 19시 40분 세션 종료 이후 21시까지 신도경의 서명이 이어져 있다."
+        },
+        {
+          "action": "구석 공구함 속 문시강의 드라이버를 살펴본다",
+          "requires": "문시강",
+          "release_evidence_id": "E05",
+          "result": "드라이버 세트 중 하나만 다른 것보다 유난히 깨끗하게 닦여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "다락 자료보관실",
+      "access": "사다리로만 오를 수 있는 제한된 공간이다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "낡은 프로토타입 상자들이 서가 사이에 빼곡하고, 난간 없이 뚫린 가장자리 아래로 스튜디오 바닥이 내려다보인다.",
+      "observation_rules": [
+        {
+          "action": "서가에 꽂힌 옛 프로토타입들을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "초기 시제품 상자 안쪽에 문시강의 손글씨로 규칙 초안이 빼곡히 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사다리 상단 발판 나사를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "나사 머리에 드라이버로 최근에 돌린 듯한 새 흠집이 나 있다."
+        },
+        {
+          "action": "다락 바닥의 스크래치 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "가장자리 쪽으로 몰린 두 사람분의 신발 긁힌 자국이 겹쳐 있다."
+        },
+        {
+          "action": "찢어진 서류 조각을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "계약서 크레딧 항목이 적힌 페이지 모서리가 찢겨 떨어져 있다."
+        },
+        {
+          "action": "다락 조명 스위치를 살펴본다",
+          "requires": "E07",
+          "release_evidence_id": "E09",
+          "result": "전구가 소켓에서 반쯤 빠져 있다 — 저절로 빠진 것치고는 각도가 일정하다."
+        },
+        {
+          "action": "다락 서가 사이 바닥에 남은 실 자국을 살펴본다",
+          "requires": "문시강",
+          "release_evidence_id": "E10",
+          "result": "서가 모서리에 짙은 회색 실 가닥이 걸려 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "대표실",
+      "access": "출입증이 있어야 들어갈 수 있는 통제구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "책상 위 모니터가 아직 켜져 있고, 신도경이 책장 앞에 서서 원화 파일들을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 스케치북을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "여백에 다음 시즌 캐릭터 스케치가 잔뜩 그려져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 계약서 최종본을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "크레딧 항목과 로열티 배분 항목 어디에도 문시강의 이름이 없다."
+        },
+        {
+          "action": "컴퓨터 사용 기록을 확인한다",
+          "requires": "전은채",
+          "release_evidence_id": "E12",
+          "result": "13시 20분부터 13시 35분까지 계약서 파일이 열린 채 자리 이석 상태였던 기록이 남아 있다."
+        },
+        {
+          "action": "책상 서랍 속 메일 출력물을 살펴본다",
+          "requires": "신도경",
+          "release_evidence_id": "E13",
+          "result": "라이벌 스튜디오에서 보낸 아트 디렉터 제안 메일이 출력돼 있다."
+        },
+        {
+          "action": "책상 위 다이어리 여백을 살펴본다",
+          "requires": "신도경",
+          "release_evidence_id": "E21",
+          "result": "이번 주 날짜 칸에 라이벌 스튜디오의 회신 기한이 동그라미로 표시돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "정리실",
+      "access": "출입증 없이도 직원이면 자유롭게 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "택배 상자 사이 간이 책상에 나하윤이 포트폴리오 파일을 내려놓고 서 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "다음 주 컨벤션 부스 배치도와 개인 물품 반납 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "백하율의 노트북 화면을 살펴본다",
+          "requires": "백하율",
+          "release_evidence_id": "E14",
+          "result": "다른 퍼블리셔 두 곳에 보낸 프로토타입 소개 메일 초안이 열려 있다."
+        },
+        {
+          "action": "나하윤이 두고 간 포트폴리오 파일을 살펴본다",
+          "requires": "나하윤",
+          "release_evidence_id": "E17",
+          "result": "표지에 그녀의 이름으로 낸 카드게임 규칙 소개가 인쇄돼 있다 — 핵심 규칙 문구가 톨게이트 시스템과 닮아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "로비 출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 태그 기록을 조회한다",
+      "content": "출입기록에 따르면 노건희의 태그는 17시 0분 스튜디오 층 진입 이후 그날 다시 찍히지 않았다.",
+      "proves": ["노건희가 17시 0분 이후 건물 밖으로 나간 기록이 없다"],
+      "does_not_prove": ["그 이후 정확히 몇 시에 무슨 일이 있었는지는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "들어온 기록만 있을 뿐, 그 뒤로 층을 나간 태그가 단 한 번도 없다.",
+      "reaction": {
+        "jiwoo": "그 뒤로 기록이 아예 없네요.",
+        "detective": "이 층에서 못 나왔다는 소리지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "로비 방문자 명부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 방문자 명부에서 나하윤의 방문 기록을 확인한다",
+      "content": "방문자 명부에는 나하윤이 21시 3분에 서명하고 들어온 것으로 적혀 있다.",
+      "proves": ["나하윤이 21시 3분에 도착했다"],
+      "does_not_prove": ["그 전에 어디 있었는지는 이 명부만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "서명 시각은 또렷한데, 그 앞 칸들과 달리 글씨가 서둘러 쓴 것처럼 삐뚤다.",
+      "reaction": {
+        "jiwoo": "이때 막 도착했다는 거네요.",
+        "detective": "이미 다 끝난 뒤였다는 거지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "찌그러진 목업 상자",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "사다리 발치에 놓인 목업 상자를 살펴본다",
+      "content": "사다리 발치에 놓인 목업 상자는 한쪽 모서리가 짓눌려 찌그러져 있고, 사다리 바로 아래 자리에 가지런히 놓여 있다.",
+      "proves": ["상자가 사다리 근처에서 충격을 받았다"],
+      "does_not_prove": ["언제, 누구의 손을 거쳐 그 자리에 놓였는지는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "찌그러진 모양은 떨어뜨린 충격인데, 정작 상자는 쓰러지지 않고 가지런히 세워져 있다 — 누가 다시 세워 둔 것처럼 보인다.",
+      "reaction": {
+        "jiwoo": "찌그러진 것치고 너무 가지런히 놓여 있는데요.",
+        "detective": "누가 세워 뒀다는 거지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "플레이테스트 참가자 서명지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "플레이테스트 참가자 서명지를 확인한다",
+      "content": "서명지에는 19시 40분 세션 종료 시각이 적혀 있고, 그 뒤로도 신도경의 서명이 21시까지 이어져 있다.",
+      "proves": ["신도경이 19시 40분 이후에도 21시까지 스튜디오에 계속 있었다"],
+      "does_not_prove": ["다른 사람들의 그 시간대 행적까지는 말해주지 않는다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "다른 참가자 칸은 19시 40분에서 끊기는데, 신도경 칸만 시각이 21시까지 촘촘히 이어진다.",
+      "reaction": {
+        "jiwoo": "이분만 계속 남아 있었나 봐요.",
+        "detective": "적어도 이 시간엔 여기 있었다는 거지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "유난히 깨끗한 드라이버",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "구석 공구함 속 문시강의 드라이버를 살펴본다",
+      "content": "공구함 속 드라이버 세트 중 하나만 다른 것보다 유난히 깨끗하게 닦여 있다.",
+      "proves": ["최근 그 드라이버만 따로 사용되고 닦였다"],
+      "does_not_prove": ["언제, 무엇에 썼는지는 이것만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "나머지 공구는 먼지가 앉아 있는데 이것만 반짝인다.",
+      "reaction": {
+        "jiwoo": "이거 하나만 유난히 깨끗한데요.",
+        "detective": "최근에 썼다는 거지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "새 흠집이 난 발판 나사",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사다리 상단 발판 나사를 살펴본다",
+      "content": "사다리 상단 발판 나사 머리에 드라이버로 최근에 돌린 듯한 새 흠집이 나 있고, 나사가 반쯤 풀려 발판이 흔들린다.",
+      "proves": ["발판 나사가 최근에 풀렸다"],
+      "does_not_prove": ["누가, 언제 풀었는지는 이것만으로는 알 수 없다"],
+      "presentation_effect": ["C04"],
+      "points_at": null,
+      "mismatch": "나사산 자체는 오래돼 녹슬어 있는데, 흠집만 기름기 없이 새것이다.",
+      "reaction": {
+        "jiwoo": "나사산은 낡았는데 흠집은 새것 같은데요.",
+        "detective": "최근에 누가 돌렸다는 거지."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "다락 바닥의 스크래치 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "다락 바닥의 스크래치 자국을 살펴본다",
+      "content": "다락 개방된 가장자리 쪽으로 두 사람분의 신발 긁힌 자국이 겹쳐 나 있다.",
+      "proves": ["다락 가장자리에서 두 사람 사이에 몸싸움이 있었다"],
+      "does_not_prove": ["정확히 누구와 누구였는지는 이 자국만으로는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "points_at": null,
+      "mismatch": "한 사람 것만이라면 실족이지만, 자국이 서로 겹쳐 있어 밀고 당긴 흔적으로 보인다.",
+      "reaction": {
+        "jiwoo": "자국이 두 사람 건데요, 이거.",
+        "detective": "혼자 넘어진 게 아니라는 거지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "찢어진 계약서 조각",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "찢어진 서류 조각을 살펴본다",
+      "content": "다락 바닥에 계약서 크레딧 항목이 적힌 페이지 모서리가 찢겨 떨어져 있다.",
+      "proves": ["계약서 크레딧 항목이 다락까지 올라와 있었다"],
+      "does_not_prove": ["누가 그것을 들고 올라갔는지는 이 조각만으로는 알 수 없다"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH04",
+      "mismatch": "계약서 원본은 대표실 책상에 그대로 있는데, 정작 크레딧 항목이 적힌 페이지만 한 귀퉁이가 다락에 떨어져 있다.",
+      "reaction": {
+        "jiwoo": "원본은 아래층에 있는데 이 페이지만 여기 있네요.",
+        "detective": "누가 그 부분만 들고 왔다는 거지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "반쯤 빠진 전구",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "다락 조명 스위치를 살펴본다",
+      "content": "다락 조명 전구가 소켓에서 반쯤 빠져 있다. 저절로 빠진 것치고는 돌아간 각도가 일정하다.",
+      "proves": ["전구가 최근에 손으로 조작됐다"],
+      "does_not_prove": ["누가, 왜 그랬는지는 이것만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "흔들려서 빠졌다면 각도가 제각각이어야 하는데, 정확히 반 바퀴만 돌아가 있다.",
+      "reaction": {
+        "jiwoo": "딱 반 바퀴만 돌아가 있는데요.",
+        "detective": "일부러 그런 거지, 이건."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "서가에 걸린 실 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "다락 서가 사이 바닥에 남은 실 자국을 살펴본다",
+      "content": "서가 모서리에 짙은 회색 실 가닥이 걸려 있다 — 문시강이 그날 입고 있던 것과 같은 색의 소매 원단이다.",
+      "proves": ["문시강이 그날 저녁 다락 서가 사이를 지나갔다"],
+      "does_not_prove": ["정확히 몇 시였는지는 이 실 가닥만으로는 알 수 없다"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04",
+      "mismatch": "다른 직원들은 다락에 잘 올라가지 않는데, 이 실만 서가 가장 안쪽 모서리에 걸려 있다.",
+      "reaction": {
+        "jiwoo": "이 색, 시강 씨 옷이랑 똑같은데요.",
+        "detective": "여기까지 들어갔다는 거지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "계약서 최종본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 계약서 최종본을 살펴본다",
+      "content": "계약서 최종본 크레딧 항목과 로열티 배분 항목 어디에도 문시강의 이름이 없다.",
+      "proves": ["계약서에서 문시강이 크레딧과 로열티 배분 대상에서 빠져 있다"],
+      "does_not_prove": ["그가 그 사실을 언제 알았는지는 이 문서만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "초기 기획서에는 시스템 설계자로 그의 이름이 있는데, 정작 최종 계약서에는 통째로 빠져 있다.",
+      "reaction": {
+        "jiwoo": "기획서엔 있는데 계약서엔 없네요.",
+        "detective": "그것부터가 이상하지."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "대표실 컴퓨터 사용 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "컴퓨터 사용 기록을 확인한다",
+      "content": "컴퓨터 사용 기록에는 13시 20분부터 13시 35분까지 계약서 파일이 화면에 열린 채 자리 이석 상태였던 기록이 남아 있다.",
+      "proves": ["그날 오후 계약서 파일이 15분간 화면에 열려 있었다"],
+      "does_not_prove": ["그 사이 누가 화면을 봤는지는 이 기록만으로는 알 수 없다"],
+      "presentation_effect": ["C04"],
+      "points_at": null,
+      "mismatch": "평소 전은채는 자리를 비울 때 화면을 잠그는데, 이날만 잠그지 않은 채였다.",
+      "reaction": {
+        "jiwoo": "이날만 화면을 안 잠갔네요.",
+        "detective": "그 15분이 문제인 거지."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "라이벌 스튜디오 제안 메일",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 서랍 속 메일 출력물을 살펴본다",
+      "content": "서랍 속에 라이벌 스튜디오에서 보낸 아트 디렉터 제안 메일이 출력돼 있다.",
+      "proves": ["신도경이 최근 다른 스튜디오로부터 이직 제안을 받았다"],
+      "does_not_prove": ["그녀가 그 제안을 수락했는지 여부는 이 메일만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "출력한 날짜는 최근인데, 접힌 자국을 보면 여러 번 다시 꺼내 읽은 흔적이 있다.",
+      "reaction": {
+        "jiwoo": "이거 몇 번을 다시 읽은 거 같은데요.",
+        "detective": "고민이 길었다는 거지."
+      }
+    },
+    {
+      "id": "E14",
+      "name": "다른 퍼블리셔에게 보낸 메일 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "백하율의 노트북 화면을 살펴본다",
+      "content": "노트북 화면에는 다른 퍼블리셔 두 곳에 프로토타입을 소개하는 메일 초안이 열려 있다.",
+      "proves": ["백하율이 최근 다른 퍼블리셔들과 개인적으로 접촉을 시도했다"],
+      "does_not_prove": ["실제로 답장을 받았는지는 이 초안만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "발신함에는 없고 임시보관함에만 있다 — 아직 보내지 못하고 망설이는 중이었다는 뜻이다.",
+      "reaction": {
+        "jiwoo": "보내진 않고 저장만 해 뒀네요.",
+        "detective": "고민 중이었다는 거지."
+      }
+    },
+    {
+      "id": "E15",
+      "name": "백하율의 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백하율에게 나하윤을 맞이한 시각을 묻는다",
+      "content": "\"나하윤 씨요? 제가 로비에서 맞았어요. 21시 3분쯤이었나, 서명하고 바로 들어왔어요.\"",
+      "proves": ["백하율이 21시 3분에 나하윤을 직접 맞이했다"],
+      "does_not_prove": ["그 전에 나하윤이 어디 있었는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "맞이했다면서 정작 정확한 인사말은 기억하지 못한다."
+    },
+    {
+      "id": "E16",
+      "name": "백하율의 증언 (사다리 방향)",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백하율에게 문시강이 사다리 쪽으로 가는 걸 본 적 있는지 묻는다",
+      "content": "\"어, 맞아요. 플레이테스트 끝나고 태호 씨가 계약서 얘기 마저 하겠다면서 사다리로 올라가던데요. 그때는 별생각 없었어요.\"",
+      "proves": ["문시강이 플레이테스트 직후 사다리로 다락에 올라갔다"],
+      "does_not_prove": ["다락에서 정확히 무슨 일이 있었는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04",
+      "mismatch": "별생각 없었다면서도, 정작 그가 무슨 얘기를 하겠다고 했는지는 정확히 기억한다."
+    },
+    {
+      "id": "E19",
+      "name": "백하율의 증언 (계약 연장)",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백하율에게 요즘 계약 연장 문제를 묻는다",
+      "content": "\"저는 정말 아무것도 몰라요... 사실 이번 계약 끝나면 제 자리도 없어진다는 얘기는 그 주에 들었어요. 그래서 혹시 몰라 다른 퍼블리셔 쪽에도 슬쩍 보여준 건 맞아요.\"",
+      "proves": ["백하율이 자신의 계약 연장이 안 된다는 것을 알고 있었고, 다른 퍼블리셔에 접촉을 시도했다"],
+      "does_not_prove": ["그것이 이번 사건과 직접 관련 있는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "mismatch": "정말 아무것도 모른다면서, 자기 자리 얘기는 뜻밖에 자세히 알고 있다."
+    },
+    {
+      "id": "E17",
+      "name": "나하윤의 포트폴리오 파일",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "나하윤이 두고 간 포트폴리오 파일을 살펴본다",
+      "content": "표지에 나하윤 자신의 이름으로 낸 카드게임 규칙 소개가 인쇄돼 있다. 핵심 규칙 문구가 톨게이트 시스템의 설명과 여러 군데 닮아 있다.",
+      "proves": ["나하윤이 최근 자신의 이름으로 유사한 규칙의 카드게임을 냈다"],
+      "does_not_prove": ["그 규칙을 누구에게서 먼저 배웠는지는 이 파일만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "표지에는 '독자 개발'이라고 적혀 있는데, 정작 용어 하나하나가 톨게이트 사내 용어와 겹친다.",
+      "reaction": {
+        "jiwoo": "이거 용어가 여기랑 똑같은데요.",
+        "detective": "독자 개발이라기엔 너무 닮았지."
+      }
+    },
+    {
+      "id": "E18",
+      "name": "나하윤의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "나하윤에게 자신의 카드게임에 대해 묻는다",
+      "content": "\"저 나름대로는요, 예전에 배운 거 이것저것 섞어서 새로 만든 거예요. 표절이라고 하시면 억울해요. 저는 그날 밤 9시 넘어서 도착했을 뿐인데요.\"",
+      "proves": ["나하윤이 자신의 카드게임이 톨게이트 시스템과 닮았다는 지적을 알고 있다"],
+      "does_not_prove": ["정확히 무엇을 어디서 배웠는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "억울하다고 하면서도, 정작 어디서 배웠는지는 구체적으로 말하지 않는다."
+    },
+    {
+      "id": "E21",
+      "name": "다이어리에 표시된 회신 기한",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 다이어리 여백을 살펴본다",
+      "content": "다이어리 이번 주 날짜 칸에 라이벌 스튜디오의 회신 기한이 동그라미로 표시돼 있고, 그 옆에 물음표가 여러 개 그려져 있다.",
+      "proves": ["신도경이 라이벌 스튜디오의 제안에 실제로 응답 기한을 의식하고 있었다"],
+      "does_not_prove": ["그녀가 그것 때문에 노건희와 갈등을 빚었는지는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "mismatch": "회신 기한만 표시돼 있을 뿐, 정작 답을 어느 쪽으로 할지는 아무것도 적혀 있지 않다.",
+      "reaction": {
+        "jiwoo": "물음표가 한가득인데요.",
+        "detective": "아직 마음을 못 정했다는 거지."
+      }
+    },
+    {
+      "id": "E22",
+      "name": "전은채의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "전은채에게 그날 오후 프린터 문제로 누구를 불렀는지 묻는다",
+      "content": "\"숫자 하나까지 제가 다 챙겼어요 — 아, 그날 오후에 무선 인쇄가 자꾸 끊겨서 시강 씨를 대표실로 불렀어요. 봐 달라고 하고 저는 잠깐 다른 일 보러 나갔었죠.\"",
+      "proves": ["문시강이 그날 오후 대표실 컴퓨터에 접근할 기회가 있었다"],
+      "does_not_prove": ["그가 실제로 화면의 계약서를 봤는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "프린터를 봐 달라고 불렀다면서, 정작 자리를 비운 동안 화면을 잠그지 않았다는 것은 스스로 먼저 말하지 않는다."
+    },
+    {
+      "id": "E20",
+      "name": "신도경의 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "신도경에게 그날 마지막 행적을 묻는다",
+      "content": "\"그림쟁이 입장에서는요, 그날 마지막까지 여기서 플레이테스트 정리하고 있었어요. 서명지 보면 아실 텐데요.\"",
+      "proves": ["신도경이 플레이테스트 종료 이후에도 계속 스튜디오에 있었다"],
+      "does_not_prove": ["다른 사람들이 그 시간에 어디 있었는지는 이 증언만으로는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null,
+      "mismatch": "서명지를 보라고 스스로 권할 만큼 당당하다 — 정작 그 시간에 다른 사람이 어디 있었는지는 모른다고 한다."
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "admits_loft_presence",
+      "requires_heard_claim_ids": ["S-CH04-01"],
+      "requires_presented_evidence_ids": ["E10", "E16"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-01",
+        "evidence_ids": ["E10", "E16"]
+      },
+      "player_action": "탐정이 다락 서가 사이에 걸린 실 자국(E10)과 백하율이 그가 사다리로 올라가는 것을 봤다는 증언(E16)을 함께 짚으며, 아래층에 있었다는 말과 앞뒤가 맞지 않는다고 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-01",
+        "scope": "문시강은 사건 당일 저녁 다락 자료보관실에 올라간 것은 인정한다."
+      },
+      "must_not_release": [
+        "계약서 얘기로 다퉜다는 것",
+        "몸싸움이 있었다는 것",
+        "나사를 미리 풀어 두었다는 것"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "admits_loft_presence",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["S-CH04-01", "S-CH04-02"],
+      "requires_presented_evidence_ids": ["E08", "E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E08", "E11"]
+      },
+      "player_action": "탐정이 다락에서 발견된 찢어진 계약서 조각(E08)과 대표실 책상 위 계약서 최종본(E11)을 나란히 놓으며, 상자만 옮기고 바로 내려왔다는 말로는 이 종이가 왜 거기 있었는지 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "문시강은 다락에서 계약서 크레딧 문제로 노건희에게 따진 것은 인정한다."
+      },
+      "must_not_release": [
+        "몸싸움이 있었다는 것",
+        "밀쳤다는 것",
+        "나사를 미리 풀어 두었다는 것"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_push",
+      "requires_heard_claim_ids": ["S-CH04-02", "S-CH04-03"],
+      "requires_presented_evidence_ids": ["E07", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-03",
+        "evidence_ids": ["E07", "E03"]
+      },
+      "player_action": "탐정이 다락 가장자리에 겹쳐 남은 두 사람분의 스크래치 자국(E07)과 사다리 아래 가지런히 다시 세워진 목업 상자(E03)를 함께 짚으며, 언성만 높였다는 말로는 몸싸움의 흔적이 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "문시강은 몸싸움 중 노건희를 밀친 것은 인정한다."
+      },
+      "must_not_release": [
+        "나사를 미리 풀어 두었다는 것",
+        "그날 오후 이미 알고 있었다는 것"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH04",
+      "from_stage": "admits_push",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["S-CH04-03", "S-CH04-04"],
+      "requires_presented_evidence_ids": ["E06", "E12"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-04",
+        "evidence_ids": ["E06", "E12"]
+      },
+      "player_action": "탐정이 최근에야 돌아간 흔적이 뚜렷한 발판 나사(E06)와 그날 오후 계약서가 15분간 화면에 열려 있던 컴퓨터 기록(E12)을 함께 짚으며, 사고였고 몰랐다는 말로는 이 둘이 같은 날 겹친 것이 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-04",
+        "scope": "문시강은 사다리 발판 나사를 미리 풀어 둔 것과, 계약서에서 자신의 이름이 빠진 것을 그날 오후 이미 알고 있었다는 것은 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "최근 자신의 이름으로 톨게이트 시스템과 닮은 카드게임을 냈고, 하필 사건 당일 저녁에 스튜디오를 찾아왔다.",
+      "actual_reason": "나하윤은 마지막 일러스트 파일을 전달하러 왔을 뿐이고, 21시 3분에야 로비에 도착해 노건희가 떨어진 뒤였다.",
+      "how_to_clear": "로비 방문자 명부에서 나하윤의 도착 시각(E02)과, 그녀를 직접 맞이했다는 백하율의 증언(E15)을 함께 확인한다.",
+      "must_not_imply": "그녀가 늦게 도착했다는 것이 카드게임 표절 의혹 자체가 없다는 뜻은 아니다.",
+      "lingering_thread": "나하윤의 카드게임이 톨게이트 시스템과 얼마나 닮았는지는 사건이 끝난 뒤에도 정리되지 않았다.",
+      "suspicion_deepener": "포트폴리오 파일(E17) 속 용어가 사내 용어와 겹친다는 것이 먼저 드러나면서, 그녀가 오래전부터 몰래 규칙을 빼돌린 것 아니냐는 의심이 한동안 짙어진다.",
+      "character_id": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사건 당일 저녁 스튜디오에 다시 나타난 유일한 외부인이었다.",
+        "means": ["E17", "E18"],
+        "means_first_reading": "표지의 '독자 개발'이라는 말과 달리 용어까지 닮은 포트폴리오와, 그것을 얼버무리는 본인의 증언이 함께 그녀를 향한다."
+      },
+      "cleared_by": ["E02", "E15"],
+      "clearing_points_at": "CH04"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "다른 스튜디오로부터 이직 제안을 받고 흔들리고 있었고, 이번 계약이 성사되면 그 기회를 놓치게 된다.",
+      "actual_reason": "신도경은 서명지에 따르면 19시 40분 세션 종료 이후 21시까지 계속 스튜디오에 남아 있었고, 다락 근처에는 가지 않았다.",
+      "how_to_clear": "플레이테스트 참가자 서명지(E04)와 그녀 자신의 증언(E20)을 함께 확인한다.",
+      "must_not_imply": "그녀가 그 시간대에 자리를 지켰다는 것이 이직 고민 자체가 없었다는 뜻은 아니다.",
+      "lingering_thread": "신도경은 끝내 이직 제안을 받아들일지 말지 대답하지 않았다.",
+      "suspicion_deepener": "여러 번 접힌 자국이 남은 라이벌 스튜디오 제안 메일(E13)이 먼저 드러나면서, 그녀가 이 계약을 방해할 이유가 있었던 것 아니냐는 의심이 한동안 짙어진다.",
+      "character_id": "CH01",
+      "weight": {
+        "motive": "M04",
+        "opportunity": "그날 오후 대표실에서 노건희와 단둘이 재량권 문제로 마지막 대화를 나눴다.",
+        "means": ["E13", "E21"],
+        "means_first_reading": "여러 번 다시 읽은 이직 제안 메일과, 재량권을 요구했던 그날의 대화가 함께 그녀를 향한다."
+      },
+      "cleared_by": ["E04", "E20"],
+      "clearing_points_at": "CH04"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "F-CH04-02", "F-CH04-03", "F-CH04-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "F-CH04-04",
+      "motive_fact": "F-CH04-02"
+    }
+  },
+  "final_deduction": {
+    "responsible": "문시강",
+    "method": "마지막 플레이테스트 직후 다락으로 노건희를 뒤따라가 계약서 크레딧 문제로 따지다 몸싸움 끝에 밀쳤고, 노건희는 난간 없는 가장자리로 떨어져 머리를 부딪혀 숨졌다.",
+    "motive": "8년째 핵심 시스템을 설계해 왔지만 계약서 크레딧과 로열티 배분 어디에도 이름이 없다는 것을 그날 오후 알게 되면서 범행을 결심했다.",
+    "key_connection": "전은채가 실수로 열어 둔 계약서 화면이 문시강을 움직였고, 다락 서가에 남은 실 자국이 그의 존재를 증명했다."
+  },
+  "ending_explanation": [
+    "문시강은 나사를 미리 풀어 둔 것과 계약서에서 자신의 이름이 빠진 것을 그날 오후 이미 알고 있었다는 것을 인정했다.",
+    "계약서 최종본은 그가 크레딧과 로열티 배분 어디에도 없었다는 것을 보여주었다.",
+    "전은채가 실수로 열어 둔 계약서 화면(E22)이 결심의 계기가 됐다.",
+    "백하율이 알아챈 사다리 발판의 헐거움(E06)과 반쯤 빠진 전구(E09)는 문시강이 그날 저녁 다시 손을 댔다는 뜻이었다.",
+    "공구함 속 유난히 깨끗한 드라이버(E05)도 그가 최근 손을 썼다는 것을 보여줬다.",
+    "나하윤과 신도경에게 쏠렸던 의심은 각각 뒤늦은 도착과 계속된 서명 기록으로 풀렸다.",
+    "나하윤을 향했던 포트폴리오 파일(E17)과 그녀 자신의 증언(E18)은 결국 그녀 자신의 억울함만 보여줬을 뿐이었다.",
+    "신도경의 이직 제안 메일(E13)과 다이어리의 회신 기한 표시(E21)도 같은 결론이었다.",
+    "백하율 자신의 계약 연장 불안(E19)과 다른 퍼블리셔에게 보낸 메일 초안(E14)도 이번 사건과는 무관했다.",
+    "문시강의 태연한 자부심(S-CH04-05)은 그가 그 규칙에 얼마나 깊이 매여 있었는지를 보여줄 뿐이었다.",
+    "노건희의 마지막 출입 기록(E01)과 다락에 남은 두 사람분의 스크래치 자국(E07)이 그날 저녁 있었던 일의 뼈대를 잡아 주었다."
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "계약서 크레딧에서 배제된 것에 대한 배신감",
+      "truth": true,
+      "evidence_for": ["E11"],
+      "suggested_by": ["S-CH01-01"],
+      "cue": "크레딧"
+    },
+    {
+      "id": "M02",
+      "text": "카드게임 표절 시비로 인한 앙심",
+      "truth": false,
+      "evidence_for": ["E17"],
+      "refutation": "저 나름대로는요, 표절이라고 하시면 억울해요. 저는 그날 밤 9시 넘어서 도착했을 뿐인데요.",
+      "refuted_by": "CH05",
+      "suggested_by": ["E17"],
+      "cue": "카드게임"
+    },
+    {
+      "id": "M03",
+      "text": "계약 연장 불안으로 인한 우발적 다툼",
+      "truth": false,
+      "evidence_for": ["E14"],
+      "refutation": "저는 정말 아무것도 몰라요. 다른 퍼블리셔 쪽에 보여준 건 맞지만, 제가 왜 그런 짓을 해요.",
+      "refuted_by": "CH03",
+      "suggested_by": ["E14"],
+      "cue": "퍼블리셔"
+    },
+    {
+      "id": "M04",
+      "text": "이직 준비를 들킬까 봐 사이가 틀어졌다",
+      "truth": false,
+      "evidence_for": ["E13"],
+      "refutation": "그림쟁이 입장에서는요, 제가 왜 그런 일로 이런 짓을 하겠어요. 서명지 보면 아실 텐데요.",
+      "refuted_by": "CH01",
+      "suggested_by": ["E13"],
+      "cue": "이직"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "19시 58분경, 다락에서",
+      "truth": true,
+      "evidence_for": ["E07"],
+      "suggested_by": ["S-CH02-02"],
+      "cue": "로비"
+    },
+    {
+      "id": "T02",
+      "text": "21시 3분 이후, 나하윤이 도착한 뒤",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "저 나름대로는요, 저는 그날 밤 9시 넘어서 도착했을 뿐인데요. 그때는 이미 다 끝난 뒤였잖아요.",
+      "refuted_by": "CH05",
+      "suggested_by": ["S-CH05-02"],
+      "cue": "9시"
+    },
+    {
+      "id": "T03",
+      "text": "17시, 플레이테스트가 시작되기 전",
+      "truth": false,
+      "evidence_for": ["E04"],
+      "refutation": "그림쟁이 입장에서는요, 그 시간엔 다들 같이 테스트하고 있었어요. 서명지 보면 아실 텐데요.",
+      "refuted_by": "CH01",
+      "suggested_by": ["S-CH01-02"],
+      "cue": "플레이테스트"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "다락에서 몸싸움 끝에 밀려 떨어졌다",
+      "truth": true,
+      "evidence_for": ["E07"],
+      "suggested_by": ["E07"],
+      "cue": "긁힌"
+    },
+    {
+      "id": "H02",
+      "text": "사다리에서 스스로 실족한 사고",
+      "truth": false,
+      "evidence_for": ["E06"],
+      "refutation": "제가 왜 그런 거짓말을 하겠습니까. 나사는 원래 헐거웠던 겁니다.",
+      "refuted_by": "CH04",
+      "suggested_by": ["S-CH03-01"],
+      "cue": "헐거워"
+    },
+    {
+      "id": "H03",
+      "text": "외부인이 몰래 들어와 다투었다",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "출입 기록엔 저희 다섯이랑 하윤 씨밖에 없었어요. 외부인은 없었을 텐데요.",
+      "refuted_by": "CH02",
+      "suggested_by": ["E01"],
+      "cue": "출입"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "설마 저를 의심하시는 거예요? 그림쟁이 입장에서는요, 제가 왜 그런 일로 이런 짓을 하겠어요. 그 시간엔 계속 스튜디오에 있었어요.",
+      "releases": "S-CH01-02"
+    },
+    "CH02": {
+      "text": "제가요? 저는 그냥 로비 쪽에서 서류만 정리했을 뿐이에요. 다락 근처엔 가지도 않았어요.",
+      "releases": "F-CH02-03"
+    },
+    "CH03": {
+      "text": "제가 발견한 거라고 의심하시는 거면… 저는 정말 아무것도 몰라요. 그냥 모시러 갔던 것뿐인데.",
+      "releases": "F-CH03-01"
+    },
+    "CH05": {
+      "text": "저요? 저 나름대로는요, 그냥 파일 전달하러 온 거예요. 백하율 씨한테 물어보세요.",
+      "releases": "F-CH05-01"
+    }
+  },
+  "resolution": {
+    "who": "문시강이 노건희를 다락에서 밀어 떨어뜨리고 사다리 나사를 풀어 사고로 꾸몄다.",
+    "when": "사건 당일 19시 58분경, 다락 자료보관실에서.",
+    "why": "계약서 크레딧과 로열티 배분에서 자신의 이름이 빠진 것을 그날 오후 알게 됐기 때문이다.",
+    "how": "계약서 문제로 따지다 몸싸움 끝에 밀쳤고, 이후 사다리 발판 나사를 풀어 실족사처럼 꾸몄다."
+  }
+}
