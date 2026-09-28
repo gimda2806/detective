@@ -1095,6 +1095,41 @@ function conditionMet(
   return state.heard_statements.includes(id);
 }
 
+// 보드에서 오답을 들이대면 나오는 반박이 **잠긴 사실을 공짜로 내주던** 자리.
+//
+// `judgePress` 는 `refutation_releases`(와 「누가」 칸의 `suspect_refutations`·
+// 진범의 거짓 알리바이)를 그대로 돌려주는데, 그 사실이 `hidden_until` 로
+// 잠겨 있어도 호출부가 확인 없이 `heardStatementIds` 에 넣고 있었다. 대립
+// 단계가 열어 줘야 할 말이 그 단계를 거치지 않고 1막에서 새는 것이다.
+// 코퍼스 전수로 **51건에 245곳**이고, 1막·2막이 다 있는 판본 열하나가
+// 전부 걸린다(2026-09-28 실측).
+//
+// 카드 제시 쪽에는 같은 문이 이미 달려 있다(`unlockedByGate`) — 보드
+// 들이대기 경로에만 안 달려 있었다. 판정을 새로 만들지 않고 그 경로가
+// 쓰는 `conditionMet` 을 그대로 태운다: **조건이 찼으면 주고, 아니면 그
+// 턴엔 안 준다.** 잠기지 않은 사실은 종전대로 나간다 — 「틀린 가설이
+// 전진이다」라는 이 자리의 의도는 조건이 찬 뒤에 그대로 산다.
+function releaseAllowed(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  releaseId: string | null | undefined,
+): boolean {
+  const id = (releaseId || '').trim();
+  if (!id) return false;
+  // 이미 들은 말은 다시 막지 않는다 — 막으면 같은 말을 두 번 못 듣는 것이
+  // 아니라 화면에서 사라진다.
+  if (state.heard_statements.includes(id)) return true;
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return true;
+  const gate = knowledge.hiddenUntil.find((item) => item.factOrClaimId === id);
+  if (!gate) return true;
+  return (
+    conditionMet(state, npcId, gate.prerequisite) &&
+    conditionMet(state, npcId, gate.trigger)
+  );
+}
+
 // The next thing this person will admit now that was sealed before. Master
 // authors these as hidden_until entries — an initial_claim or a known fact
 // that only comes out once a prerequisite has been met and a trigger shown —
@@ -4843,11 +4878,14 @@ export function runOfflineAction(
         judged.text.trim() ||
         pick(slot === 'who' ? NPC_HYP_DENY : NPC_HYP_DENY_OTHER, seed, recent) ||
         '';
-      const released = judged.releases
-        ? spokenById(judged.releases, statementContent(index, judged.releases))
+      const releaseId = releaseAllowed(index, state, npc.id, judged.releases)
+        ? judged.releases
         : null;
-      if (judged.releases && released) {
-        turn.heardStatementIds.push(judged.releases);
+      const released = releaseId
+        ? spokenById(releaseId, statementContent(index, releaseId))
+        : null;
+      if (releaseId && released) {
+        turn.heardStatementIds.push(releaseId);
       }
       // 되받은 말 한 문단뿐이다. 무고한 사람의 말 뒤에 「…라고 한다」를
       // 붙이고 진범의 거짓말 뒤에는 안 붙이면 그 모양이 표시가 된다 —
@@ -4885,11 +4923,14 @@ export function runOfflineAction(
       !spoken || judged.viaHerring || /^["“]/.test(spoken)
         ? spoken
         : `"${spoken}"`;
-    const released = judged.releases
-      ? spokenById(judged.releases, statementContent(index, judged.releases))
+    const releaseId = releaseAllowed(index, state, npc.id, judged.releases)
+      ? judged.releases
       : null;
-    if (judged.releases && released) {
-      turn.heardStatementIds.push(judged.releases);
+    const released = releaseId
+      ? spokenById(releaseId, statementContent(index, releaseId))
+      : null;
+    if (releaseId && released) {
+      turn.heardStatementIds.push(releaseId);
     }
     gm.message = joinParagraphs([
       pick(LEAD_HYP_REFUTED, seed, recent, (template) =>
