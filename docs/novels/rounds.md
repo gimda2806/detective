@@ -12443,7 +12443,7 @@ who=CH04 @27턴 · when=T01 @59턴 · why=M01 @61턴 · how=H01 @120턴
 ### 여덟째 — 필수 표가 다 찼다. 새 원본은 정말로 완제품으로 태어난다
 
 `npm run audit:offline`의 필수 빈 칸이 **하나도 없다**(`points_finger` 5/5 ·
-`comic_tell` 5/5 · `knowledge_limits` 5/5 · `points_at` 20/20 · `mismatch` 20/20 ·
+`comic_tell` 5/5 · `knowledge_limits` 5/5 · `points_at` 20/20(가리킬 곳이 없는 카드는 `null`로 적혀 있다) · `mismatch` 20/20 ·
 헛다리 `weight` 하위 칸까지 · `access_level` 5/5 · `connects_to` 대칭 · 보드 3+3+3 ·
 `suspect_refutations` 진범 뺀 4/4). **세 회차 연속이다.** 2026-09-27의 「입구 막기」가
 실제로 듣고 있다.

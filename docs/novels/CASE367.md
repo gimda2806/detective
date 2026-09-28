@@ -1096,7 +1096,7 @@
 
 ## 오프라인으로 옮길 것
 
-**이 번호에는 `Case-No-367.offline.json`이 없다.** 그리고 **필요 없을 수도 있다** — CASE367은 「새 원본은 오프라인 필수 표를 갖고 태어난다」(2026-09-27 사용자 결정) 뒤에 태어난 번호라 `npm run audit:offline`의 필수 빈 칸이 **하나도 없다**(`points_finger` 5/5 · `comic_tell` 5/5 · `knowledge_limits` 5/5 · `points_at` 20/20 · `mismatch` 20/20 · 헛다리 `weight` 하위 칸까지 · `access_level` 5/5 · `connects_to` 대칭 · 보드 3+3+3 · `suspect_refutations` 진범 뺀 4/4). 그래서 아래는 **빈 칸을 메우는 목록이 아니라 판본을 만들 때 손볼 곳**이다.
+**이 번호에는 `Case-No-367.offline.json`이 없다.** 그리고 **필요 없을 수도 있다** — CASE367은 「새 원본은 오프라인 필수 표를 갖고 태어난다」(2026-09-27 사용자 결정) 뒤에 태어난 번호라 `npm run audit:offline`의 필수 빈 칸이 **하나도 없다**(`points_finger` 5/5 · `comic_tell` 5/5 · `knowledge_limits` 5/5 · `points_at` 20/20(가리킬 곳이 없는 카드는 `null`로 적혀 있다) · `mismatch` 20/20 · 헛다리 `weight` 하위 칸까지 · `access_level` 5/5 · `connects_to` 대칭 · 보드 3+3+3 · `suspect_refutations` 진범 뺀 4/4). 그래서 아래는 **빈 칸을 메우는 목록이 아니라 판본을 만들 때 손볼 곳**이다.
 
 ### 새 카드로
 
