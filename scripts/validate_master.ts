@@ -1537,14 +1537,20 @@ export function checkHypothesisBoard(master: Master): Issue[] {
         }
       }
     }
-    // 관계 질문 뒤에 새는 말(points_finger 의 opens·because)은 잠겨 있어도
-    // 1막에서 들린다 — 그 길로 나오는 진술은 2막 전용이 아니다.
-    for (const character of master.characters ?? []) {
-      const finger = (character as { points_finger?: { opens?: string; because?: string } }).points_finger;
-      for (const id of [finger?.opens, finger?.because]) {
-        if (id) actTwoOnly.delete(id);
-      }
-    }
+    // 한때 여기서 `points_finger` 의 `opens`·`because` 를 빼 주었다 — 「관계
+    // 질문 뒤에 새는 말이니 잠겨 있어도 1막에서 들린다」는 이유였는데
+    // **엔진을 보면 둘 다 틀렸다**(2026-09-28 실측).
+    //   · `opens` 는 이 경로가 **내주는** 것이 아니라 **이미 들려 있어야 하는
+    //     전제조건**이다 — `runOfflineAction` 의 관계 답 자리에서
+    //     `state.heard_statements.includes(finger.opens)` 일 때만 지목이 붙는다.
+    //   · `because` 는 엔진이 **한 번도 읽지 않는다.** 작성자가 왜 그 사람이
+    //     그쪽을 가리키는지 적어 둔 참조일 뿐이다.
+    //   · 그리고 그 경로는 `heardStatementIds` 에 아무것도 넣지 않는다.
+    // 그래서 빼 주면 **2막에만 있는 재료가 1막 재료로 세어진다.** 실제로
+    // CASE002 가 그 구멍으로 통과했다 — `T02`(정답 「언제」)의 제안자 둘이
+    // 모두 카드 제시에 잠겨 있는데 하나가 `CH01.points_finger.because` 라서
+    // 검사가 안 떴고, 1막에서 「언제」 칸을 못 적어 완주가 깨졌다(보드 반박
+    // 누설을 막자 드러났다). 예외를 없앤 것이 그 자리다.
     const norm = (text: string) => text.replace(/\s+/g, '');
     for (const [name, list] of lists) {
       for (const item of list ?? []) {
