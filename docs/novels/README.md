@@ -427,6 +427,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE354 | 온에어 15분 전 | [CASE354.md](CASE354.md) |
 | CASE357 | 끊긴 채널 | [CASE357.md](CASE357.md) |
 | CASE358 | 옮겨 적은 밤 | [CASE358.md](CASE358.md) |
+| CASE359 | 마지막 면도 | [CASE359.md](CASE359.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
