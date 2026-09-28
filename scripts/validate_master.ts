@@ -1529,13 +1529,33 @@ export function checkHypothesisBoard(master: Master): Issue[] {
     for (const stage of (master as { contradiction_stages?: Array<{ release?: { claim_or_fact_id?: string } }> }).contradiction_stages ?? []) {
       if (stage.release?.claim_or_fact_id) actTwoOnly.add(stage.release.claim_or_fact_id);
     }
+    const allGates: Array<{ id: string; prerequisite: string }> = [];
     for (const character of master.characters ?? []) {
       const gates = (character as { hidden_until?: Array<{ fact_or_claim_id?: string; release_prerequisite?: string }> }).hidden_until ?? [];
       for (const gate of gates) {
-        if (gate.fact_or_claim_id && /^(E|C)\d{2}$/.test(gate.release_prerequisite ?? '')) {
-          actTwoOnly.add(gate.fact_or_claim_id);
-        }
+        if (!gate.fact_or_claim_id) continue;
+        const pre = gate.release_prerequisite ?? '';
+        allGates.push({ id: gate.fact_or_claim_id, prerequisite: pre });
+        if (/^(E|C)\d{2}$/.test(pre)) actTwoOnly.add(gate.fact_or_claim_id);
       }
+    }
+    // **사슬을 끝까지 따라간다**(2026-09-28). 위 한 패스는 잠금의 선결이 카드
+    // (`E##`)나 단계(`C##`)를 **직접** 가리킬 때만 2막으로 세는데, 선결이 다른
+    // 사실(`F-`/`S-`)이고 **그 사실이 다시 2막에만 있는** 경우를 못 따라간다.
+    // CASE003 의 `M03` 이 그 자리다 — `F-CH02-04` ← `F-CH03-02` ← `E04` 로 두
+    // 홉이라, 한 패스로는 1막 재료로 세어졌다. 집합이 안 늘 때까지 돌린다.
+    //
+    // 방아쇠(`release_trigger`)는 안 본다 — 넣어도 코퍼스에서 더 걸리는 것이
+    // 0곳이라(2026-09-28 실측) 판정만 복잡해진다.
+    for (let pass = 0; pass < 12; pass += 1) {
+      let grew = false;
+      for (const gate of allGates) {
+        if (actTwoOnly.has(gate.id)) continue;
+        if (!actTwoOnly.has(gate.prerequisite)) continue;
+        actTwoOnly.add(gate.id);
+        grew = true;
+      }
+      if (!grew) break;
     }
     // 한때 여기서 `points_finger` 의 `opens`·`because` 를 빼 주었다 — 「관계
     // 질문 뒤에 새는 말이니 잠겨 있어도 1막에서 들린다」는 이유였는데
