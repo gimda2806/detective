@@ -4208,3 +4208,17 @@ CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE170·176·199·211·219, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 36건 중 이미 오탐으로 판정된 CASE046·056·064·090·103·123·161과, 이번에 오탐으로 본 CASE175·217·228을 건너뛰고 다섯을 짚었다. CASE170은 `scene_rearrangement`(「배선과 환기구 덮개를 **원래 상태로 되돌려** 놓았고」), CASE176은 `false_accident`·`accident_equipment_failure`(「**낡은 장비**를 점검하다 감전된 것처럼 꾸며 **사고사로** 몰아가려 했다」 — 선언 `other`를 대체), CASE199는 `false_timeline`(「로그북 상승 시각을 다른 조 **시각에 맞춰 고쳐** 적었다」), CASE211은 `false_accident`·`object_substitution`(「점검 카드를 다른 라인 카드로 **바꿔 끼워** … **사고처럼 보이게**」), CASE219는 `false_alibi`(세미나실에 있었다는 **거짓 진술**)를 더했다. 진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 셋
+
+| 사건 | 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- | --- |
+| CASE175 | `accident_environment`(「정전」) | 정전은 범인이 만든 위장이 아니라 그 틈을 탄 계기다. 꾸민 것은 「빈집털이」(`false_intrusion`, 이미 선언)다 |
+| CASE217 | `evidence_removal`(「흔적을 지우」) | 진열대 빈자리를 다른 물건으로 채운 것이 `scene_rearrangement`(이미 선언)이고 「흔적을 지우려」는 그 목적절이다 |
+| CASE228 | `object_substitution`(「바꿔 놓」) | 물건이 아니라 시신의 자세를 바꿔 놓은 것이라 `body_movement`(이미 선언)가 담는다 |
+
+`npm run check:case` 다섯 건 통과(exit 0), 등록 건수 36 → 31. 다섯 건 모두 판본이 없다.
