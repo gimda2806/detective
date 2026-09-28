@@ -4159,3 +4159,27 @@ CASE104 `responsibility`, CASE106 `cause_of_death`·`access_route`) — `COVER_U
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 55 → 50(다섯 해소, CASE103이 오탐 하나로 계속 뜬다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE135·144·147·151·154, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 46건 중 CASE123을 오탐(아래 표)으로 건너뛰고 다섯을
+짚었다. CASE135는 `accident_equipment_failure`(「철거 작업 중이던 **낡은** 랙이 반출 도중
+**저절로 넘어진 사고라고 주장**하며」), CASE144는 `digital_record_manipulation`(「하역장
+**CCTV** 저장장치의 하드디스크를 폐업 정리용 예비 디스크로 바꿔치기해 … 구간 기록을 통째로
+들어냈다」 — 물건은 바꿔치기했지만 그 목적과 결과가 그 구간의 **디지털 기록 자체를 들어내는
+것**이라 `object_substitution` 하나로는 좁다), CASE147은 `weapon_disposal`(「회수한 병과
+주사기를 다른 **의료폐기물 사이에 섞어 넣고**」 — 섞어 넣은 것은 `contamination`이 이미
+담지만 그 대상이 사용한 흉기 자체라 처분 칸도 같이 선다), CASE151은 `weapon_disposal`
+(「사용한 **주사기와 빈 앰플은 폐기물 수거함에 버렸다**」), CASE154는 `false_accident`
+(「수조 가장자리의 물기를 대충 훔쳐 **사고처럼 보이게** 정돈했고」)를 각각 선언에 더했다.
+진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE123의 `object_substitution`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `object_substitution`(「바꿔치기」) | **물건이 아니라 값을 바꾼 것이다.** 문장은 「캡슐 캘리브레이션 시스템에 접속해, 밸브를 잠그라고 지시했던 **로그 항목을 정상 수치로 바꿔치기했다**」다 — 손을 댄 것은 전산 로그의 수치이지 물리적인 물건이 아니라서, 이미 선언된 `digital_record_manipulation`이 이 손놀림을 그대로 담는다. 「바꿔치기」라는 낱말만 보고 물건 교체로 읽으면 틀린다. 칸을 더하지 않았다 |
+
+`npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
+46 → 41(다섯 해소, CASE123이 오탐 하나로 계속 뜬다 — 경고를 없애려고 칸을 더하지 않았다,
+CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.

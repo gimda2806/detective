@@ -40,7 +40,7 @@
     "key_time_location": "사건 당일 22:40~23:05, 하역장(L02). 폐업 정산실(L04)에서의 은폐는 사건 다음날 00:05.",
     "cover_up": "22시 35분 미리 하역장 CCTV 저장장치의 하드디스크를 폐업 정리용 예비 디스크로 바꿔치기해 '폐업 전환 점검'이라 둘러대며 22시 35분부터 23시 15분 구간 기록을 통째로 들어냈다. 사건 다음날 00시 5분에는 정산실로 돌아가 파쇄기로 데이지몰 부속계약서 원본을 파쇄했다 — 본사 클라우드에 자동 백업된 사본이 있다는 것은 몰랐다.",
     "cover_up_target": ["financial_trace", "communication_trace"],
-    "cover_up_method": ["object_substitution"],
+    "cover_up_method": ["object_substitution", "digital_record_manipulation"],
     "accomplice": "없음",
     "decisive_evidence_ids": ["E02", "E03", "E04"]
   },
