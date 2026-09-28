@@ -4208,3 +4208,19 @@ CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 은폐 선언 좁음 — 오탐 판정 (이주 루틴, 2026-09-28)
+
+`audit:cover-up`이 CASE046~228에서 건 낱말 중 **칸을 더하지 않은** 것. 걸린 낱말이 은폐 동작이 아니었다.
+
+| 사건 | 폴백이 건 칸(낱말) | 판정 |
+|---|---|---|
+| CASE046 | `false_accident`(「사고로 꾸미」) | 「사고로 꾸미지 **않았다**」 — 부정문이다 |
+| CASE056 | `evidence_placement`(「떨어뜨려 두」) | 자투리를 「미처 챙기지 **못한 채**」 흘린 것이지 심은 것이 아니다 |
+| CASE064 | `false_accident`·`accident_equipment_failure`(「오작동으로」·「노후」) | 정비 일지를 손볼 「생각이었으나 **미처 손대지 못한 채** 발각」 — 하지 않은 일이다 |
+| CASE090 | `accident_equipment_failure`(「낡은」) | 「풀었던 낡은 볼트」 — 물건의 형용이지 설비 탓 위장이 아니다 |
+| CASE103 | `accident_equipment_failure`(「낡아」) | 갈아 끼우던 참이었다는 **핑계**(`witness_misdirection`이 이미 있다) |
+| CASE123 | `object_substitution`(「바꿔치기」) | 로그 항목의 바꿔치기 — `digital_record_manipulation`이 이미 있다 |
+| CASE175 | `accident_environment`(「정전」) | 정전은 틈이지 위장이 아니다(위장은 `false_intrusion`) |
+| CASE217 | `evidence_removal`(「흔적을 지우」) | 진열대 빈자리 채우기 — `scene_rearrangement`이 이미 있다 |
+| CASE228 | `object_substitution`(「바꿔 놓」) | 시신 **자세**를 바꿔 놓은 것 — `body_movement`이 이미 있다 |
