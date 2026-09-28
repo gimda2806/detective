@@ -430,6 +430,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE359 | 마지막 면도 | [CASE359.md](CASE359.md) |
 | CASE360 | 인계되지 않은 밤 | [CASE360.md](CASE360.md) |
 | CASE361 | 마르지 않은 먹 | [CASE361.md](CASE361.md) |
+| CASE362 | 식은 물의 증언 | [CASE362.md](CASE362.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
