@@ -4208,3 +4208,20 @@ CASE168은 `false_accident`·`accident_equipment_failure`(「파킹 브레이크
 `npm run check:case`는 다섯 건 모두 통과(exit 0), `npm run audit:cover-up`의 등록 건수는
 41 → 36(다섯 해소, CASE161이 오탐 하나로 남는다 — 경고를 없애려고 칸을 더하지 않았다,
 CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
+
+## 2026-09-28 은폐 선언 좁음 — CASE046~211 후보 열 건의 판정
+
+`COVER_UP_DECLARATION_NARROW` 후보 열 건 중 CASE064(`digital_record_manipulation`)·CASE170(`scene_rearrangement`)·CASE211(`false_accident`·`object_substitution`)만 선언에 칸을 더했다. 나머지는 폴백 오탐이라 칸을 더하지 않았다.
+
+| 사건 | 폴백이 잡은 칸 | 판정 |
+|---|---|---|
+| CASE046 | `false_accident`(「사고로 꾸미」) | 문장이 「사고로 꾸미**지 않았다**」— 부정문. 선언된 `concealment_without_staging`이 맞다 |
+| CASE056 | `evidence_placement`(「떨어뜨려 두」) | 자투리를 「미처 챙기지 못한 채」 남긴 것 — 심은 것이 아니라 못 치운 것 |
+| CASE064 | `false_accident`·`accident_equipment_failure`(「오작동으로」·「노후」) | 정비 일지를 「손볼 생각이었으나 미처 손대지 못한 채」 — 하지 못한 은폐 |
+| CASE090 | `accident_equipment_failure`(「낡은」) | 「풀었던 낡은 볼트」는 갈아 낸 부품이지 설비 탓을 꾸민 것이 아니다 |
+| CASE103 | `accident_equipment_failure`(「낡아」) | 미리 만들어 둔 둘러댈 말이라 선언된 `witness_misdirection`이 담는다 |
+| CASE175 | `accident_environment`(「정전」) | 정전은 배경이고 꾸민 것은 빈집털이(`false_intrusion`) |
+| CASE176 | `false_accident`·`accident_equipment_failure` | 위 CASE176 절 — 진짜 칸이 8% 문턱에 막힌 전례라 더하지 않는다 |
+| CASE199 | `false_timeline`(「시각에 맞춰 고쳐」) | 로그북 기재를 고친 것이라 선언된 `document_falsification`이 담는다 |
+
+이 표에 든 부정문·미수·부품 명칭은 폴백 낱말(「사고로 꾸미」·「낡은」·「떨어뜨려 두」)이 문맥을 못 읽는 자리다.
