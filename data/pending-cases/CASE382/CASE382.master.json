@@ -1,660 +1,1298 @@
 {
   "case_identity": {
     "case_id": "CASE382",
-    "title": "정착액이 마르기 전",
-    "english_title": "Before the Fixer Dries",
-    "genre": "정착액과 표백액을 섞어 만든 유독가스로 암실에 가둬 질식시킨 뒤 사고사로 위장한 사건",
-    "setting": "서울 변두리 골목의 반지하 건물을 통째로 쓰는 필름 사진 동호회 '빛그림방'은 창립 10주년 기념 전시를 준비하던 중, 정회원 전원이 모여 마지막 리허설을 진행하고 있었다. 회장 최민준은 도록에 실을 마지막 인화본을 직접 뽑겠다며 저녁 늦게 암실로 들어갔고, 밤 9시 40분 마감 정리를 하러 들어간 신입회원 탁은별이 인화 테이블 옆에 미동 없이 누운 그를 발견했다.",
-    "location_archetypes": ["photo_video_studio"],
+    "title": "장부의 뒷장",
+    "genre": "지역 공동체 라디오 방송국 '한소리 FM'이 후원 중단으로 이달 말 폐국을 앞두고 마지막 정규 프로그램 녹음일이었던 그날 늦은 오후, 20년차 대표 진행자 서용익이 조정실에서 감전사로 발견된다. 표면은 낡은 배전반의 누전 사고처럼 보이지만, 실은 지난 5년간 장비 구매 영수증 단가를 부풀려 차액을 빼돌려 온 기술감독 민강호가 그날 오후 회계 담당 자원봉사자를 거쳐 서용익에게 발각 위기에 몰리자, 조정실에서 캐묻는 그의 손목을 붙잡아 노출된 배선에 강제로 갖다 대 감전시키고 배선 노후 사고로 위장한 사건.",
+    "setting": "낡은 창고를 개조해 만든 지역 공동체 라디오 방송국 '한소리 FM'은 후원 재단의 지원이 끊기며 이달 말 문을 닫기로 했다. 폐국 전 마지막 정규 프로그램 녹음일이었던 그날 늦은 오후, 정산과 장비 정리가 한창이던 스튜디오에서 대표 진행자 서용익이 조정실 바닥에서 반응이 없는 채 발견됐다.",
+    "location_archetypes": [
+      "warehouse"
+    ],
     "background": {
-      "background_archetypes": ["exhibition"],
-      "background_phrasing": ["during_preparation"],
-      "background_intensity": "contributory"
+      "background_archetypes": [
+        "closure_demolition"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "central"
     },
-    "detective_entry_type": "group_member",
-    "detective_entry": "탐정은 '빛그림방'의 오래된 정회원이다. 창립 10주년 기념 전시 리허설에 참석해 정회원들 틈에서 벽에 걸린 인화본을 살펴보고 있었다.",
-    "tone": "약품 냄새가 밴 반지하 공간의 눅눅한 침묵과, 오래된 동호회 특유의 서로를 속속들이 아는 사람들 사이에서 도는 어색한 눈치가 사건의 결을 만든다.",
-    "tags": ["필름_사진", "동호회", "암실"]
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 폐국을 앞둔 '한소리 FM'이 장비와 자료를 정리할 손이 부족하다는 소식을 듣고, 그날 오후 자원봉사자로 정리를 돕기로 하고 방송국을 찾았다.",
+    "tone": "곧 문을 닫는 방송국 특유의 서글픈 정리 분위기와, 상자 더미 사이에서 오가는 탐정과 한지우의 심드렁한 티키타카.",
+    "tags": [
+      "공동체_라디오",
+      "폐국_준비",
+      "오래된_동료"
+    ]
   },
   "key_figures": [
-    { "id": "V01", "name": "최민준", "role": "동호회 회장 겸 창립자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "서용익",
+      "role": "한소리 FM 대표 진행자 / 20년차",
+      "status": "deceased"
+    }
   ],
   "opening_scene": {
     "location_id": "L02",
-    "detective_entry_time": "사건 당일 21:42",
-    "narrative": "비명 대신 짧은 숨소리가 복도를 타고 넘어왔다. 리허설 중이던 정회원들 사이로, 누군가 암실에 쓰러진 회장을 봤다는 말이 돌았다.\n\n탐정과 한지우는 인파를 가르고 암실 문 앞에 다다랐다. 탁은별이 하얗게 질린 얼굴로 문을 붙든 채 서 있었다.\n\n붉은 조명 아래, 인화 테이블 옆에 최민준이 미동 없이 누워 있었다. 환풍구 스위치는 꺼져 있었고, 옅은 약품 냄새가 아직 가시지 않았다.\n\n\"정착액 냄새예요.\"\n\n\"그러게. 근데 환풍구가 왜 꺼져 있대.\"\n\n한지우가 코를 문지르며 한 걸음 물러섰다."
+    "detective_entry_time": "사건 당일 17:05",
+    "narrative": "공구 상자와 마이크 케이블이 널브러진 스튜디오 안, 도재이가 대본을 손에 든 채 자꾸 안쪽 복도를 돌아보고 있다.\n\n한지우가 상자 더미 옆에서 목을 빼며 말했다.\n\n\"봉사 신청한 거 맞죠? 근데 분위기가 좀...\"\n\n탐정이 대답 대신 조정실 쪽 복도로 시선을 돌렸다.\n\n그 순간 복도 안쪽에서 도재이의 비명이 터져 나왔다. 서용익이 조정실 안에서 숨진 채 발견됐다고.\n\n한지우가 수첩을 꺼내며 낮게 말했다.\n\n\"장비 정리 도우러 왔다가 이게 뭔 일이래요.\"\n\n탐정은 이미 복도 쪽으로 걸음을 옮기고 있었다."
   },
   "ending_scene": {
-    "location_id": "L02",
-    "narrative": "자정이 넘어서야 암실 앞 복도에 다시 불이 들어왔다. 리허설 인화본은 벽에 걸린 채로 그대로였고, 정착액 냄새만 겨우 가셨다.\n\n이한음은 문틀에 기대선 채 한동안 말이 없었다.\n\n\"...몰랐다는 건 거짓말입니다. 제가 그 위험을 제일 잘 알았어요.\"\n\n\"원작자 표기, 그것 때문이었나.\"\n\n\"15년입니다. 제가 찍은 사진에 다른 사람 이름이 박히는 걸 보면서도 아무 말 못 하고 산 세월이요. 이제 와서 그게 뒤집히면... 저한테 남는 게 뭡니까.\"\n\n한지우가 수첩을 천천히 덮었다. 탐정은 아무 말 없이 그를 바라보다가 돌아섰다.\n\n건물을 나서자 새벽 공기가 차가웠다. 강필주는 정산철을 옆구리에 낀 채 로비 의자에 앉아, 이번 일을 계기로 총무직을 내려놓겠다고 혼잣말처럼 중얼거리고 있었다. 아무도 붙잡지 않았다.\n\n\"저 양반은 또 왜 저래.\"\n\n\"돈 문제 아니었잖아요, 그런데도 못 견디나 봐요.\"\n\n\"사람 마음이 장부처럼 딱 떨어지면 얼마나 좋겠냐.\"\n\n한지우가 픽 웃고는 탐정보다 한 발 먼저 계단을 내려갔다."
+    "location_id": "L03",
+    "narrative": "조정실 배전반 앞, 민강호는 점검구 손잡이를 짚은 채 오래 서 있었다.\n\n탐정이 정비 일지와 원본 영수증철을 나란히 내려놓자, 그는 한참 만에 고개를 떨궜다.\n\n\"...배선, 제가 미리 헝클어 뒀습니다. 영수증 얘기도, 그날 오후에 이미 들었습니다.\"\n\n한지우가 수첩을 덮지 않은 채 낮게 말했다.\n\n\"20년 동안 이 방송국 배선을 다 아는 사람이 정작 자기 앞가림은 못 하셨네요.\"\n\n탐정이 짧게 답했다.\n\n\"아는 것과, 해도 되는 것은 다르지.\"\n\n방송국을 나설 때는 밤이 완전히 깊어 있었다. 반납 상자 옆으로 경찰차 불빛이 어른거렸다.\n\n한지우가 옆에서 걸으며 말했다.\n\n\"결국 재이 씨 이직 얘기는 아무도 안 물어봐 줬네요.\"\n\n탐정이 피식 웃으며 대꾸했다.\n\n\"그건 우리 담당이 아니잖아.\"\n\n한지우가 먼저 택시 쪽으로 걸음을 옮겼다."
   },
   "surface_incident": [
-    "최민준이 암실에서 숨진 채 발견됐다는 소식이 돌았다. 약품 냄새를 오래 맡아 어지러워 쓰러진 것으로 보인다는 말이 먼저 돌았다.",
-    "암실 문은 안에서 잠겨 있었고 외부에서 침입한 흔적은 없었다.",
-    "환풍구 스위치가 꺼져 있었던 것은 확인됐지만, 누가 언제 껐는지는 아직 알려지지 않았다."
+    "대표 진행자 서용익이 그날 늦은 오후 조정실 바닥에서 반응이 없는 채 발견됐다.",
+    "경찰과 구급대는 낡은 배전반의 누전 사고 가능성을 보고 있다.",
+    "방송국은 후원 중단으로 이달 말 폐국을 앞두고 정산과 장비 정리가 한창이었다.",
+    "조정실 출입문에는 별다른 강제 침입의 흔적이 없었다."
   ],
   "full_truth": {
     "responsible_character_id": "CH01",
-    "motive": "이한음은 15년 넘게 동호회 부회장이자 인화 강사로 존경받아 왔지만, 실은 최민준의 초기 대표작 여러 점을 무명 시절 자신이 대신 찍어 준 것이었다. 창립 10주년 도록을 준비하며 최민준이 사진마다 원작자 표기를 다시 확인하겠다고 나서자, 그 표기가 뒤집히면 지금까지 쌓아 온 강사 경력과 명성 전체가 남의 이름을 빌린 것으로 드러날 것이 두려웠다. 전시 오프닝이라는 공개적인 자리에서 그 사실이 못 박히기 전에 막아야 한다는 조급함이 그를 몰았다.",
-    "motive_archetypes": ["professional_secrecy", "obsession"],
-    "method": "이한음은 낮 동안 인화 재고를 점검한다는 핑계로 암실에 들어가 정착액과 표백액 병의 자리를 세척실 개수대 가까운 선반으로 옮겨 두었다. 저녁 8시 10분 최민준이 마지막 인화본을 뽑으러 암실에 들어가자 뒤따라 들어가, 두 약품을 한데 부어 시안화수소 가스를 채우고 환풍구 스위치를 내린 뒤 문을 걸어 잠갔다. 최민준은 갇힌 채 가스를 들이마시고 의식을 잃어 쓰러졌다.",
-    "method_archetypes": ["toxic_gas_buildup"],
-    "key_time_location": "저녁 8시 15분에서 9시 20분 사이, 암실(L02) 안.",
-    "cover_up": "이한음은 최민준이 쓰러진 것을 확인한 뒤 문을 열어 환기시키고, 정착액과 표백액 빈 병을 원래 자리에서 치워 세척실 개수대 아래에 숨기고, 출입 태그 단말기에서 자신의 마지막 출입 기록을 지웠다.",
-    "cover_up_method": ["false_accident", "weapon_disposal", "digital_record_manipulation"],
-    "cover_up_target": ["weapon", "access_route"],
-    "decisive_evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E07"]
+    "motive": "민강호는 방송국 창립 때부터 20년 가까이 기술감독으로 일하며 지난 5년간 장비 구매를 전담해 왔는데, 그 사이 구매 영수증의 단가를 조금씩 부풀려 차액을 챙겨 왔다. 이달 말 폐국(사실상 폐업)이 확정되면서 후원회가 정산 감사를 준비하게 됐고, 그 과정에서 회계 담당 자원봉사자 성하울이 영수증철의 이상한 금액을 알아채 서용익에게 슬쩍 언급한다. 서용익이 그 영수증철을 직접 확인한 뒤 조정실로 민강호를 찾아가 캐묻자, 발각과 20년 경력이 한순간에 무너질지 모른다는 위기감이 방아쇠가 된다.",
+    "motive_archetypes": [
+      "financial_gain"
+    ],
+    "method": "그날 저녁 마지막 녹음을 앞두고 서용익이 영수증철을 들고 조정실로 민강호를 찾아가 단가 문제를 따진다. 마침 배전반 점검구를 열어 둔 채 차단기를 다시 올리지 않았던 상태였는데, 언쟁이 격해지자 민강호가 서용익의 손목을 붙잡아 노출된 배선에 강제로 갖다 댔고, 서용익은 그 자리에서 감전돼 숨진다.",
+    "method_archetypes": [
+      "electrocution"
+    ],
+    "key_time_location": "사건 당일 16시 35분경, 조정실(L03) 배전반 앞.",
+    "cover_up": "민강호는 배전반 점검구를 다시 잠그고, 서용익의 손끝에 미리 준비해 둔 낡은 케이블 조각을 쥐어 놓아 그가 스스로 배선을 만지다 변을 당한 것처럼 꾸민다. 그리고 서용익이 들고 있던 영수증철을 미리 준비해 둔 다른 해 사본과 통째로 바꿔치기해 원본을 자신의 사물함에 숨기고, 정비 일지의 점검 기록 날짜를 지난달로 고쳐 적어 최근 손을 본 적이 없는 것처럼 만든다. 그리고 태연히 내려와 동료에게 서용익이 먼저 퇴근한 것 같다고 둘러댄다.",
+    "cover_up_target": [
+      "responsibility",
+      "financial_trace"
+    ],
+    "cover_up_method": [
+      "accident_victim_error",
+      "evidence_placement",
+      "object_substitution",
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E08",
+      "E10",
+      "E14",
+      "E16"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
-      "time": "사건 당일 14:00",
-      "location": "L02",
-      "actors": ["CH01"],
-      "actual_action": "이한음이 인화 재고를 점검한다는 핑계로 암실에 들어가 정착액과 표백액 병의 자리를 세척실 개수대 가까운 선반으로 옮겨 둔다.",
-      "world_fact": "정착액과 표백액 병이 평소 보관 선반에서 세척실 개수대 쪽 선반으로 옮겨졌다."
+      "time": "사건 당일 09:20",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "오인숙이 후원재단의 공식 후원 중단 통보서를 책상에 올려 두고 이번 달 말 폐국 절차를 점검한다.",
+      "world_fact": "오인숙이 09시 20분 원장실에서 폐국 통보서를 정리했다."
     },
     {
       "id": "T02",
-      "time": "사건 당일 17:00",
-      "location": "L04",
-      "actors": ["CH03"],
-      "actual_action": "강필주가 이번 분기 회비 정산 자료를 출력해 최민준에게 보여주러 사무실을 나선다."
+      "time": "사건 당일 11:10",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "성하울이 폐국 정산을 위해 옛 영수증철을 정리하다 특정 장비 구매 항목의 단가가 시세보다 유난히 높다는 것을 알아챈다.",
+      "world_fact": "성하울이 11시 10분 자료보관실에서 영수증철의 이상한 금액을 발견했다."
     },
     {
       "id": "T03",
-      "time": "사건 당일 17:30",
-      "location": "L04",
-      "actors": ["V01"],
-      "actual_action": "최민준이 도록 편집 회의에서 사진마다 원작자 표기를 다시 확인하라고 강필주에게 지시한다.",
-      "world_fact": "이번 달 업무 일지에 크레딧 재확인 관련 메모가 남았다."
+      "time": "사건 당일 13:05",
+      "location": "L02",
+      "actors": [
+        "CH04",
+        "V01"
+      ],
+      "actual_action": "성하울이 서용익에게 그 영수증 항목이 좀 이상해 보인다고 슬쩍 언급한다.",
+      "world_fact": "성하울이 서용익에게 영수증 항목 얘기를 꺼냈다."
     },
     {
       "id": "T04",
-      "time": "사건 당일 18:30",
-      "location": "L01",
-      "actors": ["CH04"],
-      "actual_action": "위서로가 도착해 벽에 걸린 전시용 인화본 순서를 배치도와 맞춰 최종 점검한다."
+      "time": "사건 당일 14:40",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서용익이 혼자 자료보관실에서 영수증철을 꺼내 직접 넘겨본다.",
+      "world_fact": "서용익이 14시 40분 자료보관실에서 영수증철을 직접 확인했다."
     },
     {
       "id": "T05",
-      "time": "사건 당일 19:20",
-      "location": "L02",
-      "actors": ["CH05"],
-      "actual_action": "백주헌이 정기 점검을 돌며 암실 환풍구를 정상적으로 켜 둔 채 나온다.",
-      "world_fact": "환풍구가 정상적으로 켜진 채로 암실 문이 열려 있었다."
+      "time": "사건 당일 15:50",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "우준경이 폐국 기념으로 정리하던 옛 청취자 사연 엽서 상자를 반납하러 들러 로비에 짐을 부려놓는다.",
+      "world_fact": "우준경이 15시 50분 로비에 도착해 짐을 정리했다."
     },
     {
       "id": "T06",
-      "time": "사건 당일 20:10",
-      "location": "L02",
-      "actors": ["V01"],
-      "actual_action": "최민준이 마지막 인화본을 뽑겠다며 암실로 들어간다."
+      "time": "사건 당일 16:05",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민강호가 마지막 녹음을 앞두고 배전반 점검구를 열어 낡은 배선을 손보다가 차단기를 다시 올리지 않은 채로 둔다.",
+      "world_fact": "16시 5분경 조정실 배전반 차단기가 내려가지 않은 채 열려 있었다."
     },
     {
       "id": "T07",
-      "time": "사건 당일 20:15",
+      "time": "사건 당일 16:15",
       "location": "L02",
-      "actors": ["CH01"],
-      "actual_action": "이한음이 뒤따라 암실로 들어가 정착액과 표백액을 함께 부어 놓고 환풍구 스위치를 내린 뒤 문을 걸어 잠근다.",
-      "world_fact": "환풍구 스위치가 꺼지고 암실 문이 걸어 잠겼다."
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "서용익이 영수증철을 들고 조정실로 가겠다며 민강호를 부르는 것을 도재이가 듣는다.",
+      "world_fact": "16시 15분 서용익이 영수증철을 들고 민강호를 불러 조정실로 향했다."
     },
     {
       "id": "T08",
-      "time": "사건 당일 20:35",
-      "location": "L02",
-      "actors": ["V01"],
-      "actual_action": "최민준이 갇힌 암실 안에서 가스를 들이마시고 의식을 잃어 인화 테이블 옆으로 쓰러진다."
+      "time": "사건 당일 16:18",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "서용익과 민강호가 함께 조정실로 들어가 영수증 항목을 두고 이야기를 시작한다.",
+      "world_fact": "16시 18분 서용익과 민강호가 함께 조정실로 들어갔다."
     },
     {
       "id": "T09",
-      "time": "사건 당일 20:40",
-      "location": "L02",
-      "actors": ["CH01"],
-      "actual_action": "이한음이 문을 열어 환기시키고 정착액·표백액 빈 병을 챙겨 세척실 개수대 아래 수납장에 숨긴다.",
-      "world_fact": "세척실 개수대 아래 수납장에 정착액과 표백액 빈 병이 놓였다."
+      "time": "사건 당일 16:35",
+      "location": "L03",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "언쟁이 격해지자 민강호가 서용익의 손목을 붙잡아 배전반의 노출된 배선에 강제로 갖다 댔고, 서용익은 그 자리에서 감전돼 숨진다.",
+      "world_fact": "서용익이 16시 35분경 조정실에서 감전돼 숨졌다."
     },
     {
       "id": "T10",
-      "time": "사건 당일 20:55",
-      "location": "L05",
-      "actors": ["CH01"],
-      "actual_action": "이한음이 출입 태그 단말기에서 자신의 마지막 출입 기록을 지운다.",
-      "world_fact": "출입 태그 단말기 기록에서 이한음의 마지막 출입 시각이 지워졌다."
+      "time": "사건 당일 16:42",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민강호가 배전반 점검구 손잡이를 다시 잠그고, 노출됐던 배선을 일부러 더 헝클어 놓아 낡아서 벗겨진 것처럼 꾸민다.",
+      "world_fact": "민강호가 배전반 배선을 다시 헝클어 놓았다."
     },
     {
       "id": "T11",
-      "time": "사건 당일 21:40",
+      "time": "사건 당일 16:47",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민강호가 서용익이 들고 있던 영수증철을 미리 준비해 둔 다른 해 사본과 통째로 바꿔치기해 원본을 자신의 사물함에 숨기고, 정비 일지의 점검 기록 날짜를 지난달로 고쳐 적는다.",
+      "world_fact": "민강호가 영수증철을 다른 해 사본과 바꿔치기하고 정비 일지 날짜를 고쳐 적었다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 16:55",
       "location": "L02",
-      "actors": ["CH02"],
-      "actual_action": "탁은별이 마감 정리를 하러 암실에 들어갔다가 인화 테이블 옆에 미동 없이 누운 최민준을 발견한다."
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민강호가 아무 일 없었다는 듯 내려와, 마침 대본을 정리하던 도재이에게 서용익이 먼저 퇴근한 것 같다고 둘러댄다.",
+      "world_fact": "민강호가 도재이에게 서용익이 먼저 퇴근했다고 둘러댔다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 17:10",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "도재이가 마지막 녹음 준비를 위해 서용익을 찾으러 조정실로 갔다가, 반응 없이 쓰러진 그를 보고 비명을 지른다.",
+      "world_fact": "도재이가 17시 10분 조정실에서 서용익을 발견했다."
     }
   ],
   "characters": [
     {
       "id": "CH01",
-      "name": "이한음",
-      "role": "부회장 / 인화 강사",
-      "present_location": "L01",
+      "name": "민강호",
+      "role": "기술감독 / 창립 멤버",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 저녁 8시 15분경 암실에 들어갔다.", "source": "본인 행적" },
-        { "fact_id": "F-CH01-02", "content": "정착액과 표백액을 세척실에서 가져와 함께 부어 두었다.", "source": "본인 행적" },
-        { "fact_id": "F-CH01-03", "content": "최민준이 도록에 자신을 원작자로 표기하려던 것을 막으려고 환풍구를 끄고 문을 잠갔다.", "source": "본인 행적" },
-        { "fact_id": "F-CH01-04", "content": "강필주가 최근 회비 일부를 개인적으로 썼다가 갚았다는 소문을 들었다.", "source": "동호회 소문" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "16시 18분경 조정실에서 서용익과 마주쳤다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "영수증 문제로 서용익과 다퉜다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "실랑이 끝에 서용익의 손을 배전반 노출 배선에 붙잡아 댔다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "배전반을 미리 손봐 두었고 정비 일지를 조작했으며, 지난 몇 년간 장비 구매 대금을 부풀려 빼돌려 왔다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "그날 오전부터 성하울이 영수증철을 붙들고 있는 것을 봤다.",
+          "source": "본인 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "최민준 선배님은 도록 문구 하나까지 직접 고치던 분이었어요. 오늘도 마지막까지 그러셨을 거예요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "그 시간엔 암실 근처에 얼씬도 안 했어요. 전시장에서 계속 손님들 사진 설명만 했습니다.", "truth_status": "lie", "reason_for_limit_or_lie": "실제로는 두 차례 암실을 드나들었다는 사실을 숨기려는 것." },
-        { "claim_id": "S-CH01-03", "content": "잠깐 문을 열어봤을 뿐 바로 나왔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "실제로는 안에서 약품을 섞어 두고 나왔다는 것을 숨기려는 것." },
-        { "claim_id": "S-CH01-04", "content": "정착액이랑 표백액을 섞으면 위험한 줄은 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "실은 안전 교육에서 직접 그 위험성을 강의한 적이 있다는 것을 숨기려는 것." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시간엔 계속 아래층에서 다음 녹음 준비하고 있었습니다, 조정실 근처엔 안 갔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "조정실에 있었다는 것 자체를 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그냥 말없이 자리 비켜드리고 바로 내려왔습니다, 별다른 얘기는 없었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "영수증 문제로 다퉜다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "언성만 높였지 손은 안 댔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "손을 붙잡아 감전시켰다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "사고였습니다, 배선이 원래 낡아서 그런 겁니다, 저도 몰랐습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "미리 손봐 두었다는 것과 영수증을 부풀려 왔다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "장비는 제가 제일 잘 압니다, 이 방송국 시작할 때부터 제가 맡아 왔어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-05"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "S-CH01-02" },
-        { "fact_or_claim_id": "S-CH01-03", "release_prerequisite": "F-CH01-01", "release_trigger": "S-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "S-CH01-03" },
-        { "fact_or_claim_id": "S-CH01-04", "release_prerequisite": "F-CH01-02", "release_trigger": "S-CH01-03" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "S-CH01-04" }
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "S-CH01-04"
+        }
       ],
-      "knowledge_limits": ["암실 밖 전시장에서 그 시각 누가 무엇을 했는지는 모른다.", "강필주의 회계 문제는 소문으로만 들었을 뿐 구체적인 내용은 모른다."],
+      "knowledge_limits": [
+        "후원재단의 폐국 통보 세부 조건까지는 모른다.",
+        "성하울이 영수증철을 서용익에게 정확히 어디까지 말했는지는 모른다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말(해요체), 강사 특유의 설명조",
-        "sentence_length_tendency": "평소엔 차분하고 길게 설명하지만 몰리면 문장이 뚝뚝 끊긴다",
-        "verbal_tic": "'제가 늘 하는 말이지만'을 앞세운다.",
+        "formality_register": "짧고 단정적인 격식체(습니다체).",
+        "sentence_length_tendency": "평소에도 짧고 단정적이며, 몰려도 길이는 거의 안 바뀐다.",
+        "verbal_tic": "'장비는 제가 제일 잘 압니다'를 앞세운다.",
         "stance": "guarded"
       },
       "pressure_responses": [
-        "그날 일은 이미 다 말씀드렸는데요.",
-        "제가 왜 그런 짓을 해요, 15년을 같이 일한 사람인데.",
-        "자꾸 같은 걸 물으시면 저도 드릴 말씀이 없어요."
+        "제가 왜 그런 거짓말을 하겠습니까.",
+        "증거가 있으면 보여주세요.",
+        "더 드릴 말씀 없습니다.",
+        "이제 와서 그게 무슨 소용입니까."
       ],
-      "comic_tell": "곤란하면 안경다리를 접었다 폈다 하며 말을 고른다.",
+      "comic_tell": "설명하다가 손끝으로 탁자를 두 번 두드린다.",
       "points_finger": {
         "at": "CH03",
-        "because": "F-CH01-04",
-        "opens": "S-CH01-01",
-        "says": "총무 쪽에 요즘 좀 이상한 얘기 있던데, 저야 모르지만요.",
-        "reveals": "이한음이 강필주의 회계 문제를 미리 알고 있었다는 것"
+        "because": "F-CH01-05",
+        "opens": "S-CH01-05",
+        "says": "장비는 제가 제일 잘 압니다. 저야 모르지만, 재이 씨가 요즘 다른 데서 제안받고 흔들린다는 얘기는 들었습니다.",
+        "reveals": "도재이가 최근 다른 방송국에서 조연출 제안을 받고 있었다는 것."
       }
     },
     {
       "id": "CH02",
-      "name": "탁은별",
-      "role": "신입회원 / 최초 발견자",
-      "present_location": "L01",
+      "name": "오인숙",
+      "role": "한소리 FM 대표 / 국장",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "문을 열었을 때 환풍구 소리가 안 들렸다.", "source": "직접 확인" },
-        { "fact_id": "F-CH02-02", "content": "복도에서 나오는 이한음과 마주쳤던 것 같기도 하다, 확신은 없었다.", "source": "직접 목격", "related_timeline": [] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오전 후원재단의 공식 후원 중단 통보서를 받았다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "서용익에게는 아직 통보서 얘기를 정식으로 하지 않은 채였다.",
+          "source": "본인 사정"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "16시 55분경 민강호가 내려와 서용익이 먼저 퇴근한 것 같다고 말하는 것을 들었다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "성하울이 요즘 영수증철을 자꾸 들여다보는 것을 눈치채고 있었다.",
+          "source": "본인 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "인화 테이블 밑에 이상한 냄새가 확 퍼져 있었어요. 눈이 다 매웠어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "21시 40분에 정리하러 들어가기 전까지는 계속 접수대에 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "방송국 생각이 먼저라서요, 폐국 절차는 제가 다 챙기고 있어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "저는 그 시간엔 계속 원장실에서 통보서 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E01", "release_trigger": "F-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E13",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["암실 안에서 정확히 무슨 일이 있었는지는 문을 연 순간밖에 모른다.", "이한음이나 강필주의 개인 사정은 전혀 모른다."],
+      "knowledge_limits": [
+        "조정실 안쪽 상황은 직접 보지 못했다.",
+        "민강호가 영수증을 왜 부풀렸는지는 모른다."
+      ],
       "voice_profile": {
-        "formality_register": "존댓말(해요체), 조심스러운 말투",
-        "sentence_length_tendency": "평소엔 짧게 대답하고, 그 순간을 물으면 문장이 자꾸 끊긴다",
-        "verbal_tic": "'제가 잘못 본 걸 수도 있는데'를 앞세운다.",
-        "stance": "skittish"
+        "formality_register": "격식체(합니다체), 통보나 절차 얘기할 때 특히 딱딱해진다.",
+        "sentence_length_tendency": "평소엔 간결하고 사무적이다가, 몰리면 오히려 문장이 길어지며 절차를 나열한다.",
+        "verbal_tic": "'방송국 생각이 먼저라서요'를 앞세운다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
-        "정말 그것만 봤어요. 더는 몰라요.",
-        "왜 자꾸 저한테 물으세요, 제가 발견한 죄밖에 없는데.",
-        "그 얘기 다시 하려니까 손이 떨려요."
+        "방송국 일이 먼저라고 말씀드렸잖아요.",
+        "제가 뭘 숨긴다는 건지 모르겠네요.",
+        "이 이상은 저도 몰라요."
       ],
-      "comic_tell": "당황하면 카메라 스트랩을 두 손으로 꼭 붙든다.",
+      "comic_tell": "통화가 끝나면 항상 수화기를 두 번 톡톡 두드리고 내려놓는다.",
       "points_finger": {
-        "at": "CH05",
-        "because": "F-CH02-02",
+        "at": "CH04",
+        "because": "F-CH02-04",
         "opens": "S-CH02-01",
-        "says": "그러고 보니 그 시간에 관리인 아저씨가 위층에 없었다고 하더라고요.",
-        "reveals": "탁은별이 백주헌의 부재를 의심하고 있다는 것"
+        "says": "요즘 하울 씨가 영수증철을 자꾸 들여다보던데요. 저야 이유는 모르지만요.",
+        "reveals": "성하울이 최근 영수증철을 자주 확인하고 있었다는 것."
       }
     },
     {
       "id": "CH03",
-      "name": "강필주",
-      "role": "총무",
-      "present_location": "L04",
+      "name": "도재이",
+      "role": "신입 작가 / 조연출 / 시신 발견자",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최민준이 이번 도록에 사진마다 원작자 표기를 다시 확인하라고 지난주에 지시했다.", "source": "도록 편집 회의록" },
-        { "fact_id": "F-CH03-02", "content": "이한음이 그 지시를 듣고 평소와 달리 말수가 줄었다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "16시 15분경 서용익이 영수증철을 들고 조정실로 가겠다며 민강호를 부르는 것을 들었다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "16시 20분부터 16시 40분 사이 조정실 쪽에서 언성이 오가는 소리가 들렸지만 대수롭지 않게 넘겼다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "최근 다른 방송국에서 조연출 자리를 제안받고 고민하고 있다.",
+          "source": "본인 사정"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "우준경이 창고에 방송국 로고를 지운 중고 장비를 몰래 쌓아 두는 것을 본 적 있다.",
+          "source": "본인 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "회장님은 도록 인쇄 견적까지 직접 다 비교해 보시던 분이었어요. 숫자에 엄격하셨죠.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "그 시간엔 사무실에서 계속 회비 정산 자료를 정리하고 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "서용익 선배님은 늘 녹음 전에 대본을 한 번 더 훑어보라고 하셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 대본 정리하다가 선배님 모시러 조정실 갔다가 그렇게 됐어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "F-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["암실 안에서 있었던 일은 직접 보지 못해 모른다.", "이한음과 최민준 사이의 개인적인 일은 모른다."],
+      "knowledge_limits": [
+        "영수증철 세부 금액까지는 모른다.",
+        "조정실 안쪽에서 정확히 무슨 일이 있었는지는 못 봤다."
+      ],
       "voice_profile": {
-        "formality_register": "격식체(합니다)",
-        "sentence_length_tendency": "숫자를 말할 때는 길고 정확하지만 사적인 질문에는 짧게 끊는다",
-        "verbal_tic": "'장부에 다 남아요'를 앞세운다.",
-        "stance": "procedural"
+        "formality_register": "존댓말이지만 말끝을 흐리는 편.",
+        "sentence_length_tendency": "평소에도 짧고, 몰리면 더 짧아진다.",
+        "verbal_tic": "'그냥 모시러 간 것뿐인데'를 되뇐다.",
+        "stance": "skittish"
       },
       "pressure_responses": [
-        "장부는 제가 다 맞춰 놨습니다. 더 보여드릴 것도 없어요.",
-        "왜 자꾸 저를 의심하세요, 손해 본 건 저도 마찬가진데.",
-        "그 얘기는 그만하시죠. 이미 다 정리된 일입니다."
+        "저는 정말 아무것도 몰라요.",
+        "왜 자꾸 저한테 물으세요.",
+        "그냥 모시러 갔던 것뿐인데."
       ],
-      "comic_tell": "말문이 막히면 계산기 자판을 아무 숫자나 눌러 본다.",
+      "comic_tell": "긴장하면 목에 건 사원증 줄을 자꾸 만지작거린다.",
       "points_finger": {
-        "at": "CH04",
-        "because": "F-CH03-01",
+        "at": "CH05",
+        "because": "F-CH03-04",
         "opens": "S-CH03-01",
-        "says": "외부에서 온 큐레이터분이 유난히 암실 쪽을 자주 들락거리시긴 했어요.",
-        "reveals": "강필주가 위서로의 잦은 암실 출입을 의심하고 있다는 것"
+        "says": "선배님 얘기 말고... 준경 아저씨가 창고에 로고 지운 장비를 몰래 쌓아두시는 거 본 적 있어요.",
+        "reveals": "우준경이 창고에 로고를 지운 중고 장비를 모아 두고 있었다는 것."
       }
     },
     {
       "id": "CH04",
-      "name": "위서로",
-      "role": "외부 큐레이터 / 전시 기획",
-      "present_location": "L01",
+      "name": "성하울",
+      "role": "후원회 회계 담당 / 자원봉사자",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "최민준이 이번 도록 원작자 표기 문제로 지난주 이한음과 따로 이야기를 나눴다.", "source": "우연히 들음" },
-        { "fact_id": "F-CH04-02", "content": "그날 저녁 이한음이 평소와 달리 암실 열쇠를 두 번이나 다시 확인했다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그 사실을 서용익에게 슬쩍 언급했다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오후 민강호가 공구함에서 절연 장갑을 챙겨 조정실 쪽으로 가는 것을 봤다.",
+          "source": "본인 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "최민준 선배님 작품은 도록에 실을 때마다 순서 하나까지 저와 상의했어요. 까다로우셨죠.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "그 시간엔 전시장에서 배치도를 점검하고 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "장부는 거짓말 안 해요 — 영수증철 보다가 이상한 금액을 하나 봤어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저는 그 시간엔 계속 자료보관실에서 서류만 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C01", "release_trigger": "F-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["동호회 내부 회계나 인사 문제는 잘 모른다.", "암실 설비에 대해서는 전혀 모른다."],
+      "knowledge_limits": [
+        "조정실 안쪽에서 정확히 무슨 일이 있었는지는 모른다.",
+        "민강호가 왜 그 항목만 반복해서 부풀렸는지는 모른다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말, 전문가다운 단정한 말투",
-        "sentence_length_tendency": "설명은 길게, 자기 얘기는 짧게 자른다",
-        "verbal_tic": "'제 눈에는요'를 앞세운다.",
-        "stance": "courteous"
+        "formality_register": "표준 존댓말, 숫자 얘기할 때 유독 또박또박해진다.",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하다가, 몰리면 숫자를 하나씩 짚어가며 길어진다.",
+        "verbal_tic": "'장부는 거짓말 안 해요'를 앞세운다.",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
-        "제가 아는 건 전시 얘기뿐이에요, 더는 몰라요.",
-        "자꾸 그렇게 몰아가시면 저도 곤란한데요.",
-        "이 이상은 저도 드릴 말씀이 없습니다."
+        "장부에 적힌 대로 말씀드린 것뿐이에요.",
+        "제가 뭘 더 알겠어요.",
+        "이 이상은 저도 몰라요, 정말로."
       ],
-      "comic_tell": "곤란하면 목에 건 줄자를 손가락에 감았다 풀었다 한다.",
+      "comic_tell": "숫자를 말할 때마다 손가락으로 허공에 표를 그리듯 줄을 긋는다.",
       "points_finger": {
         "at": "CH01",
-        "because": "F-CH04-01",
+        "because": "F-CH04-02",
         "opens": "S-CH04-01",
-        "says": "이 선생님이 그 시간에 유난히 예민해 보이긴 했어요.",
-        "reveals": "위서로가 이한음의 그날 저녁 태도를 이상하게 여겼다는 것"
+        "says": "장부는 거짓말 안 해요. 그러고 보니 그날 오후 강호 씨가 공구함에서 장갑 챙겨서 조정실 쪽으로 가던데요.",
+        "reveals": "민강호가 그날 오후 절연 장갑을 챙겨 조정실로 향했다는 것."
       }
     },
     {
       "id": "CH05",
-      "name": "백주헌",
-      "role": "건물 관리인",
-      "present_location": "L05",
+      "name": "우준경",
+      "role": "청취자 동호회 회장",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "19시 20분쯤 환풍구를 정상적으로 켜 둔 채 암실을 나섰다.", "source": "직접 확인" },
-        { "fact_id": "F-CH05-02", "content": "나중에 와 보니 스위치가 꺼져 있었는데 자기 실수인 줄 알고 아무에게도 말하지 않았다.", "source": "직접 확인" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "15시 50분에 로비로 들어와 사연 엽서 상자를 정리하느라 16시 30분 넘도록 로비에 남아 있었다.",
+          "source": "본인 행동"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오인숙이 후원재단과 폐국 조건을 미리 조율하면서 서용익에게는 알리지 않았다는 얘기를 얼핏 들었다.",
+          "source": "사내 소문"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "창고에 방송국 로고를 지운 중고 장비를 몰래 모아 뒀다가 동호회 활동비를 마련하려 판매하려던 참이었다.",
+          "source": "본인 행동"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "이 건물은 제가 손 안 댄 데가 없어요. 그만큼 오래 봐 온 곳이죠.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "그 시간엔 현관 쪽에서 전등 스위치를 손보고 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "예전 같았으면 말이죠, 용익이가 폐국 소식 들으면 방송국에 제일 먼저 알렸을 텐데요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 그 시간 내내 로비에서 짐 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E01", "release_trigger": "F-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["암실 안에서 정확히 무슨 일이 있었는지는 모른다.", "동호회 내부 사정은 관심 없어 모른다."],
+      "knowledge_limits": [
+        "조정실 안쪽 상황은 전혀 모른다.",
+        "영수증철 내용은 잘 모른다."
+      ],
       "voice_profile": {
-        "formality_register": "표준 존댓말, 무뚝뚝한 단답형",
-        "sentence_length_tendency": "평소에도 짧고, 몰리면 더 짧아진다",
-        "verbal_tic": "'제 담당은 아니라서요'를 앞세운다.",
+        "formality_register": "표준 존댓말, 옛날식 표현을 즐겨 쓴다.",
+        "sentence_length_tendency": "평소엔 느긋하게 말하다가, 몰리면 말끝을 흐리며 화제를 돌린다.",
+        "verbal_tic": "'예전 같았으면 말이죠'를 덧붙인다.",
         "stance": "guarded"
       },
       "pressure_responses": [
-        "그건 제 담당이 아니라서요.",
-        "왜 자꾸 저한테 그러세요, 저는 시설만 봅니다.",
-        "더 할 말 없습니다."
+        "그냥 오래된 장비 정리한 것뿐이에요.",
+        "제가 뭘 숨기겠어요, 이 나이에.",
+        "더 하실 말씀 없으면 저는 이만..."
       ],
-      "comic_tell": "말이 막히면 허리춤 공구벨트의 렌치를 괜히 한 번 만져 본다.",
+      "comic_tell": "말할 때마다 손목시계를 자꾸 들여다본다.",
       "points_finger": {
         "at": "CH02",
-        "because": "F-CH05-01",
+        "because": "F-CH05-02",
         "opens": "S-CH05-01",
-        "says": "그날따라 신입 회원이 암실 쪽을 계속 들락거리긴 했어요.",
-        "reveals": "백주헌이 탁은별의 잦은 출입을 의심하고 있다는 것"
+        "says": "예전 같았으면 말이죠... 인숙 씨가 재단이랑 뭔가 미리 얘기해놓고 용익이한테는 말 안 했다는 얘기, 얼핏 들었습니다.",
+        "reveals": "오인숙이 후원재단과 폐국 조건을 미리 조율하면서 서용익에게 알리지 않았다는 것."
       }
     }
   ],
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
-      "nature": "이한음은 최민준보다 먼저 사진을 시작했고, 실제로는 최민준의 초기 대표작 상당수를 무명 시절 그의 손으로 찍어 줬다. 15년 넘게 부회장으로 옆을 지켰다.",
-      "public_face": "창립 멤버이자 오른팔로 알려진 사이. 다들 스승과 애제자처럼 여긴다.",
-      "says": { "CH01": "그 사람 없이는 지금의 저도 없었죠. 그렇게만 알아 두세요." },
-      "private_strain": "이한음은 최민준의 초기 대표작 여럿을 실제로 자신이 찍어 줬다는 사실을 15년째 숨겨 왔고, 최민준이 이번 도록에서 그 사실을 밝히겠다고 하자 자신의 강사 경력 전체가 남의 이름을 빌린 것으로 드러날까 두려워했다.",
-      "surfaces_when": "탐정이 오래된 인화 원판(E07)을 제시하거나 강필주의 원작자 표기 지시 진술(F-CH03-01)을 들은 뒤."
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "20년째 함께 방송국을 지켜 온 대표 진행자와 기술감독.",
+      "public_face": "이 방송국의 두 기둥으로 알려져 있다.",
+      "says": {
+        "CH01": "장비는 제가 제일 잘 압니다. 용익 선배와는... 방송 얘기 말고는 잘 안 했습니다."
+      },
+      "private_strain": "민강호는 지난 5년간 장비 구매 대금을 부풀려 빼돌려 왔다는 것을 그날 오후 서용익에게 들켰다는 것을 감추고 있다.",
+      "surfaces_when": "옛 영수증철 원본(E16)을 제시할 때."
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
-      "nature": "최민준이 반년 전 직접 신입 공모를 통해 뽑은 막내 회원으로, 매주 개인 지도를 받는 사이다.",
-      "public_face": "회장이 각별히 아끼는 후배로 알려져 있다.",
-      "says": { "CH02": "회장님이 아니었으면 저는 이 동네에 발도 못 붙였을 거예요." },
-      "private_strain": "탁은별은 사건 당일 암실 문 앞에서 이한음과 마주쳤을 수도 있다는 것을 먼저 말하지 않았다 — 괜히 의심받을까 봐 두려웠다.",
-      "surfaces_when": "탐정이 환풍구 스위치 카드(E01)를 제시한 뒤."
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "6년째 실무를 함께해 온 대표 진행자와 국장.",
+      "public_face": "가장 손발이 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "방송국 생각이 먼저라서요. 용익 씨와는 그냥... 오래 같이 일한 동료죠."
+      },
+      "private_strain": "오인숙은 후원재단의 공식 후원 중단 통보를 받고도 서용익에게는 아직 알리지 않고 있었다는 것을 감추고 있다.",
+      "surfaces_when": "폐국 공식 통보서(E13)를 제시할 때."
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
-      "nature": "강필주는 5년째 총무를 맡아 동호회 살림을 챙겨 왔다.",
-      "public_face": "가장 꼼꼼하고 믿음직한 총무로 통한다.",
-      "says": { "CH03": "제 손 거치지 않은 돈이 없어요. 그러니 제일 먼저 의심받는 것도 이해합니다." },
-      "private_strain": "강필주는 지난달 개인 사정으로 회비 일부를 잠깐 돌려 썼다가 갚았는데, 최민준이 그 사실을 눈치채고 있었다는 것이 두렵다.",
-      "surfaces_when": "탐정이 정산 지출 카드(E12)를 제시한 뒤."
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "1년째 배워 온 신입 작가 겸 조연출과 대표 진행자.",
+      "public_face": "성실한 막내로 알려져 있다.",
+      "says": {
+        "CH03": "선배님은... 늘 잘해주셨어요. 그 이상은 잘 모르겠어요."
+      },
+      "private_strain": "도재이는 최근 다른 방송국의 조연출 제안을 받고 고민하고 있다는 것을 감추고 있다.",
+      "surfaces_when": "도재이에게 요즘 고민(E07)을 물을 때."
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
-      "nature": "위서로는 이번 10주년 전시를 맡은 외부 큐레이터로, 최민준과는 8년 지기다.",
-      "public_face": "전시 방향을 두고 가끔 부딪히지만 서로를 신뢰하는 협업 관계로 알려져 있다.",
-      "says": { "CH04": "그이가 고집이 세서 그렇지, 보는 눈만큼은 믿을 만했어요." },
-      "private_strain": "위서로는 예전에 다른 전시에서 남의 작품을 자기 것처럼 소개했다가 최민준이 조용히 덮어 준 적이 있고, 이번에 최민준이 원작자 표기를 엄격히 하겠다고 나서자 자신의 옛일이 같이 들춰질까 불안하다.",
-      "surfaces_when": "탐정이 강필주의 증언(E10)을 들은 뒤."
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "3년째 후원회 회계를 맡아 온 자원봉사자와 대표 진행자.",
+      "public_face": "누구보다 꼼꼼한 봉사자로 알려져 있다.",
+      "says": {
+        "CH04": "장부는 거짓말 안 해요. 용익 씨한테는... 그냥 제가 본 걸 말씀드렸을 뿐이에요."
+      },
+      "private_strain": "성하울은 자신이 영수증 문제를 서용익에게 먼저 알린 것이 이 일에 영향을 줬을까 봐 두려워하고 있다는 것을 감추고 있다.",
+      "surfaces_when": "성하울에게 영수증 항목(E18)을 물을 때."
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH05"],
-      "nature": "이한음과 백주헌은 건물을 오래 같이 관리해 온 사이로, 환기·전기 설비를 백주헌이 손보면 이한음이 안전 교육을 맡아 왔다.",
-      "public_face": "실무를 함께 챙기는 편한 사이로 알려져 있다.",
-      "says": { "CH01": "주헌 씨가 꼼꼼해서 저는 편했죠.", "CH05": "이 선생님이 하라는 대로만 하면 사고가 안 나요, 보통은." },
-      "private_strain": "백주헌은 그날 저녁 환풍구를 평소처럼 켜 두고 나갔는데, 나중에 스위치가 꺼져 있던 것을 발견하고도 자기 실수로 여기고 아무에게도 말하지 않았다 — 이한음이 그걸 알고 있다.",
-      "surfaces_when": "탐정이 환풍구 스위치 카드(E01)를 제시한 뒤."
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "방송국 창립 초기부터 이어진 청취자 동호회 회장과 대표 진행자.",
+      "public_face": "가장 오래된 청취자로 알려져 있다.",
+      "says": {
+        "CH05": "예전 같았으면 말이죠, 용익이랑은 그냥... 오래된 친구 같은 사이였죠."
+      },
+      "private_strain": "우준경은 창고에 방송국 로고를 지운 중고 장비를 몰래 모아 팔려던 것을 감추고 있다.",
+      "surfaces_when": "창고에 쌓인 중고 장비 상자(E17)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH04"
+      ],
+      "nature": "정산 업무로 최근 자주 마주치는 기술감독과 회계 담당 자원봉사자.",
+      "public_face": "사이가 나쁘지 않은 실무 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "장비는 제가 제일 잘 압니다. 하울 씨랑은... 그냥 정산 때나 마주치는 사이입니다.",
+        "CH04": "장부는 거짓말 안 해요. 강호 씨랑은... 업무로만 마주치는 사이예요."
+      },
+      "private_strain": "민강호는 성하울이 영수증철을 들여다보기 시작한 뒤부터 계속 그녀를 피해 왔다는 것을 감추고 있다.",
+      "surfaces_when": "성하울의 영수증 이야기(S-CH04-01)를 들은 뒤."
     }
   ],
   "locations": [
     {
       "id": "L01",
-      "name": "전시장(메인홀)",
-      "access": "행사 기간엔 누구나 드나들 수 있다.",
+      "name": "로비",
+      "access": "출입증 없이도 드나들 수 있는 개방된 공간이다.",
       "access_level": "open",
-      "connects_to": ["L05", "L04", "L02"],
-      "base_description": "정면 벽을 따라 이번 전시에 걸릴 인화본들이 순서대로 걸려 있고, 그 옆 임시 테이블 위에 도록 교정쇄가 펼쳐져 있다. 창가 쪽 접수대 옆에서 위서로가 배치도를 손에 든 채 벽에 걸린 사진 순서를 하나하나 짚어 보고 있다.",
-      "observation_rules": [
-        { "action": "도록 교정쇄를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "도록 교정쇄 여백에 최근 손으로 쓴 메모가 남아 있다 — 크레딧 재확인, 이 선생님 건." }
+      "connects_to": [
+        "L02"
       ],
-      "detail_rules": []
+      "base_description": "반납된 방송 장비 상자들이 안내 데스크 옆에 쌓여 있고, 우준경이 그 옆에 서서 낡은 사연 엽서 상자를 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "안내 데스크 위 폐국 안내문을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "다음 주부터 정식으로 청취자들에게 폐국을 알릴 예정이라는 문구가 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "안내 데스크 방문 기록부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "우준경이 15시 50분에 들어와 방문 기록을 남긴 뒤, 16시 30분이 넘도록 다시 나간 기록이 없다."
+        }
+      ]
     },
     {
       "id": "L02",
-      "name": "암실",
-      "access": "출입 태그가 있어야 열리는 문이고, 인화 작업 중엔 안에서 잠글 수 있다.",
-      "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
-      "base_description": "붉은 조명 아래 인화 테이블과 정착·현상 트레이가 나란히 놓여 있고, 안쪽 문 너머로 세척실이 이어진다. 문 옆 벽에는 환풍구 스위치가 있고, 최민준이 쓰던 인화 집게가 테이블 위에 아직 걸려 있다.",
+      "name": "스튜디오 메인 공간",
+      "access": "직원이면 출입증 없이 드나들 수 있는 작업 공간이다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "긴 탁자 위로 마지막 녹음 대본과 마이크 케이블이 흩어져 있고, 도재이가 창백한 얼굴로 조정실 쪽 복도를 자꾸 돌아보고 있다.",
       "observation_rules": [
-        { "action": "암실 문 안쪽을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "문 안쪽 걸쇠에 새 지문 자국이 어지럽게 겹쳐 있다." },
-        { "action": "환풍구 팬을 살펴본다", "release_fact_id": "F-L02-OBS-02", "result": "환풍구 팬 날개에 먼지가 두껍게 앉아 있다." }
+        {
+          "action": "벽에 걸린 20년 방송 사진들을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "사진마다 서용익과 민강호가 나란히 서 있다 — 방송국 창립 때부터 둘이 함께였다는 것이 보인다."
+        }
       ],
       "detail_rules": [
-        { "action": "환풍구 스위치를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "스위치 커버에 남은 손자국이 눈에 들어온다." },
-        { "action": "인화 테이블 위를 살펴본다", "requires": "탁은별", "release_evidence_id": "E11", "result": "테이블 위 인화 집게가 걸려 있던 자리가 눈에 들어온다." },
-        { "action": "문 앞 바닥을 살펴본다", "requires": "없음", "release_evidence_id": "E14", "result": "문 앞 바닥에 떨어진 파일이 눈에 들어온다." }
+        {
+          "action": "마지막 녹음 진행표를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "17시 30분 녹음 시작 예정이라 적혀 있고, 그 옆에 서용익의 손글씨로 \"영수증철 확인 먼저\"라는 메모가 적혀 있다."
+        },
+        {
+          "action": "구석 공구함 속 절연 장갑을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "장갑 한 켤레 중 한쪽만 안쪽이 축축하게 젖어 있다."
+        },
+        {
+          "action": "조정실 문 앞 복도 바닥의 종이 부스러기를 살펴본다",
+          "requires": "도재이",
+          "release_evidence_id": "E06",
+          "result": "찢긴 영수증철 페이지 모서리 부스러기가 조정실 문 앞에 떨어져 있다."
+        }
       ]
     },
     {
       "id": "L03",
-      "name": "세척실",
-      "access": "암실 안쪽 딸린 방이라 암실을 거쳐야 들어갈 수 있다.",
+      "name": "조정실",
+      "access": "조정 콘솔 앞 좁은 방으로, 방송 중이 아니면 직원만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L02"],
-      "base_description": "개수대와 그 아래 수납장, 맞은편 선반에 정착액·표백액 같은 약품 병과 낡은 필름 보관함이 나란히 놓여 있다.",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "배전반 점검구가 열린 채이고, 바닥에는 영수증철 낱장 몇 개가 흩어져 있다.",
       "observation_rules": [
-        { "action": "약품 선반을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "정착액과 표백액 자리가 유독 비어 있고 먼지가 옅다." }
+        {
+          "action": "배전반 옆 벽에 붙은 낡은 경고 스티커를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "몇 년째 낡아 반쯤 벗겨진 고압 주의 스티커가 붙어 있다 — 시설 자체가 오래됐다는 인상을 준다."
+        }
       ],
       "detail_rules": [
-        { "action": "개수대 아래를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "수납장 구석에 놓인 병 두 개가 눈에 들어온다." },
-        { "action": "필름 보관함을 뒤진다", "requires": "강필주", "release_evidence_id": "E07", "result": "보관함 안쪽 봉투가 눈에 들어온다." }
+        {
+          "action": "배전반 점검구 안쪽 노출 배선을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "배선 피복이 최근에 벗겨진 듯 깨끗한 절단면을 보인다."
+        },
+        {
+          "action": "바닥에 떨어진 영수증철 페이지 조각을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "찢겨진 영수증철 페이지 한 귀퉁이가 배전반 바로 앞에 떨어져 있다."
+        },
+        {
+          "action": "정비 일지를 확인한다",
+          "requires": "민강호",
+          "release_evidence_id": "E10",
+          "result": "정비 일지에는 지난달 점검 기록만 있고 이번 주 기록이 빠져 있다."
+        },
+        {
+          "action": "바닥에 남은 신발 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "배전반 앞으로 밀착된 두 사람분 신발 자국이 겹쳐 있다."
+        },
+        {
+          "action": "점검구 손잡이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "손잡이에 고무장갑 특유의 미끄러운 자국이 남아 있다 — 먼지 쌓인 주변과 달리 그 부분만 유독 깨끗하다."
+        }
       ]
     },
     {
       "id": "L04",
-      "name": "사무실(총무실)",
-      "access": "총무 외에는 볼 일이 있을 때만 들어간다.",
+      "name": "원장실",
+      "access": "출입증이 있어야 들어갈 수 있는 통제구역이다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
-      "base_description": "정산철과 회의록 파일이 책상 위에 쌓여 있고, 게시판에는 이번 달 업무 일지가 붙어 있다. 책상 앞에 앉은 강필주가 영수증 뭉치를 한 장씩 넘기며 숫자를 맞춰 보고 있다.",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "책상 위 예산안 서류 더미 옆으로 오인숙이 통화를 마치고 앉아 있다.",
       "observation_rules": [
-        { "action": "게시판을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "이번 달 업무 일지에 전시 크레딧 문의로 이 선생님과 통화했다는 메모가 적혀 있다." }
+        {
+          "action": "벽면에 걸린 재단 감사패를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "창립 5년 차에 받은 오래된 감사패다 — 그 뒤로는 새로 걸린 것이 없다."
+        }
       ],
       "detail_rules": [
-        { "action": "정산철 사이를 살펴본다", "requires": "강필주", "release_evidence_id": "E09", "result": "정산철 사이에 끼워진 확인증이 눈에 들어온다." },
-        { "action": "최근 지출 내역을 확인한다", "requires": "없음", "release_evidence_id": "E12", "result": "최근 지출 항목 하나가 눈에 들어온다." }
+        {
+          "action": "책상 위 폐국 공식 통보서를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "후원재단이 이번 달 말로 지원을 끊는다는 공문이 놓여 있고, 발신일이 지난주로 찍혀 있다."
+        },
+        {
+          "action": "예산안 서류철 속 장비 구매 내역을 살펴본다",
+          "requires": "성하울",
+          "release_evidence_id": "E14",
+          "result": "최근 5년치 장비 구매 항목 중 세 건의 단가가 시세보다 눈에 띄게 높게 책정돼 있고, 결재란에 전부 민강호의 서명이 있다."
+        }
       ]
     },
     {
       "id": "L05",
-      "name": "관리실 / 현관",
-      "access": "건물 정문과 이어져 있어 출입이 자유롭다.",
-      "access_level": "open",
-      "connects_to": ["L01"],
-      "base_description": "정문 옆 작은 관리실에 설비 점검표와 출입 태그 단말기가 있고, 백주헌이 전등 스위치 박스를 열어 배선을 손보고 있다.",
+      "name": "자료보관실",
+      "access": "출입증이 있어야 들어갈 수 있는 통제구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "낡은 서류함 사이로 성하울이 영수증철 더미를 붙들고 앉아 있다.",
       "observation_rules": [
-        { "action": "설비 점검표를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "환기 설비 점검표에 오늘자 정상 가동 도장이 이미 찍혀 있다." }
+        {
+          "action": "서류함 라벨들을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "연도별로 정리된 라벨 중 최근 5년 치만 유난히 빼곡하게 채워져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 태그 단말기 기록을 확인한다", "requires": "E01", "release_evidence_id": "E03", "result": "단말기 기록 한 줄이 비어 있는 것이 눈에 들어온다." }
+        {
+          "action": "옛 영수증철 원본을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "지난 5년간 매년 같은 장비 항목의 구매 단가가 조금씩 더 부풀려져 있는 것이 눈에 띈다."
+        },
+        {
+          "action": "창고 한쪽 구석에 쌓인 중고 장비 상자를 살펴본다",
+          "requires": "우준경",
+          "release_evidence_id": "E17",
+          "result": "방송국 로고가 지워진 중고 마이크와 믹서 여러 대가 판매용 포장 상태로 쌓여 있다."
+        }
       ]
     }
   ],
   "evidence": [
     {
       "id": "E01",
-      "name": "환풍구 스위치",
+      "name": "로비 방문 기록부",
       "source_type": "location",
-      "found_at": "L02",
-      "discovery_condition": "환풍구 스위치를 살펴본다",
-      "content": "환풍구 스위치 커버에 먼지가 얇게 앉아 있는데, 스위치 레버 부분만 먼지가 쓸려 나간 자국이 선명하다.",
-      "proves": ["누군가 최근 이 스위치를 조작했다"],
-      "does_not_prove": ["누가 조작했는지는 알 수 없다"],
-      "presentation_effect": ["C03"],
-      "points_at": null,
-      "mismatch": "평소엔 켜 두고 나간다는 규칙과 달리 스위치가 꺼져 있었고, 꺼진 자리에만 새 손자국이 남아 있다.",
-      "reaction": { "jiwoo": "스위치가 꺼져 있는데 먼지는 딴 데만 그대로예요.", "detective": "누가 최근에 만졌다는 거네." }
-    },
-    {
-      "id": "E02",
-      "name": "숨겨진 약품 병",
-      "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "개수대 아래를 살펴본다",
-      "content": "개수대 아래 수납장 구석에 정착액과 표백액 빈 병이 나란히 놓여 있고, 평소 보관 자리인 선반에는 그 자리만 비어 있다.",
-      "proves": ["두 약품이 최근 함께 쓰였다"],
-      "does_not_prove": ["누가 섞었는지는 알 수 없다"],
-      "presentation_effect": ["C02"],
-      "points_at": null,
-      "mismatch": "정착액과 표백액은 원래 각각 다른 선반에 보관하는데, 빈 병 두 개가 같은 자리에 나란히 있다.",
-      "reaction": { "jiwoo": "정착액이랑 표백액이 같이 있으면 안 되는 거 아니에요?", "detective": "몰라서 같이 뒀겠어, 숨기려고 그랬겠지." }
+      "found_at": "L01",
+      "discovery_condition": "안내 데스크 방문 기록부를 확인한다",
+      "content": "방문 기록부에는 우준경이 15시 50분에 들어와 서명한 뒤, 16시 30분이 넘도록 다시 나간 기록이 없다고 적혀 있다.",
+      "proves": [
+        "우준경이 15시 50분부터 상당 시간 로비에 머물렀다"
+      ],
+      "does_not_prove": [
+        "그가 그 사이 로비를 벗어나지 않았는지는 이 기록만으로는 알 수 없다"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "다른 방문자 칸은 드나든 시각이 둘씩 찍히는데, 우준경 칸만 들어온 기록만 있다.",
+      "reaction": {
+        "jiwoo": "이분만 나간 기록이 없네요.",
+        "detective": "계속 여기 있었다는 거지."
+      }
     },
     {
       "id": "E03",
-      "name": "출입 태그 기록",
+      "name": "마지막 녹음 진행표",
       "source_type": "location",
-      "found_at": "L05",
-      "discovery_condition": "출입 태그 단말기 기록을 확인한다",
-      "content": "출입 태그 단말기 기록에 그날 저녁 이한음의 마지막 출입 시각 한 줄만 비어 있다.",
-      "proves": ["누군가 기록을 지웠다"],
-      "does_not_prove": ["언제 지웠는지는 알 수 없다"],
+      "found_at": "L02",
+      "discovery_condition": "마지막 녹음 진행표를 살펴본다",
+      "content": "진행표에는 17시 30분 녹음 시작이라 적혀 있고, 그 옆 여백에 서용익의 손글씨로 \"영수증철 확인 먼저\"라는 메모가 붙어 있다.",
+      "proves": [
+        "서용익이 녹음 전에 영수증철을 먼저 확인할 생각이었다"
+      ],
+      "does_not_prove": [
+        "정확히 누구와 그 얘기를 할 생각이었는지는 이 메모만으로는 알 수 없다"
+      ],
       "presentation_effect": [],
-      "points_at": "CH01",
-      "mismatch": "다른 사람들의 출입 기록은 시각까지 빠짐없이 남아 있는데 이한음의 마지막 줄만 비어 있다.",
-      "reaction": { "jiwoo": "딱 한 줄만 기록이 없어요, 하필 그 사람 것만요.", "detective": "지운 사람이 누군지는 뻔하네." }
+      "points_at": null,
+      "mismatch": "진행표의 다른 메모는 전부 방송 순서인데, 이 한 줄만 방송과 무관하다.",
+      "reaction": {
+        "jiwoo": "방송 얘기가 아니네요, 이거.",
+        "detective": "먼저 확인할 게 있었다는 거지."
+      }
     },
     {
       "id": "E04",
-      "name": "탁은별의 목격담",
-      "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "탁은별에게 그 시각 즈음 누구를 봤는지 묻는다",
-      "content": "\"문 앞에서 이한음 선생님이랑 마주친 것 같긴 한데... 그때는 별생각 안 했어요.\"",
-      "proves": ["이한음이 그 시각 암실 근처에 있었다"],
-      "does_not_prove": ["안에 들어갔는지는 알 수 없다"],
-      "presentation_effect": ["C01"],
+      "name": "한쪽만 젖은 절연 장갑",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "구석 공구함 속 절연 장갑을 살펴본다",
+      "content": "공구함 속 절연 장갑 한 켤레 중 한쪽만 안쪽이 축축하게 젖어 있다.",
+      "proves": [
+        "그 장갑 한쪽이 최근 땀이 밴 손으로 쓰였다"
+      ],
+      "does_not_prove": [
+        "언제, 누가 썼는지는 이것만으로는 알 수 없다"
+      ],
+      "presentation_effect": [],
       "points_at": "CH01",
-      "mismatch": "이한음은 그 시간에 암실 근처에 안 갔다고 했는데, 탁은별은 문 앞에서 그를 봤다고 말한다."
+      "mismatch": "나머지 공구는 먼지가 앉아 있는데 이 장갑만 안쪽이 축축하다.",
+      "reaction": {
+        "jiwoo": "이거 방금 쓴 것 같은데요.",
+        "detective": "최근에 꼈다는 거지."
+      }
     },
     {
       "id": "E05",
-      "name": "안전 교육 기억",
+      "name": "도재이의 증언 (부르는 소리)",
       "source_type": "testimony",
-      "found_at": "L04",
-      "discovery_condition": "강필주에게 안전 교육 자료에 대해 묻는다",
-      "content": "\"작년 안전 교육 때 이 선생님이 직접 강조하셨어요, 정착액이랑 표백액 섞으면 절대 안 된다고요.\"",
-      "proves": ["이한음이 두 약품을 섞으면 위험하다는 것을 알고 있었다"],
-      "does_not_prove": ["그날 저녁에도 그 사실을 기억하고 있었는지는 알 수 없다"],
-      "presentation_effect": ["C03"],
-      "points_at": "CH01",
-      "mismatch": "이한음은 위험한 줄 몰랐다고 했는데, 정작 그 위험을 직접 가르친 사람이 이한음 자신이었다."
+      "found_at": "L02",
+      "discovery_condition": "도재이에게 조정실 쪽에서 들린 소리를 묻는다",
+      "content": "\"그러고 보니, 16시 15분쯤 선배님이 영수증철 들고 강호 씨 부르시는 소리 들었어요. 조정실로 가신다고요.\"",
+      "proves": [
+        "서용익이 16시 15분경 영수증철을 들고 민강호를 불러 조정실로 향했다"
+      ],
+      "does_not_prove": [
+        "조정실 안에서 정확히 무슨 일이 있었는지는 이 증언만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH03",
+      "mismatch": "그러고 보니라면서도, 시각과 대사는 유독 정확하게 기억한다."
     },
     {
       "id": "E06",
-      "name": "위서로의 증언",
-      "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "위서로에게 도록 원작자 표기 문제를 묻는다",
-      "content": "\"회장님이 이번엔 사진 크레딧을 전부 다시 확인하겠다고 하셨어요. 예전 작품들까지도요.\"",
-      "proves": ["최민준이 도록의 원작자 표기를 다시 검토하려 했다"],
-      "does_not_prove": ["그 확인이 누구를 겨냥한 것인지는 알 수 없다"],
+      "name": "복도에 떨어진 종이 부스러기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "조정실 문 앞 복도 바닥의 종이 부스러기를 살펴본다",
+      "content": "조정실 문 바로 앞 복도 바닥에 찢긴 영수증철 페이지 모서리 부스러기가 떨어져 있다.",
+      "proves": [
+        "영수증철 페이지가 조정실 근처에서 찢겼다"
+      ],
+      "does_not_prove": [
+        "누가, 언제 찢었는지는 이 부스러기만으로는 알 수 없다"
+      ],
       "presentation_effect": [],
       "points_at": null,
-      "mismatch": "원작자 표기를 다시 확인하겠다는 말은 예전 작품까지 겨냥한 것인데, 그 예전 작품이 정확히 무엇인지는 아직 아무도 짚지 않았다."
+      "mismatch": "다른 자료는 자료보관실 밖으로 나온 적이 없는데, 이 부스러기만 복도까지 흩어져 있다.",
+      "reaction": {
+        "jiwoo": "이게 왜 복도에 떨어져 있죠.",
+        "detective": "안에서 나온 거겠지."
+      }
     },
     {
       "id": "E07",
-      "name": "낡은 필름 원판",
-      "source_type": "location",
-      "found_at": "L03",
-      "discovery_condition": "필름 보관함을 뒤진다",
-      "content": "낡은 필름 보관함 안 봉투 속에 최민준의 초기 대표작이라 알려진 사진들의 원판이 들어 있고, 봉투 안쪽에 이한음 촬영이라는 손글씨 메모가 붙어 있다.",
-      "proves": ["그 대표작들을 실제로 찍은 사람은 이한음이다"],
-      "does_not_prove": ["이 메모를 언제 붙였는지는 알 수 없다"],
+      "name": "도재이의 증언 (이직 제안)",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "도재이에게 요즘 고민을 묻는다",
+      "content": "\"사실 얼마 전에 다른 방송국에서 조연출 제안을 받아서... 고민이 많았어요. 그것 때문에 선배님한테 죄송한 마음도 있었고요.\"",
+      "proves": [
+        "도재이가 최근 다른 방송국의 조연출 제안을 받고 고민하고 있었다"
+      ],
+      "does_not_prove": [
+        "그 고민이 이번 사건과 관련 있는지는 이 증언만으로는 알 수 없다"
+      ],
       "presentation_effect": [],
-      "points_at": "CH01",
-      "mismatch": "도록과 전시 설명에는 전부 최민준作으로 적혀 있는데, 원판 봉투 안쪽에는 다른 이름이 적혀 있다.",
-      "reaction": { "jiwoo": "이 메모, 필체가 낯이 익은데요.", "detective": "그러니까 문제지." }
+      "points_at": "CH03",
+      "mismatch": "죄송한 마음이 있었다면서도, 정작 서용익에게는 그 제안 얘기를 한 번도 꺼내지 않았다."
     },
     {
       "id": "E08",
-      "name": "백주헌의 점검 습관",
-      "source_type": "testimony",
-      "found_at": "L05",
-      "discovery_condition": "백주헌에게 환풍구 점검 습관을 묻는다",
-      "content": "\"저는 매번 켜 두고 나갑니다. 안 그러면 냄새가 안 빠져서요.\"",
-      "proves": ["환풍구는 평소 켜 둔 채로 둔다는 것"],
-      "does_not_prove": ["그날 저녁에도 평소대로 했는지는 알 수 없다"],
-      "presentation_effect": [],
+      "name": "최근에 벗겨진 배선",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "배전반 점검구 안쪽 노출 배선을 살펴본다",
+      "content": "배전반 점검구 안쪽 배선 피복이 최근에 벗겨진 듯 깨끗한 절단면을 보이고, 차단기는 내려가지 않은 채였다.",
+      "proves": [
+        "그 배선이 최근에 손을 탔다"
+      ],
+      "does_not_prove": [
+        "누가, 언제 손을 댔는지는 이것만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
       "points_at": null,
-      "mismatch": "평소엔 켜 두고 나간다는 말과 달리, 그날 저녁 스위치는 꺼져 있었다."
+      "mismatch": "주변 배선은 색이 바랜 오래된 피복인데, 이 절단면만 속살이 새것처럼 깨끗하다.",
+      "reaction": {
+        "jiwoo": "여기만 유독 깨끗한데요.",
+        "detective": "최근에 벗겨졌다는 거지."
+      }
     },
     {
       "id": "E09",
-      "name": "상환 확인증",
+      "name": "배전반 앞 영수증철 페이지 조각",
       "source_type": "location",
-      "found_at": "L04",
-      "discovery_condition": "정산철 사이를 살펴본다",
-      "content": "정산철 사이에 강필주 개인 명의의 계좌 이체 확인증이 끼워져 있고, 날짜가 사건 열흘 전 상환 완료로 찍혀 있다.",
-      "proves": ["강필주가 회비를 갚았다는 것"],
-      "does_not_prove": ["살해와 무관하다는 것을 직접 증명하진 않는다"],
-      "presentation_effect": [],
+      "found_at": "L03",
+      "discovery_condition": "바닥에 떨어진 영수증철 페이지 조각을 살펴본다",
+      "content": "배전반 바로 앞 바닥에 영수증철 페이지 한 귀퉁이가 찢긴 채 떨어져 있다.",
+      "proves": [
+        "영수증철이 조정실 배전반 앞까지 와 있었다"
+      ],
+      "does_not_prove": [
+        "누가 그것을 들고 왔는지는 이 조각만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
       "points_at": null,
-      "mismatch": "회비를 몰래 썼다는 소문과 달리, 이미 열흘 전에 전액 갚은 확인증이 남아 있다.",
-      "reaction": { "jiwoo": "이거 벌써 다 갚은 돈이네요.", "detective": "그럼 이 사람은 빼도 되겠어." }
+      "mismatch": "영수증철 나머지는 자료보관실에 그대로 있는데, 이 한 귀퉁이만 조정실 바닥에 떨어져 있다.",
+      "reaction": {
+        "jiwoo": "이 한 귀퉁이만 여기 있네요.",
+        "detective": "누가 들고 들어왔다는 거지."
+      }
     },
     {
       "id": "E10",
-      "name": "강필주가 전하는 옛일",
-      "source_type": "testimony",
-      "found_at": "L04",
-      "discovery_condition": "강필주에게 위서로와 예전 전시 일화를 묻는다",
-      "content": "\"그때 일은 저도 알아요, 그거 회장님이 다 덮어 주신 거잖아요. 이번 일이랑은 상관없어요.\"",
-      "proves": ["위서로의 옛 표절 시비는 최민준이 이미 덮어 준 일로 마무리됐다는 것"],
-      "does_not_prove": ["위서로의 그날 행적까지 보증하진 않는다"],
-      "presentation_effect": [],
-      "points_at": null,
-      "mismatch": "위서로의 옛 시비는 이미 정리됐다는 말과 달리, 소문은 지금도 새로 돈다."
+      "name": "기록이 빠진 정비 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 일지를 확인한다",
+      "content": "정비 일지에는 지난달 점검 기록만 남아 있고, 이번 주 점검 기록은 빠져 있다.",
+      "proves": [
+        "이번 주에 배전반을 손봤다는 공식 기록이 없다"
+      ],
+      "does_not_prove": [
+        "기록이 빠진 것이 실수인지 고의인지는 이것만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH01",
+      "mismatch": "다른 주는 빠짐없이 기록돼 있는데, 하필 이번 주 칸만 비어 있다.",
+      "reaction": {
+        "jiwoo": "이번 주만 쏙 빠졌는데요.",
+        "detective": "일부러 안 적었다는 거지."
+      }
     },
     {
       "id": "E11",
-      "name": "걸린 인화본",
+      "name": "겹쳐진 두 사람분 신발 자국",
       "source_type": "location",
-      "found_at": "L02",
-      "discovery_condition": "인화 테이블 위를 살펴본다",
-      "content": "인화 테이블 위 집게에 그날 마지막으로 뽑던 인화본이 반쯤 걸려 있다.",
-      "proves": ["최민준이 인화 작업을 하던 중이었다"],
-      "does_not_prove": ["누가 그 순간 함께 있었는지는 알 수 없다"],
-      "presentation_effect": [],
+      "found_at": "L03",
+      "discovery_condition": "바닥에 남은 신발 자국을 살펴본다",
+      "content": "배전반 앞으로 밀착된 두 사람분의 신발 자국이 겹쳐 나 있다.",
+      "proves": [
+        "배전반 앞에서 두 사람 사이에 실랑이가 있었다"
+      ],
+      "does_not_prove": [
+        "정확히 누구와 누구였는지는 이 자국만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
       "points_at": null,
-      "mismatch": "인화본 걸이가 평소보다 한 칸 더 당겨져 있어, 누군가 급히 움직인 흔적으로 보인다.",
-      "reaction": { "jiwoo": "마지막까지 일하다 그대로 멈췄나 봐요.", "detective": "그래서 더 이상하잖아, 이 정도면." }
+      "mismatch": "혼자 서 있었다면 한 사람분 자국이어야 하는데, 자국이 겹치고 밀착돼 있다.",
+      "reaction": {
+        "jiwoo": "자국이 두 사람 건데요, 이거.",
+        "detective": "혼자 있던 게 아니라는 거지."
+      }
     },
     {
       "id": "E12",
-      "name": "개인 계좌 지출 표시",
+      "name": "점검구 손잡이의 장갑 자국",
       "source_type": "location",
-      "found_at": "L04",
-      "discovery_condition": "최근 지출 내역을 확인한다",
-      "content": "정산 지출 내역 중 최근 항목 하나가 강필주 개인 계좌로 빠져나간 표시가 있다.",
-      "proves": ["돈이 개인 계좌로 흘러간 적이 있다는 것"],
-      "does_not_prove": ["그 지출이 살해 동기라는 것을 직접 증명하진 않는다"],
-      "presentation_effect": [],
-      "points_at": "CH03",
-      "mismatch": "다른 지출은 전부 동호회 계좌로 정산되는데 이 항목만 개인 계좌다.",
-      "reaction": { "jiwoo": "이 지출만 개인 계좌로 빠졌어요.", "detective": "일단 걸어는 두자, 확실친 않으니까." }
+      "found_at": "L03",
+      "discovery_condition": "점검구 손잡이를 살펴본다",
+      "content": "점검구 손잡이에 고무장갑 특유의 미끄러운 자국이 남아 있고, 먼지 쌓인 주변과 달리 그 부분만 유독 깨끗하다.",
+      "proves": [
+        "누군가 장갑을 낀 손으로 최근 점검구를 만졌다"
+      ],
+      "does_not_prove": [
+        "언제 만졌는지는 이 자국만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "mismatch": "점검구는 평소 맨손으로 여닫는데, 이번 자국만 장갑 낀 손 모양이다.",
+      "reaction": {
+        "jiwoo": "장갑 자국이네요, 이거.",
+        "detective": "맨손이 아니었다는 거지."
+      }
     },
     {
       "id": "E13",
-      "name": "위서로가 전하는 강필주의 태도",
-      "source_type": "testimony",
-      "found_at": "L01",
-      "discovery_condition": "위서로에게 강필주의 최근 태도를 묻는다",
-      "content": "\"그러고 보니 총무님이 요즘 회계 얘기만 나오면 유난히 말을 아끼시긴 했어요.\"",
-      "proves": ["강필주가 최근 회계 얘기를 피하는 것처럼 보였다는 것"],
-      "does_not_prove": ["태도가 달라진 이유까지 말해 주진 않는다"],
+      "name": "폐국 공식 통보서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 폐국 공식 통보서를 살펴본다",
+      "content": "후원재단이 이번 달 말로 지원을 끊는다는 공문이 책상에 놓여 있고, 발신일이 지난주로 찍혀 있다.",
+      "proves": [
+        "후원 중단 통보가 지난주에 이미 도착해 있었다"
+      ],
+      "does_not_prove": [
+        "그것을 언제 서용익에게 알렸는지는 이 공문만으로는 알 수 없다"
+      ],
       "presentation_effect": [],
-      "points_at": "CH03",
-      "mismatch": "강필주 자신은 회계 얘기를 피한 적 없다고 했지만, 옆에서 본 사람의 기억은 다르다."
+      "points_at": "CH02",
+      "mismatch": "발신일은 지난주인데, 방송국 공지 게시판에는 아직 아무 안내도 붙지 않았다.",
+      "reaction": {
+        "jiwoo": "일주일이나 지났는데 아직 조용했네요.",
+        "detective": "알리는 걸 미뤘다는 거지."
+      }
     },
     {
       "id": "E14",
-      "name": "떨어진 전시 파일",
+      "name": "부풀려진 장비 구매 내역",
       "source_type": "location",
-      "found_at": "L02",
-      "discovery_condition": "문 앞 바닥을 살펴본다",
-      "content": "암실 문 앞 바닥에 위서로가 평소 들고 다니는 전시 팜플렛 파일이 떨어져 있다.",
-      "proves": ["위서로가 암실 근처에 왔던 적이 있다"],
-      "does_not_prove": ["그녀가 그 시각 그 자리에 있었다는 것을 직접 증명하진 않는다"],
-      "presentation_effect": [],
-      "points_at": "CH04",
-      "mismatch": "그녀는 그 시간에 전시장에 있었다고 했는데 파일이 암실 쪽 문 앞에 떨어져 있다.",
-      "reaction": { "jiwoo": "이거 위서로 씨 파일 아니에요?", "detective": "왜 하필 이 앞에 떨어져 있었을까." }
+      "found_at": "L04",
+      "discovery_condition": "예산안 서류철 속 장비 구매 내역을 살펴본다",
+      "content": "최근 5년치 장비 구매 항목 중 세 건의 단가가 시세보다 눈에 띄게 높게 책정돼 있고, 결재란에 전부 민강호의 서명이 있다.",
+      "proves": [
+        "민강호가 결재한 장비 구매 세 건의 단가가 시세보다 높다"
+      ],
+      "does_not_prove": [
+        "그 차액이 어디로 갔는지는 이 서류만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C02",
+        "C04"
+      ],
+      "points_at": "CH01",
+      "mismatch": "같은 장비를 다른 해에 산 내역은 단가가 비슷한데, 이 세 건만 유난히 높다.",
+      "reaction": {
+        "jiwoo": "이 세 건만 유독 비싸네요.",
+        "detective": "차액이 어디로 갔는지가 문제지."
+      }
     },
     {
       "id": "E15",
-      "name": "강필주가 전하는 위서로의 동선",
+      "name": "오인숙의 증언",
       "source_type": "testimony",
       "found_at": "L04",
-      "discovery_condition": "강필주에게 위서로의 잦은 출입을 묻는다",
-      "content": "\"외부에서 온 큐레이터분이 유난히 암실 쪽을 자주 들락거리시긴 했어요.\"",
-      "proves": ["위서로가 그날 저녁 암실 쪽을 평소보다 자주 오갔다"],
-      "does_not_prove": ["출입 목적까지는 말해 주지 않는다"],
+      "discovery_condition": "오인숙에게 그날 오후 서용익과 마지막으로 나눈 대화를 묻는다",
+      "content": "\"방송국 생각이 먼저라서요 — 그날 오후엔 통보서 정리하느라 용익 씨랑 따로 얘기할 틈이 없었어요.\"",
+      "proves": [
+        "오인숙이 그날 오후 통보서 정리에 매달려 있었다"
+      ],
+      "does_not_prove": [
+        "서용익이 그 사이 무엇을 하고 있었는지는 이 증언만으로는 알 수 없다"
+      ],
       "presentation_effect": [],
-      "points_at": "CH04",
-      "mismatch": "위서로는 전시장에만 있었다고 했는데, 강필주는 그녀가 암실 쪽을 자주 오갔다고 말한다."
+      "points_at": null,
+      "mismatch": "따로 얘기할 틈이 없었다면서도, 정작 서용익의 그날 일정은 정확히 꿰고 있다."
+    },
+    {
+      "id": "E16",
+      "name": "옛 영수증철 원본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "옛 영수증철 원본을 살펴본다",
+      "content": "지난 5년간 매년 같은 장비 항목의 구매 단가가 조금씩 더 부풀려져 있는 것이 영수증철 원본에서 드러난다.",
+      "proves": [
+        "같은 장비 항목의 구매 단가가 해마다 조금씩 부풀려져 왔다"
+      ],
+      "does_not_prove": [
+        "그 차액을 누가 챙겼는지는 이 장부만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C02",
+        "C04"
+      ],
+      "points_at": "CH01",
+      "mismatch": "다른 항목은 단가가 해마다 들쭉날쭉한데, 이 항목만 매년 조금씩 오르기만 한다.",
+      "reaction": {
+        "jiwoo": "이 항목만 매년 오르기만 하네요.",
+        "detective": "우연은 아니라는 거지."
+      }
+    },
+    {
+      "id": "E17",
+      "name": "창고 속 중고 장비 상자",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "창고 한쪽 구석에 쌓인 중고 장비 상자를 살펴본다",
+      "content": "방송국 로고가 지워진 중고 마이크와 믹서 여러 대가 판매용 포장 상태로 창고 한쪽에 쌓여 있다.",
+      "proves": [
+        "누군가 방송국 장비를 판매용으로 따로 챙겨 두었다"
+      ],
+      "does_not_prove": [
+        "누구의 소행인지는 이 상자만으로는 알 수 없다"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "폐기 예정 장비는 따로 폐기 스티커가 붙는데, 이 상자들만 판매용 포장이 돼 있다.",
+      "reaction": {
+        "jiwoo": "이거 팔려고 싸 둔 거네요.",
+        "detective": "누가 챙겼는지가 문제지."
+      }
+    },
+    {
+      "id": "E18",
+      "name": "성하울의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "성하울에게 영수증 항목에 대해 묻는다",
+      "content": "\"장부는 거짓말 안 해요. 이 항목, 다른 해보다 단가가 계속 오르길래 이상하다 싶어서 용익 씨한테 말씀드렸어요.\"",
+      "proves": [
+        "성하울이 영수증 단가 이상을 알아채고 서용익에게 알렸다"
+      ],
+      "does_not_prove": [
+        "서용익이 그 뒤 정확히 무엇을 확인했는지는 이 증언만으로는 알 수 없다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null,
+      "mismatch": "그냥 이상해서 말씀드렸다면서도, 정작 오른 금액은 항목별로 정확히 외우고 있다."
+    },
+    {
+      "id": "E19",
+      "name": "우준경의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "우준경에게 창고에 쌓인 중고 장비 상자에 대해 묻는다",
+      "content": "\"예전 같았으면 말이죠, 그냥 버려질 장비들, 동호회 활동비라도 마련해 보려고 챙겨 둔 겁니다.\"",
+      "proves": [
+        "우준경이 폐기 예정 장비를 판매하려 따로 챙겨 두었다"
+      ],
+      "does_not_prove": [
+        "방송국의 정식 허락을 받았는지는 이 증언만으로는 알 수 없다"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "버려질 장비라면서도, 로고를 지우는 수고까지 들인 것은 스스로 설명하지 못한다."
     }
   ],
   "contradiction_stages": [
@@ -662,121 +1300,372 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04"] },
-      "player_action": "탁은별의 목격담(E04)을 들이대며 그 시각 암실 근처에 없었다는 말을 다시 확인한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "그날 저녁 암실에 들른 것은 맞다고 인정한다." },
-      "must_not_release": ["정착액과 표백액을 섞었다는 것", "동기(원작자 표기 문제)"]
+      "to_stage": "admits_control_room",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E05",
+          "E09"
+        ]
+      },
+      "player_action": "탐정이 도재이가 들었다는 증언(E05)과 배전반 앞에서 나온 영수증철 조각(E09)을 함께 짚으며, 아래층에 있었다는 말과 앞뒤가 맞지 않는다고 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "민강호는 사건 당일 16시 18분경 조정실에서 서용익과 마주친 것은 인정한다."
+      },
+      "must_not_release": [
+        "영수증 문제로 다퉜다는 것",
+        "손을 붙잡아 감전시켰다는 것",
+        "배선을 미리 손봐 두었다는 것"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "admits_reentry",
-      "to_stage": "admits_chemical_tamper",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
-      "player_action": "세척실에 숨겨져 있던 정착액·표백액 빈 병(E02)을 들이대며 그냥 둘러보기만 했다는 말을 되묻는다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "정착액과 표백액을 섞어 둔 것은 맞다고 인정한다." },
-      "must_not_release": ["환풍구를 일부러 껐다는 것", "동기(원작자 표기 문제)"]
+      "from_stage": "admits_control_room",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E14",
+        "E16"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E14",
+          "E16"
+        ]
+      },
+      "player_action": "탐정이 결재란에 그의 서명이 있는 부풀려진 구매 내역(E14)과 5년간 조금씩 오른 영수증철 원본(E16)을 나란히 놓으며, 별다른 얘기는 없었다는 말로는 이 장부가 왜 거기 있었는지 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "민강호는 조정실에서 영수증 문제로 서용익과 다퉜다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "손을 붙잡아 감전시켰다는 것",
+        "배선을 미리 손봐 두었다는 것",
+        "5년간 대금을 부풀려 왔다는 것"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "admits_chemical_tamper",
-      "to_stage": "admits_intent_and_motive",
-      "requires_heard_claim_ids": ["S-CH01-04"],
-      "requires_presented_evidence_ids": ["E05", "E01"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E05", "E01"] },
-      "player_action": "안전 교육 증언(E05)과 환풍구 스위치의 손자국(E01)을 함께 들이대며 몰랐다는 말을 무너뜨린다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "최민준이 도록에 자신을 원작자로 표기하려던 것을 막으려고 환풍구를 끄고 문을 잠갔다는 것을 인정한다." },
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_contact",
+      "requires_heard_claim_ids": [
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E11",
+        "E12"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E11",
+          "E12"
+        ]
+      },
+      "player_action": "탐정이 배전반 앞에 겹쳐 남은 두 사람분의 신발 자국(E11)과 점검구 손잡이에 남은 장갑 자국(E12)을 함께 짚으며, 언성만 높였다는 말로는 이 흔적이 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "민강호는 실랑이 끝에 서용익의 손을 배전반 노출 배선에 붙잡아 댔다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "배선을 미리 손봐 두었다는 것",
+        "5년간 대금을 부풀려 왔다는 것"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_contact",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": [
+        "S-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E10"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E08",
+          "E10"
+        ]
+      },
+      "player_action": "탐정이 최근에야 벗겨진 배선 절단면(E08)과 이번 주 기록만 빠진 정비 일지(E10)를 함께 짚으며, 몰랐다는 말로는 이 둘이 같은 날 겹친 것이 설명되지 않는다고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "민강호는 배전반을 미리 손봐 두었고 정비 일지를 조작했으며, 지난 몇 년간 장비 구매 대금을 부풀려 빼돌려 왔다는 것은 인정한다."
+      },
       "must_not_release": []
     }
   ],
   "red_herrings": [
     {
       "id": "R01",
-      "surface_suspicion": "총무 강필주가 최근 회비를 개인적으로 유용했다가 회장에게 들켰을 수 있다는 소문이 돈다.",
-      "actual_reason": "실제로는 강필주가 개인 사정으로 회비 일부를 잠깐 빌려 썼다가 사건 열흘 전 이미 전액 갚았고, 최민준의 죽음과는 무관하다.",
-      "how_to_clear": "총무실 정산철 속 상환 확인증(E09)을 제시한다.",
-      "must_not_imply": "강필주가 애초에 돈 문제로 몰릴 만한 사람이 아니었다는 식으로 쓰지 않는다 — 그는 실제로 돈을 만졌었다.",
-      "lingering_thread": "강필주는 이 일로 총무직을 내려놓겠다고 하지만 아무도 붙잡지 않는다 — 사건과 별개로 신뢰는 이미 금이 갔다.",
-      "suspicion_deepener": "정산 자료를 확인하면 최근 지출 항목 중 강필주 개인 명의로 빠져나간 기록이 먼저 눈에 띈다.",
+      "surface_suspicion": "최근 다른 방송국의 조연출 제안을 받고 고민하던 참이었고, 하필 시신도 그녀가 발견했다.",
+      "actual_reason": "도재이는 그저 이직 고민을 서용익에게 미처 말하지 못한 것뿐이고, 17시 10분에야 조정실에 들어가 이미 벌어진 일을 발견했을 뿐이다.",
+      "how_to_clear": "마지막 녹음 진행표(E03)와 오인숙의 증언(E15)을 함께 확인해 그 시간대 도재이의 행적을 대조한다.",
+      "must_not_imply": "그녀가 나중에 발견했다는 것이 이직 고민 자체가 없었다는 뜻은 아니다.",
+      "lingering_thread": "도재이의 이직 고민은 사건이 끝난 뒤에도 아무도 물어봐 주지 않은 채 남는다.",
+      "suspicion_deepener": "그녀 자신의 증언(E07)에서 이직 제안 얘기가 먼저 드러나면서, 폐국 전 마지막까지 마음이 콩밭에 있었던 것 아니냐는 의심이 한동안 짙어진다.",
       "character_id": "CH03",
       "weight": {
         "motive": "M02",
-        "opportunity": "그날 저녁 내내 사무실에 혼자 있어 알리바이를 증명해 줄 사람이 없었다.",
-        "means": ["E12", "E13"],
-        "means_first_reading": "돈 문제로 회장과 갈등이 있었을 것처럼 보인다."
+        "opportunity": "시신을 발견하기 직전까지 스튜디오에 혼자 남아 있었다.",
+        "means": [
+          "E05",
+          "E07"
+        ],
+        "means_first_reading": "조정실 쪽 소리를 들었다는 증언과, 뒤늦게 털어놓은 이직 고민이 함께 그녀를 향한다."
       },
-      "cleared_by": ["E09"],
+      "cleared_by": [
+        "E03",
+        "E15"
+      ],
       "clearing_points_at": "CH01"
     },
     {
       "id": "R02",
-      "surface_suspicion": "외부 큐레이터 위서로가 예전 표절 시비를 덮으려 했을 수 있다는 소문이 돈다.",
-      "actual_reason": "그 표절 시비는 최민준이 이미 조용히 정리해 준 오래된 일이고, 이번 원작자 표기 강화와도 직접 관련이 없다.",
-      "how_to_clear": "강필주의 증언(E10)을 제시한다.",
-      "must_not_imply": "위서로가 애초에 결백해서 의심할 이유가 없었다는 식으로 쓰지 않는다 — 실제로 과거 시비는 있었다.",
-      "lingering_thread": "위서로는 이번 전시를 끝으로 이 동호회와 거리를 두겠다고 한다 — 이번 일과 상관없이 오래 묵은 부담이었다.",
-      "suspicion_deepener": "위서로가 그날따라 암실 쪽을 평소보다 자주 오간 것을 강필주가 목격했다는 사실이 먼저 드러난다.",
-      "character_id": "CH04",
+      "surface_suspicion": "창고에 방송국 로고를 지운 중고 장비를 몰래 쌓아 두고 있었고, 그날 오후 늦게까지 로비에 남아 있었다.",
+      "actual_reason": "우준경은 폐국 전 못 쓰는 장비를 처분해 동호회 활동비를 마련하려 했을 뿐이고, 그 시간 내내 로비에서 짐 정리를 하느라 조정실 근처에는 가지 않았다.",
+      "how_to_clear": "로비 방문 기록부(E01)와 그 자신의 증언(E19)을 함께 확인한다.",
+      "must_not_imply": "그가 그 시간대 로비에 있었다는 것이 장비를 몰래 챙긴 사실 자체가 없다는 뜻은 아니다.",
+      "lingering_thread": "창고에 쌓인 중고 장비를 어떻게 처리할지는 사건이 끝난 뒤에도 정리되지 않은 채 남는다.",
+      "suspicion_deepener": "로고가 지워진 중고 장비 상자(E17)가 먼저 드러나면서, 폐국을 틈타 뭔가를 몰래 처분하려던 것 아니냐는 의심이 한동안 짙어진다.",
+      "character_id": "CH05",
       "weight": {
         "motive": "M03",
-        "opportunity": "전시장과 암실을 오가며 접근이 자유로웠고, 그날 저녁 위치를 확인해 줄 사람이 마땅치 않았다.",
-        "means": ["E14", "E15"],
-        "means_first_reading": "예전 표절 시비가 이번 일로 다시 불거질까 봐 손을 썼을 것처럼 보인다."
+        "opportunity": "그날 오후 늦게까지 로비에 남아 있어 조정실 접근이 가능했다고 오해받았다.",
+        "means": [
+          "E17",
+          "E19"
+        ],
+        "means_first_reading": "판매용으로 포장된 중고 장비 상자와, 그것을 얼버무리는 본인의 증언이 함께 그를 향한다."
       },
-      "cleared_by": ["E10"],
+      "cleared_by": [
+        "E01",
+        "E19"
+      ],
       "clearing_points_at": "CH01"
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "E07", "E01", "E02"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
-    "accusation_requirements": { "suspect": "CH01", "method_fact": "F-CH01-02", "motive_fact": "F-CH01-03" }
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-03",
+      "motive_fact": "F-CH01-02"
+    }
   },
   "final_deduction": {
-    "responsible": "이한음",
-    "method": "정착액과 표백액을 섞어 만든 유독가스로 최민준을 암실에 가둬 질식시키고, 환풍구를 끄고 문을 잠가 사고처럼 보이게 했다.",
-    "motive": "최민준의 초기 대표작 여러 점을 무명 시절 자신이 대신 찍어 준 사실이 도록의 원작자 재확인으로 드러날 것을 막으려 했다.",
-    "key_connection": "환풍구 스위치의 새 손자국과 세척실에 숨겨진 정착액·표백액 빈 병, 그리고 이한음 자신이 예전에 진행한 안전 교육 기록이 한데 이어져 그가 위험을 알고도 일부러 문을 잠갔다는 사실을 가리킨다."
+    "responsible": "민강호",
+    "method": "조정실에서 영수증 문제로 캐묻는 서용익의 손목을 붙잡아 노출된 배전반 배선에 강제로 갖다 대 감전사시켰다.",
+    "motive": "지난 5년간 장비 구매 영수증 단가를 부풀려 차액을 빼돌려 왔다는 것이 폐국 정산 과정에서 드러날 위기에 몰렸기 때문이다.",
+    "key_connection": "성하울이 알아챈 영수증 금액 차이가 서용익을 조정실로 이끌었고, 정비 일지의 조작된 날짜가 민강호의 발뺌을 무너뜨렸다."
   },
   "ending_explanation": [
-    "이한음은 15년간 부회장 겸 인화 강사로 존경받았지만, 실은 최민준의 초기 대표작 여러 점을 무명 시절 자신이 대신 찍어 준 사실을 숨기고 있었다.",
-    "최민준이 창립 10주년 도록에서 사진마다 원작자 표기를 다시 확인하겠다고 나서자, 이한음은 그 사실이 전시 오프닝이라는 공개적 자리에서 드러날 것을 두려워했다.",
-    "이한음은 정착액과 표백액을 섞어 만든 유독가스로 최민준을 암실에 가둬 질식시키고, 환풍구를 끄고 문을 잠갔다.",
-    "범행 후 그는 환기를 시키고 약품 병을 세척실에 숨겼으며 출입 기록까지 지워 사고처럼 보이게 했다.",
-    "환풍구 스위치의 손자국, 숨겨진 약품 병, 그리고 그가 직접 강의했던 안전 교육 기록이 그가 몰랐다는 거짓말을 무너뜨렸다.",
-    "위서로의 증언과 강필주가 전하는 위서로의 동선은 그녀가 그날 저녁 암실 쪽을 자주 오갔다는 사실을 확인해 주었지만, 그것만으로는 살해로 이어지지 않았다.",
-    "떨어진 전시 파일과 위서로가 전하는 강필주의 태도, 개인 계좌 지출 표시는 저마다 다른 사람을 가리키는 것처럼 보였지만 결국 곁가지였다.",
-    "출입 태그 기록의 빈 줄과 백주헌의 점검 습관, 걸린 인화본은 그날 밤 암실에서 있었던 일의 앞뒤를 맞추는 데 쓰였고, 낡은 필름 원판은 15년 전의 진실을 증명했다."
+    "민강호는 배전반 배선을 미리 헝클어 둔 것과, 영수증 얘기를 그날 오후 이미 들었다는 것을 인정했다.",
+    "옛 영수증철 원본은 지난 5년간 같은 장비 항목의 단가가 조금씩 부풀려져 왔다는 것을 보여주었다.",
+    "성하울이 알아챈 영수증 금액 차이(E14)가 서용익을 조정실로 이끈 계기였다.",
+    "정비 일지(E10)의 조작된 날짜와, 최근에야 벗겨진 배선(E08)은 민강호가 그날 저녁 다시 손을 댔다는 뜻이었다.",
+    "구석 공구함 속 한쪽만 젖어 있던 절연 장갑(E04)도 그가 최근 손을 썼다는 것을 보여줬다.",
+    "도재이와 우준경, 오인숙에게 쏠렸던 의심은 각각 늦은 도착 아닌 알리바이와 계속된 로비 체류, 서명 시각으로 풀렸다.",
+    "도재이를 향했던 이직 고민(E07)과 우준경을 향했던 중고 장비 상자(E17, E19)는 결국 각자의 사정만 보여줬을 뿐이었다.",
+    "오인숙의 폐국 통보서(E13)도 이번 사건과는 무관했다.",
+    "민강호의 태연한 자부심(S-CH01-05)은 그가 이 배선을 얼마나 속속들이 알고 있었는지를 보여줄 뿐이었다.",
+    "서용익의 마지막 호출을 들은 도재이의 증언(E05)과 조정실 바닥에 남은 두 사람분의 자국(E11)이 그날 저녁 있었던 일의 뼈대를 잡아 주었다.",
+    "복도에 떨어진 영수증철 부스러기(E06)도 그가 영수증철을 들고 조정실을 드나들었다는 것을 뒷받침했다.",
+    "성하울의 증언(E18)은 그녀가 먼저 금액 이상을 알아챈 경위를 확인해 주었다."
   ],
   "motives": [
-    { "id": "M01", "text": "원작자 표기가 뒤집히는 것을 막으려 했다", "truth": true, "evidence_for": ["E07"], "suggested_by": ["F-CH03-01"], "cue": "원작자 표기" },
-    { "id": "M02", "text": "회비 문제를 덮으려 했다", "truth": false, "refutation": "제가 왜 그런 걸로 사람을 죽여요, 그 돈은 진작에 다 갚았는데요.", "refuted_by": "CH03", "suggested_by": ["F-CH01-04"], "cue": "회비" },
-    { "id": "M03", "text": "옛 표절 시비가 들통날까 봐 그랬다", "truth": false, "refutation": "그 일은 이미 다 정리됐어요. 지금 와서 그것 때문에 이런 일을 벌일 이유가 없죠.", "refuted_by": "CH04", "suggested_by": ["E06"], "cue": "크레딧" }
+    {
+      "id": "M01",
+      "text": "5년간 부풀린 장비 구매 대금이 드러날 위기",
+      "truth": true,
+      "evidence_for": [
+        "E14"
+      ],
+      "suggested_by": [
+        "S-CH04-01"
+      ],
+      "cue": "영수증"
+    },
+    {
+      "id": "M02",
+      "text": "다른 방송국 이직 제안을 들킬까 봐",
+      "truth": false,
+      "evidence_for": [
+        "E07"
+      ],
+      "refutation": "저 그냥 고민만 하고 있었어요. 선배님한테 무슨 짓을 할 이유가 없잖아요.",
+      "refuted_by": "CH03",
+      "suggested_by": [
+        "E07"
+      ],
+      "cue": "제안"
+    },
+    {
+      "id": "M03",
+      "text": "중고 장비 유용을 들킬까 봐",
+      "truth": false,
+      "evidence_for": [
+        "E17"
+      ],
+      "refutation": "그냥 버려질 장비 팔아서 동호회 활동비 마련해 보려던 거였어요. 그것 때문에 제가 왜 그런 짓을 하겠습니까.",
+      "refuted_by": "CH05",
+      "suggested_by": [
+        "E17"
+      ],
+      "cue": "장비"
+    },
+    {
+      "id": "M04",
+      "text": "후원재단과의 사전 조율을 들킬까 봐",
+      "truth": false,
+      "evidence_for": [
+        "E13"
+      ],
+      "refutation": "방송국 생각이 먼저라서요, 절차대로 진행한 것뿐이에요. 제가 왜 그런 짓을 하겠어요.",
+      "refuted_by": "CH02",
+      "suggested_by": [
+        "S-CH02-01"
+      ],
+      "cue": "절차"
+    }
   ],
   "times": [
-    { "id": "T01", "text": "환기가 끊긴 뒤, 20시 15분에서 20시 35분 사이", "truth": true, "evidence_for": ["E01", "E11"], "suggested_by": ["F-CH05-01"], "cue": "19시 20분" },
-    { "id": "T02", "text": "21시 40분, 탁은별이 들어가기 직전", "truth": false, "refutation": "제가 들어갔을 때는 이미 다 끝나 있었어요, 그때 벌어진 일이 아니에요.", "refuted_by": "CH02", "suggested_by": ["S-CH02-02"], "cue": "21시 40분" }
+    {
+      "id": "T01",
+      "text": "16시 35분경, 조정실에서",
+      "truth": true,
+      "evidence_for": [
+        "E11"
+      ],
+      "suggested_by": [
+        "F-CH03-01"
+      ],
+      "cue": "조정실"
+    },
+    {
+      "id": "T02",
+      "text": "17시 30분, 녹음 시작 직전",
+      "truth": false,
+      "evidence_for": [
+        "E03"
+      ],
+      "refutation": "그 시간엔 이미 다 정리되고 난 뒤였어요. 진행표 보면 아실 텐데요.",
+      "refuted_by": "CH03",
+      "suggested_by": [
+        "E03"
+      ],
+      "cue": "17시 30분"
+    },
+    {
+      "id": "T03",
+      "text": "15시경, 자료보관실에서 혼자 있을 때",
+      "truth": false,
+      "evidence_for": [
+        "E16"
+      ],
+      "refutation": "장부는 거짓말 안 해요. 그 시간엔 저는 계속 자료보관실에서 서류만 정리하고 있었어요.",
+      "refuted_by": "CH04",
+      "suggested_by": [
+        "S-CH04-02"
+      ],
+      "cue": "자료보관실"
+    }
   ],
   "methods": [
-    { "id": "H01", "text": "정착액과 표백액을 섞어 만든 가스로 가뒀다", "truth": true, "evidence_for": ["E02", "E01"], "suggested_by": ["F-L03-OBS-01"], "cue": "정착액과 표백액" },
-    { "id": "H02", "text": "낡은 환풍구가 저절로 고장 나 꺼졌다", "truth": false, "refutation": "설비는 매달 점검합니다. 저절로 고장 날 리 없어요.", "refuted_by": "CH05", "suggested_by": ["F-L02-OBS-02"], "cue": "먼지" }
+    {
+      "id": "H01",
+      "text": "배전반 노출 배선에 강제로 손이 닿아 감전사",
+      "truth": true,
+      "evidence_for": [
+        "E08"
+      ],
+      "suggested_by": [
+        "E08"
+      ],
+      "cue": "배선"
+    },
+    {
+      "id": "H02",
+      "text": "낡은 배선이 저절로 벗겨진 사고",
+      "truth": false,
+      "evidence_for": [
+        "E08"
+      ],
+      "refutation": "제가 왜 그런 거짓말을 하겠습니까. 배선이 원래 낡아서 그런 겁니다.",
+      "refuted_by": "CH01",
+      "suggested_by": [
+        "F-L03-OBS-01"
+      ],
+      "cue": "낡"
+    },
+    {
+      "id": "H03",
+      "text": "외부 침입자에 의한 범행",
+      "truth": false,
+      "evidence_for": [
+        "E01"
+      ],
+      "refutation": "방문 기록부엔 저희 다섯이랑 방문객 몇 명뿐이었어요. 낯선 사람은 없었을 텐데요.",
+      "refuted_by": "CH02",
+      "suggested_by": [
+        "S-CH05-02"
+      ],
+      "cue": "로비"
+    }
   ],
   "suspect_refutations": {
-    "CH02": { "text": "제가요? 저는 그때 접수대에 있었는데요. 발견한 사람이 범인 취급받는 건 너무해요." },
-    "CH03": { "text": "저는 사무실에서 한 발짝도 안 나갔습니다. 장부 보면 시간까지 다 나와요." },
-    "CH04": { "text": "제가 왜요, 저는 이 동호회 사람도 아닌데 그럴 이유가 없죠." },
-    "CH05": { "text": "저는 시설 담당입니다. 그런 일과는 상관없어요." }
+    "CH02": {
+      "text": "설마 저를 의심하시는 거예요? 방송국 생각이 먼저라서요, 제가 왜 그런 짓을 하겠어요.",
+      "releases": "S-CH02-02"
+    },
+    "CH03": {
+      "text": "저는 정말 아무것도 몰라요. 그냥 대본 정리하다가 모시러 간 것뿐인데요.",
+      "releases": "F-CH03-01"
+    },
+    "CH04": {
+      "text": "제가요? 장부는 거짓말 안 해요, 저는 그냥 본 걸 말씀드렸을 뿐이에요.",
+      "releases": "F-CH04-02"
+    },
+    "CH05": {
+      "text": "저요? 예전 같았으면 말이죠, 제가 왜 그런 짓을 하겠습니까. 그냥 로비에서 짐 정리했을 뿐인데요.",
+      "releases": "F-CH05-01"
+    }
   },
   "resolution": {
-    "who": "이한음",
-    "when": "저녁 8시 15분에서 9시 20분 사이, 환기가 끊긴 암실 안",
-    "why": "최민준이 도록에 원작자 표기를 다시 밝히려던 것을 막으려고",
-    "how": "정착액과 표백액을 섞어 만든 유독가스로 암실에 가둬 질식시킨 뒤 사고로 위장했다"
+    "who": "민강호가 서용익의 손목을 붙잡아 배전반 노출 배선에 감전시키고 배선 노후 사고로 꾸몄다.",
+    "when": "사건 당일 16시 35분경, 조정실에서.",
+    "why": "장비 구매 영수증을 부풀려 빼돌려 온 것이 폐국 정산 과정에서 드러날 위기에 몰렸기 때문이다.",
+    "how": "영수증 문제로 캐묻는 서용익과 실랑이 끝에 그의 손을 노출된 배선에 강제로 갖다 댔다."
   }
 }
