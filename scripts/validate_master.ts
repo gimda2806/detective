@@ -4592,18 +4592,30 @@ const BACKGROUND_ARCHETYPES: Array<[string, string[]]> = [
   ['security_lockdown', ['출입 통제', '봉쇄', '보안 통제', '경계 강화', '출입 제한', '통제구역']],
 ];
 
+// **이 표만 정규식이다** — 다른 낱말 표와 달리 `matchPatterns` 가 읽는다.
+// 배경의 문장 꼴은 활용형이 갈라져서, 손으로 나열하면 두 회차 연속으로 샜다
+// (`scheduled` 가 관형형만 담아 「예정돼 있었다」·「일정이 잡혀 있었다」를 놓쳤고,
+// `in_progress` 가 「열리던」은 담고 「열리는」을 안 담았다). 낱말을 하나 더 넣는
+// 것은 같은 일이 세 번째로 나게 두는 것이라 어간+어미로 적는다.
+// **부분문자열 어간(「진행」·「준비」)으로는 안 된다** — 「진행자」·「준비실」처럼
+// 사람과 방 이름이 걸린다(2026-09-28 실측: 정규식 대비 각각 14·15건 더 문다).
 const BACKGROUND_PHRASING: Array<[string, string[]]> = [
   ['approaching', ['앞두고', '앞둔', '다가오는', '다가온', '임박한', '얼마 남지 않은', '하루 전', '전야']],
-  ['in_progress', ['진행되던', '진행 중', '열리던', '열리고 있던', '진행하고 있던', '한창']],
+  ['in_progress', ['진행(되|하)', '진행 중', '열리[는던고]', '한창']],
   ['immediately_after', ['직후', '막 끝난 뒤', '끝난 직후', '마친 직후', '끝나고 얼마 지나지 않아']],
   ['recently_completed', ['마친 뒤', '마친 후', '끝난 뒤', '끝난 후', '완료된 뒤', '완료 직후']],
-  ['scheduled', ['예정되어 있던', '예정된', '예정인', '일정이 잡혀 있던', '일정이 잡힌', '계획되어 있던', '계획된']],
-  ['during_preparation', ['준비하던', '준비 중', '준비하고 있던', '준비가 한창이던', '준비로', '준비를 마']],
+  ['scheduled', ['예정(되|돼|된|인)', '일정이 잡[혀힌]', '계획(되|된)']],
+  ['during_preparation', ['준비(하|가|를|로| 중)']],
   ['result_review', ['결과를 확인하던', '결과를 검토하던', '결과가 발표된', '결과 발표를 앞두고', '결과를 기다리던']],
   ['gathering_for', ['때문에 모인', '을 위해 모인', '를 위해 모인', '참석하기 위해 모인', '한자리에 모인', '모이는']],
   ['restricted_for', ['을 위해 통제된', '출입이 제한된', '일부 구역이 통제된', '통제된 상태에서', '폐쇄된 상태에서', '통제된 가운데']],
   ['triggered_by', ['계기로', '때문에 시작된', '발생한 직후', '문제로 인해', '사건 이후']],
-  ['alongside', ['와 함께', '과 함께', '동시에', '한편', '와 맞물려', '와 병행해', '와 겹쳐']],
+  // 「와 함께」·「과 함께」는 뺐다 — **사람을 소개하는 조사 꼴**이라 배경의 문장
+  // 꼴과 무관하게 문다(「공동대표 둘이 함께 운영해 왔다」). 코퍼스에서 이 칸을
+  // 무는 15건 중 11건이 선언이고, 폴백으로 매겨진 4건이 **전부** 이 두 낱말
+  // 때문이었다(2026-09-28 실측). 「나란히」도 안 넣는다 — 9건 중 둘만 진짜고
+  // 나머지는 「나란히 놓여/쌓여」라 물건이 늘어선 자리다.
+  ['alongside', ['동시에', '한편', '와 맞물려', '와 병행해', '와 겹쳐']],
   ['amid', ['한가운데', '와중에', '분위기 속에서', '상황에서', '혼잡한 가운데', '가운데']],
   ['following', ['이후', '뒤이어', '발생한 후', '발생 이후']],
   ['during', ['동안', '진행되는 동안', '진행 중에', '행사 중', '업무 중']],
@@ -4725,6 +4737,18 @@ function matchKeywords(
   return keys;
 }
 
+/** `matchKeywords` 와 같은데 낱말을 정규식으로 읽는다 — `BACKGROUND_PHRASING` 전용. */
+function matchPatterns(
+  table: Array<[string, string[]]>,
+  text: string,
+): Set<string> {
+  const keys = new Set<string>();
+  for (const [key, patterns] of table) {
+    if (patterns.some((p) => new RegExp(p).test(text))) keys.add(key);
+  }
+  return keys;
+}
+
 function backgroundArchetypeKeys(master: Master): Set<string> {
   const declared = declaredList(backgroundBlock(master)?.background_archetypes);
   if (declared) return new Set(declared);
@@ -4737,7 +4761,7 @@ function backgroundArchetypeKeys(master: Master): Set<string> {
 function backgroundPhrasingKeys(master: Master): Set<string> {
   const declared = declaredList(backgroundBlock(master)?.background_phrasing);
   if (declared) return new Set(declared);
-  return matchKeywords(BACKGROUND_PHRASING, master.case_identity?.setting ?? '');
+  return matchPatterns(BACKGROUND_PHRASING, master.case_identity?.setting ?? '');
 }
 
 function backgroundFamilies(keys: Set<string>): Set<string> {
