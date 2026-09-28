@@ -4029,3 +4029,24 @@ CASE346도 같다(「정재원**과 함께** 인스타그램 홍보용 촬영을
 | CASE377 | `background_archetypes` | `funeral_memorial` | `case_identity.setting` 「편옥자의 **49재**를 마친 식구와 직원들이 한 상에 둘러앉았다」 | **「49재」·「사십구재」가 `funeral_memorial` 목록에 없다.** 처음 `full_truth`에 「49재」만 썼더니 `BACKGROUND_INTENSITY_UNSUPPORTED`가 되물었고, 목록에 있는 「세상을 떠난」을 동기 문장에 넣어서야 통과했다. 더할 낱말: **49재 · 사십구재 · 탈상 · 삼우제** |
 | CASE377 | `method_archetypes` | `suffocation` | `full_truth.method` 「앞치마 주머니에 늘 꽂고 다니던 **면포를 접어** 그의 **입과 코를 눌렀다**」 | `strangulation`이 아닌 것은 목이 아니라 입과 코를 막았기 때문이다. 폴백에 **면포 · 입과 코를 눌러**가 있는지는 확인 못 했다 |
 | CASE377 | `cover_up_method` | `false_timeline`+`weapon_disposal`+`false_alibi` | `full_truth.cover_up` 「새벽 5시 12분에 … 문자가 나가도록 **예약해 두었다**」 · 「자기 면포를 … 삶는 통에 **넣고 가스 불을 올렸다**」 · 「공판장에서 쑥을 사고 **영수증을 챙겨**」 | 동사 셋이 칸 셋이다. 「예약 전송」은 기록을 고친 것이 아니라 **없던 연락을 미래 시각에 만들어 둔 것**이라 `digital_record_manipulation`이 아니라 `false_timeline`으로 적었다. 더할 낱말: **예약 전송 · 예약 문자** |
+
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE045·046·049·051·052, 2026-09-28)
+
+`npm run audit:cover-up`의 등록 사건 81건 중 번호가 낮은 다섯을 고쳤다. 넷은 폴백이 더 잡는
+칸이 그대로 진짜였다 — CASE045 `accident_victim_health`(「평소 앓던 부정맥 병력에 따른 …
+합병증으로 보이게」), CASE049 `accident_victim_health`(「알레르기 약을 자주 걸렀다는 말을
+흘려 자연스러운 사고사처럼」), CASE051 `accident_equipment_failure`(「그 낡은
+온도조절기에서 누전이 시작됐다는 거짓 단서」), CASE052 `evidence_removal`(「발자국을 걸레로
+대충 닦아 낸」)+`false_alibi`(「거짓 알리바이를 만들어 두었다」). 진상은 안 바꿨다.
+
+### 폴백이 잡았지만 오탐인 하나 — CASE046의 `false_accident`
+
+| 폴백이 잡은 것 | 왜 오탐인가 |
+| --- | --- |
+| `false_accident`(「사고로 꾸미」) | **부정문 안에 있다.** 문장 전체가 「도갑래는 사인을 사고로 **꾸미지 않았다**」다 — 정규식이 「사고(처럼\|로) + 꾸미」만 보고 뒤의 「않았다」를 못 본다. 실제로 이 사건은 **위장을 안 하고 그대로 둔 쪽**(`concealment_without_staging`, 이미 선언)이라 반대 뜻이다. 칸을 더하지 않았다 |
+
+CASE046은 대신 `evidence_removal`(「아스피린을 … 뒷마당 소각통에 버리고」)을 더했다 —
+같은 문단의 다른 문장이라 오탐과는 별개다. `npm run check:case`는 다섯 건 모두 통과(exit 0),
+`npm run audit:cover-up`의 등록 건수는 81 → 77(넷 해소, CASE046은 오탐 하나가 남아 계속
+뜬다 — 경고를 없애려고 칸을 더하지 않았다, CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이
+없다.
