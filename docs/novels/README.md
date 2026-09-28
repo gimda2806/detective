@@ -435,6 +435,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE364 | 장부에 없는 시간 | [CASE364.md](CASE364.md) |
 | CASE365 | 저작권 없는 목소리 | [CASE365.md](CASE365.md) |
 | CASE366 | 마지막 인화 | [CASE366.md](CASE366.md) |
+| CASE367 | 교반 일지 | [CASE367.md](CASE367.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
