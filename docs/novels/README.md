@@ -439,6 +439,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE368 | 열두 번째 줄 | [CASE368.md](CASE368.md) |
 | CASE369 | 지워진 두 줄 | [CASE369.md](CASE369.md) |
 | CASE370 | 새벽 배추조 | [CASE370.md](CASE370.md) |
+| CASE371 | 새벽 3시, 3번 캣워크 | [CASE371.md](CASE371.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
