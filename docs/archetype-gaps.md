@@ -4225,6 +4225,19 @@ CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
 | CASE217 | `evidence_removal`(「흔적을 지우」) | 진열대 빈자리 채우기 — `scene_rearrangement`이 이미 있다 |
 | CASE228 | `object_substitution`(「바꿔 놓」) | 시신 **자세**를 바꿔 놓은 것 — `body_movement`이 이미 있다 |
 
+## 이주 루틴 — 은폐 선언 좁음 배치 (CASE229·230·232·238, 2026-09-29)
+
+| 사건 | 칸 | 근거 |
+|---|---|---|
+| CASE229 | `evidence_removal` | 「젖은 앞치마를 갈아입어 흔적을 지우려 했고」 |
+| CASE230 | `evidence_placement` | 「발판 볼트를 일부러 풀어 두었다」 |
+| CASE232 | `weapon_disposal`+`evidence_removal` (`other`를 대체) | 「흉기를 숨기는 데만 매달렸다」·「소매로 닦았다」·「파쇄기에 넣고」 |
+| CASE238 | `accident_victim_health` | 「지병이나 과로 탓처럼 보이게 흘렸다」 |
+
+오탐(칸을 더하지 않음): CASE161 `accident_equipment_failure`(「노후」) — 「사고 정황을 새로 꾸미지 **않았다**」 문장 안의 첫 소견 얘기다. CASE232 `false_accident`(「사고처럼 보이」) — 쓰러진 것은 「그가 꾸민 일이 아니었다」.
+
+`audit:cover-up` 등록 31 → 28. 네 건 모두 판본이 없다.
+
 ## 2026-09-29 폴백이 못 잡는 은폐 동사 둘 — CASE064
 
 CASE064의 은폐 선언을 `weapon_disposal` 하나에서 `scene_rearrangement`·`digital_record_manipulation`
