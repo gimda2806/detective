@@ -4224,3 +4224,26 @@ CLAUDE.md ①). 다섯 건 모두 판본(`.offline.json`)이 없다.
 | CASE175 | `accident_environment`(「정전」) | 정전은 틈이지 위장이 아니다(위장은 `false_intrusion`) |
 | CASE217 | `evidence_removal`(「흔적을 지우」) | 진열대 빈자리 채우기 — `scene_rearrangement`이 이미 있다 |
 | CASE228 | `object_substitution`(「바꿔 놓」) | 시신 **자세**를 바꿔 놓은 것 — `body_movement`이 이미 있다 |
+
+## 2026-09-29 폴백이 못 잡는 은폐 동사 둘 — CASE064
+
+CASE064의 은폐 선언을 `weapon_disposal` 하나에서 `scene_rearrangement`·`digital_record_manipulation`
+둘을 더해 셋으로 늘렸다. **두 칸 모두 폴백은 잡지 못한다** — `npm run audit:cover-up CASE064`가
+지금도 `false_accident`·`accident_equipment_failure` 둘만 「더 잡음」으로 찍는데 그 둘은 오탐이다
+(위 2026-09-28 절에 이미 적었다 — 「정비 일지도 손볼 생각이었으나 미처 손대지 못한 채」라 하지 않은 일이다).
+
+문장의 동사를 세면 이렇다:
+
+| 문장 | 칸 | 폴백 |
+| --- | --- | --- |
+| 「분리해 뒀던 인터록 배선을 **다시 연결하고**」 | `scene_rearrangement` | ✗ 못 잡음 — 폴백은 「원래대로 (돌려\|놓)」 꼴만 본다 |
+| 「접속 기록 일부를 **삭제해**」 | `digital_record_manipulation` | ✗ 못 잡음 — 폴백은 「기록을 지우」·「파일을 삭제」 꼴을 보는데 여기는 목적어가 「접속 기록 일부」다 |
+| 「노후 설비의 오작동으로 보이도록 … **미처 손대지 못한 채**」 | (없음) | ✓ 잡지만 오탐 |
+
+**폴백이 잡은 것이 전부 오탐이고 못 잡은 것이 진짜인 사건**이라, 이 한 건만으로도
+「정규식이 안 걸렸다」가 근거가 못 된다는 CLAUDE.md ①의 판정이 다시 확인된다.
+CASE059가 「원래대로 되돌렸다」 활용형을 못 잡힌 것과 같은 자리이고, 낱말을 더하는
+대신 적어 둔다 — 폴백은 재현율이 낮게 쓰인 추측 장치다.
+
+`scene_rearrangement`를 더하면서 `COVER_UP_METHOD_OVERUSE`(1.9배) 경고가 하나 새로 뜨는데,
+**경고를 없애려고 칸을 내리지 않는다**(CLAUDE.md ①). 문장이 한 일이 그것이다.
