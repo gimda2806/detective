@@ -195,9 +195,10 @@
       - CASE372 `T02` ↔ `C02`·`C04`가 깨야 할 `S-CH04-03`·`S-CH04-05`
       - CASE378 `H03` ↔ `C01`가 깨야 할 `S-CH04-01`
 
-- [ ] **CASE371에 되먹임이 못 닫은 셋이 남았다 (2026-09-29 되먹임 회차가 나머지를 닫았다)** — ⑤ `presentation_effect`가 빈 카드 중 `E05`·`E08`·`E09`·`E10`·`E11`~`E15`·`E17`·`E18`은 어느 단계에 얹을지 정하지 않았다(`C04`의 요구·비교 카드는 `E06`·`E07`로 고정이라 `E08`을 끼우면 `STAGE_REQUIRES_BEYOND_COMPARISON`이 선다). ⑩ 계서인(`formality_register` 「사무적인 존댓말」)의 `S-CH03-01`·`S-CH03-02`·`pressure_responses`·`E16`·`T03.refutation`이 해요체, 백광헌(「격식체」)의 `S-CH04-01`·`S-CH04-02` 뒷문장·`pressure_responses[1]`이 해요체 — 선언과 대사를 같이 고쳐야 한다. ⑬ 근태 대장 출력본을 집는 카드가 0장 — `L02`에 「임재술의 가방을 살펴본다」 한 칸(`requires: "없음"`, 출력본이 든 자리만 비어 있다).
+- [ ] **CASE371에 되먹임이 못 닫은 하나가 남았다 (2026-09-29 되먹임 회차가 ⑩·⑬을 닫았다)** — ⑤ `presentation_effect`가 빈 카드 중 `E05`·`E08`·`E09`·`E10`·`E11`~`E15`·`E17`·`E18`·`E19`·`E16`은 어느 단계에 얹을지 정하지 않았다(`C04`의 요구·비교 카드는 `E06`·`E07`로 고정이라 `E08`을 끼우면 `STAGE_REQUIRES_BEYOND_COMPARISON`이 선다).
 
 ## 2026-09-28 되먹임 루틴이 닫은 것
+- **CASE371** — ⑩ 계서인(사무적인 존댓말)·백광헌(격식체)의 해요체 대사를 -입니다/-습니다로: `S-CH03-01`·`02`·`pressure_responses`·`E16`·`T03.refutation`·`suspect_refutations.CH03`·`points_finger.says`·관계 `says`(REL03·08·09), `S-CH04-01`·`02`·`pressure_responses`·`points_finger.says`. ⑬ `L02`에 임재술의 서류가방(`base_description`)과 「임재술의 가방을 살펴본다」(`requires: 없음`)·새 카드 `E19`(근태 대장 출력본). 진상은 그대로. 판본 없음. `build:source`·`check:case`·`check:offline`·`check:novel` 통과 (2026-09-29 되먹임 회차)
 - **CASE371** — 아홉 자리: `E16.proves`에 복도 화면이 6시 5분 뛰어나가는 것을 찍었다는 한 줄(해소 카드가 스스로를 부정하던 자리), `T09`에 점검구를 열고 반사판을 틀어 놓는 손놀림(`E09`가 사건의 카드가 됨), `H01.evidence_for`에 `E01`·`M01.evidence_for`에 `E06`(한 장·사람 잠금 뒤 한 장이던 정답 칸), `E06.presentation_effect`(`C04`), `E01`의 3시 6분↔3시 7분(유리는 소매가 말려 들기 직전 깨졌다), 도박 빚을 `F-CH02-04`·`C04.release.scope`에, 보드 오답 넷의 `refutation_releases`, `H02` 반박을 `E03`이 아는 정기점검 서명으로, `L01` 낙서 「박 누구?」를 결과문·`E06.content`에 맞춤, 카드 여덟 장에 `reaction`. 진상은 그대로. 남은 셋은 위 새 줄, ⑭는 「사용자」 절 (2026-09-29 되먹임 회차)
 - **CASE370** — `L01.observation_rules`에 「싱크대 배수구 거름망을 살펴본다」(`F-L01-OBS-02`, 계피 부스러기·젖은 수세미)를 더했다. 카드가 아니라 사실 한 줄이라 `E07`과 겹치지 않는다(2026-09-29 되먹임 회차).
 
