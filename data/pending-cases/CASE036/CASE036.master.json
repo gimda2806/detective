@@ -442,7 +442,7 @@
         },
         {
           "claim_id": "S-CH03-02",
-          "content": "그 리프트 고정핀은 원래 멀쩡했어요. 지난달 점검표에 제가 직접 서명했고, 마모될 상태가 아니었어요. 그 핀만 뽑으면 레버 한 번에 내려앉아요.",
+          "content": "그 리프트 고정핀은 원래 멀쩡했어요. 지난달 점검표에 제가 직접 서명했고, 마모될 상태가 아니었어요.",
           "truth_status": "truth"
         },
         {
@@ -462,6 +462,11 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "E01",
           "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH03-03"
         }
       ],
       "knowledge_limits": [
