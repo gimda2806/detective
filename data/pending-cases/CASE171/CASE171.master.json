@@ -23,7 +23,8 @@
       "라디오_방송국",
       "마지막_생방송",
       "가족"
-    ]
+    ],
+    "english_title": "The Cue at Three in the Morning"
   },
   "opening_scene": {
     "location_id": "L05",
@@ -624,14 +625,15 @@
       "access_level": "open",
       "connects_to": [
         "L02",
-        "L04"
+        "L04",
+        "L05"
       ],
       "base_description": "마이크와 팝 필터가 아직 그대로 세워져 있고, 부스 유리창 안쪽에서 서지민이 헤드폰을 목에 건 채 자신이 녹음한 부분을 다시 듣고 있다.",
       "observation_rules": [
         {
           "action": "부스 안 조명 스위치를 살핀다",
           "release_fact_id": "F-L01-OBS-01",
-          "result": "생방송용 온에어 조명이 꺼지지 않고 그대로 켜져 있다 — 방송이 끝난 뒤에도 누군가 이 안에 있었다는 뜻이다."
+          "result": "생방송용 온에어 조명이 꺼지지 않고 그대로 켜져 있다."
         }
       ],
       "detail_rules": [
@@ -733,7 +735,7 @@
       "detail_rules": [
         {
           "action": "카디건을 살핀다",
-          "requires": "없음",
+          "requires": "E02",
           "release_evidence_id": "E09",
           "result": "카디건 오른쪽 소매 끝단 실이 뜯겨 나가 있다."
         }
@@ -758,7 +760,14 @@
           "result": "뒷문 밖 화단 흙이 최근에 파헤쳐진 것처럼 고르지 않다."
         }
       ],
-      "detail_rules": []
+      "detail_rules": [
+        {
+          "action": "순찰 일지를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "뒤풀이 이후 순찰 기록 칸이 한참 비어 있다."
+        }
+      ]
     },
     {
       "id": "L06",
@@ -905,7 +914,7 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "카디건을 살핀다",
-      "content": "하윤서의 카디건 오른쪽 소매 끝단 실이 뜯겨 나가 있고, 남은 실 색이 자료보관실에서 나온 실오라기와 같다.",
+      "content": "하윤서의 카디건 오른쪽 소매 끝단 실이 뜯겨 나가 있고, 남은 실은 회갈색이다.",
       "proves": [
         "하윤서의 옷에서 실이 뜯겨 나갔다"
       ],
@@ -1001,6 +1010,24 @@
       "does_not_prove": [
         "정확한 시각까지는 특정할 수 없다"
       ]
+    },
+    {
+      "id": "E16",
+      "name": "비어 있는 순찰 일지",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "순찰 일지를 살핀다",
+      "content": "로비 벽에 걸린 순찰 일지에 뒤풀이 뒷정리가 끝난 뒤부터 밤 11시 50분 마지막 순찰 전까지 기록 칸이 비어 있다. 마지막 칸만 강선화의 필체로 또박또박 적혀 있다.",
+      "proves": [
+        "강선화의 순찰 기록에 긴 빈 시간대가 있다"
+      ],
+      "does_not_prove": [
+        "그 시간대에 강선화가 어디서 무엇을 했는지"
+      ],
+      "reaction": {
+        "jiwoo": "일지가 이렇게 비어 있으면 그 사람부터 수상해 보이긴 하죠.",
+        "detective": "비어 있다고 다 숨긴 건 아니야. 누가 채웠는지가 문제지."
+      }
     }
   ],
   "contradiction_stages": [
