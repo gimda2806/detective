@@ -305,7 +305,6 @@
       "initial_interview_range": [
         "S-CH01-01",
         "S-CH01-02",
-        "S-CH01-03",
         "S-CH01-04"
       ],
       "hidden_until": [
@@ -333,6 +332,11 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "F-CH01-02",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH01-01"
         }
       ],
       "knowledge_limits": [
@@ -763,12 +767,12 @@
         "L03",
         "L04"
       ],
-      "base_description": "체험관의 모든 특수효과를 제어하는 조종실. 유리창 너머로 피날레 존이 내려다보인다.",
+      "base_description": "체험관의 모든 특수효과를 제어하는 조종실. 유리창 너머로 피날레 존이 내려다보이고, 제어반 가운데 손이 닿는 자리에 붉은 비상정지 스위치가 달려 있다.",
       "observation_rules": [
         {
           "action": "조종실을 둘러본다",
           "release_fact_id": "F-L05-OBS-01",
-          "result": "제어반 여러 개와 모니터들이 늘어서 있고, 유리창 너머로 피날레 존이 보인다."
+          "result": "제어반 여러 개와 모니터들이 늘어서 있고, 유리창 너머로 피날레 존이 보인다. 제어반 가운데에는 붉은 비상정지 스위치가 손이 닿는 자리에 달려 있다."
         }
       ],
       "detail_rules": [
@@ -882,7 +886,7 @@
       "related_timeline": [
         "T14"
       ],
-      "content": "사건 당일 실행 로그가 사라지고, 사건 다음날 오전에 생성된 두 달 전 표준 타이밍 로그가 그 자리를 대신하고 있다.",
+      "content": "탐정이 사건 다음날 확인한 저장소에서, 사건 당일 실행 로그가 사라지고 그날 오전에 생성된 두 달 전 표준 타이밍 로그가 그 자리를 대신하고 있다.",
       "proves": [
         "사건 이후 로그 파일이 사후에 조작되었다는 사실을 증명한다."
       ],
@@ -899,14 +903,16 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "고재인에게 사고 다음날 박선유와 나눈 대화 내용을 묻는다",
-      "content": "사고 다음날, 박선유가 먼저 노후 액추에이터 배선 문제를 언급하며 유지보수 예산 삭감 이야기를 꺼냈다.",
+      "content": "탐정이 조사에 들어온 뒤 고재인이 말하기를, 사고 다음날 박선유가 먼저 노후 액추에이터 배선 문제를 언급하며 유지보수 예산 삭감 이야기를 꺼냈다.",
       "proves": [
         "박선유가 사고 원인을 배선 탓으로 먼저 유도했다는 정황을 증명한다."
       ],
       "does_not_prove": [
         "박선유가 실제로 배선을 조작했는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [
+        "R02"
+      ]
     },
     {
       "id": "E07",
@@ -921,7 +927,9 @@
       "does_not_prove": [
         "우도현이 사건 당시 조종실 근처에 있었는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [
+        "R01"
+      ]
     },
     {
       "id": "E08",
@@ -936,7 +944,9 @@
       "does_not_prove": [
         "그 불만이 실제 범행으로 이어졌는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [
+        "R01"
+      ]
     },
     {
       "id": "E09",
